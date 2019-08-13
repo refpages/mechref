@@ -1,0 +1,711 @@
+
+html {
+    overflow-y: scroll; /* force a scrollbar to avoid jumps with short pages */
+    font-family: Arial,Sans-serif;
+}
+
+body {
+    background: #ffffff;
+
+    text-align: center; /* this is the text-align hack */
+    margin: 0px;
+    padding: 0px;
+}
+
+.container {
+    width: 1000px;
+    margin: 0 auto;
+}
+
+strong {
+    font-family: Arial,Sans-serif;
+}
+
+/*****************************************************************************/
+
+.header {
+    background: #13294b;
+    color: #E84A27;
+    padding: 0px;
+    margin: 0px;
+}
+
+.header h1 {
+    text-align: left;
+    padding: 15px 10px;
+    margin: 0px;
+    font-size: 300%;
+    font-family: Arial,Sans-serif;
+}
+
+.login {
+    float: right;
+    color: #fff;
+    padding: 10px 10px;
+    margin: 0px;
+}
+
+.login p {
+    margin: 0px;
+    font-size: 80%;
+}
+
+/*****************************************************************************/
+
+.navbar {
+    width: 1000px;
+    background: #000;
+    text-align: left;
+}
+
+.navbar ul {
+    margin: 0px;
+    padding: 0px;
+}
+
+.navbar ul li {
+    list-style-type: none;
+    display: inline-block;
+    padding: 5px 10px;
+    color: #fff;
+    text-decoration: none;
+    border-right: 1px solid #fff;
+}
+
+.navbar ul li.active{
+    background: #707070;
+}
+
+.navbar ul li a:hover {
+    border-bottom:3px #FFF solid;
+}
+
+.navbar a:link {
+    color: #fff;
+    text-decoration: none;
+}
+
+.navbar a:visited {
+    color: #fff;
+    text-decoration: none;
+}
+
+
+/* Sub Menus */
+.navbar li ul {
+    position: absolute;
+    display: none;
+    width: inherit;
+}
+
+.navbar li:hover > ul {
+    display: block;
+    background: #B8B8B8;
+    margin-left: -10px;
+    margin-top: 5px;
+}
+
+.navbar li ul li:hover ul {
+    display: block;
+	left:100%;
+	margin-top: -20px;
+}
+
+.navbar li ul li {
+display: block;
+}
+/*****************************************************************************/
+
+div.browserWarning {
+    width: 968px;
+    background: #fcc;
+    text-align: left;
+    margin: 10px 0px 10px 0px;
+    padding: 10px 15px 10px 15px;
+    border: 1px solid #f00;
+}
+
+div.browserWarning strong {
+    font-family: Arial,Sans-serif;
+}
+
+/*****************************************************************************/
+
+div.footer {
+    border-top: 1px solid #aaa;
+    font-size: 70%;
+    padding: 10px 0px;
+    margin: 10px 0px;
+    text-align: right;
+}
+
+.footer p.copyright {
+    display: inline-block;
+    vertical-align: top;
+    text-align: right;
+    padding: 0px;
+    margin: 0px;
+}
+
+/*****************************************************************************/
+
+.mainblock {
+    margin: 0px 0px 20px 0px;
+}
+
+.contentBlock {
+    font-size: 85%;
+    line-height: 1.5em;
+    border-top: 1px solid #aaa;
+    padding: 15px 0px 10px 0px;
+    text-align: left;
+}
+
+.contentBlock:first-child {
+    border-top: 0px;
+}
+
+.contentCol {
+    display: inline-block;
+    vertical-align: top;
+    width: 676px;
+    padding: 0px 10px;
+    margin: 0px 0px;
+    text-align: left;
+}
+
+.infoCol {
+    display: inline-block;
+    vertical-align: top;
+    width: 290px;
+    padding: 0px 0px 0px 10px;
+    margin: 0px 0px;
+    text-align:  left;
+    line-height: 1.2em;
+}
+
+.infoBox {
+    border: 1px solid #aaa;
+    background: #e6f1f6;
+    padding: 5px;
+    margin: 20px 0px 20px 0px;
+}
+
+.infoHead {
+    font-family: Arial,Sans-serif;
+}
+
+button {
+    display: inline-block;
+    padding: 3px 5px;
+    color: #000;
+    background-color: #f5f5f5;
+    border: 1px solid #bbb;
+    border-top: 1px solid #ddd;
+    border-left: 1px solid #ddd;
+}
+
+button:hover {
+    background-color: #eee;
+}
+
+button:active {
+    background-color: #888;
+}
+
+button.inactive {
+    color: #aaa;
+    background-color: #f5f5f5;
+}
+
+.column {
+    display: inline-block;
+}
+
+.floatRight {
+    float: right;
+    margin: 0px 0px 10px 10px;
+}
+
+span.checkbox {
+    margin: 0px 0px 0px 5px;
+}
+
+/*****************************************************************************/
+
+.anchor {
+    /* float: right; */ /* causes jumping on animated exapansion of blocks */
+    font-size: small;
+    padding: 0px 5px 0px 10px;
+    font-family: Arial,Sans-serif;
+}
+
+a.anchor:link {
+    color: #777;
+    text-decoration: none;
+}
+
+a.anchor:visited {
+    color: #777;
+    text-decoration: none;
+}
+
+/*****************************************************************************/
+
+a:link {
+    color: #268bd2;
+}
+
+a:visited {
+    color: #6c71c4;
+}
+
+/*****************************************************************************/
+
+.mainPage {
+    text-align: left;
+    margin: 10px 0px 0px 0px;
+}
+
+.timeWarning {
+    color: #c00;
+}
+
+/*****************************************************************************/
+
+.homeworkPage {
+    text-align: left;
+    margin: 10px 0px 0px 0px;
+}
+
+/*****************************************************************************/
+
+.tocContainer {
+    text-align: left;
+}
+
+.tocColumn {
+    vertical-align: top;
+    text-align: left;
+    margin: 10px 0px 0px 0px;
+    display: inline-block;
+    width: 35%;
+}
+
+.tocColumn ol {
+    list-style-type: none;
+    padding: 0px;
+    margin: 0px 0px 0px 0px;
+    font-family: Arial,Sans-serif;
+}
+
+.tocColumn ol ol {
+    list-style-type: none;
+    padding: 0px;
+    margin: 0px 0px 10px 20px;
+    font-family: Arial,Sans-serif;
+}
+
+/*****************************************************************************/
+
+table.schedule .oddWeek {
+    background: #e6f1f6;
+}
+
+table.schedule {
+    border-collapse: collapse;
+    border-spacing: 0px;
+    font-size: 100%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+table.schedule td {
+    border: 1px solid black;
+    padding: 2px 5px 2px 5px;
+}
+
+table.schedule th {
+    border: 1px solid black;
+    padding: 2px 5px 2px 5px;
+}
+
+/*****************************************************************************/
+
+p.envHeader {
+    font-family: Arial,Sans-serif;
+}
+
+div.envContainer.example {
+    background: #e0f0e0;
+    border: 1px solid #ccc;
+    padding: 0px;
+    margin: 10px 0px;
+}
+
+div.envContainer.exampleProblem {
+    background: #e0f0e0;
+    border: 1px solid #ccc;
+    padding: 0px;
+    margin: 10px 0px;
+}
+
+div.envContainer.solution {
+    background: #efffef;
+    border: 1px solid #ccc;
+    padding: 0px;
+    margin: 0px;
+}
+
+div.envContainer.warning {
+    background: #f0e0e0;
+    border: 1px solid #ccc;
+    padding: 0px;
+    margin: 10px 0px;
+}
+
+div.envContainer.equation {
+    background: #f0f0d0;
+    border: 1px solid #ccc;
+    padding: 5px;
+    margin: 20px 0px 0px 0px;
+}
+
+.equation .MathJax_Display {
+    margin: 2px 0px;
+}
+
+.equationImage {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border: 0px;
+}
+
+p.envHeader {
+    padding: 0px;
+    margin: 0px;
+}
+
+div.envBody {
+    padding: 5px;
+    margin: 0px;
+}
+
+.envBody > p {
+}
+
+canvas {
+    border: 1px solid #000;
+}
+
+canvas.noBorder {
+    border: 0px;
+}
+
+canvas.drawable {
+    cursor: crosshair;
+}
+
+button.envShowHide {
+    display: inline-block;
+    padding: 0px;
+    width: 2em;
+    height: 2em;
+    border: 1px solid #dedede;
+    border-top: 1px solid #eee;
+    border-left: 1px solid #eee;
+    margin: 0px 5px 0px 0px;
+}
+
+.derivation button.envShowHide {
+    float: right;
+    margin: 0px 0px 0px 5px;
+}
+
+.derivation p.envHeader {
+    text-align: right;
+}
+
+.envContainer.derivation .envBody {
+    background: #f8f8f8;
+    border: 1px solid #ccc;
+    padding: 5px;
+    margin: 0px;
+    text-align: left;
+}
+
+.envContainer.derivation p.envHeader {
+    display: inline-block;
+    padding: 0px 0px 0px 5px;
+    border: 1px solid #ccc;
+    background: #f8f8f8;
+}
+
+.envContainer.derivation {
+    text-align: right;
+}
+
+/*****************************************************************************/
+
+div.figureContainer.width600 {
+    width: 602px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+div.figureContainer.width500 {
+    width: 502px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+div.figureContainer.width400 {
+    width: 402px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+div.figureContainer.width300 {
+    width: 302px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.figureImage {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px solid #000;
+}
+
+div.figureContainer .controls {
+    margin-top: 0px;
+    margin-bottom: 10px;
+}
+
+div.figureContainer .instructions {
+    font-size: 80%;
+}
+
+div.figureContainer .controls button:first-child {
+    margin-left: 0px;
+}
+
+div.figureContainer > table.fullWidth {
+    width: 100%;
+}
+
+div.figureContainer > table.fullWidth > tr > td:first-child {
+    width: 4em;
+}
+
+p.figureCaption {
+    width: 400px;
+    font-size: 90%;
+    line-height: 1.3em;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/*****************************************************************************/
+
+.standaloneImage {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px solid #000;
+}
+
+/*****************************************************************************/
+
+div.imageBox.width250 {
+    width: 252px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.imageBox img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px solid #000;
+}
+
+.imageBox canvas {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+div.imageBox.width250 .controls {
+    margin-top: 0px;
+    margin-bottom: 10px;
+}
+
+div.imageBox.width250 .controls button:first-child {
+    margin-left: 0px;
+}
+
+.imageBox p.caption {
+    font-size: 80%;
+}
+
+
+/*****************************************************************************/
+
+div.references {
+    font-size: 90%;
+}
+
+/*****************************************************************************/
+
+table.basic {
+    border-collapse: collapse;
+    border-spacing: 0px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+table.basic td {
+    padding: 3px 7px 3px 7px;
+    text-align: center;
+    vertical-align: top;
+}
+
+table.basic th {
+    padding: 3px 7px 3px 7px;
+    text-align: center;
+    vertical-align: top;
+}
+
+table.basic th {
+    text-align: center;
+    font-family: Arial,Sans-serif;
+}
+
+table.basic .lineBelow td {
+    border-bottom: 1px solid #666;
+}
+
+table.basic .lineBelow th {
+    border-bottom: 1px solid #666;
+}
+
+/*****************************************************************************/
+
+table.alternating tr:nth-child(2n + 1) td {
+    background: #eef;
+}
+
+/*****************************************************************************/
+
+tr.bottomBorder td {
+    border-bottom: 1px solid #000;
+}
+
+table.options {
+    width: 100%;
+    border-spacing: 0;
+    border-collapse: collapse;
+    border: 1px solid #000;
+}
+
+table.options col.label {
+    width: 12em;
+}
+
+table.options col.input {
+    width: 200px;
+}
+
+table.options td {
+    padding: 0.4em;
+}
+
+table.options input[type="range"] {
+    width: 200px;
+}
+
+/*****************************************************************************/
+
+table.figureLeftControl {
+    border-spacing: 0;
+    border-collapse: collapse;
+}
+
+table.figureLeftControl td {
+    padding: 0px;
+}
+
+table.figureLeftControl td.controls {
+    padding: 0px 0px 0px 5px;
+}
+
+table.figureLeftControl td.controls table tr td {
+    padding: 0px 0px 0px 0.5em;
+}
+
+table.figureLeftControl td.controls table tr td:first-child {
+    padding: 0px 0px 0px 0px;
+}
+
+/*****************************************************************************/
+
+table.smallGrid {
+    border-spacing: 0;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+table.smallGrid th {
+    padding: 0.4em;
+    border-left: 1px solid #000;
+    border-right: 1px solid #000;
+    border-top: 1px solid #000;
+    border-bottom: 3px solid #000;
+    text-align: center;
+}
+
+table.smallGrid td {
+    padding: 0.4em;
+    border: 1px solid #000;
+    text-align: center;
+}
+
+table.smallGrid th.midColGroup {
+    border-right: 3px solid #000;
+}
+
+table.smallGrid td.midColGroup {
+    border-right: 3px solid #000;
+}
+
+/*****************************************************************************/
+
+table.alignTop th {
+    vertical-align: top;
+}
+
+table.alignTop td {
+    vertical-align: top;
+}
+
+/*****************************************************************************/
+
+td.inactive {
+    color: #aaa;
+}
+
+input.inactive {
+    color: #faa;
+}
+
+/*****************************************************************************/
