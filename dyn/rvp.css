@@ -1,0 +1,36 @@
+
+/*****************************************************************************/
+
+table.coords {
+    border-collapse: collapse;
+    border-spacing: 0px;
+    font-size: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+table.coords td {
+    padding: 0px 5px 0px 5px;
+}
+
+table.coords th {
+    border-bottom: 1px solid black;
+}
+
+table.coords th {
+    text-align: center;
+}
+
+table.coords td {
+    text-align: center;
+}
+
+table.coords tr th:last-child {
+    text-align: left
+}
+
+table.coords tr td:last-child {
+    text-align: left
+}
+
+/*****************************************************************************/

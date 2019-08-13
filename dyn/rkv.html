@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html>
+  <head profile="http://www.w3.org/2005/10/profile">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <meta charset="UTF-8">
+    <title>
+      Position, velocity, and acceleration
+    </title>
+    <link href="style.css" type="text/css" rel="stylesheet" />
+    <link href="icomoon.css" type="text/css" rel="stylesheet" />
+
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});</script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script src="jquery-1.7.2.min.js" type="text/javascript"></script>
+    <script src="sylvester.js" type="text/javascript"></script>
+    <script src="sha1.js" type="text/javascript"></script>
+    <script src="PrairieDraw.js" type="text/javascript"></script>
+    <script src="rkv.js" type="text/javascript"></script>
+    <script src="pageControl.js" type="text/javascript"></script>
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-37625161-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header"><h1>Dynamics</h1></div>
+      <div id="nav-placeholder"></div>
+	    <script>
+        $(function(){
+          $("#nav-placeholder").load("/nav.html");
+        });
+      </script>
+      <div class="mainBlock">
+    <div class="contentBlock">
+      <div id="rkv" class="contentCol">
+        <h1>
+          Position, velocity, and acceleration
+        </h1>
+        <p>
+          The two basic geometric objects we are using are <a
+          href="rvp.html">positions</a> and <a
+          href="rvv.html">vectors</a>. Positions describe locations
+          in space, while vectors describe length and direction (no
+          position information). To describe the <em>kinematics</em>
+          (motion) of bodies we need to relate positions and vectors
+          to each other.
+        </p>
+      </div>
+      <div class="infoCol"></div>
+    </div>
+    <div class="contentBlock">
+      <div id="rkv-sp" class="contentCol">
+        <h2>
+          Position vectors
+        </h2>
+        <p>
+          Two positions $P$ and $Q$ can be used to define a vector
+          $\vec{r}_{PQ} = \overrightarrow{PQ}$ from $P$
+          to $Q$. We call this the <em>relative position</em> of
+          $Q$ from $P$. If we start from the origin $O$, so
+          we have $\vec{r}_{OP} = \overrightarrow{OP}$,
+          then we call this the <em>position vector</em> of
+          position $P$. When it is clear, we will write
+          $\vec{r}_P$ for this position vector, or
+          sometimes even just $\vec{r}$.
+        </p>
+        <div class="figureContainer width400" id="rkv-fp">
+          <canvas id="rkv-fp-c" width="400" height="200" class="figureImage">
+          </canvas>
+          <p class="controls">
+            <button class="anim-toggle:rkv-fp-c">animate</button>
+            <button class="reset:rkv-fp-c">reset</button>
+          </p>
+          <p class="figureCaption">
+            Points $P$ and $Q$ and their relative and absolute
+            position vectors. Note that we can write the position
+            vectors with respect to different origins and in different
+            bases.
+          </p>
+        </div>
+      </div>
+      <div class="infoCol"></div>
+    </div>
+    <div class="contentBlock">
+      <div id="rkv-st" class="contentCol">
+        <h2>
+          Transformation of position vectors
+        </h2>
+        <p>
+          The position vector $\vec{r}_{OP}$ of a point $P$ depends on
+          which origin we are using. Using a different origin will
+          result in a different position vector for the same point.
+          The position vectors of a point from two different origins
+          differ by the offset vector between the origins:
+        </p>
+        <div class="envContainer equation" id="rkv-eo">
+          <p class="envHeader">
+            Change of origin for position vectors.
+          </p>
+          <div class="envBody">
+            <p>
+              \[\begin{aligned}
+              \overrightarrow{O_1 P}
+              &amp;= \overrightarrow{O_1 O_2} + \overrightarrow{O_2 P} \\
+              \vec{r}_{O_1 P}
+              &amp;= \vec{r}_{O_1 O_2} + \vec{r}_{O_2 P}
+              \end{aligned}\]
+            </p>
+          </div>
+        </div>
+        <p>
+          Position vectors are defined by the origin and the point,
+          but not by any choice of basis. We can write any position
+          vector in any basis and it is still the same vector.
+        </p>
+        <div class="figureContainer width400" id="rkv-fo">
+          <canvas id="rkv-fo-c" width="400" height="400" class="figureImage">
+          </canvas>
+          <p class="controls">
+            <button class="anim-toggle:rkv-fo-c">animate</button>
+            <button class="reset:rkv-fo-c">reset</button>
+            <button class="option-toggle:rkv-fo-c:showLabels">show labels</button>
+          </p>
+          <table class="alignTop">
+            <tr>
+              <td>Basis for $\vec{r}_{O_1P}$:</td>
+              <td>
+                <input type="radio" name="rkv-fo-c-r1Basis" value="none" class="data-input:rkv-fo-c:r1Basis" /> none
+                <input type="radio" name="rkv-fo-c-r1Basis" value="ij" class="data-input:rkv-fo-c:r1Basis" /> $\hat\imath,\hat\jmath$
+                <input type="radio" name="rkv-fo-c-r1Basis" value="uv" class="data-input:rkv-fo-c:r1Basis" /> $\hat{u},\hat{v}$
+              </td>
+            </tr>
+            <tr>
+              <td>Basis for $\vec{r}_{O_2P}$:</td>
+              <td>
+                <input type="radio" name="rkv-fo-c-r2Basis" value="none" class="data-input:rkv-fo-c:r2Basis" /> none
+                <input type="radio" name="rkv-fo-c-r2Basis" value="ij" class="data-input:rkv-fo-c:r2Basis" /> $\hat\imath,\hat\jmath$
+                <input type="radio" name="rkv-fo-c-r2Basis" value="uv" class="data-input:rkv-fo-c:r2Basis" /> $\hat{u},\hat{v}$
+              </td>
+            </tr>
+          </table>
+          <p class="figureCaption">
+            Points $P$ and $Q$ and their relative and absolute
+            position vectors. Note that we can write the position
+            vectors with respect to different origins and in different
+            bases, in any combination.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="contentBlock">
+      <div id="rkv-sv" class="contentCol">
+        <h2>
+          Velocity and acceleration vectors
+        </h2>
+        <p>
+          The <em>velocity</em> $\vec{v}$ and <em>acceleration</em>
+          $\vec{a}$ are the first and second derivatives of the
+          position vector $\vec{r}$. Technically, this is the velocity
+          and acceleration relative to the given origin, as discussed
+          in detail in the sections on relative motion and frames.
+        </p>
+        <div class="envContainer equation" id="rkv-ev">
+          <p class="envHeader">Definition of velocity $\vec{v}$ and acceleration $\vec{a}$.</p>
+          <div class="envBody">
+            <p>
+              \[\begin{aligned}
+              \vec{v} &amp;= \dot{\vec{r}} \\
+              \vec{a} &amp;= \dot{\vec{v}}
+              \end{aligned}\]
+            </p>
+          </div>
+        </div>
+        <p>
+          The velocity can be decomposed into components parallel and
+          perpendicular to the position vector, reflecting changes in
+          the length and direction of $\vec{r}$.
+        </p>
+        <div class="envContainer equation" id="rkv-ec">
+          <p class="envHeader">
+            Decomposition of velocity and acceleration vectors.
+          </p>
+          <div class="envBody">
+            <p>
+              \[\begin{aligned}
+              \vec{v}_\text{proj} &amp;= \operatorname{Proj}(\vec{v}, \vec{r})
+              = \dot{r} \hat{r} \\
+              \vec{v}_\text{comp} &amp;= \operatorname{Comp}(\vec{v}, \vec{r})
+              = r \dot{\hat{r}} \\
+              \vec{a}_\text{proj} &amp;= \operatorname{Proj}(\vec{a}, \vec{v})
+              = \dot{v} \hat{v} \\
+              \vec{a}_\text{comp} &amp;= \operatorname{Comp}(\vec{a}, \vec{v})
+              = v \dot{\hat{v}}
+              \end{aligned}\]
+            </p>
+          </div>
+        </div>
+        <p>
+        </p>
+        <div class="figureContainer width600" id="rkv-fa">
+          <canvas id="rkv-fa-c" width="600" height="400" class="figureImage">
+          </canvas>
+          <p class="controls">
+            <button class="anim-toggle:rkv-fa-c">animate</button>
+            <button class="reset:rkv-fa-c">reset</button>
+            <button class="option-toggle:rkv-fa-c:showLabels">show labels</button>
+          </p>
+          <table class="alignTop">
+            <tr>
+              <td>Show:</td>
+              <td colspan="4">
+                <button class="option-toggle:rkv-fa-c:showZeroTime">$t = 0$ quantities</button>
+              </td>
+            </tr>
+            <tr>
+              <td>Movement:</td>
+              <td><input type="radio" name="rkv-fa-c-movement" value="circle" class="data-input:rkv-fa-c:movement" /> circle</td>
+              <td><input type="radio" name="rkv-fa-c-movement" value="varCircle" class="data-input:rkv-fa-c:movement" /> var-circle</td>
+              <td><input type="radio" name="rkv-fa-c-movement" value="ellipse" class="data-input:rkv-fa-c:movement" /> ellipse</td>
+              <td><input type="radio" name="rkv-fa-c-movement" value="arc" class="data-input:rkv-fa-c:movement" /> arc</td>
+            </tr>
+            <tr>
+              <td></td>
+              <td><input type="radio" name="rkv-fa-c-movement" value="trefoil" class="data-input:rkv-fa-c:movement" /> trefoil</td>
+              <td><input type="radio" name="rkv-fa-c-movement" value="eight" class="data-input:rkv-fa-c:movement" /> eight</td>
+              <td><input type="radio" name="rkv-fa-c-movement" value="comet" class="data-input:rkv-fa-c:movement" /> comet</td>
+              <td><input type="radio" name="rkv-fa-c-movement" value="pendulum" class="data-input:rkv-fa-c:movement" /> pendulum</td>
+            </tr>
+            <tr>
+              <td>Show:</td>
+              <td colspan="4">
+                <button class="option-toggle:rkv-fa-c:showVelocity">velocity</button>
+                <button class="option-toggle:rkv-fa-c:showAcceleration">acceleration</button>
+                <button class="option-toggle:rkv-fa-c:showAnchoredVelocity">anchored velocity</button>
+                <button class="option-toggle:rkv-fa-c:showPath">path</button>
+              </td>
+            </tr>
+            <tr>
+              <td></td>
+              <td colspan="4">
+                <button class="option-toggle:rkv-fa-c:showVelDecomp">velocity decomposition</button>
+                <button class="option-toggle:rkv-fa-c:showAccDecomp">acceleration decomposition</button>
+              </td>
+            </tr>
+          </table>
+          <p class="figureCaption">
+            Velocity and acceleration of various movements. Compare to
+            Figure <a href="rvc.html#rvc-fp">#rvc-fp</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="contentBlock">
+      <div id="rkv-sr" class="contentCol">
+        <h2>
+          Velocity and acceleration in Cartesian basis
+        </h2>
+        <p>
+          Differentiating in a fixed Cartesian basis can be done by
+          differentiating each component.
+        </p>
+        <div class="envContainer equation" id="rkv-er">
+          <p class="envHeader">
+            Velocity and acceleration in Cartesian basis.
+          </p>
+          <div class="envBody">
+            <p>
+              \[\begin{aligned}
+              \vec{r} &amp;= r_1 \,\hat\imath + r_2 \,\hat\jmath + r_3 \,\hat{k} \\
+              \vec{v} &amp;= \dot{r}_1 \,\hat\imath + \dot{r}_2 \,\hat\jmath + \dot{r}_3 \,\hat{k} \\
+              \vec{a} &amp;= \ddot{r}_1 \,\hat\imath + \ddot{r}_2 \,\hat\jmath + \ddot{r}_3 \,\hat{k}
+              \end{aligned}\]
+            </p>
+          </div>
+        </div>
+        <div class="envContainer derivation">
+          <div class="envBody">
+            <p>
+              Assuming $\hat\imath,\hat\jmath,\hat{k}$ are all fixed
+              vectors, we can differentiate twice using <a
+              href="rvc.html#rvc-ec">#rvc-ec</a>.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="contentBlock">
+      <div id="rkv-sl" class="contentCol">
+        <h2>
+          Velocity and acceleration in polar basis
+        </h2>
+        <p>
+          Computing velocity and acceleration in a polar basis must
+          take account of the fact that the basis vectors are not
+          constant.
+        </p>
+        <div class="envContainer equation" id="rkv-ep">
+          <p class="envHeader">
+            Velocity and acceleration in polar basis.
+          </p>
+          <div class="envBody">
+            <p>
+              \[\begin{aligned}
+              \vec{r} &amp;= r \,\hat{e}_r \\
+              \vec{v} &amp;= \dot{r} \,\hat{e}_r
+              + r \dot\theta \,\hat{e}_\theta \\
+              \vec{a} &amp;= (\ddot{r} - r\dot\theta^2) \,\hat{e}_r
+              + (r \ddot\theta + 2 \dot{r} \dot\theta) \,\hat{e}_\theta
+              \end{aligned}\]
+            </p>
+          </div>
+        </div>
+        <div class="envContainer derivation">
+          <div class="envBody">
+            <p>
+              Starting from the position vector $\vec{r} =
+              r\,\hat{e}_r$, we differentiate and use the basis vector
+              derivatives $\dot{\hat{e}}_r = \dot\theta
+              \,\hat{e}_\theta$ and $\dot{\hat{e}}_\theta =
+              -\dot\theta \,\hat{e}_r$, giving:
+
+              \[\begin{aligned}
+              \vec{r} &amp;= r \,\hat{e}_r \\
+              \vec{v} &amp;= \dot{\vec{r}} \\
+              &amp;= \dot{r} \,\hat{e}_r + r \,\dot{\hat{e}}_r \\
+              &amp;= \dot{r} \,\hat{e}_r + r \dot\theta \, \hat{e}_\theta \\
+              \vec{a} &amp;= \dot{\vec{v}} \\
+              &amp;= \ddot{r} \,\hat{e}_r + \dot{r} \,\dot{\hat{e}}_r
+              + \dot{r} \dot\theta \,\hat{e}_\theta
+              + r \ddot\theta \,\hat{e}_\theta
+              + r \dot\theta \,\dot{\hat{e}}_\theta \\
+              &amp;= \ddot{r} \,\hat{e}_r + \dot{r} \dot\theta \,\hat{e}_\theta
+              + \dot{r} \dot\theta \,\hat{e}_\theta
+              + r \ddot\theta \,\hat{e}_\theta
+              - r \dot\theta \dot\theta \,\hat{e}_r \\
+              &amp;= (\ddot{r} - r\dot\theta^2) \,\hat{e}_r
+              + (r \ddot\theta + 2 \dot{r} \dot\theta) \,\hat{e}_\theta.
+              \end{aligned}\]
+            </p>
+          </div>
+        </div>
+        <p>
+          The acceleration term $-r\dot\theta^2\,\hat{e}_r$ is called
+          the <em>centripetal</em> (center-seeking) acceleration,
+          while the $2\dot{r}\dot\theta \,\hat{e}_\theta$ term is
+          called the <em>Coriolis</em> acceleration.
+        </p>
+        <div class="figureContainer width600" id="rkv-fr">
+          <canvas id="rkv-fr-c" width="600" height="400" class="figureImage">
+          </canvas>
+          <p class="controls">
+            <button class="anim-toggle:rkv-fr-c">animate</button>
+            <button class="reset:rkv-fr-c">reset</button>
+            <button class="option-toggle:rkv-fr-c:showLabels">show labels</button>
+          </p>
+          <table class="alignTop">
+            <tr>
+              <td>Movement:</td>
+              <td><input type="radio" name="rkv-fr-c-movement" value="circle" class="data-input:rkv-fr-c:movement" /> circle</td>
+              <td><input type="radio" name="rkv-fr-c-movement" value="varCircle" class="data-input:rkv-fr-c:movement" /> var-circle</td>
+              <td><input type="radio" name="rkv-fr-c-movement" value="ellipse" class="data-input:rkv-fr-c:movement" /> ellipse</td>
+              <td><input type="radio" name="rkv-fr-c-movement" value="arc" class="data-input:rkv-fr-c:movement" /> arc</td>
+            </tr>
+            <tr>
+              <td></td>
+              <td><input type="radio" name="rkv-fr-c-movement" value="trefoil" class="data-input:rkv-fr-c:movement" /> trefoil</td>
+              <td><input type="radio" name="rkv-fr-c-movement" value="eight" class="data-input:rkv-fr-c:movement" /> eight</td>
+              <td><input type="radio" name="rkv-fr-c-movement" value="comet" class="data-input:rkv-fr-c:movement" /> comet</td>
+              <td><input type="radio" name="rkv-fr-c-movement" value="pendulum" class="data-input:rkv-fr-c:movement" /> pendulum</td>
+            </tr>
+            <tr>
+              <td>Show:</td>
+              <td colspan="4">
+                <button class="option-toggle:rkv-fr-c:showVelocity">velocity</button>
+                <button class="option-toggle:rkv-fr-c:showAcceleration">acceleration</button>
+                <button class="option-toggle:rkv-fr-c:showPath">path</button>
+              </td>
+            </tr>
+            <tr>
+              <td></td>
+              <td colspan="4">
+                <button class="option-toggle:rkv-fr-c:showVelDecomp">velocity decomposition</button>
+                <button class="option-toggle:rkv-fr-c:showAccDecomp">acceleration decomposition</button>
+              </td>
+            </tr>
+            <tr>
+              <td>Origin:</td>
+              <td><input type="radio" name="rkv-fr-c-origin" value="O1" class="data-input:rkv-fr-c:origin" /> $O_1$</td>
+              <td><input type="radio" name="rkv-fr-c-origin" value="O2" class="data-input:rkv-fr-c:origin" /> $O_2$</td>
+              <td></td>
+              <td></td>
+            </tr>
+          </table>
+          <p class="figureCaption">
+            Velocity and acceleration in the polar basis. Compare to
+            Figure <a href="#rkv-fa">#rkv-fa</a>. Observe that
+            $\hat{e}_r,\hat{e}_\theta$ are not related to the path
+            (not tangent, not in the direction of movement), but
+            rather are defined only by the position vector. Note also
+            that the polar basis depends on the choice of origin.
+          </p>
+        </div>
+      </div>
+    </div>
+      </div>
+      <div class="footer">
+        <p class="copyright">Copyright (C) 2012-2015 Matthew West</p>
+      </div>
+    </div>
+  </body>
+</html>

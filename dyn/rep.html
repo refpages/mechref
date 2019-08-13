@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html>
+  <head profile="http://www.w3.org/2005/10/profile">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <meta charset="UTF-8">
+    <title>
+      Kinetics of point masses
+    </title>
+    <link href="style.css" type="text/css" rel="stylesheet" />
+    <link href="rep.css" type="text/css" rel="stylesheet" />
+    <link href="icomoon.css" type="text/css" rel="stylesheet" />
+
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});</script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script src="jquery-1.7.2.min.js" type="text/javascript"></script>
+    <script src="sylvester.js" type="text/javascript"></script>
+    <script src="sha1.js" type="text/javascript"></script>
+    <script src="PrairieDraw.js" type="text/javascript"></script>
+    <script src="rep.js" type="text/javascript"></script>
+    <script src="pageControl.js" type="text/javascript"></script>
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-37625161-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header"><h1>Dynamics</h1></div>
+      <div id="nav-placeholder"></div>
+	    <script>
+        $(function(){
+          $("#nav-placeholder").load("/nav.html");
+        });
+      </script>
+      <div class="mainBlock">
+    <div class="contentBlock">
+      <div id="rep" class="contentCol">
+        <h1>
+          Kinetics of point masses
+        </h1>
+        <p>
+        </p>
+      </div>
+    </div>
+    <div class="contentBlock">
+      <div id="rep-sn" class="contentCol">
+        <h2>
+          Newton's equations
+        </h2>
+        <p>
+          Newton's equations relate the acceleration $\vec{a}$ of a
+          point mass with mass $m$ to the total applied force
+          $\vec{F}$ on the mass (sum of all applied forces). They are:
+        </p>
+        <div class="envContainer equation" id="rep-en">
+          <p class="envHeader">Newton's equations.</p>
+          <div class="envBody">
+            <p>
+              \[\vec{F} = m \vec{a}\]
+            </p>
+          </div>
+        </div>
+        <p>
+          There is no derivation for Newton's equations, because they
+          are an assumed model for dynamics. We can only verify them
+          by comparing with experimental evidence, which confirms that
+          Newtonian dynamics are accurate for non-relativistic and
+          non-quantum systems.
+        </p>
+        <div class="figureContainer width600" id="rep-ff">
+          <canvas id="rep-ff-c" width="600" height="600" class="figureImage" >
+          </canvas>
+          <p class="controls">
+            <button class="anim-toggle:rep-ff-c">animation</button>
+            <button class="reset:rep-ff-c">reset</button>
+            Click and hold on the figure to apply a constant-magnitude force.
+          </p>
+          <p class="figureCaption">
+            A point mass moving in the plane with an applied
+            force. You can try to made the mass move in a circle and
+            then see what happens when the force is suddenly removed,
+            which will demonstrate Newton's first law (no net force
+            implies motion at constant speed in a constant
+            direction). Also observe which force directions cause the
+            speed to increase or decrease.
+          </p>
+        </div>
+      </div>
+      <div class="infoCol">
+        <div id="rep-ir" class="infoBox factBox">
+          <p>
+            If we have objects which are either very massive, very
+            small, or moving very fast, then Newton's equations do not
+            provide a good model of their motion. Instead we must use
+            Einstein's equations of <a
+            href="http://en.wikipedia.org/wiki/General_relativity">general
+            relativity</a> (for massive and fast objects) or the
+            equations of <a
+            href="http://en.wikipedia.org/wiki/Quantum_mechanics">quantum
+            mechanics</a> (for very small objects). Unfortunately,
+            these two theories cannot be used together, so we
+            currently have no good models for objects which are
+            simultaneously very small and very massive, such as <a
+            href="http://en.wikipedia.org/wiki/Micro_black_hole">micro
+            black holes</a> or the universe shortly after the <a
+            href="http://en.wikipedia.org/wiki/Big_Bang">big
+            bang</a>. Physicists are currently trying to reconcile
+            general relativity with quantum mechanics by devising a
+            new set of equations (sometimes called <a
+            href="http://en.wikipedia.org/wiki/Quantum_gravity">quantum
+            gravity</a> or a <a
+            href="http://en.wikipedia.org/wiki/Theory_of_everything">theory
+            of everything</a>). Current possibilities for new
+            equations include <a
+            href="http://en.wikipedia.org/wiki/String_theory">string
+            theory</a> and <a
+            href="http://en.wikipedia.org/wiki/Loop_quantum_gravity">loop
+            quantum gravity</a>, but none of these are generally
+            accepted yet.
+          </p>
+          <p>
+            It is important to remember that all of these different
+            equations are only models of reality and are not actually
+            real:
+          </p>
+          <blockquote>
+            “All models are wrong. Some models are useful.”
+            <br />
+            — <a href="http://en.wikipedia.org/wiki/George_E._P._Box">George Box</a>
+          </blockquote>
+        </div>
+      </div>
+    </div>
+    <div class="contentBlock">
+      <div id="rep-sa" class="contentCol">
+        <h2>
+          Method of assumed forces and method of assumed motion
+        </h2>
+        <p>
+          Newton's equations can be used in two main ways. Either we
+          know the forces and we use this to compute the acceleration
+          of a mass, or we know the acceleration and use this to
+          compute the forces.
+        </p>
+        <table class="basic">
+          <tr>
+            <th>Method of assumed forces:</th>
+            <td>Know $\vec{F}$</td>
+            <td>$\Longrightarrow$</td>
+            <td>Compute $\vec{a}$</td>
+          </tr>
+          <tr>
+            <th>Method of assumed motion:</th>
+            <td>Know $\vec{a}$</td>
+            <td>$\Longrightarrow$</td>
+            <td>Compute $\vec{F}$</td>
+          </tr>
+        </table>
+        <p>
+          Of course there are other possibilities from these two, such
+          as knowing the vertical component of the force and the
+          horizontal component of acceleration, and then computing the
+          missing components of each.
+        </p>
+        <div class="envContainer exampleProblem" id="rep-xf">
+          <p class="envHeader">Example Problem: Method of assumed forces</p>
+          <div class="envBody">
+            <div class="question">
+              <p>
+                A cannonball of mass $m$ is fired from the origin with
+                initial velocity $\vec{v}_0$ and then experiences a
+                force $\vec{F}_{\rm g} = -m g \hat{\jmath}$ due to
+                gravity and a wind force $\vec{F}_{\rm w} = -C_{\rm w}
+                \hat{\imath}$. What is the motion of the cannonball as
+                a function of time?
+              </p>
+            </div>
+            <div class="envContainer solution">
+              <div class="envBody">
+                <p>
+                  We can use Newton's equations to find the
+                  acceleration of the cannonball, using the method of
+                  assumed forces:
+                
+                  \[\begin{aligned}
+                  m \vec{a} &amp;= \vec{F}_{\rm w} + \vec{F}_{\rm g} \\
+                  \vec{a} &amp;= \frac{1}{m} \left(
+                  - C_{\rm w} \hat{\imath} - m g \hat{\jmath} \right)
+                  \end{aligned}\]
+                </p>
+                <p>
+                  If $\vec{r}$ is the position vector of the
+                  cannonball then we have the differential equation:
+                
+                  \[\begin{aligned}
+                  \ddot{\vec{r}}(t) &amp;= - \frac{C_{\rm w}}{m} \hat{\imath}
+                  - g \hat{\jmath}
+                  &amp; \vec{r}(0) &amp;= \vec{0}
+                  &amp; \dot{\vec{r}}(0) &amp;= \vec{v}_0.
+                  \end{aligned}\]
+                
+                  Because the acceleration is constant we can use the
+                  <a href="">elementary motion</a> solution to find
+                  the trajectory of the cannonball:
+                
+                  \[
+                  \vec{r}(t) = \vec{v}_0 t
+                  - \frac{1}{2} t^2 \left(\frac{C_{\rm w}}{m} \hat{\imath}
+                  + g \hat{\jmath}\right).
+                  \]
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="envContainer exampleProblem" id="rep-xm">
+          <p class="envHeader">Example Problem: Method of assumed motion</p>
+          <div class="envBody">
+            <div class="question">
+              <p>
+                A car of mass $m$ is observed driving on a sinusoidal
+                road at a constant horizontal speed $v_0$. The road
+                surface has equation $y = A \sin(k x)$, where $A$ is
+                the amplitude and $k$ is the wavenumber. What is the
+                force of the road on the car? Gravity $g$ acts
+                vertically and assume no air resistance.
+              </p>
+            </div>
+            <div class="envContainer solution">
+              <div class="envBody">
+                <p>
+                  We can determine the acceleration of the car, and
+                  then use Newton's equations and method of assumed
+                  motion to find the total force and thus the road
+                  force. First, we find the acceleration:
+
+                  \[\begin{aligned}
+                  x(t) &amp;= x_0 + v_0 t \\
+                  \vec{r}(t) &amp;= x(t)\,\hat{\imath} + y(x(t))\,\hat{\jmath} \\
+                  &amp;= (x_0 + v_0 t)\,\hat{\imath} + A \sin(k x_0 + k v_0 t)\,\hat{\jmath} \\
+                  \vec{a}(t) = \ddot{\vec{r}}(t)
+                  &amp;= - A (k v_0)^2 \sin(k x_0 + k v_0 t)\,\hat{\jmath} \\
+                  &amp;= - A (k v_0)^2 \sin(k x)\,\hat{\jmath}.
+                  \end{aligned}\]
+
+                  Given the force of gravity $\vec{F}_{\rm g} = - m g
+                  \,\hat{\jmath}$ and the road force $\vec{F}_{\rm
+                  r}$, Newton's equations give the forces as:
+
+                  \[\begin{aligned}
+                  \vec{F}_{\rm r} + \vec{F}_{\rm g} &amp;= m \vec{a} \\
+                  \vec{F}_{\rm r} &amp;= - m A (k v_0)^2 \sin(k x)\,\hat{\jmath} + m g \,\hat{\jmath} \\
+                  &amp;= m \Big(g - A (k v_0)^2 \sin(k x)\Big) \,\hat{\jmath},
+                  \end{aligned}\]
+                  
+                  where we have solved for the road force on the car.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <p>
+          The steps involved in analyzing a mechanical system with
+          Newton's equations are as follows.
+        </p>
+        <div class="envContainer equation" id="rep-ep">
+          <p class="envHeader">Solution procedure with Newton's equations.</p>
+          <div class="envBody">
+            <p>
+              \[\begin{aligned}
+              &amp;\text{1. FBD: draw a Free Body Diagram.} \\
+              &amp;\text{2. Kinematics: determine $\vec{a}$.} \\
+              &amp;\text{3. Newton: use $\vec{F} = m\vec{a}$.} \\
+              &amp;\text{4. Algebra: rearrange and solve as needed.}
+              \end{aligned}\]
+            </p>
+          </div>
+        </div>
+        <div class="envContainer exampleProblem" id="rep-xl">
+          <p class="envHeader">Example Problem: Pendulum with Newton's equations</p>
+          <div class="envBody">
+            <div class="question">
+              <canvas id="rep-xl-c" width="300" height="200" class="floatRight">
+              </canvas>
+              <p>
+                Consider the 2D pendulum with a massless rigid rod of
+                length $\ell$ and a point mass $m$. What is the
+                equation of motion for $\ddot\theta$ and the tension
+                $T$ in the rod?
+              </p>
+            </div>
+            <div class="envContainer solution">
+              <div class="envBody">
+                <p>
+                  It is helpful in this problem to use both Cartesian and polar bases:
+                  <button class="option-toggle:rep-xl-c:showBases">show bases</button>
+                </p>
+                <p>
+                  <strong>1. FBD:</strong> The free body diagram for the point mass is:
+                </p>
+                <canvas id="rep-xl-f" width="300" height="200" class="standaloneImage">
+                </canvas>
+                <p>
+                  The forces on the free body diagram are:
+
+                  \[\begin{aligned}
+                  \vec{F}_g &amp;= - mg \,\hat\jmath \\
+                  \vec{F}_T &amp;= - T \,\hat{e}_r.
+                  \end{aligned}\]
+                </p>
+                <p>
+                  <strong>2. Kinematics:</strong> Using the polar
+                  basis acceleration equation <a
+                  href="rkv.html#rkv-ep">#rkv-ep</a> gives:
+
+                  \[\begin{aligned}
+                  \vec{a} &amp;= (\ddot{r} - r\dot\theta^2) \,\hat{e}_r
+                  + (r\ddot\theta + 2\dot{r}\dot\theta) \,\hat{e}_\theta \\
+                  &amp;= -\ell \dot\theta^2 \,\hat{e}_r
+                  + \ell\ddot\theta \,\hat{e}_\theta.
+                  \end{aligned}\]
+                </p>
+                <p>
+                  <strong>3. Newton:</strong> Using <a
+                  href="#rep-en">#rep-en</a> gives:
+
+                  \[\begin{aligned}
+                  \vec{F} &amp;= m\vec{a} \\
+                  \vec{F}_T + \vec{F}_g
+                  &amp;= m(-\ell \dot\theta^2 \,\hat{e}_r
+                  + \ell\ddot\theta \,\hat{e}_\theta) \\
+                  -T\,\hat{e}_r - mg\,\hat\jmath
+                  &amp;= -m\ell \dot\theta^2 \,\hat{e}_r
+                  + m\ell\ddot\theta \,\hat{e}_\theta.
+                  \end{aligned}\]
+                </p>
+                <p>
+                  <strong>4. Algebra:</strong> To compare components
+                  in the above equation we need to switch to a single
+                  basis. We will convert to $\hat{e}_r,\hat{e}_\theta$
+                  using:
+
+                  \[
+                  \hat\jmath = -\cos\theta \,\hat{e}_r
+                  + \sin\theta \,\hat{e}_\theta,
+                  \]
+
+                  which gives:
+
+                  \[
+                  (-T + mg\cos\theta)\,\hat{e}_r
+                  - mg\sin\theta\,\hat{e}_\theta
+                  = -m\ell \dot\theta^2 \,\hat{e}_r
+                  + m\ell\ddot\theta \,\hat{e}_\theta.
+                  \]
+
+                  Equating the $\hat{e}_\theta$ and $\hat{e}_r$ terms
+                  gives $\ddot\theta$ and $T$ by:
+
+                  \[\begin{aligned}
+                  \ddot\theta &amp;= - \frac{g}{\ell} \sin\theta \\
+                  T &amp;= mg\cos\theta + m\ell\dot\theta^2.
+                  \end{aligned}\]
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="infoCol">
+        <div id="rep-in" class="infoBox factBox">
+          <p>
+            Newton's equations $\vec{F} = m\vec{a}$ are an algebraic
+            expression of <i>Newton's second law</i>:
+          </p>
+          <p>
+            <span class="transUnit">“Mutationem<span class="trans">‑mutation/change</span></span>
+            <span class="transUnit">motûs<span class="trans">‑motion</span></span>
+            <span class="transUnit">proportionalem<span class="trans">‑proportional</span></span>
+            <span class="transUnit">esse<span class="trans">‑is</span></span>
+            <span class="transUnit">vi<span class="trans">‑force</span></span>
+            <span class="transUnit">motrici<span class="trans">‑motive</span></span>
+            <span class="transUnit">impressæ<span class="trans">‑impressed/applied</span>,</span>
+            <span class="transUnit">et<span class="trans">‑and</span></span>
+            <span class="transUnit">fieri<span class="trans">‑is</span></span>
+            <span class="transUnit">secundum<span class="trans">‑along</span></span>
+            <span class="transUnit">lineam<span class="trans">‑line</span></span>
+            <span class="transUnit">rectam<span class="trans">‑right/straight</span></span>
+            <span class="transUnit">quâ<span class="trans">‑which</span></span>
+            <span class="transUnit">vis<span class="trans">‑force</span></span>
+            <span class="transUnit">illa<span class="trans">‑that</span></span>
+            <span class="transUnit">imprimitur<span class="trans">‑imprints/acts</span>.”</span>
+            <br />
+            —
+            <a href="http://en.wikipedia.org/wiki/Sir_Isaac_Newton">Isaac Newton</a>,
+            <a href="http://en.wikipedia.org/wiki/Philosophi%C3%A6_Naturalis_Principia_Mathematica">Principia</a>, 1687.
+          </p>
+          <blockquote class="transBlock">
+            “The change of motion is proportional to the applied
+            force, and takes place in the direction of the straight
+            line in which the force acts.”
+          </blockquote>
+          <button class="showHideTrans">Show English translation</button>
+          <p>
+            Although Newton was English and lived in England, he wrote
+            the <a
+            href="http://en.wikipedia.org/wiki/Philosophi%C3%A6_Naturalis_Principia_Mathematica">Principia</a>
+            in Latin because that was the <a
+            href="http://en.wikipedia.org/wiki/New_Latin">standard
+            language</a> for scientific communication at the time. By
+            the late 1600s the use of Latin was in decline, however,
+            and Newton's later works, such as <a
+            href="http://en.wikipedia.org/wiki/Opticks">Opticks</a> in
+            1704, were written in English.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="contentBlock">
+      <div id="rep-sl" class="contentCol">
+        <h2>
+          Linear momentum
+        </h2>
+        <p>
+          The linear momentum of a point mass is the product of its
+          mass and velocity:
+        </p>
+        <div class="envContainer equation" id="rep-em">
+          <p class="envHeader">Linear momentum of a point mass.</p>
+          <div class="envBody">
+            <p>
+              \[\vec{p} = m\vec{v}\]
+            </p>
+          </div>
+        </div>
+        <p>
+          Using the linear momentum, Newton's equations are:
+        </p>
+        <div class="envContainer equation" id="rep-ep">
+          <p class="envHeader">Newton's equations in momentum form.</p>
+          <div class="envBody">
+            <p>
+              \[\vec{F} = \dot{\vec{p}}\]
+            </p>
+          </div>
+        </div>
+        <div class="envContainer derivation">
+          <div class="envBody">
+            <p>
+              If we differentiate the linear momentum with respect to
+              time then we obtain
+
+              \[\frac{d}{dt} \vec{p} = \frac{d}{dt} (m \vec{v})
+              = m \dot{\vec{v}} = m \vec{a} = \vec{F}. \]
+            </p>
+          </div>
+        </div>
+        <div class="envContainer warning" id="rep-wv">
+          <p class="envHeader">Warning: Variable mass problems can't simply use $\vec{F} = \dot{\vec{p}}$.</p>
+          <div class="envBody">
+            <p>
+              For a system with variable mass, such as a rocket burning
+              up its fuel, it is tempting to write
+              
+              \[\vec{F} = \dot{\vec{p}} = \frac{d}{dt} (m \vec{v})
+              = \dot{m} \vec{v} + m \dot{\vec{v}}\]
+              
+              and to then rearrange to find the acceleration:
+              
+              \[m \vec{a} = \vec{F} - \dot{m} \vec{v}.\]
+              
+              But this is wrong! The acceleration must depend not only
+              on the rate of mass loss, but also on the speed with
+              which the lost mass is ejected.
+            </p>
+            <p>
+              The right way to calculate the acceleration of a rocket
+              is to consider the center of mass of the total system
+              (rocket plus ejected mass) and to use the equation for
+              the center of mass of a many-body system. This results
+              in the <a
+              href="http://en.wikipedia.org/wiki/Tsiolkovsky_rocket_equation">Tsiolkovsky
+              rocket equation</a>:
+              
+              \[m \vec{a} = \vec{v}_{\rm e} \dot{m},\]
+              
+              where the acceleration $\vec{a}$ of the rocket is
+              determined by the rate of mass loss $\dot{m}$ and the
+              velocity $\vec{v}_{\rm e}$ of the ejected mass relative to
+              the rocket.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="contentBlock">
+      <div id="rep-sg" class="contentCol">
+        <h2>
+          Angular momentum
+        </h2>
+        <p>
+          Angular momentum is defined with respect to a given base
+          point $O$. For a point mass, the angular momentum is the
+          cross product between the position vector and the linear
+          momentum:
+        </p>
+        <div class="envContainer equation" id="rep-eg">
+          <p class="envHeader">Angular momentum about fixed base point
+          $O$ of a point mass at $P$.</p>
+          <div class="envBody">
+            <p>
+              \[\vec{H}_O = \vec{r}_{OP} \times \vec{p}_P
+              = \vec{r}_{OP} \times m\vec{v}_P\]
+            </p>
+          </div>
+        </div>
+        <p>
+          When a force is applied to a body it produces a
+          <i>moment</i> about any given fixed base point $O$:
+        </p>
+        <div class="envContainer equation" id="rep-eo">
+          <p class="envHeader">Moment about fixed point $O$ of a force
+          acting at $P$.</p>
+          <div class="envBody">
+            <p>
+              \[\vec{M}_O = \vec{r}_{OP} \times \vec{F}_P\]
+            </p>
+          </div>
+        </div>
+        <p>
+          The angular momentum and applied moment are related by:
+        </p>
+        <div class="envContainer equation" id="rep-et">
+          <p class="envHeader">Moment equation about fixed base point
+          $O$.</p>
+          <div class="envBody">
+            <p>
+              \[\vec{M}_O = \dot{\vec{H}}_O\]
+            </p>
+          </div>
+        </div>
+        <div class="envContainer derivation">
+          <div class="envBody">
+            <p>
+              If we compute the derivative of $\vec{H}_O$ and use
+              Newton's equations <a href="#rep-en">#rep-en</a>, then
+              we obtain:
+
+              \[\begin{aligned}
+              \dot{\vec{H}}_O &amp;= \frac{d}{dt} \Big(
+              \vec{r}_{OP} \times m \vec{v}_P \Big) \\
+              &amp;= \dot{\vec{r}}_{OP} \times m \vec{v}_P
+              + \vec{r}_{OP} \times m \dot{\vec{v}}_P \\
+              &amp;= m \vec{v}_P \times \vec{v}_P
+              + \vec{r}_{OP} \times m \vec{a}_P \\
+              &amp;= 0 + \vec{r}_{OP} \times \vec{F} \\
+              &amp;= \vec{M}_O.
+              \end{aligned}\]
+
+              Here we used the fact that, for a fixed point $O$, the
+              derivative $\dot{\vec{r}}_{OP}$ is simply the velocity
+              $\vec{v}_P$ of point $P$, and the cross product of the
+              velocity with itself is zero.
+            </p>
+          </div>
+        </div>
+        <div class="envContainer warning" id="rep-wp">
+          <p class="envHeader">Warning: Always indicate the base point
+          for angular momentum and moments.</p>
+          <div class="envBody">
+            <p>
+              In the moment equation <a href="#rep-et">#rep-et</a> it
+              is crucial that $\vec{M}_O$ and $\vec{H}_O$ are both
+              computed about the same base point $O$. If we have
+              $\vec{M}_O$ about $O$ and $\vec{H}_C$ about $C$, then it
+              is <i>not true</i> that $\vec{M}_O =
+              \dot{\vec{H}}_C$. For this reason we always write the
+              base point $O$ as a subscript on $M$ and $H$, otherwise
+              it's easy to forget which point we've used as the base
+              point.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+      <div class="footer">
+        <p class="copyright">Copyright (C) 2012-2015 Matthew West</p>
+      </div>
+    </div>
+  </body>
+</html>

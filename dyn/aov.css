@@ -1,0 +1,48 @@
+
+/*****************************************************************************/
+
+#aov-tv {
+    border-collapse: collapse;
+    border-spacing: 0px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#aov-tv tr:nth-child(2n + 1) td {
+    border-bottom: 1px solid black;
+}
+
+#aov-tv tr:last-child td {
+    border-bottom: none;
+}
+
+#aov-tv tr td {
+    padding: 3px 7px 3px 7px;
+    text-align: center;
+}
+
+#aov-tv tr th {
+    padding: 3px 7px 3px 7px;
+    text-align: center;
+}
+
+#aov-tv tr td:nth-child(2n) {
+    background: #eee;
+}
+
+#aov-tv th {
+    padding-right: 10px;
+    text-align: center;
+    font-family: 'NoticiaTextBold',Arial,Sans-serif;
+    border-bottom: 1px solid black;
+}
+
+#aov-tv tr th:nth-child(2n) {
+    background: #eee;
+}
+
+#aov-tv tr td:first-child {
+    text-align: left;
+}
+
+/*****************************************************************************/

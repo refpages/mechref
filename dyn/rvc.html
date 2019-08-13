@@ -1,0 +1,967 @@
+<!DOCTYPE html>
+<html>
+  <head profile="http://www.w3.org/2005/10/profile">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <meta charset="UTF-8">
+    <title>
+      Calculus and vectors
+    </title>
+    <link href="style.css" type="text/css" rel="stylesheet" />
+    <link href="rvc.css" type="text/css" rel="stylesheet" />
+    <link href="icomoon.css" type="text/css" rel="stylesheet" />
+
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});</script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script src="jquery-1.7.2.min.js" type="text/javascript"></script>
+    <script src="sylvester.js" type="text/javascript"></script>
+    <script src="sha1.js" type="text/javascript"></script>
+    <script src="PrairieDraw.js" type="text/javascript"></script>
+    <script src="rvc.js" type="text/javascript"></script>
+    <script src="pageControl.js" type="text/javascript"></script>
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-37625161-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header"><h1>Dynamics</h1></div>
+      <div id="nav-placeholder"></div>
+	    <script>
+        $(function(){
+          $("#nav-placeholder").load("/nav.html");
+        });
+      </script>
+      <div class="mainBlock">
+    <div class="contentBlock">
+      <div id="rvc" class="contentCol">
+        <h1>
+          Calculus and vectors
+        </h1>
+        <p>
+          Time-dependent vectors can be differentiated in exactly
+          the same way that we differentiate scalar functions. For
+          a time-dependent vector \(\vec{a}(t)\), the
+          derivative \(\dot{\vec{a}}(t)\) is:
+        </p>
+        <div class="envContainer equation" id="rvc-ed">
+          <p class="envHeader">Vector derivative definition.</p>
+          <div class="envBody">
+            <p>
+              \[\begin{aligned} \dot{\vec{a}}(t)
+              &amp;= \frac{d}{dt} \vec{a}(t) = \lim_{\Delta t
+              \to 0} \frac{\vec{a}(t + \Delta t) -
+              \vec{a}(t)}{\Delta t}\end{aligned}\]
+            </p>
+          </div>
+        </div>
+        <p>
+          Note that vector derivatives are a purely geometric
+          concept. They don't rely on any basis or coordinates, but
+          are just defined in terms of the physical actions of adding
+          and scaling vectors.
+        </p>
+        <div class="figureContainer width600" id="rvc-fd">
+          <canvas id="rvc-fd-c" width="600" height="200" class="figureImage">
+          </canvas>
+          <p class="controls">
+            <button class="reset:rvc-fd-c">reset</button>
+            <button class="option-toggle:rvc-fd-c:showLabels">labels</button>
+          </p>
+          <table>
+            <tr>
+              <td>Show:</td>
+              <td>
+                <button class="option-toggle:rvc-fd-c:showIncrement">vector increment $\Delta\vec{a}$</button>
+                <button class="option-toggle:rvc-fd-c:showApproxDeriv">approximate derivative $\Delta\vec{a} / \Delta t$</button>
+                <button class="option-toggle:rvc-fd-c:showExactDeriv">exact derivative $\dot{\vec{a}}$</button>
+              </td>
+            </tr>
+            <tr>
+              <td>Increment:</td>
+              <td>
+                <input type="range" min="0" max="4" value="0" step="0.01" class="data-input:rvc-fd-c:dt" />
+                $\Delta t = $ <span class="data-option:rvc-fd-c:dt"></span> s
+              </td>
+            </tr>
+            <tr>
+              <td>Time:</td>
+              <td>
+                <input type="range" min="0" max="10" value="0" step="0.01" class="data-input:rvc-fd-c:t" />
+                $t = $ <span class="data-option:rvc-fd-c:t"></span> s
+              </td>
+            </tr>
+          </table>
+          <p class="figureCaption">
+            Vector derivatives shown as functions of $t$ and $\Delta
+            t$. We can hold $t$ fixed and vary $\Delta t$ to see how
+            the approximate derivative $\Delta\vec{a}/\Delta t$
+            approaches $\dot{\vec{a}}$. Alternatively, we can hold
+            $\Delta t$ fixed and vary $t$ to see how the approximation
+            changes depending on how $\vec{a}$ is changing.
+          </p>
+        </div>
+        <p>
+          We will use either the dot notation
+          \(\dot{\vec{a}}(t)\) (also known as Newton notation) or the full derivative notation
+          \(\frac{d\vec{a}(t)}{dt}\) (also known as Leibniz notation), depending on which is
+          clearer and more convenient. We will often not write the
+          time dependency explicitly, so we might write just
+          \(\dot{\vec{a}}\) or \(\frac{d\vec{a}}{dt}\). See below for more details.
+        </p>
+      </div>
+    </div>
+    <div class="contentBlock">
+      <div id="rvc-sn" class="contentCol">
+        <h2>
+          Newton versus Leibniz Notation
+        </h2>
+        <p>
+          Most people know who Isaac Newton is, but perhaps fewer 
+          have heard of Gottfried Leibniz. Leibniz was a prolific 
+          mathematician and a contemporary of Newton.  Both of them 
+          claimed to have invented calculus independently of each 
+          other, and this became the source of a bitter rivalry 
+          between the two of them.  Each of them had different 
+          notation for derivatives, and both notations are commonly 
+          used today.
+        </p>
+        <p>
+          Leibniz notation is meant to be reminiscent of the 
+          definition of a derivative:
+        </p>
+        <p>
+          \[\frac{dy}{dt}=\lim_{\Delta t\rightarrow0}\frac{\Delta y}{\Delta t}.\]
+        </p>
+        <p>
+          Newton notation is meant to be compact:
+        </p>
+        <p>
+          \[\dot{y} = \frac{dy}{dt}.\]
+        </p>
+        <p>
+          Note that a superscribed dot always denotes differentiation 
+          with respect to time $t$.  A superscribed dot is never used 
+          to denote differentiation with respect to any other variable, 
+          such as $x$.
+        </p>
+        <p>
+          But what about primes? A prime is used to denote differentiation 
+          with respect to a function's argument.  For example, suppose 
+          we have a function $f=f(x)$.  Then
+        </p>
+        <p>
+          \[f'(x) = \frac{df}{dx}.\]
+        </p>
+        <p>
+          Suppose we have another function $g=g(s)$. Then
+        </p>
+        <p>
+          \[g'(s) = \frac{dg}{ds}.\]
+        </p>
+        <p>
+          As you can see, while a superscribed dot always denotes 
+          differentiation with respect to time $t$, a prime can denote 
+          differentiation with respect to any variable; but that variable 
+          is always the function's argument.
+        </p>
+        <p>
+          Sometimes, for convenience, we drop the argument altogether.  So, 
+          if we know that $y=y(x)$, then $y'$ is understood to be the same 
+          as $y'(x)$.  This is sloppy, but it is very common in practice.
+        </p>
+        <p>
+          Each notation has advantages and disadvantages.  The main advantage 
+          of Newton notation is that it is compact: it does not take a lot of 
+          effort to write a dot or a prime over a variable.  However, the price 
+          you pay for convenience is clarity.  The main advantage of Leibniz 
+          notation is that it is absolutely clear exactly which variable you are 
+          differentiating with respect to.  
+        </p>
+        <p>
+          Leibniz notation is also very convenient for remembering the chain rule.  
+          Consider the following examples of the chain rule in the two notations:
+        </p>
+        <p>
+          \[\begin{aligned}&amp;\text{Newton:}&amp;\dot{y}=y'(x)\dot{x} \\
+            &amp;\text{Leibniz:}&amp;\frac{dy}{dt}=\frac{dy}{dx}\frac{dx}{dt}.\end{aligned}\]
+        </p>
+        <p>
+          Notice how, with Leibniz notation, you can imagine the $dx$'s "cancelling 
+          out" on the right-hand side, leaving you with $dy/dt$.
+        </p>
+      </div>
+    </div>
+    <div class="contentBlock">
+      <div id="rvc-sp" class="contentCol">
+        <h2>
+          Derivatives and vector “positions”
+        </h2>
+        <p>
+          When thinking about vector derivatives, it is important to
+          remember that vectors <a href="rvv.html#rvv-fc">don't have
+          positions</a>. Even if a vector is drawn moving about, this
+          is irrelevant for the derivative.  Only changes to length
+          and direction are important.
+        </p>
+        <div class="figureContainer width600" id="rvc-fp">
+          <canvas id="rvc-fp-c" width="600" height="400" class="figureImage">
+          </canvas>
+          <p class="controls">
+            <button class="anim-toggle:rvc-fp-c">animate</button>
+            <button class="reset:rvc-fp-c">reset</button>
+          </p>
+          <p class="controls">
+            Show:
+            <button class="option-toggle:rvc-fp-c:showVelocity0">derivative at $t = 0$</button>
+            <button class="option-toggle:rvc-fp-c:showFixedBase">$\vec{a}(t)$ with fixed base</button>
+            <button class="option-toggle:rvc-fp-c:showVelocity">derivative at current $t$</button>
+          </p>
+          <p class="controls">
+            Movement:
+            <input type="radio" name="rvc-fp-c-movement" value="bounce" class="data-input:rvc-fp-c:movement" />
+            bounce
+            <input type="radio" name="rvc-fp-c-movement" value="stretch" class="data-input:rvc-fp-c:movement" />
+            stretch
+            <input type="radio" name="rvc-fp-c-movement" value="circle" class="data-input:rvc-fp-c:movement" />
+            circle
+            <input type="radio" name="rvc-fp-c-movement" value="twist" class="data-input:rvc-fp-c:movement" />
+            twist
+            <input type="radio" name="rvc-fp-c-movement" value="slider" class="data-input:rvc-fp-c:movement" />
+            slider
+            <input type="radio" name="rvc-fp-c-movement" value="rotate" class="data-input:rvc-fp-c:movement" />
+            rotate
+            <input type="radio" name="rvc-fp-c-movement" value="vertical" class="data-input:rvc-fp-c:movement" />
+            vertical
+            <input type="radio" name="rvc-fp-c-movement" value="fly" class="data-input:rvc-fp-c:movement" />
+            fly
+          </p>
+          <p class="figureCaption">
+            Vector derivatives for moving vectors. Vector movement is
+            irrelevant when computing vector derivatives.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="contentBlock">
+      <div id="rvc-sc" class="contentCol">
+        <h2>
+          Derivatives in components
+        </h2>
+        <p>
+          In a fixed basis we differentiate a vector by
+          differentiating each component:
+        </p>
+        <div class="envContainer equation" id="rvc-ec">
+          <p class="envHeader">Vector derivative in components</p>
+          <div class="envBody">
+            <p>
+              \[\dot{\vec{a}}(t) = \dot{a}_1(t)
+              \,\hat{\imath} + \dot{a}_2(t)
+              \,\hat{\jmath} + \dot{a}_3(t) \,\hat{k}\]
+            </p>
+          </div>
+        </div>
+        <div class="envContainer derivation">
+          <div class="envBody">
+            <p>
+              Writing a time-dependent vector expression in a fixed basis gives:
+
+              \[\vec{a}(t) = a_1(t)\,\hat{\imath} + a_2(t) \,\hat{\jmath}.\]
+
+              Using the definition <a href="#rvc-ed">#rvc-ed</a> of
+              the vector derivative gives:
+
+              \[\begin{aligned}
+              \dot{\vec{a}}(t) &amp;= \lim_{\Delta t \to 0}
+              \frac{\vec{a}(t + \Delta t) -
+              \vec{a}(t)}{\Delta t} \\ &amp;= \lim_{\Delta t
+              \to 0} \frac{(a_1(t + \Delta t) \,\hat{\imath} +
+              a_2(t + \Delta t) \,\hat{\jmath}) - (a_1(t)
+              \,\hat{\imath} + a_2(t) \,\hat{\jmath})}{\Delta t} \\
+              &amp;= \lim_{\Delta t \to 0} \frac{(a_1(t + \Delta t)
+              - a_1(t)) \,\hat{\imath} + (a_2(t + \Delta t) -
+              a_2(t)) \,\hat{\jmath}}{\Delta t} \\ &amp;=
+              \left(\lim_{\Delta t \to 0} \frac{a_1(t + \Delta t) -
+              a_1(t)}{\Delta t} \right) \,\hat{\imath} +
+              \left(\lim_{\Delta t \to 0} \frac{a_2(t + \Delta t) -
+              a_2(t) }{\Delta t}\right) \,\hat{\jmath} \\ &amp;=
+              \dot{a}_1(t) \,\hat{\imath} + \dot{a}_2(t)
+              \,\hat{\jmath}
+              \end{aligned}\]
+
+              The second-to-last line above is simply the definition
+              of the scalar derivative, giving the scalar derivatives
+              of the component functions $a_1(t)$ and $a_2(t)$.
+            </p>
+          </div>
+        </div>
+        <div class="envContainer warning" id="rvc-wc">
+          <p class="envHeader">
+            Warning: Differentiating each component is only valid if the basis is fixed.
+          </p>
+          <div class="envBody">
+            <p>
+              When we differentiate a vector by differentiating each
+              component and leaving the basis vectors unchanged, we
+              are assuming that the basis vectors themselves are not
+              changing with time. If they are, then we need to <a
+              href="rkv.html#rkv-sb">take this into account</a> as
+              well.
+            </p>
+          </div>
+        </div>
+        <div class="figureContainer width600" id="rvc-fc">
+          <canvas id="rvc-fc-c" width="600" height="400" class="figureImage">
+          </canvas>
+          <p class="controls">
+            <button class="reset:rvc-fc-c">reset</button>
+            <button class="option-toggle:rvc-fc-c:showLabels">labels</button>
+          </p>
+          <table>
+            <tr>
+              <td>Time:</td>
+              <td>
+                <input type="range" min="0" max="10" value="0" step="0.01" class="data-input:rvc-fc-c:t" />
+                $t = $ <span class="data-option:rvc-fc-c:t"></span> s
+              </td>
+            </tr>
+            <tr>
+              <td>Show:</td>
+              <td>
+                <button class="option-toggle:rvc-fc-c:showVelocity">derivative</button>
+                <button class="option-toggle:rvc-fc-c:showComponent1">first component</button>
+                <button class="option-toggle:rvc-fc-c:showComponent2">second component</button>
+              </td>
+            </tr>
+            <tr>
+              <td>Basis:</td>
+              <td>
+                <input type="radio" name="rvc-fc-c-basis" value="ij" class="data-input:rvc-fc-c:basis" />
+                $\hat\imath,\hat\jmath$
+                <input type="radio" name="rvc-fc-c-basis" value="uv" class="data-input:rvc-fc-c:basis" />
+                $\hat{u},\hat{v}$
+              </td>
+            </tr>
+          </table>
+          <p class="figureCaption">
+            The vector derivative decomposed into components. This
+            demonstrates graphically that each component of a vector
+            in a particular basis is simply a scalar function, and the
+            corresponding derivative component is the regular scalar
+            derivative.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="contentBlock">
+      <div id="rvc-se" class="contentCol">
+        <h2>
+          Differentiating vector expressions
+        </h2>
+        <p>
+          We can also differentiate complex vector expressions, using
+          the sum and product rules. For vectors, the product rule
+          applies to both the dot and cross products:
+        </p>
+        <div class="envContainer equation" id="rvc-ep">
+          <p class="envHeader">Product rule for dot-product derivatives.</p>
+          <div class="envBody">
+            <p>
+              \[\frac{d}{dt}(\vec{a} \cdot \vec{b}) = \dot{\vec{a}}
+              \cdot \vec{b} + \vec{a} \cdot \dot{\vec{b}}\]
+            </p>
+          </div>
+        </div>
+        <div class="envContainer equation" id="rvc-ex">
+          <p class="envHeader">Product rule for cross-product derivatives.</p>
+          <div class="envBody">
+            <p>
+              \[\frac{d}{dt}(\vec{a} \times \vec{b}) = \dot{\vec{a}}
+              \times \vec{b} + \vec{a} \times \dot{\vec{b}}\]
+            </p>
+          </div>
+        </div>
+        <div class="envContainer exampleProblem" id="rvc-xe">
+          <p class="envHeader">
+            Example Problem: Differentiating vector product
+            expressions.
+          </p>
+          <div class="envBody">
+            <div class="question">
+              <p>
+                What is $\displaystyle \frac{d}{dt} \left( \frac{\vec{b}}{\ell}
+                \cdot (\vec{a} + \vec{a} \times \vec{c}) \right)$?
+              </p>
+            </div>
+            <div class="envContainer solution">
+              <div class="envBody">
+                <p>
+                  \[\begin{aligned}
+                  \frac{d}{dt} \left( \frac{\vec{b}}{\ell} \cdot
+                  (\vec{a} + \vec{a} \times \vec{c}) \right)
+                  &amp;= \left(\frac{d}{dt}
+                  \frac{\vec{b}}{\ell}\right) \cdot (\vec{a} + \vec{a}
+                  \times \vec{c}) + \frac{\vec{b}}{\ell} \cdot \frac{d}{dt}
+                  (\vec{a} + \vec{a} \times \vec{c}) \\
+                  &amp;= \left(\frac{\ell \dot{\vec{b}} -
+                  \dot{\ell}\vec{b}}{\ell^2}\right) \cdot (\vec{a} +
+                  \vec{a} \times \vec{c}) + \frac{\vec{b}}{\ell} \cdot
+                  (\dot{\vec{a}} + \dot{\vec{a}} \times \vec{c} +
+                  \vec{a} \times \dot{\vec{c}})
+                  \end{aligned}\]
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <p>
+          The chain rule also applies to vector functions. This is
+          helpful for parameterizing vectors in terms of arc-length
+          $s$ or other quantities different than time $t$.
+        </p>
+        <div class="envContainer equation" id="rvc-er">
+          <p class="envHeader">Chain rule for vectors.</p>
+          <div class="envBody">
+            <p>
+              \[\frac{d}{dt} \vec{a} (s(t)) = \frac{d\vec{a}}{ds}
+              (s(t)) \frac{ds}{dt}(t) = \frac{d\vec{a}}{ds} \dot{s}\]
+            </p>
+          </div>
+        </div>
+        <div class="envContainer exampleProblem" id="rvc-er">
+          <p class="envHeader">
+            Example Problem: Chain rule.
+          </p>
+          <div class="envBody">
+            <div class="question">
+              <p>
+                A vector is defined in terms of an angle $\theta$ by
+                $\vec{r}(\theta) = \cos\theta\,\hat\imath +
+                \sin\theta\,\hat\jmath$. If the angle is given by
+                $\theta(t) = t^3$, what is $\dot{\vec{r}}$?
+              </p>
+            </div>
+            <div class="envContainer solution">
+              <div class="envBody">
+                <p>
+                  We can use the chain rule to compute:
+
+                  \[\begin{aligned}
+                  \frac{d}{dt} \vec{r}
+                  &amp;= \frac{d}{d\theta} \vec{r} \frac{d}{dt} \theta \\
+                  &amp;= \frac{d}{d\theta}\Big( \cos\theta\,\hat\imath
+                  + \sin\theta\,\hat\jmath \Big) \frac{d}{dt} (t^3) \\
+                  &amp;= \Big( -\sin\theta\,\hat\imath +
+                  \cos\theta\,\hat\jmath \Big) (3 t^2) \\
+                  &amp;= -3 t^2 \sin(t^3)\,\hat\imath + 3 t^2
+                  \cos(t^3)\,\hat\jmath.
+                  \end{aligned}\]
+                </p>
+                <p>
+                  Alternatively, we can evaluate $\vec{r}$ as a
+                  function of $t$ first and then differentiate it with
+                  respect to time, using the scalar chain rule for
+                  each component:
+
+                  \[\begin{aligned}
+                  \frac{d}{dt} \vec{r}
+                  &amp;= \frac{d}{dt} \Big( \cos(t^3)\,\hat\imath +
+                  \sin(t^3)\,\hat\jmath \Big) \\
+                  &amp;= -3 t^2 \sin(t^3)\,\hat\imath + 3 t^2
+                  \cos(t^3)\,\hat\jmath.
+                  \end{aligned}\]
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="infoCol">
+        <div class="infoBox factBox" id="rvc-il">
+          <p>
+            <a
+            href="http://en.wikipedia.org/wiki/Gottfried_Wilhelm_Leibniz">Gottfried
+            Leibniz</a>, one of the two co-inventors of calculus, got the
+            product rule wrong [<a
+            href="http://books.google.com/books?id=bOIGAAAAYAAJ&amp;pg=PA100#v=onepage">Child,
+            1920, page 100</a>; Cirillo, 2007]. In modern notation he
+            computed the example
+
+            \[\frac{d}{dx}(x^2 + bx)(cx + d) = (2x + b)c\]
+
+            and he stated that in general it was obvious that
+
+            \[\frac{d}{dx} (f g) = \frac{df}{dx} \frac{dg}{dx}.\]
+
+            He later realized his error and corrected it [Cupillari,
+            2004], but at least we know that product rules are tricky
+            and not obvious, even for someone smart enough to invent
+            calculus.
+          </p>
+          <div class="references">
+            <h3>References</h3>
+            <ul class="references">
+              <li>
+                J. M. Child.
+                <i>The Early Mathematical Manuscripts of Leibniz</i>.
+                Open Court Publishing, 1920.
+                (<a href="http://books.google.com/books?id=bOIGAAAAYAAJ">Google ebook</a>,
+                <a href="rvc_Child_1920.pdf">local copy</a>).
+              </li>
+              <li>
+                M. Cirillo.
+                Humanizing Calculus.
+                <i>The Mathematics Teacher</i>, 101(1):23–27, 2007.
+                (<a href="http://www.nctm.org/uploadedFiles/Articles_and_Journals/Mathematics_Teacher/Humanizing%20Calculus.pdf">NCTM version</a>,
+                <a href="rvc_Humanizing_Calculus.pdf">local copy</a>)
+              </li>
+              <li>
+                A. Cupillari.
+                Another look at the rules of differentiation.
+                <i>Primus: Problems, Resources, and Issues in Mathematics Undergraduate Studies</i>, 14(3):193–200, 2004.
+                DOI: <a href="http://dx.doi.org/10.1080/10511970408984087">10.1080/10511970408984087</a>.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="contentBlock">
+      <div id="rvc-sm" class="contentCol">
+        <h2>
+          Derivative of magnitude versus magnitude of derivative
+        </h2>
+        <p>
+          Because we often denote the magnitude of a vector by dropping 
+          the superscribed arrow, i.e.,
+        </p>
+        <p>
+          \[a = \left\|\vec{a}\right\|,\]
+        </p>
+        <p>
+          you might be tempted to think that 
+          $\dot{a}=\left\|\dot{\vec{a}}\right\|$. However,
+          that is not the case. By definition,
+        </p>
+        <p>
+          \[\dot{a}=\frac{d}{dt}\left\|\vec{a}\right\|,\]
+        </p>
+        <p>
+          whereas
+        </p>
+        <p>
+          \[\left\|\dot{\vec{a}}\right\|=\left\|\frac{d\vec{a}}{dt}\right\|.\]
+        </p>
+        <p>
+          And these two quantities are not, in general, equal:
+        </p>
+        <p>
+          \[\left\|\frac{d\vec{a}}{dt}\right\|\neq\frac{d}{dt}\left\|\vec{a}\right\|.\]
+        </p>
+        <p>
+          This result should be familiar to you. Consider the case of
+          uniform circular motion, in which a particle moves in a circle
+          of radius $R$ with constant speed $v$. We know that, even though the speed of the 
+          particle is constant, the acceleration of the particle
+          is not zero. In particular, the acceleration is centripetal
+          (i.e., it points toward the center of the circle) and has
+          magnitude $v^{2}/R$. Hence, even though 
+          $\frac{d}{dt}\left\|\vec{v}\right\|=0$,
+          we have that $\left\|\frac{d\vec{v}}{dt}\right\|=v^{2}/R\neq0$.
+          It follows that $\dot{v}\neq a$.
+        </p>
+        <p>
+          In general, given any vector $\vec{u}$ and any scalar $s$,
+        </p>
+        <p>
+          \[\left\|\frac{d\vec{u}}{ds}\right\|\neq\frac{d}{ds}\left\|\vec{u}\right\|.\]
+        </p>
+        <p>
+          In words, “The magnitude of a derivative is not, in general, 
+          equal to the derivative of a magnitude.”  Informally, you 
+          cannot “pull” a derivative out of a magnitude (or vice versa).
+        </p>
+    <div class="contentBlock">
+      <div id="rvc-sd" class="contentCol">
+        <h2>
+          Changing lengths and directions
+        </h2>
+        <p>
+          Two useful derivatives are the rates of change of a vector's
+          length and direction:
+        </p>
+        <div class="envContainer equation" id="rvc-el">
+          <p class="envHeader">Derivative of vector length.</p>
+          <div class="envBody">
+            <p>
+              \[\dot{a} = \dot{\vec{a}} \cdot \hat{a}\]
+            </p>
+          </div>
+        </div>
+        <div class="envContainer derivation">
+          <div class="envBody">
+            <p>
+              We start with the dot product expression <a
+              href="rvv.html#rvv-ed">#rvv-ed</a> for length and
+              differentiate it:
+            </p>
+            <p>
+              \[\begin{aligned} a &amp;= \sqrt{\vec{a} \cdot
+              \vec{a}} \\ \frac{d}{dt} a &amp;= \frac{d}{dt}
+              \big( (\vec{a} \cdot \vec{a})^{1/2}
+              \big) \\ \dot{a} &amp;= \frac{1}{2} (\vec{a}
+              \cdot \vec{a})^{-1/2} (\dot{\vec{a}}
+              \cdot \vec{a} + \vec{a} \cdot
+              \dot{\vec{a}}) \\ &amp;= \frac{1}{2\sqrt{a^2}}
+              (2 \dot{\vec{a}} \cdot \vec{a}) \\
+              &amp;= \dot{\vec{a}} \cdot
+              \hat{a}.\end{aligned}\]
+            </p>
+          </div>
+        </div>
+        <div class="envContainer equation" id="rvc-eu">
+          <p class="envHeader">Derivative of vector direction.</p>
+          <div class="envBody">
+            <p>
+              \[\dot{\hat{a}} = \frac{1}{a}
+              \operatorname{Comp}(\dot{\vec{a}}, \vec{a})\]
+            </p>
+          </div>
+        </div>
+        <div class="envContainer derivation">
+          <div class="envBody">
+            <p>
+              We take the definition <a
+              href="rvv.html#rvv-eu">#rvv-eu</a> for the unit vector
+              and differentiate it:
+            </p>
+            <p>
+              \[\begin{aligned} \hat{a} &amp;=
+              \frac{\vec{a}}{a} \\ \frac{d}{dt} \hat{a}
+              &amp;=
+              \frac{d}{dt}\left(\frac{\vec{a}}{a}\right) \\
+              \dot{\hat{a}} &amp;= \frac{\dot{\vec{a}} a -
+              \vec{a} \dot{a}}{a^2} \\ &amp;=
+              \frac{\dot{\vec{a}}}{a} -
+              \frac{\dot{\vec{a}} \cdot \hat{a}}{a^2}
+              \vec{a} \\ &amp;= \frac{1}{a} \big(
+              \dot{\vec{a}} - (\dot{\vec{a}} \cdot
+              \hat{a}) \hat{a} \big)\\ &amp;= \frac{1}{a}
+              \operatorname{Comp}(\dot{\vec{a}},
+              \vec{a}).\end{aligned}\]
+
+              Here we observed at the end that we had the expression
+              <a href="rvv.html#rvv-em">#rvv-em</a> for the
+              complementary projection of the derivative
+              $\dot{\vec{a}}$ with respect to $\vec{a}$ itself.
+            </p>
+          </div>
+        </div>
+        <p>
+          An immediate consequence of the derivative of direction
+          formula is that the derivative of a unit vector is always
+          orthogonal to the unit vector:
+        </p>
+        <div class="envContainer equation" id="rvc-eu">
+          <p class="envHeader">Derivative of unit vector is orthogonal.</p>
+          <div class="envBody">
+            <p>
+              \[\dot{\hat{a}} \cdot \hat{a} = 0\]
+            </p>
+          </div>
+        </div>
+        <div class="envContainer derivation">
+          <div class="envBody">
+            <p>
+              From <a href="#rvc-eu">#rvc-eu</a> we know that
+              $\dot{\hat{a}}$ is in the direction of
+              $\operatorname{Comp}(\dot{\vec{a}}, \vec{a})$, and from
+              <a href="rvv.html#rvv-er">#rvv-er</a> we know that this
+              is orthogonal to $\vec{a}$ (and also $\hat{a}$).
+            </p>
+          </div>
+        </div>
+        <p>
+          Recall that we can always write a vector as the <a
+          href="rvv.html#rvv-ei">product of its length and
+          direction</a>, so $\vec{a} = a \hat{a}$. This gives the
+          following decomposition of the derivative of $\vec{a}$.
+        </p>
+        <div class="envContainer equation" id="rvc-em">
+          <p class="envHeader">Vector derivative decomposition.</p>
+          <div class="envBody">
+            <p>
+              \[\begin{aligned} \dot{\vec{a}} &amp;=
+              \underbrace{\dot{a}
+              \hat{a}}_{\operatorname{Proj}(\dot{\vec{a}},
+              \vec{a})} + \underbrace{a
+              \dot{\hat{a}}}_{\operatorname{Comp}(\dot{\vec{a}},
+              \vec{a})}\end{aligned}\]
+            </p>
+          </div>
+        </div>
+        <div class="envContainer derivation">
+          <div class="envBody">
+            <p>
+              Differentiating $\vec{a} = a \hat{a}$ and substituting
+              in <a href="#rvv-el">#rvv-el</a> and <a
+              href="#rvv-eu">#rvv-eu</a> gives
+
+              \[\begin{aligned}
+              \dot{\vec{a}}
+              &amp;= \dot{a} \hat{a} + a \dot{\hat{a}} \\
+              &amp;= ( \dot{\vec{a}} \cdot \hat{a} ) \hat{a} + a
+              \frac{1}{a} \operatorname{Comp}(\dot{\vec{a}}, \hat{a}) \\
+              &amp;= \operatorname{Proj}(\dot{\vec{a}}, \vec{a})
+              + \operatorname{Comp}(\dot{\vec{a}}, \vec{a}).
+              \end{aligned}\]
+            </p>
+          </div>
+        </div>
+        <p>
+        </p>
+        <div class="figureContainer width600" id="rvc-fm">
+          <canvas id="rvc-fm-c" width="600" height="300" class="figureImage">
+          </canvas>
+          <p class="controls">
+            <button class="anim-toggle:rvc-fm-c">animate</button>
+            <button class="reset:rvc-fm-c">reset</button>
+            <button class="option-toggle:rvc-fm-c:showLabels">labels</button>
+          </p>
+          <p class="controls">
+            Show:
+            <button class="option-toggle:rvc-fm-c:showVelocity">derivative $\dot{\vec{a}}$</button>
+            <button class="option-toggle:rvc-fm-c:showVelocityDecomp">derivative decomposition</button>
+          </p>
+          <p class="figureCaption">
+            Vector derivatives can be decomposed into length changes
+            (projection onto $\vec{a}$) and direction changes
+            (complementary projection). Compare to Figure <a
+            href="rvv.html#rvv-fu">#rvv-fu</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="contentBlock">
+      <div id="rvc-si" class="contentCol">
+        <h2>
+          Integrating vector functions
+        </h2>
+        <p>
+          The Riemann-sum definition of the vector integral is:
+        </p>
+        <div class="envContainer equation" id="rvc-ei">
+          <p class="envHeader">Vector integral.</p>
+          <div class="envBody">
+            <p>
+              \[
+              \int_0^t \vec{a}(\tau) \, d\tau
+              = \lim_{N \to \infty} \underbrace{\sum_{i=1}^N \vec{a}(\tau_i) \Delta\tau}_{\vec{S}_N}
+              \qquad \tau_i = \frac{i - 1}{N}
+              \qquad \Delta \tau = \frac{1}{N}
+              \]
+            </p>
+          </div>
+        </div>
+        <p>
+          In the above definition $\vec{S}_N$ is the sum with $N$
+          intervals, written here using the left-hand edge $\tau_i$ in
+          each interval.
+        </p>
+        <div class="figureContainer width600" id="rvc-fi">
+          <canvas id="rvc-fi-c" width="600" height="400" class="figureImage">
+          </canvas>
+          <p class="controls">
+            <button class="reset:rvc-fi-c">reset</button>
+            <button class="option-toggle:rvc-fi-c:showLabels">labels</button>
+          </p>
+          <table>
+            <tr>
+              <td>Time:</td>
+              <td>
+                <input type="range" min="0" max="10" value="0" step="0.01" class="data-input:rvc-fi-c:t" />
+                $t = $ <span class="data-option:rvc-fi-c:t"></span> s
+              </td>
+            </tr>
+            <tr>
+              <td>Show:</td>
+              <td>
+                <button class="option-toggle:rvc-fi-c:showExact">integral of $\vec{a}(t)$</button>
+                <button class="option-toggle:rvc-fi-c:showApprox">approximate integral</button>
+              </td>
+            </tr>
+            <tr>
+              <td>Segments:</td>
+              <td>
+                <input type="range" min="0" max="4.61" value="0" step="0.01" class="data-input:rvc-fi-c:logN" />
+                $N = $ <span class="data-option:rvc-fi-c:N"></span>
+              </td>
+            </tr>
+          </table>
+          <p class="figureCaption">
+            Integral of a vector function $\vec{a}(t)$, together with
+            the approximation using a Riemann sum.
+          </p>
+        </div>
+        <p>
+          Just like vector derivatives, vector integrals only use the
+          geometric concepts of scaling and addition, and do not rely
+          on using a basis. If we do write a vector function in terms
+          of a fixed basis, then we can integrate each component:
+        </p>
+        <div class="envContainer equation" id="rvc-et">
+          <p class="envHeader">Vector integral in components.</p>
+          <div class="envBody">
+            <p>
+              \[
+              \int_0^t \vec{a}(\tau) \, d\tau
+              = \left( \int_0^t a_1(\tau) \, d\tau \right) \,\hat\imath
+              + \left( \int_0^t a_2(\tau) \, d\tau \right) \,\hat\jmath
+              + \left( \int_0^t a_3(\tau) \, d\tau \right) \,\hat{k}
+              \]
+            </p>
+          </div>
+        </div>
+        <div class="envContainer derivation">
+          <div class="envBody">
+            <p>
+              Consider a time-dependent vector $\vec{a}(t)$ written in
+              components with a fixed basis:
+
+              \[\vec{a}(t) = a_1(t) \,\hat\imath + a_2(t) \,\hat\jmath.\]
+
+              Using the definition <a href="#rvc-ei">#rvc-ei</a> of
+              the vector integral gives:
+
+              \[\begin{aligned}
+              \int_0^t \vec{a}(\tau) \, d\tau
+              &amp;= \lim_{N \to \infty} \sum_{i=1}^N
+              \vec{a}(\tau_i) \Delta\tau \\
+              &amp;= \lim_{N \to \infty} \sum_{i=1}^N
+              \left( a_1(\tau_i) \,\hat\imath
+              + a_2(\tau_j) \,\hat\jmath \right) \Delta\tau \\
+              &amp;= \lim_{N \to \infty} \left( \sum_{i=1}^N
+              a_1(\tau_i) \Delta\tau \,\hat\imath
+              + \sum_{i=1}^N a_2(\tau_j) \Delta\tau \,\hat\jmath \right) \\
+              &amp;= \left( \lim_{N \to \infty} \sum_{i=1}^N
+              a_1(\tau_i) \Delta\tau \right) \,\hat\imath
+              + \left( \lim_{N \to \infty}
+              \sum_{i=1}^N a_2(\tau_j) \Delta\tau \right) \,\hat\jmath \\
+              &amp;= \left( \int_0^t a_1(\tau) \, d\tau \right) \,\hat\imath
+              + \left( \int_0^t a_2(\tau) \, d\tau \right) \,\hat\jmath.
+              \end{aligned}\]
+
+              The second-to-last line used the Riemann-sum definition
+              of regular scalar integrals of $a_1(t)$ and $a_2(t)$.
+            </p>
+          </div>
+        </div>
+        <div class="envContainer warning" id="rvc-wi">
+          <p class="envHeader">
+            Warning: Integrating each component is only valid if the basis is fixed.
+          </p>
+          <div class="envBody">
+            <p>
+              Integrating a vector function by integrating each
+              component separately is only valid if the basis vectors
+              are not changing with time. If the basis vectors are
+              changing then we must either transform to a fixed basis
+              or otherwise take this change into account.
+            </p>
+          </div>
+        </div>
+        <div class="envContainer exampleProblem" id="rvc-xi">
+          <p class="envHeader">
+            Example Problem: Integrating a vector function.
+          </p>
+          <div class="envBody">
+            <div class="question">
+              <p>
+                The vector $\vec{a}(t)$ is given by
+
+                \[
+                \vec{a}(t) = 
+                \Big(2 \sin(t + 1) + t^2 \Big) \,\hat\imath
+                + \Big(3 - 3 \cos(2t)\Big) \,\hat\jmath.
+                \]
+
+                What is $\int_0^t \vec{a}(\tau) \, d\tau$?
+              </p>
+            </div>
+            <div class="envContainer solution">
+              <div class="envBody">
+                <p>
+                  \[\begin{aligned}
+                  \int_0^t \vec{a}(\tau) \,d\tau
+                  &amp;= 
+                  \left(\int_0^t \Big(2 \sin(\tau + 1) + \tau^2 \Big)
+                  \,d\tau\right) \,\hat\imath
+                  + \left(\int_0^t \Big(3 - 3 \cos(2\tau)\Big)
+                  \,d\tau\right) \,\hat\jmath \\
+                  &amp;=
+                  \left[-2 \cos(\tau + 1) + \frac{\tau^3}{3}
+                  \right]_{\tau=0}^{\tau=t} \,\hat\imath
+                  + \left[3 \tau - \frac{3}{2} \sin(2\tau)
+                  \right]_{\tau=0}^{\tau=t} \,\hat\jmath \\
+                  &amp;= \left( -2\cos(t + 1) + 2 \cos(1)
+                  + \frac{t^3}{3}\right)\,\hat\imath
+                  + \left(3t - \frac{3}{2} \sin(2t)\right)
+                  \,\hat\jmath.
+                  \end{aligned}\]
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="envContainer warning" id="rvc-wd">
+          <p class="envHeader">
+            Warning: The dummy variable of integration must be different to the limit variable.
+          </p>
+          <div class="envBody">
+            <p>
+              In the coordinate integral expression <a
+              href="#rvc-ei">#rvc-ei</a>, it is important that the
+              component expressions $a_1(t)$, $a_2(t)$ are re-written
+              with a different dummy variable such as $\tau$ when
+              integrating. If we used $\tau$ for integration but kept
+              $a_1(t)$ then we would obtain
+
+              \[
+              \int_0^t a_1(t) \,d\tau
+              = \left[a_1(t) \, \tau\right]_{\tau = 0}^{\tau = t}
+              = a_1(t) \, t,
+              \]
+
+              which is not what we mean by the integral.
+
+              Alternatively, if we leave everything as $t$ then we
+              would obtain
+
+              \[
+              \int_0^t a_1(t) \,dt
+              \]
+
+              which is a meaningless expression, as dummy variables
+              must only appear inside an integral.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+      <div class="footer">
+        <p class="copyright">Copyright (C) 2012-2015 Matthew West</p>
+      </div>
+    </div>
+  </body>
+</html>

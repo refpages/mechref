@@ -1,0 +1,1350 @@
+<!DOCTYPE html>
+<html>
+  <head profile="http://www.w3.org/2005/10/profile">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <meta charset="UTF-8">
+    <title>Vectors and bases</title>
+    <link href="style.css" type="text/css" rel="stylesheet" />
+    <link href="icomoon.css" type="text/css" rel="stylesheet" />
+
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});</script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script src="jquery-1.7.2.min.js" type="text/javascript"></script>
+    <script src="sylvester.js" type="text/javascript"></script>
+    <script src="sha1.js" type="text/javascript"></script>
+    <script src="PrairieDraw.js" type="text/javascript"></script>
+    <script src="rvv_py_triples.js" type="text/javascript"></script>
+    <script src="rvv.js" type="text/javascript"></script>
+    <script src="pageControl.js" type="text/javascript"></script>
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-37625161-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header"><h1>Dynamics</h1></div>
+      <div id="nav-placeholder"></div>
+	    <script>
+        $(function(){
+          $("#nav-placeholder").load("/nav.html");
+        });
+      </script>
+      <div class="mainBlock">
+    <div class="contentBlock">
+      <div id="rvv" class="contentCol">
+        <h1>
+          Vectors and bases
+        </h1>
+        <p>
+          A <em>vector</em> is an arrow with a length and a
+          direction. Just like positions, vectors exist before we
+          measure or describe them. Unlike positions, vectors can
+          mean many different things, such as position vectors,
+          velocities, etc. Vectors are not anchored to particular
+          positions in space, so we can slide a vector around and
+          locate it at any position.
+        </p>
+        <div class="figureContainer width400" id="rvv-fc">
+          <canvas id="rvv-fc-c" width="400" height="200" class="figureImage">
+          </canvas>
+          <p class="controls">
+            <button class="anim-toggle:rvv-fc-c">animate</button>
+            <button class="reset:rvv-fc-c">reset</button>
+            Change:
+            <button class="option-toggle:rvv-fc-c:otherLength">length</button>
+            <button class="option-toggle:rvv-fc-c:otherDir">direction</button>
+          </p>
+          <p class="figureCaption">
+            Two vectors, which may or may not be the same
+            vector. Moving a vector around does not change it: it is
+            still the same vector.
+          </p>
+        </div>
+      </div>
+      <div class="infoCol">
+        <div class="infoBox notationBox">
+          <p>
+            Some textbooks differentiate between <em>free
+            vectors</em>, which are free to slide around, and
+            <em>bound vectors</em>, which are anchored in space. We
+            will only use free vectors.
+          </p>
+        </div>
+        <div class="infoBox notationBox">
+          <p>
+            We will use the over-arrow notation $\vec{a}$ for vector
+            quantities. Other common notations include bold
+            $\boldsymbol{a}$ and under-bars $\underline{a}$. For unit
+            (length one) vectors we will use an over-hat $\hat{a}$.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="contentBlock">
+      <div id="rvv-sa" class="contentCol">
+        <h2>
+          Adding and scaling vectors
+        </h2>
+        <p>
+          Vectors can be multiplied by a scalar number, which
+          multiplies their length. Vectors can also be added
+          together, using the <em>parallelogram law of
+          addition</em> or the <em>head-to-tail</em> rule.
+        </p>
+        <div class="figureContainer width600" id="rvv-fp">
+          <canvas id="rvv-fp-c" width="600" height="200" class="figureImage">
+          </canvas>
+          <p class="figureCaption">
+            Adding and scaling vectors to give new vectors.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="contentBlock">
+      <div id="rvv-sv" class="contentCol">
+        <h2>
+          Vector bases
+        </h2>
+        <p>
+          To describe vectors mathematically, we write them as a
+          combination of <em>basis vectors</em>. An <em>orthonormal
+          basis</em> is a set of two (in 2D) or three (in 3D) basis
+          vectors which are <em>orthogonal</em> (have 90°
+          angles between them) and <em>normal</em> (have length equal
+          to one). We will not be using non-orthogonal or non-normal
+          bases.
+        </p>
+        <p>
+          Any other vector can be written as a <em>linear
+          combination</em> of the basis vectors:
+        </p>
+        <div class="envContainer equation" id="rvv-ec">
+          <p class="envHeader">Components of a vector.</p>
+          <div class="envBody">
+            <p>
+              \[\vec{a} = a_1 \,\hat{\imath}
+              + a_2 \,\hat{\jmath} + a_3 \,\hat{k}\]
+            </p>
+          </div>
+        </div>
+        <p>
+          The numbers $a_1, a_2, a_3$ are called the
+          <em>components</em> of $\vec{a}$ in the $\,\hat{\imath},
+          \hat{\jmath}, \hat{k}$ basis. If we are in 2D then we will
+          only have two components for a vector.
+        </p>
+        <div class="figureContainer width600" id="rvv-fb">
+          <canvas id="rvv-fb-c" width="300" height="200" class="figureImage">
+          </canvas>
+          <p class="figureCaption">
+            Writing a vector as the sum of scaled basis vectors. The
+            scale factors are the components of the vector. Here
+            $\vec{a} = 3\hat\imath + 2\hat\jmath$, so the components
+            of $\vec{a}$ are $a_1 = 3$ and $a_2 = 2$.
+          </p>
+        </div>
+        <p>
+          We draw the symbol $\odot$ (arrow tip) to indicate a vector
+          coming out of the page, and $\otimes$ (arrow <a
+          href="http://en.wikipedia.org/wiki/Fletching">fletching</a>)
+          to indicate an arrow going into the page.
+        </p>
+        <div class="figureContainer width600" id="rvv-f3">
+          <canvas id="rvv-f3-c" width="300" height="200" class="figureImage">
+          </canvas>
+          <p class="figureCaption">
+            Two standard arrangements of the basis vectors when
+            working in 2D. Either $\hat\jmath$ is the vertical and
+            $\hat{k}$ is out of the page, or $\hat{k}$ is the vertical
+            and $\hat\jmath$ is into the page. In both cases
+            $\hat\imath$ is horizontal.
+          </p>
+        </div>
+      </div>
+      <div class="infoCol">
+        <div class="infoBox notationBox" id="rvv-ic">
+          <p>
+            Just <a href="rvp.html#rvp-ic">as for position
+            coordinates</a>, we can write the vector components
+            $3\hat\imath + 2\hat\jmath$ as the ordered list $(3, 2)$
+            if we know which basis we are using. Because we often will
+            be using several bases simultaneously, we will generally
+            write the components explicitly in the $3\hat\imath +
+            2\hat\jmath$ form.
+          </p>
+        </div>
+        <div class="infoBox factBox" id="rvv-ii">
+          <p>
+            The use of the letter $i,j,k$ for basis vectors is due to
+            <a
+            href="http://en.wikipedia.org/wiki/William_Rowan_Hamilton">William
+            Hamilton</a>, who was motivated by thinking of basis
+            vectors as extensions of the complex number $i$. This
+            notation was popularized by the book <a
+            href="http://en.wikipedia.org/wiki/Vector_Analysis_(Gibbs/Wilson)"><i>Vector
+            Analysis: A Text Book for the Use of Students of
+            Mathematics and Physics Founded upon the Lectures of
+            J. Willard Gibbs</i></a> (1901), by <a
+            href="http://en.wikipedia.org/wiki/Edwin_Bidwell_Wilson">E. B. Wilson</a>. This
+            book also introduced the use of bold letters to represent
+            vectors.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="contentBlock">
+      <div id="rvv-sl" class="contentCol">
+        <h2>
+          Length of vectors
+        </h2>
+        <p>
+          The length of a vector $\vec{a}$ is written
+          either $\|\vec{a}\|$ or just plain $a$. The
+          length can be computed using <em>Pythagorus’
+          theorem</em>:
+        </p>
+        <div class="envContainer equation" id="rvv-ey">
+          <p class="envHeader">
+            Pythagorus' length formula.
+          </p>
+          <div class="envBody">
+            <p>\[a = \|\vec{a}\|
+            = \sqrt{a_1^2 + a_2^2 + a_3^2}\]</p>
+          </div>
+        </div>
+        <div class="envContainer derivation">
+          <div class="envBody">
+            <p>
+              First we prove Pythagorus' theorem for right-angle
+              triangles. For side lengths $a$ and $b$ and hypotenuse
+              $c$, the fact that $a^2 + b^2 = c^2$ can be seen
+              graphically below, where the gray area is the same before
+              and after the triangles are rotated in the animation:
+            </p>
+            <div class="figureContainer width300" id="rvv-fy">
+              <canvas id="rvv-fy-c" width="300" height="300" class="figureImage noBorder">
+              </canvas>
+              <p class="controls">
+                <button class="anim-toggle:rvv-fy-c">animate</button>
+                <button class="reset:rvv-fy-c">reset</button>
+              </p>
+            </div>
+            <p>
+              Pythagorus' theorem immediately gives us vector lengths
+              in 2D.  To find the length of a vector in 3D we can use
+              Pythagorus' theorem twice, as shown below. This gives
+              the two right-triangle calculations:
+
+              \[\begin{aligned}
+              \ell^2 &amp;= a_1^2 + a_2^2 \\
+              a^2 &amp;= \ell^2 + a_3^2 = a_1^2 + a_2^2 + a_3^2.
+              \end{aligned}\]
+            </p>
+            <div class="figureContainer width300" id="rvv-fr">
+              <canvas id="rvv-fr-c" width="300" height="300" class="figureImage">
+              </canvas>
+              <p class="controls instructions">
+                Click and drag to rotate.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="envContainer warning" id="rvv-wl">
+          <p class="envHeader">
+            Warning: Length must be computed in a single basis.
+          </p>
+          <div class="envBody">
+            <p>
+              The Pythagorean length formula can only be used if all
+              the components are written in a single orthonormal
+              basis.
+            </p>
+          </div>
+        </div>
+        <div class="figureContainer width600" id="rvv-fl">
+          <canvas id="rvv-fl-c" width="300" height="200" class="figureImage">
+          </canvas>
+          <p class="figureCaption">
+            Computing the length of a vector using Pythagorus'
+            theorem.
+          </p>
+        </div>
+        <p>
+          Some common integer vector lengths are $\vec{a} =
+          4\hat\imath + 3\hat\jmath$ (length $a = 5$) and $\vec{b} =
+          12\hat\imath + 5\hat\jmath$ (length $b = 13$).
+        </p>
+        <div class="envContainer warning" id="rvv-wa">
+          <p class="envHeader">
+            Warning: Adding vectors does not add lengths.
+          </p>
+          <div class="envBody">
+            <p>
+              If $\vec{c} = \vec{a} + \vec{b}$, then $\|\vec{c}\| \ne
+              \|\vec{a}\| + \|\vec{b}\|$ unless $\vec{a}$ and
+              $\vec{b}$ are parallel and in the same direction.
+            </p>
+            <p>
+              It will always be true, however, that $\|\vec{c}\| \le
+              \|\vec{a}\| + \|\vec{b}\|$. This fact is known as the
+              <em>triangle inequality</em>, for reasons that should be
+              obvious.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="infoCol">
+        <div class="infoBox factBox">
+          <p>
+            Sets of three integers $a,b,c$ where $a^2 + b^2 = c^2$ are
+            called <a
+            href="http://en.wikipedia.org/wiki/Pythagorean_triples"><em>Pythagorean
+            triples</em></a>. A long list of such triples is given on
+            the <a
+            href="http://en.wikipedia.org/wiki/Plimpton_322">Plimpton
+            322</a> clay tablet written by the ancient Babylonians
+            around 1800 BCE, although it is unclear how they generated
+            these numbers. Pythagorean triples lead to complex
+            mathematics, including the curious patterns shown below
+            and <a
+            href="http://en.wikipedia.org/wiki/Fermat's_Last_Theorem">Fermat's
+            Last Theorem</a>.
+          </p>
+          <div class="imageBox width250">
+            <canvas id="rvv-ft-c" width="250" height="250">
+            </canvas>
+            <p class="caption">
+              The values of $a$ and $b$ for all Pythagorean triples
+              $a,b,c$ with $a$ and $b$ up to 2000.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="contentBlock">
+      <div id="rvv-su" class="contentCol">
+        <h2>
+          Unit vectors
+        </h2>
+        <p>
+          A <em>unit vector</em> is any vector with a length of
+          one. We use the special over-hat notation $\hat{a}$ to
+          indicate when a vector is a unit vector. Any non-zero vector
+          $\vec{a}$ gives a unit vector $\hat{a}$ that specifies the
+          direction of $\vec{a}$.
+        </p>
+        <div class="envContainer equation" id="rvv-eu">
+          <p class="envHeader">
+            Normalization to unit vector.
+          </p>
+          <div class="envBody">
+            <p>
+              \[\begin{aligned} \hat{a} =
+              \frac{\vec{a}}{a}\end{aligned}\]
+            </p>
+          </div>
+        </div>
+        <div class="envContainer derivation">
+          <div class="envBody">
+            <p>
+              If we compute the length of $\hat{a}$ then we find:
+              \[
+              \| \hat{a} \| = \left\| \frac{\vec{a}}{a} \right\|
+              = \frac{\|\vec{a}\|}{a} = \frac{a}{a} = 1,
+              \]
+              so $\hat{a}$ is really a unit vector, and it is in the
+              same direction as $\vec{a}$ as they differ only by a
+              scalar factor.
+            </p>
+          </div>
+        </div>
+        <p>
+          Any vector can be written as the product of its length and
+          direction:
+        </p>
+        <div class="envContainer equation" id="rvv-ei">
+          <p class="envHeader">
+            Vector decomposition into length and direction.
+          </p>
+          <div class="envBody">
+            <p>
+              \[\begin{aligned} \vec{a} = a
+              \hat{a}\end{aligned}\]
+            </p>
+          </div>
+        </div>
+        <div class="envContainer derivation">
+          <div class="envBody">
+            <p>
+              This follows from rearranging <a
+              href="#rvv-eu">#rvv-eu</a>.
+            </p>
+          </div>
+        </div>
+        <p>
+        </p>
+        <div class="figureContainer width400" id="rvv-fu">
+          <canvas id="rvv-fu-c" width="400" height="200" class="figureImage">
+          </canvas>
+          <p class="figureCaption">
+            Three vectors and their decompositions into lengths and
+            directional unit vectors.
+          </p>
+        </div>
+      </div>
+      <div class="infoCol">
+      </div>
+    </div>
+    <div class="contentBlock">
+      <div id="rvv-sn" class="contentCol">
+        <h2>
+          Vectors and units
+        </h2>
+        <p>
+          When using vectors to describe physical quantities we need
+          to have the correct units associated with them, just <a
+          href="rvp.html#rvp-su">as for position
+          coordinates</a>. Basis vectors such as
+          $\hat\imath,\hat\jmath,\hat{k}$ have no units (they are also
+          dimensionless), so the components must have units. For
+          example, a velocity vector $\vec{v} = (4\hat\imath +
+          3\hat\jmath){\rm\ m/s}$ has components $v_1 = 4{\rm\ m/s}$
+          and $v_2 = 3{\rm\ m/s}$, which then multiply the
+          dimensionless (and unit-less) basis vectors $\hat\imath$ and
+          $\hat\jmath$. For convenience, when all components of a
+          vector have the same units, we will often write the units
+          just once at the end, so that all of the following
+          expressions are equivalent:
+
+          \[\begin{aligned}
+          \vec{v} &amp;= (4{\rm\ m/s})\,\hat\imath + (3{\rm\ m/s})\,\hat\jmath \\
+          &amp;= (4\hat\imath + 3\hat\jmath){\rm\ m/s} \\
+          &amp;= 4\hat\imath + 3\hat\jmath {\rm\ m/s}.
+          \end{aligned}\]
+        </p>
+        <p>
+          When a vector is expressed as $\vec{a} = a \hat{a}$,
+          decomposed into a length and direction, the length $a$ has
+          units but the direction unit vector $\hat{a}$ has no
+          units. The terminology here is slightly confusing, as unit
+          vectors have no units. For example, if we calculate the
+          length of $\vec{v}$ above we obtain:
+
+          \[
+          v = \sqrt{v_1^2 + v_2^2} = \sqrt{(4{\rm\ m/s})^2 + (3{\rm\ m/s})^2}
+          = \sqrt{25{\rm\ m^2/s^2}} = 5{\rm\ m/s}.
+          \]
+          
+          Then the unit vector is
+
+          \[
+          \hat{v} = \frac{\vec{v}}{v}
+          = \frac{(4{\rm\ m/s})\,\hat\imath + (3{\rm\ m/s})\,\hat\jmath}{5{\rm\ m/s}}
+          = 0.8\,\hat\imath + 0.6\,\hat\jmath.
+          \]
+        </p>
+      </div>
+    </div>
+    <div class="contentBlock">
+      <div id="rvv-sd" class="contentCol">
+        <h2>
+          Dot Product
+        </h2>
+        <p>
+          The <em>dot product</em> (also called the <em>inner
+          product</em> or <em>scalar product</em>) is defined by
+        </p>
+        <div class="envContainer equation" id="rvv-es">
+          <p class="envHeader">
+            Dot product from components.
+          </p>
+          <div class="envBody">
+            <p>
+              \[\vec{a} \cdot \vec{b}
+              = a_1 b_1 + a_2 b_2 + a_3 b_3\]
+            </p>
+          </div>
+        </div>
+        <p>
+          An alternative expression for the dot product can be
+          given in terms of the lengths of the vectors and the
+          angle between them:
+        </p>
+        <div class="envContainer equation" id="rvv-ed">
+          <p class="envHeader">
+            Dot product from length/angle.
+          </p>
+          <div class="envBody">
+            <p>
+              \[\vec{a} \cdot \vec{b}
+              = a b \cos\theta\]
+            </p>
+          </div>
+        </div>
+        <div class="envContainer derivation">
+          <div class="envBody">
+            <p>
+              We will present a simple 2D proof here. A more complete proof in 3D uses the law of cosines.
+            </p>
+            <p>
+              Start with two vectors $\vec{a}$ and $\vec{b}$ with an
+              angle $\theta$ between them, as shown below.
+            </p>
+            <canvas id="rvv-ed-c" width="400" height="400">
+            </canvas>
+            <p>
+              Observe that the angle $\theta$ between vectors
+              $\vec{a}$ and $\vec{b}$ is the difference between the
+              <button
+              class="option-toggle:rvv-ed-c:angles">angles</button>
+              $\theta_a$ and $\theta_b$ from horizontal.
+            </p>
+            <p>
+              If we use the angle sum formula for cosine, we have
+            </p>
+            <p>
+              \[\begin{aligned} a b \cos\theta &amp;= a b
+              \cos(\theta_b - \theta_a) \\ &amp;= a b (\cos\theta_b
+              \cos\theta_a + \sin\theta_b \sin\theta_a)
+              \end{aligned}\]
+            </p>
+            <p>
+              We now want to express the sine and cosine of $\theta_a$
+              and $\theta_b$ in terms of the <button
+              class="option-toggle:rvv-ed-c:components">components</button>
+              of $\vec{a}$ and $\vec{b}$.
+            </p>
+            <p>
+              We re-arrange the expression so that we can use the fact
+              that $a_1 = a \cos\theta_a$ and $a_2 = a \sin\theta_a$,
+              and similarly for $\vec{b}$. This gives:
+            </p>
+            <p>
+              \[\begin{aligned} a b \cos\theta &amp;= (a \cos\theta_a)
+              (b \cos\theta_b) + (a \sin\theta_a) (b \sin\theta_b) \\
+              &amp;= a_1 b_1 + a_2 b_2 \\ &amp;= \vec{a} \cdot \vec{b}
+              \end{aligned}\]
+            </p>
+          </div>
+        </div>
+        <p>
+          The fact that we can write the dot product <a
+          href="#rvv-es">in terms of components</a> as well as <a
+          href="#rvv-ed">in terms of lengths and angle</a> is very
+          helpful for calculating the length and angles of vectors
+          from the component representations.
+        </p>
+
+        <div class="envContainer equation" id="rvv-el">
+          <p class="envHeader">
+            Length and angle from dot product.
+          </p>
+          <div class="envBody">
+            <p>
+              \[\begin{aligned} a &amp;= \sqrt{\vec{a} \cdot
+              \vec{a}} \\ \cos\theta &amp;= \frac{\vec{b}
+              \cdot \vec{a}}{b a}\end{aligned}\]
+            </p>
+          </div>
+        </div>
+        <div class="envContainer derivation">
+          <div class="envBody">
+            <p>
+              The angle between $\vec{a}$ and itself is $\theta = 0$,
+              so $\vec{a} \cdot \vec{a} = a^2 \cos 0 = a^2$, which
+              gives the first equation for the length in terms of the
+              dot product.
+            </p>
+            <p>
+              The second equation is a rearrangement of <a
+              href="#rvv-ed">#rvv-ed</a>.
+            </p>
+          </div>
+        </div>
+        <p>
+          If two vectors have zero dot product $\vec{a} \cdot \vec{b}
+          = 0$ then they have an angle of $\theta = 90^\circ =
+          \frac{\pi}{2}\rm\ rad$ between them and we say that the
+          vectors are <em>perpendicular</em>, <em>orthogonal</em>, or
+          <em>normal</em> to each other.
+        </p>
+        <p>
+          In 2D we can easily find a perpendicular vector by rotating
+          $\vec{a}$ counterclockwise with the following equation.
+        </p>
+        <div class="envContainer equation" id="rvv-en">
+          <p class="envHeader">
+            Counterclockwise perpendicular vector in 2D.
+          </p>
+          <div class="envBody">
+            <p>
+              \[\vec{a}^\perp = -a_2\,\hat\imath + a_1\hat\jmath\]
+            </p>
+          </div>
+        </div>
+        <div class="envContainer derivation">
+          <div class="envBody">
+            <p>
+              It is easy to check that $\vec{a}^\perp$ is always
+              perpendicular to $\vec{a}$:
+
+              \[\vec{a} \cdot \vec{a}^\perp
+              = (a_1\,\hat\imath + a_2\,\hat\jmath) \cdot
+              (-a_2\,\hat\imath + a_1\hat\jmath)
+              = -a_1 a_2 + a_2 a_1 = 0.\]
+
+              The fact that $\vec{a}^\perp$ is a $+90^\circ$ rotation
+              of $\vec{a}$ is apparent from Figure <a
+              href="#rvv-fn">#rvv-fn</a>.
+            </p>
+          </div>
+        </div>
+        <p>
+          In 2D there are two perpendicular directions to a given
+          vector $\vec{a}$, given by $\vec{a}^\perp$ and
+          $-\vec{a}^\perp$. In 3D there is are many perpendicular
+          vectors, and there is no simple formula like <a
+          href="#rvv-en">#rvv-en</a> for 3D.
+        </p>
+        <div class="figureContainer width400" id="rvv-fn">
+          <canvas id="rvv-fn-c" width="400" height="300" class="figureImage">
+          </canvas>
+          <p class="controls">
+            <button class="anim-toggle:rvv-fn-c">animate</button>
+            <button class="reset:rvv-fn-c">reset</button>
+            <button class="option-toggle:rvv-fn-c:showComponents">show components</button>
+          </p>
+          <p class="figureCaption">
+            The perpendicular vector $\vec{a}^\perp$ is always a
+            $+90^\circ$ rotation of $\vec{a}$.
+          </p>
+        </div>
+      </div>
+      <div class="infoCol">
+        <div class="infoBox applicationsBox">
+          <ul>
+            <li><a href= "aos.html">Shortest flight paths</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="contentBlock">
+      <div id="rvv-sc" class="contentCol">
+        <h2>
+          Cross Product
+        </h2>
+        <p>
+          The cross product can be defined in terms of components by:
+        </p>
+        <div class="envContainer equation" id="rvv-ex">
+          <p class="envHeader">
+            Cross product in components.
+          </p>
+          <div class="envBody">
+            <p>\[
+            \vec{a} \times \vec{b}
+            = (a_2 b_3 - a_3 b_2) \,\hat{\imath}
+            + (a_3 b_1 - a_1 b_3) \,\hat{\jmath}
+            + (a_1 b_2 - a_2 b_1) \,\hat{k}
+            \]
+            </p>
+          </div>
+        </div>
+        <p>
+          It is sometimes more convenient to work with cross products
+          of individual basis vectors, which are related as follows.
+        </p>
+        <div class="envContainer equation" id="rvv-eo">
+          <p class="envHeader">
+            Cross products of basis vectors.
+          </p>
+          <div class="envBody">
+            <canvas id="rvv-eo-c" width="500" height="200" class="equationImage">
+            </canvas>
+            <p>
+              \[\begin{aligned}
+              \hat\imath \times \hat\jmath &amp;= \hat{k}
+              &amp; \hat\jmath \times \hat{k} &amp;= \hat\imath
+              &amp; \hat{k} \times \hat\imath &amp;= \hat\jmath \\
+              \hat\jmath \times \hat\imath &amp;= -\hat{k}
+              &amp; \hat{k} \times \hat\jmath &amp;= -\hat\imath
+              &amp; \hat\imath \times \hat{k} &amp;= -\hat\jmath \\
+              \end{aligned}\]
+            </p>
+          </div>
+        </div>
+        <div class="envContainer derivation">
+          <div class="envBody">
+          <p>
+            Writing the basis vectors in terms of themselves gives the
+            components:
+
+            \[\begin{aligned}
+            i_1 &amp;= 1 &amp; i_2 &amp;= 0 &amp; i_3 &amp;= 0 \\
+            j_1 &amp;= 0 &amp; j_2 &amp;= 1 &amp; j_3 &amp;= 0 \\
+            k_1 &amp;= 0 &amp; k_2 &amp;= 0 &amp; k_3 &amp;= 1.
+            \end{aligned}\]
+
+            These values can now be substituted into the definition <a
+            href="#rvv-ex">#rvv-ex</a>. For example,
+
+            \[\begin{aligned}
+            \hat\imath \times \hat\jmath
+            &amp;= (i_2 j_3 - i_3 j_2) \,\hat{\imath}
+            + (i_3 j_1 - i_1 j_3) \,\hat{\jmath}
+            + (i_1 j_2 - i_2 j_1) \,\hat{k} \\
+            &amp;= (0 \times 0 - 0 \times 1) \,\hat{\imath}
+            + (0 \times 0 - 1 \times 0) \,\hat{\jmath}
+            + (1 \times 1 - 0 \times 0) \,\hat{k} \\
+            &amp;= \hat{k}
+            \end{aligned}\]
+
+            The other combinations can be computed similarly.
+          </p>
+          </div>
+        </div>
+        <div class="envContainer warning" id="rvv-wc">
+          <p class="envHeader">
+            Warning: The cross product is not associative.
+          </p>
+          <div class="envBody">
+            <p>
+              The cross product is not <a
+              href="http://en.wikipedia.org/wiki/Associative_property">associative</a>,
+              meaning that in general
+
+              \[\vec{a} \times (\vec{b} \times \vec{c})
+              \ne (\vec{a} \times \vec{b}) \times \vec{c}.\]
+
+              For example,
+
+              \[\begin{aligned}
+              \hat{\imath} \times (\hat{\imath} \times \hat{\jmath})
+              &amp;= \hat{\imath} \times \hat{k} = - \hat{\jmath} \\
+              (\hat{\imath} \times \hat{\imath}) \times \hat{\jmath}
+              &amp;= \vec{0} \times \hat{\jmath} = \vec{0}.
+              \end{aligned}\]
+
+              This means that we should never write an expression like
+
+              \[\vec{a} \times \vec{b} \times \vec{c}\]
+
+              because it is not clear in which order we should perform
+              the cross products. Instead, if we have more than one
+              cross product, we should always use parentheses to
+              indicate the order.
+            </p>
+          </div>
+        </div>
+        <p>
+          Rather than using components, the cross product can be
+          defined by specifying the length and direction of the
+          resulting vector. The direction of $\vec{a} \times \vec{b}$
+          is orthogonal to both $\vec{a}$ and $\vec{b}$, with the
+          direction given by the right-hand rule. The magnitude of the
+          cross product is given by:
+        </p>
+        <div class="envContainer equation" id="rvv-el">
+          <p class="envHeader">
+            Cross product length.
+          </p>
+          <div class="envBody">
+            <p>
+              \[\| \vec{a} \times \vec{b} \| = a b \sin\theta\]
+            </p>
+          </div>
+        </div>
+        <div class="envContainer derivation">
+          <div class="envBody">
+          <p>
+            Using <a href="rvi.html#rvi-el">Lagrange's identity</a> we can calculate:
+
+            \[\begin{aligned}
+            \| \vec{a} \times \vec{b} \|^2
+            &amp;= \|\vec{a}\|^2 \|\vec{b}\|^2
+            - (\vec{a} \cdot \vec{b})^2 \\
+            &amp;= a^2 b^2 - (a b \cos\theta)^2 \\
+            &amp;= a^2 b^2 (1 - \cos^2\theta) \\
+            &amp;= a^2 b^2 \sin^2\theta.
+            \end{aligned}\]
+
+            Taking the square root of this expression gives the
+            desired cross-product length formula.
+          </p>
+          </div>
+        </div>
+        <p>
+          This second form of the cross product definition can also be
+          related to the area of a parallelogram.
+        </p>
+        <div class="figureContainer width400" id="rvv-fx">
+          <canvas id="rvv-fx-c" width="400" height="200" class="figureImage">
+          </canvas>
+          <p class="figureCaption">
+            The area of a parallelogram is the length of the base
+            multiplied by the perpendicular height, which is also the
+            magnitude of the cross product of the side vectors.
+          </p>
+        </div>
+        <p>
+          A useful special case of the cross product occurs when
+          vector $\vec{a}$ is in the 2D $\hat\imath,\hat\jmath$ plane
+          and the other vector is in the orthogonal $\hat{k}$
+          direction. In this case the cross product rotates $\vec{a}$
+          by $90^\circ$ counterclockwise to give the perpendicular
+          vector $\vec{a}^\perp$, as follows.
+        </p>
+        <div class="envContainer equation" id="rvv-e9">
+          <p class="envHeader">
+            Cross product of out-of-plane vector $\hat{k}$ with 2D
+            vector $\vec{a} = a_1\,\hat\imath + a_2\,\hat\jmath$.
+          </p>
+          <div class="envBody">
+            <p>
+              \[\hat{k} \times \vec{a} = \vec{a}^\perp\]
+            </p>
+          </div>
+        </div>
+        <div class="envContainer derivation">
+          <div class="envBody">
+          <p>
+            Using <a href="#rvv-eo">#rvv-eo</a> we can compute:
+
+            \[\begin{aligned}
+            \hat{k} \times \vec{a}
+            &amp;= \hat{k} \times (a_1\,\hat\imath + a_2\,\hat\jmath) \\
+            &amp; a_1 (\hat{k} \times \hat\imath) + a_2 (\hat{k} \times \hat\jmath) \\
+            &amp;= a_1\,\hat\jmath - a_2\,\hat\imath \\
+            &amp;= \vec{a}^\perp.
+            \end{aligned}\]
+          </p>
+          </div>
+        </div>
+      </div>
+      <div class="infoCol">
+      </div>
+    </div>
+    <div class="contentBlock">
+      <div id="rvv-so" class="contentCol">
+        <h2>
+          Projection and complementary projection
+        </h2>
+        <p>
+          The projection and complementary projection are:
+        </p>
+        <div class="envContainer equation" id="rvv-ep">
+          <p class="envHeader">
+            Projection of $\vec{a}$ onto $\vec{b}$.
+          </p>
+          <div class="envBody">
+            <p>
+              \[\operatorname{Proj}(\vec{a},\vec{b})
+              = (\vec{a} \cdot \hat{b}) \hat{b}
+              = (a \cos\theta) \, \hat{b}
+              \]
+            </p>
+          </div>
+        </div>
+        <div class="envContainer equation" id="rvv-em">
+          <p class="envHeader">
+            Complementary projection of $\vec{a}$ with respect to
+            $\vec{b}$.
+          </p>
+          <div class="envBody">
+            <p>
+              \[\begin{aligned}
+              \operatorname{Comp}(\vec{a}, \vec{b})
+              &amp;= \vec{a} -
+              \operatorname{Proj}(\vec{a}, \vec{b}) =
+              \vec{a} - (\vec{a} \cdot \hat{b}) \hat{b} \\
+              \left\|
+              \operatorname{Comp}(\vec{a}, \vec{b}) \right\|
+              &amp;= a \sin\theta
+              \end{aligned}\]
+            </p>
+          </div>
+        </div>
+        <p>
+          Adding the projection and the complementary projection of a
+          vector just give the same vector again, as we can see on the
+          figure below.
+        </p>
+        <div class="figureContainer width400" id="rvv-fm">
+          <canvas id="rvv-fm-c" width="400" height="200" class="figureImage">
+          </canvas>
+          <p class="figureCaption">
+            Projection of $\vec{a}$ onto $\vec{b}$ and the
+            complementary projection.
+          </p>
+        </div>
+        <p>
+          As we see in the diagram above, the complementary projection
+          is orthogonal to the reference vector:
+        </p>
+        <div class="envContainer equation" id="rvv-er">
+          <p class="envHeader">
+            Complementary projection is orthogonal to the reference.
+          </p>
+          <div class="envBody">
+            <p>
+              \[\operatorname{Comp}(\vec{a}, \vec{b}) \cdot \vec{b} = 0\]
+            </p>
+          </div>
+        </div>
+        <div class="envContainer derivation">
+          <div class="envBody">
+            <p>
+              Using the definitions of the complementary projection <a
+              href="#rvv-em">rvv-em</a> and projection <a
+              href="#rvv-ep">rvv-ep</a>, we compute:
+
+              \[\begin{aligned}
+              \operatorname{Comp}(\vec{a}, \vec{b}) \cdot \vec{b}
+              &amp;= \Big(\vec{a} - (\vec{a} \cdot \hat{b})
+              \hat{b}\Big) \cdot \vec{b} \\
+              &amp;= \vec{a} \cdot \vec{b} - (\vec{a} \cdot \hat{b})
+              (\hat{b} \cdot \vec{b}) \\
+              &amp;= a b \cos\theta - (a\cos\theta) b \\
+              &amp;= 0.
+              \end{aligned}\]
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="infoCol">
+      </div>
+    </div>
+    <div class="contentBlock">
+      <div id="rvv-sb" class="contentCol">
+        <h2>
+          Changing bases
+        </h2>
+        <p>
+          To change the basis that a vector is written in, we need
+          to know how the basis vectors are related. We do this by
+          writing one set of basis vectors in terms of the other
+          basis vectors. If we want to change from
+          $\hat\imath,\hat\jmath$ to $\hat{u},\hat{v}$, then we
+          need to write $\hat\imath,\hat\jmath$ in terms of
+          $\hat{u},\hat{v}$ and then substitute the expressions.
+        </p>
+        <div class="envContainer example" id="rvv-xn">
+          <p class="envHeader">
+            Example: Basis change.
+          </p>
+          <div class="envBody">
+            <p>
+              For example, if we have $\vec{a} =
+              3\,\hat{\imath} + 2\,\hat{\jmath}$ and we want to
+              write this in the $\,\hat{u}, \,\hat{v}$ basis,
+              then we need to know $\,\hat{\imath},
+              \,\hat{\jmath}$ in terms of $\,\hat{u},
+              \,\hat{v}$.
+            </p>
+            <canvas id="rvv-xn-c" width="300" height="200" class="standaloneImage">
+            </canvas>
+            <p>
+              From above we see that:
+              \[\begin{aligned} \hat{\imath} &amp;=
+              \cos\theta \, \hat{u} - \sin\theta \, \hat{v}
+              = \frac{1}{\sqrt{2}} \,\hat{u} - \frac{1}{\sqrt{2}}
+              \,\hat{v} \\
+              \hat{\jmath} &amp;=
+              \sin\theta \, \hat{u} + \cos\theta \, \hat{v}
+              = \frac{1}{\sqrt{2}}
+              \,\hat{u} + \frac{1}{\sqrt{2}}
+              \,\hat{v}.\end{aligned}\]
+            </p>
+            <p>
+              Then we can substitute and re-arrange:
+            </p>
+            <p>
+              \[\begin{aligned} \vec{a} &amp;=
+              3\,\hat{\imath} + 2\,\hat{\jmath} \\ &amp;=
+              3\left(\frac{1}{\sqrt{2}} \,\hat{u} -
+              \frac{1}{\sqrt{2}} \,\hat{v}\right) +
+              2\left(\frac{1}{\sqrt{2}} \,\hat{u} +
+              \frac{1}{\sqrt{2}} \,\hat{v}\right) \\ &amp;=
+              \left(\frac{3}{\sqrt{2}} + \frac{2}{\sqrt{2}} \right)
+              \,\hat{u} + \left(-\frac{3}{\sqrt{2}} +
+              \frac{2}{\sqrt{2}} \right) \,\hat{v} \\ &amp;=
+              \frac{5}{\sqrt{2}} \,\hat{u} - \frac{1}{\sqrt{2}}
+              \,\hat{v}.\end{aligned}\]
+            </p>
+            <p>
+              If we want to convert back the other way then we would
+              need to know $\,\hat{u}, \,\hat{v}$ in terms of
+              $\,\hat{\imath}, \,\hat{\jmath}$. We can find this by
+              solving for $\,\hat{u}, \,\hat{v}$ above, giving:
+
+              \[\begin{aligned} \hat{u} &amp;=
+              \cos\theta \, \hat\imath + \sin\theta \, \hat\jmath
+              = \frac{1}{\sqrt{2}} \,\hat\imath + \frac{1}{\sqrt{2}}
+              \,\hat\jmath \\
+              \hat{v} &amp;=
+              -\sin\theta \, \hat\imath + \cos\theta \, \hat\jmath
+              = -\frac{1}{\sqrt{2}}
+              \,\hat\imath + \frac{1}{\sqrt{2}}
+              \,\hat\jmath.\end{aligned}\]
+            </p>
+          </div>
+        </div>
+        <p>
+          We can also write the general expressions for basis change,
+          as below.
+        </p>
+        <div class="envContainer equation" id="rvv-eg">
+          <p class="envHeader">
+            Change of basis formulas.
+          </p>
+          <div class="envBody">
+            <p>
+              \[\begin{aligned}
+              \vec{a} &amp;=
+              a_i \, \hat\imath + a_j \, \hat\jmath + a_k \, \hat{k}
+              &amp; \vec{a} &amp;=
+              a_u \, \hat{u} + a_v \, \hat{v} + a_w \, \hat{w} \\[1em]
+              a_i &amp;= a_u u_i + a_v v_i + a_w w_i
+              &amp; a_u &amp;= a_i i_u + a_j j_u + a_k k_u \\
+              a_j &amp;= a_u u_j + a_v v_j + a_w w_j
+              &amp; a_v &amp;= a_i i_v + a_j j_v + a_k k_v \\
+              a_k &amp;= a_u u_k + a_v v_k + a_w w_k
+              &amp; a_w &amp;= a_i i_w + a_j j_w + a_k k_w
+              \end{aligned}\]
+            </p>
+          </div>
+        </div>
+        <div class="envContainer derivation">
+          <div class="envBody">
+            <p>
+              We will derive the first set of equations (the second
+              set are derived similarly). The vector $\vec{a}$ can be
+              written in both the $\hat\imath,\hat\jmath,\hat{k}$ and
+              $\hat{u},\hat{v},\hat{w}$ bases:
+
+              \[\begin{aligned}
+              \vec{a} &amp;= a_i \hat\imath + a_j \hat\jmath + a_k \hat{k}
+              &amp; \vec{a} &amp;= a_u \hat{u} + a_v \hat{v} + a_w \hat{w}.
+              \end{aligned}\]
+            </p>
+            <p>
+              We can write each $\hat{u},\hat{v},\hat{w}$ basis vector
+              in terms of the $\hat\imath,\hat\jmath,\hat{k}$ basis:
+
+              \[\begin{aligned}
+              \hat{u} &amp;= u_i \hat\imath + u_j \hat\jmath + u_k \hat{k} \\
+              \hat{v} &amp;= v_i \hat\imath + v_j \hat\jmath + v_k \hat{k} \\
+              \hat{w} &amp;= w_i \hat\imath + w_j \hat\jmath + w_k \hat{k}.
+              \end{aligned}\]
+
+              Substituting these expressions into $\vec{a}$ gives:
+              \[\begin{aligned}
+              \vec{a} &amp;= a_u \hat{u} + a_v \hat{v} + a_w \hat{w} \\
+              &amp;= a_u (u_i \hat\imath + u_j \hat\jmath + u_k \hat{k})
+              + a_v (v_i \hat\imath + v_j \hat\jmath + v_k \hat{k})
+              + a_w (w_i \hat\imath + w_j \hat\jmath + w_k \hat{k}) \\
+              &amp;= (a_u u_i + a_v v_i + a_w w_i) \hat\imath
+              + (a_u u_j + a_v v_j + a_w w_j) \hat\jmath
+              + (a_u u_k + a_v v_k + a_w w_k) \hat{k} \\
+              &amp;= a_i \hat\imath + a_j \hat\jmath + a_k \hat{k}.
+              \end{aligned}\]
+
+              Comparing the last two lines gives the component formulas.
+            </p>
+          </div>
+        </div>
+        <p>
+          In 2D the change between two orthonormal bases is a rotation
+          by an angle $\theta$, resulting in the change of basis
+          expression below.
+        </p>
+        <div class="envContainer equation" id="rvv-e2">
+          <p class="envHeader">
+            Change of basis formula in 2D.
+          </p>
+          <div class="envBody">
+            <canvas id="rvv-e2-c" width="200" height="200" class="equationImage">
+            </canvas>
+            <p>
+              \[\begin{aligned}
+              \vec{a} &amp;=
+              a_i \, \hat\imath + a_j \, \hat\jmath
+              &amp; \vec{a} &amp;=
+              a_u \, \hat{u} + a_v \, \hat{v} \\[1em]
+              a_i &amp;= \cos\theta \, a_u - \sin\theta \, a_v
+              &amp; a_u &amp;= \cos\theta \, a_i + \sin\theta \, a_j \\
+              a_j &amp;= \sin\theta \, a_u + \cos\theta \, a_v
+              &amp; a_v &amp;= -\sin\theta \, a_i + \cos\theta \, a_j
+              \end{aligned}\]
+            </p>
+          </div>
+        </div>
+        <div class="envContainer derivation">
+          <div class="envBody">
+            <p>
+              Elementary geometry gives the relationships between the
+              basis vectors:
+
+              \[\begin{aligned}
+              \hat\imath &amp;= \cos\theta \, \hat{u} - \sin\theta \, \hat{v}
+              &amp; \hat{u} &amp;= \cos\theta \, \hat\imath + \sin\theta \, \hat\jmath \\
+              \hat\jmath &amp;= \sin\theta \, \hat{u} + \cos\theta \, \hat{v}
+              &amp; \hat{v} &amp;= -\sin\theta \, \hat\imath + \cos\theta \, \hat\jmath.
+              \end{aligned}\]
+
+              Thus we have the components:
+
+              \[\begin{aligned}
+              i_u &amp;= \cos\theta &amp; i_v &amp;= -\sin\theta
+              &amp; u_i &amp;= \cos\theta &amp; u_j &amp;= \sin\theta \\
+              j_u &amp;= \sin\theta &amp; j_v &amp;= \cos\theta
+              &amp; v_i &amp;= -\sin\theta &amp; v_j &amp;= \cos\theta.
+              \end{aligned}\]
+
+              Substituting these into <a href="#rvv-eg">#rvv-eg</a>
+              and ignoring the third components gives the desired
+              expressions.
+            </p>
+          </div>
+        </div>
+        <p>
+          Vector expressions are true no matter which basis we write
+          the vectors in, even if they are written in different bases.
+        </p>
+        <div class="envContainer example" id="rvv-xa">
+          <p class="envHeader">
+            Example: Vector addition in different bases.
+          </p>
+          <div class="envBody">
+            <p>
+              Adding $\vec{a}$ and $\vec{b}$ to get the result
+              $\vec{c}$ is a well-defined operation even before any
+              basis is used, so it cannot depend on the basis
+              chosen. As we see below, we can do the calculation in
+              either the $\hat\imath,\hat\jmath$ or $\hat{u},\hat{v}$
+              basis.
+            </p>
+            <canvas id="rvv-xa-c" width="500" height="300" class="standaloneImage">
+            </canvas>
+            <p>
+              Show components:
+              <input type="radio" name="rvv-xa-c-showBasis" value="none" class="data-input:rvv-xa-c:showBasis" />
+              none
+              <input type="radio" name="rvv-xa-c-showBasis" value="ij" class="data-input:rvv-xa-c:showBasis" />
+              $\hat\imath,\hat\jmath$
+              <input type="radio" name="rvv-xa-c-showBasis" value="uv" class="data-input:rvv-xa-c:showBasis" />
+              $\hat{u},\hat{v}$
+              <input type="radio" name="rvv-xa-c-showBasis" value="mixed" class="data-input:rvv-xa-c:showBasis" />
+              mixed
+            </p>
+            <p>
+              \[\begin{aligned}
+              \vec{c} &amp;= \vec{a} + \vec{b} \\
+              &amp;= (3\hat\imath + 2\hat\jmath) + (3\hat\imath - \hat\jmath) \\
+              &amp;= 6\hat\imath + \hat\jmath \\
+              \vec{c} &amp;= \vec{a} + \vec{b} \\
+              &amp;= (3.5\hat{u} - 0.7\hat{v}) + (1.4\hat{u} - 2.8\hat{v}) \\
+              &amp;= 4.9\hat{u} - 3.5\hat{v} \\
+              \vec{c} &amp;= \vec{a} + \vec{b} \\
+              &amp;= (3\hat\imath + 2\hat\jmath) + (1.4\hat{u} - 2.8\hat{v}) \\
+              &amp;= 3\hat\imath - 2.8\hat{v} + 2\hat\jmath + 1.4\hat{u}.
+              \end{aligned}\]
+
+              The component order in the mixed expression is arbitrary.
+            </p>
+          </div>
+        </div>
+        <div class="envContainer example" id="rvv-xx">
+          <p class="envHeader">
+            Example Problem: Cross product in different bases.
+          </p>
+          <div class="envBody">
+            <div class="question">
+              Consider the two vectors shown below and their components
+              in two bases, together with their lengths:
+              <p>
+                \[\begin{aligned}
+                \vec{a} &amp;= 3\hat\imath + 2\hat\jmath = 3.5\hat{u} - 0.7\hat{v}
+                &amp; a &amp;= \sqrt{3^2 + 2^2} = 3.6 \\
+                \vec{b} &amp;= 3\hat\imath - \hat\jmath = 1.4\hat{u} - 2.8\hat{v}
+                &amp; b &amp;= \sqrt{3^2 + 1^2} = 3.2
+                \end{aligned}\]
+              </p>
+              <canvas id="rvv-xx-c" width="400" height="300" class="standaloneImage">
+              </canvas>
+              <p>
+                Show components:
+                <input type="radio" name="rvv-xx-c-showBasis" value="none" class="data-input:rvv-xx-c:showBasis" />
+                none
+                <input type="radio" name="rvv-xx-c-showBasis" value="ij" class="data-input:rvv-xx-c:showBasis" />
+                $\hat\imath,\hat\jmath$
+                <input type="radio" name="rvv-xx-c-showBasis" value="uv" class="data-input:rvv-xx-c:showBasis" />
+                $\hat{u},\hat{v}$
+              </p>
+              <p>
+                Compute the cross product $\vec{a} \times \vec{b}$
+                using: (1) the angle formula <a
+                href="#rvv-el">#rvv-el</a>; (2) the component formula
+                <a href="#rvv-ex">#rvv-ex</a> with $\vec{a},\vec{b}$
+                both in the $\hat\imath,\hat\jmath$ basis, both in the
+                $\hat{u},\hat{v}$ basis, and with $\vec{a}$ in the
+                $\hat\imath,\hat\jmath$ basis and $\vec{b}$ in the
+                $\hat{u},\hat{v}$ basis.
+              </p>
+            </div>
+            <div class="envContainer solution">
+              <div class="envBody">
+                <p>
+                  (1) The dot product is $\vec{a} \cdot \vec{b} = 8$
+                  and the vector lengths are $a = 3.6$ and $b = 3.2$,
+                  so $\cos\theta = 8 / (ab)$ and $\theta \approx
+                  45^\circ$. Now using <a href="#rvv-el">#rvv-el</a>
+                  gives:
+
+                  \[\begin{aligned}
+                  \vec{a} \times \vec{b} &amp;= a b \sin\theta ( -\hat{k}) \\
+                  &amp;= -9 \hat{k}.
+                  \end{aligned}\]
+
+                  (2) Using the component formula <a
+                  href="#rvv-ex">#rvv-ex</a> gives:
+
+                  \[\begin{aligned}
+                  (3\hat\imath + 2\hat\jmath) \times (3\hat\imath - \hat\jmath)
+                  &amp;= -3 \hat\imath \times \hat\jmath + 6 \hat\jmath \times \hat\imath \\
+                  &amp;= -3 \hat{k} - 6 \hat{k} \\
+                  &amp;= -9 \hat{k} \\
+                  (3.5 \hat{u} - 0.7 \hat{v}) \times (1.4 \hat{u} - 2.8 \hat{v})
+                  &amp;= - (3.5 \times 2.8) \hat{u} \times \hat{v}
+                  - (0.7 \times 1.4) \hat{v} \times \hat{u} \\
+                  &amp;= -10 \hat{k} + \hat{k} \\
+                  &amp;= -9 \hat{k} \\
+                  (3\hat\imath + 2\hat\jmath) \times (1.4\hat{u} - 2.8\hat{v})
+                  &amp;= (3 \times 1.4) \hat\imath \times \hat{u}
+                  - (3 \times 2.8) \hat\imath \times \hat{v} \\
+                  &amp;\quad + (2 \times 1.4) \hat\jmath \times \hat{u}
+                  - (2 \times 2.8) \hat\jmath \times \hat{v} \\
+                  &amp;= 4.2 \sin 45^\circ \, \hat{k}
+                  - 8.5 \sin 135^\circ \, \hat{k} \\
+                  &amp;\quad - 2.8 \sin 45^\circ \, \hat{k}
+                  - 5.7 \sin 45^\circ \, \hat{k} \\
+                  &amp;= - 9 \hat{k}.
+                  \end{aligned}\]
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="envContainer example" id="rvv-xd">
+          <p class="envHeader">
+            Example: Dot product is independent of basis.
+          </p>
+          <div class="envBody">
+            <p>
+              Equation <a href="#rvv-ed">#rvv-ed</a> makes
+              it clear that the dot product does not depend on
+              which basis we use to write $\vec{a}$ and
+              $\vec{b}$, so long as we use the same
+              orthonormal basis for both of them. This is because
+              the dot product only depends on the lengths and angle
+              between the vectors, which are real physical
+              quantities that don’t change just because we use a
+              different basis.
+            </p>
+            <p>
+              However, we can also verify directly that the component
+              equation <a href="#rvv-es">#rvv-es</a> for the dot
+              product does not depend on which basis we use. To keep
+              the algebra short, we will only do this in 2D.
+            </p>
+            <p>
+              We compute the dot product using <a
+              href="#rvv-es">#rvv-es</a> in the
+              $\hat\imath,\hat\jmath$ basis and substitute in the
+              change-of-basis expressions <a
+              href="#rvv-eg">#rvv-eg</a>, giving:
+            </p>
+            <p>
+              \[\begin{aligned} \vec{a} \cdot \vec{b}
+              &amp;= a_i b_i + a_j b_j \\
+              &amp;= (u_i a_u + v_i a_v ) (u_i b_u + v_i b_v) + (u_j a_u + v_j a_v) (u_j b_u + v_j b_v) \\
+              &amp;= (u_i^2 + u_j^2) a_u b_u + (v_i^2 + v_j^2) a_v b_v + (u_i v_i + u_j b_j) (a_u b_v + a_v b_u) \\
+              &amp;= \| \hat{u} \|^2 a_u b_u + \| \hat{v} \|^2 a_v b_v + (\hat{u} \cdot \hat{v}) (a_u b_v + a_v b_u) \\
+              &amp;= a_u b_u + a_v b_v.
+              \end{aligned}\]
+            </p>
+            <p>
+              To get the last line we used the fact that
+              $\hat{u}$ and $\hat{v}$ form an orthornormal
+              basis, so that they each have length 1 (that is,
+              $\|\hat{u}\| = \|\hat{v}\| = 1$) and they are
+              orthogonal (that is, $\hat{u} \cdot \hat{v} = 0$).
+            </p>
+            <p>
+              This then shows that
+            </p>
+            <p>
+              \[\begin{aligned}
+              a_i b_i + a_j b_j &amp;= a_u b_u + a_v b_v
+              \end{aligned}\]
+            </p>
+            <p>
+              and so it doesn’t matter which basis we use to
+              compute $\vec{a} \cdot \vec{b}$, so
+              long as we use an orthonormal basis.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="infoCol"></div>
+    </div>
+    <div class="contentBlock">
+      <div id="rvv-st" class="contentCol">
+        <h2>
+          Time-dependent vectors and bases
+        </h2>
+        <p>
+          We can have dynamic vectors which change over time, so their
+          components also change. Alternatively, we can have a fixed
+          vector but dynamic basis. Because we are using orthonormal
+          bases, the only type of basis change that can occur is
+          rigid rotational motion of the basis.
+        </p>
+        <div class="figureContainer width500" id="rvv-fi">
+          <canvas id="rvv-fi-c" width="500" height="250" class="figureImage">
+          </canvas>
+          <p class="controls">
+            <button class="anim-toggle:rvv-fi-c">animate</button>
+            <button class="reset:rvv-fi-c">reset</button>
+            Movement:
+            <input type="radio" name="rvv-fi-c-movementType" value="vector" class="data-input:rvv-fi-c:movementType" />
+            vector
+            <input type="radio" name="rvv-fi-c-movementType" value="basis" class="data-input:rvv-fi-c:movementType" />
+            basis
+          </p>
+          <p class="figureCaption">
+            A time-varying vector or basis. Whether the vector or the
+            basis changes with time, in either case the components are
+            also changing with time.
+          </p>
+        </div>
+      </div>
+      <div class="infoCol"></div>
+    </div>
+      </div>
+      <div class="footer">
+        <p class="copyright">Copyright (C) 2012-2015 Matthew West</p>
+      </div>
+    </div>
+  </body>
+</html>

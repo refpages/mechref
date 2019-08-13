@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+  <head profile="http://www.w3.org/2005/10/profile">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <meta charset="UTF-8">
+    <title>
+      Friction and damping
+    </title>
+    <link href="style.css" type="text/css" rel="stylesheet" />
+    <link href="icomoon.css" type="text/css" rel="stylesheet" />
+
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});</script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script src="jquery-1.7.2.min.js" type="text/javascript"></script>
+    <script src="sylvester.js" type="text/javascript"></script>
+    <script src="sha1.js" type="text/javascript"></script>
+    <script src="PrairieDraw.js" type="text/javascript"></script>
+    <script src="pageControl.js" type="text/javascript"></script>
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-37625161-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header"><h1>Dynamics</h1></div>
+      <div id="nav-placeholder"></div>
+	    <script>
+        $(function(){
+          $("#nav-placeholder").load("/nav.html");
+        });
+      </script>
+      <div class="mainBlock">
+    <div class="contentBlock">
+      <div id="rfr" class="contentCol">
+        <h1>
+          Friction and damping
+        </h1>
+        <div class="envContainer equation" id="rfr-el">
+          <p class="envHeader">Limit on friction force magnitude.</p>
+          <div class="envBody">
+            <p>
+              \[F \le \mu N\]
+            </p>
+            <p>
+              Variables $F$ and $N$ are the <emph>magnitude</emph> of
+              the friction force $\vec{F}$ and normal force $\vec{N}$,
+              and $\mu$ is the coefficient of friction.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="contentBlock">
+      <div id="rfr-ss" class="contentCol">
+        <h2>
+          States of motion with frictional contact
+        </h2>
+        <p>
+          For persistent contact with friction there are several
+          different states that are possible, as follows.
+        </p>
+        <table class="basic">
+          <tr class="lineBelow">
+            <th></th>
+            <th>Motion description</th>
+          </tr>
+          <tr class="lineBelow">
+            <th>Sticking</th>
+            <td>
+              The available friction force is sufficient to prevent
+              motion between the contact points. Thus, the contact
+              points have zero relative velocity and acceleration, and
+              the applied friction force magnitude might be less than
+              the maximum available.
+            </td>
+          </tr>
+          <tr class="lineBelow">
+            <th>Transition</th>
+            <td>
+              The available friction force is on the border of
+              allowing motion to occur. Thus, no motion is occurring
+              and the applied friction force magnitude is the maximum
+              available.
+            </td>
+          </tr>
+          <tr class="lineBelow">
+            <th>Slipping</th>
+            <td>
+              The contact points are moving relative to each other and
+              the friction force is trying as hard as it can to stop
+              the relative motion. Thus, there is non-zero relative
+              motion between the contact points and the applied
+              friction force magnitude is the maximum available.
+            </td>
+          </tr>
+          <tr class="lineBelow">
+            <th>About to slip</th>
+            <td>
+              The contact points currently have zero relative
+              velocity, but the available friction force is not enough
+              to prevent future motion. Thus, the contact points have
+              non-zero relative acceleration and the applied friction
+              force magnitude is the maximum available.
+            </td>
+          </tr>
+        </table>
+        <p>
+          The descriptions of the different friction motion states can
+          be written mathematically as follows.
+        </p>
+        <div class="envContainer equation" id="ren-ep">
+          <p class="envHeader">Possible states of motion with friction.</p>
+          <div class="envBody">
+            <table class="basic">
+              <tr class="lineBelow">
+                <th></th>
+                <th>relative motion</th>
+                <th>$\vec{F}$ magnitude</th>
+                <th>$\vec{F}$ direction</th>
+              </tr>
+              <tr class="lineBelow">
+                <th>Sticking</th>
+                <td>$v_{Px} = 0$ and $a_{Px} = 0$</td>
+                <td>$F \le \mu N$</td>
+                <td>any direction</td>
+              </tr>
+              <tr class="lineBelow">
+                <th>Transition</th>
+                <td>$v_{Px} = 0$ and $a_{Px} = 0$</td>
+                <td>$F = \mu N$</td>
+                <td>any direction</td>
+              </tr>
+              <tr class="lineBelow">
+                <th>Slipping</th>
+                <td>$v_{Px} \ne 0$</td>
+                <td>$F = \mu N$</td>
+                <td>opposes $\vec{v}_P$</td>
+              </tr>
+              <tr class="lineBelow">
+                <th>About to slip</th>
+                <td>$v_{Px} = 0$ and $a_{Px} \ne 0$</td>
+                <td>$F = \mu N$</td>
+                <td>opposes $\vec{a}_P$</td>
+              </tr>
+            </table>
+            <p>
+              Point $P$ is the contact point, $x$ is the tangential
+              contact direction, $\vec{F}$ is the friction force,
+              $\vec{N}$ is the normal force, and $\mu$ is the
+              coefficient of friction.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="contentBlock">
+      <div id="rfr-sa" class="contentCol">
+        <h2>
+          Analysis method for systems that might start to slip
+        </h2>
+        <p>
+          For a system that currently has zero relative contact
+          velocity, we might not know whether it will stick or start
+          to slip. To determine this, we can check the following cases
+          in any order. Exactly one of the checks will pass, and that
+          is the motion state that will physically occur.
+        </p>
+        <table class="basic">
+          <tr class="lineBelow">
+            <th></th>
+            <th>Assume</th>
+            <th>Check</th>
+          </tr>
+          <tr class="lineBelow">
+            <th>Sticking</th>
+            <td>$v_{Px} = 0$ and $a_{Px} = 0$</td>
+            <td>$F \le \mu N$</td>
+          </tr>
+          <tr class="lineBelow">
+            <th>About to slip</th>
+            <td>$F = \mu N$</td>
+            <td>$\vec{F}$ opposes $\vec{a}_P$</td>
+          </tr>
+        </table>
+        <p>
+          Depending on the geometry, the “About to slip” case may need
+          to be split into multiple cases, one for each possible
+          direction of $\vec{F}$. For example, in 2D we might need to
+          test two cases: (1) $F = \mu N$ to the left, and (2) $F =
+          \mu N$ to the right. Both of these have the same condition
+          to check of the force direction opposing the acceleration
+          direction.
+        </p>
+      </div>
+    </div>
+      </div>
+    </div>
+  </body>
+</html>

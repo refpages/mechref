@@ -1,0 +1,27 @@
+
+/*****************************************************************************/
+
+#aos-fd tr.latLong input[type="range"] {
+    width: 300px;
+}
+
+#aos-fd tr.startSection td {
+    padding: 20px 5px 0px 0px;
+}
+
+#coordinates {
+    border-collapse: collapse;
+    border-spacing: 0px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#coordinates tr:first-child td {
+    border-bottom: 1px solid black;
+}
+
+#coordinates tr td {
+    padding-right: 10px;
+}
+
+/*****************************************************************************/

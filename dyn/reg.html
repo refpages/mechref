@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+  <head profile="http://www.w3.org/2005/10/profile">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <meta charset="UTF-8">
+    <title>
+      Kinetics of rigid bodies
+    </title>
+    <link href="style.css" type="text/css" rel="stylesheet" />
+    <link href="reg.css" type="text/css" rel="stylesheet" />
+    <link href="icomoon.css" type="text/css" rel="stylesheet" />
+
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});</script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script src="jquery-1.7.2.min.js" type="text/javascript"></script>
+    <script src="pageControl.js" type="text/javascript"></script>
+    <script src="sylvester.js" type="text/javascript"></script>
+    <script src="sha1.js" type="text/javascript"></script>
+    <script src="PrairieDraw.js" type="text/javascript"></script>
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-37625161-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header"><h1>Dynamics</h1></div>
+      <div id="nav-placeholder"></div>
+	    <script>
+        $(function(){
+          $("#nav-placeholder").load("/nav.html");
+        });
+      </script>
+      <div class="mainBlock">
+    <div class="contentBlock">
+      <div id="reg" class="contentCol">
+        <h1>
+          Kinetics of rigid bodies
+        </h1>
+      </div>
+      <div class="infoCol">
+      </div>
+    </div>
+    <div class="contentBlock">
+      <div id="reg-sc" class="contentCol">
+        <h2>
+          Center of mass
+        </h2>
+        <div class="envContainer equation" id="reg-em">
+          <p class="envHeader">Total mass of a body.</p>
+          <div class="envBody">
+            <p>
+              \[m = \int_V \rho \,dV\]
+            </p>
+          </div>
+        </div>
+        <div class="envContainer equation" id="reg-ec">
+          <p class="envHeader">Center of mass $C$.</p>
+          <div class="envBody">
+            <p>
+              \[\vec{r}_C = \frac{1}{m} \int_V \rho \vec{r} \,dV\]
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="contentBlock">
+      <div id="reg-si" class="contentCol">
+        <h2>
+          Moment of inertia
+        </h2>
+        <div class="envContainer equation" id="reg-ei">
+          <p class="envHeader">Moment of inertia about axis $\hat{a}$ through point $P$.</p>
+          <div class="envBody">
+            <p>
+              \[I_{P,\hat{a}} = \int_V \rho r^2 \,dV\]
+            </p>
+            <p>
+              Here $r$ is the distance from the axis through $P$ in direction $\hat{a}$.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="contentBlock">
+      <div id="reg-se" class="contentCol">
+        <h2>
+          Euler's equations
+        </h2>
+        <div class="envContainer equation" id="reg-ee">
+          <p class="envHeader">Rigid body equations for rotation about a principal axis $\hat{a}$.</p>
+          <div class="envBody">
+            <p>
+              \[\begin{aligned}
+              \sum_i \vec{F}_i &amp;= m \vec{a}_C \\
+              \sum_i \vec{M}_{C,i} &amp;= I_{C,\hat{a}} \vec\alpha \\
+              \text{or } \sum_i \vec{M}_{O,i} &amp;= I_{O,\hat{a}} \vec\alpha \qquad \text{if $O$ is a fixed point}
+              \end{aligned}\]
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="contentBlock">
+      <div id="reg-sl" class="contentCol">
+        <h2>
+          Linear momentum
+        </h2>
+        <div class="envContainer equation" id="reg-el">
+          <p class="envHeader">Linear momentum of a rigid body.</p>
+          <div class="envBody">
+            <p>
+              \[\vec{p} = m \vec{v}_C\]
+            </p>
+          </div>
+        </div>
+        <div class="envContainer equation" id="reg-el">
+          <p class="envHeader">Kinetics equation using linear momentum.</p>
+          <div class="envBody">
+            <p>
+              \[\sum_i \vec{F}_i = \dot{\vec{p}}\]
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="contentBlock">
+      <div id="reg-sa" class="contentCol">
+        <h2>
+          Angular momentum
+        </h2>
+        <div class="envContainer equation" id="reg-ea">
+          <p class="envHeader">Angular momentum of a rigid body rotating about a principal axis $\hat{a}$ through point $P$.</p>
+          <div class="envBody">
+            <p>
+              \[\vec{H}_P = I_{P,\hat{a}} \vec\omega \]
+            </p>
+          </div>
+        </div>
+        <div class="envContainer equation" id="reg-er">
+          <p class="envHeader">Rotation equation using angular momentum.</p>
+          <div class="envBody">
+            <p>
+              \[\begin{aligned}
+              \sum_i \vec{M}_{C,i} &amp;= \dot{\vec{H}}_C \\
+              \text{or } \sum_i \vec{M}_{O,i} &amp;= \dot{\vec{H}}_O \qquad \text{if $O$ is a fixed point}
+              \end{aligned}\]
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="contentBlock">
+      <div id="reg-so" class="contentCol">
+        <h2>
+          Force couples and pure moments
+        </h2>
+      </div>
+    </div>
+    </div>
+      <div class="footer">
+        <p class="copyright">Copyright (C) 2012-2015 Matthew West</p>
+      </div>
+    </div>
+  </body>
+</html>

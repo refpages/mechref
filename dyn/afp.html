@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html>
+  <head profile="http://www.w3.org/2005/10/profile">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <meta charset="UTF-8">
+    <title>
+      Projectiles with air resistance
+    </title>
+    <link href="style.css" type="text/css" rel="stylesheet" />
+    <link href="icomoon.css" type="text/css" rel="stylesheet" />
+
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});</script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script src="jquery-1.7.2.min.js" type="text/javascript"></script>
+    <script src="sylvester.js" type="text/javascript"></script>
+    <script src="sha1.js" type="text/javascript"></script>
+    <script src="afp.js" type="text/javascript"></script>
+    <script src="PrairieGeom.js" type="text/javascript"></script>
+    <script src="PrairieDrawNew.js" type="text/javascript"></script>
+    <script src="pageControl.js" type="text/javascript"></script>
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-37625161-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header"><h1>Dynamics</h1></div>
+      <div id="nav-placeholder"></div>
+	    <script>
+        $(function(){
+          $("#nav-placeholder").load("/nav.html");
+        });
+      </script>
+      <div class="mainBlock">
+    <div class="contentBlock">
+      <div id="afp" class="section level2 contentCol">
+        <h1>Projectiles with air resistance</h1>
+        <p>
+          Consider a spherical object, such as a baseball, moving
+          through the air.  The motion of an object though a fluid is
+          one of the most complex problems in all of science, and it
+          is still not completely understood to this day.  One of the
+          reasons this problem is so challenging is that, in general,
+          there are many different forces acting on such objects,
+          including:
+        </p>
+        <ul>
+          <li>gravity</li>
+          <li>drag</li>
+          <li>lift</li>
+          <li>thrust</li>
+          <li>buoyancy</li>
+          <li>bulk fluid motion, such as wind</li>
+          <li>inertial forces, such as the centrifugal and Coriolis forces</li>
+        </ul>
+        <p>
+          In most introductory physics and dynamics courses, gravity
+          is the only force that is accounted for (this is equivalent
+          to assuming that the motion takes place in a vacuum).  Here
+          we will consider realistic and accurate models of air
+          resistance that are used to model the motion of projectiles
+          like baseballs.
+        </p>
+        <div class="figureContainer" id="afp-fb">
+          <img class="figureImage"
+               alt="Wrigley Field, Chicago, Illinois"
+               width="600px"
+               src="afp_1023071278_9bc8facc4f_b.jpg" />
+          <p class="figureCaption">
+            <a href="https://en.wikipedia.org/wiki/Wrigley_Field">Wrigley
+            Field</a> in Chicago, Illinois is the home of
+            the <a href="https://en.wikipedia.org/wiki/Chicago_Cubs">Chicago
+            Cubs</a> baseball team. In baseball, an “out of the
+            park” <a href="https://en.wikipedia.org/wiki/Home_run">home
+            run</a> is scored when the ball is hit beyond the
+            green <a href="https://en.wikipedia.org/wiki/Outfield">outfield</a>
+            (past the
+            yellow <a href="https://en.wikipedia.org/wiki/Baseball_field#Foul_poles">foul
+            pole</a> at the left of the above image).  Image
+            source: <a href="https://www.flickr.com/photos/jbash/1023071278">Flickr
+            image</a>
+            by <a href="http://www.flickr.com/photos/jbash/">Mike
+            Bash</a> (<a href="https://creativecommons.org/licenses/by-nc-nd/2.0/">CC
+            BY NC ND 2.0</a>)
+            (<a href="afp_1023071278_39e77d3fa0_o.jpg">full-sized
+            image</a>).
+          </p>
+        </div>
+      </div>
+      <div class="infoCol">
+        <div class="infoBox requirementsBox">
+          <ul>
+            <li><a href="rkv.html">Position, velocity, and acceleration</a></li>
+            <li><a href="rep.html">Kinetics of point masses</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="contentBlock">
+      <div id="afp-sd" class="section level3 contentCol">
+        <h2>Drag forces and drag coefficients</h2>
+        <p>
+          The <em>drag force</em> is always directly opposed to the velocity of
+          the object.  In vector notation,
+
+          \[
+          \vec{F}_{\rm D} = -F_{\rm D} \hat{v},
+          \]
+          
+          where $F_{\rm D}$ is the magnitude of the drag force, and
+          $\hat{v}$ is the unit vector in the direction of the
+          object's velocity.
+        </p>
+        <div class="figureContainer width600" id="afp-ff">
+          <canvas id="afp-ff-c" width="600" height="600" class="figureImage">
+          </canvas>
+          <p class="controls">
+            <button class="reset:afp-ff-c">reset</button>
+          </p>
+          <p class="controls">
+            Velocity angle from horizontal:
+            <input type="range" min="-180" max="180" value="30" step="1" class="data-input:afp-ff-c:vAngleDeg" />
+            $\theta = $ <span class="data-option:afp-ff-c:vAngleDeg"></span>°
+          </p>
+          <p class="figureCaption">
+            The free body diagram for a baseball subject to gravity
+            and air resistance. Observe that the drag due to air
+            resistance is always in the opposite direction to the
+            velocity. Image credit: Microsoft clip art.
+          </p>
+        </div>
+        <p>
+          The magnitude of the drag force is
+          characterized by the dimensionless <em>drag coefficient</em>
+          $C_{\rm D}$, given by
+
+          \[
+          C_{\rm D} = \frac{F_{\rm D}}{\frac{1}{2} \rho A v^2},
+          \]
+
+          where $\rho$ is the density of the fluid (in this case,
+          air), $A=(1/4)\pi D^{2}$ is the cross-sectional area of the object, and $v$
+          is the object's speed.
+        </p>
+      </div>
+    </div>
+    <div class="contentBlock">
+      <div id="afp-sr" class="section level3 contentCol">
+        <h2>Drag coefficients as a function of Reynolds number</h2>
+        <p>
+          A dimensionless parameter that is very useful in fluid
+          dynamics is the Reynolds number, which is defined as
+
+          \[
+          {\rm Re} = \frac{\rho v L}{\mu},
+          \]
+
+          where $L$ is a characteristic length for the flow (in this
+          case, the diameter $D$ of the ball), and $\mu$ is the
+          dynamic viscosity of the fluid.  The Reynolds number gives a
+          ratio between inertial forces and viscous forces in a fluid
+          flow.  For very small Reynolds numbers, the viscous forces
+          are much stronger than the inertial forces (think of trying
+          to stir a cup of honey).  For very large Reynolds numbers,
+          the viscous forces are negligible, and we refer to the flow
+          as <em>inviscid</em> (think of stirring a cup of coffee).
+        </p>
+        <p>
+          An important result in fluid dynamics is that the drag
+          coefficient is a function only of the Reynolds number of the
+          fluid flow about the object.  That is,
+	
+          \[
+          C_{\rm D} = C_{\rm D}({\rm Re}).
+          \]
+
+          This functional relationship has no closed form.  However,
+          the relationship has been established numerically based on
+          experimental data.  See <a href="#afp-fd">Figure #aft-fd</a>
+          for a schematic diagram of the drag coefficient's dependence
+          on the Reynolds number.
+        </p>
+        <div class="figureContainer" id="afp-fd">
+          <img class="figureImage"
+               width="400px"
+               alt="Drag coefficient as a function of Reynolds number"
+               src="afp_drag_coefficient.png" />
+          <p class="figureCaption">
+            Experimental dependence of drag coefficient on Reynolds
+            number for a sphere. Image
+            credit: <a href="http://www.grc.nasa.gov/WWW/k-12/airplane/dragsphere.html">NASA</a>
+            via <a href="https://en.wikipedia.org/wiki/Stokes_number#/media/File:Drag_sphere_nasa.svg">Wikipedia</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="contentBlock">
+      <div id="afp-sq" class="section level3 contentCol">
+        <h2>Quadratic drag model</h2>
+        <p>
+          Notice from <a href="#afp-fd">Figure #aft-fd</a> that there
+          is a range of Reynolds numbers ($10^3 < {\rm Re} < 10^5$),
+          characteristic of macroscopic projectiles, for which the
+          drag coefficient is approximately constant at about 1/2 (see
+          the part of the curve labeled “4”
+          in <a href="#afp-fd">Figure #aft-fd</a>).  That the drag 
+	  coefficient is constant means that,
+          within this region, the magnitude of the drag force is
+          proportional to the square of the object’s speed.
+	  Substituting $C_{\rm D}=1/2$ into the definition of $C_{D}$ above,
+          we obtain
+
+          \[
+          F_{\rm D} = \frac{1}{4} \rho A v^2 = c v^2,
+          \]
+		
+	  where we have defined the <em>quadratic drag parameter</em> $c$ as
+
+          \[
+          c = \frac{1}{4} \rho A = \frac{\pi}{16} \rho D^2,
+          \]
+
+          which is a constant for a given projectile. This is referred to as <em>quadratic
+          drag</em>, because the drag force magnitude is proportional
+          to the <em>square</em> of the speed.
+	  Using this result, we can write the drag force vector as
+		
+	  \[
+          \vec{F}_{\rm D} = - c v^2 \hat{v}.
+          \]
+        <p>
+        <p>
+          In the presence of gravity and quadratic drag alone, the net
+          force on an object is given by
+
+          \[
+          \sum \vec{F} = m \vec{g} - c v^2 \hat{v},
+          \]
+
+          where $m$ is the mass of the object and $\vec{g}$ is the
+          local acceleration due to gravity. Below is an interactive
+          graphic showing the trajectory of an object with gravity and
+          quadratic drag.  You can change the various parameters to
+          see their effects on the object’s motion.
+        </p>
+        <div class="figureContainer width600" id="afp-ft">
+          <canvas id="afp-ft-c" width="600" height="600" class="figureImage noBorder">
+          </canvas>
+          <p class="controls">
+            <button class="reset:afp-ft-c">reset</button>
+          </p>
+          <table>
+            <tr>
+              <td>Initial speed:</td>
+              <td><input type="range" min="0" max="55" value="0" step="1" style="width:300px" class="data-input:afp-ft-c:v0" /></td>
+              <td>$v_0 = $ <span class="data-option:afp-ft-c:v0"></span> m/s</td>
+            </tr>
+            <tr>
+              <td>Initial angle:</td>
+              <td><input type="range" min="0" max="90" value="30" step="1" style="width:300px" class="data-input:afp-ft-c:v0AngleDeg" /></td>
+              <td>$\theta_0 = $ <span class="data-option:afp-ft-c:v0AngleDeg"></span>°</td>
+            </tr>
+            <tr>
+              <td>Mass:</td>
+              <td><input type="range" min="5" max="300" value="0" step="5" style="width:300px" class="data-input:afp-ft-c:m_g" /></td>
+              <td>$m = $ <span class="data-option:afp-ft-c:m_g"></span> g</td>
+            </tr>
+            <tr>
+              <td>Diameter:</td>
+              <td><input type="range" min="1" max="20" value="0" step="0.1" style="width:300px" class="data-input:afp-ft-c:D_cm" /></td>
+              <td>$D = $ <span class="data-option:afp-ft-c:D_cm"></span> cm</td>
+            </tr>
+          </table>
+          <p class="figureCaption">
+            Trajectories of a projectile in a vacuum (blue) and
+            subject to quadratic drag from air resistance (red). The
+            air density is $\rho = 1.225\rm\ kg/m^3$ (standard
+            sea-level atmosphere) and the acceleration due to gravity
+            is $g = 9.81\rm\ m/s^2$. A regulation baseball has a mass
+            of about $m = 145\rm\ g$ and a diameter of about $D =
+            7.5\rm\ cm$.
+          </p>
+        </div>
+      </div>
+      <div class="infoCol">
+        <div id="afp-ib" class="infoBox factBox">
+          <p>
+            There is no well-measured record for longest
+            baseball <a href="https://en.wikipedia.org/wiki/Home_run">home
+            run</a>. It is claimed
+            that <a href="https://en.wikipedia.org/wiki/Mickey_Mantle">Mickey
+            Mantle</a> hit a ball 643 feet (196 m), although this
+            apparently included rolling on the ground. Other power
+            hits by Mantle are reliably measured to be over 500 feet
+            (152 m).
+          </p>
+          <p>
+            Given that the record for
+            <a href="http://www.hittrackeronline.com/top_sob.php">fastest
+            speed off-bat</a> is around 120 mph (53.6 m/s), the
+            simulation in <a href="#afp-ft">Figure #aft-ft</a> shows
+            that it is unlikely that Mantle's long hits could have
+            occurred without some additional assistance from wind,
+            ball spin, or other effects.
+          </p>
+        </div>
+      </div>
+    </div>
+    </div>
+      <div class="footer">
+        <p class="copyright">Copyright (C) 2012-2015 Matthew West</p>
+      </div>
+    </div>
+  </body>
+</html>

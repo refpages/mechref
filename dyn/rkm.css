@@ -1,0 +1,26 @@
+
+/*****************************************************************************/
+
+table.comparison tr td:nth-child(4),
+table.comparison tr td:nth-child(5) {
+    text-align: left;
+    width: 40%;
+}
+
+table.comparison ul {
+    margin: 0;
+}
+
+table.comparison th {
+    border-bottom: 1px solid #444;
+}
+
+table.comparison tr:nth-child(2n + 1) td {
+    background: #eef;
+}
+
+table.comparison tr:nth-child(n + 1) td {
+    padding-bottom: 10px;
+}
+
+/*****************************************************************************/

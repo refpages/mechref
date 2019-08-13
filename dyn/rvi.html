@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html>
+  <head profile="http://www.w3.org/2005/10/profile">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <meta charset="UTF-8">
+    <title>
+      Vector identities
+    </title>
+    <link href="style.css" type="text/css" rel="stylesheet" />
+    <link href="icomoon.css" type="text/css" rel="stylesheet" />
+
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});</script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script src="jquery-1.7.2.min.js" type="text/javascript"></script>
+    <script src="pageControl.js" type="text/javascript"></script>
+    <script src="sylvester.js" type="text/javascript"></script>
+    <script src="sha1.js" type="text/javascript"></script>
+    <script src="PrairieDraw.js" type="text/javascript"></script>
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-37625161-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header"><h1>Dynamics</h1></div>
+      <div id="nav-placeholder"></div>
+	    <script>
+        $(function(){
+          $("#nav-placeholder").load("/nav.html");
+        });
+      </script>
+      <div class="mainBlock">
+    <div class="contentBlock">
+      <div id="rvi" class="section level2 contentCol">
+        <h1>
+          Vector identities
+        </h1>
+        <p>
+          This page lists some commonly used vector identities.
+        </p>
+        <div class="envContainer equation" id="rvi-ed">
+          <p class="envHeader">Dot product symmetry.</p>
+          <div class="envBody">
+            <p>
+              \[\vec{a} \cdot \vec{b} = \vec{b} \cdot \vec{a} \]
+            </p>
+          </div>
+        </div>
+        <div class="envContainer derivation">
+          <div class="envBody">
+            <p>
+              Using the coordinate expression <a
+              href="rvv.html#rvv-es">#rvv-es</a> gives:
+
+              \[
+              \vec{a} \cdot \vec{b}
+              = a_1 b_1 + a_2 b_2 + a_3 b_3
+              = b_1 a_1 + b_2 a_2 + b_3 a_3
+              = \vec{b} \cdot \vec{a}.
+              \]
+            </p>
+          </div>
+        </div>
+        <div class="envContainer equation" id="rvi-eg">
+          <p class="envHeader">Dot product vector length.</p>
+          <div class="envBody">
+            <p>
+              \[ \vec{a} \cdot \vec{a} = \|a\|^2 \]
+            </p>
+          </div>
+        </div>
+        <div class="envContainer derivation">
+          <div class="envBody">
+            <p>
+              Using the coordinate expression <a
+              href="rvv.html#rvv-es">#rvv-es</a> gives:
+
+              \[
+              \vec{a} \cdot \vec{a}
+              = a_1 a_1 + a_2 a_2 + a_3 a_3 = \|a\|^2.
+              \]
+            </p>
+          </div>
+        </div>
+        <div class="envContainer equation" id="rvi-ei">
+          <p class="envHeader">Dot product bi-linearity.</p>
+          <div class="envBody">
+            <p>
+              \[\begin{aligned} \vec{a} \cdot
+              (\vec{b} + \vec{c}) &amp;=
+              \vec{a} \cdot \vec{b} + \vec{a}
+              \cdot \vec{c} \\ (\vec{a} +
+              \vec{b}) \cdot \vec{c} &amp;=
+              \vec{a} \cdot \vec{c} + \vec{b}
+              \cdot \vec{c} \\ \vec{a} \cdot (\beta
+              \vec{b}) &amp;= \beta (\vec{a} \cdot
+              \vec{b}) = (\beta \vec{a}) \cdot
+              \vec{b}\end{aligned}\]
+            </p>
+          </div>
+        </div>
+        <div class="envContainer derivation">
+          <div class="envBody">
+            <p>
+              Using the coordinate expression <a
+              href="rvv.html#rvv-es">#rvv-es</a> gives:
+
+              \[\begin{aligned}
+              \vec{a} \cdot (\vec{b} + \vec{c})
+              &amp;= a_1 (b_1 + c_1) + a_2 (b_2 + c_2) + a_3 (b_3 + c_3) \\
+              &amp;= (a_1 b_1 + a_2 b_2 + a_3 b_3) + (a_1 c_1 + a_2 c_2 + a_3 c_3) \\
+              &amp;= \vec{a} \cdot \vec{b} + \vec{a} \cdot \vec{c} \\
+              (\vec{a} + \vec{b}) \cdot \vec{c}
+              &amp;= (a_1 + b_1) c_1 + (a_2 + b_2) c_2 + (a_3 + b_3) c_3 \\
+              &amp;= (a_1 c_1 + a_2 c_2 + a_3 c_3) + (b_1 c_1 + a_2 c_2 + a_3 c_3) \\
+              &amp;= \vec{a} \cdot \vec{c} + \vec{b} \cdot \vec{c} \\
+              \vec{a} \cdot (\beta \vec{b})
+              &amp;= a_1 (\beta b_1) + a_2 (\beta b_2) + a_3 (\beta b_3) \\
+              &amp;= \beta (a_1 b_1 + a_2 b_2 + a_3 b_3) \\
+              &amp;= \beta (\vec{a} \cdot \vec{b}) \\
+              &amp;= (\beta a_1) b_1 + (\beta a_2) b_2 + (\beta a_3) b_3 \\
+              &amp;= (\beta \vec{a}) \cdot \vec{b}.
+              \end{aligned}\]
+            </p>
+          </div>
+        </div>
+        <div class="envContainer equation" id="rvi-ea">
+          <p class="envHeader">Cross product anti-symmetry.</p>
+          <div class="envBody">
+            <p>
+              \[\begin{aligned} \vec{a} \times
+              \vec{b} = - \vec{b} \times
+              \vec{a}\end{aligned}\]
+            </p>
+          </div>
+        </div>
+        <div class="envContainer derivation">
+          <div class="envBody">
+            <p>
+              Writing the component expression <a
+              href="rvv.html#rvv-ex">#rvv-ex</a> gives:
+
+              \[\begin{aligned}
+              \vec{a} \times \vec{b}
+              &amp;= (a_2 b_3 - a_3 b_2) \,\hat{\imath}
+              + (a_3 b_1 - a_1 b_3) \,\hat{\jmath}
+              + (a_1 b_2 - a_2 b_1) \,\hat{k} \\
+              &amp;= -(a_3 b_2 - a_2 b_3) \,\hat{\imath}
+              - (a_1 b_3 - a_3 b_1) \,\hat{\jmath}
+              - (a_2 b_1 - a_1 b_2) \,\hat{k} \\
+              &amp;= -\vec{b} \times \vec{a}.
+              \end{aligned}\]
+            </p>
+          </div>
+        </div>
+        <div class="envContainer equation" id="rvi-ez">
+          <p class="envHeader">Cross product self-annihilation.</p>
+          <div class="envBody">
+            <p>
+              \[\begin{aligned}
+              \vec{a} \times \vec{a} = 0
+              \end{aligned}\]
+            </p>
+          </div>
+        </div>
+        <div class="envContainer derivation">
+          <div class="envBody">
+            <p>
+              From anti-symmetry <a href="#rvi-ea">#rvi-ea</a> we
+              have:
+
+              \[\begin{aligned}
+              \vec{a} \times \vec{a} &amp;= - \vec{a} \times \vec{a} \\
+              2 \vec{a} \times \vec{a} &amp;= 0 \\
+              \vec{a} \times \vec{a} &amp;= 0.
+              \end{aligned}\]
+            </p>
+          </div>
+        </div>
+        <div class="envContainer equation" id="rvi-eb">
+          <p class="envHeader">Cross product bi-linearity.</p>
+          <div class="envBody">
+            <p>
+              \[\begin{aligned}
+              \vec{a} \times (\vec{b} + \vec{c})
+              &amp;= \vec{a} \times \vec{b} + \vec{a} \times \vec{c} \\
+              (\vec{a} + \vec{b}) \times \vec{c}
+              &amp;= \vec{a} \times \vec{c} + \vec{b} \times \vec{c} \\
+              \vec{a} \times (\beta \vec{b})
+              &amp;= \beta (\vec{a} \times \vec{b})
+              = (\beta \vec{a}) \times \vec{b}
+              \end{aligned}\]
+            </p>
+          </div>
+        </div>
+        <div class="envContainer derivation">
+          <div class="envBody">
+            <p>
+              Writing the component expression <a
+              href="rvv.html#rvv-ex">#rvv-ex</a> for the first
+              equation gives:
+
+              \[\begin{aligned}
+              \vec{a} \times (\vec{b} + \vec{c})
+              &amp;= (a_2 (b_3 + c_3) - a_3 (b_2 + c_2)) \,\hat{\imath} \\
+              &amp;\quad + (a_3 (b_1 + c_1) - a_1 (b_3 + c_3)) \,\hat{\jmath} \\
+              &amp;\quad + (a_1 (b_2 + c_2) - a_2 (b_1 + c_1)) \,\hat{k} \\
+              &amp;= \Big((a_2 b_3 - a_3 b_2) \,\hat{\imath}
+              + (a_3 b_1 - a_1 b_3) \,\hat{\jmath}
+              + (a_1 b_2 - a_2 b_1) \,\hat{k} \Big) \\
+              &amp;\quad + \Big((a_2 c_3 - a_3 c_2) \,\hat{\imath}
+              + (a_3 c_1 - a_1 c_3) \,\hat{\jmath}
+              + (a_1 c_2 - a_2 c_1) \,\hat{k} \Big) \\
+              &amp;= \vec{a} \times \vec{b} + \vec{a} \times \vec{c}. \\
+              \end{aligned}\]
+
+              The second equation follows similarly, and for the third
+              equation we have:
+
+              \[\begin{aligned}
+              \vec{a} \times (\beta \vec{b})
+              &amp;= (a_2 (\beta b_3) - a_3 (\beta b_2)) \,\hat{\imath}
+              + (a_3 (\beta b_1) - a_1 (\beta b_3)) \,\hat{\jmath}
+              + (a_1 (\beta b_2) - a_2 (\beta b_1)) \,\hat{k} \\
+              &amp;= \beta \Big( (a_2 b_3 - a_3 b_2) \,\hat{\imath}
+              + (a_3 b_1 - a_1 b_3) \,\hat{\jmath}
+              + (a_1 b_2 - a_2 b_1) \,\hat{k} \Big) \\
+              &amp;= \beta (\vec{a} \times \vec{b}).
+              \end{aligned}\]
+
+              The last part of the third equation can be seen with a
+              similar derivation.
+            </p>
+          </div>
+        </div>
+        <p>
+          The scalar triple product is \(\vec{a} \cdot
+          (\vec{b} \times \vec{c})\), which gives the
+          volume of the parallelepiped defined by \(\vec{a},
+          \vec{b}, \vec{c}\). It satisfies:
+        </p>
+        <div class="envContainer equation" id="rvi-es">
+          <p class="envHeader">Scalar triple product formula.</p>
+          <div class="envBody">
+            <p>
+              \[\begin{aligned} \vec{a} \cdot
+              (\vec{b} \times \vec{c}) =
+              \vec{b} \cdot (\vec{c} \times
+              \vec{a}) = \vec{c} \cdot
+              (\vec{a} \times \vec{b})\end{aligned}\]
+            </p>
+          </div>
+        </div>
+        <div class="envContainer derivation">
+          <div class="envBody">
+            <p>
+              Writing the first two expressions out in components, we
+              can check that they give the same result:
+            </p>
+            <p>
+              \[\begin{aligned} \vec{a} \cdot
+              (\vec{b} \times \vec{c}) &amp;= (a_1
+              \,\hat{\imath} + a_2 \,\hat{\jmath} + a_3 \,\hat{k}) \\
+              &amp;\qquad \cdot \big( (b_1 \,\hat{\imath} + b_2 \,\hat{\jmath}
+              + b_3 \,\hat{k}) \times (c_1 \,\hat{\imath} + c_2
+              \,\hat{\jmath} + c_3 \,\hat{k}) \big) \\ &amp;= (a_1
+              \,\hat{\imath} + a_2 \,\hat{\jmath} + a_3 \,\hat{k}) \\
+              &amp;\qquad \cdot \big( (b_2 c_3 - b_3 c_2) \,\hat{\imath} + (b_3
+              c_1 - b_1 c_3) \,\hat{\jmath} + (b_1 c_2 - b_2 c_1)
+              \,\hat{k} \big) \\ &amp;= a_1 b_2 c_3 - a_1 b_3 c_2 +
+              a_2 b_3 c_1 - a_2 b_1 c_3 + a_3 b_1 c_2 - a_3 b_2 c_1
+              \\ \vec{b} \cdot (\vec{c} \times
+              \vec{a}) &amp;= (b_1 \,\hat{\imath} + b_2
+              \,\hat{\jmath} + b_3 \,\hat{k}) \\
+              &amp;\qquad \cdot \big( (c_1
+              \,\hat{\imath} + c_2 \,\hat{\jmath} + c_3 \,\hat{k})
+              \times (a_1 \,\hat{\imath} + a_2 \,\hat{\jmath} + a_3
+              \,\hat{k}) \big) \\ &amp;= (b_1 \,\hat{\imath} + b_2
+              \,\hat{\jmath} + b_3 \,\hat{k}) \\
+              &amp;\qquad \cdot \big( (c_2 a_3
+              - c_3 a_2) \,\hat{\imath} + (c_3 a_1 - c_1 a_3)
+              \,\hat{\jmath} + (c_1 a_2 - c_2 a_1) \,\hat{k} \big)
+              \\ &amp;= b_1 c_2 a_3 - b_1 c_3 a_2 + b_2 c_3 a_1 -
+              b_2 c_1 a_3 + b_3 c_1 a_2 - b_3 c_2
+              a_1.\end{aligned}\]
+            </p>
+            <p>
+              The third expression is also the same.
+            </p>
+          </div>
+        </div>
+        <p>
+          The vector triple product is \(\vec{a} \times
+          (\vec{b} \times \vec{c})\). It satisfies:
+        </p>
+        <div class="envContainer equation" id="rvi-ev">
+          <p class="envHeader">Vector triple product expansion.</p>
+          <div class="envBody">
+            <p>
+              \[\begin{aligned} \vec{a} \times
+              (\vec{b} \times \vec{c}) =
+              (\vec{a} \cdot \vec{c}) \vec{b}
+              - (\vec{a} \cdot \vec{b})
+              \vec{c}\end{aligned}\]
+            </p>
+          </div>
+        </div>
+        <div class="envContainer derivation">
+          <div class="envBody">
+            <p>
+              In components we have:
+            </p>
+            <p>
+              \[\begin{aligned} \vec{a} \times
+              (\vec{b} \times \vec{c}) &amp;= (a_1
+              \,\hat{\imath} + a_2 \,\hat{\jmath} + a_3 \,\hat{k}) \\
+              &amp;\qquad \times \Big( (b_1 \,\hat{\imath} + b_2 \,\hat{\jmath}
+              + b_3 \,\hat{k}) \times (c_1 \,\hat{\imath} + c_2
+              \,\hat{\jmath} + c_3 \,\hat{k}) \Big) \\ &amp;= (a_1
+              \,\hat{\imath} + a_2 \,\hat{\jmath} + a_3 \,\hat{k}) \\
+              &amp;\qquad \times \Big( (b_2 c_3 - b_3 c_2) \,\hat{\imath} +
+              (b_3 c_1 - b_1 c_3) \,\hat{\jmath} + (b_1 c_2 - b_2
+              c_1) \,\hat{k} \Big) \\ &amp;= \Big(a_2 (b_1 c_2 -
+              b_2 c_1) - a_3 (b_3 c_1 - b_1 c_3)\Big)
+              \,\hat{\imath} \\ &amp;\quad+ \Big(a_3 (b_2 c_3 - b_3
+              c_2) - a_1 (b_1 c_2 - b_2 c_1)\Big) \,\hat{\jmath} \\
+              &amp;\quad+ \Big(a_1 (b_3 c_1 - b_1 c_3) - a_2 (b_2
+              c_3 - b_3 c_2)\Big) \,\hat{k} \\ &amp;= (a_2 b_1 c_2
+              - a_2 b_2 c_1 - a_3 b_3 c_1 + a_3 b_1 c_3)
+              \,\hat{\imath} \\ &amp;\quad+ (a_3 b_2 c_3 - a_3 b_3
+              c_2 - a_1 b_1 c_2 + a_1 b_2 c_1) \,\hat{\jmath} \\
+              &amp;\quad+ (a_1 b_3 c_1 - a_1 b_1 c_3 - a_2 b_2 c_3
+              + a_2 b_3 c_2) \,\hat{k} \\ &amp;= (a_1 b_1 c_1 + a_2
+              b_1 c_2 + a_3 b_1 c_3 - a_1 b_1 c_1 - a_2 b_2 c_1 -
+              a_3 b_3 c_1) \,\hat{\imath} \\ &amp;\quad+ (a_1 b_2
+              c_1 + a_2 b_2 c_2 + a_3 b_2 c_3 - a_1 b_1 c_2 - a_2
+              b_2 c_2 - a_3 b_3 c_2) \,\hat{\jmath} \\ &amp;\quad+
+              (a_1 b_3 c_1 + a_2 b_3 c_2 + a_3 b_3 c_3 - a_1 b_1
+              c_3 - a_2 b_2 c_3 - a_3 b_3 c_3) \,\hat{k} \\ &amp;=
+              (a_1 b_1 + a_2 c_2 + a_3 c_3) b_1 \,\hat{\imath} +
+              (a_1 c_1 + a_2 c_2 + a_3 c_3) b_2 \,\hat{\jmath} \\
+              &amp;\qquad +
+              (a_1 c_1 + a_2 c_2 + a_3 c_3) b_3 \,\hat{k} \\
+              &amp;\quad- (a_1 b_1 + a_2 b_2 + a_3 b_3) c_1
+              \,\hat{\imath} - (a_1 b_1 + a_2 b_2 + a_3 b_3) c_2
+              \,\hat{\jmath} \\
+              &amp;\qquad - (a_1 b_1 + a_2 b_2 + a_3 b_3) c_3
+              \,\hat{k} \\ &amp;= (\vec{a} \cdot
+              \vec{c}) \vec{b} - (\vec{a}
+              \cdot \vec{b}) \vec{c}.\end{aligned}\]
+            </p>
+          </div>
+        </div>
+        <div class="envContainer equation" id="rvi-eo">
+          <p class="envHeader">Cross product orthogonality.</p>
+          <div class="envBody">
+            <p>
+              \[\begin{aligned} \vec{a} \times
+              \vec{b} \text{ is orthogonal to both }
+              \vec{a} \text{ and }
+              \vec{b}\end{aligned}\]
+            </p>
+          </div>
+        </div>
+        <div class="envContainer derivation">
+          <div class="envBody">
+            <p>
+              This follows immediately from the scalar triple product
+              formula <a href="#rvi-es">#rvi-es</a>:
+            </p>
+            <p>
+              \[\begin{aligned} \vec{a} \cdot
+              (\vec{a} \times \vec{b}) =
+              \vec{b} \cdot (\vec{a} \times
+              \vec{a}) = 0,\end{aligned}\]
+            </p>
+            <p>
+              and similarly for \(\vec{b}\).
+            </p>
+          </div>
+        </div>
+        <div class="envContainer equation" id="rvi-eb">
+          <p class="envHeader">Binet-Cauchy identity.</p>
+          <div class="envBody">
+            <p>
+              \[\begin{aligned} (\vec{a} \times
+              \vec{b}) \cdot (\vec{c} \times
+              \vec{d}) = (\vec{a} \cdot
+              \vec{c})(\vec{b} \cdot \vec{d})
+              - (\vec{a} \cdot
+              \vec{d})(\vec{b} \cdot
+              \vec{c})\end{aligned}\]
+            </p>
+          </div>
+        </div>
+        <div class="envContainer derivation">
+          <div class="envBody">
+            <p>
+              From the scalar triple product formula <a
+              href="#rvi-es">#rvi-es</a> and the vector triple product
+              expansion <a href="#rvi-ev">#rvi-ev</a>:
+            </p>
+            <p>
+              \[\begin{aligned} (\vec{a} \times
+              \vec{b}) \cdot (\vec{c} \times
+              \vec{d}) &amp;= \vec{c} \cdot \big(
+              \vec{d} \times (\vec{a} \times
+              \vec{b}) \big) \\ &amp;= \vec{c} \cdot
+              \big( (\vec{d} \cdot \vec{b})
+              \vec{a} - (\vec{d} \cdot
+              \vec{a}) \vec{b} \big) \\ &amp;=
+              (\vec{d} \cdot \vec{b}) (\vec{c}
+              \cdot \vec{a}) - (\vec{d} \cdot
+              \vec{a}) (\vec{c} \cdot
+              \vec{b}).\end{aligned}\]
+            </p>
+          </div>
+        </div>
+        <div class="envContainer equation" id="rvi-el">
+          <p class="envHeader">Lagrange's identity.</p>
+          <div class="envBody">
+            <p>
+              \[\begin{aligned} \| \vec{a}
+              \times \vec{b} \|^2 = \|\vec{a}\|^2
+              \|\vec{b}\|^2 - (\vec{a} \cdot
+              \vec{b})^2\end{aligned}\]
+            </p>
+          </div>
+        </div>
+        <div class="envContainer derivation">
+          <div class="envBody">
+            <p>
+              This follows immediately from the Binet-Cauchy identity
+              <a href="#rvi-eb">#rvi-eb</a>.
+            </p>
+          </div>
+        </div>
+        <div class="envContainer equation" id="rvi-ee">
+          <p class="envHeader">Cross product length.</p>
+          <div class="envBody">
+            <p>
+              \[\begin{aligned} \| \vec{a}
+              \times \vec{b} \| = \|\vec{a}\|
+              \|\vec{b}\| \sin\theta\end{aligned}\]
+            </p>
+          </div>
+        </div>
+        <div class="envContainer derivation">
+          <div class="envBody">
+            <p>
+              From Lagrange’s identity <a href="#rvi-el">#rvi-el</a>:
+            </p>
+            <p>
+              \[\begin{aligned} \| \vec{a} \times
+              \vec{b} \|^2 &amp;= \|\vec{a}\|^2
+              \|\vec{b}\|^2 - (\vec{a} \cdot
+              \vec{b})^2 \\ &amp;= \|\vec{a}\|^2
+              \|\vec{b}\|^2 - (\|\vec{a}\|
+              \|\vec{b}\| \cos\theta)^2 \\ &amp;=
+              \|\vec{a}\|^2 \|\vec{b}\|^2 (1 -
+              \cos^2\theta) \\ &amp;= \|\vec{a}\|^2
+              \|\vec{b}\|^2 \sin^2\theta.\end{aligned}\]
+            </p>
+          </div>
+        </div>
+        <div class="envContainer equation" id="rvi-ej">
+          <p class="envHeader">Jacobi's identity.</p>
+          <div class="envBody">
+            <p>
+              \[\begin{aligned} \vec{a} \times
+              (\vec{b} \times \vec{c}) +
+              \vec{b} \times (\vec{c} \times
+              \vec{a}) + \vec{c} \times
+              (\vec{a} \times \vec{b}) =
+              0\end{aligned}\]
+            </p>
+          </div>
+        </div>
+        <div class="envContainer derivation">
+          <div class="envBody">
+            <p>
+              Using the vector triple product expansion <a
+              href="#rvi-ev">#rvi-ev</a>:
+            </p>
+            <p>
+              \[\begin{aligned} &amp;\vec{a} \times
+              (\vec{b} \times \vec{c}) +
+              \vec{b} \times (\vec{c} \times
+              \vec{a}) + \vec{c} \times
+              (\vec{a} \times \vec{b}) \\
+              &amp;\qquad= (\vec{a} \cdot \vec{c})
+              \vec{b} - (\vec{a} \cdot
+              \vec{b}) \vec{c} + (\vec{b}
+              \cdot \vec{a}) \vec{c} -
+              (\vec{b} \cdot \vec{c}) \vec{a}
+              + (\vec{c} \cdot \vec{b})
+              \vec{a} - (\vec{c} \cdot
+              \vec{a}) \vec{b} \\ &amp;\qquad=
+              0.\end{aligned}\]
+            </p>
+          </div>
+        </div>
+        <div class="envContainer equation" id="rvi-eq">
+          <p class="envHeader">Vector quadruple product expansion.</p>
+          <div class="envBody">
+            <p>
+              \[\begin{aligned} (\vec{a} \times
+              \vec{b}) \times (\vec{a} \times
+              \vec{c}) = \big( \vec{a} \cdot
+              (\vec{b} \times \vec{c}) \big)
+              \vec{a}\end{aligned}\]
+            </p>
+          </div>
+        </div>
+        <div class="envContainer derivation">
+          <div class="envBody">
+            <p>
+              Take \(\vec{d} = (\vec{a} \times \vec{b}) \times
+              (\vec{a} \times \vec{c})\). Then \(\vec{d}\) is in the
+              \(\vec{a},\vec{b}\) plane and in the \(\vec{a},\vec{c}\)
+              plane, so it is a scalar multiple of \(\vec{a}\). We use
+              the scalar triple product formula <a
+              href="#rvi-es">#rvi-es</a> and the vector triple product
+              expansion <a href="#rvi-ev">#rvi-ev</a> to compute:
+            </p>
+            <p>
+              \[\begin{aligned} \vec{d} \cdot \vec{a}
+              &amp;= \vec{a} \cdot \big( (\vec{a}
+              \times \vec{b}) \times (\vec{a} \times
+              \vec{c}) \big) \\ &amp;= (\vec{a}
+              \times \vec{c}) \cdot \big( \vec{a}
+              \times (\vec{a} \times \vec{b}) \big)
+              \\ &amp;= (\vec{a} \times \vec{c})
+              \cdot \big( (\vec{a} \cdot \vec{b})
+              \vec{a} - (\vec{a} \cdot
+              \vec{a}) \vec{b} \big) \\ &amp;= -
+              (\vec{a} \cdot \vec{a}) \vec{b}
+              \cdot (\vec{a} \times \vec{c}) \\
+              &amp;= (\vec{a} \cdot \vec{a}) \big(
+              \vec{a} \cdot (\vec{b} \times
+              \vec{c}) \big).\end{aligned}\]
+            </p>
+            <p>
+              Then
+            </p>
+            <p>
+              \[\begin{aligned} \vec{d} =
+              \operatorname{Proj}(\vec{d}, \vec{a}) =
+              \left(\frac{\vec{d} \cdot
+              \vec{a}}{\vec{a} \cdot
+              \vec{a}}\right) \vec{a} = \big(
+              \vec{a} \cdot (\vec{b} \times
+              \vec{c}) \big) \vec{a}.\end{aligned}\]
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+      <div class="footer">
+        <p class="copyright">Copyright (C) 2012-2015 Matthew West</p>
+      </div>
+    </div>
+  </body>
+</html>

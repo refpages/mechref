@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Example page</title>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']], processEscapes: true}});</script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  </head>
+  <body>
+    <h1>Example page</h1>
+    <p>Useful links:</p>
+    <ul>
+      <li>
+        Introduction to
+        HTML: <a href="http://www.w3schools.com/html/html_intro.asp">w3schools
+        HTML intro</a>
+        or <a href="http://developer.mozilla.org/en-US/docs/HTML/Introduction">MDN
+        HTML intro</a>.
+      </li>
+      <li>
+        Introduction to
+        JavaScript: <a href="http://www.w3schools.com/js/js_intro.asp">w3schools
+        JS Intro</a>.
+      </li>
+      <li>
+        Comprehensive JavaScript
+        documentation: <a href="http://developer.mozilla.org/en-US/docs/JavaScript">MDN
+        JS Ref</a>.
+      </li>
+      <li>
+        Canvas
+        documentation: <a href="http://developer.mozilla.org/en-US/docs/HTML/Canvas">MDN
+        Canvas docs</a>.
+      </li>
+      <li>
+        Developer tools available within the Chrome browser:
+        <a href="http://developers.google.com/chrome-developer-tools/">Chrome dev tools</a>.
+      </li>
+    </ul>
+    <p>Look at the source code for this page with "View Source" within your web browser.</p>
+
+    <h2>Math</h2>
+
+    <p>This page uses <a href="http://www.mathjax.org/">MathJax</a> to
+    enable writing of equations like $y = x^2$. This allows you to
+    write the math
+    in <a href="http://en.wikipedia.org/wiki/LaTeX">LaTeX format</a>,
+    which is then translated to display correctly in the
+    webbrowser.</p>
+
+    <p>To enable MathJax on a webpage, you need to include the following code within the document head:</p>
+    <pre>
+    &lt;script type="text/x-mathjax-config"&gt;MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']], processEscapes: true}});&lt;/script&gt;
+    &lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"&gt;&lt;/script&gt;
+    </pre>
+
+    <p>You can then write text like \$y = x^2\$ to generate $y = x^2$
+    or \$\$L = \int_0^t \sqrt{\dot{x}^2 + \dot{y}^2} dt\$\$ to
+    produce $$L = \int_0^t \sqrt{\dot{x}^2 + \dot{y}^2} dt$$</p>
+
+    <p>A good introduction to writing LaTeX math is Chapter 3 of
+    the <a href="http://tobi.oetiker.ch/lshort/lshort.pdf">The not so
+    short introduction to LaTeX 2e</a>.</p>
+
+    <h2>Graphics</h2>
+    <p>Below is a static graphics example.</p>
+    <canvas id="canvas1" width="400" height="200" style="border: 1px solid black;"></canvas>
+    <script src="example1.js" type="text/javascript"></script>
+    <p>Below is an animated graphics example.</p>
+    <canvas id="canvas2" width="400" height="200" style="border: 1px solid black;"></canvas>
+    <script src="example2.js" type="text/javascript"></script>
+  </body>
+</html>

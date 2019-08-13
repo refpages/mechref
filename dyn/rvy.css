@@ -1,0 +1,44 @@
+
+/*****************************************************************************/
+
+#rvy-tc {
+    border-collapse: collapse;
+    border-spacing: 0px;
+    font-size: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#rvy-tc td {
+    padding: 0px 5px 0px 5px;
+}
+
+#rvy-tc th {
+    border-bottom: 1px solid black;
+}
+
+#rvy-tc th {
+    text-align: center;
+}
+
+#rvy-tc td {
+    text-align: center;
+}
+
+#rvy-tc tr th:last-child {
+    text-align: left
+}
+
+#rvy-tc tr td:last-child {
+    text-align: left
+}
+
+#rvy-fd input[type="range"] {
+    width: 110px;
+}
+
+#rvy-ec-d div.envBody {
+    height: 210px;
+}
+
+/*****************************************************************************/

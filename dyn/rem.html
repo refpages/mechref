@@ -1,0 +1,1197 @@
+<!DOCTYPE html>
+<html>
+  <head profile="http://www.w3.org/2005/10/profile">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <meta charset="UTF-8">
+    <title>
+      Moments of inertia
+    </title>
+    <link href="style.css" type="text/css" rel="stylesheet" />
+    <link href="rem.css" type="text/css" rel="stylesheet" />
+    <link href="icomoon.css" type="text/css" rel="stylesheet" />
+
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});</script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script src="jquery-1.7.2.min.js" type="text/javascript"></script>
+    <script src="sylvester.js" type="text/javascript"></script>
+    <script src="sha1.js" type="text/javascript"></script>
+    <script src="PrairieDraw.js" type="text/javascript"></script>
+    <script src="rem.js" type="text/javascript"></script>
+    <script src="pageControl.js" type="text/javascript"></script>
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-37625161-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header"><h1>Dynamics</h1></div>
+      <div id="nav-placeholder"></div>
+	    <script>
+        $(function(){
+          $("#nav-placeholder").load("/nav.html");
+        });
+      </script>
+      <div class="mainBlock">
+    <div class="contentBlock">
+      <div id="rem" class="contentCol">
+        <h1>
+          Moments of inertia
+        </h1>
+        <p>
+          The moment of inertia of a body, written $I_{P,\hat{a}}$, is
+          measured about a rotation axis through point $P$ in
+          direction $\hat{a}$. The moment of inertia expresses how
+          hard it is to produce an angular acceleration of the body
+          about this axis. That is, a body with high moment of inertia
+          resists angular acceleration, so if it is not rotating then
+          it is hard to start a rotation, while if it is already
+          rotating then it is hard to stop.
+        </p>
+        <p>
+          The moment of inertia plays the same role for rotational
+          motion as the mass does for translational motion (a
+          high-mass body resists is hard to start moving and hard to
+          stop again).
+        </p>
+        <div class="envContainer equation" id="rem-ei">
+          <p class="envHeader">Moment of inertia about axis $\hat{a}$ through point $P$.</p>
+          <div class="envBody">
+            <table class="momentInertia">
+              <tr>
+                <td>
+                  <p>
+                    \[\begin{gathered}
+                    I_{P,\hat{a}} = \iiint_\mathcal{B} \rho r^2 \,dV \\
+                    \text{(units: $\rm kg\ m^2$)}
+                    \end{gathered}\]
+                  </p>
+                </td>
+                <td>
+                  <canvas id="rem-ei-c" width="300" height="300">
+                  </canvas>
+                </td>
+              </tr>
+            </table>
+            <p>
+              The distance $r$ is the perpendicular distance to $dV$
+              from the axis through $P$ in direction $\hat{a}$.
+            </p>
+          </div>
+        </div>
+        <div class="envContainer warning" id="rem-wm">
+          <p class="envHeader">Warning: Mass moments of inertia are different to area moments of inertia.</p>
+          <div class="envBody">
+            <p>
+              Be advised that the "moment of inertia" encountered 
+              in Statics is not the same as the moment of inertia used 
+              in Dynamics.  Strictly speaking, the "moment of inertia" 
+              from Statics shouldn't even be called "moment of inertia."  
+              What it really is is the "second moment of area."  
+              Below are the definitions of two such second moments of area:
+            </p>
+            <p>
+              \[J_{xx}=\iint_{A}{y^{2}dA}\]
+            </p>
+            <p>
+              \[J_{yy}=\iint_{A}{x^{2}dA}\]
+            </p>
+            <p>
+              In contrast, the moment of inertia (about the $z$-axis) 
+              is defined as stated above.
+            </p>
+            <p>
+              For example, a rectangle of base $b$ and height $h$ 
+              has the following moments about its centroid $C$:
+            </p>
+            <p>
+              \[J^{C}_{xx}=\frac{1}{12}bh^{3}\]
+            </p>
+            <p>
+              \[J^{C}_{yy}=\frac{1}{12}b^{3}h\]
+            </p>
+            <p>
+              \[I^{C}_{zz}=\frac{1}{12}m(b^{2}+h^{2})\]
+            </p>
+            <p>
+              Notice that the dimensions of the two quantities are different.  
+              While the dimension of second moment of area is $(\text{length})^{4}$, 
+              the dimension of moment of inertia is $(\text{mass})(\text{length})^{2}$.
+              When doing dynamics problems with moments of inertia, you should 
+              not use the formulas you remember for second moment of area instead.  
+              You will get the wrong answer!
+            </p>
+          </div>
+        </div>
+        <p>
+          Observe that the moment of inertia is proportional to the
+          mass, so that doubling the mass of an object will also
+          double its moment of inertia. In addition, the moment of
+          inertia is proportional to the square of the size of the
+          object, so that doubling every dimension of an object
+          (height, width, etc) will cause it to have four times the
+          moment of inertia.
+        </p>
+        <div class="envContainer equation" id="rem-ec">
+          <p class="envHeader">Moments of inertia about coordinate axes through point $P$.</p>
+          <div class="envBody">
+            <p>
+              \[\begin{aligned}
+              I_{P,x} &amp;= I_{P,xx} = I_{P,\hat\imath} = \iiint_\mathcal{B} \rho (y^2 + z^2) \,dx\,dy\,dz \\
+              I_{P,y} &amp;= I_{P,yy} = I_{P,\hat\jmath} = \iiint_\mathcal{B} \rho (z^2 + x^2) \,dx\,dy\,dz \\
+              I_{P,z} &amp;= I_{P,zz} = I_{P,\hat{k}} = \iiint_\mathcal{B} \rho (x^2 + y^2) \,dx\,dy\,dz
+              \end{aligned}\]
+            </p>
+            <p>
+              The coordinates $(x,y,z)$ in the body are measured from
+              point $P$.
+            </p>
+          </div>
+        </div>
+        <div class="envContainer derivation">
+          <div class="envBody">
+            <canvas id="rem-ec-c" width="300" height="200" class="floatRight">
+            </canvas>
+            <p>
+              The distance $r$ in the moment of inertia integral <a
+              href="#rem-ei">#rem-ei</a> is the <em>perpendicular</em>
+              distance from the axis of rotation to the infinitesimal
+              volume $dV$. If we are using rectangular coordinates
+              $(x,y,z)$ measured from point $P$, and the axis of
+              rotation is one of the coordinate axes, then the
+              perpendicular distance is very simple.
+            </p>
+            <p>
+              As an example, consider the case when the axis of
+              rotation $\hat{a}$ is the $\hat{k}$ axis, as shown in
+              the figure. Then the perpendicular distance $r$
+              satisfies $r^2 = x^2 + y^2$, giving the coordinate
+              expression above. The other two coordinate axes are
+              similar.
+            </p>
+          </div>
+        </div>
+        <div class="envContainer exampleProblem" id="rem-xs">
+          <p class="envHeader">Example Problem: Moment of inertia of a square plate.</p>
+          <div class="envBody">
+            <div class="question">
+              <canvas id="rem-xs-c" width="300" height="200" class="floatRight">
+              </canvas>
+              <p>
+                A solid square uniform plate has mass $m$, side-length
+                $\ell$, and thickness $h$. What is the moment of
+                inertia about the $z$-axis through the center of mass
+                $C$?
+              </p>
+            </div>
+            <div class="envContainer solution">
+              <div class="envBody">
+                <canvas id="rem-xs-c3" width="300" height="200" class="floatRight">
+                </canvas>
+                <p>
+                  We will use the coordinate formula <a
+                  href="#rem-ec">#rem-ec</a>. To do this, we measure
+                  the position from the point $C$ about which we are
+                  computing the moment of inertia, so the coordinate
+                  origin is at $C$. The figure to the right shows the
+                  3D configuration of the body, where we see that the
+                  $x$-coordinate range of the body is $-\ell/2$ to
+                  $\ell/2$, and the same for the $y$-coordinate, while
+                  the $z$-coordinate ranges from $-h/2$ to $h/2$.
+                </p>
+                <p>
+                  Taking the density of the plate to be $\rho$, we
+                  thus have:
+
+                  \[\begin{aligned}
+                  I_{C,z} &amp;= \iiint_\mathcal{B} \rho (x^2 + y^2) \,dx\,dy\,dz \\
+                  &amp;= \int_{-h/2}^{h/2} \int_{-\ell/2}^{\ell/2} \int_{-\ell/2}^{\ell/2}
+                  \rho (x^2 + y^2) \,dx\,dy\,dz \\
+                  &amp;= \int_{-h/2}^{h/2} \int_{-\ell/2}^{\ell/2} \left[
+                  \rho \left(\frac{1}{3}x^3 + y^2 x\right)\right]_{x = -\ell/2}^{x = \ell/2} \,dy\,dz \\
+                  &amp;= \int_{-h/2}^{h/2} \int_{-\ell/2}^{\ell/2}
+                  \rho \left(\frac{1}{12}\ell^3 + y^2 \ell \right) \,dy\,dz \\
+                  &amp;= \int_{-h/2}^{h/2} \left[
+                  \rho \left(\frac{1}{12}\ell^3 y + \frac{1}{3} y^3 \ell \right) \right]_{y = -\ell/2}^{y = \ell/2} \,dz \\
+                  &amp;= \int_{-h/2}^{h/2}
+                  \rho \left(\frac{1}{12}\ell^4 + \frac{1}{12} \ell^4 \right) \,dz \\
+                  &amp;= \int_{-h/2}^{h/2} \rho \frac{1}{6}\ell^4 \,dz \\
+                  &amp;= \left[ \rho \frac{1}{6}\ell^4 z \right]_{z = -h/2}^{z = h/2} \\
+                  &amp;= \rho \frac{1}{6}\ell^4 h.
+                  \end{aligned}\]
+
+                  The total mass of the plate is $m = \rho \ell^2 h$,
+                  so we can write the moment of inertia as
+
+                  \[I_{C,z} = \frac{1}{6} m \ell^2.\]
+
+                  The square plate moment of inertia is actually a
+                  special case of the rectangular prism formula <a
+                  href="#rem-er">#rem-er</a> with $\ell_y = \ell_z =
+                  \ell$.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="infoCol">
+        <div id="rem-i3" class="infoBox factBox">
+          <p>
+            We are always considering the moment of inertia to be a
+            scalar value $I$, which is valid for rotation about a
+            fixed axis. For more complicated dynamics with tumbling
+            motion about multiple axes simultaneously, it is necessary
+            to consider the full 3 × 3 <i>moment of inertia
+            matrix</i>:
+
+            \[
+            I = \begin{bmatrix}
+            I_{xx} &amp; I_{xy} &amp; I_{xz} \\
+            I_{yx} &amp; I_{yy} &amp; I_{yz} \\
+            I_{zx} &amp; I_{zy} &amp; I_{zz}
+            \end{bmatrix}
+            \]
+
+            The three scalar moments of inertia
+            from <a href="#rem-ec">#rem-ec</a> appear on the
+            diagonal. The off-diagonal terms are called
+            the <i>products of inertia</i> and are given by
+
+            \[
+            I_{xy} = -\iiint_{\mathcal{B}} \rho xy \,dx\,dy\,dz,
+            \]
+
+            and similarly for the other terms. The angular momentum of
+            a rigid body is given by $\vec{H} = I \vec\omega$, which
+            is the matrix product of the moment of inertia matrix with
+            the angular velocity vector. This is important in advanced
+            dynamics applications such as unbalanced rotating shafts
+            and the precession of gyroscopes.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="contentBlock">
+      <div id="rem-st" class="contentCol">
+        <h2>
+          Transforming and combining moments of inertia
+        </h2>
+        <div class="envContainer equation" id="rem-el">
+          <p class="envHeader">Parallel axis theorem.</p>
+          <div class="envBody">
+            <p>
+              \[I_{P,\hat{a}} = I_{C,\hat{a}} + m \, d^2\]
+            </p>
+            <p>
+              Here $d$ is the perpendicular distance between the axes
+              through $P$ and $C$ in direction $\hat{a}$, so $d = \|
+              \operatorname*{Comp}(\vec{r}_{CP}, \hat{a})\|$.
+            </p>
+          </div>
+        </div>
+        <div class="envContainer derivation">
+          <div class="envBody">
+            <canvas id="rem-el-c" width="300" height="300" class="floatRight">
+            </canvas>
+            <p>
+              To easily compute the moments of inertia relative to
+              axes through $P$ and $C$ it is easiest to choose a
+              coordinate system aligned with the rotation axis
+              direction $\hat{a}$. We will choose coordinates
+              $(x,y,z)$ measured from the center of mass $C$ and with
+              the $z$-axis $\hat{k}$ in the direction of $\hat{a}$, as
+              shown in the figure.
+            </p>
+            <p>
+              As we integrate over the body with infinitesimal volume
+              $dV$ at position $(x,y,z)$ from $C$, we will write the
+              distance from the axis through $C$ as $r_c$ and the
+              distance from the axis through $P$ as $r_P$, as
+              illustrated. The distance between the two rotation axes
+              is $d$. In the chosen coordinate system this means that:
+
+              \[\begin{aligned}
+              {r_C}^2 &amp;= x^2 + y^2 \\
+              {r_P}^2 &amp;= (x - x_P)^2 + (y - y_P)^2 \\
+              d^2 &amp;= {x_P}^2 + {y_P}^2,
+              \end{aligned}\]
+
+              where $P$ has position $(x_P, y_P, z_P)$ in these
+              coordinates.
+            </p>
+            <p>
+              Computing the integral <a href="#rem-ec">#rem-ec</a> to
+              find the moment of inertia about the axis through $P$ in
+              direction $\hat{a}$ now gives:
+
+              \[\begin{aligned}
+              I_{P,\hat{a}}
+              &amp;= \int_{\mathcal{B}} \rho {r_P}^2 \,dV \\
+              &amp;= \iiint_{\mathcal{B}} \rho \left((x - x_P)^2
+              + (y - y_P)^2\right) \,dx\,dy\,dz \\
+              &amp;= \iiint_{\mathcal{B}} \rho \left(x^2 - 2 x x_P + {x_P}^2
+              + y^2 - 2 y y_P + {y_P}^2\right) \,dx\,dy\,dz \\
+              &amp;= \iiint_{\mathcal{B}} \rho (x^2 + y^2) \,dx\,dy\,dz
+              - 2 x_P \iiint_{\mathcal{B}} \rho x \,dx\,dy\,dz \\
+              &amp;\quad - 2 y_P \iiint_{\mathcal{B}} \rho y \,dx\,dy\,dz
+              + ({x_P}^2 + {y_P}^2) \iiint_{\mathcal{B}} \rho \,dx\,dy\,dz \\
+              &amp;= \int_{\mathcal{B}} \rho {r_C}^2 \,dV
+              + d^2 \int_{\mathcal{B}} \rho \,dV \\
+              &amp;= I_{C,\hat{a}} + m d^2.
+              \end{aligned}\]
+
+              Here we used the coordinate representation of the center
+              of mass to realize that the $x$ coordinate of $C$ is
+              $x_C = \frac{1}{m} \int_{\mathcal{B}} \rho x \,dV$, but
+              because our coordinates are measured from $C$ we must
+              have $x_C = 0$ and so $\int_{\mathcal{B}} \rho x \,dV =
+              0$. The integral of $\rho y$ is similarly zero.
+            </p>
+          </div>
+        </div>
+        <div class="envContainer warning" id="rem-wl">
+          <p class="envHeader">Warning: Parallel axis theorem must start from center of mass $C$.</p>
+          <div class="envBody">
+            <p>
+              The parallel axis theorem does not apply to any two
+              parallel rotation axes. The rotation axis on the
+              right-hand-side of the equation must be through the
+              center of mass $C$, although the other axis can be
+              through any point $P$.
+            </p>
+          </div>
+        </div>
+        <div class="envContainer warning" id="rem-wp">
+          <p class="envHeader">Warning: Parallel axis theorem $d$ is perpendicular distance, not $r_{CP}$.</p>
+          <div class="envBody">
+            <p>
+              The distance $d$ in the parallel axis theorem is the
+              <em>perpendicular distance</em> between the axes through
+              points $P$ and $C$. This will normally not be the same
+              as the distance $r_{CP}$ between $P$ and $C$, except in
+              2D problems or if it happens that $\vec{r}_{CP}$ is
+              already perpendicular to the rotation axis
+              $\hat{a}$. The distance $d$ can be computed by taking
+              the orthogonal complement of $\vec{r}_{CP}$ with respect
+              to $\hat{a}$, so $d =
+              \|\operatorname{Comp}(\vec{r}_{CP}, \hat{a})\|$.
+            </p>
+          </div>
+        </div>
+        <div class="envContainer exampleProblem" id="rem-xc">
+          <p class="envHeader">Example Problem: Moment of inertia of a square plate about a corner.</p>
+          <div class="envBody">
+            <div class="question">
+              <canvas id="rem-xc-c" width="300" height="200" class="floatRight">
+              </canvas>
+              <p>
+                A solid uniform square plate has mass $m$, side-length
+                $\ell$, and thickness $h$. What is the moment of
+                inertia about the $z$-axis through the corner $P$?
+              </p>
+              <p>
+                Use the answer to Example Problem <a
+                href="#rem-xs">#rem-xs</a> and the parallel axis
+                theorem <a href="#rem-el">#rem-el</a>.
+              </p>
+            </div>
+            <div class="envContainer solution">
+              <div class="envBody">
+                <p>
+                  In Example Problem <a href="#rem-xs">#rem-xs</a> we
+                  computed the moment of inertia of a square place
+                  about the center to be $I_{C,z} = \frac{1}{6}
+                  m \ell^2$. The parallel axis theorem <a
+                  href="#rem-el">#rem-el</a> now gives:
+
+                  \[\begin{aligned}
+                  I_{P,z} &amp;= I_{C,z} + m \, {r_{CP}}^2 \\
+                  &amp;= \frac{1}{6} m \ell^2
+                  + m \left( \left(\frac{\ell}{2}\right)^2 + \left(\frac{\ell}{2}\right)^2 \right) \\
+                  &amp;= \frac{2}{3} m \ell^2.
+                  \end{aligned}\]
+                </p>
+                <canvas id="rem-xc-c3" width="300" height="200" class="floatRight">
+                </canvas>
+                <p>
+                  To check our answer, we can compute the corner
+                  moment of inertia directly by integrating with
+                  formula <a href="#rem-ec">#rem-ec</a>. To do this,
+                  we put the coordinate origin at the point $P$ about
+                  which we wish to find the moment of inertia, as
+                  shown in 3D to the right. From this we see that the
+                  $x$ range is $0$ to $\ell$, the same for the $y$
+                  range, and the $z$ range is $-h/2$ to $h/2$.
+                </p>
+                <p>
+                  The integral formula now gives:
+
+                  \[\begin{aligned}
+                  I_{P,z} &amp;= \iiint_\mathcal{B} \rho (x^2 + y^2) \,dx\,dy\,dz \\
+                  &amp;= \int_{-h/2}^{h/2} \int_0^{\ell} \int_{0}^{\ell}
+                  \rho (x^2 + y^2) \,dx\,dy\,dz \\
+                  &amp;= \int_{-h/2}^{h/2} \int_{0}^{\ell} \left[
+                  \rho \left(\frac{1}{3}x^3 + y^2 x\right)\right]_{x = 0}^{x = \ell} \,dy\,dz \\
+                  &amp;= \int_{-h/2}^{h/2} \int_{0}^{\ell}
+                  \rho \left(\frac{1}{3}\ell^3 + y^2 \ell \right) \,dy\,dz \\
+                  &amp;= \int_{-h/2}^{h/2} \left[
+                  \rho \left(\frac{1}{3}\ell^3 y + \frac{1}{3} y^3 \ell \right) \right]_{y = 0}^{y = \ell} \,dz \\
+                  &amp;= \int_{-h/2}^{h/2}
+                  \rho \left(\frac{1}{3}\ell^4 + \frac{1}{3} \ell^4 \right) \,dz \\
+                  &amp;= \int_{-h/2}^{h/2} \rho \frac{2}{3}\ell^4 \,dz \\
+                  &amp;= \left[ \rho \frac{2}{3}\ell^4 z \right]_{z = -h/2}^{z = h/2} \\
+                  &amp;= \rho \frac{2}{3}\ell^4 h.
+                  \end{aligned}\]
+
+                  The total mass of the plate is $m = \rho \ell^2 h$,
+                  so we can write the final expression for the moment of inertia is
+
+                  \[I_{P,z} = \frac{2}{3} m \ell^2.\]
+
+                  This is the same as the expression we obtained above
+                  using the parallel axis theorem, but clearly the
+                  parallel axis theorem version is much easier.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <p>
+          One consequence of the parallel axis theorem is that the
+          moment of inertia can only increase as we move the rotation
+          point $P$ away from the center of mass $C$. This means that
+          the point with the lowest moment of inertia is always the
+          center of mass itself.
+        </p>
+        <p>
+          A second consequence of the parallel axis theorem is that
+          moving the point $P$ along the direction $\hat{a}$ doesn't
+          change the moment of inertia, because the axis of rotation
+          is not changing as the point moves along the axis itself.
+        </p>
+        <div class="envContainer equation" id="rem-ea">
+          <p class="envHeader">Adding moments of inertia.</p>
+          <div class="envBody">
+            <table class="momentInertia">
+              <tr>
+                <td>
+                  <p>
+                    \[I^{\mathcal{B}}_{P,\hat{a}} = I^{\mathcal{B}_1}_{P,\hat{a}}
+                    + I^{\mathcal{B}_2}_{P,\hat{a}}\]
+                  </p>
+                </td>
+                <td>
+                  <canvas id="rem-ea-c" width="300" height="300">
+                  </canvas>
+                </td>
+              </tr>
+            </table>
+            <p>
+              The whole body $\mathcal{B}$ is composed of sub-bodies
+              $\mathcal{B}_1$ and $\mathcal{B}_2$.
+            </p>
+          </div>
+        </div>
+        <div class="envContainer derivation">
+          <div class="envBody">
+            <p>
+              The addition of moments of inertia for sub-bodies to
+              give the full moment of inertia follows directly from
+              the fact that the integral over the whole body is the
+              sum of the integrals over the sub-bodes. That is, for
+              $\mathcal{B} = \mathcal{B}_1 \cup \mathcal{B}_2$ (and
+              $\mathcal{B}_1$ not overlapping with $\mathcal{B}_2$),
+              we have:
+
+              \[\begin{aligned}
+              I^{\mathcal{B}}_{P,\hat{a}}
+              &amp;= \int_{\mathcal{B}} \rho r^2 \,dV \\
+              &amp;= \int_{\mathcal{B_1} \cup \mathcal{B}_2} \rho r^2 \,dV \\
+              &amp;= \int_{\mathcal{B_1}} \rho r^2 \,dV
+              + \int_{\mathcal{B}_2} \rho r^2 \,dV \\
+              &amp;= I^{\mathcal{B}_1}_{P,\hat{a}}
+              + I^{\mathcal{B}_2}_{P,\hat{a}}.
+              \end{aligned}\]
+            </p>
+          </div>
+        </div>
+        <div class="envContainer warning" id="rem-wa">
+          <p class="envHeader">Warning: To add moments of inertia they must be about the same axis.</p>
+          <div class="envBody">
+            <p>
+              It is only valid to add together moments of inertia for
+              different sub-bodies if each moment of inertia is
+              computed about the same axis of rotation. For example,
+              consider $I^{\mathcal{B}_1}_{C_1,z}$ and
+              $I^{\mathcal{B}_2}_{C_2,z}$, which are the moments
+              of inertia of bodies $\mathcal{B}_1$ and $\mathcal{B}_2$
+              about each of their individual centers of mass $C_1$ and
+              $C_2$ (with axis direction $z$). Now it is
+              physically meaningless to form the sum
+              $I^{\mathcal{B}_1}_{C_1,z} +
+              I^{\mathcal{B}_2}_{C_2,z}$, because each moment of
+              inertia is about a different axis. We must first shift
+              both moments of inertia to a common axis point $P$
+              (perhaps by using the parallel axis theorem), and then
+              we can meaningfully add them together.
+            </p>
+          </div>
+        </div>
+        <div class="envContainer exampleProblem" id="rem-xl">
+          <p class="envHeader">Example Problem: Moment of inertia of an L-shaped plate.</p>
+          <div class="envBody">
+            <div class="question">
+              <canvas id="rem-xl-c" width="300" height="200" class="floatRight">
+              </canvas>
+              <p>
+                A solid uniform L-shaped plate has mass $m$ and
+                dimensions as shown. What is the moment of inertia
+                about the $z$-axis through the corner $P$?
+              </p>
+              <p>
+                Use the answer to Example Problem <a
+                href="#rem-es">#rem-es</a> together with the addition
+                theorem <a href="#rem-ea">#rem-ea</a> and the parallel
+                axis theorem <a href="#rem-el">#rem-el</a>.
+              </p>
+            </div>
+            <div class="envContainer solution">
+              <div class="envBody">
+                <canvas id="rem-xl-cd" width="300" height="200" class="floatRight">
+                </canvas>
+                <p>
+                  Recall that in Example Problem <a
+                  href="#rem-xs">#rem-xs</a> we computed the
+                  moment of inertia of a square place about the center
+                  to be $I_{C,z} = \frac{1}{6} m \ell^2$.
+                </p>
+                <p>
+                  To use this together with the parallel axis theorem
+                  <a href="#rem-el">#rem-el</a> and the additive
+                  theorem <a href="#rem-ea">#rem-ea</a>, we must first
+                  realize that the L-shape can be decomposed into four
+                  square plates, as shown. Each small square body has
+                  the same mass and the same moment of inertia about
+                  its center, so:
+
+                  \[\begin{aligned}
+                  m_1 &amp;= \frac{1}{4} m \\
+                  I^{\mathcal{B}_1}_{C_1,z} &amp;=
+                  \frac{1}{6} m_1 (2d)^2
+                  = \frac{1}{6} \left(\frac{1}{4} m\right) 4d^2
+                  = \frac{1}{6} m d^2,
+                  \end{aligned}\]
+
+                  and similarly for each other small square body.
+                </p>
+                <p>
+                  Now individual moments of inertia about the corner
+                  $P$ can be found using the parallel axis
+                  theorem:
+
+                  \[\begin{aligned}
+                  I^{\mathcal{B}_1}_{P,z} &amp;= I^{\mathcal{B}_1}_{C_1,z}
+                  + m_1 \, {r_{C_1P}}^2
+                  = \frac{1}{6} m d^2
+                  + \left(\frac{1}{4} m\right) \left(d^2 + (3d)^2\right)
+                  = \frac{8}{3} m d^2 \\
+                  I^{\mathcal{B}_2}_{P,z} &amp;= I^{\mathcal{B}_2}_{C_2,z}
+                  + m_2 \, {r_{C_2P}}^2
+                  = \frac{1}{6} m d^2
+                  + \left(\frac{1}{4} m\right) \left(d^2 + d^2\right)
+                  = \frac{2}{3} m d^2 \\
+                  I^{\mathcal{B}_3}_{P,z} &amp;= I^{\mathcal{B}_1}_{P,z}
+                  = \frac{8}{3} m d^2 \\
+                  I^{\mathcal{B}_4}_{P,z} &amp;= I^{\mathcal{B}_4}_{C_4,z}
+                  + m_4 \, {r_{C_4P}}^2
+                  = \frac{1}{6} m d^2
+                  + \left(\frac{1}{4} m\right) \left((5d)^2 + d^2\right)
+                  = \frac{20}{3} m d^2.
+                  \end{aligned}\]
+
+                  Here we observed that body $\mathcal{B}_3$ will have
+                  the same moment of inertia as $\mathcal{B}_1$,
+                  saving some computation.
+                </p>
+                <p>
+                  Combining the individual moments of inertia now
+                  gives us the total:
+
+                  \[\begin{aligned}
+                  I_{P,z} &amp;= I^{\mathcal{B}_1}_{P,z}
+                  + I^{\mathcal{B}_2}_{P,z} + I^{\mathcal{B}_3}_{P,z}
+                  + I^{\mathcal{B}_4}_{P,z} \\
+                  &amp;= \frac{8}{3} m d^2 + \frac{2}{3} m d^2 + \frac{8}{3} m d^2 + \frac{20}{3} m d^2\\
+                  &amp;= \frac{38}{3} m d^2.
+                  \end{aligned}\]
+
+                  We could also directly compute the total moment of
+                  inertia using the integral formula <a
+                  href="#rem-ec">#rem-ec</a>, which would be quite
+                  complex.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="contentBlock">
+      <div id="rem-sb" class="contentCol">
+        <h2>
+          Basic shapes
+        </h2>
+        <p>
+          The moments of inertia listed below are all computed
+          directly from the integrals <a href="#rem-ec">#rem-ec</a>.
+        </p>
+        <div class="envContainer equation" id="rem-ep">
+          <p class="envHeader">Point mass: moments of inertia</p>
+          <div class="envBody">
+            <table class="momentInertia">
+              <tr>
+                <td>
+                  <canvas id="rem-ep-c" width="300" height="300">
+                  </canvas>
+                </td>
+                <td>
+                  <p>
+                    \[\begin{aligned}
+                    I_{P,z} &amp;= m r^2
+                    \end{aligned}\]
+                  </p>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+        <div class="envContainer derivation">
+          <div class="envBody">
+            <p>
+            </p>
+          </div>
+        </div>
+        <div class="envContainer equation" id="rem-er">
+          <p class="envHeader">Rectangular prism: moments of inertia</p>
+          <div class="envBody">
+            <table class="momentInertia">
+              <tr>
+                <td>
+                  <canvas id="rem-er-c" width="300" height="300">
+                  </canvas>
+                </td>
+                <td>
+                  <p>
+                    \[\begin{aligned}
+                    I_{C,x} &amp;= \frac{1}{12} m ({\ell_y}^2 + {\ell_z}^2) \\
+                    I_{C,y} &amp;= \frac{1}{12} m ({\ell_z}^2 + {\ell_x}^2) \\
+                    I_{C,z} &amp;= \frac{1}{12} m ({\ell_x}^2 + {\ell_y}^2)
+                    \end{aligned}\]
+                  </p>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+        <div class="envContainer derivation">
+          <div class="envBody">
+            <p>
+              The calculation for any of the axes is the same, so we
+              will only write out the derivation of $I_{C,z}$
+              here. We use <a href="#rem-ec">#rem-ec</a>, which gives:
+
+              \[\begin{aligned}
+              I_{C,z} &amp;= \iiint_\mathcal{B} \rho (x^2 + y^2) \,dx\,dy\,dz \\
+              &amp;= \int_{-\ell_z/2}^{\ell_z/2} \int_{-\ell_y/2}^{\ell_y/2} \int_{-\ell_x/2}^{\ell_x/2}
+              \rho (x^2 + y^2) \,dx\,dy\,dz \\
+              &amp;= \int_{-\ell_z/2}^{\ell_z/2} \int_{-\ell_y/2}^{\ell_y/2} \left[
+              \rho \left(\frac{1}{3}x^3 + y^2 x\right)\right]_{x = -\ell_x/2}^{x = \ell_x/2} \,dy\,dz \\
+              &amp;= \int_{-\ell_z/2}^{\ell_z/2} \int_{-\ell_y/2}^{\ell_y/2}
+              \rho \left(\frac{1}{12}{\ell_x}^3 + y^2 \ell_x \right) \,dy\,dz \\
+              &amp;= \int_{-\ell_z/2}^{\ell_z/2} \left[
+              \rho \left(\frac{1}{12}{\ell_x}^3 y + \frac{1}{3} y^3 \ell_x \right)
+              \right]_{y = -\ell_y/2}^{y = \ell_y/2} \,dz \\
+              &amp;= \int_{-\ell_z/2}^{\ell_z/2}
+              \rho \left(\frac{1}{12}{\ell_x}^3 \ell_y + \frac{1}{12} \ell_x {\ell_y}^3 \right) \,dz \\
+              &amp;= \int_{-\ell_z/2}^{\ell_z/2} \rho \ell_x \ell_y
+              \frac{1}{12}\left( {\ell_x}^2 + {\ell_y}^2\right) \,dz \\
+              &amp;= \left[ \rho \ell_x \ell_y
+              \frac{1}{12}\left( {\ell_x}^2 + {\ell_y}^2\right) z \right]_{z = -\ell_z/2}^{z = \ell_z/2} \\
+              &amp;= \rho \ell_x \ell_y \ell_z \frac{1}{12}\left( {\ell_x}^2 + {\ell_y}^2\right).
+              \end{aligned}\]
+
+              The total mass of the plate is $m = \rho \ell_x \ell_y
+              \ell_z$, so we can write the moment of inertia as
+
+              \[I_{C,z} = \frac{1}{12} m \left( {\ell_x}^2 + {\ell_y}^2\right).\]
+            </p>
+          </div>
+        </div>
+        <div class="envContainer equation" id="rem-ey">
+          <p class="envHeader">Cylindrical thick shell: moments of inertia</p>
+          <div class="envBody">
+            <table class="momentInertia">
+              <tr>
+                <td>
+                  <canvas id="rem-ey-c" width="300" height="300">
+                  </canvas>
+                </td>
+                <td>
+                  <p>
+                    \[\begin{aligned}
+                    I_{C,x} &amp;= I_{C,y} = \frac{1}{12} m (3({r_1}^2 + {r_2}^2) + \ell^2) \\
+                    I_{C,z} &amp;= \frac{1}{2} m ({r_1}^2 + {r_2}^2)
+                    \end{aligned}\]
+                  </p>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+        <div class="envContainer derivation">
+          <div class="envBody">
+            <p>
+              To compute the integrals in <a
+              href="#rem-ec">#rem-ec</a> it is convenient to switch to
+              <a href="rvy.html">cylindrical coordinates</a>:
+
+              \[\begin{aligned}
+              x &amp;= r \cos\theta \\
+              y &amp;= r \sin\theta \\
+              z &amp;= z.
+              \end{aligned}\]
+
+              The Jacobian of this coordinate transformation is:
+
+              \[\begin{aligned}
+              J &amp;= \begin{vmatrix}
+              \frac{\partial x}{\partial r} &amp; \frac{\partial x}{\partial \theta} &amp; \frac{\partial x}{\partial z} \\
+              \frac{\partial y}{\partial r} &amp; \frac{\partial y}{\partial \theta} &amp; \frac{\partial y}{\partial z} \\
+              \frac{\partial z}{\partial r} &amp; \frac{\partial z}{\partial \theta} &amp; \frac{\partial z}{\partial z}
+              \end{vmatrix}
+              = \begin{vmatrix}
+              \cos\theta &amp; -r \sin\theta &amp; 0 \\
+              \sin\theta &amp;  r \cos\theta &amp; 0 \\
+              0 &amp; 0 &amp; 1
+              \end{vmatrix}
+              = r \cos^2\theta + r \sin^2\theta
+              = r.
+              \end{aligned}\]
+
+              Starting with the $z$ axis, the moment of inertia
+              is thus:
+
+              \[\begin{aligned}
+              I_{C,z} &amp;= \iiint_\mathcal{B} \rho (x^2 + y^2) \,dx\,dy\,dz \\
+              &amp;= \int_{-\ell/2}^{\ell/2} \int_0^{2\pi} \int_{r_1}^{r_2}
+              \rho \left( (r \cos\theta)^2 + (r \sin\theta)^2 \right) \,J \,dr\,d\theta\,dz \\
+              &amp;= \int_{-\ell/2}^{\ell/2} \int_0^{2\pi} \int_{r_1}^{r_2}
+              \rho r^3 \,dr\,d\theta\,dz \\
+              &amp;= \int_{-\ell/2}^{\ell/2} \int_0^{2\pi} \left[
+              \rho \frac{1}{4} r^4 \right]_{r = r_1}^{r = r_2} \,d\theta\,dz \\
+              &amp;= \int_{-\ell/2}^{\ell/2} \int_0^{2\pi} \frac{1}{4} \rho \left(
+              {r_2}^4 - {r_1}^4 \right) \,d\theta\,dz \\
+              &amp;= \int_{-\ell/2}^{\ell/2} \left[ \frac{1}{4} \rho \left(
+              {r_2}^4 - {r_1}^4 \right) \theta \right]_{\theta = 0}^{\theta = 2\pi} \,dz \\
+              &amp;= \int_{-\ell/2}^{\ell/2} \frac{\pi}{2} \rho \left(
+              {r_2}^4 - {r_1}^4 \right) \,dz \\
+              &amp;= \left[ \frac{\pi}{2} \rho \left(
+              {r_2}^4 - {r_1}^4 \right) z \right]_{z = -\ell/2}^{z = \ell/2} \\
+              &amp;= \frac{\pi}{2} \rho \ell \left(
+              {r_2}^4 - {r_1}^4 \right).
+              \end{aligned}\]
+
+              The total mass of the cylindrical shell is $m = \rho
+              (\pi {r_2}^2 - \pi {r_1}^2) \ell$, so we can write the
+              moment of inertia as
+
+              \[\begin{aligned}
+              I_{C,z}
+              &amp;= \frac{1}{2} \frac{m}{{r_2}^2 - {r_1}^2}
+              \left( {r_2}^4 - {r_1}^4 \right) \\
+              &amp;= \frac{1}{2} \frac{m}{{r_2}^2 - {r_1}^2}
+              \left( {r_2}^2 + {r_1}^2 \right) \left( {r_2}^2 - {r_1}^2 \right) \\
+              &amp;= \frac{1}{2} m
+              \left( {r_2}^2 + {r_1}^2 \right).
+              \end{aligned}\]
+
+              Due to rotational symmetry of the cylinder, the moment
+              of inertia will be the same about any axis orthogonal to
+              $z$, so we will just write out the derivation for
+              $I_{C,x}$ here. We again use <a
+              href="#rem-ec">#rem-ec</a> in <a
+              href="rvy.html">cylindrical coordinates</a>, giving:
+
+              \[\begin{aligned}
+              I_{C,x} &amp;= \iiint_\mathcal{B} \rho (y^2 + z^2) \,dx\,dy\,dz \\
+              &amp;= \int_{-\ell/2}^{\ell/2} \int_0^{2\pi} \int_{r_1}^{r_2}
+              \rho \left( (r \sin\theta)^2 + z^2 \right) \,J \,dr\,d\theta\,dz \\
+              &amp;= \int_{-\ell/2}^{\ell/2} \int_0^{2\pi} \int_{r_1}^{r_2}
+              \rho \left( r^3 \sin^2\theta + r z^2 \right) \,dr\,d\theta\,dz \\
+              &amp;= \int_{-\ell/2}^{\ell/2} \int_0^{2\pi} \left[
+              \rho \left( \frac{1}{4} r^4 \sin^2\theta + \frac{1}{2} r^2 z^2 \right)
+              \right]_{r = r_1}^{r = r_2} \,d\theta\,dz \\
+              &amp;= \int_{-\ell/2}^{\ell/2} \int_0^{2\pi}
+              \rho \left( \frac{1}{4} ({r_2}^4 - {r_1}^4) \sin^2\theta
+              + \frac{1}{2} ({r_2}^2 - {r_1}^2) z^2 \right) \,d\theta\,dz \\
+              &amp;= \int_{-\ell/2}^{\ell/2} \int_0^{2\pi}
+              \rho \left( \frac{1}{8} ({r_2}^4 - {r_1}^4) (1 - \cos 2\theta)
+              + \frac{1}{2} ({r_2}^2 - {r_1}^2) z^2 \right) \,d\theta\,dz \\
+              &amp;= \int_{-\ell/2}^{\ell/2} \left[
+              \rho \left( \frac{1}{8} ({r_2}^4 - {r_1}^4)
+              \left(\theta - \frac{1}{2} \sin 2\theta\right)
+              + \frac{1}{2} ({r_2}^2 - {r_1}^2) z^2 \theta \right)
+              \right]_{\theta = 0}^{\theta = 2\pi} \,d\theta\,dz \\
+              &amp;= \int_{-\ell/2}^{\ell/2} \rho \left( \frac{\pi}{4} ({r_2}^4 - {r_1}^4)
+              + \pi ({r_2}^2 - {r_1}^2) z^2 \right) \,d\theta\,dz \\
+              &amp;= \left[ \rho \left( \frac{\pi}{4} ({r_2}^4 - {r_1}^4) z
+              + \pi ({r_2}^2 - {r_1}^2) \frac{1}{3} z^3 \right) \right]_{z = -\ell/2}^{z = \ell/2} \\
+              &amp;= \rho \left( \frac{\pi}{4} ({r_2}^3 - {r_1}^3) \ell
+              + \pi ({r_2}^2 - {r_1}^2) \frac{1}{12} \ell^3 \right) \\
+              &amp;= \frac{1}{12} \rho \pi ({r_2}^2 - {r_1}^2) \ell \left( 3 ({r_2}^2 + {r_1}^2)
+              + \ell^2 \right).
+              \end{aligned}\]
+
+              In the last line we again used the factorization
+              $({r_2}^4 - {r_1}^4) = ({r_2}^2 + {r_1}^2) ({r_2}^2 -
+              {r_1}^2)$. Now we can substitute in the total mass $m =
+              \rho \pi ({r_2}^2 - {r_1}^2) \ell$ to obtain:
+
+              \[\begin{aligned}
+              I_{C,x}
+              &amp;= \frac{1}{12} m \left( 3 ({r_2}^2 + {r_1}^2)
+              + \ell^2 \right).
+              \end{aligned}\]
+            </p>
+          </div>
+        </div>
+        <div class="envContainer equation" id="rem-es">
+          <p class="envHeader">Spherical thick shell: moments of inertia</p>
+          <div class="envBody">
+            <table class="momentInertia">
+              <tr>
+                <td>
+                  <canvas id="rem-es-c" width="300" height="300">
+                  </canvas>
+                </td>
+                <td>
+                  <p>
+                    \[\begin{aligned}
+                    I_C &amp;= \frac{2}{5} m \left(\frac{{r_2}^5 - {r_1}^5}{{r_2}^3 - {r_1}^3}\right)
+                    \end{aligned}\]
+                  </p>
+                </td>
+              </tr>
+            </table>
+            <p>
+              All axes through $C$ have the same moment of inertia.
+            </p>
+          </div>
+        </div>
+        <div class="envContainer derivation">
+          <div class="envBody">
+            <p>
+              To compute the integrals in <a
+              href="#rem-ec">#rem-ec</a> it is convenient to switch to
+              <a href="rvs.html">spherical coordinates</a>:
+
+              \[\begin{aligned}
+              x &amp;= r \cos\theta \sin\phi \\
+              y &amp;= r \sin\theta \sin\phi \\
+              z &amp;= r \cos\phi.
+              \end{aligned}\]
+
+              To find the Jacobian of this coordinate transformation
+              we use the coordinate order $(r,\phi,\theta)$ to give a
+              right-handed spherical system. Then:
+
+              \[\begin{aligned}
+              J &amp;= \begin{vmatrix}
+              \frac{\partial x}{\partial r} &amp; \frac{\partial x}{\partial \phi} &amp; \frac{\partial x}{\partial \theta} \\
+              \frac{\partial y}{\partial r} &amp; \frac{\partial y}{\partial \phi} &amp; \frac{\partial y}{\partial \theta} \\
+              \frac{\partial z}{\partial r} &amp; \frac{\partial z}{\partial \phi} &amp; \frac{\partial z}{\partial \theta}
+              \end{vmatrix} \\
+              &amp;= \begin{vmatrix}
+              \cos\theta \sin\phi &amp; r \cos\theta \cos\phi &amp; -r \sin\theta \sin\phi \\
+              \sin\theta \sin\phi &amp; r \sin\theta \cos\phi &amp; r \cos\theta \sin\phi  \\
+              \cos\phi            &amp; -r \sin\phi           &amp; 0                     
+              \end{vmatrix} \\
+              &amp;= \cos\phi (r^2 \cos^2\theta \cos\phi \sin\phi + r^2 \sin^2\theta \cos\phi \sin\phi) \\
+              &amp;\quad + r \sin\phi (r \cos^2\theta \sin^2\phi + r \sin^2\theta \sin^2\phi) \\
+              &amp;= r^2 \cos^2\phi \sin\phi + r^2 \sin^3\phi \\
+              &amp;= r^2 \sin\phi.
+              \end{aligned}\]
+
+              Due to spherical symmetry, all axes through $C$ will have
+              the same moment of inertia. We will compute
+              $I_{C,z}$, which is:
+
+              \[\begin{aligned}
+              I_{C,z} &amp;= \iiint_\mathcal{B} \rho (x^2 + y^2) \,dx\,dy\,dz \\
+              &amp;= \int_0^{\pi} \int_{-\pi}^{\pi} \int_{r_1}^{r_2}
+              \rho \left( (r \cos\theta \sin\phi)^2 + (r \sin\theta \sin\phi)^2 \right) \,J \,dr\,d\theta\,d\phi \\
+              &amp;= \int_0^{\pi} \int_{-\pi}^{\pi} \int_{r_1}^{r_2}
+              \rho r^4 \sin^3\phi \,dr\,d\theta\,d\phi \\
+              &amp;= \int_0^{\pi} \int_{-\pi}^{\pi} \left[
+              \rho \frac{1}{5} r^5 \sin^3\phi \right]_{r = r_1}^{r = r_2} \,d\theta\,d\phi \\
+              &amp;= \int_0^{\pi} \int_{-\pi}^{\pi}
+              \rho \frac{1}{5} ({r_2}^5 - {r_1}^5) \sin^3\phi \,d\theta\,d\phi \\
+              &amp;= \int_0^{\pi} \left[
+              \rho \frac{1}{5} ({r_2}^5 - {r_1}^5) \sin^3\phi \, \theta
+              \right]_{\theta = -\pi}^{\theta = \pi} \,d\phi \\
+              &amp;= \int_0^{\pi}
+              \rho \frac{2\pi}{5} ({r_2}^5 - {r_1}^5) \sin^3\phi \,d\phi \\
+              &amp;= \int_0^{\pi}
+              \rho \frac{2\pi}{5} ({r_2}^5 - {r_1}^5) \frac{1}{4} (3\sin\phi - \sin 3\phi) \,d\phi \\
+              &amp;= \left[ \rho \frac{2\pi}{5} ({r_2}^5 - {r_1}^5) \frac{1}{4}
+              \left(\frac{1}{3} \cos 3\phi - 3\cos\phi\right) \right]_{\phi = 0}^{\phi = \pi} \\
+              &amp;= \rho \frac{2\pi}{5} ({r_2}^5 - {r_1}^5) \frac{1}{4}
+              \left(-\frac{2}{3} + 6\right) \\
+              &amp;= \frac{8}{15} \rho \pi ({r_2}^5 - {r_1}^5).
+              \end{aligned}\]
+
+              The total mass of the spherical shell is $m = \rho
+              \left(\frac{4}{3} \pi {r_2}^3 - \frac{4}{3} \pi
+              {r_1}^3\right)$, so we can write the moment of inertia
+              as
+
+              \[\begin{aligned}
+              I_{C,z}
+              &amp;= \frac{8}{15} m \frac{3}{4} \frac{1}{{r_2}^3 - {r_1}^3} ({r_2}^5 - {r_1}^5) \\
+              &amp;= \frac{2}{5} m \left(\frac{{r_2}^5 - {r_1}^5}{{r_2}^3 - {r_1}^3}\right).
+              \end{aligned}\]
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="infoCol">
+      </div>
+    </div>
+    <div class="contentBlock">
+      <div id="rem-ss" class="contentCol">
+        <h2>
+          Simplified shapes
+        </h2>
+        <p>
+          The moments of inertia listed below are all special cases of
+          the basic shapes given in Section <a
+          href="#rem-sb">#rem-sb</a>. Other special cases can be
+          easily obtained by similar methods.
+        </p>
+        <div class="envContainer equation" id="rem-eo">
+          <p class="envHeader">Rod: moments of inertia</p>
+          <div class="envBody">
+            <table class="momentInertia">
+              <tr>
+                <td>
+                  <canvas id="rem-eo-c" width="300" height="300">
+                  </canvas>
+                </td>
+                <td>
+                  <p>
+                    \[\begin{aligned}
+                    I_{C,z} &amp;= \frac{1}{12} m \ell^2 \\
+                    I_{P,z} &amp;= \frac{1}{3} m \ell^2 \\
+                    I_{C,x} &amp;= I_{P,x} = 0
+                    \end{aligned}\]
+                  </p>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+        <div class="envContainer derivation">
+          <div class="envBody">
+            <p>
+              A rod is assumed to be a shape with infinitesimally
+              small cross-section. We can use the formula <a
+              href="#rem-ey">#rem-ey</a> for a cylinder with zero
+              radii $r_1 = r_2 = 0$. The coordinates here are set up
+              so that $z$ is orthogonal to the rod axis and
+              $x$ is along the axis, so <a
+              href="#rem-ey">#rem-ey</a> gives:
+
+              \[\begin{aligned}
+              I_{C,z} &amp;= \frac{1}{12} m (3({r_1}^2 + {r_2}^2) + \ell^2)
+              = \frac{1}{12} m \ell^2 \\
+              I_{C,x} &amp;= \frac{1}{2} m ({r_1}^2 + {r_2}^2) = 0.
+              \end{aligned}\]
+
+              To find the moment of inertia about the end point $P$ we
+              can use the parallel axis theorem <a
+              href="#rem-el">#rem-el</a>. This results is:
+
+              \[\begin{aligned}
+              I_{P,z} &amp;= I_{C,z} + m {r_{CP}}^2 \\
+              &amp;= \frac{1}{12} m \ell^2 + m \left(\frac{\ell}{2}\right)^2 \\
+              &amp;= \frac{1}{3} m \ell^2.
+              \end{aligned}\]
+
+              The moment of inertia $I_{P,x}$ is still zero,
+              because $\vec{r}_{CP}$ is parallel to $x$.
+            </p>
+          </div>
+        </div>
+        <div class="envContainer equation" id="rem-ek">
+          <p class="envHeader">Solid cylinder or disk: moments of inertia</p>
+          <div class="envBody">
+            <table class="momentInertia">
+              <tr>
+                <td>
+                  <canvas id="rem-ek-c" width="300" height="300">
+                  </canvas>
+                </td>
+                <td>
+                  <p>
+                    \[\begin{aligned}
+                    I_{C,x} &amp;= I_{C,y} = \frac{1}{12} m (3r^2 + \ell^2) \\
+                    I_{C,z} &amp;= \frac{1}{2} m r^2
+                    \end{aligned}\]
+                  </p>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+        <div class="envContainer derivation">
+          <div class="envBody">
+            <p>
+              The solid cylinder expressions are simply the
+              cylindrical thick shell formulas <a
+              href="#rem-ey">#rem-ey</a> with the inner radius set to
+              $r_1 = 0$ and the outer radius $r_2 = r$.
+            </p>
+          </div>
+        </div>
+        <div class="envContainer equation" id="rem-eh">
+          <p class="envHeader">Hollow cylinder or hoop: moments of inertia</p>
+          <div class="envBody">
+            <table class="momentInertia">
+              <tr>
+                <td>
+                  <canvas id="rem-eh-c" width="300" height="300">
+                  </canvas>
+                </td>
+                <td>
+                  <p>
+                    \[\begin{aligned}
+                    I_{C,x} &amp;= I_{C,y} = \frac{1}{12} m (6 r^2 + \ell^2) \\
+                    I_{C,z} &amp;= m r^2
+                    \end{aligned}\]
+                  </p>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+        <div class="envContainer derivation">
+          <div class="envBody">
+            <p>
+              The hollow cylinder expressions can be found from
+              cylindrical thick shell formulas <a
+              href="#rem-ey">#rem-ey</a> by taking the same value for
+              both inner and outer radii, so that $r_1 = r_2 = r$.
+            </p>
+          </div>
+        </div>
+        <div class="envContainer equation" id="rem-eb">
+          <p class="envHeader">Solid ball: moments of inertia</p>
+          <div class="envBody">
+            <table class="momentInertia">
+              <tr>
+                <td>
+                  <canvas id="rem-eb-c" width="300" height="300">
+                  </canvas>
+                </td>
+                <td>
+                  <p>
+                    \[\begin{aligned}
+                    I_C &amp;= \frac{2}{5} m r^2
+                    \end{aligned}\]
+                  </p>
+                </td>
+              </tr>
+            </table>
+            <p>
+              All axes through $C$ have the same moment of inertia.
+            </p>
+          </div>
+        </div>
+        <div class="envContainer derivation">
+          <div class="envBody">
+            <p>
+              The solid ball moment of inertia can be directly
+              obtained from the spherical thick shell expression <a
+              href="#rem-es">#rem-es</a> with inner radius $r_1 = 0$
+              and outer radius $r_2 = r$.
+            </p>
+          </div>
+        </div>
+        <div class="envContainer equation" id="rem-ew">
+          <p class="envHeader">Hollow sphere: moments of inertia</p>
+          <div class="envBody">
+            <table class="momentInertia">
+              <tr>
+                <td>
+                  <canvas id="rem-ew-c" width="300" height="300">
+                  </canvas>
+                </td>
+                <td>
+                  <p>
+                    \[\begin{aligned}
+                    I_C &amp;= \frac{2}{3} m r^2
+                    \end{aligned}\]
+                  </p>
+                </td>
+              </tr>
+            </table>
+            <p>
+              All axes through $C$ have the same moment of inertia.
+            </p>
+          </div>
+        </div>
+        <div class="envContainer derivation">
+          <div class="envBody">
+            <p>
+              A hollow sphere moment of inertia is the same as that
+              for the spherical thick shell <a
+              href="#rem-es">#rem-es</a> with inner radius and outer
+              radius both set to $r_1 = r_2 = r$. Some care is needed
+              here, however, as a simple substitution into the
+              spherical thick shell expression would give the
+              undefined value $0 / 0$.
+            </p>
+            <p>
+              Instead we need to set $r_2 = r$ and then to take the
+              limit as $r_1 \to r$ using l'Hôpital's rule:
+
+              \[\begin{aligned}
+              I_C &amp;= \lim_{r_1 \to r} \frac{2}{5} m
+              \left(\frac{r^5 - {r_1}^5}{r^3 - {r_1}^3}\right) \\
+              &amp;= \lim_{r_1 \to r} \frac{2}{5} m
+              \left(\frac{\frac{d}{d r_1}\left(r^5 - {r_1}^5\right)}{
+              \frac{d}{d r_1}\left(r^3 - {r_1}^3\right)}\right) \\
+              &amp;= \lim_{r_1 \to r} \frac{2}{5} m
+              \left(\frac{5 {r_1}^4}{3 {r_1}^2}\right) \\
+              &amp;= \lim_{r_1 \to r} \frac{2}{3} m {r_1}^2 \\
+              &amp;= \frac{2}{3} m r^2.
+              \end{aligned}\]
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+      </div>
+    </div>
+  </body>
+</html>

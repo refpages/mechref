@@ -1,0 +1,28 @@
+
+/*****************************************************************************/
+
+table.basic td {
+    text-align: left;
+}
+
+table.basic th {
+    text-align: left;
+}
+
+#rep-in .transUnit {
+    white-space: nowrap;
+}
+
+#rep-in .trans {
+    color: #f00;
+}
+
+#rep-in .transBlock {
+    color: #f00;
+}
+
+#rep-xl .question {
+    height: 210px;
+}
+
+/*****************************************************************************/

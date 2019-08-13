@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html>
+  <head profile="http://www.w3.org/2005/10/profile">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <meta charset="UTF-8">
+    <title>
+      Celestial velocities
+    </title>
+    <link href="style.css" type="text/css" rel="stylesheet" />
+    <link href="aov.css" type="text/css" rel="stylesheet" />
+    <link href="icomoon.css" type="text/css" rel="stylesheet" />
+
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});</script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script src="jquery-1.7.2.min.js" type="text/javascript"></script>
+    <script src="sylvester.js" type="text/javascript"></script>
+    <script src="sha1.js" type="text/javascript"></script>
+    <script src="PrairieDraw.js" type="text/javascript"></script>
+    <script src="aov.js" type="text/javascript"></script>
+    <script src="pageControl.js" type="text/javascript"></script>
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-37625161-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header"><h1>Dynamics</h1></div>
+      <div id="nav-placeholder"></div>
+	    <script>
+        $(function(){
+          $("#nav-placeholder").load("/nav.html");
+        });
+      </script>
+      <div class="mainBlock">
+    <div class="contentBlock">
+      <div id="aov" class="contentCol">
+        <h1>Celestial velocities</h1>
+        <p>
+          We normally think of our classroom or laboratory as being
+          stationary when we are doing dynamics. But how valid is this
+          assumption?
+        </p>
+        <p>
+          We will consider motion due to:
+        </p>
+        <ol>
+          <li>Spinning of the Earth about the North-South axis.</li>
+          <li>Orbit of the Earth about the Sun.</li>
+          <li>Rotation of the Sun around center the Milky Way.</li>
+          <li>Motion of the Milky Way through the universe.</li>
+        </ol>
+        <p>
+          As we will see below, some of these velocities are not
+          small. Why is normally valid to assume that we are in an
+          inertial reference frame?
+        </p>
+      </div>
+      <div class="infoCol">
+        <div class="infoBox requirementsBox">
+          <ul>
+            <li>Elementary motions <a href="rke.html">#rke</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="contentBlock">
+      <div id="aov-sv" class="contentCol">
+        <h2>Periods of rotation</h2>
+        <p>
+          The different types of motion have magnitudes roughly given
+          in the following table. These motions are not all in the
+          same direction, and may add to each other or act in opposite
+          or even orthogonal directions.
+        </p>
+        <table id="aov-tv">
+          <tr>
+            <th></th>
+            <th>Earth spin</th>
+            <th>Earth orbit</th>
+            <th>Milky Way</th>
+            <th>Through <a href="http://en.wikipedia.org/wiki/Cosmic_microwave_background">CMB</a></th>
+          </tr>
+          <tr>
+            <td>period $T$</td>
+            <td>$24\rm\ h$</td>
+            <td>$365\rm\ d$</td>
+            <td>$200\rm\ My$</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td>$8.64 \times 10^4\rm\ s$</td>
+            <td>$3.16 \times 10^7\rm\ s$</td>
+            <td>$6.31 \times 10^{15}\rm\ s$</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>radius $r$</td>
+            <td>$6370\rm\ km$</td>
+            <td>$1\rm\ AU$</td>
+            <td>$27.2\rm\ kly$</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td>$6.37 \times 10^6\rm\ m$</td>
+            <td>$1.50 \times 10^{11}\rm\ m$</td>
+            <td>$2.57 \times 10^{20}\rm\ m$</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>ang. vel.</td>
+            <td>$15.0^\circ/\rm h$</td>
+            <td>$0.986^\circ/\rm d$</td>
+            <td>$1.8^\circ/\rm My$</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>$\omega = 2\pi/T$</td>
+            <td>$7.27 \times 10^{-5}\rm\ rad/s$</td>
+            <td>$1.99 \times 10^{-7}\rm\ rad/s$</td>
+            <td>$9.96 \times 10^{-16}\rm\ rad/s$</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>velocity</td>
+            <td>$1670\rm\ km/h$</td>
+            <td>$107\,000\rm\ km/h$</td>
+            <td>$922\,000\rm\ km/h$</td>
+            <td>$1\,990\,000\rm\ km/h$</td>
+          </tr>
+          <tr>
+            <td>$v = r\omega$</td>
+            <td>$4.63 \times 10^2\rm\ m/s$</td>
+            <td>$2.98 \times 10^4\rm\ m/s$</td>
+            <td>$2.56 \times 10^5\rm\ m/s$</td>
+            <td>$5.52 \times 10^5\rm\ m/s$</td>
+          </tr>
+          <tr>
+            <td>acceleration</td>
+            <td>$0.343\%\ g$</td>
+            <td>$0.0605\%\ g$</td>
+            <td>$2.60 \times 10^{-9} \%\ g$</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>$a = r\omega^2$</td>
+            <td>$3.37 \times 10^{-2}\rm\ m/s^2$</td>
+            <td>$5.93 \times 10^{-3}\rm\ m/s^2$</td>
+            <td>$2.55 \times 10^{-10}\rm\ m/s^2$</td>
+            <td></td>
+          </tr>
+        </table>
+      </div>
+      <div class="infoCol">
+        <div id="aov-id" class="infoBox factBox">
+          <p>
+            The first people to have a rough idea of the radius of the
+            Earth and the distance to the Sun were the ancient
+            Greeks. <a
+            href="http://en.wikipedia.org/wiki/Eratosthenes">Eratosthenes</a>
+            (276–195 BCE) computed the radius of the Earth to be
+            40 000 <a
+            href="http://en.wikipedia.org/wiki/Stadion_(unit_of_length)">stadia</a>
+            (6800 km) by measuring the difference in Sun angle between
+            <a href="http://en.wikipedia.org/wiki/Aswan">Aswan</a> and
+            <a
+            href="http://en.wikipedia.org/wiki/Alexandria">Alexandria</a>.
+          </p>
+          <p>
+            <a
+            href="http://en.wikipedia.org/wiki/Aristarchus_of_Samos">Aristarchus
+            of Samos</a> (310–230 BCE) obtained the <a
+            href="http://en.wikipedia.org/wiki/Aristarchus_On_the_Sizes_and_Distances">first
+            estimates</a> of the distance to the Sun by using
+            observations of lunar eclipses and solar <a
+            href="http://en.wikipedia.org/wiki/Parallax">parallax</a>. While
+            his method was in principle correct, poor observational
+            data meant that his computed Earth-Sun distance was quite
+            inaccurate.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="contentBlock">
+      <div id="aov-se" class="contentCol">
+        <h2>Solar and sidereal time</h2>
+        <p>
+          We all know that one day is 24 hours long. But the period of
+          the Earth's rotation is not 24 hours! This is because of the
+          difference between <i>solar time</i> and <i>sidereal
+          time</i>. Solar time is the time measured against the Sun,
+          as we normally do. Sidereal time is measured against the
+          stars, which is slightly different.
+        </p>
+        <div class="figureContainer width600" id="aov-fe">
+          <canvas id="aov-fe-c" width="600" height="600">
+          </canvas>
+          <button class="anim-toggle:aov-fe-c">animate</button>
+          <button class="reset:aov-fe-c">reset</button>
+          <p class="figureCaption">
+            Schematic of the Earth's rotation about its own axis and
+            about the sun, counting solar days and sidereal days. Here
+            the Earth has just 8 solar days per year for better
+            visualization.
+          </p>
+        </div>
+        <p>
+          As we can see above, the Earth rotates one more sidereal day
+          each year than solar days. This means:
+        </p>
+        <p>
+          \[
+          \text{1 solar year} = \text{365 solar days}
+          = \text{366 sidereal days}
+          \]
+        </p>
+        <p>
+          and so:
+        </p>
+        <p>
+          \[\begin{aligned}
+          \text{sidereal day} &amp;= \frac{365}{366}\ \text{solar day} \\
+          &amp;= \frac{365}{366} \times 24\ {\rm h} \\
+          &amp;= 23.93{\rm\ h} \\
+          &amp;= 23{\rm\ h}\ 56{\rm\ min}
+          \end{aligned}\]
+        </p>
+        <p>
+          The Earth's orbital angular velocity is thus actually
+          $\omega = 360^\circ / (23.93{\rm\ h}) = 15.04^\circ/\rm h$.
+        </p>
+        <p>
+          The relationship between solar and sidereal days can also be
+          computed by considering just a single day, as shown
+          below.
+        </p>
+        <div class="figureContainer width600" id="aov-fd">
+          <canvas id="aov-fd-c" width="600" height="600">
+          </canvas>
+          <p class="figureCaption">
+            Diagram of one solar day and one sidereal day for the
+            Earth, not drawn to scale. The fact that $\omega_{\rm E}$
+            and $\omega_{\rm S}$ are in the same direction means that
+            sidereal days are shorter than solar days (this is <a
+            href="http://en.wikipedia.org/wiki/Nebular_hypothesis">not
+            a coincidence</a>).
+          </p>
+        </div>
+        <p>
+          Just as for the definition of a day, there is a similar
+          distinction between the <em>synodic lunar month</em>, which
+          is the time between passes of the Moon between the Earth and
+          the Sun, and the <em>sidereal lunar month</em>, which is the
+          orbital period of the Moon in an inertial frame. In common
+          usage, the phrase <em>lunar month</em> refers to the synodic
+          month.
+        </p>
+      </div>
+      <div class="infoCol">
+        <div id="aov-iy" class="infoBox factBox">
+          <p>
+            Just as sidereal days and solar days are different, the
+            exact length of one year depends on how we define it. The
+            <em>sidereal year</em> is the time for the Earth to
+            complete one orbit relative to the fixed stars, and has
+            length 365.256363 solar days. The <em>tropical year</em>
+            is the time for the Earth to return to the same point in
+            the seasons, which varies around a value of about
+            365.242189 solar days (about 20 minutes shorter than the
+            sidereal year). These years are different because of the
+            <a
+            href="http://en.wikipedia.org/wiki/Axial_precession">axial
+            precession</a> of the Earth.
+          </p>
+          <p>
+            In common usage the word “year” refers to the tropical
+            year, as the seasons have historically been more important
+            for people than the motion of the stars. Observe that:
+            \[
+            365.242 \approx 365 + \frac{1}{4} - \frac{1}{100} + \frac{1}{400}.
+            \]
+            This is why leap years in our <a
+            href="http://en.wikipedia.org/wiki/Gregorian_calendar">Gregorian
+            calendar</a> add an extra day every 4 years, unless the
+            year is a whole century, except every 400 years. If our
+            calendar used sidereal years instead of tropical, the fact
+            that 365.256363 is slightly larger than 365.25 would mean
+            that about every 200 years we would need to have a double
+            leap year, when there would be two extra days (February
+            30?).
+          </p>
+          <p>
+            While leap years occur because the year is not an exact
+            integer number of days, a similar problem is caused by the
+            fact that the solar day is not exactly 24 × 60 × 60
+            seconds. The length of the day actually varies somewhat
+            unpredictably due to tidal friction as well as climactic
+            and geologic events such as glacier formation and mass
+            redistribution in the mantle, both of which change the
+            Earth's moment of inertia. To correct for these variations
+            a <a href="http://en.wikipedia.org/wiki/Leap_second">leap
+            second</a> is occasionally added, in which the last minute
+            of the day has 61 seconds.
+          </p>
+        </div>
+      </div>
+    </div>
+    </div>
+      <div class="footer">
+        <p class="copyright">Copyright (C) 2012-2015 Matthew West</p>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html>
+  <head profile="http://www.w3.org/2005/10/profile">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <meta charset="UTF-8">
+    <title>
+      Notation
+    </title>
+    <link href="style.css" type="text/css" rel="stylesheet" />
+    <link href="rvn.css" type="text/css" rel="stylesheet" />
+    <link href="icomoon.css" type="text/css" rel="stylesheet" />
+
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']], processEscapes: true}});</script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script src="jquery-1.7.2.min.js" type="text/javascript"></script>
+    <script src="pageControl.js" type="text/javascript"></script>
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-37625161-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header"><h1>Dynamics</h1></div>
+      <div id="nav-placeholder"></div>
+	    <script>
+        $(function(){
+          $("#nav-placeholder").load("/nav.html");
+        });
+      </script>
+      <div class="mainBlock">
+    <div class="contentBlock">
+      <div id="rvn" class="contentCol">
+        <h1>Notation</h1>
+      </div>
+      <div class="infoCol"></div>
+    </div>
+    <div class="contentBlock">
+      <div id="rvn-sm" class="section level3 contentCol">
+        <h2>
+          Mathematical objects
+        </h2>
+
+        <table class="notation">
+          <tr>
+            <th>Example</th>
+            <th>Meaning</th>
+            <th>LaTeX</th>
+          </tr>
+          <!-- ######################################## -->
+          <tr>
+            <td>
+              $P$
+            </td>
+            <td>
+              Points and positions are denoted by capital italic letters.
+            </td>
+            <td>
+              <tt>\$P\$</tt>
+            </td>
+          </tr>
+          <!-- ######################################## -->
+          <tr>
+            <td>
+              $(4, 5, -2)$
+            </td>
+            <td>
+              Coordinates of a position are given as a tuple, so $P$ is at $(4, 5, -2)$ is the same as saying that $P$ has coordinates $x = 4$, $y = 5$, $z = -2$. Note the distinction from vector components with square brackets.
+            </td>
+            <td>
+              <tt>\$(4, 5, -2)\$</tt>
+            </td>
+          </tr>
+          <!-- ######################################## -->
+          <tr>
+            <td>
+              $\boldsymbol{v}$
+            </td>
+            <td>
+              Vectors in typeset material are in bold font.
+            </td>
+            <td>
+              <tt>\$\boldsymbol{v}\$</tt>
+            </td>
+          </tr>
+          <!-- ######################################## -->
+          <tr>
+            <td>
+              $\vec{v}$
+            </td>
+            <td>
+              Vectors in handwriting use an over-arrow.
+            </td>
+            <td>
+              <tt>\$\vec{v}\$</tt>
+            </td>
+          </tr>
+          <!-- ######################################## -->
+          <tr>
+            <td>
+              $\|\boldsymbol{v}\|$, $v$
+            </td>
+            <td>
+              Magnitude uses double-bars or a plain letter, so $v = \|\boldsymbol{v}\| = \sqrt{v_x^2 + v_y^2 + v_z^2}$.
+            </td>
+            <td>
+              <tt>\$\|\boldsymbol{v}\|\$, \$v\$</tt>
+            </td>
+          </tr>
+          <!-- ######################################## -->
+          <tr>
+            <td>
+              $\hat{\boldsymbol{v}}$
+            </td>
+            <td>
+              Unit vectors use over-hat, so $\hat{\boldsymbol{v}} = \frac{\boldsymbol{v}}{\|\boldsymbol{v}\|}$.
+            </td>
+            <td>
+              <tt>\$\hat{\boldsymbol{v}}\$</tt>
+            </td>
+          </tr>
+          <!-- ######################################## -->
+          <tr>
+            <td>
+              $\hat{\boldsymbol{\imath}}$, $\hat{\boldsymbol{\jmath}}$, $\hat{\boldsymbol{k}}$
+            </td>
+            <td>
+              Cartesian basis vectors, so we write $\boldsymbol{v} = 3\hat{\boldsymbol{\imath}} + \hat{\boldsymbol{\jmath}} + 7\hat{\boldsymbol{k}}$.
+            </td>
+            <td>
+              <tt>\$\hat{\boldsymbol{\imath}}\$, \$\hat{\boldsymbol{\jmath}}\$, \$\hat{\boldsymbol{k}}\$</tt>
+            </td>
+          </tr>
+          <!-- ######################################## -->
+          <tr>
+            <td>
+              $[3, 1, 7]$
+            </td>
+            <td>
+              Vector components use square brackets, so we write $[\boldsymbol{v}]_R = [3, 1, 7] = 3\hat{\boldsymbol{\imath}} + \hat{\boldsymbol{\jmath}} + 7\hat{\boldsymbol{k}}$. If the basis is clear then we will write $\boldsymbol{v} = [3, 1, 7]$.
+            </td>
+            <td>
+              <tt>\$[3, 1, 7]\$</tt>
+            </td>
+          </tr>
+          <!-- ######################################## -->
+          <tr>
+            <td>
+              $[\boldsymbol{v}]_R$
+            </td>
+            <td>
+              Vector components in basis $R$. Standard basis names are $R$ for Rectangular (Cartesian), $P$ for polar, $C$ for cylindrical, $S$ for spherical.
+            </td>
+            <td>
+              <tt>\$[\boldsymbol{v}]_R\$</tt>
+            </td>
+          </tr>
+          <!-- ######################################## -->
+          <tr>
+            <td>
+              $v_x, v_y, v_z$
+            </td>
+            <td>
+              Vector components are in non-bold with subscripts, so $\boldsymbol{v} = [v_x, v_y, v_z] = v_x\,\hat{\boldsymbol{\imath}} + v_y\,\hat{\boldsymbol{\jmath}} + v_z\,\hat{\boldsymbol{k}}$.
+            </td>
+            <td>
+              <tt>\$v_x, v_y, v_z\$</tt>
+            </td>
+          </tr>
+          <!-- ######################################## -->
+          <tr>
+            <td>
+              $v$ versus $v_x$
+            </td>
+            <td>
+              Magnitude (positive) is the plain letter $v$, while signed component is $v_x$.
+            </td>
+            <td>
+              <tt>\$v\$ versus \$v_x\$</tt>
+            </td>
+          </tr>
+          <!-- ######################################## -->
+          <tr>
+            <td>
+              $\hat{\boldsymbol{e}}_r, \hat{\boldsymbol{e}}_\theta$
+            </td>
+            <td>
+              Polar basis vectors. Maybe we should change this to $\hat{\boldsymbol{r}}, \hat{\boldsymbol\theta}$?
+            </td>
+            <td>
+              <tt>\$\hat{e}_r\$, \$\hat{e}_\theta\$</tt>
+            </td>
+          </tr>
+          <!-- ######################################## -->
+          <tr>
+            <td>
+              $\boldsymbol{r}$, $\boldsymbol{r}_P$, $\boldsymbol{r}_{OP}$, $\overrightarrow{OP}$
+            </td>
+            <td>
+              Position vector of point $P$ from origin $O$. The origin and/or point can be neglected if it is obvious from context.
+            </td>
+            <td>
+              <tt>\$\boldsymbol{r}\$, \$\boldsymbol{r}_P\$, \$\boldsymbol{r}_{OP}\$, \$\overrightarrow{OP}\$</tt>
+            </td>
+          </tr>
+          <!-- ######################################## -->
+          <tr>
+            <td>
+              $\boldsymbol{\rm A}$
+            </td>
+            <td>
+              Matrices are in upright (roman) bold.
+            </td>
+            <td>
+              <tt>\$\boldsymbol{\rm A}\$</tt>
+            </td>
+          </tr>
+          <!-- ######################################## -->
+          <tr>
+            <td>
+              $A_{ij}$
+            </td>
+            <td>
+              Matrix components are in italic non-bold font.
+            </td>
+            <td>
+              <tt>\$A_{ij}\$</tt>
+            </td>
+          </tr>
+          <!-- ######################################## -->
+          <tr>
+            <td>
+              $4\rm\ kg/m^2$, $4\rm\ kg\,m^{-2}$
+            </td>
+            <td>
+              Units are in roman (upright) font, have a space between the number and units, and have a thin-space between unit symbols.
+            </td>
+            <td>
+              <tt>\$4\rm\ kg/m^2\$, \$4\rm\ kg\,m^{-2}\$</tt>
+            </td>
+          </tr>
+          <!-- ######################################## -->
+          <tr>
+            <td>
+              $x = 4t^2$
+            </td>
+            <td>
+              To make formulas dimensionally correct we use one of the following forms: (1) “$x = 4t^2$, where $t$ is in seconds and $x$ is in meters”, (2) “$x = a t^2$ where $a = 4\rm\ m/s^2$”, or (3) “$x = 4 (t/{\rm s})^2\rm\ m$” (using <a href="https://en.wikipedia.org/wiki/Quantity_calculus">quantity calculus).
+            </td>
+            <td>
+              <tt>\$x = 4t^2\$</tt>
+            </td>
+          </tr>
+          <!-- ######################################## -->
+        </table>
+
+      </div>
+      <div class="infoCol"></div>
+    </div>
+    <div class="contentBlock">
+      <div id="rvn-sd" class="section level3 contentCol">
+        <h2>
+          Diagram elements
+        </h2>
+        <table class="colors">
+          <tr>
+            <th>Element</th>
+            <th>Meaning</th>
+            <th>LaTeX</th>
+          </tr>
+          <!-- ######################################## -->
+          <tr>
+            <td>
+              $\mathcal{B}_1$
+            </td>
+            <td>
+              Body number 1. Use numbers 1,2,3 for bodies.
+            </td>
+            <td>
+              <tt>\$\mathcal{B}_1\$</tt>
+            </td>
+          </tr>
+          <!-- ######################################## -->
+          <tr>
+            <td>
+              $m_1, \omega_1, \alpha_1$
+            </td>
+            <td>
+              Mass, angular velocity, and angular acceleration of body $\mathcal{B}_1$. Use subscript numbers for quantities associated with bodies.
+            </td>
+            <td>
+              <tt>\$m_1, \omega_1, \alpha_1\$</tt>
+            </td>
+          </tr>
+          <!-- ######################################## -->
+          <tr>
+            <td>
+              $P, Q$
+            </td>
+            <td>
+              Points $P$ and $Q$. Use italic capital letters for points.
+            </td>
+            <td>
+              <tt>\$P, Q\$</tt>
+            </td>
+          </tr>
+          <!-- ######################################## -->
+          <tr>
+            <td>
+              $\boldsymbol{r}_P, \boldsymbol{v}_P, \boldsymbol{a}_P$
+            </td>
+            <td>
+              Position, velocity, and acceleration vectors of point $P$. Use subscript capital italic letters for quantities associated with points.
+            </td>
+            <td>
+              <tt>\$\boldsymbol{r}_P, \boldsymbol{v}_P, \boldsymbol{a}_P\$</tt>
+            </td>
+          </tr>
+          <!-- ######################################## -->
+          <tr>
+            <td>
+              $I_{1,P,z}$
+            </td>
+            <td>
+              Moment of inertia of body $\mathcal{B}_1$ about point $P$ around the $z$ axis. Any of the subscripts can be neglected if they are obvious from context, although at least the point should normally be included.
+            </td>
+            <td>
+              <tt>\$I_{1,P,z}\$</tt>
+            </td>
+          </tr>
+          <!-- ######################################## -->
+        </table>
+      </div>
+      <div class="infoCol"></div>
+    </div>
+    <div class="contentBlock">
+      <div id="rvn-sc" class="section level3 contentCol">
+        <h2>
+          Color scheme for diagrams
+        </h2>
+        <p>
+          When possible, use a pale yellow (or tan) background with a
+          light gray (or light green) square grid, like traditional
+          engineering paper. A blank white background can also be used.
+        </p>
+        <table class="colors">
+          <tr>
+            <th>Color</th>
+            <th>Meaning</th>
+          </tr>
+          <tr>
+            <td>Black</td>
+            <td>Coordinate axes and objects.</td>
+          </tr>
+          <tr>
+            <td>Gray</td>
+            <td>Measurements, angles, other notes.</td>
+          </tr>
+          <tr>
+            <td>Blue</td>
+            <td>Position vectors.</td>
+          </tr>
+          <tr>
+            <td>Green</td>
+            <td>Velocities and angular velocities.</td>
+          </tr>
+          <tr>
+            <td>Cyan</td>
+            <td>Accelerations and angular accelerations.</td>
+          </tr>
+          <tr>
+            <td>Red</td>
+            <td>Forces.</td>
+          </tr>
+          <tr>
+            <td>Purple</td>
+            <td>Moments.</td>
+          </tr>
+        </table>
+        <p>
+        </p>
+        <div class="figureContainer" id="rvn-fd">
+          <img class="figureImage" alt="Example diagram showing colors"
+               src="rvn_diagram.png" width="600" />
+          <p class="figureCaption">
+            Example diagram showing colored elements.
+          </p>
+        </div>
+      </div>
+    </div>
+    </div>
+       <div class="footer">
+        <p class="copyright">Copyright (C) 2012-2015 Matthew West</p>
+      </div>
+    </div>
+  </body>
+</html>

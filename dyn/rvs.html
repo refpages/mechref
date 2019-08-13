@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html>
+  <head profile="http://www.w3.org/2005/10/profile">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <meta charset="UTF-8">
+    <title>
+      Spherical coordinates
+    </title>
+    <link href="style.css" type="text/css" rel="stylesheet" />
+    <link href="rvs.css" type="text/css" rel="stylesheet" />
+    <link href="icomoon.css" type="text/css" rel="stylesheet" />
+
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});</script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script src="jquery-1.7.2.min.js" type="text/javascript"></script>
+    <script src="sylvester.js" type="text/javascript"></script>
+    <script src="sha1.js" type="text/javascript"></script>
+    <script src="PrairieDraw.js" type="text/javascript"></script>
+    <script src="rvs.js" type="text/javascript"></script>
+    <script src="pageControl.js" type="text/javascript"></script>
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-37625161-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header"><h1>Dynamics</h1></div>
+      <div id="nav-placeholder"></div>
+	    <script>
+        $(function(){
+          $("#nav-placeholder").load("/nav.html");
+        });
+      </script>
+      <div class="mainBlock">
+    <div class="contentBlock">
+      <div id="rvs" class="contentCol">
+        <h1>Spherical coordinates</h1>
+        <p>
+          The spherical coordinate system extends polar coordinates
+          into 3D by using an angle $\phi$ for the third
+          coordinate. This gives coordinates $(r, \theta, \phi)$
+          consisting of:
+        </p>
+        <table id="rvs-tc">
+          <tr>
+            <th>coordinate</th>
+            <th>name</th>
+            <th>range</th>
+            <th>definition</th>
+          </tr>
+          <tr>
+            <td>$r$</td>
+            <td>radius</td>
+            <td>$0 \le r \lt \infty$</td>
+            <td>distance from the origin</td>
+          </tr>
+          <tr>
+            <td>$\theta$</td>
+            <td>azimuth</td>
+            <td>$-\pi \lt \theta \le \pi$</td>
+            <td>angle from the $x$-axis in the $x$–$y$ plane</td>
+          </tr>
+          <tr>
+            <td>$\phi$</td>
+            <td>inclination</td>
+            <td>$0 \le \phi \le \pi$</td>
+            <td>angle from the positive $z$ axis</td>
+          </tr>
+        </table>
+        <p>
+          The diagram below shows the spherical coordinates of a point
+          $P$. By changing the display options, we can see that the
+          basis vectors are tangent to the corresponding coordinate
+          lines. Changing $\theta$ moves $P$ along the $\theta$
+          coordinate line in the direction $\hat{e}_\theta$, and
+          similarly for the other coordinates.
+        </p>
+        <div class="figureContainer" id="rvs-fd">
+          <table class="alignTop figureLeftControl">
+            <tr>
+              <td>
+                <canvas id="rvs-fd-c" width="400" height="400">
+                </canvas>
+              </td>
+              <td class="controls">
+                <button class="reset:rvs-fd-c">reset</button>
+                <table class="alignTop">
+                  <tr>
+                    <td>Show:</td>
+                    <td>
+                      <button class="option-toggle:rvs-fd-c:showLabels">labels</button>
+                      <button class="option-toggle:rvs-fd-c:showCoords">coordinates</button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td></td>
+                    <td>
+                      <button class="option-toggle:rvs-fd-c:showBasis">basis vectors</button>
+                    </td>
+                  </tr>
+                </table>
+                <table>
+                  <tr>
+                    <td>Coordinate lines:</td>
+                    <td>
+                      <button class="option-toggle:rvs-fd-c:showCoordLineR">$r$</button>
+                      <button class="option-toggle:rvs-fd-c:showCoordLineTheta">$\theta$</button>
+                      <button class="option-toggle:rvs-fd-c:showCoordLinePhi">$\phi$</button>
+                    </td>
+                  </tr>
+                </table>
+                <table>
+                  <tr>
+                    <td>Radius:</td>
+                    <td><input type="range" min="1" max="4" value="0" step="0.1" class="data-input:rvs-fd-c:r" /></td>
+                    <td>$r = $ <span class="data-option:rvs-fd-c:r"></span></td>
+                  </tr>
+                  <tr>
+                    <td>Azimuth:</td>
+                    <td><input type="range" min="-180" max="180" value="0" step="5" class="data-input:rvs-fd-c:thetaDeg" /></td>
+                    <td>$\theta = $ <span class="data-option:rvs-fd-c:thetaDeg"></span>°</td>
+                  </tr>
+                  <tr>
+                    <td>Inclination:</td>
+                    <td><input type="range" min="0" max="180" value="0" step="5" class="data-input:rvs-fd-c:phiDeg" /></td>
+                    <td>$\phi = $ <span class="data-option:rvs-fd-c:phiDeg"></span>°</td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <p>
+          Spherical coordinates are defined with respect to a set of
+          Cartesian coordinates, and can be converted to and from
+          these coordinates using the <a
+          href="rvp.html#rvp-it">atan2</a> function as follows.
+        </p>
+        <div class="envContainer equation" id="rvs-ec">
+          <p class="envHeader">
+            Conversion between spherical and Cartesian coordinates
+          </p>
+          <div class="envBody">
+            <p>
+              \[\begin{aligned}
+              x &amp;= r \cos\theta \sin\phi &amp; r &amp;= \sqrt{x^2 + y^2 + z^2} \\
+              y &amp;= r \sin\theta \sin\phi &amp; \theta &amp;= \operatorname{atan2}(y, x) \\
+              z &amp;= r \cos\phi &amp; \phi &amp;= \operatorname{arccos}(z / r)
+              \end{aligned}\]
+            </p>
+          </div>
+        </div>
+        <div class="envContainer derivation" id="rvs-ec-d">
+          <div class="envBody">
+            <canvas id="rvs-ec-c" width="200" height="200" class="floatRight">
+            </canvas>
+            <p>
+              To find the conversion to Cartesian coordinates, we
+              consider the projection of $\vec{r}$ down onto the
+              $x$–$y$ plane, as shown. Then $z = r \cos\phi$ and $\ell
+              = r \sin\phi$, from which we obtain $x = \ell
+              \cos\theta$ and $y = \ell \sin\theta$.
+            </p>
+            <p>
+              To convert from Cartesian coordinates, we use the same
+              projection and read off the expressions for the
+              spherical coordinates. This uses the <a
+              href="rvp.html#rvp-it">atan2</a> function to handle the
+              different quadrants for $\theta$.
+            </p>
+          </div>
+        </div>
+        <p>
+          The basis vectors are tangent to the coordinate lines and
+          form an orthonormal basis $\hat{e}_r,
+          \hat{e}_\theta, \hat{e}_\phi$ that depends on the current
+          position $P$ as follows.
+        </p>
+        <div class="envContainer equation" id="rvs-eb">
+          <p class="envHeader">
+            Spherical basis vectors
+          </p>
+          <div class="envBody">
+            <p>
+              \[\begin{aligned}
+              \hat{e}_r &amp;= \cos\theta \sin\phi \,\hat{\imath}
+              + \sin\theta \sin\phi \,\hat{\jmath} + \cos\phi \,\hat{k} \\
+              \hat{e}_{\theta} &amp;= - \sin\theta \,\hat{\imath}
+              + \cos\theta \,\hat{\jmath} \\
+              \hat{e}_{\phi} &amp;= \cos\theta \cos\phi \,\hat{\imath}
+              + \sin\theta \cos\phi \,\hat{\jmath} - \sin\phi \,\hat{k} \\[1em]
+              \hat{\imath} &amp;= \cos\theta \sin\phi \, \hat{e}_r
+              - \sin\theta \, \hat{e}_\theta + \cos\theta \cos\phi \, \hat{e}_\phi \\
+              \hat{\jmath} &amp;= \sin\theta \sin\phi \, \hat{e}_r
+              + \cos\theta \, \hat{e}_\theta + \sin\theta \cos\phi \, \hat{e}_\phi \\
+              \hat{k} &amp;= \cos\phi \, \hat{e}_r - \sin\phi \, \hat{e}_\phi
+              \end{aligned}\]
+            </p>
+          </div>
+        </div>
+        <div class="envContainer derivation" id="rvs-eb-d">
+          <div class="envBody">
+            <p>
+              We write the position vector $\vec{r} = r \cos\theta
+              \sin\phi \, \hat{\imath} + r \sin\theta \sin\phi \,
+              \hat{\jmath} + r \cos\phi \, \hat{k}$ and then use the
+              definition of coordinate basis vectors to find the
+              non-normalized spherical basis vectors:
+            </p>
+            <p>
+              \[\begin{aligned}
+              \vec{e}_r &amp;= \frac{\partial\vec{r}}{\partial r}
+              = \cos\theta \sin\phi \, \hat{\imath}
+              + \sin\theta \sin\phi \, \hat{\jmath}
+              + \cos\phi \, \hat{k} \\
+              \vec{e}_\theta &amp;= \frac{\partial\vec{r}}{\partial\theta}
+              = -r \sin\theta \sin\phi \, \hat{\imath}
+              + r \cos\theta \sin\phi \, \hat{\jmath} \\
+              \vec{e}_\phi &amp;= \frac{\partial\vec{r}}{\partial\phi}
+              = r \cos\theta \cos\phi \, \hat{\imath}
+              + r \sin\theta \cos\phi \, \hat{\jmath}
+              - r \sin\phi \, \hat{k}
+              \end{aligned}\]
+            </p>
+            <p>
+              To normalize these vectors we divide by their lengths,
+              which we can compute to be $\| \vec{e}_r \| = 1$, $\|
+              \vec{e}_\theta \| = r \sin\phi$, and $\| \vec{e}_\phi \|
+              = r$.
+            </p>
+            <p>
+              To invert the basis change we first observe that we can
+              take combinations of $\hat{e}_r$ and $\hat{e}_\phi$ to
+              give:
+            </p>
+            <p>
+              \[\begin{aligned}
+              \cos\phi \, \hat{e}_r - \sin\phi \, \hat{e}_\phi
+              &amp;= \hat{k} \\
+              \sin\phi \, \hat{e}_r + \cos\phi \, \hat{e}_\phi
+              &amp;= \cos\theta \, \hat{\imath} + \sin\theta \, \hat{\jmath}
+              \end{aligned}\]
+            </p>
+            <p>
+              Then:
+            </p>
+            <p>
+              \[\begin{aligned}
+              \cos\theta(\sin\phi \, \hat{e}_r + \cos\phi \, \hat{e}_\phi)
+              - \sin\theta \, \hat{e}_\theta
+              &amp;= \cos^2\theta \, \hat{\imath} + \sin^2\theta \, \hat{\imath}
+              = \hat{\imath} \\
+              \sin\theta(\sin\phi \, \hat{e}_r + \cos\phi \, \hat{e}_\phi)
+              + \cos\theta \, \hat{e}_\theta
+              &amp;= \sin^2\theta \, \hat{\imath} + \cos^2\theta \, \hat{\jmath}
+              = \hat{\jmath}
+              \end{aligned}\]
+            </p>
+            <p>
+              Rearranging these gives the Cartesian basis vector expressions above.
+            </p>
+          </div>
+        </div>
+        <div class="envContainer warning" id="rvs-wr">
+          <p class="envHeader">Warning: $(\hat{e}_r,\hat{e}_\theta,\hat{e}_\phi)$ is not right-handed</p>
+          <div class="envBody">
+            <p>
+              Although it is common to write the spherical coordinates
+              in the order $(r,\theta,\phi)$, this order gives
+              a <i>left-handed</i> basis
+              $(\hat{e}_r,\hat{e}_\theta,\hat{e}_\phi)$, which we can
+              see graphically from the fact that $\hat{e}_r \times
+              \hat{e}_\theta = -\hat{e}_\phi$. We can either work with
+              this as a left-handed basis, or re-order the coordinates
+              to give the right-handed basis
+              $(\hat{e}_r,\hat{e}_\phi,\hat{e}_\theta)$.
+            </p>
+          </div>
+        </div>
+        <p>
+          If the spherical coordinates change with time then this
+          causes the spherical basis vectors to rotate with the
+          following angular velocity.
+        </p>
+        <div class="envContainer equation" id="rvs-ew">
+          <p class="envHeader">
+            Angular velocity of the spherical basis
+          </p>
+          <div class="envBody">
+            <p>
+              \[\begin{aligned}
+              \vec{\omega} &amp;= \dot\phi \, \hat{e}_\theta + \dot\theta \, \hat{k} \\
+              &amp;= \dot\theta \cos\phi \,\hat{e}_r + \dot\phi \, \hat{e}_\theta
+              - \dot\theta \sin\phi \,\hat{e}_{\phi}
+              \end{aligned}\]
+            </p>
+          </div>
+        </div>
+        <div class="envContainer derivation" id="rvs-ew-d">
+          <div class="envBody">
+            <p>
+              Changing $r$ does not cause a rotation of the basis,
+              while changing $\theta$ rotates about the vertical axis
+              $\hat{k}$ and changing $\phi$ rotates about
+              $\hat{e}_\theta$. Combining these angular
+              velocities gives the expression for $\vec{\omega}$.
+            </p>
+          </div>
+        </div>
+        <p>
+          The rotation of the basis vectors caused by changing
+          coordinates can be directly computed, giving the time
+          derivatives below.
+        </p>
+        <div class="envContainer equation" id="rvs-et">
+          <p class="envHeader">
+            Time derivatives of spherical basis vectors
+          </p>
+          <div class="envBody">
+            <p>
+              \[\begin{aligned}
+              \dot{\hat{e}}_r &amp;= \dot\theta \sin\phi \,\hat{e}_{\theta}
+              + \dot\phi \,\hat{e}_{\phi} \\
+              \dot{\hat{e}}_{\theta} &amp;= - \dot\theta \sin\phi \,\hat{e}_r
+              - \dot\theta \cos\phi \,\hat{e}_{\phi} \\
+              \dot{\hat{e}}_{\phi} &amp;= - \dot\phi \,\hat{e}_r
+              + \dot\theta \cos\phi \,\hat{e}_{\theta}
+              \end{aligned}\]
+            </p>
+          </div>
+        </div>
+        <div class="envContainer derivation" id="rvs-et-d">
+          <div class="envBody">
+            <p>
+              We can either directly differentiate the <a
+              href="#rvs-eb">basis vector expressions</a>, or we can
+              recall that $\dot{\hat{e}} = \vec{\omega}
+              \times \hat{e}$ for any basis vector $\hat{e}$. This
+              gives:
+            </p>
+            <p>
+              \[\begin{aligned}
+              \dot{\hat{e}}_r &amp;= \vec{\omega} \times \hat{e}_r
+              = \dot\theta \cos\phi \, \hat{e}_r \times \hat{e}_r
+              + \dot\phi \, \hat{e}_\theta \times \hat{e}_r
+              - \dot\theta \sin\phi \, \hat{e}_{\phi} \times \hat{e}_r \\
+              \dot{\hat{e}}_{\theta} &amp;= \vec{\omega} \times \hat{e}_{\theta}
+              = \dot\theta \cos\phi \,\hat{e}_r \times \hat{e}_\theta
+              + \dot\phi \, \hat{e}_\theta \times \hat{e}_\theta
+              - \dot\theta \sin\phi \,\hat{e}_{\phi} \times \hat{e}_\theta \\
+              \dot{\hat{e}}_{\phi} &amp;= \vec{\omega} \times \hat{e}_{\phi}
+              = \dot\theta \cos\phi \,\hat{e}_r \times \hat{e}_\phi
+              + \dot\phi \, \hat{e}_\theta \times \hat{e}_\phi
+              - \dot\theta \sin\phi \,\hat{e}_{\phi} \times \hat{e}_\phi
+              \end{aligned}\]
+            </p>
+            <p>
+              Now we evaluate the cross products graphically to obtain
+              the final expressions.
+            </p>
+          </div>
+        </div>
+        <p>
+          A point $P$ at a time-varying position $(r,\theta,\phi)$ has
+          position vector $\vec{r}$, velocity $\vec{v} =
+          \dot{\vec{r}}$, and acceleration $\vec{a} = \ddot{\vec{r}}$
+          given by the following expressions in spherical components.
+        </p>
+        <div class="envContainer equation" id="rvs-ep">
+          <p class="envHeader">
+            Position, velocity, and acceleration in spherical components
+          </p>
+          <div class="envBody">
+            <p>
+              \[\begin{aligned}
+              \vec{r} &amp;= r \,\hat{e}_r \\
+              \vec{v} &amp;= \dot{r} \,\hat{e}_r
+              + r \dot\theta \sin\phi \,\hat{e}_{\theta}
+              + r \dot\phi \,\hat{e}_{\phi} \\
+              \vec{a} &amp;= (\ddot{r} - r \dot{\theta}^2 \sin^2\phi
+              - r \dot{\phi}^2) \,\hat{e}_r \\
+              &amp;\quad + (r \ddot\theta \sin\phi
+              + 2 \dot{r} \dot\theta \sin\phi
+              + 2 r \dot\theta \dot\phi \cos\phi) \,\hat{e}_{\theta} \\
+              &amp;\quad + (r \ddot\phi + 2 \dot{r} \dot\phi
+              - r \dot{\theta}^2 \sin\phi \cos\phi) \,\hat{e}_{\phi}
+              \end{aligned}\]
+            </p>
+          </div>
+        </div>
+        <div class="envContainer derivation" id="rvs-ep-d">
+          <div class="envBody">
+            <p>
+              Because $\hat{e}_r$ is a unit vector in the direction of
+              the position vector $\vec{r}$, we know that $\vec{r} = r
+              \, \hat{e}_r$. Then we can differentiate this expression
+              to obtain:
+            </p>
+            <p>
+              \[\begin{aligned}
+              \vec{v} &amp;= \dot{\vec{r}} = \frac{d}{dt}\Big(r \, \hat{e}_r \Big)
+              = \dot{r} \, \hat{e}_r + r \, \dot{\hat{e}}_r
+              \end{aligned}\]
+            </p>
+            <p>
+              and we substitute in the expression for
+              $\dot{\hat{e}}_r$ <a href="#rvs-et">from
+              above</a>. Taking another derivative gives:
+            </p>
+            <p>
+              \[\begin{aligned}
+              \vec{a} = \dot{\vec{v}} &amp;= \frac{d}{dt}\Big(
+              \dot{r} \,\hat{e}_r
+              + r \dot\theta \sin\phi \,\hat{e}_{\theta}
+              + r \dot\phi \,\hat{e}_{\phi} \Big) \\
+              &amp;= \ddot{r} \, \hat{e}_r + \dot{r} \, \dot{\hat{e}}_r
+              + (\dot{r} \dot\theta \sin\phi + r \ddot\theta \sin\phi
+              + r \dot\theta \cos\phi \, \dot\phi) \, \hat{e}_\theta \\
+              &amp;\quad + r \dot\theta \sin\phi \, \dot{\hat{e}}_\theta
+              + (\dot{r} \dot\phi + r \ddot\phi) \, \hat{e}_\phi
+              + r \dot\phi \, \dot{\hat{e}}_\phi
+              \end{aligned}\]
+            </p>
+            <p>
+              and again we can substitute the <a href="#rvs-et">basis
+              vector derivatives</a>.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="infoCol">
+        <div id="rvs-ic" class="infoBox notationBox">
+          <p>
+            There are many different conventions for spherical
+            coordinates notation, so it's important to check which
+            variant is being used in any document. The convention used
+            here is common in mathematics. In physics it is also
+            common to use the same angles, but to reverse the symbol
+            convention so that $\phi$ is the azimuth and $\theta$ is
+            the inclination. Many different names for the coordinates
+            are also used, with the inclination also being called
+            the <i>zenith angle</i>,
+            <i>polar angle</i>, or <i>normal angle</i>. Alternatively,
+            the inclination may be replaced by the <i>elevation</i>
+            measured up from the $x$-$y$ plane.  In geographic
+            coordinates the azimuth is the <i>longitude</i> $\lambda$
+            and the elevation is the <i>latitude</i> $\phi$, while in
+            celestial coordinates the azimuth is the <i>right
+            ascension</i> $\alpha$ and the elevation is the
+            <i>declination</i> $\delta$.
+          </p>
+          <p>
+            The angles themselves may be given in radians or degrees,
+            and are sometimes written in degrees (symbol °),
+            arc-minutes (1/60 of a degree, symbol ′) and arc-seconds
+            (1/60 of an arc-minute, symbol ″). Positive and negative
+            angles are normally indicated by +/-, but sometimes use
+            North/South (N/S) or East/West (E/W). Thus a longitude may
+            be written as $\lambda$ = 88°12′15″ W = 88.2042° W =
+            -88.2042° = -1.53945 rad.
+          </p>
+        </div>
+        <div id="rvs-ia" class="infoBox applicationsBox">
+          <ul>
+            <li><a href="aos.html">Shortest flight paths</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    </div>
+       <div class="footer">
+        <p class="copyright">Copyright (C) 2012-2015 Matthew West</p>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html>
+  <head profile="http://www.w3.org/2005/10/profile">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <meta charset="UTF-8">
+    <title>
+      Rotations and angular velocity
+    </title>
+    <link href="style.css" type="text/css" rel="stylesheet" />
+    <link href="rkr.css" type="text/css" rel="stylesheet" />
+    <link href="icomoon.css" type="text/css" rel="stylesheet" />
+
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});</script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script src="jquery-1.7.2.min.js" type="text/javascript"></script>
+    <script src="sylvester.js" type="text/javascript"></script>
+    <script src="sha1.js" type="text/javascript"></script>
+    <script src="PrairieDraw.js" type="text/javascript"></script>
+    <script src="rkr.js" type="text/javascript"></script>
+    <script src="pageControl.js" type="text/javascript"></script>
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-37625161-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header"><h1>Dynamics</h1></div>
+      <div id="nav-placeholder"></div>
+	    <script>
+        $(function(){
+          $("#nav-placeholder").load("/nav.html");
+        });
+      </script>
+      <div class="mainBlock">
+    <div class="contentBlock">
+      <div id="rkr" class="section level2 contentCol">
+        <h1>
+          Rotations and Angular Velocity
+        </h1>
+        <p>
+          A <em>rotation</em> of a vector is a change which only
+          alters the direction, not the length, of a vector. A
+          rotation consists of a <em>rotation axis</em> and a
+          <em>rotation rate</em>. By taking the rotation axis as a
+          direction and the rotation rate as a length, we can write
+          the rotation as a vector, known as the <em>angular velocity
+          vector</em> \(\vec{\omega}\). We use the
+          <em>right-hand rule</em> to describe the direction of
+          rotation. The units of $\vec\omega$ are $\rm rad/s$ or
+          ${}^\circ/s$.
+        </p>
+        <div class="figureContainer width600" id="rkr-fc">
+          <canvas id="rkr-fc-c" width="600" height="400" class="figureImage">
+          </canvas>
+          <p class="controls">
+            <button class="anim-toggle:rkr-fc-c">animate</button>
+            <button class="reset:rkr-fc-c">reset</button>
+          </p>
+          <p class="controls">
+            Rotation axis:
+            <input type="radio" name="rkr-fc-c-axis" value="i" class="data-input:rkr-fc-c:axis" /> $\hat\imath$
+            <input type="radio" name="rkr-fc-c-axis" value="j" class="data-input:rkr-fc-c:axis" /> $\hat\jmath$
+            <input type="radio" name="rkr-fc-c-axis" value="k" class="data-input:rkr-fc-c:axis" /> $\hat{k}$
+            <input type="radio" name="rkr-fc-c-axis" value="ij" class="data-input:rkr-fc-c:axis" /> $\hat\imath + \hat\jmath$
+            <input type="radio" name="rkr-fc-c-axis" value="ijk" class="data-input:rkr-fc-c:axis" /> $\hat\imath + \hat\jmath + \hat{k}$
+          </p>
+          <p class="figureCaption">
+            Angular velocity vector $\vec\omega$. The direction of
+            $\vec\omega$ is the axis of rotation, while the magnitude
+            is the speed of rotation (positive direction given by the
+            right-hand rule).
+          </p>
+        </div>
+      </div>
+      <div class="infoCol">
+        <div class="infoBox factBox" id="rkr-ig">
+          <p>
+            The Greek letter ω (lowercase <a
+            href="http://en.wikipedia.org/wiki/Omega">omega</a>) is
+            the last letter of the <a
+            href="http://en.wikipedia.org/wiki/Greek_alphabet">Greek
+            alphabet</a>, leading to expressions such as “from alpha
+            to omega” meaning “from start to end”. Omega literally
+            means O-mega, meaning O-large, as capital Omega (written
+            Ω) developed from capital <a
+            href="http://en.wikipedia.org/wiki/Omicron">Omicron</a>
+            (written Ο) by breaking the circle and turning up the
+            edges. Omicron is literally O-micron, meaning O-small, and
+            it is the ancestor of the <a
+            href="http://en.wikipedia.org/wiki/Latin_alphabet">Latin</a>
+            letter O that we use today in <a
+            href="http://en.wikipedia.org/wiki/English_language">English</a>.
+          </p>
+          <table id="greek">
+            <tr>
+              <td>Α</td><td>α</td><td><a href="http://en.wikipedia.org/wiki/Alpha">alpha</a></td>
+              <td>Ι</td><td>ι</td><td><a href="http://en.wikipedia.org/wiki/Iota">iota</a></td>
+              <td>Ρ</td><td>ρ</td><td><a href="http://en.wikipedia.org/wiki/Rho">rho</a></td>
+            </tr>
+            <tr>
+              <td>Β</td><td>β</td><td><a href="http://en.wikipedia.org/wiki/Beta">beta</a></td>
+              <td>Κ</td><td>κ</td><td><a href="http://en.wikipedia.org/wiki/Kappa">kappa</a></td>
+              <td>Σ</td><td>σ</td><td><a href="http://en.wikipedia.org/wiki/Sigma">sigma</a></td>
+            </tr>
+            <tr>
+              <td>Γ</td><td>γ</td><td><a href="http://en.wikipedia.org/wiki/Gamma">gamma</a></td>
+              <td>Λ</td><td>λ</td><td><a href="http://en.wikipedia.org/wiki/Lambda">lambda</a></td>
+              <td>Τ</td><td>τ</td><td><a href="http://en.wikipedia.org/wiki/Tau">tau</a></td>
+            </tr>
+            <tr>
+              <td>Δ</td><td>δ</td><td><a href="http://en.wikipedia.org/wiki/Delta_(letter)">delta</a></td>
+              <td>Μ</td><td>μ</td><td><a href="http://en.wikipedia.org/wiki/Mu_(letter)">mu</a></td>
+              <td>Υ</td><td>υ</td><td><a href="http://en.wikipedia.org/wiki/Upsilon">upsilon</a></td>
+            </tr>
+            <tr>
+              <td>Ε</td><td>ε</td><td><a href="http://en.wikipedia.org/wiki/Epsilon">epsilon</a></td>
+              <td>Ν</td><td>ν</td><td><a href="http://en.wikipedia.org/wiki/Nu_(letter)">nu</a></td>
+              <td>Φ</td><td>φ</td><td><a href="http://en.wikipedia.org/wiki/Phi">phi</a></td>
+            </tr>
+            <tr>
+              <td>Ζ</td><td>ζ</td><td><a href="http://en.wikipedia.org/wiki/Zeta">zeta</a></td>
+              <td>Ξ</td><td>ξ</td><td><a href="http://en.wikipedia.org/wiki/Xi_(letter)">xi</a></td>
+              <td>Χ</td><td>χ</td><td><a href="http://en.wikipedia.org/wiki/Chi_(letter)">chi</a></td>
+            </tr>
+            <tr>
+              <td>Η</td><td>η</td><td><a href="http://en.wikipedia.org/wiki/Eta">eta</a></td>
+              <td>Ο</td><td>ο</td><td><a href="http://en.wikipedia.org/wiki/Omicron">omicron</a></td>
+              <td>Ψ</td><td>ψ</td><td><a href="http://en.wikipedia.org/wiki/Psi_(letter)">psi</a></td>
+            </tr>
+            <tr>
+              <td>Θ</td><td>θ</td><td><a href="http://en.wikipedia.org/wiki/Theta">theta</a></td>
+              <td>Π</td><td>π</td><td><a href="http://en.wikipedia.org/wiki/Pi_(letter)">pi</a></td>
+              <td>Ω</td><td>ω</td><td><a href="http://en.wikipedia.org/wiki/Omega">omega</a></td>
+            </tr>
+          </table>
+          <p>
+            The Greek alphabet, shown above, was the first true <a
+            href="http://en.wikipedia.org/wiki/Alphabet">alphabet</a>,
+            meaning that it has letters representing <a
+            href="http://en.wikipedia.org/wiki/Phoneme">phonemes</a>
+            (basic significant sounds) and includes <a
+            href="http://en.wikipedia.org/wiki/Vowel">vowels</a> as
+            well as <a
+            href="http://en.wikipedia.org/wiki/Consonant">consonants</a>. The
+            Greek alphabet was was derived from the earlier <a
+            href="http://en.wikipedia.org/wiki/Phoenician_alphabet">Phoenician
+            alphabet</a>, which was probably the original parent of
+            all alphabets. This shows that the idea of an alphabet is
+            so non-obvious that it has only ever been invented once,
+            and then always copied after that.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="contentBlock">
+      <div id="rkr-sd" class="contentCol">
+        <h2>
+          Vector derivatives and rotations
+        </h2>
+        <p>
+          If a unit vector \(\hat{a}\) is rotating, then the angular
+          velocity vector \(\vec{\omega}\) is defined so that:
+        </p>
+        <div class="envContainer equation" id="rkr-ew">
+          <p class="envHeader">Derivative of unit vectors.</p>
+          <div class="envBody">
+            <p>
+              \[\dot{\hat{a}} = \vec{\omega} \times \hat{a}\]
+            </p>
+          </div>
+        </div>
+        <div class="envContainer equation" id="rkr-ed">
+          <p class="envHeader">Derivative of general vectors.</p>
+          <div class="envBody">
+            <p>
+              \[\begin{aligned}
+              \dot{\vec{a}} = \underbrace{\dot{a}
+              \hat{a}}_{\operatorname{Proj}(\dot{\vec{a}}, \vec{a})} +
+              \underbrace{\vec{\omega} \times
+              \vec{a}}_{\operatorname{Comp}(\dot{\vec{a}}, \vec{a})}
+              \end{aligned}\]
+            </p>
+          </div>
+        </div>
+        <div class="envContainer derivation">
+          <div class="envBody">
+            <p>
+              Using the same approach as <a
+              href="rvc.html#rvc-em">#rvc-em</a> we write $\vec{a} =
+              a\hat{a}$ and differentiate this and use <a
+              href="#rkr-ew">rkr-ew</a> to find:
+
+              \[\begin{aligned}
+              \dot{\vec{a}} &amp;= \frac{d}{dt} \big( a \hat{a} \big) \\
+              &amp;= \dot{a} \hat{a} + a \dot{\hat{a}} \\
+              &amp;= \dot{a} \hat{a} + a (\vec\omega \times \hat{a}) \\
+              &amp;= \dot{a} \hat{a} + \vec\omega \times (a \hat{a}) \\
+              &amp;= \dot{a} \hat{a} + \vec\omega \times \vec{a}.
+              \end{aligned}\]
+
+              Comparing this to <a href="rvc.html#rvc-em">#rvc-em</a>
+              shows that the two components are the projection and the
+              complementary projection, respectively.
+            </p>
+          </div>
+        </div>
+        <div class="envContainer equation" id="rkr-el">
+          <p class="envHeader">Derivative of constant-length vectors.</p>
+          <div class="envBody">
+            <p>
+              \[\dot{\vec{a}} = \vec{\omega} \times \vec{a}
+              \qquad\text{if $\vec{a}$ is constant length}\]
+            </p>
+          </div>
+        </div>
+        <div class="envContainer derivation">
+          <div class="envBody">
+            <p>
+              This can be seen from the fact that $\dot{a} = 0$ if $a$
+              is constant (a fixed length vector), substituted into <a
+              href="#rkr-ed">#rkr-ed</a>.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="contentBlock">
+      <div id="rkr-s2" class="contentCol">
+        <h2>
+          Rotations in 2D
+        </h2>
+        <p>
+          In 2D the angular velocity can be thought of as a scalar
+          (positive for counter-clockwise, negative for clockwise).
+          This scalar is just the out-of-plane component of the
+          full angular velocity vector. We can draw the angular
+          velocity as either a vector pointing out of the plane, or
+          as a circle-arrow in the plane, which is simpler for 2D
+          diagrams.
+        </p>
+        <div class="figureContainer width600" id="rkr-fe">
+          <canvas id="rkr-fe-c" width="600" height="400" class="figureImage">
+          </canvas>
+          <p class="controls">
+            <button class="anim-toggle:rkr-fe-c">animate</button>
+            <button class="reset:rkr-fe-c">reset</button>
+          </p>
+          <p class="controls">
+            Show:
+            <button class="option-toggle:rkr-fe-c:showVelocity">derivative</button>
+          </p>
+          <p class="figureCaption">
+            Comparison of the vector and scalar representations of
+            $\vec\omega$ for 2D rotations.
+          </p>
+        </div>
+        <p>
+          In 2D the angular velocity scalar $\omega$ is simply the
+          derivative of the rotation angle $\theta$ in the plane:
+        </p>
+        <div class="envContainer equation" id="rkr-e2">
+          <p class="envHeader">Magnitude $\omega$ is derivative of angle $\theta$ in 2D.</p>
+          <div class="envBody">
+            <p>
+              \[\omega = \dot\theta\]
+            </p>
+          </div>
+        </div>
+        <div class="envContainer derivation">
+          <div class="envBody">
+            <p>
+              Take $\hat{a}$ to be a unit vector rotating in the 2D
+              $\hat\imath$–$\hat\jmath$ plane, making an angle of
+              $\theta$ with the $x$-axis, as in Figure <a
+              href="#rkr-f2">#rkr-f2</a>. Then:
+
+              \[\hat{a} = \cos\theta \,\hat\imath
+              + \sin\theta \,\hat\jmath.\]
+
+              Differentiating this expression gives:
+
+              \[\dot{\hat{a}} = -\sin\theta \, \dot\theta \,\hat\imath
+              + \cos\theta \,\dot\theta \,\hat\jmath.\]
+
+              We now consider an angular velocity vector
+              $\vec\omega$. Because the rotation is in the
+              $\hat\imath$–$\hat\jmath$ plane, the angular velocity
+              vector must be in the $\hat{k}$ direction. Thus
+              $\vec\omega = \omega \hat{k}$. Now we can compute the
+              derivative of $\hat{a}$ using <a
+              href="#rkr-ew">#rkr-ew</a>, giving:
+
+              \[\begin{aligned}
+              \dot{\hat{a}} &amp;= \vec\omega \times \hat{a} \\
+              &amp;= \omega\hat{k} \times \big( \cos\theta \,\hat\imath
+              + \sin\theta \,\hat\jmath \big) \\
+              &amp;= \omega \cos\theta \,(\hat{k} \times \hat\imath)
+              + \omega \sin\theta \,(\hat{k} \times \hat\jmath) \\
+              &amp;= \omega \cos\theta \,\hat\jmath
+              + \omega \sin\theta \,(-\hat\imath) \\
+              &amp;= - \omega \sin\theta \,\hat\imath
+              + \omega \cos\theta \,\hat\jmath.
+              \end{aligned}\]
+
+              Comparing this expression to the earlier one for
+              $\dot{\hat{a}}$ we see that $\omega = \dot\theta$.
+            </p>
+          </div>
+        </div>
+        <p>
+          The right-hand rule convention for angular velocities means
+          that counter-clockwise rotations are positive, just like the
+          usual angle direction convention.
+        </p>
+      </div>
+      <div class="infoCol">
+        <div class="infoBox factBox" id="rkr-id">
+          <p>
+            Angular directions have long been considered to have
+            magical or spiritual significance. In Britain the
+            counterclockwise direction was once known
+            as <a href="https://en.wikipedia.org/wiki/Widdershins">widdershins</a>,
+            and it was considered unlucky to travel around a church in
+            a widdershins direction.
+          </p>
+          <p>
+            Interestingly, right-handed people tend to naturally draw
+            circles in a counterclockwise direction, and clockwise
+            drawing in right-handed children is an early warning sign
+            for the later development of schizophrenia [Blau, 1977].
+          </p>
+          <div class="references">
+            <h3>References</h3>
+            <ul class="references">
+              <li>
+                T. H. Blau.
+                Torque and schizophrenic vulnerability.
+                <i>American Psychologist</i>, 32(12):997–1005, 1977.
+                DOI: <a href="http://dx.doi.org/10.1037/0003-066X.32.12.997">10.1037/0003-066X.32.12.997</a>.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="contentBlock">
+      <div id="rkr-sp" class="contentCol">
+        <h2>
+          Rotations and vector “positions”
+        </h2>
+        <p>
+          The fact that vectors <a href="rvv.html#rvv-fc">don't have
+          positions</a> means that vector rotations are independent of
+          where vectors are drawn, just like <a
+          href="rvc.html#rvc-sp">for derivatives</a>.
+        </p>
+        <div class="figureContainer width600" id="rkr-fg">
+          <canvas id="rkr-fg-c" width="600" height="400" class="figureImage">
+          </canvas>
+          <p class="controls">
+            <button class="anim-toggle:rkr-fg-c">animate</button>
+            <button class="reset:rkr-fg-c">reset</button>
+          </p>
+          <p class="controls">
+            Show:
+            <button class="option-toggle:rkr-fg-c:showRigid">rigid arrangement</button>
+            <button class="option-toggle:rkr-fg-c:showFixed">fixed origins</button>
+            <button class="option-toggle:rkr-fg-c:showDerivatives">derivatives</button>
+          </p>
+          <p class="figureCaption">
+            Rotational motion of vectors which are drawn moving
+            about. Note that the drawn position does not affect the
+            angular velocity $\omega$ or the derivative vectors.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="contentBlock">
+      <div id="rkr-so" class="contentCol">
+        <h2>
+          Properties of rotations
+        </h2>
+        <p>
+          Rotations are <em>rigid transformations</em>, meaning that
+          they keep constant all vector lengths and all relative
+          vector angles. These facts are reflected in the following
+          results, which all consider two vectors $\vec{a}$ and
+          $\vec{b}$ that are rotating with angular velocity
+          $\vec\omega$.
+        </p>
+        <div class="envContainer equation" id="rkr-e2">
+          <p class="envHeader">Derivative of rotating vector is orthogonal.</p>
+          <div class="envBody">
+            <p>
+              \[\dot{\vec{a}} \cdot \vec{a} = 0\]
+            </p>
+          </div>
+        </div>
+        <div class="envContainer derivation">
+          <div class="envBody">
+            <p>
+              Using <a href="#rkr-el">#rkr-el</a> and the scalar
+              triple product formula <a
+              href="rvi.html#rvi-es">#rvi-es</a> gives:
+
+              \[\begin{aligned}
+              \vec{a} \cdot \dot{\vec{a}}
+              &amp;= \vec{a} \cdot \big( \vec{\omega} \times \vec{a} \big) \\
+              &amp;= \vec{\omega} \cdot \big( \vec{a} \times \vec{a} \big) \\
+              &amp;= 0.
+              \end{aligned}\]
+            </p>
+          </div>
+        </div>
+        <div class="envContainer equation" id="rkr-e2">
+          <p class="envHeader">Angle $\theta$ between rotating vectors is constant.</p>
+          <div class="envBody">
+            <p>
+              \[\theta = \cos^{-1}\left(\frac{\vec{b} \cdot
+              \vec{a}}{b a}\right) = \text{constant}\]
+            </p>
+          </div>
+        </div>
+        <div class="envContainer derivation">
+          <div class="envBody">
+            <p>
+              We first consider the dot product $\vec{a} \cdot
+              \vec{b}$ and show that this is not changing with
+              time. We do this by using the scalar triple product
+              formula <a href="rvi.html#rvi-es">#rvi-es</a> to find:
+
+              \[\begin{aligned}
+              \frac{d}{dt} \big( \vec{a} \cdot \vec{b} \big)
+              &amp;= \dot{\vec{a}} \cdot \vec{b} + \vec{a} \cdot \dot{\vec{b}} \\
+              &amp;= (\vec{\omega} \times \vec{a}) \cdot \vec{b} + \vec{a} \cdot (\vec{\omega} \times \vec{b}) \\
+              &amp;= \vec{b} \cdot (\vec{\omega} \times \vec{a}) + \vec{b} \cdot (\vec{a} \times \vec{\omega}) \\
+              &amp;= \vec{b} \cdot (\vec{\omega} \times \vec{a}) - \vec{b} \cdot (\vec{\omega} \times \vec{a}) \\
+              &amp;= 0.
+              \end{aligned}\]
+
+              Now $\vec{a} \cdot \vec{b}$ is constant and the lengths
+              $a$ and $b$ are constant, so the angle $\theta$ between
+              the vectors must be constant.
+            </p>
+          </div>
+        </div>
+        <div class="envContainer equation" id="rkr-e2">
+          <p class="envHeader">Rotating vectors parallel to $\vec\omega$ are constant.</p>
+          <div class="envBody">
+            <p>
+              \[\dot{\vec{a}} = 0 \qquad \text{if $\vec{a}$ is rotating and parallel to $\vec\omega$}\]
+            </p>
+          </div>
+        </div>
+        <div class="envContainer derivation">
+          <div class="envBody">
+            <p>
+              From <a href="#rkr-el">#rkr-el</a> we know that the
+              derivative is
+              
+              \[\dot{\vec{a}} = \vec\omega \times \vec{a},\]
+
+              but the cross product is zero for parallel vectors, so
+              this the derivative is zero.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="infoCol"></div>
+    </div>
+    <div class="contentBlock">
+      <div id="rkr-sr" class="section level3 contentCol">
+        <h2>
+          Rodrigues’ rotation formula
+        </h2>
+        <p>
+          Rodrigues’ rotation formula gives an explicit formula for a
+          vector rotated by an angle about a given axis.
+        </p>
+        <div class="envContainer equation" id="rkr-er">
+          <p class="envHeader">
+            Rodrigues’ rotation formula for $\vec{a}$ rotated by
+            $\theta$ about $\hat{b}$.
+          </p>
+          <div class="envBody">
+            <p>
+              \[\operatorname{Rot}(\vec{a}; \theta, \hat{b}) =
+              \vec{a} \cos\theta + (\hat{b} \times
+              \vec{a}) \sin\theta + \hat{b} (\hat{b} \cdot
+              \vec{a}) (1 - \cos\theta)\]
+            </p>
+          </div>
+        </div>
+        <div class="envContainer derivation">
+          <div class="envBody">
+            <p>
+              Assume \(\vec{a}\) is not parallel to
+              \(\hat{b}\). Then let \(\vec{v} = \hat{b} \times
+              \vec{a}\) and \(\vec{u} = \vec{v}
+              \times \vec{b}\), so \(\hat{u}, \hat{v}, \hat{b}\)
+              is a right-handed orthonormal basis. Take
+              \(\phi\) to be the angle between \(\vec{a}\) and
+              \(\hat{b}\). Then we do a rotation by \(\theta\) in
+              the \(\hat{u}\)-\(\hat{v}\) plane:
+            </p>
+            <p>
+              \[\begin{aligned} \vec{a} &amp;= a \sin\phi
+              \,\hat{u} + a \cos\phi \,\hat{b} \\
+              \operatorname{Rot}(\vec{a};\theta,\hat{b}) &amp;= a
+              \cos\theta \sin\phi \,\hat{u} + a \sin\theta \sin\phi
+              \,\hat{v} + a \cos\phi \,\hat{b}.\end{aligned}\]
+            </p>
+            <p>
+              Now we want to convert from the
+              \(\hat{u},\hat{v},\hat{b}\) basis to write the rotated
+              result in terms of \(\vec{a}, (\hat{b} \times
+              \vec{a}), \hat{b}\). To do this, we need to work
+              out what \(\hat{u},\hat{v},\hat{b}\) are in terms of
+              these other vectors.
+            </p>
+            <p>
+              \[\begin{aligned} \hat{v} &amp;= \frac{\hat{b} \times
+              \vec{a}}{\|\hat{b} \times \vec{a}\|} =
+              \frac{\hat{b} \times \vec{a}}{a \sin\phi} \\
+              \hat{u} &amp;= \frac{\vec{v} \times
+              \hat{b}}{\|\vec{v} \times \vec{b}\|} =
+              \frac{\vec{v} \times \hat{b}}{a \sin\phi} =
+              \frac{(\hat{b} \times \vec{a}) \times \hat{b}}{a
+              \sin\phi} = \frac{\hat{b} \times (\vec{a} \times
+              \hat{b})}{a \sin\phi} \\
+              &amp;= \frac{\vec{a} - (\hat{b}
+              \cdot \vec{a}) \hat{b}}{a \sin\phi} = \frac{1}{a
+              \sin\phi} \vec{a} - \frac{\hat{b} \cdot
+              \vec{a}}{a \sin\phi} \hat{b}.\end{aligned}\]
+            </p>
+            <p>
+              Substituting these into the rotated vector expression
+              above gives
+            </p>
+            <p>
+              \[\begin{aligned}
+              \operatorname{Rot}(\vec{a};\theta,\hat{b}) &amp;= a
+              \cos\theta \sin\phi \, \left( \frac{1}{a \sin\phi}
+              \vec{a} - \frac{\hat{b} \cdot \vec{a}}{a
+              \sin\phi} \hat{b} \right) \\
+              &amp; \qquad + a \sin\theta \sin\phi \, \left(
+              \frac{\hat{b} \times \vec{a}}{a \sin\phi} \right)
+              + a \cos\phi \,\hat{b} \\ &amp;= \cos\theta
+              \,\vec{a} - \cos\theta \,(\hat{b} \cdot
+              \vec{a}) \,\hat{b} + \sin\theta \,(\hat{b} \times
+              \vec{a}) + a\cos\theta \,\hat{b} \\ &amp;=
+              \cos\theta \,\vec{a} + (1 - \cos\theta) (\hat{b}
+              \cdot \vec{a}) \,\hat{b} + \sin\theta \,(\hat{b}
+              \times \vec{a}).\end{aligned}\]
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+      <div class="footer">
+        <p class="copyright">Copyright (C) 2012-2015 Matthew West</p>
+      </div>
+    </div>
+  </body>
+</html>

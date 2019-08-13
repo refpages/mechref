@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html>
+  <head profile="http://www.w3.org/2005/10/profile">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <meta charset="UTF-8">
+    <title>
+      Track transition curves
+    </title>
+    <link href="style.css" type="text/css" rel="stylesheet" />
+    <link href="icomoon.css" type="text/css" rel="stylesheet" />
+
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});</script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script src="jquery-1.7.2.min.js" type="text/javascript"></script>
+    <script src="sylvester.js" type="text/javascript"></script>
+    <script src="sha1.js" type="text/javascript"></script>
+    <script src="worldCoastlineCompressed.js" type="text/javascript"></script>
+    <script src="avt.js" type="text/javascript"></script>
+    <script src="PrairieDraw.js" type="text/javascript"></script>
+    <script src="pageControl.js" type="text/javascript"></script>
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-37625161-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header"><h1>Dynamics</h1></div>
+      <div id="nav-placeholder"></div>
+	    <script>
+        $(function(){
+          $("#nav-placeholder").load("/nav.html");
+        });
+      </script>
+      <div class="mainBlock">
+    <div class="contentBlock">
+      <div id="avt" class="section level2 contentCol">
+        <h1>Track transition curves</h1>
+        <p>
+          For passengers in a car or train, traveling in a straight
+          line at constant speed is the most comfortable motion, as
+          there is no acceleration. Roads or rail lines with only
+          straight lines are rather limiting, however, so we
+          frequently encounter curves, in the most extreme form in
+          large freeway interchanges such as <a href="#avt-ff">shown
+          below</a>.
+        </p>
+        <p>
+          When designing a freeway interchange, one of the most basic
+          questions just what shape the <em>transition curves</em>
+          between the straight-line roads should have. Other
+          considerations then follow, such as stacking the roads above
+          each other and <a href="avb.html">banking</a> the angle of
+          the roads.
+        </p>
+        <p>
+          The difficultly in designing curves in roads arises from the
+          need to have a smooth ride for the passengers in the
+          vehicles as they traverse the curves at high speed. In
+          particular, we do not want to have sudden changes in
+          acceleration for the passengers.
+        </p>
+        <div class="figureContainer" id="avt-ff">
+          <img class="figureImage"
+               alt="Aerial view of the High Five freeway interchange in Dallas, Texas"
+               src="avt_6159432119_600.jpg" />
+          <p class="figureCaption">
+            Aerial view of the <a
+            href="http://en.wikipedia.org/wiki/High_Five_Interchange">High
+            Five</a> multi-level <a
+            href="http://en.wikipedia.org/wiki/Stack_interchange">stack
+            interchange</a> between I-635 and US 75 in Dallas, Texas,
+            taken with a <a
+            href="http://en.wikipedia.org/wiki/Kite_aerial_photography">camera
+            suspended from a kite line</a>.  Image source: <a
+            href="http://www.fotopedia.com/items/flickr-6159432119">Fotopedia
+            image</a>, from the <a
+            href="http://www.flickr.com/photos/attawayjl/6159432119/">flikr
+            image </a> by <a
+            href="http://www.flickr.com/photos/attawayjl/">Jett
+            Attaway</a> <a
+            href="http://creativecommons.org/licenses/by/2.0/">(CC BY
+            2.0)</a> (<a href="avt_6159432119.jpg">full-sized
+            image</a>).
+          </p>
+        </div>
+      </div>
+      <div class="infoCol">
+        <div class="infoBox requirementsBox">
+          <ul>
+            <li><a href="rkv.html">Position, velocity, and acceleration</a></li>
+            <li><a href="rkt.html">Tangential/normal coordinates</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="contentBlock">
+      <div id="avt-sc" class="section level3 contentCol">
+        <h2>Circular arcs for transition curves</h2>
+        <p>
+          To understand the issues with transition curve design, we
+          will consider a simple oval track with two straight segments
+          joined by curves at both ends. The simplest curve shapes are
+          semi-circles (half-circles), as <a href="#avt-fc">shown
+          below</a>.
+        </p>
+        <div class="figureContainer width600" id="avt-fc">
+          <canvas id="avt-fc-c" width="600" height="600" class="figureImage">
+          </canvas>
+          <p class="controls">
+            <button class="anim-toggle:avt-fc-c">animate</button>
+          </p>
+          <p class="figureCaption">
+            Car driving at constant speed around a track with straight line
+            segments joined to perfect semi-circle ends. The graph at
+            the bottom shows the acceleration magnitude versus
+            time. Note the sudden jump in acceleration magnitude when
+            the car switches from a straight line to the curve.
+          </p>
+        </div>
+        <p>
+          If we <button class="anim-toggle:avt-fc-c">animate</button>
+          the car driving around the track with semi-circle ends, then
+          we see that there is zero acceleration on the straight
+          segments, but on the semi-circular transition curves the
+          acceleration is inwards with magnitude $v^2 / \rho$, where
+          $\rho$ is the radius of curvature. A passenger would thus
+          feel no acceleration on the straight segments, but then
+          would suddenly feel a large sideways acceleration as the
+          vehicle switches to the semi-circles, which would be very
+          uncomfortable and potentially dangerous.
+        </p>
+        <p>
+          For passenger comfort, we do not want rapid changes in
+          acceleration for transition curves. That is, we want a low
+          value for the derivative of acceleration with respect to
+          time. The derivative of acceleration is known as
+          <em>jerk</em>, defined by $\vec{\jmath} = \dot{\vec{a}}$
+          (for vectors) or $j = \dot{a}$ (for scalars). With perfect
+          semi-circular ends we see that the jerk is mathematically
+          infinite at the transition to the curve, although in reality
+          it would just be a very high value as the vehicle would not
+          transition to the semi-circle instantaneously.
+        </p>
+      </div>
+      <div class="infoCol">
+        <div id="avt-ih" class="infoBox factBox">
+          <p>
+            While the terms <em>velocity</em> and
+            <em>acceleration</em> are standard for the 1st and 2nd
+            derivatives of position, the names for higher derivatives
+            are not so well-established. While <a
+            href="http://en.wikipedia.org/wiki/Jerk_(physics)">jerk</a>
+            is often used for the derivative of acceleration (so the
+            3rd derivative of position), the terms <em>jolt</em>,
+            <em>surge</em>, and <em>lurch</em> are also sometimes
+            encountered for this quantity. The derivative of jerk is
+            sometimes called <a
+            href="http://en.wikipedia.org/wiki/Jounce">jounce</a> (so
+            it is the 4th derivative of position). <a
+            href="http://dx.doi.org/10.1088/0264-9381/21/11/006">Another
+            suggestion</a> is to refer to the 4th, 5th, and 6th
+            derivatives of position as <em>snap</em>,
+            <em>crackle</em>, and <em>pop</em>, respectively.
+          </p>
+          <p>
+            Jerk and snap have many applications in engineering and
+            science. For example, jerk and snap have both been used to
+            measure human movement smoothness and diagnose stroke
+            patients (Rohrer et al., 2002) while minimizing snap is
+            often used as a design principle for quadcopter control
+            schemes (Mellinger and Kumar, 2011).
+          </p>
+          <p>
+            Changing accelerations (causing jerk) must result from
+            changing forces, due to Newton's second law. Although the
+            terminology is also somewhat loose in this case, the
+            derivative of force with respect to time is often referred
+            to as <a
+            href="http://en.wikipedia.org/wiki/Yank_(physics)">yank</a>,
+            and the derivative of yank is called <a
+            href="http://en.wikipedia.org/wiki/Tug_(physics)">tug</a>
+            (the second derivative of force). Third derivatives and
+            higher of force are very rarely encountered, and do not
+            seem to have any names in common usage.
+          </p>
+          <div class="references">
+            <h3>References</h3>
+            <ul class="references">
+              <li>
+                D. Mellinger and V. Kumar,
+                Minimum snap trajectory generation and control for quadrotors,
+                in <i>2011 IEEE International Conference on Robotics and Automation (ICRA)</i>,
+                    2520–2525, 2011. DOI: <a href="http://dx.doi.org/10.1109/ICRA.2011.5980409">10.1109/ICRA.2011.5980409</a>
+              </li>
+              <li>
+                B. Rohrer, S. Fasoli, H. I. Krebs, R. Hughes, B. Volpe, W. R. Frontera, J. Stein, and N. Hogan,
+                Movement Smoothness Changes during Stroke Recovery,
+                <i>The Journal of Neuroscience</i>, 22(18): 8297–8304, 2002.
+                    <a href="http://www.jneurosci.org/content/22/18/8297.abstract">Link.</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="contentBlock">
+      <div id="avt-ss" class="section level3 contentCol">
+        <h2>Smooth transition curves with Euler spirals</h2>
+        <p>
+          Unlike the sudden switch <a href="#rvt-fc">shown above</a>
+          from a straight line segment (no curvature) to a curved
+          transition curve, we would prefer to have a more gradual
+          transition. An example of this is <a href="#rvt-fe">shown
+          below</a> with the right-hand transition curves changed to
+          use <em>Euler spiral</em> segments, which start curving
+          gradually and then increase the curvature the further the
+          vehicle moves around the curve, before reversing the process
+          on the second half of the curve. Euler spirals are one of
+          the common types of <a
+          href="http://en.wikipedia.org/wiki/Track_transition_curve">track
+          transition curves</a> and are special because the curvature
+          varies linearly along the curve.
+        </p>
+        <div class="figureContainer width600" id="avt-fe">
+          <canvas id="avt-fe-c" width="600" height="600" class="figureImage">
+          </canvas>
+          <p class="controls">
+            <button class="anim-toggle:avt-fe-c">animate</button>
+          </p>
+          <p class="figureCaption">
+            Car driving at constant speed around a track with perfect straight line
+            segments joined to Euler-spiral segments on the right-hand
+            curve and a semi-circle on the left-hand curve. The red
+            curve is a perfect semi-circle for comparison. Note the
+            continuous transition in acceleration when the car
+            switches from a straight line to the left-hand curve.
+          </p>
+        </div>
+        <p>
+          If we <button class="anim-toggle:avt-fe-c">animate</button>
+          the motion around the track with Euler spiral transitions,
+          then we can see from the acceleration magnitude plot that
+          the acceleration does not suddenly jump as the vehicle moves
+          around the right-hand curve. Instead it steadily increases
+          to a maximum value, before decreasing again to zero.  The
+          peak acceleration needed on the Euler spiral transitions is
+          somewhat higher than on the semi-circle transitions, but we
+          have avoided the sudden jerk associated with switching from
+          straight line to circular motion.
+        </p>
+      </div>
+      <div class="infoCol">
+        <div id="avt-is" class="infoBox factBox">
+          <p>
+            The equation for a spiral with linear curvature variation
+            was first derived by the Swiss mathematician <a
+            href="http://en.wikipedia.org/wiki/Leonhard_Euler">Leonard
+            Euler</a> in 1744, hence the name <em>Euler spiral</em>
+            for this curve. The spiral was then independently
+            rediscovered in the late 1800s by civil engineers who were
+            unaware of Euler's work and who named the resulting spiral
+            the <em>clothoid</em>, which is still a commonly used name
+            in traffic engineering. This spiral also arises in the
+            study of near-field diffraction in optics, as developed by
+            the French engineer <a
+            href="http://en.wikipedia.org/wiki/Augustin-Jean_Fresnel">Augustin-Jean
+            Fresnel</a> and the French physicist <a
+            href="http://en.wikipedia.org/wiki/Marie_Alfred_Cornu">Alfred
+            Cornu</a>, for which reason the spiral is also sometimes
+            called the <em>Cornu spiral</em>.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="contentBlock">
+      <div id="avt-se" class="section level3 contentCol">
+        <h2>Euler spiral equation</h2>
+        <p>
+          An <em>Euler spiral</em> is a curve for which the
+          acceleration magnitude increases at a constant rate as we
+          travel along the curve at uniform velocity. Another way to
+          say this is that the curvature is a linear function of the
+          distance along the curve. To see that this is the same
+          thing, we write the acceleration in a <a
+          href="rvt.html">tangential/normal basis</a> as \[ \vec{a} =
+          \ddot{s} \, \hat{e}_t + \kappa v^2 \, \hat{e}_n. \] For
+          constant-speed motion with speed $v$, the distance along the
+          curve satisfies $\dot{s} = v = \text{constant}$, so
+          $\ddot{s} = 0$. The acceleration vector thus only has a
+          normal component, and this has magnitude proportional to the
+          curvature $\kappa = 1/\rho$, where $\rho$ is the radius of
+          curvature. To have the acceleration increasing linearly
+          along the curve, we thus want the curvature to be a linear
+          function of distance, so $\kappa = \alpha s$ for some
+          constant $\alpha$.
+        </p>
+        <p>
+          While specifying that $\kappa = \alpha s$ is enough to
+          define the shape of the Euler spiral curve, finding the
+          explicit equation for the curve is not so easy. We first
+          introduce the functions $C(z)$ and $S(z)$, known as <em>Fresnel
+          integrals</em> and defined by:
+        </p>
+        <div class="envContainer equation" id="avt-ef">
+          <p class="envHeader">Fresnel integrals</p>
+          <div class="envBody">
+            <p>
+              \[\begin{aligned}
+              C(z) &amp;= \int_0^z \cos\Big(\frac{1}{2} \pi u^2\Big) du \\
+              S(z) &amp;= \int_0^z \sin\Big(\frac{1}{2} \pi u^2\Big) du
+              \end{aligned}\]
+            </p>
+          </div>
+        </div>
+        <p>
+          The Fresnel integrals do not have any simpler forms in terms
+          of elementary functions, as the integrals in them cannot be
+          computed in closed form.
+        </p>
+        <p>
+          Now we define the constant $\ell = \sqrt{\pi/\alpha}$, and
+          then the position at distance $s$ along an Euler spiral
+          curve is:
+        </p>
+        <div class="envContainer equation" id="avt-ee">
+          <p class="envHeader">Euler spiral</p>
+          <div class="envBody">
+            <p>
+              \[\vec{r} = \ell C(s / \ell) \, \hat{\imath}
+              + \ell S(s / \ell) \, \hat{\jmath}\]
+            </p>
+          </div>
+        </div>
+        <div class="envContainer derivation">
+          <div class="envBody">
+            <canvas id="avt-ee-c" width="300" height="200" class="floatRight noBorder">
+            </canvas>
+            <p>
+              We start the spiral curve from the origin, initially
+              moving horizontally to the right and curving upwards
+              with constant speed $v$. Using a tangential/normal
+              basis, let $\theta$ be the angle of $\hat{e}_t$ as
+              shown. Then $\dot{\theta}$ can be found by considering
+              two expressions for the acceleration. First, from the <a
+              href="rvt.html#rvt-ep">tangential/normal acceleration
+              formula</a> we have \[ \vec{a} = \ddot{s} \, \hat{e}_t +
+              \kappa v^2 \, \hat{e}_n = \alpha s v^2 \, \hat{e}_n, \]
+              where we used the fact that $\ddot{s} = \dot{v} = 0$
+              (constant speed) and that $\kappa = \alpha s$ for some
+              constant $\alpha$ (the definition of the Euler spiral is
+              that curvature is a linear function of distance $s$).
+            </p>
+            <p>
+              The second expression for acceleration uses the angular
+              velocity $\vec{\omega} = \dot\theta \, \hat{k}$ of the
+              tangential/normal basis vectors. Recalling that $\vec{v}
+              = v \, \hat{e}_t$ and $v$ is constant, we have
+              \[\begin{aligned}
+              \vec{a} = \dot{\vec{v}} = v \, \dot{\hat{e}}_t
+              = v \, \vec{\omega} \times \vec{e}_t
+              = v \dot{\theta} \, \hat{e}_n. \end{aligned}\]
+            </p>
+            <p>
+              Comparing the two expressions for $\vec{a}$ and using $s = vt$ we see that
+              \[ \dot{\theta} = \alpha s v = \alpha v^2 t \] and we can
+              integrate this (with the initial condition that $\theta$
+              starts at zero) to give \[ \theta = \frac{1}{2} \alpha
+              v^2 t^2. \]
+            </p>
+            <p>
+              To find the equation for $\vec{r}$ we can integrate the
+              equation \[ \dot{\vec{r}} = v \, \hat{e}_t = v
+              \cos\theta \, \hat{\imath} + v \sin\theta \,
+              \hat{\jmath} \] starting from $\vec{r} = 0$ to obtain \[
+              \begin{aligned} \vec{r} &amp;= \int_0^t \left(v
+              \cos\Big(\frac{1}{2} \alpha v^2 \tau^2\Big) \,
+              \hat{\imath} + v \sin\Big(\frac{1}{2} \alpha v^2 \tau^2
+              \Big) \, \hat{\jmath}\right) d\tau \\ &amp;= \ell
+              \int_0^{s/\ell} \left( \cos\Big(\frac{1}{2} \pi u^2\Big)
+              \, \hat{\imath} + \sin\Big(\frac{1}{2} \pi u^2\Big) \,
+              \hat{\jmath} \right) du, \end{aligned} \] where we made
+              the substitution $\tau = \ell u / v$ with $\ell =
+              \sqrt{\pi/\alpha}$. Using the definitions of the
+              <a href="#avt-ef">Fresnel integrals</a> now gives the <a
+              href="#avt-ee">desired expression</a>.
+            </p>
+          </div>
+        </div>
+        <p>
+          Plotting the Euler spiral equation gives the curve below,
+          which starts out at the origin with zero curvature, and the
+          then has steadily increasing curvature as we move along it.
+        </p>
+        <div class="figureContainer" id="avt-fs">
+          <canvas id="avt-fs-c" width="400" height="400" class="figureImage noBorder">
+          </canvas>
+          <p class="figureCaption">
+            Euler spiral shape defined by the <a
+            href="#avt-ee">equation above</a>. Changing the value of
+            $\alpha$ or $\ell$ simply scales the whole curve to make
+            it bigger or smaller, without changing the shape.
+          </p>
+        </div>
+        <p>
+          The full Euler spiral is unsuitable for track transitions,
+          as the curvature increases without limit. Instead, we can
+          piece together short segments of the Euler spiral to form
+          our transition curve. For example, the right-hand curve in
+          the <a href="#rvt-fe">smooth track above</a> is composed of
+          two copies of the first quarter-turn of the Euler spiral,
+          with one copy flipped upside down. This means the curvature
+          starts at zero, increases linearly to a maximum halfway
+          around the curve, then decreases linearly again back to zero
+          to join the straight segment.
+        </p>
+      </div>
+      <div class="infoCol">
+        <div id="avt-is" class="infoBox factBox">
+          <p>
+            The Fresnel integrals $C(x)$ and $S(x)$ are examples of <a
+            href="http://en.wikipedia.org/wiki/Special_function">special
+            functions</a>. The term <em>special function</em> does not
+            have a precise mathematical definition. Instead, these are
+            functions which arise frequently in applications and which
+            have been extensively analyzed and documented. The classic
+            reference for many special functions is the book known
+            generally as <em>Abramowitz and Stegun</em>. This refers
+            to the publication:
+          </p>
+          <p>
+            Abramowitz, Milton and Stegun, Irene A. (editors)
+            <em>Handbook of Mathematical Functions with Formulas,
+            Graphs, and Mathematical Tables</em>, Dover Publications,
+            New York, 1972, ISBN 978-0-486-6.
+          </p>
+          <p>
+            While the tables of special function values in Abramowitz
+            and Stegun are no longer generally needed due to the
+            advent of computers, there is still much useful
+            information in the book. This useful information is now
+            also available in the online successor <a
+            href="http://dlmf.nist.gov/">Digital Library of
+            Mathematical Functions</a> (DLMF) from the <a
+            href="http://www.nist.gov/">National Institute of
+            Standards and Technology</a> (NIST). For example, <a
+            href="http://dlmf.nist.gov/7">Chapter 7</a> of the DLMF
+            includes the <a href="http://dlmf.nist.gov/7.2.iii">the
+            definition of the Fresnel integrals</a> as well as <a
+            href="http://dlmf.nist.gov/7.3.F3">plots</a> of the
+            functions and <a href="http://dlmf.nist.gov/7.6.i">series
+            expansions</a> for them.
+          </p>
+        </div>
+      </div>
+    </div>
+    </div>
+      <div class="footer">
+        <p class="copyright">Copyright (C) 2012-2015 Matthew West</p>
+      </div>
+    </div>
+  </body>
+</html>

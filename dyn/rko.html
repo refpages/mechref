@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html>
+  <head profile="http://www.w3.org/2005/10/profile">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <meta charset="UTF-8">
+    <title>
+      Rolling motion
+    </title>
+    <link href="style.css" type="text/css" rel="stylesheet" />
+    <link href="rko.css" type="text/css" rel="stylesheet" />
+    <link href="icomoon.css" type="text/css" rel="stylesheet" />
+
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});</script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script src="jquery-1.7.2.min.js" type="text/javascript"></script>
+    <script src="sylvester.js" type="text/javascript"></script>
+    <script src="sha1.js" type="text/javascript"></script>
+    <script src="PrairieDraw.js" type="text/javascript"></script>
+    <script src="rko.js" type="text/javascript"></script>
+    <script src="pageControl.js" type="text/javascript"></script>
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-37625161-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header"><h1>Dynamics</h1></div>
+      <div id="nav-placeholder"></div>
+	    <script>
+        $(function(){
+          $("#nav-placeholder").load("/nav.html");
+        });
+      </script>
+      <div class="mainBlock">
+    <div class="contentBlock">
+      <div id="rko" class="contentCol">
+        <h1>
+          Rolling motion
+        </h1>
+        <p>
+          A special case of rigid body motion is <em>rolling without
+          slipping</em> on a stationary ground surface. This is
+          defined by motion where the point of contact with the ground
+          has zero velocity, so it matches the ground velocity and is
+          not slipping.
+        </p>
+        <div class="envContainer equation" id="rko-er">
+          <p class="envHeader">Rolling without slipping on stationary
+          ground surfaces.</p>
+          <div class="envBody">
+            <p>
+              \[
+              \text{Contact point $P$ has zero velocity:} \quad \vec{v}_P = 0
+              \]
+            </p>
+          </div>
+        </div>
+        <div class="envContainer derivation">
+          <div class="envBody">
+            <p>
+              Rolling without slipping means by definition that the
+              contacting points have the same velocity. For a
+              stationary ground the velocity is zero, so the contact
+              point on the body must also have zero velocity.
+            </p>
+          </div>
+        </div>
+        <p>
+          It is helpful to think about the motion of the body in two
+          ways:
+        </p>
+        <ol>
+          <li>The body rotates about the moving center $C$.</li>
+          <li>The body rotates about the instantaneous center at the
+          contact point $P$.</li>
+        </ol>
+        <p>
+          These two ways of visualizing the motion can be seen on the
+          figure below.
+        </p>
+        <div class="figureContainer width600" id="rko-fr">
+          <canvas id="rko-fr-c" width="600" height="600" class="figureImage" >
+          </canvas>
+          <p class="controls">
+            <button class="anim-toggle:rko-fr-c">animation</button>
+            <button class="reset:rko-fr-c">reset</button>
+            <button class="option-toggle:rko-fr-c:showLabels">show labels</button>
+          </p>
+          <table id="rko-tm" class="controls">
+            <tr>
+              <td>Movement:</td>
+              <td><input type="radio" name="rko-fr-c-movement" value="smallFlat" class="data-input:rko-fr-c:movement" /> flat</td>
+              <td><input type="radio" name="rko-fr-c-movement" value="bigFlat" class="data-input:rko-fr-c:movement" /> big flat</td>
+              <td><input type="radio" name="rko-fr-c-movement" value="rock" class="data-input:rko-fr-c:movement" /> rock</td>
+            </tr>
+            <tr>
+              <td></td>
+              <td><input type="radio" name="rko-fr-c-movement" value="in-2-circle" class="data-input:rko-fr-c:movement" /> inside 2-circle</td>
+              <td><input type="radio" name="rko-fr-c-movement" value="in-3-circle" class="data-input:rko-fr-c:movement" /> inside 3-circle</td>
+              <td><input type="radio" name="rko-fr-c-movement" value="in-rock" class="data-input:rko-fr-c:movement" /> inside rock</td>
+            </tr>
+            <tr>
+              <td></td>
+              <td><input type="radio" name="rko-fr-c-movement" value="out-1-circle" class="data-input:rko-fr-c:movement" /> outside 1-circle</td>
+              <td><input type="radio" name="rko-fr-c-movement" value="out-2-circle" class="data-input:rko-fr-c:movement" /> outside 2-circle</td>
+              <td><input type="radio" name="rko-fr-c-movement" value="out-rock" class="data-input:rko-fr-c:movement" /> outside rock</td>
+            </tr>
+          </table>
+          <p>
+          </p>
+          <table id="rko-tr">
+            <tr>
+              <th>Center $C$</th>
+              <th>Body</th>
+              <th>$P$ velocity</th>
+              <th>$P$ acceleration</th>
+            </tr>
+            <tr>
+              <td><button class="option-toggle:rko-fr-c:showCVel">$C$ velocity</button></td>
+              <td><button class="option-toggle:rko-fr-c:showAngVel">ang. vel.</button></td>
+              <td><input type="radio" name="rko-fr-c-velField" value="none" class="data-input:rko-fr-c:velField" /> none</td>
+              <td><input type="radio" name="rko-fr-c-accField" value="none" class="data-input:rko-fr-c:accField" /> none</td>
+            </tr>
+            <tr>
+              <td><button class="option-toggle:rko-fr-c:showCAcc">$C$ acceleration</button></td>
+              <td><button class="option-toggle:rko-fr-c:showAngAcc">ang. acc.</button></td>
+              <td><input type="radio" name="rko-fr-c-velField" value="base" class="data-input:rko-fr-c:velField" /> $\vec{v}_C$ (trans.)</td>
+              <td><input type="radio" name="rko-fr-c-accField" value="base" class="data-input:rko-fr-c:accField" /> $\vec{a}_C$ (trans.)</td>
+            </tr>
+            <tr>
+              <td><button class="option-toggle:rko-fr-c:showCPath">$C$ path</button></td>
+              <td><button class="option-toggle:rko-fr-c:showPPath">$P$ path</button></td>
+              <td><input type="radio" name="rko-fr-c-velField" value="omega" class="data-input:rko-fr-c:velField" /> $\vec{\omega} \times \vec{r}_{CP}$ (rot.)</td>
+              <td><input type="radio" name="rko-fr-c-accField" value="alpha" class="data-input:rko-fr-c:accField" /> $\vec{\alpha} \times \vec{r}_{CP}$ (ang.)</td>
+            </tr>
+            <tr>
+              <td></td>
+              <td><button class="option-toggle:rko-fr-c:showInstRot">inst. cent. $M$</button></td>
+              <td></td>
+              <td><input type="radio" name="rko-fr-c-accField" value="cent" class="data-input:rko-fr-c:accField" /> $\vec{\omega} \times (\vec{\omega} \times \vec{r}_{CP})$ (cent.)</td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+              <td><input type="radio" name="rko-fr-c-velField" value="total" class="data-input:rko-fr-c:velField" /> $\vec{v}_P$ (total)</td>
+              <td><input type="radio" name="rko-fr-c-accField" value="total" class="data-input:rko-fr-c:accField" /> $\vec{a}_P$ (total)</td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+              <td><button class="option-toggle:rko-fr-c:showVelField">all points</button></td>
+              <td><button class="option-toggle:rko-fr-c:showAccField">all points</button></td>
+            </tr>
+          </table>
+          <p class="figureCaption">
+            Velocity and acceleration of points on a rigid body
+            undergoing different rolling motions.
+          </p>
+        </div>
+      </div>
+      <div class="infoCol">
+      </div>
+    </div>
+    <div class="contentBlock">
+      <div id="rko-sf" class="contentCol">
+        <h2>
+          Rolling on a 2D flat surface
+        </h2>
+        <p>
+          The most common and also the simplest form of rolling occurs
+          on a flat surface.
+        </p>
+        <div class="figureContainer width600" id="rko-ff">
+          <canvas id="rko-ff-c" width="600" height="600" class="figureImage" >
+          </canvas>
+          <p class="controls">
+            <button class="anim-toggle:rko-ff-c">animation</button>
+            <button class="reset:rko-ff-c">reset</button>
+          </p>
+          <p class="controls">
+            <button class="option-toggle:rko-ff-c:showPaths">show paths</button>
+            <button class="option-toggle:rko-ff-c:reversed">reverse direction</button>
+          </p>
+          <p class="figureCaption">
+            Geometry and variables for rolling without slipping on a
+            flat surface.
+          </p>
+        </div>
+        <p>
+          While rolling, the velocity and acceleration are directly
+          connected to the angular velocity and angular acceleration,
+          as shown by the next equations.
+        </p>
+        <div class="envContainer equation" id="rko-ef">
+          <p class="envHeader">Center velocity and acceleration while
+          rolling on a flat surface.</p>
+          <div class="envBody">
+            <p>
+              \[\begin{aligned}
+              \vec{v}_C &amp;= r \omega \,\hat{e}_t \\
+              \vec{a}_C &amp;= r \alpha \,\hat{e}_t
+              \end{aligned}\]
+            </p>
+          </div>
+        </div>
+        <div class="envContainer derivation">
+          <div class="envBody">
+            <p>
+              We begin by observing that the sign conventions in
+              Figure <a href="#rko-ff">#rko-ff</a> mean that
+              $\vec\omega = -\omega\,\hat{e}_b$. Now rolling without
+              slipping means the contact point $A$ must
+              instantaneously have zero velocity, so using <a
+              href="rkg.html#rkg-er">#rkg-er</a> gives:
+
+              \[\begin{aligned}
+              \vec{v}_C &amp;= \vec{v}_A + \vec{\omega} \times \vec{r}_{AC} \\
+              &amp;= (-\omega \,\hat{e}_b) \times r \,\hat{e}_n \\
+              &amp;= r \omega \,\hat{e}_t.
+              \end{aligned}\]
+
+              Because the surface is flat, the tangential basis vector
+              $\hat{e}_t$ is constant, and the radius $r$ is also
+              constant. Differentiating the velocity expression thus
+              results in:
+
+              \[\begin{aligned}
+              \vec{v}_C &amp;= r \omega \,\hat{e}_t \\
+              \dot{\vec{v}}_C &amp;= r \dot\omega \,\hat{e}_t \\
+              \vec{a}_C &amp;= r \alpha \,\hat{e}_t.
+              \end{aligned}\]
+            </p>
+          </div>
+        </div>
+        <p>
+          Another way to express the connection between angular and
+          linear velocity and acceleration is via the distance $s$
+          traveled by the rolling body:
+        </p>
+        <div class="envContainer equation" id="rko-eh">
+          <p class="envHeader">Distance-angular relationships for rolling on a flat surface.</p>
+          <div class="envBody">
+            <p>
+              \[\begin{aligned}
+              s &amp;= r \theta \\
+              \dot{s} &amp;= r \omega \\
+              \ddot{s} &amp;= r \alpha
+              \end{aligned}\]
+            </p>
+          </div>
+        </div>
+        <div class="envContainer derivation">
+          <div class="envBody">
+            <p>
+              The contact point $P$ and center $C$ are offset by the
+              constant vector $r\,\hat{e}_n$, so $\dot{s} = v_P = v_C
+              = r\omega$, from <a href="#rko-ef">#rko-ef</a>. Because
+              $r$ is constant, differentiating the velocity expression
+              gives $\ddot{s} = r \dot\omega = r \alpha$, while
+              integrating with zero initial displacement gives $s = r
+              \theta$.
+            </p>
+          </div>
+        </div>
+        <p>
+          While rolling, the contact point will have zero velocity but
+          will have a centripetal acceleration towards the rolling
+          center:
+        </p>
+        <div class="envContainer equation" id="rko-eo">
+          <p class="envHeader">Contact point $P$ velocity and
+          acceleration while rolling on a flat surface.</p>
+          <div class="envBody">
+            <p>
+              \[\begin{aligned}
+              \vec{v}_P &amp;= 0 \\
+              \vec{a}_P &amp;= \omega^2 \,\vec{r}_{PC}
+              \end{aligned}\]
+            </p>
+          </div>
+        </div>
+        <div class="envContainer derivation">
+          <div class="envBody">
+            <p>
+              By definition of non-slip rolling contact, the point of
+              contact $P$ has zero velocity. The acceleration can be
+              computed from the center $C$ with <a
+              href="#rkg-e2">#rkg-e2</a>:
+
+              \[\begin{aligned}
+              \vec{a}_P &amp;= \vec{a}_C + \vec{\alpha} \times \vec{r}_{CP}
+              + \vec{\omega} \times (\vec{\omega} \times \vec{r}_{CP}) \\
+              &amp;= \alpha r \,\hat{e}_t + (-\alpha\,\hat{e}_b) \times (-r\,\hat{e}_n)
+              + (-\omega\,\hat{e}_b) \times \Big((-\omega\,\hat{e}_b) \times (-r\,\hat{e}_n)\Big) \\
+              &amp;= \alpha r \,\hat{e}_t - \alpha r \,\hat{e}_t
+              + \omega^2 r \,\hat{e}_n \\
+              &amp;= \omega^2 \,\vec{r}_{PC}.
+              \end{aligned}\]
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="infoCol">
+      </div>
+    </div>
+    <div class="contentBlock">
+      <div id="rko-sc" class="contentCol">
+        <h2>
+          Rolling on a 2D curved surface
+        </h2>
+        <p>
+          When a circular rigid body rolls without slipping on a
+          surface which is itself curved, the radius of curvature of
+          the surface affects the acceleration (but not velocity) of
+          points on the rolling body.
+        </p>
+        <div class="figureContainer width600" id="rko-fc">
+          <canvas id="rko-fc-c" width="600" height="600" class="figureImage" >
+          </canvas>
+          <p class="controls">
+            <button class="option-toggle:rko-fc-c:reversed">reverse direction</button>
+          </p>
+          <p class="figureCaption">
+            Geometry and variables for rolling without slipping on a
+            curved surface. The left diagram shows rolling on the
+            inside of the curve, while the right diagram is rolling on
+            the outside of the curve.
+          </p>
+        </div>
+        <p>
+          Because there are two different geometries for rolling on a
+          curved surface (inside and outside), there are different
+          sign conventions and variable definitions in the two cases,
+          as listed below.
+        </p>
+        <div class="envContainer equation" id="rko-eg">
+          <p class="envHeader">Geometric quantities for rolling on a
+          curved surface.</p>
+          <div class="envBody">
+            <p>
+              \[\begin{aligned}
+              \left.\begin{aligned}
+              R &amp;= \rho - r \\
+              \vec{\omega} &amp;= -\omega \,\hat{e}_b \\
+              \vec{\alpha} &amp;= -\alpha \,\hat{e}_b
+              \end{aligned}\right\}
+              &amp; \text{ when rolling on the inside of a curved surface} \\[1em]
+              \left.\begin{aligned}
+              R &amp;= \rho + r \\
+              \vec{\omega} &amp;= \omega \,\hat{e}_b \\
+              \vec{\alpha} &amp;= \alpha \,\hat{e}_b
+              \end{aligned}\right\}
+              &amp; \text{ when rolling on the outside of a curved surface}
+              \end{aligned}\]
+            </p>
+          </div>
+        </div>
+        <div class="envContainer derivation">
+          <div class="envBody">
+            <p>
+              These formulas are all choices of sign conventions for
+              $\omega$ and $\alpha$, and definitions of $R$. Figure <a
+              href="#rko-fc">#rko-fc</a> shows the appropriate
+              geometry. Note that $\omega$ and $\alpha$ are defined
+              with positive values corresponding to motion in the
+              tangential direction.
+            </p>
+          </div>
+        </div>
+        <div class="envContainer warning" id="rko-wr">
+          <p class="envHeader">Warning: Radii of curvature $\rho$ and
+          $R$ may not be constant.</p>
+          <div class="envBody">
+            <p>
+              The radius of curvature $\rho$ of the surface may be
+              varying with position as the body rolls. If $\rho$
+              changes then this will also cause $R$ to change. These
+              two variables will only be constant if the surface is in
+              fact perfectly circular.
+            </p>
+          </div>
+        </div>
+        <p>
+          The center velocity for rolling on a curved surface is the
+          same as for a flat surface, while the acceleration also
+          depends on the radius of curvature of the surface:
+        </p>
+        <div class="envContainer equation" id="rko-ec">
+          <p class="envHeader">Center velocity and acceleration while
+          rolling on a curved surface.</p>
+          <div class="envBody">
+            <p>
+              \[\begin{aligned}
+              \vec{v}_C &amp;= r \omega \,\hat{e}_t \\
+              \vec{a}_C &amp;= r \alpha \,\hat{e}_t
+              + \frac{(r\omega)^2}{R} \,\hat{e}_n
+              \end{aligned}\]
+            </p>
+          </div>
+        </div>
+        <div class="envContainer derivation">
+          <div class="envBody">
+            <p>
+              The two configurations shown in Figure <a
+              href="#rko-eg">#rko-eg</a> must be considered
+              individually. We will do the derivation for the case of
+              rolling inside (the left diagram), as the
+              rolling-outside case is very similar, but with different
+              signs.
+            </p>
+            <p>
+              We begin with the point of contact $P$, which has zero
+              velocity and so it is the instantaneous center of the
+              body. Using <a href="rkg.html#rkg-er">#rkg-er</a> with
+              the expressions <a href="#rko-eg">#rko-eg</a> thus gives
+              the velocity expression:
+
+              \[\begin{aligned}
+              \vec{v}_C &amp;= \vec{v}_P + \vec{\omega} \times \vec{r}_{PC} \\
+              &amp;= (-\omega\,\hat{e}_b) \times r\,\hat{e}_n \\
+              &amp;= r \omega \,\hat{e}_t.
+              \end{aligned}\]
+
+              Differentiating this velocity and using <a
+              href="rkt.html#rkt-ed">#rkt-ed</a> gives the
+              acceleration:
+
+              \[\begin{aligned}
+              \vec{a}_C &amp;= r \dot{\omega} \,\hat{e}_t
+              + r \omega \,\dot{\hat{e}}_t \\
+              &amp;= r \alpha \,\hat{e}_t
+              + r \omega \frac{\dot{s}}{\rho} \,\hat{e}_n.
+              \end{aligned}\]
+
+              To replace $\dot{s}$ in this acceleration expression, we
+              first consider the instantaneous center $M$, which moves
+              along the surface with speed $\dot{s}$ and tangential
+              acceleration $\ddot{s}$. Thus from <a
+              href="rkt.html#rkt-ev">#rkt-ev</a>:
+
+              \[\begin{aligned}
+              \vec{v}_M &amp;= \dot{s} \,\hat{e}_t.
+              \end{aligned}\]
+
+              We can now compute the velocity of $C$ from $M$, as
+              follows. Note that we cannot use equation <a
+              href="rkg.html#rkg-er">#rkg-er</a> because $M$ and $C$
+              are not fixed to the same body ($M$ is not fixed to the
+              body). Thus:
+
+              \[\begin{aligned}
+              \vec{r}_C &amp;= \vec{r}_M + r\,\hat{e}_n \\
+              \vec{v}_C &amp;= \vec{v}_M + r\,\dot{\hat{e}}_n \\
+              &amp;= \dot{s}\,\hat{e}_t - r \frac{\dot{s}}{\rho} \,\dot{\hat{e}}_t \\
+              &amp;= \frac{(\rho - r)}{\rho} \dot{s} \,\hat{e}_t \\
+              &amp;= \frac{R}{\rho} \dot{s} \,\hat{e}_t.
+              \end{aligned}\]
+
+              Comparing this expression for $\vec{v}_C$ to the one
+              above, we see that:
+
+              \[\begin{aligned}
+              r \omega &amp;= \frac{R}{\rho} \dot{s} \\
+              \dot{s} &amp;= \frac{\rho r}{R} \omega.
+              \end{aligned}\]
+
+              This expression for $\dot{s}$ can be substituted back
+              into our earlier equation for $\vec{a}_C$, giving:
+
+              \[\begin{aligned}
+              \vec{a}_C &amp;= r \alpha \,\hat{e}_t
+              + r \omega \frac{1}{\rho} \left( \frac{\rho r}{R} \omega \right) \,\hat{e}_n \\
+              &amp;= r \alpha \,\hat{e}_t
+              + \frac{(r \omega)^2}{R} \,\hat{e}_n.
+              \end{aligned}\]
+
+              The case of rolling on the outside of the curved surface
+              (the right diagram in Figure <a
+              href="#rko-fc">#rko-fc</a>) is similar to the above but
+              with the different sign conventions from <a
+              href="#rko-eg">#rko-eg</a>. The final expressions in <a
+              href="#rko-ec">#rko-ec</a> apply to rolling on both the
+              inside and outside.
+            </p>
+          </div>
+        </div>
+        <p>
+          The angular velocity of the rolling rigid body can be
+          related to the derivative $\dot{s}$ of the distance traveled
+          on the surface as follows. In the special case of a
+          perfectly circular surface, the angular acceleration also
+          has a simple relationship with $\ddot{s}$.
+        </p>
+        <div class="envContainer equation" id="rko-ew">
+          <p class="envHeader">Distance-angular relationships for rolling on a curved surface.</p>
+          <div class="envBody">
+            <p>
+              \[\begin{aligned}
+              \omega &amp;= \frac{R}{\rho r} \dot{s} \quad \text{on any curved surface} \\
+              \alpha &amp;= \frac{R}{\rho r} \ddot{s} \quad \text{on a circular surface}
+              \end{aligned}\]
+            </p>
+          </div>
+        </div>
+        <div class="envContainer derivation">
+          <div class="envBody">
+            <p>
+              See the derivation for <a href="#rko-ec">#rko-ec</a>,
+              where the relationship between $\omega$ and $\dot{s}$ is
+              obtained. If the surface is exactly circular then by
+              definition $\rho$ and $R$ are constant, so
+              differentiating the angular velocity expression
+              immediately gives the angular acceleration equation.
+            </p>
+          </div>
+        </div>
+        <p>
+          Just as with rolling on a flat surface, when a rigid body
+          rolls on a curved surface the contact point has zero
+          velocity but nonzero acceleration, as shown below.
+        </p>
+        <div class="envContainer equation" id="rko-ep">
+          <p class="envHeader">Contact point $P$ velocity and
+          acceleration while rolling on a curved surface.</p>
+          <div class="envBody">
+            <p>
+              \[\begin{aligned}
+              \vec{v}_P &amp;= 0 \\
+              \vec{a}_P &amp;= \frac{\rho}{R} \omega^2 \,\vec{r}_{PC}
+              \end{aligned}\]
+            </p>
+          </div>
+        </div>
+        <div class="envContainer derivation">
+          <div class="envBody">
+            <p>
+              The derivations for rolling on the inside or outside of
+              a surface are different. Here we show the rolling inside
+              case, as the outside case is very similar.
+            </p>
+            <p>
+              By definition the contact point $P$ has zero
+              velocity. The acceleration can be computed from the
+              center $C$:
+
+              \[\begin{aligned}
+              \vec{a}_P &amp;= \vec{a}_C + \vec{\alpha} \times \vec{r}_{CP}
+              + \vec{\omega} \times (\vec{\omega} \times \vec{r}_{CP}) \\
+              &amp;= r \alpha \,\hat{e}_t
+              + \frac{(r\omega)^2}{R} \,\hat{e}_n
+              + (-\alpha \,\hat{e}_b) \times (-r\,\hat{e}_n)
+              + (-\omega \,\hat{e}_b) \times \Big(
+              (-\omega \,\hat{e}_b) \times (-r\,\hat{e}_n) \Big) \\
+              &amp;= r \alpha \,\hat{e}_t
+              + \frac{(r\omega)^2}{R} \,\hat{e}_n
+              - r \alpha \,\hat{e}_t
+              + r \omega^2 \,\hat{e}_n \\
+              &amp;= \frac{(r + R)}{R} r \omega^2 \,\hat{e}_n \\
+              &amp;= \frac{\rho}{R} \omega^2 \,\vec{r}_{PC}.
+              \end{aligned}\]
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="infoCol">
+      </div>
+    </div>
+    </div>
+      <div class="footer">
+        <p class="copyright">Copyright (C) 2012-2015 Matthew West</p>
+      </div>
+    </div>
+  </body>
+</html>

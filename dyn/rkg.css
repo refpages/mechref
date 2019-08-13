@@ -1,0 +1,33 @@
+
+/*****************************************************************************/
+
+#rkg-xp .question {
+    height: 200px;
+}
+
+#rkg-tf {
+    border-collapse: collapse;
+    border-spacing: 0px;
+}
+
+#rkg-tf td {
+    padding: 3px 7px 3px 7px;
+    border-right: 1px solid #666;
+}
+
+#rkg-tf th {
+    padding: 3px 7px 3px 7px;
+    font-family: 'NoticiaTextBold',Arial,Sans-serif;
+    border-bottom: 1px solid #666;
+    border-right: 1px solid #666;
+}
+
+#rkg-tf tr td:last-child {
+    border-right: none;
+}
+
+#rkg-tf tr th:last-child {
+    border-right: none;
+}
+
+/*****************************************************************************/
