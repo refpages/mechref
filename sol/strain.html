@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+<head profile="http://www.w3.org/2005/10/profile">
+	<link href="../../favicon2.png" rel="icon" type="image/png" /><meta charset="UTF-8">
+	<title>Strain</title>
+	<link href="/style.css" rel="stylesheet" type="text/css" />
+	<link href="/icomoon.css" rel="stylesheet" type="text/css" />
+
+	<script type="text/x-mathjax-config">MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});</script>
+	<!-- <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+	<!-- <script type="text/x-mathjax-config;executed=true">MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});</script> -->
+	<script type="text/javascript" async="" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+	<script src="../../js/jquery-1.7.2.min.js" type="text/javascript"></script>
+	<script src="../../js/pageControl.js" type="text/javascript"></script>
+	<script src="../../js/sylvester.js" type="text/javascript"></script>
+	<script src="../../js/sha1.js" type="text/javascript"></script>
+	<script src="../../js/PrairieDraw.js" type="text/javascript"></script>
+</head>
+
+<body>
+	<div class="container">
+		<div class="header">
+			<h1>TAM 251: Introductory Solid Mechanics</h1>
+		</div>
+
+		<div id="nav-placeholder"></div>
+		<script>
+			$(function(){
+				$("#nav-placeholder").load("/nav.html");
+			});
+		</script>
+
+		<div class="mainBlock">
+			<p style="text-align:left;">Previous Page: <a href="../unit1/stress.html" id="navSched">Stress</a>
+				<span style="float:right;">Next Page: <a href="../unit1/material.html" id="navSched">Material Properties</a></span></p>
+
+				<div class="contentBlock">
+					<table border="0" cellpadding="0" cellspacing="0" style="width:600px">
+						<thead>
+							<tr>
+								<th scope="col">
+									<p><u><a href="#Strain">Strain</a></u></p>
+								</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td><a href="#UnitsStrain">Units</a></td>
+							</tr>
+							<tr>
+								<td><a href="#NormalStrain">Normal Strain</a></td>
+							</tr>
+							<tr>
+								<td><a href="#ShearStrain">Shear Strain</a></td>
+							</tr>
+							<tr>
+								<td><a href="#MeasureStrain">Measurement of Strain</a></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+
+
+				<div class="contentBlock">
+					<div class="contentCol" id="strain">
+						<h1><a id="Strain" name="Strain">Strain</a></h1>
+
+						<h2><a id="UnitsStrain" name="Units Strain">Units</a></h2>
+
+						<p>Dimensionless [mm/mm etc, or %]</p>
+
+						<p>&nbsp;</p>
+
+						<h2><a id="NormalStrain" name="Normal Strain">Normal Strain</a></h2>
+
+						<p>Relative change in length of a line element oriented in arbitrary direction $n$</p>
+
+						<div class="envContainer equation" id="strain-normal">
+							<div class="envBody">\[ \epsilon_n = lim_{B-&gt;A \rm\ along \rm\ n} \frac{\Delta s = \Delta s&#39;}{\Delta s} \]</div>
+
+							<p>Three normal strain component: $\epsilon_x, \epsilon_y, \epsilon_z$</p>
+						</div>
+						<figure align="center">
+							<img src="strainDeformation.png" style="width:400px"></img>
+						</figure>
+						<p><strong>Average Normal (extensional) Strain:</strong> Length change divided by total length:</p>
+
+						<div class="envContainer equation" id="ave-strain-normal">
+							<div class="envBody">\[ \epsilon_n = \frac{\delta}{L}\]</div>
+						</div>
+
+						<p><strong>Engineering</strong> or nominal (normal) strain: Average normal strain using original (undeformed) total length.</p>
+
+						<p><strong>True</strong> (normal) strain: Integrate infinitesimal normal strains.</p>
+
+						<div class="envContainer equation" id="eng-true-normal">
+							<div class="envBody">\[ \varepsilon_{eng} = \frac{\delta}{L_0}\] \[ \varepsilon_{true} = ln(1 + \frac{\delta}{L_0})\]</div>
+						</div>
+
+						<p>&nbsp;</p>
+
+						<h2><a id="ShearStrain" name="Shear Strain">Shear Strain</a></h2>
+
+						<p>Change in <strong>angle</strong> between line segments oriented in perpendicular directions $n$ and $t$ :</p>
+
+						<div class="envContainer equation" id="strain-normal">
+							<div class="envBody">\[ \gamma_{nt} = lim_{\begin{matrix} B-&gt;A \rm\ along \rm\ n\\ C-&gt;A \rm\&nbsp;along \rm\ t \end{matrix}} (\frac{\pi}{2} - \theta &#39;) \]</div>
+
+							<p>Six shear strain components, but symmetric: $\gamma_{xy} =\gamma_{yx}, \gamma_{xz}=\gamma_{zx}, \gamma_{yz}=\gamma_{zy}$</p>
+						</div>
+						<figure align="center">
+							<img src="shearStrainDeformation.png" style="width:400px"></img>
+						</figure>
+						<p><strong>Average shear strain:</strong></p>
+
+						<div class="envContainer equation" id="tau-axial">
+							<div class="envBody">
+								<p>\[\gamma = \frac{\pi}{2} - \theta \approx \frac{\delta}{H}\]</p>
+							</div>
+						</div>
+
+						<p><strong>Engineering</strong> (shear) strain: Compute angle from length changes and original (undeformed) total length.</p>
+
+						<p><strong>True</strong> (shear) strain: Integrate infinitesimal angle changes.</p>
+
+						<p>&nbsp;</p>
+
+						<h3>Strain Tensor</h3>
+
+						<p>The components of normal and shear strain can be combined into the strain tensor. This is a symmetric matrix.</p>
+
+						<div class="envContainer equation" id="strian-tensor">
+							<div class="envBody">\[ E&nbsp;= \begin{bmatrix} \varepsilon_{x} &amp; \gamma_{xy} &amp; \gamma_{xz} \\ &#39;&#39; &amp; \varepsilon_{y} &amp; \gamma_{yz} \\ &#39;&#39; &amp; &#39;&#39; &amp; \varepsilon_{z} \end{bmatrix} \]</div>
+						</div>
+
+						<p>&nbsp;</p>
+
+						<h2><a id="MeasureStrain" name="MeasureStrain">Measurement of Strain</a></h2>
+
+						<h3>Direct measurement</h3>
+
+						<p>Initial and final lengths of some section of the specimen are measured, perhaps by some handheld device such as a ruler. Axial strain computed directly by following formula:</p>
+
+						<div class="envContainer equation" id="tau-axial">\[\varepsilon = \frac{\delta}{L} = \frac{L_{final} - L_{initial}}{L_{initial}} \]</div>
+
+						<p>Accurate measurements of strain in this way may require a fairly large initial length</p>
+
+						<h3>Contact extensometer</h3>
+
+						<p>A clip-on device that can measure very small deformations. Two clips attach to a specimen before testing. The clips are attached to a transducer body. The transducer outputs a voltage. Changes in voltage output are converted to strain</p>
+
+						<figure align="center">
+							<img class="center" src="extensometer.jpg" style="width:300px" />
+							<figcaption>A tensile test in the Materials Testing Instructional Laboratory, Talbot Lab, UIUC</figcaption>
+						</figure>
+
+						<h3>Strain gauges</h3>
+						<p>Small electrical resistors whose resistance charges with strain. Change in resistance can be converted to strain measurement. Often sold as &quot;rosettes&quot;, which can measure normal strain in two or more directions. Can be bonded to test specimen.</p>
+						<figure align="center">
+							<img src="strainGauge.PNG" style="width:600px" />
+						</figure>
+
+						<h3>Digital image correlation (DIC)</h3>
+						<p>Image placed on surface of test specimen. Image may consist of speckles or some regular pattern. Deformation of image tracked by digital camera. Image analysis used to determine multiple strain component</p>
+						<figure align="center">
+							<img src="dic.PNG" style="width:300px" />
+							<figcaption>Experiment set up. The diffuse light source consists of two fluorescent tube lights that produce white light, behind a translucent plastic sheet.</figcaption>
+						</figure>
+
+						<figure align="center">
+							<img src="dic2.PNG" style="width:400px" />
+							<figcaption>Eyy strain calculated through DIC of straight-curved specimen with an applied load of 114 N from TAM 456, UIUC.</figcaption>
+						</figure>
+					</div>
+				</div>
+
+				<div class="contentBlock">
+					<p style="text-align:left;">Previous Page: <a href="../unit1/stress.html" id="navSched">Stress</a>
+						<span style="float:right;">Next Page: <a href="../unit1/material.html" id="navSched">Material Properties</a></span></p>
+					</div>
+				</div>
+			</div>
+		</body>
+		</html>

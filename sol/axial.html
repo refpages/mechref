@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+<head profile="http://www.w3.org/2005/10/profile">
+  <link rel="icon" type="image/png" href="../../favicon2.png">
+  <meta charset="UTF-8">
+  <title>Axial</title>
+  <link href="/style.css" type="text/css" rel="stylesheet" />
+  <link href="/icomoon.css" type="text/css" rel="stylesheet" />
+
+  <script type="text/x-mathjax-config">MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});</script>
+  <!-- <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+  <!-- <script type="text/x-mathjax-config;executed=true">MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});</script> -->
+  <script type="text/javascript" async="" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+  <script src="../../js/jquery-1.7.2.min.js" type="text/javascript"></script>
+  <script src="../../js/pageControl.js" type="text/javascript"></script>
+  <script src="../../js/sylvester.js" type="text/javascript"></script>
+  <script src="../../js/sha1.js" type="text/javascript"></script>
+  <script src="../../js/PrairieDraw.js" type="text/javascript"></script>
+</head>
+
+<body>
+  <div class="container">
+    <div class="header"><h1>TAM 251: Introductory Solid Mechanics</h1></div>
+
+    <div id="nav-placeholder"></div>
+		<script>
+			$(function(){
+				$("#nav-placeholder").load("/nav.html");
+			});
+		</script>
+
+    <div class="mainBlock">
+      <p style="text-align:left;">Previous Page: <a href="../unit1/material.html" id="navSched">Material</a>
+        <span style="float:right;">Next Page: <a href="../unit3/torsion.html" id="navSched">Torsion</a></span></p>
+
+        <div class="contentBlock">
+          <table border="0" cellpadding="0" cellspacing="0" style="width:600px">
+            <thead>
+              <tr>
+                <th scope="col">
+                  <p><u><a href="#AxialLoading">Axial Loading</a></u></p>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><a href="#axial-indeterm">Statically Indeterminate Problems</a></td>
+              </tr>
+              <tr>
+                <td><a href="#ThermalEffects">Thermal Effects</a></td>
+              </tr>
+              <tr>
+                <td><a href="#Misfit">Mistfit Problems</a></td>
+              </tr>
+              <tr>
+                <td><a href="#stressConcentration">Stress Concentration</a></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+
+        <div class="contentBlock">
+          <div id="axial" class="contentCol">
+  					<h1><a id="AxialLoading" name="AxialLoading">Axial Loading</a></h1>
+
+            <h3>Saint-Venant's Principle: Slender beam case</h3>
+            <p>Stress analysis very near to the point of application of load $P$. Saint-Venant's principle: "the stress and strain produced at points in a body sufficiently removed* from the region of external load application will be the same as the stress and strain produced by any other applied external loading that has the same statically equivalent resultant and is applied to the body within the same region".</p>
+            <p><em>*farther than the widest dimension of the cross section</em></p>
+
+            <h3>Force-Deformation Relation</h3>
+            <div class="envContainer equation" id="sigma-axial">
+              <div class="envBody">
+                <p>
+                  \[\delta = \frac{PL}{EA}\]
+                </p>
+                <p> Derivation: $P = \sigma A$;    $\sigma = E\varepsilon$;    $\varepsilon = \delta / L   =>   P = E\frac{\delta}{L}A$</p>
+                <p>Axial Flexibility: $\delta = fP   =>   f = \frac{L}{EA}$</p>
+                <p>Axial Stiffness: $P = k\delta   =>   k = \frac{EA}{L}$</p>
+              </div>
+            </div>
+
+            <h3>Axially Varying Properties</h3>
+            <div class="envContainer equation" id="sigma-axial">
+              <p>For non-uniform load, material property and cross-section area:</p>
+              <div class="envBody">
+                <p>
+                  \[\delta = \int_0^L\frac{F(x)}{E(x)A(x)}dx\]
+                </p>
+              </div>
+              <p>Assume variations with $x$ are "mild" (on length scale longer than cross-sectional length scales)</p>
+            </div>
+
+            <h3>Principle of Superposition</h3>
+            <p>Nomenclature convention: internal forces and resulting displacements are positive when they cause/represent elongation, negative for compression. Displacement of a point (e.g. $Z$) with respect to a fixed point: $\delta_z$. Relative displacement of one point (e.g. $A$) with respect to another (e.g. $D$).</p>
+            <div class="envContainer equation" id="sigma-axial">
+              \[\delta_{AD} \equiv \delta_{DA} \equiv \delta_{A/D} \equiv \delta_{D/A}\]
+            </div>
+            <p>Superposition: If the displacements are (1) small and (2) linearly related to the force components acting, the displacements caused by the components can be added up: </p>
+            <div class="envContainer equation" id="sigma-axial">
+              \[\delta = \sum_i \delta_i = \sum_i \frac{F_i L_i}{E_i A_i}\]
+            </div>
+
+            <h3>General Procedure: </h3>
+            <ol start="0">
+              <li>Draw a FBD</li>
+              <li>Equilibrium equations: force balance and moment balance</li>
+              <li>Constitutive equations: stress-strain or force-displacement relations</li>
+              <li>Compatibility equations: geometric constraints</li>
+            </ol>
+
+          </div>
+        </div>
+
+        <div class="contentBlock">
+          <div id="axial-indeterm" class="contentCol">
+  					<h1><a id="axial-indeterm" name="axial-indeterm">Statically Indeterminate Problems</a></h1>
+            <p>Equilibrium does not determine all internal forces.</p>
+
+            <h3><a id="ThermalEffects">Thermal Effects: Temperature changes</a></h3>
+            <p>	Rod rests freely on a smooth horizontal surface. Temperature of the rod is raised by $\Delta T$. Rod elongates by an amount </p>
+            <div class="envContainer equation" id="sigma-axial">
+              <div class="envBody">
+                <p>
+                  \[\delta_{T} = \alpha \Delta T L\]
+                </p>
+              </div>
+            </div>
+            <p>Linear coefficient of thermal expansion $\alpha$,  $[\alpha] = \frac{1}{K},\frac{1}{°C},...$. This deformation is associated with an average thermal strain:</p>
+            <div class="envContainer equation" id="sigma-axial">
+              <div class="envBody">
+                <p>
+                  \[\epsilon_{T} = \frac{\delta_T}{L} = \alpha T\]
+                </p>
+              </div>
+            </div>
+            <p>$\delta_T$, $\varepsilon_T$ present in addition to elastic $\delta_E$, $\varepsilon_E$ (from internal forces). Superposition (small strains):</p>
+            <div class="envContainer equation" id="sigma-axial">
+              <div class="envBody">
+                <p>
+                  \[\varepsilon_{tot} = \varepsilon_{E} + \varepsilon_{T}\]
+                  \[\delta_{tot} = \delta_{E} + \delta_{T}\]
+                </p>
+              </div>
+            </div>
+
+            <p align="center">
+              <img src="staticIndeterminate.png" width="300px"></img>
+              <img src="staticIndeterminateTemperature.png" width="200px"></img>
+            </p>
+            <p>Initially, rod of length $L$ is placed between two supports at a distance $L$ from each other. With no interal forces, there is no stress or strain.</p>
+            <div class="envContainer equation" id="sigma-axial">
+              <p class="envHeader">Equilibrium: </p>
+              <div class="envBody">
+                <p>
+                  \[R_{A} = R_{B} = 0\]
+                  \[R_{A} = F\]
+                </p>
+              </div>
+            </div>
+            <p>After raising the temperature, the total elongation of the rod is still zero. The total elongation is given by:</p>
+            <div class="envContainer equation" id="sigma-axial">
+              <div class="envBody">
+                <p>
+                  \[\delta = \frac{FL}{EA} + \alpha L \Delta T = 0\]
+                  \[F = -\alpha E \Delta T\] rod is under compression, if \[\Delta T = 0\]
+                </p>
+              </div>
+              <p class="envHeader">The stress in the rod due to change in temperature is given by: </p>
+              <div class="envBody">
+                <p>
+                  \[\sigma = -\alpha E \Delta T\]
+                </p>
+              </div>
+            </div>
+
+            <h3><a id="Misfit">Misfit Problems</a></h3>
+            <p>A misfit problem is one in which there is difference between a design distance and the manufactured length of a material. Some misfits are created intentionally to pre-stain a member. (e.g. spokes in a bicycle wheel or strings in a tennis racket). This type of problem neither modifies the equilibrium equations (1) nor the force-extension relations, (2) but the compatibility equations, (3) need to be modified.</p>
+
+          </div>
+        </div>
+
+        <div class="contentBlock">
+          <div id="stressConcentration" class="contentCol">
+            <h1>Stress Concentration</h1>
+            <p>Highest at lowest cross-sectional area.</p>
+            <div class="envContainer equation" id="sigma-axial">
+              <p class="envHeader">Stress concentration factor:</p>
+              <div class="envBody">
+                <p>
+                  \[K = \frac{\sigma_{max}}{\sigma_{avg}}\]
+                </p>
+              </div>
+              <p>
+                <li>Found experimentally</li>
+                <li>Solely based on geometry</li>
+              </p>
+            </div>
+            <p align="center">
+              <img src="stressConcentration.png" width="600px"></img>
+            </p>
+          </div>
+        </div>
+
+        <div class="contentBlock">
+          <p style="text-align:left;">Previous Page: <a href="../unit1/material.html" id="navSched">Material</a>
+            <span style="float:right;">Next Page: <a href="../unit3/torsion.html" id="navSched">Torsion</a></span></p>
+          </div>
+
+
+        </div>
+
+      </body>
+      </html>

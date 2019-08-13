@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html>
+<head profile="http://www.w3.org/2005/10/profile">
+	<link href="../../favicon2.png" rel="icon" type="image/png" /><meta charset="UTF-8">
+	<title>Torsion</title>
+	<link href="/style.css" rel="stylesheet" type="text/css" />
+	<link href="/icomoon.css" rel="stylesheet" type="text/css" />
+
+	<script type="text/x-mathjax-config">MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});</script>
+	<!-- <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+	<!-- <script type="text/x-mathjax-config;executed=true">MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});</script> -->
+	<script type="text/javascript" async="" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+	<script src="../../js/jquery-1.7.2.min.js" type="text/javascript"></script>
+	<script src="../../js/pageControl.js" type="text/javascript"></script>
+	<script src="../../js/sylvester.js" type="text/javascript"></script>
+	<script src="../../js/sha1.js" type="text/javascript"></script>
+	<script src="../../js/PrairieDraw.js" type="text/javascript"></script>
+</head>
+
+<body>
+	<div class="container">
+		<div class="header">
+			<h1>TAM 251: Introductory Solid Mechanics</h1>
+		</div>
+
+		<div id="nav-placeholder"></div>
+		<script>
+			$(function(){
+				$("#nav-placeholder").load("/nav.html");
+			});
+		</script>
+
+		<div class="mainBlock"><!--<p><a href="../../dev.html" id="navSched">Back to Development Page</a></p>-->
+
+			<p style="text-align:left;">Previous Page: <a href="../unit2/axial.html" id="navSched">Axial</a>
+				<span style="float:right;">Next Page: <a href="../unit4/bending.html" id="navSched">Bending</a></span></p>
+
+				<div class="contentBlock">
+					<table border="0" cellpadding="1" cellspacing="1" style="width:600px">
+						<thead>
+							<tr>
+								<th scope="col">
+									<p><u><a href="#Torque">Torque</a></u></p>
+								</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td><a href="#ShearStressandStrain">Shear Stress and Strain</a></td>
+							</tr>
+							<tr>
+								<td><a href="#InclinedPlanes">Inclined Planes</a></td>
+							</tr>
+							<tr>
+								<td><a href="#Thin-walledHollowShafts">Thin-walled hollow shafts</a></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+
+				<div class="contentBlock">
+					<div class="contentCol" id="chap1">
+						<h1><a id="Torque" name="Torque">Torque</a></h1>
+
+						<h3>Torsion of shafts:</h3>
+
+						<ul>
+							<li>Refers to the twisting of a specimen when it is loaded by couples (or moments) that produce rotation about the longitudinal axis.</li>
+							<li>Applications: aircraft engines, car transmissions, bicycles, etc.</li>
+							<li>Units: Force X distance [lb.in] or [N.m]</li>
+							<li>Torques are vector quantities and may be represented as follows:</li>
+						</ul>
+
+						<img class="center-block img-responsive" src="torsionDefinition.png" style="width:300px" />
+						<img class="center-block img-responsive" src="torsionDefinitionAlt.png" style="width:350px" />
+
+						<h3>Assumptions:</h3>
+
+						<ul>
+							<li>For circular shafts (hollow and solid): cross-sections remain plane and undistorted due to axisymmetric geometry</li>
+							<ul>
+								<li>i.e. while different cross sections have distinct angles of twist, each one of them rotates as a solid rigid slab</li>
+								<li>Longitudinal lines twist into a helix that intersects the circular cross sections at equal angles</li>
+							</ul>
+							<li>For non-circular shafts,: cross-sections are distorted when subject to torsion</li>
+							<ul>
+								<li>Cross-sections warp and do not remain plane</li>
+							</ul>
+							<li>Linear and elastic deformation</li>
+						</ul>
+						<p align="center">
+							<img src="torsionLines.png" style="width:600px"></img>
+						</p>
+					</div>
+				</div>
+
+				<div class="contentBlock">
+					<div class="contentCol" id="ShearStressandStrain">
+						<h1><a id="ShearStressandStrain">Shear Stress and Strain</a></h1>
+
+						<h3>Geometry of Deformation: </h3>
+						<p align="center">
+							<img src="geometryOfDeformation.png" style="width:600px"></img>
+						</p>
+
+						<div class="envContainer equation" id="sigma-axial">
+							<p>The angle of twist increases as x increases. The twist rate is given by: \[\frac{d\phi}{dx} = \frac{\gamma}{\rho} = \frac{\gamma_{max}}{c}\]</p>
+
+							<p>Moving terms we get:</p>
+							<p>\[\gamma = \rho \frac{d\phi}{dx}\]</p>
+						</div>
+
+						<p>Hence, the shear strain ($\gamma$): </p>
+						<ul>
+							<li>is proportional to the angle of twist</li>
+							<li>varies linearly with the distance from the axis of the shaft</li>
+							<li>is <strong>maximum</strong> at the surface</li>
+						</ul>
+
+
+						<div class="envContainer equation" id="sigma-axial">
+							<p class="envHeader"><strong>Elastic shear stress - The Torsion Formula: </strong></p>
+
+							<p>Geometry \[\gamma = \rho \frac{d\phi}{dx}\]</p>
+
+							<p>Hooke's Law \[\tau = G\gamma\]</p>
+
+							<p>From equilibrium: \[\frac{d\phi}{dx} = \frac{T}{GJ}\]</p>
+
+							<p>Elastic torsion formula: \[\tau = \frac{T\rho}{J}\]</p>
+						</div>
+
+						<div class="envContainer equation" id="sigma-axial">
+							<p class="envHeader"><strong>Polar Moment of Inertia: </strong></p>
+
+							<p>Solid Shaft (radius and diameter): \[J = \int_0^R{\rho^2dA} = \int_0^R{\rho^2(2\pi\rho d\rho)dA} =2\pi \int_0^R{\rho^3d\rho} = \frac{\pi R^4}{2} = \frac{\pi D^4}{32}\]</p>
+
+							<p>Hollow Shaft (inner radius and outer radius): \[J = \frac{\pi}{2}(R_o^4-R_i^4) = \frac{\pi}{32}(D_o^4-D_i^4)\]</p>
+						</div>
+
+
+						<h3>Shear stress in the elastic range: </h3>
+						<div class="envContainer equation" id="sigma-axial">
+							<p>The shear stress varies linearly with the radial position in the section: \[\tau = \frac{T\rho}{J}\]</p>
+						</div>
+						<p align="center">
+							<img src="shearStressDistribution.png" style="width:450px"></img>
+						</p>
+						<p><em>Note:</em> shaft under torque T rotating at angular speed w transmits power: \[P=T\omega\]</p>
+
+						<h3>Symmetry of shear stress: stress in axial planes </h3>
+						<p align="center">
+							<img src="shearStressPlane.png" style="width:250px"></img>
+							<img src="splitting.PNG" style="width:350px"></img>
+						</p>
+
+						<h3>Shaft deformations: </h3>
+
+						<p>From observation:</p>
+						<ol>
+							<li>The angle of twist of the shaft is proportional to the applied torque $\phi \propto T$</li>
+							<li>The angle of twist of the shaft is proportional to the length $\phi \propto L$</li>
+							<li>The angle of twist of the shaft decreases when the diameter of the shaft increases</li>
+						</ol>
+
+						<p align="center"><img src="shaftDeformation1.png" style="width:350px"></img></p>
+						<p><strong>Sign Convention</strong></p>
+
+						<p>Torque and angle of twist follow the right hand rule sign convention. When positive, using the right hand, the thumb points outward from the shaft and the fingers will curl in the direction of the positive twist/torque.</p>
+						<p align="center"><img src="signConvention1.png" style="width:650px"></img></p>
+
+						<div class="envContainer equation" id="sigma-axial">
+							<p class="envHeader"><strong>Angle of twist in the elastic range: </strong></p>
+
+							<p>\[\phi = \frac{TL}{GJ}\]</p>
+
+							<p>Torsional stiffness: \[k_T = \frac{GJ}{L}\]</p>
+
+							<p>Torsional flexibility: \[f_T = \frac{L}{GJ}\]</p>
+						</div>
+					</div>
+				</div>
+
+				<div class="contentBlock">
+					<div class="contentCol" id="InclinedPlanes">
+						<h1><a id="InclinedPlanes">Inclined planes</a></h1>
+						<p align="center">
+							<img src="inclinedPlane.png" style="width:450px"></img>
+							<img src="inclinedPlaneCut.png" style="width:350px"></img>
+						</p>
+						<div class="envContainer equation" id="sigma-axial">
+							<p>Recall projected forces:</p>
+
+							<p>\[\sigma_n = \frac{P}{A_o}(\cos^2(\theta))\] \[\tau_{ns} = -\frac{P}{A_o}\sin(\theta)\cos(\theta)\]</p>
+						</div>
+						<p>Maximum normal stress at 90 degrees:</p>
+						<p align="center"><img src="maxNormalStress.png" style="width:350px"></img></p>
+
+						<p>Maximum shear stress at 45 degrees:</p>
+						<p align="center"><img src="maxShearStress.png" style="width:350px"></img></p>
+
+						<p>A circular shaft under torsion develops PURE SHEAR on cross sections between longitudinal planes (the faces of element $a$ are parallel and perpendicular to the axis of the shaft)</p>
+
+						<p align="center"><img src="circularPureShear.png" style="width:350px"></img></p>
+
+						<div class="envContainer equation" id="sigma-axial">
+							<p>\[\sigma_n = 2\tau_{max} \sin\theta \cos\theta = \tau_{max} \sin (2\theta)\] \[\tau_{ns} = \tau_{max}(\cos^2\theta - \sin^2\theta) = \tau_{max} \cos(2\theta)\]</p>
+						</div>
+
+						<p align="center"><img src="normalShearStressRelation.png" style="width:450px"></img></p>
+
+						<div class="envContainer equation" id="sigma-axial">
+							<p>Maximum normal stress at: \[\sigma_n = \tau_{max} = \frac{Tc}{J}\] \[\sigma_s = -\tau_{max} = -\frac{Tc}{J}\] \[\tau_{ns} = 0\]</p>
+
+							<p>Maximum shear stress at: \[\sigma_n = 0\] \[\sigma_s = 0\] \[\tau_{ns} = \tau_{max} = \frac{Tc}{J}\]</p>
+						</div>
+
+						<h3>Types of material failure:</h3>
+
+						<p><em>Ductile materials generally fail in shear</em></p>
+						<p align="center"><img src="ductile.PNG" style="width:650px"></img></p>
+						<p align="center">Axial loading &ndash; maximum shear stress at $45^o$ angle &nbsp; &nbsp; &nbsp;Torsion &ndash; maximum shear stress at $0^o$ angle
+						</p>
+
+						<p>&nbsp;</p>
+
+						<p><em>Brittle materials are weaker in tension than shear</em></p>
+						<p align="center"><img src="brittle.PNG" style="width:650px"></img></p>
+						<p align="center">Axial loading &ndash; maximum normal stress at $0^o$ angle &nbsp; &nbsp; &nbsp; Torsion &ndash; maximum normal stress at $45^o$ angle</p>
+					</div>
+				</div>
+
+
+
+
+				<div class="contentBlock">
+					<div class="contentCol" id="Thin-walledHollowShafts">
+						<h1><a id="Thin-walledHollowShafts">Thin-walled hollow shafts</a></h1>
+
+						<p align="center"><img src="thinWalledShaft.png" style="width:250px"></img></p>
+						<div class="envContainer equation" id="sigma-axial">
+							<p class="envHeader">In general, the maximum shear stress is given by</p>
+
+							<p>\[\phi = \frac{TL}{GJ}\]</p>
+
+							<p>For thin-walled shafts: \[\tau_{max} = \frac{T}{2tA_m}\] where \[A_m = \pi R_{ave}^2\] \[R_{ave} = \frac{R_o + R_i}{2}\]</p>
+
+							<p>Note that is NOT the cross sectional area of the hollow shaft!</p>
+						</div>
+
+					</div>
+				</div>
+			</div>
+
+			<div class="contentBlock">
+				<p style="text-align:left;">Previous Page: <a href="../unit2/axial.html" id="navSched">Axial</a>
+					<span style="float:right;">Next Page: <a href="../unit4/bending.html" id="navSched">Bending</a></span></p>
+				</div>
+			</div>
+		</body>
+		</html>

@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html>
+<head profile="http://www.w3.org/2005/10/profile">
+	<link href="../../favicon2.png" rel="icon" type="image/png" /><meta charset="UTF-8">
+	<title>Stress</title>
+	<link href="/style.css" rel="stylesheet" type="text/css" />
+	<link href="/icomoon.css" rel="stylesheet" type="text/css" />
+
+	<script type="text/x-mathjax-config">MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});</script>
+	<!-- <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+	<!-- <script type="text/x-mathjax-config;executed=true">MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});</script> -->
+	<script type="text/javascript" async="" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+	<!-- <script src="../../js/jquery-1.7.2.min.js" type="text/javascript"></script> -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" type="text/javascript"></script>
+	<script src="../../js/pageControl.js" type="text/javascript"></script>
+	<script src="../../js/sylvester.js" type="text/javascript"></script>
+	<script src="../../js/sha1.js" type="text/javascript"></script>
+	<script src="../../js/PrairieDraw.js" type="text/javascript"></script>
+</head>
+
+
+<body>
+	<div class="container">
+		<div class="header">
+			<h1>TAM 251: Introductory Solid Mechanics</h1>
+		</div>
+
+		<div id="nav-placeholder"></div>
+		<script>
+			$(function(){
+				$("#nav-placeholder").load("/nav.html");
+			});
+		</script>
+
+		<div class="mainBlock">
+			<p style="text-align:right;">Next Page: <a href="../unit1/strain.html" id="navSched">Strain</a></p>
+
+			<div class="contentBlock">
+				<table border="0" cellpadding="0" cellspacing="0" style="width:600px">
+					<thead>
+						<tr>
+							<th scope="col">
+								<p><u><a href="#Stress">Stress</a></u></p>
+							</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td><a href="#Units">Units</a></td>
+						</tr>
+						<tr>
+							<td><a href="#StressGeneral">General Loading Conditions</a></td>
+						</tr>
+						<tr>
+							<td><a href="#Inclined Plane">Inclined Planes</a></td>
+						</tr>
+						<tr>
+							<td><a href="#Allowable Stress Design">Allowable Stress Design</a></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+
+			<div class="contentBlock">
+				<div class="contentCol" id="stress">
+					<h1><a id="Stress" name="Stress">Stress</a></h1>
+
+					<p>The internal forces and moments generally vary from point to point. Obtaining this distribution is of primary importance in mechanics of materials. The total force in a cross-section, divided by the cross-sectional area, is the <strong>stress</strong>. We use stress to <strong>normalize forces</strong> with respect to the size of the geometry.</p>
+
+					<h2><a id="Units" name="Units">Units</a></h2>
+
+					<p>The units of stress can be found in the table below.</p>
+
+					<table class="schedule">
+						<tbody>
+							<tr>
+								<th>Measure</th>
+								<th>SI system</th>
+								<th>US system</th>
+							</tr>
+							<tr>
+								<td style="text-align: center;">Force</td>
+								<td style="text-align: center;">$[N]$</td>
+								<td style="text-align: center;">$[lb]$</td>
+							</tr>
+							<tr>
+								<td style="text-align: center;">Area</td>
+								<td style="text-align: center;">$[m^2]$</td>
+								<td style="text-align: center;">$[in^2]$</td>
+							</tr>
+							<tr>
+								<td style="text-align: center;">Stress</td>
+								<td style="text-align: center;">Pascal = $[Pa]$=$[N/m^2]$</td>
+								<td style="text-align: center;">pound per square inch = $[psi]$ = $[lb/in^2]$</td>
+							</tr>
+						</tbody>
+					</table>
+
+					<p>It is also important to recall some of the most common prefixes used to denote quantity.</p>
+
+					<table class="schedule">
+						<tbody>
+							<tr>
+								<td style="text-align: center;">kiloPascal [kPa]</td>
+								<td style="text-align: center;">$10^3$ [Pa]</td>
+							</tr>
+							<tr>
+								<td style="text-align: center;">MegaPascal [MPa]</td>
+								<td style="text-align: center;">$10^6$ [Pa]</td>
+							</tr>
+							<tr>
+								<td style="text-align: center;">GigaPascal [GPa]</td>
+								<td style="text-align: center;">$10^9$ [Pa]</td>
+							</tr>
+							<tr>
+								<td style="text-align: center;">kilopound per square inch [ksi]</td>
+								<td style="text-align: center;">$10^3$ [psi]</td>
+							</tr>
+						</tbody>
+					</table>
+
+					<h2><a id="StressGeneral" name="Stress under general loading conditions">Stress under general loading conditions</a></h2>
+
+					<p>We consider a homogeneous distribution of the internal force $\Delta F$ over an infinitesimal area $\Delta A$. The stress is defined by the infinitesimal force divided by the infinitesimal area</p>
+
+					<ul>
+						<li><strong>Normal Stress:</strong> Defined by the intensity of the force acting NORMAL to $\Delta A$</li>
+						<li><strong>Shear Stress:</strong> Defined by the intensity of the force acting TANGENT to $\Delta A$</li>
+					</ul>
+
+					<h3>Average Normal Stress - Axial Loading</h3>
+
+					<p>Here we assume that the <strong>distribution of normal stresses</strong> in an axially loaded member is <strong>uniform</strong>. Stress is calculated away from the points of application of the concentrated loads. Uniform distribution of stress is possible only if the line of action of the concentrated load $P$ passes through the centroid of the section considered</p>
+
+					<div class="envContainer equation" id="sigma-axial">
+						<div class="envBody">
+							<p>\[\sigma_{ave} = \frac{F}{A}\]</p>
+
+							<p>where $F$ is the internal resultant normal force and $A$ is the cross-sectional area of the bar where the normal stress $\sigma_{ave}$ is calculated</p>
+						</div>
+					</div>
+
+					<p>&nbsp;</p>
+
+					<h3>Average Shear Stress - Axial Loading</h3>
+
+					<p>Obtained when transverse forces are applied to a member. The distribution of shear stresses cannot be assumed uniform. Common in bolts, pins and rivets used to connect various structural members</p>
+
+					<div class="envContainer equation" id="tau-axial">
+						<div class="envBody">
+							<p>\[\tau_{ave} = \frac{V}{A}\]</p>
+
+							<p>where $V$ is the internal resultant shear force and $A$ is the cross-sectional area of the bar where the shear stress $\tau_{ave}$ is calculated</p>
+						</div>
+					</div>
+
+					<p align="center">
+						<img class="center-block img-responsive" src="singleDoubleShear.png" style="width:700px"></img>
+					</p>
+
+					<h3>Stress Tensor</h3>
+
+					<p>The components of normal and shear stress can be combined into the stress tensor.</p>
+
+					<div class="envContainer equation" id="strian-tensor">
+						<div class="envBody">\[ T&nbsp;= \begin{bmatrix} \sigma_{x} &amp; \tau_{xy} &amp; \tau_{xz} \\ \tau_{yx}&nbsp;&amp; \sigma_{y} &amp; \tau_{yz} \\ \tau_{zx}&nbsp;&amp; \tau_{zy}&nbsp;&amp; \sigma_{z} \end{bmatrix} \]</div>
+					</div>
+
+					<h2><a id="Inclined Plane" name="Inclined Plane">Stresses in Inclined Planes</a></h2>
+
+					<p>The relations above are observed only on planes perpendicular to the axis of the member or connection</p>
+					<p align="center">
+						<img class="center-block img-responsive" src="stressInclinedPlane.png" style="width:650px"></img>
+					</p>
+
+					<div class="envContainer equation" id="sigma-tau-incline">
+						<div class="envBody">
+							<p>\[\begin{align}
+								\sigma_n &= {\bf n}\cdot\ {\bf t}^{n}={\bf n}\cdot\ {\bf T}\,{\bf n} = \sigma_{x} \cos ^2(\theta) + 2 \,\tau_{xy} \sin(\theta) \cos(\theta)+\sigma_{y} \sin ^2(\theta) \\
+								\tau_{ns} &= {\bf s}\cdot\ {\bf t}^{n}={\bf s}\cdot\ {\bf T}\,{\bf n} = (\sigma_y - \sigma_{x}) \sin(\theta) \cos(\theta) + \tau_{xy} ( \cos^2(\theta) - \sin^2(\theta) )
+								\end{align}\]
+							</p>
+						</div>
+					</div>
+					<div class="envContainer derivation" id="sigma-tau-incline-d">
+						<div class="envBody" style="display:block;">
+							<p>
+								\[\sum F_x: -\sigma_x (A\rm\cos\theta) - \tau_{xy}(A\rm\sin\theta) + (\sigma_{x}'\rm\cos\theta)A - (\tau_{x'y'}\rm\sin\theta)A=0\]
+								\[\sum F_y: -\sigma_y (A\rm\sin\theta) - \tau_{xy}(A\rm\cos\theta) + (\sigma_{x}'\rm\sin\theta)A - (\tau_{x'y'}\rm\cos\theta)A=0\]
+							</p>
+							<p>Rearrange terms:
+								\[A[\sigma_{x}'\rm\cos\theta - \tau_{x'y'}\rm\sin\theta] = A[\sigma_{x}\rm\cos\theta + \tau_{xy}\rm\sin\theta]\]
+								\[A[\sigma_{x}'\rm\sin\theta - \tau_{x'y'}\rm\cos\theta] = A[\sigma_{x}\rm\sin\theta + \tau_{xy}\rm\cos\theta]\]
+							</p>
+							<p>Combine into a matrix:
+								\[\begin{bmatrix}
+								\rm\cos\theta & -\rm\sin\theta \\
+								\rm\sin\theta & \rm\cos\theta
+								\end{bmatrix}
+								\begin{bmatrix}
+								\sigma_{x}' \\
+								\tau_{x'y'}
+								\end{bmatrix} =
+								\begin{bmatrix}
+								\sigma_{x}\rm\cos\theta & \tau_{xy}\rm\sin\theta \\
+								\sigma_{y}\rm\sin\theta & \tau_{xy}\rm\cos\theta
+								\end{bmatrix}
+								\]
+							</p>
+							<p>Multiple by the inverse:
+								\[\begin{bmatrix}
+								\sigma_{x}' \\
+								\tau_{x'y'}
+								\end{bmatrix} =
+								\begin{bmatrix}
+								\rm\cos\theta & \rm\sin\theta \\
+								-\rm\sin\theta & \rm\cos\theta
+								\end{bmatrix}
+								\begin{bmatrix}
+								\sigma_{x}\rm\cos\theta & \tau_{xy}\rm\sin\theta \\
+								\sigma_{y}\rm\sin\theta & \tau_{xy}\rm\cos\theta
+								\end{bmatrix}
+								\]
+							</p>
+						</div>
+					</div>
+
+					<p>&nbsp;</p>
+
+					<h2><a id="Allowable Stress Design" name="Allowable Stress Design">Allowable Stress Design</a></h2>
+
+					<p><strong>Design Requirement:</strong> A structural design is intended to support and/or transmit loads while maintaining safety and utility: <strong><em>don&#39;t break</em></strong>. Strength of a structure reflects its ability to resist failure.</p>
+
+					<ul>
+						<li><strong>Ultimate Load ($P_u$):</strong> force when specimen fails (breaks).</li>
+						<li><strong>Ultimate normal stress ($\sigma_u$):</strong> \[\sigma_u = \frac{P_u}{A}\]</li>
+					</ul>
+					A structure is safe if its strength exceeds the required strength.
+
+					<p>&nbsp;</p>
+
+					<p><strong>Factor of Safety (FS):</strong> Ratio of structural strength to maximum (allowed) applied load ($P_{all}$)</p>
+
+					<div class="envContainer equation" id="safety">
+						<p>\[P_{all} = \frac{P_u}{FS}\] Similarly: \[\sigma_{all} = \frac{\sigma_u}{FS}\]</p>
+					</div>
+				</div>
+			</div>
+
+
+			<div class="contentBlock">
+				<p style="text-align:right;">Next Page: <a href="../unit1/strain.html" id="navSched">Strain</a></p>
+			</div>
+
+		</div>
+	</div>
+
+</body>
+</html>

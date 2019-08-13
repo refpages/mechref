@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head profile="http://www.w3.org/2005/10/profile">
+  <link rel="icon" type="image/png" href="../../favicon2.png">
+  <meta charset="UTF-8">
+  <title>Sign Convention</title>
+  <link href="/style.css" type="text/css" rel="stylesheet" />
+  <link href="/icomoon.css" type="text/css" rel="stylesheet" />
+
+  <script type="text/x-mathjax-config">MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});</script>
+  <!-- <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+  <!-- <script type="text/x-mathjax-config;executed=true">MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});</script> -->
+  <script type="text/javascript" async="" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+  <script src="../../js/jquery-1.7.2.min.js" type="text/javascript"></script>
+  <script src="../../js/pageControl.js" type="text/javascript"></script>
+  <script src="../../js/sylvester.js" type="text/javascript"></script>
+  <script src="../../js/sha1.js" type="text/javascript"></script>
+  <script src="../../js/PrairieDraw.js" type="text/javascript"></script>
+</head>
+
+<body>
+  <div class="container">
+    <div class="header"><h1>TAM 251: Introductory Solid Mechanics</h1></div>
+
+    <div id="nav-placeholder"></div>
+		<script>
+			$(function(){
+				$("#nav-placeholder").load("/nav.html");
+			});
+		</script>
+
+    <div class="mainBlock">
+
+      <div class="contentBlock">
+        <div id="chap1" class="contentCol">
+          <h1>
+            Force/Moment Convention
+          </h1>
+
+          <h3>Positive conventions for internal forces and bending moments</h3>
+          <p>
+            <li>Where $*$ agrees with right-handed coordinate system.</li>
+            <li>Third direction still matters, directions drawn specify the convention</li>
+          </p>
+          <figure align="center">
+            <img src="internalForcesAndMoments.png" width="500px"/>
+          </figure>
+          <h3>Expanded to 2D cuts</h3>
+          <p><li>A positive face is one in which the outward normal aligns with the coordinate axis. A negative face will have the outward normal going against the coordinate axis.</li></p>
+          <figure align="center">
+            <img src="faceSignConvention.PNG" width="500px"/>
+          </figure>
+
+          <h3>Expanded to 3D cuts</h3>
+          <figure align="center">
+            <img src="faceSignConvention3D.PNG" width="500px"/>
+          </figure>
+
+          <p>Selection of coordinate axes "x-y-z" is completely arbitrary. This sign convention is true for any right-handed coordinate system "1-2-3"</p>
+          <figure align="center">
+            <img src="faceSignConvention3D_arb.PNG" width="500px"/>
+          </figure>
+
+        </div>
+      </div>
+
+      <div class="contentBlock">
+        <div id="chap2" class="contentCol">
+          <h1>
+            Stress Convention
+          </h1>
+
+          <h3>Positive Sign Convention for Stress</h3>
+          <p>A 3D-stress element is a representation of the state of stress composed of six stress components: $\sigma_x, \sigma_y, \sigma_z, \tau_{xy}, \tau_{yz}, \rm\ and \ \tau_{zx}$. The positive face of each plane is shown in this diagram.</p>
+
+          <p><strong>Normal Stress:</strong> As with internal forces, a positive normal stress, $\sigma$ points away from the stress element. Tension is positive (pulling apart) and compression is negative (pushing together).</p>
+
+          <p><strong>Shear Stress:</strong> For shear stresses, there are two subscripts. The first subscript denotes the face on which the stress acts and the second is the direction on that face. For example, a positive $\tau_{xy}$ is represented on the $x$-plane, pointing in the direction of the $y$-axis. A shear stress is positive if it acts on a positive face in a positive direction or if it acts on a negative face in a negative direction.</p>
+          <figure align="center">
+            <img src="stressSignConvention.PNG" width="450px"/>
+          </figure>
+
+          <h3>Example: Finding the Infinitesimal Stress Element</h3>
+          <p>In this example, we will use the positive convention for internal loads and moments at a cross-section and use them to determine the existing stresses at each point, $H$ and $K$.</p>
+          <figure align="center">
+            <img src="stressExample.PNG" width="300px"/>
+            <img src="stressExample2D.png" width="275px"/>
+          </figure>
+          <p>We will also assume we have all necessary values for calculating the stresses: $d$, $A$, $Q$, $I$.</p>
+          <div class="envContainer example" id="ptH-example">
+            <p class="envHeader">
+              <strong>Point H</strong>
+            </p>
+            <div class="envBody" style="display: block;">
+              <figure align="center">
+                <img src="pointHpre2D.png" width="350px"/>
+              </figure>
+              <p>\[\tau_{xy}^{H} = \frac{V_y Q}{I d}=0 \ (d=0)\]</p>
+              <p>\[\tau_{xz}^{H} = \frac{M_x\frac{d}{2}}{J} - \frac{V_z Q}{I d} (Q =  \rm\ first \ moment)\]</p>
+              <p>\[\sigma_{x}^{H} = \frac{F_x}{A} - \frac{M_z \frac{d}{2}}{I}\]</p>
+
+              <p><em>Understanding Shear Stress:</em> $V_z$ is considered a positive internal shear force. However, in the superposition equation for $\tau_{xz}$, the stress due to $V_z$ is negative. A positive shear stress $\tau_{xz}$ points in the positive $z$-direction on the positive $x$-face, therefore, the shear stress due to a positive internal shear force $V_z$ is negative.</p>
+              <p>The same logic applies to the sign of the shear stress due to the torsion $T=M_x$. A positive torque would induce a shear pointing in the positive $z$-direction at point $H$.</p>
+
+              <p>Assuming the normal stress $\sigma_x$ and the shear stress $\tau_{xz}$ are positive, this is the 3D stress element: </p>
+              <figure align="center">
+                <img src="pointH3D.png" width="350px"/>
+              </figure>
+              <p> Note that all relevant (non zero) components lie in the x-z plane. Therefore, when representing the stress element for point 𝐻, we use the x-z plane.</p>
+              <figure align="center">
+                <img src="pointH2D.png" width="450px"/>
+              </figure>
+            </div>
+          </div>
+
+          <div class="envContainer example" id="ptK-example">
+            <p class="envHeader">
+              <strong>Point K</strong>
+            </p>
+            <div class="envBody" style="display: block;">
+              <figure align="center">
+                <img src="pointKpre2D.png" width="350px"/>
+              </figure>
+              <p>\[\tau_{zy}^{K} = \frac{V_z Q}{I d}=0 \ (d=0) \]</p>
+              <p>\[\tau_{xy}^{K} = - \frac{M_x\frac{d}{2}}{J} - \frac{V_y Q}{I d} (Q = \rm\ first \ moment)\]</p>
+              <p>\[\sigma_{x}^{K} = \frac{F_x}{A} + \frac{M_y \frac{d}{2}}{I}\]</p>
+
+              <p>Assuming the normal stress $\sigma_x$ is positive and the shear stress $\tau_{xy}$ is negative, this is the 3D stress element: </p>
+              <figure align="center">
+                <img src="pointK3D.png" width="350px"/>
+              </figure>
+              <p> Note that all relevant (non zero) components lie in the x-y plane. Therefore, when representing the stress element for point 𝐻, we use the x-y plane.</p>
+              <figure align="center">
+                <img src="pointK2D.png" width="450px"/>
+              </figure>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="infoCol">
+          <div id="sign-stress" class="infoBox warningBox">
+            <p>There are different conventions for shear forces and shear stresses. See the example for more detail.</p>
+          </div>
+        </div>
+
+      </div>
+
+
+    </div>
+
+  </body>
+  </html>

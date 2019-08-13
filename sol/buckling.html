@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head profile="http://www.w3.org/2005/10/profile">
+  <link rel="icon" type="image/png" href="../../favicon2.png">
+  <meta charset="UTF-8">
+  <title>Buckling</title>
+  <link href="/style.css" type="text/css" rel="stylesheet" />
+  <link href="/icomoon.css" type="text/css" rel="stylesheet" />
+
+  <script type="text/x-mathjax-config">MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});</script>
+  <!-- <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+  <!-- <script type="text/x-mathjax-config;executed=true">MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});</script> -->
+  <script type="text/javascript" async="" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+  <script src="../../js/jquery-1.7.2.min.js" type="text/javascript"></script>
+  <script src="../../js/pageControl.js" type="text/javascript"></script>
+  <script src="../../js/sylvester.js" type="text/javascript"></script>
+  <script src="../../js/sha1.js" type="text/javascript"></script>
+  <script src="../../js/PrairieDraw.js" type="text/javascript"></script>
+</head>
+
+<body>
+  <div class="container">
+    <div class="header"><h1>TAM 251: Introductory Solid Mechanics</h1></div>
+
+    <div id="nav-placeholder"></div>
+		<script>
+			$(function(){
+				$("#nav-placeholder").load("/nav.html");
+			});
+		</script>
+
+    <div class="mainBlock">
+      <p style="text-align:left;">Previous Page: <a href="../unit7/deflection.html" id="navSched">Deflection of Beams</a></p>
+
+      <div class="contentBlock">
+        <div id="buckling-beams" class="contentCol">
+          <h1>Buckling of Beams</h1>
+
+          <p>
+            <li>Above a critical compressive axial load, a beam undergoes sudden strong deflection from straight shape (it buckles)</li>
+            <li>This is an instability (the straight shape is still a valid mechanical state, but becomes unstable to small perturbations)</li>
+            <li>The failure is elastic, i.e., upon release of the force the beam can go back to being straight</li>
+            <li>However, after buckling further deformation and plastic failure (yielding) or brittle failure (fracture) may happen easily (post-buckling failure)</li>
+          </p>
+
+
+          <h3>Stability of Structures</h3>
+          <p align="center"><img src="buckling.PNG" width="300px"></img></p>
+          <p>COLUMNS: member AB of length L supporting compressive loading
+            <li>The load P is a centric axial load</li>
+            <li>Properly designed column - cross section is selected such that </li>
+
+            <div class="envContainer equation" id="sigma-axial">
+              \[\sigma = \frac{P}{A} \le \sigma_{all}\]
+              \[\delta = \frac{PL}{EA} \le \delta_{spec}\]
+            </div>
+            <li>As the applied load increases, the column might buckle (instead of remaining straight, the column becomes strongly curved). -->	INSTABILITY CAUSING FAILURE!</li>
+          </p>
+
+
+          <p align="center"><img src="buckling1.PNG" width="400px"></img></p>
+          <p>
+            <li>Consider model with two rigid rods and one torsional spring</li>
+            <li>Both rods and load P are perfectly aligned --> system stays in position of EQUILIBRIUM</li>
+            <li>Point C moves slightly to the right (small perturbation)…</li>
+            <ul>
+              <li>… and returns to original position – STABLE SYSTEM</li>
+              <li>… and then moves further away from that position – UNSTABLE SYSTEM</li>
+            </ul>
+          </p>
+
+          <p align="center"><img src="buckling2.PNG" width="200px"></img></p>
+          <p>
+            <li>The spring restoring moment tends to bring the rod back to its original position \[M = K(2\Delta\theta) = \text{restoring moment}\]</li>
+            <li>The moment resultant from the applied load P tends to move the rod away from the vertical position \[M_{load} = P\frac{L}{2}\sin\Delta\theta = P\frac{L}{2}\Delta\theta = \text{destabilizing moment}\]</li>
+            <li>Stable system: $M > M_{load}$</li>
+            <li>Unstable system: $M < M_{load}$</li>
+
+            <li>Equilibrium position gives: $M = M_{load}$</li>
+
+            <div class="envContainer equation" id="sigma-axial">
+              \[K(2\Delta\theta) = P_{cr}\frac{L}{2}\Delta\theta\]
+              \[P_{cr} = \frac{4K}{L}\]
+            </div>
+          </p>
+
+          <h3>Euler’s formula for Pinned-end Columns</h3>
+          <p align="center"><img src="eulers.PNG" width="250px"></img></p>
+          <p>
+            <li>Equilibrium gives $M = -Py$</li>
+            <li>After a small perturbation, the system reaches an equilibrium configuration such that:</li>
+            <div class="envContainer equation" id="tau-axial">
+              \[EIy'' = M = -Py\]
+              \[y'' + \frac{P}{EI}y = 0\] Linear, homogeneous differential equation of second order with constant coefficients
+              \[y'' + p^2y = 0\]
+            </div>
+            <li>The general solution is $y(x) = A\sin(px) + B\cos(px)$</li>
+            <li>With boundary conditions $y(0) = y(L) = 0$</li>
+          </p>
+
+          <div class="envContainer equation" id="sigma-axial">
+            <p><strong>Eulers Formula:</strong> \[P_{cr} = \frac{\pi^2EI}{L^2}\]</p>
+            <p>Buckling occurs: $P > P_{cr}$</p>
+          </div>
+          <figure align="center">
+            <img src="eulers2.PNG" width="600px" />
+          </figure>
+
+        </div>
+      </div>
+
+      <div class="contentBlock">
+        <p style="text-align:left;">Previous Page: <a href="../unit7/deflection.html" id="navSched">Deflection of Beams</a></p>
+      </div>
+
+    </div>
+  </div>
+
+</body>
+</html>

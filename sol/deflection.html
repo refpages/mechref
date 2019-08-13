@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head profile="http://www.w3.org/2005/10/profile">
+  <link rel="icon" type="image/png" href="../../favicon2.png">
+  <meta charset="UTF-8">
+  <title>Deflection</title>
+  <link href="/style.css" type="text/css" rel="stylesheet" />
+  <link href="/icomoon.css" type="text/css" rel="stylesheet" />
+
+  <script type="text/x-mathjax-config">MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});</script>
+  <!-- <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+  <!-- <script type="text/x-mathjax-config;executed=true">MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});</script> -->
+  <script type="text/javascript" async="" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+  <script src="../../js/jquery-1.7.2.min.js" type="text/javascript"></script>
+  <script src="../../js/pageControl.js" type="text/javascript"></script>
+  <script src="../../js/sylvester.js" type="text/javascript"></script>
+  <script src="../../js/sha1.js" type="text/javascript"></script>
+  <script src="../../js/PrairieDraw.js" type="text/javascript"></script>
+</head>
+
+<body>
+  <div class="container">
+    <div class="header"><h1>TAM 251: Introductory Solid Mechanics</h1></div>
+
+    <div id="nav-placeholder"></div>
+		<script>
+			$(function(){
+				$("#nav-placeholder").load("/nav.html");
+			});
+		</script>
+
+    <div class="mainBlock">
+      <p style="text-align:left;">Previous Page: <a href="../unit6/transformation.html" id="navSched">Stress Transformation</a>
+        <span style="float:right;">Next Page: <a href="../unit8/buckling.html" id="navSched">Buckling</a></span></p>
+
+        <div class="contentBlock">
+          <div id="deflection-beams" class="contentCol">
+            <h1> Deflection of Beams</h1>
+
+            <p><strong>Goal:</strong> Determine the deflection and slope at specified points of beams and shafts</p>
+            <p><strong>Solve statically indeterminate beams:</strong> where the number of reactions at the supports exceeds the number of equilibrium equations available.</p>
+            <p><strong>Maximum deflection of the beam:</strong> Design specifications of a beam will generally include a maximum allowable value for its deflection</p>
+
+            <p><strong>Elastic Curve of Beam:</strong></p>
+            <figure align="center">
+              <img src="elasticCurve1.png" width="500px"/>
+            </figure>
+
+            <p>Assume bending only: we will neglect effects of transverse shear</p>
+
+            <div class="envContainer equation" id="sigma-axial">
+              <p>Moment-curvature equation: $M(x) = \frac{E(x)I(x)}{\rho(x)}$ \[\kappa = \frac{1}{\rho} = \frac{M(x)}{EI}\]</p>
+              <figure align="center">
+                <img src="momentCurvature1.png" width="600px"/>
+              </figure>
+              <p>Governing equation of the elastic curve \[\frac{d^2y}{dx^2} = \frac{M(x)}{EI}\]</p>
+            </div>
+
+            <p><strong>Sign Conventions:</strong></p>
+            <figure align="center">
+              <img src="signConvention1.png" width="500px"/>
+            </figure>
+
+            <p><strong>Boundary Conditions:</strong></p>
+            <figure align="center">
+              <img style="padding:0; float:left" src="boundaryCondition001.png" width="400px"/>
+              <p>\[\begin{align}
+                \theta &\ne 0 \\
+                y &= 0 \\
+                M &= 0 \\
+                V &= R
+                \end{align}\]
+              </p>
+            </figure>
+            <figure align="center">
+              <p><img style="padding:0; float:left" src="boundaryCondition002.png" width="400px"></p>
+              <p>\[\begin{align}
+                \theta &\ne 0 \\
+                y &= 0 \\
+                M &\ne 0 \\
+                \Delta V &= R
+                \end{align}\]
+              </p>
+            </figure>
+            <figure align="center">
+              <img style="padding:0; float:left" src="boundaryCondition003.png" width="250px"></p>
+              <p>\[\begin{matrix}
+                \begin{align}
+                \rm\ Fixed &\rm\ End: & \rm\ Free &\rm\ End: \\
+                \theta &= 0 & \theta &\ne 0 \\
+                y &= 0 & y &\ne 0 \\
+                M &\ne 0 & M &= 0 \\
+                V &\ne 0 & V &= 0
+                \end{align}
+                \end{matrix}\]
+              </p>
+            </figure>
+            <figure align="center">
+              <p><img style="padding:0 50px; float:left" src="boundaryCondition004.png" width="300px"></p>
+              <p>\[\begin{align}
+                \theta &\ne 0 \\
+                y &\ne 0 \\
+                M &= 0 \\
+                V &\ne 0
+                \end{align}\]
+              </p>
+            </figure>
+
+            <h3>Integration Methods:</h3>
+            <p> Elastic curve equation for constant E and I: $EIy'' = M(x)$</p>
+            <p>Differentiating both sides gives: $EIy''' = \frac{dM(x)}{dx} = V(x)$</p>
+            <p>Differentiating again: $EIy'''' = \frac{dV(x)}{dx} = w(x)$</p>
+
+            <div class="envContainer equation" id="sigma-axial">
+              <p>In summary, we have:
+                \[\begin{align}
+                V(x) &= \int w(x) dx \\
+                M(x) &= \int V(x)dx \\
+                \frac{dy}{dx} &= \int \frac{1}{EI}M(x)dx \\
+                y(x) &= \int y'(x) dx
+                \end{align}\]
+              </p>
+              <p>Where:</p>
+              <p>$y(x):$ deflection</p>
+              <p>$y'(x):$ slope</p>
+              <p>$EIy''(x):$ bending moment</p>
+              <p>$EIy'''(x):$ shear force</p>
+              <p>$EIy''''(x):$ distributed load</p>
+            </p>
+          </div>
+
+          <p>Example 1: Overhanging beam</p>
+          <p align="center"><img src="example1.png" width="400px"></img></p>
+          <p>Example 2: Cantilever beam</p>
+          <p align="center"><img src="example2.png" width="400px"></img></p>
+
+          <h3>Superposition Principle:</h3>
+          <figure align="center">
+            <img src="superPosition1.png" width="800px"/>
+          </figure>
+
+
+        </div>
+      </div>
+
+
+    </div>
+
+      <div class="contentBlock">
+        <p style="text-align:left;">Previous Page: <a href="../unit6/transformation.html" id="navSched">Stress Transformation</a>
+          <span style="float:right;">Next Page: <a href="../unit8/buckling.html" id="navSched">Buckling</a></span>
+        </p>
+      </div>
+
+  </div>
+</body>
+</html>

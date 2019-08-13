@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+<head profile="http://www.w3.org/2005/10/profile">
+	<link href="../../favicon2.png" rel="icon" type="image/png" />
+  <meta charset="UTF-8">
+  <title>Material</title>
+  <link href="/style.css" type="text/css" rel="stylesheet" />
+  <link href="/icomoon.css" type="text/css" rel="stylesheet" />
+
+  <script type="text/x-mathjax-config">MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});</script>
+  <!-- <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+  <!-- <script type="text/x-mathjax-config;executed=true">MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});</script> -->
+  <script type="text/javascript" async="" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+  <script src="../../js/jquery-1.7.2.min.js" type="text/javascript"></script>
+  <script src="../../js/pageControl.js" type="text/javascript"></script>
+  <script src="../../js/sylvester.js" type="text/javascript"></script>
+  <script src="../../js/sha1.js" type="text/javascript"></script>
+  <script src="../../js/PrairieDraw.js" type="text/javascript"></script>
+</head>
+
+<body>
+  <div class="container">
+    <div class="header"><h1>TAM 251: Introductory Solid Mechanics</h1></div>
+        
+    <div id="nav-placeholder"></div>
+		<script>
+			$(function(){
+				$("#nav-placeholder").load("/nav.html");
+			});
+		</script>
+
+    <div class="mainBlock">
+      <p style="text-align:left;">Previous Page: <a href="../unit1/strain.html" id="navSched">Strain</a>
+        <span style="float:right;">Next Page: <a href="../unit2/axial.html" id="navSched">Axial Loading</a></span></p>
+
+        <div class="contentBlock">
+          <table border="0" cellpadding="0" cellspacing="0" style="width:600px">
+            <thead>
+              <tr>
+                <th scope="col">
+                  <p><u>Material Properties</a></p>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><a href="#Stress-Strain">Stress-Strain Diagram</a></td>
+              </tr>
+              <tr>
+                <td><a href="#MatProp">Material Properties</a>
+                <ul>
+                  <li><a href="#Poisson">Poisson's Ratio</a></li>
+                  <li><a href="#Hookes">Hooke's Law for Shear Stress and Strain</a></li>
+                  <li><a href="#StrainEnergy">Strain Energy</a></li>
+                  <li><a href="#Fatigue">Fatigue - Repeated Loadings</a></li>
+                </ul></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+
+        <div class="contentBlock">
+          <div id="stressStrainDiag" class="contentCol">
+            <h1><a id="UnitsStrain" name="Stress-Strain">Stress-Strain Diagram</a></h1>
+
+            <p>A stress-strain diagram is the relationship of normal stress as a function of normal strain. One way to collect these measurement is a uniaxial tension test in which a specimen at a very slow, constant rate (quasi-static). A load $P$ and distance $L$ are measured at frequent intervals.</p>
+            <div class="envContainer equation" id="sigma-axial">
+              <p class="envHeader">Evaluation of average normal strain, or engineering strain (relative to undeformed length):</p>
+              <div class="envBody">
+                <p>
+                  \[\epsilon = \frac{\delta}{L_0} = \frac{L-L_0}{L_0}\]
+                </p>
+              </div>
+              <p> Evaluation of average normal stress, or engineering stress (relative to underformed cross section)</p>
+              <div class="envBody">
+                <p>
+                  \[\sigma = \frac{P}{A_0}\]
+                </p>
+              </div>
+              <p>Note that two stress-strain diagrams for a particular material will be similar, but not identical, e.g. because of imperfections, different composition, rate or loading, or temperature.</p>
+            </div>
+
+            <p align="center">
+              <img src="stressStrainDiagram.png" width="600px"></img>
+            </p>
+            <h3>1. Elastic Behavior</h3>
+            <p>For $\sigma \le \sigma_{pl}$ (proportional limit): linear Hooke's law $\sigma = E\varepsilon$ with Young's modulus $E$ deformation is linear and elastic. For $\sigma_{pl} < \sigma < \sigma_Y$ (below yield stress): deformation is nonlinear and elastic.</p>
+            <div class="envContainer equation" id="youngs-modulus">
+              <p class="envHeader">Typical values: </p>
+              <div class="envBody">
+                <table class="schedule">
+                  <tbody>
+                    <tr>
+                      <th>Material</th>
+                      <th>Young's Modulus [GPa]</th>
+                    </tr>
+                    <tr>
+                      <td>Mild Steel</td>
+                      <td>210</td>
+                    </tr>
+                    <tr>
+                      <td>Copper</td>
+                      <td>120</td>
+                    </tr>
+                    <tr>
+                      <td>Bone</td>
+                      <td>18</td>
+                    </tr>
+                    <tr>
+                      <td>Plastic</td>
+                      <td>2</td>
+                    </tr>
+                    <tr>
+                      <td>Rubber</td>
+                      <td>0.02</td>
+                    </tr>
+                  </table>
+                </div>
+              </div>
+
+              <h3>2. Yielding</h3>
+              <p>Perfect plastic or ideal plastic: well-defined $\sigma_Y$, stress plateau up to failure. Some materials (e.g. mild steel) have two yield points (stress plateau at $\sigma_{YL}$). Most ductile metals do not have a stress plateau; yield strength $\sigma_{YS}$ is then defined by the offset method.</p>
+
+              <h3>3. Strain Hardening</h3>
+              <p align="center">
+                <img src="strainHardening.png" width="650px">
+              </p>
+              <p><em>Atoms rearrange</em> in plastic region, higher stress is sustained. Plastic strain remains after unloading as <em>permanent set</em>. Reloading is linear elastic up to the new, <em>higher yield stress</em> (at $A'$).</p>
+
+              <h3>4. Failure</h3>
+              <p align="center">
+                <img src="failureTypes.png" width="400px"></img>
+              </p>
+              <p>
+                <li>Brittle materials: small plastic region between yield and failure (fracture), no necking, primary fail by normal stress.</li>
+                <li>Ductile materials: large region of plastic deformation before failure (fracture) at higher strain, necking; often fails under 45° cone angles by shear stress.</li>
+              </p>
+              <p>Note the difference between engineering and true stress/strain diagrams: ultimate stress is a consequence of necking, the true maximum is the true fracture stress.</p>
+
+              <h2>Examples</h2>
+              <p>Concrete (brittle material)
+                <li>Maximum compressive strength is substantially larger than the maximum tensile strength</li>
+                <li>For this reason, concrete is almost always reinforced with steel bars or rods whenever it is designed to support tensile loads</li>
+              </p>
+              <p>Isotropic vs. anisotropic materials
+                <li>Isotropic: material properties are independent of the direction</li>
+                <li>Anisotropic: material properties depend on the direction</li>
+              </p>
+
+            </div>
+          </div>
+
+          <div class="contentBlock">
+            <div id="matProp" class="contentCol">
+              <h1><a id="MatProp" name="MatProp">Material Properties</a></h1>
+
+              <h3><a id="Poisson" name="Poisson">Poisson's Ratio</a></h3>
+              <p align="center">
+                <img src="poissonDeformation.png" width="650px"></img>
+              </p>
+              <div class="envContainer equation" id="sigma-axial">
+                <p class="envHeader">Axial (normal) strain: </p>
+                <div class="envBody">
+                  <p>
+                    \[\epsilon_{x} = \frac{\delta}{L}\]
+                  </p>
+                </div>
+                <p class="envHeader">Poisson's ratio [$\nu$]: </p>
+                <div class="envBody">
+                  <p>
+                    \[\nu = -\frac{lateral strain}{axial strain}\]    where    \[0 < \nu < 0.5\]
+                  </p>
+                </div>
+                <p class="envHeader">Laterial strain: </p>
+                <div class="envBody">
+                  <p>
+                    \[\epsilon_{z} = \epsilon_{y} = -nu\epsilon_{x}\]
+                  </p>
+                </div>
+              </div>
+
+              <h4>Negative Poisson's Ratio (auxetics)</h4>
+              <p>Possible because of non-trivial structure of the material.</p>
+
+
+              <h3><a id="Hookes" name="Hookes">Hooke's Law for Shear Stress and Strain</a></h3>
+              <p align="center">
+                <img src="hookesShear.png" width="500px"></img>
+              </p>
+              <p>Only two of the three material constants are independent in isotropic materials.</p>
+              <div class="envContainer equation" id="sigma-axial">
+                <p class="envHeader">Hooke's law: </p>
+                <div class="envBody">
+                  <p>\[\tau_{xy} = G\gamma_{xy}\]</p>
+                </div>
+                <p class="envHeader">Shear Modulus: </p>
+                <div class="envBody">
+                  <p>\[G = \frac{E}{2(1+\nu)}\]</p>
+                </div>
+              </div>
+
+              <h3><a id="StrainEnergy" name="StrainEnergy">Strain Energy</a></h3>
+              <div class="envContainer equation" id="sigma-axial">
+                <p class="envHeader">Deformation does work on the material: equal to internal strain energy (by energy conservation).</p>
+                <div class="envBody">
+                  <p>\[\Delta U = \int F_{z}dz = \int \sigma_{z}(\Delta x \Delta y \Delta z)d\epsilon_{z}\]</p>
+                </div>
+                <p class="envHeader">Energy Density: </p>
+                <div class="envBody">
+                  <p>\[u = \frac{\Delta U}{\Delta V} = \int \sigma_{z}d\epsilon_{z}\]</p>
+                </div>
+                <p class="envHeader">Can be generalized to any deformation: areas under stress strain curves</p>
+                <div class="envBody">
+                  <p>\[u = \int \sigma d\epsilon\] or \[u = \int \tau d\gamma\]</p>
+                </div>
+              </div>
+              <p align="center">
+                <img src="strainEnergyPlots.png" width="650px"></img>
+              </p>
+
+              <h3><a id="Fatigue" name="Fatigue">Fatigue - Repeated Loadings</a></h3>
+              <p>If stress does not exceed the elastic limit, the specimen returns to its original configuration. However, this is not the case if the loading is repeated thousands or millions of times. In such cases, rupture will happen at stress lower than the fracture stress - this phenomenon is known as fatigue</p>
+
+            </div>
+          </div>
+
+
+          <div class="contentBlock">
+
+            <p style="text-align:left;">Previous Page: <a href="../unit1/strain.html" id="navSched">Strain</a>
+              <span style="float:right;">Next Page: <a href="../unit2/axial.html" id="navSched">Axial Loading</a></span></p>
+
+            </div>
+
+
+          </div>
+
+        </body>
+        </html>

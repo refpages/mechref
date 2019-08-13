@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head profile="http://www.w3.org/2005/10/profile">
+  <link rel="icon" type="image/png" href="../../favicon2.png">
+  <meta charset="UTF-8">
+  <title>Pressure Vessels</title>
+  <link href="/style.css" type="text/css" rel="stylesheet" />
+  <link href="/icomoon.css" type="text/css" rel="stylesheet" />
+
+  <script type="text/x-mathjax-config">MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});</script>
+  <!-- <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+  <!-- <script type="text/x-mathjax-config;executed=true">MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});</script> -->
+  <script type="text/javascript" async="" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+  <script src="../../js/jquery-1.7.2.min.js" type="text/javascript"></script>
+  <script src="../../js/pageControl.js" type="text/javascript"></script>
+  <script src="../../js/sylvester.js" type="text/javascript"></script>
+  <script src="../../js/sha1.js" type="text/javascript"></script>
+  <script src="../../js/PrairieDraw.js" type="text/javascript"></script>
+</head>
+
+<body>
+  <div class="container">
+    <div class="header"><h1>TAM 251: Introductory Solid Mechanics</h1></div>
+
+    <div id="nav-placeholder"></div>
+		<script>
+			$(function(){
+				$("#nav-placeholder").load("/nav.html");
+			});
+		</script>
+
+    <div class="mainBlock">
+      <p style="text-align:left;">Previous Page: <a href="../unit5/transverse.html" id="navSched">Transverse</a>
+        <span style="float:right;">Next Page: <a href="../unit6/combined.html" id="navSched">Combined Loading</a></span></p>
+
+
+        <div class="contentBlock">
+          <table border="0" cellpadding="0" cellspacing="0" style="width:600px">
+            <thead>
+              <tr>
+                <th scope="col">
+                  <p><u><a href="#pressureVessels">Pressure Vessels</a></u></p>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><a href="#ThinWall">Thin-Walled Pressure Vessels</a></td>
+              </tr>
+              <tr>
+                <td><a href="#cylindricalVessels">Cylindrical Vessels</a></td>
+              </tr>
+              <tr>
+                <td><a href="#sphericalVessels">Spherical Vessels</a></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+
+
+        <div class="contentBlock">
+          <div id="pressureVessels" class="contentCol">
+            <h1>Pressure Vessels</h1>
+
+            <h3><a id="ThinWall" >Thin-walled pressure vessels</a></h3>
+            <ul>
+              <li>Inner radius: r </li>
+              <li>Wall thickness: t</li>
+              <li>Thin walls: $t/r << 1$</li>
+              <li>Assume that stress distribution through the thin wall is uniform</li>
+              <li>Pressure vessel contains fluid under pressure p (understood to be gauge pressure, i.e., $p = \Delta p = p_i - p_o$) </li>
+            </ul>
+            <!-- <img src="vesselTypes.png" width="600px" class="img-responsive center-block" /> -->
+
+
+            <h3><a id="cylindricalVessels" >Cylindrical Vessels</a></h3>
+            <p> Cylindrical pressure vessels are an axisymmetric problem, there is no shear stress on an element parallel to the axis of the cylinder. Therefore, the only normal stresses are in the directions of axis and circumference.
+              <figure align="center">
+                <img src="cylindrical_vessel.jpg" width="500px" class="img-responsive center-block"/>
+                <figcaption>Cylindrical pressure vessel behind Transportation Building.</figcaption>
+              </figure>
+              <!-- <img src="cylindrical1.png" width="600px" class="img-responsive center-block" /> -->
+              <figure align="center">
+                <img src="cylindrical_pressure.png" width="600px"/>
+              </figure>
+              <div class="envContainer equation" id="cyl-pressure-hoop">
+                <p><strong>Hoop Stress</strong> (circumferential stress): \[\sigma_1 = \sigma_h = \frac{pr}{t}\]</p>
+              </div>
+              <div class="envContainer derivation" id="cyl-pressure-hoop-d">
+                <div class="envBody" style="display:block;">
+                  <figure align="center">
+                    <img src="cylindrical_hoop1.png" width="500px"/>
+                  </figure>
+                  <p> \[\sum F_z: \sigma_h (2t \Delta x) - p(2r \Delta x)=0\]</p>
+                  <p>\[\therefore \sigma_h = \frac{pr}{t}\]</p>
+                </div>
+              </div>
+
+              <div class="envContainer equation" id="syl-pressure-axial">
+                <p><strong>Axial Stress</strong> (longitudinal stress): \[\sigma_2 = \sigma_a = \frac{pr}{2t}\]</p>
+              </div>
+              <div class="envContainer derivation" id="cyl-pressure-axial-d">
+                <div class="envBody" style="display:block;">
+                  <figure align="center">
+                    <img src="cylindrical_axial1.png" width="550px"/>
+                  </figure>
+                  <p>The force of the fluid in the longitudinal direction will be the internal pressure, $p$, times the area of the fluid within the vessel, $\pi r^2$. Similarly, the force within the vessel wall in the longitudinal direction will be the stress, $\sigma_a$, times the area of the wall. We assume we can unravel the thin wall of the pressure vessel, simplifying the area of the thin wall as the circumference, $2\pi r$, multiplied by the thickness, $t$.
+                    \[\sum F: \sigma_a (2\pi r t) - p(\pi r^2)=0\]</p>
+                    <p>\[\therefore \sigma_a = \frac{pr}{2t}\]</p>
+                    <p><em>Note:</em> A more accurate derivation of the longitudinal stress may be calculated with the true area of the pressure vessel $(A_{wall} = \pi(r+t)^2 - \pi r^2 = \pi 2rt + \pi t^2)$, leading to an axial stress of: $\sigma_a = \frac{pr^2}{2rt + t^2}$. The approximation used in this course is only sufficient when $\frac{r}{t} \ge 10$. </p>
+                  </div>
+                </div>
+
+                <!-- <img src="cylindrical2.png" width="400px" class="img-responsive center-block" /> -->
+                <p><strong>Radial Stress:</strong></p>
+                <figure align="center">
+                  <img src="cylindrical_radial.PNG" width="450px" class="img-responsive center-block" />
+                </figure>
+                <li>Inner Surface: $\sigma_r = -p$</li>
+                <li>Outer Surface: $\sigma_r = 0$</li>
+
+                <div class="envContainer equation" id="sigma-axial">
+                  <p>Because $t/r << 1$: \[\sigma_h,\sigma_a >> \sigma_r\] so in general we can <em>neglect $\sigma_r$</em></p>
+                </div>
+
+
+                <h3><a id="sphericalVessels" >Spherical Vessels</a></h3>
+                <figure align="center">
+                  <img src="spherical1.PNG" width="500px"/>
+                </figure>
+                <div class="envContainer equation" id="sigma-axial">
+                  <p>Due to symmetry: \[\sigma_1 = \sigma_2 = \frac{pr}{2t}\]</p>
+                </div>
+
+              </div>
+            </div>
+
+
+
+            <div class="contentBlock">
+              <p style="text-align:left;">Previous Page: <a href="../unit5/transverse.html" id="navSched">Transverse</a>
+                <span style="float:right;">Next Page: <a href="../unit6/combined.html" id="navSched">Combined Loading</a></span>
+              </p>
+            </div>
+
+
+          </div>
+        </div>
+      </body>
+      </html>
