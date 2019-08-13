@@ -1,7 +1,7 @@
 ---
 deployment:
  tasks:
- - export DEPLOYPATH=/home/user/public_html/
+ - export DEPLOYPATH=/home/solidmechanics/public_html/
  - /bin/cp index.html $DEPLOYPATH
  - /bin/cp nav.html $DEPLOYPATH
  - /bin/cp info.css $DEPLOYPATH
