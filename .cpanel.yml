@@ -2,10 +2,13 @@
 deployment:
  tasks:
  - export DEPLOYPATH=/home/solidmechanics/public_html/
+ - /bin/cp favicon2.png $DEPLOYPATH
  - /bin/cp index.html $DEPLOYPATH
  - /bin/cp nav.html $DEPLOYPATH
  - /bin/cp info.css $DEPLOYPATH
+ - /bin/cp icomoon.css $DEPLOYPATH
  - /bin/cp style.css $DEPLOYPATH
  - /bin/cp -R sta $DEPLOYPATH
  - /bin/cp -R dyn $DEPLOYPATH
  - /bin/cp -R sol $DEPLOYPATH
+ - /bin/cp -R pol $DEPLOYPATH
