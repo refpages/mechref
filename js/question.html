@@ -1,0 +1,38 @@
+<p>
+A built up beam's cross section is shown below. There are 2 glue joints marked
+in red. The centroid of the cross section is located at 
+$\bar y={{params.ybarMM}} \rm\ mm$ from the bottom surface, thus the neutral axis is
+represented by the $z$-axis shown.  The moment of inertia with respect to the
+neutral axis is $I_z = {{params.Iz}} \times 10^6 \rm\  mm^4$.  
+A shear force $V_y={{params.VkN}} \rm\ kN$ is applied to the cross section. 
+</p>
+
+<p>
+<canvas id="figure1" class="img-responsive center-block" width="900" height="400"></canvas>
+</p>	
+	
+<p>
+Consider the following quantities: 
+</p>
+
+<p>
+$a={{params.amm}} \rm\ mm$, $b={{params.bmm}} \rm\ mm$ and $t={{params.tmm}} \rm\ mm$.
+</p>
+
+<pre>
+Matlab input:
+a = {{params.amm}}; % mm
+b = {{params.bmm}}; % mm
+t = {{params.tmm}}; % mm
+ybar = {{params.ybarMM}}; % mm
+Iz = {{params.Iz}}*10^6; % mm^4
+Vy = {{params.VkN}}; % kN
+</pre>
+
+<p>
+What is the shear stress in the glue?
+</p>
+
+<p>
+$\tau =$ <input data-instavalue="submittedAnswer.tau" /> $\rm\ MPa$
+</p>

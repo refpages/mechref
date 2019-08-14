@@ -1,0 +1,14 @@
+{
+    "uuid": "a5160f06-df20-4971-a7e0-acb277a1a4a6",
+    "title": "Built Up Cross Section With Glue: Shear Stress",
+    "topic": "Transverse Shear",
+    "clientFiles": ["client.js", "question.html", "answer.html", "submission.html"],
+    "type": "Calculation",
+    "tags": [
+        "TAM251",
+		"Fa17",
+		"cpetrsn2",
+		"secret",
+		"calculate"
+    ]
+}
