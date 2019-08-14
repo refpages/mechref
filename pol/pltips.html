@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head profile="http://www.w3.org/2005/10/profile">
+	<link href="TAM2xx.png" rel="icon" type="image/png" /><meta charset="UTF-8">
+	<title>PL Tips</title>
+	<link href="../style.css" rel="stylesheet" type="text/css" />
+	<link href="../icomoon.css" rel="stylesheet" type="text/css" />
+
+	<script type="text/x-mathjax-config">MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});</script>
+	<!-- The MathJAX below doesn't work...not sure why but it is not loading equations in line... -->
+	<!-- <script type="text/x-mathjax-config;executed=true">MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});</script> -->
+	<!-- <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+
+	<script type="text/javascript" async="" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+	<script src="js/jquery-1.7.2.min.js" type="text/javascript"></script>
+	<script src="js/pageControl.js" type="text/javascript"></script>
+	<script src="js/sylvester.js" type="text/javascript"></script>
+	<script src="js/sha1.js" type="text/javascript"></script>
+	<script src="js/PrairieDraw.js" type="text/javascript"></script>
+	<script type="text/javascript">
+
+	var _gaq = _gaq || [];
+	_gaq.push(['_setAccount', 'UA-37625161-1']);
+	_gaq.push(['_trackPageview']);
+
+	(function() {
+		var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	})();
+
+</script>
+</head>
+<body>
+	<div class="container">
+		<div class="header">
+			<h1>TAM 2XX</h1>
+		</div>
+
+		<div id="nav-placeholder"></div>
+		<script>
+			$(function(){
+				$("#nav-placeholder").load("/nav.html");
+			});
+		</script>
+
+		<div class="mainBlock">
+			<div class="mainPage">
+				<div class="mainContent">
+
+					<div class="contentBlock">
+						<h2>PrairieLearn Tips:</h2>
+
+						<ul>
+
+							<li><strong>No Fractions:</strong> Do not use fractions as your input answer. Instead use decimal numbers (e.g. <font face="courier new">2/3</font> is not accepted as a correct answer, however <font face="courier new">0.667</font> is).</li>
+							<li><strong>Don't copy negative numbers:</strong> The Linux MATE calculator app uses a non-standard character for the minus sign that PrairieLearn does not recognize. Copying directly from the calculator to PrairieLearn will cause your answer to be graded as incorrect, even if it looks correct to you. To avoid this, do not copy negative numbers from the calculator app. This problem does not affect MATLAB or Mathematica, and you can copy from these programs without issue.</li>
+							<li><strong>Error tolerance is 1%:</strong> Your answer must be accurate to within a relative tolerance of 0.01.
+								<ul>
+									<li>
+										<p><strong>MATLAB Note:</strong> By default, MATLAB displays five digits of any stored variable -- NOT five significant digits (this is &quot;<font face="courier new">format short</font>&quot;). If that variable is a small number (as strain values commonly are), this can lead to fewer than three significant digits being displayed.</p>
+
+										<p>For example, you may (correctly) compute a strain value of <font face="courier new">x = 1.17*10^(-3)</font> using symbolic expressions. If you ask MATLAB to print <font face="courier new">x</font>, it will return <font face="courier new">x = 0.0012</font> (exactly five digits, and two significant digits). However, PrairieLearn will mark the answer <font face="courier new">0.0012</font> incorrect, as the difference between these two values is about 2.5% (that is, <font face="courier new">(1.2-1.17)/1.17 = 0.0256)</font> and exceeds PL&#39;s tolerance for correct answers.</p>
+
+										<p>Note that MATLAB has not rounded the actual stored value; only the displayed value. You can ask MATLAB to always print the full stored value by entering the command &quot;<strong><font face="courier new">format long</font></strong>&quot; before computing. MATLAB will then print <font face="courier new">0.00117</font>, to full precision. Be careful, as this setting reverts to &quot;<font face="courier new">format short</font>&quot; when you close Matlab!</p>
+									</li>
+								</ul>
+							</li>
+
+							<li><strong>Parenthesis: </strong>You should be obsessive about making sure your equations are typed correctly.
+								<ul>
+									<li> Example: <em>Powers -</em> the entire base is wrapped in parenthesis as well as the power (i.e. <font face="courier new">3*2^1/3</font> vs. <font face="courier new">(3*2)^(1/3)</font>).</li>
+									<li>Example: <em>Division -</em> the numerator and denominator are both individually wrapped in parenthesis (i.e. <font face="courier new">1/2*3</font> vs. <font face="courier new">1/(2*3)</font>).</li>
+									<li>Your code should look like you don't trust the built-in order of operations. <em>Be obsessive</em>.</li>
+								</ul>
+							</li>
+
+							<li><strong>Units: </strong>It is your responsibility to check the units in your problem.
+								<ul>
+									<li>You should know the base units (i.e. $\rm\ MPa = \frac{\rm N}{\rm mm^2}$, $\rm\ ksi = \frac{\rm kips}{\rm in^2}$, etc.) and how to convert given units (i.e. $\rm\ MPa = 10^6 \ Pa$, $12 \ \text{in} = 1 \ \text{ft}$, etc.). This is another thing that you should be very careful about. When doing a problem, it is good to write out the units as a separate equation to make sure that it makes sense. For example:
+										\[
+										\begin{align}
+										\delta &= \frac{FL}{EA} \\
+										[\rm mm] &= \frac{[\rm kN][\rm mm]}{[\rm MPa][\rm mm^2]} \\
+										[\rm mm] &= \frac{[\rm kN][\rm mm]}{[\frac{\rm N}{\rm mm^2}][\rm mm^2]} = \frac{[10^3 \rm N][\rm mm^3]}{[\rm N][\rm mm^2]} \\
+										\therefore [\rm mm] &= [\rm mm]
+										\end{align}
+										\]
+										<em>Note:</em> The $10^3$ conversion would need to be applied to the force for the final equation to be true.
+									</li>
+									<li>If everything is given in $\rm\ N$ and $\rm\ m$, but the answers ask for $\rm\ kN$ and $\rm\ mm$, then it is your responsibility to convert the answer. <em>Be obsessive</em> about checking these things before submitting your answer.</li>
+								</ul>
+							</li>
+
+						</ul>
+					</div>
+
+					<div class="contentBlock">
+						<h2>Reviewing for CBTF Quizzes:</h2>
+						<p>Review for quizzes with the relevant homework assignment. The course website tells you which homeworks are relevant and explicitly states the topics covered in each quiz. The quiz problems are similar to those found on the homework.</p>
+
+						<p>Doing the homework, it’s important to make sure that you fully understand as completely as possible the solution you reach for each question. When reviewing your homework problems, you should make sure that you can do the problem on paper, type it into your calculator of choice (MATLAB, Mathematica, Python, etc.), and get the correct answer on the first try. It’s easy to overlook some key concepts in the course by “brute forcing” signs and units in the homework (see above). If you find you are consistently getting answers off by factors of 10, or making a sign error, it can be easy to correct and overlook while doing the homework, but be very costly during the quiz.</p>
+
+						<p>If you are arriving at the correct answer on your first try for each of the homework questions, then the next step would be to consider potential modifications to the questions. How would the procedure for solving the problem change if you were given different information? What information was absolutely necessary to solve the problem? Do you understand why you were able to make all of the assumptions you did?</p>
+
+						<p>Using a script is strongly recommended as is can help you keep track of your work. For MATLAB, there is an example in this introductory document: <a href="https://courses.engr.illinois.edu/tam251/sp2019/references/MATLAB%20Introduction.pdf" target="_blank">Matlab Introduction.</a></p>
+
+						<h3>Course material available during CBTF Quizzes:</h3>
+						<ul>
+							<li><strong>TAM 210/211</strong>: There is no provided formula sheet.</li>
+							<li><strong>TAM 212</strong>: These <a href="http://dynref.engr.illinois.edu/">reference pages</a> are available.</li>
+							<li><strong>TAM 251</strong>: This <a href="https://courses.engr.illinois.edu/tam251/sp2019/references/FormulaSheet.pdf">formula sheet</a> is available.</li>
+						</ul>
+					</div>
+
+					<div class="contentBlock">
+						<h2>Computer Based Testing Facility (CBTF):</h2>
+						<p>If you are not familiar with taking computer based tests at UIUC, we strongly recommend watching this <a href="https://www.youtube.com/watch?v=eGW-NmpsUo0" target="_blank" >video</a> as well as reviewing the <a href="https://cbtf.engr.illinois.edu/for-students/policies.html" target="_blank">policies and procedures</a> on their website.</p>
+						<iframe width="560" height="315" src="https://www.youtube.com/embed/eGW-NmpsUo0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+						<p>If you are not familiar with the Linux OS, you can log-in to a virtual machine using your NetID and password to login at the following URL: <a href="https://fastx.ews.illinois.edu" target="_blank">https://fastx.ews.illinois.edu</a></p>
+
+						<h3>Important CBTF Policies:</h3>
+						<ul>
+							<li>If you have any problem during the exam, raise your hand. A proctor will come and help you. Remember that proctors cannot answer questions specific to your test. Use your best judgement.</li>
+							<li>If you missed an exam for whatever reason, you can go see a proctor at the CBTF in person. They will help you sign up for another exam.</li>
+						</ul>
+
+						<h3>Computation at CBTF:</h3>
+						<ul>
+							<li>Personal calculators are not allowed in the CBTF. You can use <a href="https://cbtf.engr.illinois.edu/for-students/calculator.html" target="_blank">calculator</a> supplied by the CBTF, or the <a href="https://cbtf.engr.illinois.edu/for-students/software-calc.html" target="_blank">MATE Calculator</a> installed on the computer.</li>
+							<li>Common computational tools available on CBTF computers are MATLAB, Mathematica, and Python. We encourage you to learn one of these languages as they will be useful in future courses.</li>
+							<li>Degrees vs. Radians: Make sure that you know how the computational tool you are using calculates cos and sin. If you want to check this, you can calculate a quantity like <strong><font face="courier new">cos(90)</font></strong> which should equal <strong><font face="courier new">0</font></strong>.</li>
+						</ul>
+
+						<p>If you have any questions about CBTF Policies and Procedures, please refer to the <a href="https://cbtf.engr.illinois.edu/for-students/faq.html" targer="_blank">FAQ</a>. If this does not answer your question, post to Piazza.</p>
+					</div>
+
+
+
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
