@@ -9,6 +9,7 @@ deployment:
  - /bin/cp icomoon.css $DEPLOYPATH
  - /bin/cp style.css $DEPLOYPATH
  - /bin/cp -R js $DEPLOYPATH
+ - /bin/cp -R MathJax-master $DEPLOYPATH
  - /bin/cp -R sta $DEPLOYPATH
  - /bin/cp -R dyn $DEPLOYPATH
  - /bin/cp -R sol $DEPLOYPATH
