@@ -1,14 +1,17 @@
 <!DOCTYPE html>
 <html>
+
 <head profile="http://www.w3.org/2005/10/profile">
 	<link rel="icon" type="image/png" href="../favicon2.png">
 	<meta charset="UTF-8">
 	<title>SIIP</title>
 	<link href="../style.css" type="text/css" rel="stylesheet" />
 	<link href="../icomoon.css" type="text/css" rel="stylesheet" />
-	
-	<script type="text/x-mathjax-config">MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});</script>
-	<script type="text/javascript" async="" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+	<script
+		type="text/x-mathjax-config">MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});</script>
+	<script type="text/javascript" async=""
+		src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
 	<script src="../js/jquery-1.7.2.min.js" type="text/javascript"></script>
 	<script src="../js/pageControl.js" type="text/javascript"></script>
 	<script src="../js/sylvester.js" type="text/javascript"></script>
@@ -17,75 +20,337 @@
 </head>
 
 <body>
-<div class="container">
-<div class="header"><h1>TAM 2XX</h1></div>
+	<div class="container">
+		<div class="header">
+			<h1>TAM 2XX</h1>
+		</div>
 
-<div id="nav-placeholder"></div>
+		<div id="nav-placeholder"></div>
 		<script>
-			$(function(){
+			$(function () {
 				$("#nav-placeholder").load("../nav.html");
 			});
 		</script>
 
-<div class="mainBlock">
-<div class="contentBlock">
-<div class="contentCol">
-<p>Details specific to course content can be found on the respective info pages: <a href="https://courses.engr.illinois.edu/tam210/info.html">TAM 210/211</a>, <a href="https://courses.engr.illinois.edu/tam212/info.html">TAM 212</a>, <a href="https://courses.engr.illinois.edu/tam251/info.html">TAM 251</a>.</p>
+		<div class="mainBlock">
+			<div class="contentBlock">
+				<div class="contentCol">
+					<p>Details specific to course content can be found on the respective info pages: <a
+							href="https://courses.engr.illinois.edu/tam210/info.html">TAM 210/211</a>, <a
+							href="https://courses.engr.illinois.edu/tam212/info.html">TAM 212</a>, <a
+							href="https://courses.engr.illinois.edu/tam251/info.html">TAM 251</a>.</p>
 
-<p>Below are the course policies for the TAM 2XX courses. Please read through them and familiarize yourself with the policies regarding course logistics.</p>
+					<p>Below are the course policies for the TAM 2XX courses. Please read through them and familiarize
+						yourself with the policies regarding course logistics.</p>
 
-<p><a href="#Academic integrity">Academic integrity, harassment, and discrimination</a><br />
-<a href="#CBTF">Computer-Based Testing Facility</a><br />
-<a href="#Contact">Contact and obtaining help</a><br />
-<a href="#Gradebook">Gradebook</a><br />
-<a href="#Lectures">Lectures</a><br />
-<a href="#Special accommodations">Special accommodations</a></p>
+					<p><a href="#Academic integrity">Academic integrity, harassment, and discrimination</a><br />
+						<a href="#CBTF">Computer-Based Testing Facility</a><br />
+						<a href="#Contact">Contact and obtaining help</a><br />
+						&nbsp;<a href="#Piazza">Piazza</a><br />
+						<a href="#Gradebook">Gradebook</a><br />
+						<a href="#FinalGrades">Final Grading</a><br />
+						<a href="#Lectures">Lectures</a><br />
+						&nbsp;<a href="#iClickers">iClickers</a><br />
+						<a href="#Quiz">Quiz</a><br />
+						<a href="#Discussion">Discussion</a><br />
+						<a href="#Homework">Online Homework</a><br />
+						<a href="#Special accommodations">Special accommodations</a></p>
 
-<h3><strong><a id="Academic integrity" name="Academic integrity">Academic integrity, harassment, and discrimination</a>:</strong></h3>
+					<h3><strong><a id="Academic integrity" name="Academic integrity">Academic integrity, harassment, and
+								discrimination</a>:</strong></h3>
 
-<p>Academic integrity infractions, harassment, and discrimination of any kind will not be tolerated. See the University&#39;s <a href="http://www.admin.illinois.edu/policy/code/">Student Code</a>, <a href="http://www.admin.illinois.edu/policy/code/article1_part4_1-401.html">Article 1, Part 4</a> and the <a href="http://oeoa.illinois.edu/campusconduct.html">Campus Conduct Policy</a>. Please report any concerns immediately to your professor.</p>
+					<p>Academic integrity infractions, harassment, and discrimination of any kind will not be tolerated.
+						See the University&#39;s <a href="http://www.admin.illinois.edu/policy/code/">Student Code</a>,
+						<a href="http://www.admin.illinois.edu/policy/code/article1_part4_1-401.html">Article 1, Part
+							4</a> and the <a href="http://oeoa.illinois.edu/campusconduct.html">Campus Conduct
+							Policy</a>. Please report any concerns immediately to your professor.</p>
 
-<p>Academic integrity infractions <strong>will be dealt with using the most stringent available counter-measures.</strong> All infractions are documented through the campus-wide FAIR database, that remains part of the student&#39;s permanent record. All infractions in this database will be referred to the <a href="http://www.conflictresolution.illinois.edu/student_discipline/"><strong>Senate Committee on Student Discipline</strong></a> for review and potential additional sanctions. Typical pentalties in TAM 2XX courses for academic infractions include dropping one course letter grade. Students have been expelled from the university for cheating.</p>
+					<p>Academic integrity infractions <strong>will be dealt with using the most stringent available
+							counter-measures.</strong> All infractions are documented through the campus-wide FAIR
+						database, that remains part of the student&#39;s permanent record. All infractions in this
+						database will be referred to the <a
+							href="http://www.conflictresolution.illinois.edu/student_discipline/"><strong>Senate
+								Committee on Student Discipline</strong></a> for review and potential additional
+						sanctions. Typical pentalties in TAM 2XX courses for academic infractions include dropping one
+						course letter grade. Students have been expelled from the university for cheating.</p>
 
-<p>Infractions include, but are not limited to, cheating, plagiarism, and assisting others in a manner not prescribed or allowed for in the original assignment or directions. Notably, for homework assignments, students are encouraged and allowed to work together. The philosophy is that homeworks are <em>formative</em> assessments, meaning they are intended to foster learning. This is in contrast to <em>summative</em> assessments, including quizzes and exams, that measure individual student mastery of course concepts, for which students are of course forbidden from assisting each other.</p>
+					<p>Infractions include, but are not limited to, cheating, plagiarism, and assisting others in a
+						manner not prescribed or allowed for in the original assignment or directions. Notably, for
+						homework assignments, students are encouraged and allowed to work together. The philosophy is
+						that homeworks are <em>formative</em> assessments, meaning they are intended to foster learning.
+						This is in contrast to <em>summative</em> assessments, including quizzes and exams, that measure
+						individual student mastery of course concepts, for which students are of course forbidden from
+						assisting each other.</p>
 
-<p>Computer-based testing deserves special mention. This testing is typically given across multiple days. <strong>During the entire time period of testing, students are strictly forbidden from discussing any aspect of the test/quiz whatsoever with other students.</strong> This includes specifics of questions, general aspects of questions, comments on the difficulty of the quiz, etc. This policy is strictly enforced to preserve the integrity of the computer-based testing.</p>
-
-
-<h3><a id="CBTF" name=""><strong>Computer-Based Testing Facility:</strong></a></h3>
-
-<p>This course uses the College of Engineering Computer-Based Testing Facility (CBTF) for its quizzes and exams: <a href="https://cbtf.engr.illinois.edu/"> https://cbtf.engr.illinois.edu</a>.</p>
-
-<p>The policies of the CBTF are the policies of this course, and academic integrity infractions related to the CBTF are infractions in this course.</p>
-
-<p>If you have accommodations identified by the Division of Rehabilitation-Education Services (DRES) for exams, please take your Letter of Accomodation (LOA) to the CBTF proctors in person before you make your first exam reservation. The proctors will advise you as to whether the CBTF provides your accommodations or whether you will need to make other arrangements with your instructor.</p>
-
-<p>Any problem with testing in the CBTF <strong>must</strong> be reported to CBTF staff at the time the problem occurs. If you do not inform a proctor of a problem during the test then you <strong>forfeit</strong> all rights to redress.</p>
-
-
-<h3><a id="Contact" name="Contact"><strong>Contact and obtaining help:</strong></a></h3>
-
-<p>The two main ways to obtain help are online at Piazza, or in person at the Grainger office hours. You can also speak with your professor briefly after lecture. Please do not send email directly to CAs, TAs or professors for routine help or absences. &nbsp;</p>
-
-
-<h3><strong><a id="Gradebook" name="Gradebook">Gradebook</a>:</strong></h3>
-
-<p>All assessment scores are stored on Compass2g. Note that we are only using this website for grade reporting. All other class-related information will be posted only to the official class website or Piazza. Any errors in grade reporting appearing on Compass2g must be reported to &quot;Instructors&quot; via Piazza within 2 weeks of the due date of the assessment item or by the last day of class, whichever is earlier.</p>
-
-
-<h3><a id="Lectures" name="Lectures"><strong>Lectures:</strong></a></h3>
-
-<p>Prompt and regular attendance at lectures is essential for your comprehension and success in the course.</p>
+					<p>Computer-based testing deserves special mention. This testing is typically given across multiple
+						days. <strong>During the entire time period of testing, students are strictly forbidden from
+							discussing any aspect of the test/quiz whatsoever with other students.</strong> This
+						includes specifics of questions, general aspects of questions, comments on the difficulty of the
+						quiz, etc. This policy is strictly enforced to preserve the integrity of the computer-based
+						testing.</p>
 
 
-<h3><strong><a id="Special accommodations" name="Special accommodations"> Special accommodations</a>:</strong></h3>
+					<h3><a id="CBTF" name=""><strong>Computer-Based Testing Facility:</strong></a></h3>
 
-<p>To obtain disability-related academic adjustments or accommodations, students with disabilities must contact their professor and <a href="http://disability.illinois.edu/">Disability Resources and Educational Services (DRES)</a> as soon as possible. Students who require special accommodations for exams should schedule to take their exam at DRES, and DRES staff will communicate with the professor to organize the exam. There is no need to inform the professor about this in advance.</p>
-</div>
-</div>
-</div>
+					<p>This course uses the College of Engineering Computer-Based Testing Facility (CBTF) for its
+						quizzes and exams: <a href="https://cbtf.engr.illinois.edu/">
+							https://cbtf.engr.illinois.edu</a>.</p>
 
-<div class="footer"><!--   <p class="copyright">Copyright (C) 2012-2013 Matthew West</p> --></div>
-</div>
+					<p>The policies of the CBTF are the policies of this course, and academic integrity infractions
+						related to the CBTF are infractions in this course.</p>
+
+					<p>If you have accommodations identified by the Division of Rehabilitation-Education Services (DRES)
+						for exams, please take your Letter of Accomodation (LOA) to the CBTF proctors in person before
+						you make your first exam reservation. The proctors will advise you as to whether the CBTF
+						provides your accommodations or whether you will need to make other arrangements with your
+						instructor.</p>
+
+					<p>Any problem with testing in the CBTF <strong>must</strong> be reported to CBTF staff at the time
+						the problem occurs. If you do not inform a proctor of a problem during the test then you
+						<strong>forfeit</strong> all rights to redress.</p>
+
+
+					<h3><a id="Contact" name="Contact"><strong>Contact and obtaining help:</strong></a></h3>
+
+					<p>The two main ways to obtain help are online at Piazza, or in person at the Grainger office hours.
+						You can also speak with your professor briefly after lecture. Please do not send email directly
+						to CAs, TAs or professors for routine help or absences. &nbsp;</p>
+
+					<p><strong><a id="Piazza" name="Piazza">Online forum (Piazza)</a>:</strong></p>
+
+					<p>This class uses <a href="https://piazza.com/illinois/spring2019/tam251">Piazza</a> for ALL
+						communications between the instructor, TAs, CAs, and students. Students should not communicate
+						with instructors via email. This is so we can ensure a faster response and keep everyone
+						informed about what&#39;s going on.</p>
+
+					<p>Students are encouraged to post public messages on Piazza (&quot;Post to Entire Class&quot;). If
+						you like, you can post anonymously, but we encourage everyone to use their name because it makes
+						a friendlier and more welcoming environment. We will never judge anyone for asking anything on
+						Piazza, and you will see professors, TAs, and CAs making mistakes and saying stupid things as
+						well!</p>
+
+					<p>You can use the private feature on Piazza by posting a message visible only to the Instructors.
+						In this, you must type &quot;Instructors&quot;, instead of sending a message to a specific TA or
+						instructor. Again, this helps to ensure that you get a prompt response.</p>
+
+
+					<h3><strong><a id="Gradebook" name="Gradebook">Gradebook</a>:</strong></h3>
+
+					<p>All assessment scores are stored on Compass2g. Note that we are only using this website for grade
+						reporting. All other class-related information will be posted only to the official class website
+						or Piazza. Any errors in grade reporting appearing on Compass2g must be reported to
+						&quot;Instructors&quot; via Piazza within 2 weeks of the due date of the assessment item or by
+						the last day of class, whichever is earlier.</p>
+
+					<h3><strong:><a id="FinalGrades" name="FinalGrades">Final grades</a>:</strong></h3>
+
+					<p>The total score&nbsp;<em>s</em>&nbsp;corresponds to final grades as follows.</p>
+
+					<table style="margin-left:auto; margin-right:auto">
+						<tbody>
+							<tr>
+								<td style="padding-left: 10px;">97% &le;&nbsp;<em>s</em>&nbsp;&lt; 100%</td>
+								<td style="padding-left: 10px;">A+</td>
+								<td class="leftSpace" style="padding-left: 50px;">93% &le;&nbsp;<em>s</em>&nbsp;&lt;
+									97%&nbsp;</td>
+								<td style="padding-left: 10px;">A</td>
+								<td class="leftSpace" style="padding-left: 50px;">90% &le;&nbsp;<em>s</em>&nbsp;&lt;
+									93%&nbsp;</td>
+								<td style="padding-left: 10px;">A-</td>
+							</tr>
+							<tr>
+								<td style="padding-left: 10px;">87% &le;&nbsp;<em>s</em>&nbsp;&lt; 90%</td>
+								<td style="padding-left: 10px;">B+</td>
+								<td class="leftSpace" style="padding-left: 50px;">83% &le;&nbsp;<em>s</em>&nbsp;&lt;
+									87%&nbsp;</td>
+								<td style="padding-left: 10px;">B</td>
+								<td class="leftSpace" style="padding-left: 50px;">80% &le;&nbsp;<em>s</em>&nbsp;&lt;
+									83%&nbsp;</td>
+								<td style="padding-left: 10px;">B-</td>
+							</tr>
+							<tr>
+								<td style="padding-left: 10px;">77% &le;&nbsp;<em>s</em>&nbsp;&lt; 80%</td>
+								<td style="padding-left: 10px;">C+</td>
+								<td class="leftSpace" style="padding-left: 50px;">73% &le;&nbsp;<em>s</em>&nbsp;&lt;
+									77%&nbsp;</td>
+								<td style="padding-left: 10px;">C</td>
+								<td class="leftSpace" style="padding-left: 50px;">70% &le;&nbsp;<em>s</em>&nbsp;&lt;
+									73%&nbsp;</td>
+								<td style="padding-left: 10px;">C-</td>
+							</tr>
+							<tr>
+								<td style="padding-left: 10px;">67% &le;&nbsp;<em>s</em>&nbsp;&lt; 70%</td>
+								<td style="padding-left: 10px;">D+</td>
+								<td class="leftSpace" style="padding-left: 50px;">60% &le;&nbsp;<em>s</em>&nbsp;&lt;
+									67%&nbsp;</td>
+								<td style="padding-left: 10px;">D</td>
+								<td class="leftSpace" style="padding-left: 50px;">55% &le;&nbsp;<em>s</em>&nbsp;&lt;
+									60%&nbsp;</td>
+								<td style="padding-left: 10px;">D-</td>
+							</tr>
+							<tr>
+								<td
+									style="padding-left: 10px; font-family: NoticiaTextRegular, Arial, sans-serif; font-size: 14px;">
+									<em>s</em>&nbsp;&lt; 55%</td>
+								<td
+									style="padding-left: 10px; font-family: NoticiaTextRegular, Arial, sans-serif; font-size: 14px;">
+									F&nbsp;</td>
+							</tr>
+						</tbody>
+					</table>
+
+
+					<h3><a id="Lectures" name="Lectures"><strong>Lectures:</strong></a></h3>
+
+					<p>Prompt and regular attendance at lectures is essential for your comprehension and success in the
+						course.</p>
+
+					<h3><strong><a id="iClickers" name="iClickers">iClickers</a>:</strong></h3>
+
+					<p>Short quizzes are conducted during lectures using iClickers (75% participation, 25% correctness).
+						An iClicker remote can be purchased from any of the bookstores, and must be registered on
+						Compass, under the tab &quot;Register i&gt;clicker&quot;. <strong>You need to register your
+							iClicker by the end of Week 2, when the iClicker roster will be synced for the last
+							time.</strong> The first iClicker use for credit will take place in Week 2 of the semester.
+						Your lowest three scores will be dropped. These drop should be reserved for unexpected
+						occurrences such as sickness or a family emergency.</p>
+
+					<h3><strong><a id="Quiz" name="Quiz"></a></strong><strong>Computer-based quizzes:</strong></h3>
+
+					<p>You will have 6&nbsp;total online quizzes using the PrairieLearn system. You<strong> will not be
+							allowed </strong> to use notes, textbooks or electronic devices such as laptops or cell
+						phones. Solutions will not be posted. All quizzes will be held in the Computer-Based Testing
+						Facility (CBTF). Make sure to check the <a href="https://cbtf.engr.illinois.edu/"> CBTF</a>
+						website to get information about the facility and what you need to do to sign-up for your quiz.
+						Each quiz grade is determined from the following formula: <strong>max([First Try, 1/3*(First
+							Try) + 2/3*(Quiz Retry)]).</strong></p>
+
+					<p>If you have an excused absence for the quiz, then you will take the assessment at a later date,
+						or make other arrangements at the discretion of the instructor.</p>
+
+					<p><strong><a id="Quiz review policy" name="Quiz review policy" style="background-size: 16px;">Quiz
+								review policy</a></strong></p>
+
+					<p>TAM 251 offers Quiz review sessions for some of the weekly quizzes. You must sign up for a review
+						slot through the CBTF scheduler page.&nbsp;You will have the opportunity to sit at a CBTF
+						computer and review your entire quiz from the previous week,&nbsp;as well as your scanned
+						scratch paper from the quiz (if you turned it in after you finished your quiz). TAs will be
+						available to help analyze your quiz with you if you wish. <strong>TAM 251 does not offer
+							regrades of quizzes during this session.</strong></p>
+
+					<p><u>Please note:</u> Quiz review gives you the opportunity to see your specific quiz instance,
+						with the specific numbers for your question, and review it with the TA. If you visit TA or
+						Professor office hours, we are always happy discuss&nbsp;a question you saw on the quiz as you
+						remember it, and you may take all the notes you wish at this time, and keep them&nbsp;- but
+						review of specific quiz instances can only be accommodated during the quiz review sesion.</p>
+
+
+					<h3><strong><a id="Discussion" name="Discussion">Discussion sections</a>:</strong></h3>
+
+					<p>Discussion sections start in Week 1 of semester, with the schedule below. Prompt and regular
+						attendance at your discussion section is required. You <strong>must</strong> attend only the
+						discussion section in which you are enrolled. You will not receive a grade for the worksheet if
+						you attend the wrong discussion section.</p>
+
+					<p>Most discussion sessions will consist of a group worksheet exercise, which is a high-energy and
+						efficient 50-minute learning experience. Students will be placed in permanent groups of three to
+						four people during the third week of classes. <strong>If you are more than 5 minutes late to a
+							discussion session then you will not receive credit for the section.</strong> All members of
+						the group should be working together as a team. The TAs and CAs will be evaluating team work,
+						problem-solution skills and interpretation of the problem.</p>
+
+					<p>There are two main goals for the discussion worksheets:</p>
+
+					<ol>
+						<li><strong>Gain experience in team-work.</strong> This is a critical skill in all areas of
+							engineering, from large-scale industrial projects to academic research. Working productively
+							in teams is a skill that must be learned just like math or physics, and regular practice is
+							essential. Often you will have to work with people who you do not especially like, or who
+							you find it difficult to work with. It is important to lean how to manage these situations
+							so that the important work is still accomplished.</li>
+						<li><strong>Apply engineering concepts to real-world problems.</strong> Each worksheet focuses
+							on a real-world problem that you will have to use your engineering skills to solve. This
+							will include using the material from class, but also knowledge from previous engineering,
+							math, and science classes. You will also have to think like an engineer, and understand when
+							to make approximations, how to judge the appropriateness of different models, and which
+							mathematics and physics is most useful for a given engineering problem.</li>
+					</ol>
+
+					<p>We also hope that these discussion worksheets will help you to meet other engineering students
+						and we encourage you to get together outside of lectures and discussions to work collaboratively
+						on homeworks and exam study.</p>
+
+
+					<h3><strong><a id="Homework" name="Homework">Online homeworks</a>:</strong></h3>
+
+					<p>Weekly online homeworks will be assigned via <a
+							href="https://prairielearn.engr.illinois.edu">PrairieLearn</a>. Each assignment is due at
+						11:59pm on the assigned due date. Due dates are available inside PrairieLearn. These assignments
+						place an emphasis on <strong>mastery</strong>. The idea is to keep doing questions until you
+						master the underlying concept or method. Once you do, you should be able to answer these
+						questions very quickly.</p>
+
+					<p>The way this works in PrairieLearn is that each question has a value, a point total, and a point
+						maximum. If you answer a question correctly, two things happen:</p>
+
+					<ul>
+						<li>The point total increases by the value, until you reach the point maximum.</li>
+						<li>The value increases (2x, 3x, 4x, etc.).</li>
+						<li>The value increases (2x, 3x, 4x, etc.).</li>
+					</ul>
+
+					<p>If you answer a question incorrectly, one thing happens:</p>
+
+					<ul>
+						<li>The value goes back to what it was originally (1x).</li>
+					</ul>
+
+					<p>This system rewards repeated correct answers, which tend to demonstrate mastery. There is no
+						penalty (other than resetting the value) for answering a question incorrectly, so don&#39;t be
+						afraid to submit an answer. Similarly, don&#39;t be afraid to keep doing a question after you
+						reach the point maximum - your point total with never go down!</p>
+
+					<p>If you click on the &quot;?&quot; just to the right of the line about available credit,
+						you&#39;ll see all the dates associated with this homework. In particular, it says:</p>
+
+					<ul>
+						<li>you can receive 100% until Main End Date</li>
+						<li>you can receive 80% until Extended End Date(two days later)</li>
+						<li>you can receive 0%, but can keep doing problems as practice for the rest of the semester.
+						</li>
+					</ul>
+
+					<p>Note that your score will never go down. For example, if you achieve 90% by the Main End Date,
+						you won&#39;t be able to increase your score after that time, but you won&#39;t be penalized for
+						not reaching 100% - your score will remain 90% forever. On the other hand, if you achieve only
+						70% by the Main End Date you will be able to increase your score after that time (to a maximum
+						of 80%) until the Extended End Date.</p>
+
+					<h3><strong><a id="Special accommodations" name="Special accommodations"> Special
+								accommodations</a>:</strong></h3>
+
+					<p>To obtain disability-related academic adjustments or accommodations, students with disabilities
+						must contact their professor and <a href="http://disability.illinois.edu/">Disability Resources
+							and Educational Services (DRES)</a> as soon as possible. Students who require special
+						accommodations for exams should schedule to take their exam at DRES, and DRES staff will
+						communicate with the professor to organize the exam. There is no need to inform the professor
+						about this in advance.</p>
+
+					<p>The use of Piazza should not replace the in-person Office Hours time, since some questions cannot
+						be fully addressed via an online forum.</p>
+
+					<h3><strong><a id="FinalExam" name="FinalExam">Final Exam</a>:</strong></h3>
+
+					<p>The final exam will be held in the CBTF during finals week, and will be cumulative (covering all
+						course material).</p>
+				</div>
+			</div>
+		</div>
+
+		<div class="footer">
+			<!--   <p class="copyright">Copyright (C) 2012-2013 Matthew West</p> -->
+		</div>
+	</div>
 </body>
+
 </html>
