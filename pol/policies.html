@@ -10,13 +10,13 @@
 
 	<script
 		type="text/x-mathjax-config">MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});</script>
-	<script type="text/javascript" async=""
-		src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
-	<script src="../js/jquery-1.7.2.min.js" type="text/javascript"></script>
-	<script src="../js/pageControl.js" type="text/javascript"></script>
+	<script
+		src="../MathJax-master/MathJax.js?config=TeX-AMS-MML_HTMLorMML,local/local"> type = "text/javascript" </script>
+	<script src="../js/jquery-2.1.4.min.js" type="text/javascript"></script>
 	<script src="../js/sylvester.js" type="text/javascript"></script>
 	<script src="../js/sha1.js" type="text/javascript"></script>
 	<script src="../js/PrairieDraw.js" type="text/javascript"></script>
+	<script src="../js/pageControl.js" type="text/javascript"></script>
 </head>
 
 <body>
@@ -36,14 +36,14 @@
 			<div class="contentBlock">
 				<div class="contentCol">
 					<p>Details specific to course content can be found on the respective info pages: <a
-							href="https://courses.engr.illinois.edu/tam210/info.html">TAM 210/211</a>, <a
-							href="https://courses.engr.illinois.edu/tam212/info.html">TAM 212</a>, <a
-							href="https://courses.engr.illinois.edu/tam251/info.html">TAM 251</a>.</p>
+							href="https://courses.engr.illinois.edu/tam210">TAM 210/211</a>, <a
+							href="https://courses.engr.illinois.edu/tam212">TAM 212</a>, <a
+							href="https://courses.engr.illinois.edu/tam251">TAM 251</a>.</p>
 
 					<p>Below are the course policies for the TAM 2XX courses. Please read through them and familiarize
 						yourself with the policies regarding course logistics.</p>
 
-					<p><a href="#Academic integrity">Academic integrity, harassment, and discrimination</a><br />
+					<!-- <p><a href="#Academic integrity">Academic integrity, harassment, and discrimination</a><br />
 						<a href="#CBTF">Computer-Based Testing Facility</a><br />
 						<a href="#Contact">Contact and obtaining help</a><br />
 						&nbsp;<a href="#Piazza">Piazza</a><br />
@@ -54,7 +54,38 @@
 						<a href="#Quiz">Quiz</a><br />
 						<a href="#Discussion">Discussion</a><br />
 						<a href="#Homework">Online Homework</a><br />
-						<a href="#Special accommodations">Special accommodations</a></p>
+						<a href="#Special accommodations">Special accommodations</a>
+					</p> -->
+
+					<h3><strong><a id="Absences" name="Absences">Absences</a>:</strong></h3>
+
+					<ol>
+						<li>Excuses from assessments will only be given in the following circumstances:
+							<ol type="a">
+								<li>Illness.</li>
+								<li>Personal crisis (e.g., car accident, required court appearance, death of a close
+									relative).</li>
+								<li>Required attendance at an official UIUC activity (e.g., varsity athletics, band
+									concert).</li>
+							</ol>
+						</li>
+						<li>In all cases you must complete the <a
+								href="https://docs.google.com/forms/d/e/1FAIpQLSfxUDQgfAbqyG-ax6Hmw2HsGFafBR-EXMjrNQD1AgH445z-bA/viewform?usp=sf_link">Excused
+								Absence Request Form</a> and upload a scan of the official written documentation
+							explaining your absence.</li>
+						<li>In cases (a) or (b) an official excuse letter from the <a
+								href="http://odos.illinois.edu/community-of-care/student-assistance-center/">Dean on
+								Duty</a> must be submitted via the online form within 2&nbsp;weeks of the due date of
+							the missed assessment, but no later than reading day. In cases of extended or unusual
+							illness, late submission of excuse documentation will be considered.</li>
+						<li>In case (c) an official letter from the designated university official must be submitted via
+							the online form at least one week prior to the due date of the missed assessment.</li>
+						<li>Notwithstanding the above, at your professor&#39;s discretion you may be required to make up
+							any excused work or attend substitute instruction or assessment.</li>
+					</ol>
+
+					<p>&nbsp;</p>
+
 
 					<h3><strong><a id="Academic integrity" name="Academic integrity">Academic integrity, harassment, and
 								discrimination</a>:</strong></h3>
@@ -118,7 +149,7 @@
 
 					<p><strong><a id="Piazza" name="Piazza">Online forum (Piazza)</a>:</strong></p>
 
-					<p>This class uses <a href="https://piazza.com/illinois/spring2019/tam251">Piazza</a> for ALL
+					<p>This class uses <a href="https://piazza.com/illinois">Piazza</a> for ALL
 						communications between the instructor, TAs, CAs, and students. Students should not communicate
 						with instructors via email. This is so we can ensure a faster response and keep everyone
 						informed about what&#39;s going on.</p>
@@ -142,7 +173,9 @@
 						&quot;Instructors&quot; via Piazza within 2 weeks of the due date of the assessment item or by
 						the last day of class, whichever is earlier.</p>
 
-					<h3><strong:><a id="FinalGrades" name="FinalGrades">Final grades</a>:</strong></h3>
+					<h3>
+						<strong:><a id="FinalGrades" name="FinalGrades">Final grades</a>:</strong>
+					</h3>
 
 					<p>The total score&nbsp;<em>s</em>&nbsp;corresponds to final grades as follows.</p>
 
@@ -181,17 +214,17 @@
 							<tr>
 								<td style="padding-left: 10px;">67% &le;&nbsp;<em>s</em>&nbsp;&lt; 70%</td>
 								<td style="padding-left: 10px;">D+</td>
-								<td class="leftSpace" style="padding-left: 50px;">60% &le;&nbsp;<em>s</em>&nbsp;&lt;
+								<td class="leftSpace" style="padding-left: 50px;">63% &le;&nbsp;<em>s</em>&nbsp;&lt;
 									67%&nbsp;</td>
 								<td style="padding-left: 10px;">D</td>
-								<td class="leftSpace" style="padding-left: 50px;">55% &le;&nbsp;<em>s</em>&nbsp;&lt;
-									60%&nbsp;</td>
+								<td class="leftSpace" style="padding-left: 50px;">60% &le;&nbsp;<em>s</em>&nbsp;&lt;
+									63%&nbsp;</td>
 								<td style="padding-left: 10px;">D-</td>
 							</tr>
 							<tr>
 								<td
 									style="padding-left: 10px; font-family: NoticiaTextRegular, Arial, sans-serif; font-size: 14px;">
-									<em>s</em>&nbsp;&lt; 55%</td>
+									<em>s</em>&nbsp;&lt; 60%</td>
 								<td
 									style="padding-left: 10px; font-family: NoticiaTextRegular, Arial, sans-serif; font-size: 14px;">
 									F&nbsp;</td>
@@ -212,12 +245,12 @@
 						Compass, under the tab &quot;Register i&gt;clicker&quot;. <strong>You need to register your
 							iClicker by the end of Week 2, when the iClicker roster will be synced for the last
 							time.</strong> The first iClicker use for credit will take place in Week 2 of the semester.
-						Your lowest three scores will be dropped. These drop should be reserved for unexpected
+						Your lowest six scores will be dropped. These drops should be reserved for unexpected
 						occurrences such as sickness or a family emergency.</p>
 
 					<h3><strong><a id="Quiz" name="Quiz"></a></strong><strong>Computer-based quizzes:</strong></h3>
 
-					<p>You will have 6&nbsp;total online quizzes using the PrairieLearn system. You<strong> will not be
+					<p>You will have online quizzes using the PrairieLearn system. You<strong> will not be
 							allowed </strong> to use notes, textbooks or electronic devices such as laptops or cell
 						phones. Solutions will not be posted. All quizzes will be held in the Computer-Based Testing
 						Facility (CBTF). Make sure to check the <a href="https://cbtf.engr.illinois.edu/"> CBTF</a>
@@ -228,21 +261,20 @@
 					<p>If you have an excused absence for the quiz, then you will take the assessment at a later date,
 						or make other arrangements at the discretion of the instructor.</p>
 
-					<p><strong><a id="Quiz review policy" name="Quiz review policy" style="background-size: 16px;">Quiz
+					<!-- <p><strong><a id="Quiz review policy" name="Quiz review policy" style="background-size: 16px;">Quiz
 								review policy</a></strong></p>
 
-					<p>TAM 251 offers Quiz review sessions for some of the weekly quizzes. You must sign up for a review
+					<p>Quiz review sessions are offered for some of the weekly quizzes. You must sign up for a review
 						slot through the CBTF scheduler page.&nbsp;You will have the opportunity to sit at a CBTF
 						computer and review your entire quiz from the previous week,&nbsp;as well as your scanned
 						scratch paper from the quiz (if you turned it in after you finished your quiz). TAs will be
-						available to help analyze your quiz with you if you wish. <strong>TAM 251 does not offer
-							regrades of quizzes during this session.</strong></p>
+						available to help analyze your quiz with you if you wish.
 
 					<p><u>Please note:</u> Quiz review gives you the opportunity to see your specific quiz instance,
 						with the specific numbers for your question, and review it with the TA. If you visit TA or
 						Professor office hours, we are always happy discuss&nbsp;a question you saw on the quiz as you
 						remember it, and you may take all the notes you wish at this time, and keep them&nbsp;- but
-						review of specific quiz instances can only be accommodated during the quiz review sesion.</p>
+						review of specific quiz instances can only be accommodated during the quiz review sesion.</p> -->
 
 
 					<h3><strong><a id="Discussion" name="Discussion">Discussion sections</a>:</strong></h3>
@@ -325,6 +357,8 @@
 						not reaching 100% - your score will remain 90% forever. On the other hand, if you achieve only
 						70% by the Main End Date you will be able to increase your score after that time (to a maximum
 						of 80%) until the Extended End Date.</p>
+
+
 
 					<h3><strong><a id="Special accommodations" name="Special accommodations"> Special
 								accommodations</a>:</strong></h3>
