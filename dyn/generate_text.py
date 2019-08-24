@@ -7,7 +7,7 @@ TEXT_RE = re.compile("\"TEX:([^\"]+)\"");
 TEXT_DIR = "text"
 
 if len(sys.argv) <= 1:
-    print "Usage: generate_text <filenames>"
+    print("Usage: generate_text <filenames>")
     sys.exit(0);
 
 if not os.path.isdir(TEXT_DIR):
@@ -41,7 +41,7 @@ def unescape(s):
     return "".join(chars)
 
 for filename in sys.argv[1:]:
-    print filename
+    print(filename)
     with open(filename) as file:
         for line in file:
             for matchtext in TEXT_RE.findall(line):
