@@ -21,6 +21,10 @@
 		});
 	</script>
 
+	<style>
+		code {font-size: 1.2em;}
+	</style>
+
 	<title>PL Tips</title>
 </head>
 
@@ -41,8 +45,8 @@
 						<ul>
 
 							<li><strong>No Fractions:</strong> Do not use fractions as your input answer. Instead use
-								decimal numbers (e.g. <font face="courier new">2/3</font> is not accepted as a correct
-								answer, however <font face="courier new">0.667</font> is).</li>
+								decimal numbers (e.g. <code>2/3</code> is not accepted as a correct
+								answer, however <code>0.667</code> is).</li>
 							<li><strong>Don't copy negative numbers:</strong> The Linux MATE calculator app uses a
 								non-standard character for the minus sign that PrairieLearn does not recognize. Copying
 								directly from the calculator to PrairieLearn will cause your answer to be graded as
@@ -54,28 +58,24 @@
 								<ul>
 									<li>
 										<p><strong>MATLAB Note:</strong> By default, MATLAB displays five digits of any
-											stored variable -- NOT five significant digits (this is &quot;<font
-												face="courier new">format short</font>&quot;). If that variable is a
+											stored variable -- NOT five significant digits (this is &quot;<code>format short</code>&quot;). If that variable is a
 											small number (as strain values commonly are), this can lead to fewer than
 											three significant digits being displayed.</p>
 
-										<p>For example, you may (correctly) compute a strain value of <font
-												face="courier new">x = 1.17*10^(-3)</font> using symbolic expressions.
-											If you ask MATLAB to print <font face="courier new">x</font>, it will return
-											<font face="courier new">x = 0.0012</font> (exactly five digits, and two
-											significant digits). However, PrairieLearn will mark the answer <font
-												face="courier new">0.0012</font> incorrect, as the difference between
-											these two values is about 2.5% (that is, <font face="courier new">
-												(1.2-1.17)/1.17 = 0.0256)</font> and exceeds PL&#39;s tolerance for
+										<p>For example, you may (correctly) compute a strain value of <code>x = 1.17*10^(-3)</code> using symbolic expressions.
+											If you ask MATLAB to print <code>x</code>, it will return
+											<code>x = 0.0012</code> (exactly five digits, and two
+											significant digits). However, PrairieLearn will mark the answer <code>0.0012</code> incorrect, as the difference between
+											these two values is about 2.5% (that is, <code>>
+												(1.2-1.17)/1.17 = 0.0256)</code> and exceeds PL&#39;s tolerance for
 											correct answers.</p>
 
 										<p>Note that MATLAB has not rounded the actual stored value; only the displayed
 											value. You can ask MATLAB to always print the full stored value by entering
 											the command &quot;<strong>
-												<font face="courier new">format long</font>
-											</strong>&quot; before computing. MATLAB will then print <font
-												face="courier new">0.00117</font>, to full precision. Be careful, as
-											this setting reverts to &quot;<font face="courier new">format short</font>
+												<code>format long</code>
+											</strong>&quot; before computing. MATLAB will then print <code>0.00117</code>, to full precision. Be careful, as
+											this setting reverts to &quot;<code>format short</code>
 											&quot; when you close Matlab!</p>
 									</li>
 								</ul>
@@ -85,11 +85,9 @@
 								are typed correctly.
 								<ul>
 									<li> Example: <em>Powers -</em> the entire base is wrapped in parenthesis as well as
-										the power (i.e. <font face="courier new">3*2^1/3</font> vs. <font
-											face="courier new">(3*2)^(1/3)</font>).</li>
+										the power (i.e. <code>3*2^1/3</code> vs. <code>(3*2)^(1/3)</code>).</li>
 									<li>Example: <em>Division -</em> the numerator and denominator are both individually
-										wrapped in parenthesis (i.e. <font face="courier new">1/2*3</font> vs. <font
-											face="courier new">1/(2*3)</font>).</li>
+										wrapped in parenthesis (i.e. <code>1/2*3</code> vs. <code>1/(2*3)</code>).</li>
 									<li>Your code should look like you don't trust the built-in order of operations.
 										<em>Be obsessive</em>.</li>
 								</ul>
@@ -190,9 +188,9 @@
 							<li>Degrees vs. Radians: Make sure that you know how the computational tool you are using
 								calculates cos and sin. If you want to check this, you can calculate a quantity like
 								<strong>
-									<font face="courier new">cos(90)</font>
+									<code>cos(90)</code>
 								</strong> which should equal <strong>
-									<font face="courier new">0</font>
+									<code>0</code>
 								</strong>.</li>
 						</ul>
 
