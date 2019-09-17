@@ -20,6 +20,11 @@
 				$("#nav-placeholder").load("../nav.html");
 			});
 		</script>
+
+		<style>
+			code {font-size: 1.3em;}
+			pre {font-size: 1.2em;}
+		</style>
 	</head>
 
 <body>
@@ -32,6 +37,239 @@
 <div class="mainContent">
 
 <p>This page will contain the information from the <a target="_blank" href="/pol/MATLAB Introduction.pdf">Matlab Introduction</a> document</p>
+
+<h3>Accessing MATLAB</h3>
+<p>
+	<ul>
+	<li>MATLAB is available on all <a href="https://it.engineering.illinois.edu/ews">EWS Workstations</a></li>
+	<li>Access it at home using <a href="https://it.engineering.illinois.edu/ews/lab-information/remoteconnections/connecting-citrix">Citrix Reciever</a></li>
+	<li>Purchase through <a href="https://www.mathworks.com/store/link/products/student/new?s_tid=ac_buy_sv_cta">Mathworks</a> - license is valid forever, however, you will need to pay if you want to update to the newest versions
+		<ul>
+			<li>Base cost: $49</li>
+			<li>With Simulink suite: $99</li>
+		</ul>
+	</li>
+	</ul>
+</p>
+
+<h3>MATLAB Interface</h3>
+<p>When you open Matlab you will see the following (note that the windows within Matlab maybe arranged slightly differently)</p>
+<figure align="center">
+	<img src="mat_layout.png" width="600px"></img>
+</figure>
+<p>Calculations can be done either in the "Command window" or the "Editor". The command window is a temporary place to see your commands, the commands themselves are saved in the "Command history", but not the answers. The solution to the calculation is displayed in the "Command Window" and stored in the "Workspace". If you do not assign a variable name to the calculation, the answer is stored in the default variable name <code>ans</code></p>
+
+<h3>The Basics</h3>
+<p>MATLAB is a high-level interpreted language, and uses a “read-evaluate-print” loop: it <em>reads</em> your command, <em>evaluates</em> it, then <em>prints</em> the answer. This means it works a lot like a calculator:
+	<pre>
+	>> 1 + 2 
+	ans =
+	  3
+	</pre>
+Here, it reads the command <code>1+2</code>, evaluated it to <code>3</code> and printed that. It also stores the answer from that in the variable <code>ans</code> so that you can refer to it in the next command if you want.
+	<pre>
+	>> 1.5^2 + 2.5^2
+	ans =
+	  8.5000
+	>> sqrt (ans)
+	ans =
+	  2.9155
+	</pre>
+<em>Be careful:</em> after executing the second line, <code>ans</code> now has a new value. This also shows the syntax for a power ($a^b$ is evaluated using <code>a^b</code>) and square root using the <code>sqrt</code> function. Much of the syntax follows mathematical syntax that you would expect: <code>+, -, *, /, ^, sqrt, etc.</code>
+</p>
+
+
+<h3>Variable Definition and Statement Supression</h3>
+<p>You can create your own variables, and assign them values using <code>=</code>
+	<pre>
+	>> a = 1+2
+	a =
+	  3
+	</pre>
+Once declared, the variable can be used in other statements:
+	<pre>
+	>> b = a - 5
+	b =
+	  -2
+	</pre>
+The result of statements can be hidden (suppressed) from the command window with the <code>;</code> symbol. The result can then be viewed by calling the variable name or by opening the variable from the workspace variables window.
+	<pre>
+	>> c = 1.3^2 - 1;
+	>>
+	</pre>
+</p>
+
+
+<h3>Ketboard Shortcuts</h3>
+<h4>Help</h4>
+<p>If you’re not sure what a command does, type <code>help</code> and then the command name. For example, if you can’t remember if <code>cos</code> uses radians or degrees, then <code>help cos</code> will tell you. You can also search the documentation in the	upper right hand corner.</p>
+<figure align="center">
+		<img src="mat_help.png" width="375px"></img>
+</figure>
+
+<h4>Tab completion</h4>
+<p>If you’re typing a command like <code>cos</code>, when you hit the TAB key, it will give you a list of commands that start with the letters <em>cos.</em></p>
+<figure align="center">
+	<img src="mat_tab.png" width="180px"></img>
+</figure>
+
+<h4>Command history</h4>
+<p>With your cursor in the command window, you can use the up and down arrows to move through previous commands that you have run. You can then press ENTER to rerun that command exactly, or move the cursor left and right in the line and make edits (e.g. if you made a mistake you need to correct). This is useful if you’ve made an error with a variable value and need to reevaluate an expression.</p>
+<figure align="center">
+		<img src="mat_history.png" width="350px"></img>
+</figure>
+
+
+<h3>More Common Functions</h3>
+<p>There are a variety of functions in Matlab, including absolute value, <code>abs</code>, and most trigonometric functions such as: <code>sin, cos, tan</code>. You can also use <code>pi</code> instead of typing out an approximation such as 3.14, but <em>be careful</em>: it can be overwritten, do not use it as a variable.</p>	
+<p>It is also important to note that default trigonometric functions are in radians, adding a </code>d</code> at the end of the expression will ensure it is evaluated in degrees.
+	<pre>
+	>> rad = sin(30)
+	rad =
+	  -0.988031624092862
+	>> deg = sind(30)
+	deg =
+	  0.500000000000000
+	</pre>
+If you want to switch between radians and degrees before you perform evaluations you can use <code>rad2deg</code> or <code>deg2rad</code>. You can also find the inverse of trigonometric functions: <code>asin</code>, <code>acos</code>, and <code>atan</code>. These can be evaluated in degrees in the same way as before.</p>
+<p><em>NOTE: </em>In TAM 212, it may be useful to know the function <code>atan2</code>, use help function to learn more</p>
+
+
+<h3>Vectors and Matrices</h3>
+<p>MATLAB (MATrix LABoratory) is optimized for working with vectors and matrices. The syntax for making vectors and matrices uses square brackets <code>[]</code>. (<em>Note: </em> The syntax is the same because a vector is a 2D matrix.)
+	<pre>
+	>> A = [1 2]
+	A =
+	  1 2
+	>> B = [3,4]
+	B =
+	  3 4
+	>> M = [5 6 ; 7 8]
+	M =
+	  5 6
+	  7 8
+	</pre>
+You can separate entries in a vector using a space or a comma (and can mix and match: <code>[1 2,3]</code>),and you separate the rows in a matrix using a semicolon. You can then access the values inside a vector ($v_i$) or matrix ($M_{ij}$) with parentheses <code>()</code>
+	<pre>
+	>> B(1)
+	ans =
+	  3
+	>> M(1,1)
+	ans =
+	  5
+	</pre>
+The indices follow row-column order, so for the matrix $M_{ij}$, <code>M(i,j)</code> will give you the value in the $i$-th row and the $j$-th column. In MATLAB, indices begin begin at 1 (<em>Note: </em>This is important to remember if you are familiar with other programming languages such as Python, where indexing starts at 0). In addition to accessing entries, you can also assign values.
+	<pre>
+	>> M(2,1) = 10
+	M =
+	  5 6
+	  10 8
+	</pre>
+If you want a row or column vector from a matrix, you use the </code>:</code> operator. For example, <code>M(1,:)</code> gives you the row $M_{1j}$, while <code>M(:,1)</code> gives you the column $M_{i1}$.
+	<pre>
+	>> M(1,:)
+	ans =
+	  5 6
+	>> M(:,1)
+	ans =
+	  5
+	  10
+	</pre>
+To evaluate the dot product of two vectors $\overrightarrow{a} \cdot \overrightarrow{b}$ with <code>dot(a,b)</code> you can get the cross product $\overrightarrow{a} \times \overrightarrow{b}$ with <code>cross(a,b)</code>. You can get the transpose of a vector or matrix with the <code>'</code> operator
+	<pre>
+	>> B'
+	ans =
+	  3
+	  4
+	>> M'
+	ans =
+	  5 10
+	  6 8
+	>> M*B'
+	ans =
+	  39
+	  62
+	</pre>
+Note: the transpose of a row vector (i.e. <code>[1 2]</code>) is a column vector (i.e. <code>[1;2]</code>). To right-multiply a vector times a matrix ($M \cdot \overrightarrow{v}$), the vector needs to be a column vector. You can also use this to take dot-products if you want: if $A$ and $B$ are row vectors, then <code>dot(A,B)</code> is the same as <code>A*B'</code>.</p>
+
+<p>For a matrix, you can access the determinant with <code>det(M)</code> and the trace (sum along the diagonal) with <code>trace(M)</code>
+	<pre>
+	>> det(M)
+	ans =
+	  -20
+	>> trace(M)
+	ans =
+	 13
+	</pre>
+</p>
+
+<h3>Creating a Script</h3>
+<p>Scripting is a valuable tool in MATLAB. Instead of entering each command line-by-line in the command window, a script allows all lines to be saved and run multiple times without having to scroll through the "command history".</p>
+
+<h4>Commenting:</h4>
+<p>If you want to keep track of what you are doing or do not want a line of code to run, you can use the <code>%</code> to comment out a line. This can be done to an entire line, or just a portion of the line:</p>
+<figure align="center">
+		<img src="mat_comments.png" width="350px"></img>
+</figure>
+
+<p>Two <code>%%</code> symbols indicates a section header. This is useful for separating and organizing your code. These sections can also be run individually by pressing the “Run Section”.</p>
+<figure align="center">
+		<img src="mat_section.png" width="350px"></img>
+</figure>
+
+<h4>TAM 2XX Specific Tips</h4>
+<p>Generate a script for each homework assignment or quiz. Separate each problem with two <code>%%</code> symbols and copy and paste your given variables underneath the problem header. If a problem requires a unit conversion, you should do this conversion after pasting the given variables. This will allow you to flip through multiple variations of the problem without having to change the given variables every time. An example script is provided here:</p>
+<figure align="center">
+		<img src="mat_script.png" width="500px"></img>
+</figure>
+
+
+
+<h3>Solving (Linear) Equations</h3>
+<p>We can use MATLAB to solve equations, including systems of equations. For our purposes, we will almost exclusively deal with linear equations. To start, we define a 3x3 matrix <code>A</code> and a 3x1 matrix <code>b</code>:
+	<pre>
+	>> A = [1 2 1; 2 2 3; -1 -3 0]
+	A =
+	  1 2 1
+	  2 2 3
+	 -1 -3 0
+	>> b = [0 ;3; 2]
+	b =
+	  0
+	  3
+	  2
+	</pre>
+This is a linear problem in the matrix form 𝐴𝑥 = 𝑏. We can solve it using the linsolve function:
+	<pre>
+	>> x = linsolve(A,b)}
+	x =
+	  1
+	 -1
+	  1
+	</pre>
+Alternatively, you can use the backslash operator:
+	<pre>
+	>> x = A\b
+	x =
+	  1
+	 -1
+	  1
+	</pre>
+</p>
+
+
+
+<h3>Mathworks Website</h3>
+<p>Anything not covered in this brief introduction can be found on the <a href="https://www.mathworks.com/">Mathworks website</a>. Things not covered that may be useful in the future: breakpoints, differentiation, integrals, functions, plotting, for loops, while loops, timing, etc.</p>
+
+<h4>Cody</h4>
+<p>Mathworks provides a free training tool called <a href="https://www.mathworks.com/matlabcentral/cody/">Cody</a>. It does not require a license for Matlab, so you can practice without going to an EWS machine, setting up Citrix, or paying yourself.	
+Got to the link above, sign up for an account, and look through the “Problems” tab. Sorting by “Solvers High-Low” will show you the problems with the most solutions, the easiest ones. </p>
+
+<p>In each problem, they explain what you have to do and ask you to click the “Solve” button. This	will open up a Matlab function in your browser as shown in the image below. It will provide you with code, however, you will have to change the lines in the function to solve the problem.</p>
+<figure align="center">
+		<img src="mat_cody.png" width="500px"></img>
+</figure>
 
 </div>
 
