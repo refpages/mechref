@@ -1,0 +1,41 @@
+
+/*****************************************************************************/
+
+#rko-xp .question {
+    height: 200px;
+}
+
+#rko-tr {
+    border-collapse: collapse;
+    border-spacing: 0px;
+}
+
+#rko-tr td {
+    padding: 3px 7px 3px 7px;
+    border-right: 1px solid #666;
+}
+
+#rko-tr th {
+    padding: 3px 7px 3px 7px;
+    font-family: 'NoticiaTextBold',Arial,Sans-serif;
+    border-bottom: 1px solid #666;
+    border-right: 1px solid #666;
+}
+
+#rko-tr tr td:last-child {
+    border-right: none;
+}
+
+#rko-tr tr th:last-child {
+    border-right: none;
+}
+
+#rko-tm tr td {
+    width: 10em;
+}
+
+#rko-tm tr td:first-child {
+    width: auto;
+}
+
+/*****************************************************************************/
