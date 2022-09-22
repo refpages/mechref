@@ -75,7 +75,7 @@
                     a rigid body is shown below.
                 </p>
                 <div class="envContainer equation" id="rec-am">
-                    <p clas="envHeader">Angular momentum of a rigid body rotating about principal axis $\hat{a}$ through 
+                    <p class="envHeader">Angular momentum of a rigid body rotating about principal axis $\hat{a}$ through 
                     point $P$.</p>
                     <div class="envBody">
                         <p>
@@ -87,13 +87,92 @@
                         </p>
                     </div>
                 </div>
-                <div class="infoCol" id="rec-ic">
-                    <div class="infoBox notationBox" id="rec-nb">
+                <p>
+                    Momentum is also closely linked to force and moments. More specifically,
+                    the change in momentum and Newton's second law can be related.
+                </p>
+                <div class="envContainer equation" id="rec-mn">
+                    <p class="envHeader">Newton's second law and linear momentum.</p>
+                    <div class="envBody">
                         <p>
-                            You may have seen other notations for angular momentum (e.g $\vec{L}$). The common 
-                            notation is $\vec{H}$, and that is what will be used in this class.
+                            \[\begin{aligned}
+                            \sum \vec{F}_{ext} &amp;= \frac{d\vec{p}}{dt}\\
+                            &amp;= \dot{\vec{p}}
+                            \end{aligned}\]
+                            <br>
+                            where $\sum \vec{F}_{ext}$ is the sum of the external forces acting on the body.
                         </p>
                     </div>
+                </div>
+                <div class="envContainer derivation">
+                    <div class="envBody">
+                        <p>
+                            We begin with Newton's second law:
+                            \[\begin{aligned}
+                            \sum \vec{F}_{ext} &amp;= m\vec{a}_C\\
+                            &amp;= m \frac{d\vec{v}_C}{dt} \\
+                            \end{aligned}\]
+                        </p>
+                        <p>
+                            Assuming constant mass, then this can be rewritten as:
+                            \[\begin{aligned}
+                            \sum \vec{F}_{ext} &amp;= \frac{d}{dt} (m\vec{v}_C)\\
+                            &amp; = \frac{d\vec{p}}{dt} \\
+                            &amp; = \dot{\vec{p}}
+                            \end{aligned}\]
+                        </p>
+                    </div>
+                </div>
+                <p>
+                    As aforementioned, angular momentum is analogous to linear momentum,
+                    so the above equation can also be derived using moments and angular
+                    momentum.
+                </p>
+                <div class="envContainer equation" id="rec-mm">
+                    <p class="envHeader">Newton's second law and angular momentum.</p>
+                    <div class="envBody">
+                        <p>
+                            \[\begin{aligned}
+                            \sum \vec{M}_{ext} &amp;= \frac{d\vec{H}}{dt}\\
+                            &amp;= \dot{\vec{H}}
+                            \end{aligned}\]
+                            <br>
+                            where $\sum \vec{M}_{ext}$ is the sum of the external moments acting on the body.
+                        </p>
+                    </div>
+                </div>
+                <div class="envContainer derivation">
+                    <div class="envBody">
+                        <p>
+                            We begin with Newton's second law:
+                            \[\begin{aligned}
+                            \sum \vec{M}_{ext} &amp;= I_{C, \hat{a}}\vec{\alpha}\\
+                            &amp;= I_{C, \hat{a}} \frac{d\vec{\omega}}{dt} \\
+                            \end{aligned}\]
+                        </p>
+                        <p>
+                            Assuming constant moment of inertia, then this can be rewritten as:
+                            \[\begin{aligned}
+                            \sum \vec{M}_{ext} &amp;= \frac{d}{dt} (I_{C, \hat{a}}\vec{\omega})\\
+                            &amp; = \frac{d\vec{H}}{dt} \\
+                            &amp; = \dot{\vec{H}}
+                            \end{aligned}\]
+                        </p>
+                    </div>
+                </div>
+                <p>
+                    From the above equations, it is clear to see that linear momentum is conserved
+                    if and only if the <em>sum</em> of external forces acting on the body is 
+                    zero, and angular momentum is conserved if and only if the <em>sum</em>
+                    of external moments acting on the body is zero.
+                </p>
+            </div>
+            <div class="infoCol" id="rec-ic">
+                <div class="infoBox notationBox" id="rec-nb">
+                    <p>
+                        You may have seen other notations for angular momentum (e.g $\vec{L}$). The common 
+                        notation is $\vec{H}$, and that is what will be used in this class.
+                    </p>
                 </div>
             </div>
         </div>

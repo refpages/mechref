@@ -1,15 +1,12 @@
-#rec-nb
-{
-   position: relative; 
-}
-
 #rec-ic
 {
+    margin: auto;
+    position: relative
+}
+
+#rec-nb
+{
+    margin: auto;
     position: absolute;
-    top: 50%;
-    left: 50%;
-    margin-top: 45px;
-    margin-left: 200px;
-    width: 300px;
-    height: 100px;
+    top: 410px;
 }
