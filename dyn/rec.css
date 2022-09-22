@@ -6,6 +6,10 @@
 #rec-ic
 {
     position: absolute;
-    right:400px;
-    top:515px;
+    top: 50%;
+    left: 50%;
+    margin-top: 45px;
+    margin-left: 200px;
+    width: 300px;
+    height: 100px;
 }
