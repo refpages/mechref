@@ -123,6 +123,16 @@
                         </p>
                     </div>
                 </div>
+                <div class="envContainer warning" id="rec-wm">
+                    <p class="envHeader">Warning: $\sum \vec{F}_{ext} = \dot{\vec{p}}$ is not applicable with variable mass.</p>
+                    <div class="envBody">
+                        <p>
+                            In the derivation of <a href="#rec-mn">#ren-mn</a>, the mass was assumed to be constant.
+                            In the case of a rocket expelling propellant, this does not work. See 
+                            the rocket equation derivation further down.
+                        </p>
+                    </div>
+                </div>
                 <p>
                     As aforementioned, angular momentum is analogous to linear momentum,
                     so the above equation can also be derived using moments and angular
@@ -162,10 +172,117 @@
                 </div>
                 <p>
                     From the above equations, it is clear to see that linear momentum is conserved
-                    if and only if the <em>sum</em> of external forces acting on the body is 
+                    if and only if the <em>sum</em> of external forces acting on the system is 
                     zero, and angular momentum is conserved if and only if the <em>sum</em>
-                    of external moments acting on the body is zero.
+                    of external moments acting on the system is zero.
                 </p>
+                <div class="envContainer equation" id="rec-lmc">
+                    <p class="envHeader">Conservation of linear momentum.</p>
+                    <div class="envBody">
+                        <p>
+                            \[\begin{aligned}
+                            \sum \vec{F}_{ext} &amp;= \frac{d\vec{p}}{dt}\\
+                            &amp;= \vec{0}
+                            \end{aligned}\]
+                        </p>
+                    </div>
+                </div>
+                <div class="envContainer equation" id="rec-amc">
+                    <p class="envHeader">Conservation of angular momentum.</p>
+                    <div class="envBody">
+                        <p>
+                            \[\begin{aligned}
+                            \sum \vec{M}_{ext} &amp;= \frac{d\vec{H}}{dt}\\
+                            &amp;= \vec{0}
+                            \end{aligned}\]
+                        </p>
+                    </div>
+                </div>
+                <p>
+                    Interestingly, angular momentum is also related to linear momentum if 
+                    the object is a point mass.
+                </p>
+                <div class="envContainer equation" id="rec-al">
+                    <p class="envHeader">Angular momentum of a point mass $P$ about a stationary point $O$.</p>
+                    <div class="envBody">
+                        <p>
+                            \[
+                            \vec{H}_{O} = \vec{r}_{OP} \times \vec{p}_P
+                            \]
+                        </p>
+                    </div>
+                </div>
+                <div class="envContainer derivation">
+                    <div class="envBody">
+                        <p>
+                            Begin with the relationship between angular momentum and moment at <a href="#rec-mm">#rec-mm</a>
+                            \[\begin{aligned}
+                            \sum \vec{M}_{ext} &amp;= \frac{d\vec{H}}{dt}\\
+                            \end{aligned}\]
+                        </p>
+                        <p>
+                            For simplicity's sake, assume there's only one external moment due to 
+                            a force applied at point $P$. Recall the definition of moment due to a 
+                            force applied at point $P$:
+                            \[\begin{aligned}
+                            \vec{M}_O &amp;= \vec{r}_{OP} \times \vec{F}_P \\
+                            \end{aligned}\]
+                        </p>
+                        <p>
+                            Then <a href="#rec-mm">#rec-mm</a> becomes:
+                            \[\begin{aligned}
+                            \frac{d\vec{H}}{dt} &amp;= \vec{r}_{OP} \times \vec{F}_P
+                            \end{aligned}\]
+                        </p>
+                        <p>
+                            Using the relationship between linear momentum and force at <a href="#rec-mn">#rec-mn</a>
+                            , the above equation becomes:
+                            \[\begin{aligned}
+                            \frac{d\vec{H}}{dt} &amp;= \vec{r}_{OP} \times \vec{F}_P \\
+                            &amp; = \vec{r}_{OP} \times \frac{d\vec{p}_P}{dt}
+                            \end{aligned}\]
+                        </p>
+                        <p>
+                            Multiplying both sides by $dt$ yields:
+                            \[
+                            d\vec{H} = \vec{r}_{OP} \times d\vec{p}_P
+                            \]
+                        </p>
+                        <p>
+                            Recall integration by parts:
+                            \[
+                            \int u \, dw = uw - \int w \, du
+                            \]
+                        </p>
+                        <p>
+                            Setting $dw = d\vec{p}_P$ and $u = \vec{r}_{OP}$, then:
+                            \[\begin{aligned}
+                            u = \vec{r}_{OP} \quad \quad \quad du = \vec{v}_P \,dt \\
+                            w = \vec{p}_P \quad \quad \quad dw = d\vec{p}_P
+                            \end{aligned}\]
+                        </p>
+                        <p>
+                            Therefore:
+                            \[\begin{aligned}
+                            \int d\vec{H} &amp;= \int \vec{r}_{OP} \times d\vec{p}_P \\
+                            &amp;= \vec{r}_{OP} \times \vec{p}_P - \int \vec{p}_P \times \vec{v}_P \,dt
+                            \end{aligned}\]
+                        </p>
+                        <p>
+                            However, $\vec{p}_P = m\vec{v}_P$ as established in <a href="#rec-lm">#rec-lm</a>:
+                            \[\begin{aligned}
+                            \vec{H} &amp;= \vec{r}_{OP} \times \vec{p}_P - \int m\vec{v}_P \times \vec{v}_P \,dt
+                            \end{aligned}\]
+                        </p>
+                        <p>
+                            The cross product of a vector with itself is zero 
+                            (<a href="rvi.html#rvi-ez">cross product self-annihilation</a>). So the
+                            integral of $\int m\vec{v}_P \times \vec{v}_P \, dt$ is a constant, which is 
+                            the initial angular momentum. Assuming this is zero, we arrive at the 
+                            desired expression.
+                        </p>
+                    </div>
+                </div>
             </div>
             <div class="infoCol" id="rec-ic">
                 <div class="infoBox notationBox" id="rec-nb">
@@ -176,6 +293,68 @@
                 </div>
             </div>
         </div>
+        <div class="contentBlock">
+            <div id="rec-im" class="contentCol">
+                <h1>
+                    Impulse
+                </h1>
+                <p>
+                    Impulse is a quantity that describes the effect of a resultant force acting over
+                    time. Naturally, impulse is related to momentum.
+                </p>
+                <div class="envContainer equation" id="rec-ij">
+                    <p class="envHeader">Impulse.</p>
+                    <div class="envBody">
+                        <p>
+                            \[
+                            \vec{J} = \int_{t_1}^{t_2} \vec{F}_{net} \, dt
+                            \]
+                        </p>
+                    </div>
+                </div>
+                <p>
+                    Note that impulse, like momentum, is a vector. Its direction is the same direction
+                    as the net force.
+                </p>
+                <p>
+                    As seen from the equation above, this naturally leads to relating the impulse and
+                    momentum. Specifically, impulse is the change in momentum.
+                </p>
+                <div class="envContainer equation" id="rec-jm">
+                    <p class="envHeader">Impulse-momentum theorem.</p>
+                    <div class="envBody">
+                        <p>
+                            \[
+                            \vec{J} = \Delta \vec{p}
+                            \]
+                        </p>
+                    </div>
+                </div>
+                <div class="envContainer derivation">
+                    <div class="envBody">
+                        <p>
+                            From Newton's second law and linear momentum at <a href="#rec-mn">#rec-mn</a>:
+                            \[
+                            \vec{F}_{net} = \frac{d\vec{p}}{dt}
+                            \]
+                        </p>
+                        <p>
+                            Plugging into the impulse definition:
+                            \[\begin{aligned}
+                            \vec{J} &amp;= \int_{t_1}^{t_2} \frac{d\vec{p}}{dt} \, dt \\
+                            &amp;= \int_{\vec{p}_1}^{\vec{p}_2} d\vec{p} \\
+                            &amp;= \vec{p}_2 - \vec{p}_1 = \Delta \vec{p}
+                            \end{aligned}\]
+                        </p>
+                    </div>
+                </div>
+                <div class="envContainer exampleProblem" id="rec-xr">
+                    <p class="envHeader">Example: The Rocket Equation</p>
+                    <div class="envBody">
+                        <canvas id="rec-xr-c" width="600" height="200" class="standaloneImage">
+                        </canvas>
+                    </div>
+                </div>
             </div>
         </div>
     </body>
