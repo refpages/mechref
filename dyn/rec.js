@@ -45,4 +45,18 @@ $(document).ready(function() {
         this.arrow($V([-1.6, 0.5]), $V([-2.6, 0.5]), "velocity");
         this.labelLine($V([-1.6, 0.5]), $V([-2.6, 0.5]), $V([0, -1]), "TEX:$\\vec{c}$");
     });
+
+    var rec_co_c = new PrairieDrawAnim("rec-co-c", function(t) {
+
+        this.setUnits(12, 4);
+
+        this.addOption("m1");
+        this.addOption("m2");
+
+        m1 = this.getOption("m1");
+        m2 = this.getOption("m2");
+
+        this.rectangle(m1, m1);
+        this.rectangle(m2, m2);
+    });
 });

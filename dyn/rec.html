@@ -351,9 +351,158 @@
                 <div class="envContainer exampleProblem" id="rec-xr">
                     <p class="envHeader">Example: The Rocket Equation</p>
                     <div class="envBody">
+                        <p>
+                            As stated in the warning at <a href="#rec-wm">#rec-wm</a>, the 
+                            relationship between Newton's equations and linear momentum are 
+                            not applicable for a system whose mass is changing with time. To use
+                            that relationship, a few things must be changed. Consider the figure 
+                            below of a rocket.
+                        </p>
                         <canvas id="rec-xr-c" width="600" height="200" class="standaloneImage">
                         </canvas>
+                        <p>
+                            The vector $\vec{v}$ is the velocity of the center of mass of the rocket
+                            relative to an inertially fixed point in space, $O$. The vector $\vec{c}$
+                            is the effective exhaust velocity. It is the average equivalent velocity
+                            at which propellant is ejected from the rocket <em>relative to the rocket</em>.
+                            We will explain further how it relates to what is often a characteristic value of
+                            the performance of an engine, called the <em>specific impulse</em>, denoted by $I_{sp}$.
+                        </p>
+                        <p>
+                            Since the rocket is ejecting propellant, the rate at which this propellant is expelled is
+                            the mass flow rate, denoted by $\dot{m}$. In this case, it will be $-\dot{m}$ as the 
+                            rocket is expelling propellant. To derive the rocket equation, we will need to calculuate
+                            the momentum at time $t$, and at time $t + dt$, a little time after expelling propellant.
+                        </p>
+                        <p>
+                            The momentum at time $t$ is simply $\vec{p}_1 = m\vec{v}$. The momentum at time $t + dt$
+                            consists of two parts: the momentum of the rocket without the mass lost to propellant expulsion,
+                            and the momentum of the propellant leaving the rocket. First, the momentum of the rocket at 
+                            time $t + dt$ is given by:
+                            \[\begin{aligned}
+                            \vec{p}_{2, rocket} = (m + \dot{m}dt)(\vec{v} + d\vec{v})
+                            \end{aligned}\]
+                        </p>
+                        <p>
+                            You can expand the result to make sure it makes sense:
+                            \[\begin{aligned}
+                            \vec{p}_{2, rocket} &amp;= (m + \dot{m}dt)(\vec{v} + d\vec{v}) \\
+                            &amp; = m\vec{v} + md\vec{v} + \dot{m}\vec{v}dt + \dot{m}d\vec{v}dt
+                            \end{aligned}\]
+                        </p>
+                        <p>
+                            The expression $m\vec{v}$ is the initial momentum of the rocket. 
+                            The expression $md\vec{v}$ is the momentum of the rocket due to the velocity change.
+                            The expression $\dot{m}\vec{v}dt$ is the momentum of the propellant at the initial velocity.
+                            (Note that $\dot{m}dt$ is the mass of the propellant since $\dot{m} = -\frac{dm}{dt}$).
+                            The expredssion $\dot{m}d\vec{v}dt$ is the momentum of the propellant due to the velocity change.
+                        </p>
+                        <p>
+                            The second part of the momentum is the momentum of the propellant leaving the rocket. This
+                            expression is a little tricky, as the effective exhaust velocity is <em>relative to the rocket</em>
+                            as aforementioned, so we need to obtain the effective exhaust velocity $\vec{c}$ relative to the inertially
+                            fixed point, $O$. Otherwise, Newton's equations cannot work. The exhaust velocity relative to $O$ is:
+                            \[
+                            \vec{c}_{O} = \vec{c}_{rocket} + \vec{v}_{rocket, O} = \vec{c} + \vec{v}
+                            \] 
+                        </p>
+                        <p>
+                            Then the momentum of the propellant being exhausted:
+                            \[
+                            \vec{p}_{2, p} = -\dot{m}dt(\vec{c} + \vec{v})
+                            \]
+                        </p>
+                        <p>
+                            So the total momentum at time $t + dt$:
+                            \[
+                            \vec{p}_2 = (m + \dot{m}dt)(\vec{v} + d\vec{v}) - \dot{m}dt(\vec{c} + \vec{v})
+                            \]
+                        </p>
+                        <p>
+                            By the impulse-momentum theorem:
+                            \[\begin{aligned}
+                            \vec{J} = \Delta \vec{p} = \vec{F}_{net} dt
+                            \end{aligned}\]
+                        </p>
+                        <p>
+                            Plugging into the above equation:
+                            \[\begin{aligned}
+                            (m + \dot{m}dt)(\vec{v} + d\vec{v}) - \dot{m}dt(\vec{c} + \vec{v}) - m\vec{v} = \vec{F}_{net} dt
+                            \end{aligned}\]
+                        </p>
+                        <p>
+                            Expanding:
+                            \[\begin{aligned}
+                            m\vec{v} + md\vec{v} + \dot{m}\vec{v}dt + \dot{m}d\vec{v}dt - \dot{m}\vec{c}dt - \dot{m}\vec{v}dt - m\vec{v} = \vec{F}_{net} dt
+                            \end{aligned}\]
+                        </p>
+                        <p>
+                            Simplifying:
+                            \[\begin{aligned}
+                            md\vec{v} + \dot{m}d\vec{v}dt - \dot{m}\vec{c}dt &amp;= \vec{F}_{net}dt \\
+                            md\vec{v} + \dot{m}dt(d\vec{v} - \vec{c}) &amp;= \vec{F}_{net}dt
+                            \end{aligned}\]
+                        </p>
+                        <p>
+                            Dividing by $dt$:
+                            \[\begin{aligned}
+                            m\frac{d\vec{v}}{dt} + \dot{m}(d\vec{v} - \vec{c}) &amp;= \vec{F}_{net} \\
+                            m\vec{a} + \dot{m}(d\vec{v} - \vec{c}) &amp;= \vec{F}_{net}
+                            \end{aligned}\]
+                        </p>
+                        <p>
+                            This shows that Newton's equations in linear momentum form do not work
+                            with variable mass, as $\vec{F}_{net} - m\vec{a}$ is not zero in this case.
+                            Rearranging one more time:
+                            \[\begin{aligned}
+                            m\frac{d\vec{v}}{dt} = \dot{m}(d\vec{v} - \vec{c}) + \vec{F}_{net}
+                            \end{aligned}\]
+                        </p>
+                        <p>
+                            Note the positive next to $\dot{m}$ is due to the loss of mass, as aforementioned earlier.
+                            The above equation is called the <em>ideal rocket equation</em>, or <a href="https://en.wikipedia.org/wiki/Tsiolkovsky_rocket_equation"><em>Tsiolkovsky rocket equation</em></a>.
+                        </p>
                     </div>
+                </div>
+            </div>
+        </div>
+        <div class="contentBlock">
+            <div id="rec-co" class="contentCol">
+                <h1>
+                    Collisions
+                </h1>
+                <p>
+
+                </p>
+                <div class="figureContainer width500">
+                    <canvas id="rec-co-c" width="500" height="300" class="figureImage">
+                    </canvas>
+                    <p class="controls">
+                        <button class="anim-toggle:rec-co-c">animate</button>
+                        <button class="reset:rec-co-c">reset</button>
+                    </p>
+                    <p class="controls">
+                        <label for="m1">$m_1 = $</label>
+                        <input type="text" id="m1" name="rec-co-c-m1" class="data-input:rec-co-c:m1"/> $\rm\ kg$
+                    </p>
+                    <p>
+                        <label for="m2">$m_2 = $</label>
+                        <input type="text" id="m2" name="rec-co-c-m2" class="data-input:rec-co-c:m2"/> $\rm\ kg$
+                    </p>
+                </div>
+            </div>
+            <div class="infoCol">
+                <div class="infoBox factBox">
+                    <p>
+                        Counting the number of collisions with two simple objects, such as blocks,
+                        billiard balls, can be used to estimate $\pi$ to any accuracy. Mathematician
+                        <a href="https://www.ux1.eiu.edu/~cfgg/"><i>Gregory Galperin</i></a> of
+                        Eastern Illinois University discovered this in 1995 and 
+                        <a href="https://www.maths.tcd.ie/~lebed/Galperin.%20Playing%20pool%20with%20pi.pdf">published</a> this in 2003.
+                        Famous YouTuber <a href="https://www.youtube.com/c/3blue1brown"><i>3Blue1Brown</i></a> 
+                        made a <a href="https://www.youtube.com/watch?v=HEfHFsfGXjs">video</a> on this explaining this
+                        seemingly paradoxical result. You can play around with this below:
+                    </p>
                 </div>
             </div>
         </div>
