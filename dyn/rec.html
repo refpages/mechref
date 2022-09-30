@@ -5,9 +5,14 @@
         <meta charset="UTF-8">
         <link href="../style.css" type="text/css" rel="stylesheet" />
         <link href="../icomoon.css" type="text/css" rel="stylesheet" />
-
-        <script type="text/x-mathjax-config">MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});</script>
-        <script src="../MathJax-master/MathJax.js?config=TeX-AMS-MML_HTMLorMML,local/local"> type="text/javascript" </script>
+        <script>
+            MathJax = {
+              tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']]
+              }
+            };
+        </script>
+        <script type="text/javascript" id="MathJax-script" src="../MathJax-master2/es5/tex-mml-chtml.js"></script>
         <script src="../js/jquery-2.1.4.min.js" type="text/javascript"></script>
         <script src="../js/sylvester.js" type="text/javascript"></script>
         <script src="../js/sha1.js" type="text/javascript"></script>
@@ -474,21 +479,23 @@
                 <p>
 
                 </p>
-                <div class="figureContainer width500">
-                    <canvas id="rec-co-c" width="500" height="300" class="figureImage">
+                <div class="figureContainer width600">
+                    <canvas id="rec-co-c" width="600" height="200" class="figureImage">
                     </canvas>
                     <p class="controls">
-                        <button class="anim-toggle:rec-co-c">animate</button>
+                        <button class="anim-toggle:rec-co-c">animation</button>
                         <button class="reset:rec-co-c">reset</button>
                     </p>
-                    <p class="controls">
-                        <label for="m1">$m_1 = $</label>
-                        <input type="text" id="m1" name="rec-co-c-m1" class="data-input:rec-co-c:m1"/> $\rm\ kg$
-                    </p>
-                    <p>
-                        <label for="m2">$m_2 = $</label>
-                        <input type="text" id="m2" name="rec-co-c-m2" class="data-input:rec-co-c:m2"/> $\rm\ kg$
-                    </p>
+                    <table>
+                        <tr>
+                            <td>$m_2 = $</td>
+                            <td><input type="radio" name="rec-co-c-m2" value="m21" class="data-input:rec-co-c:m2"/>$10^4$</td>
+                            <td><input type="radio" name="rec-co-c-m2" value="m22" class="data-input:rec-co-c:m2"/>$10^6$</td>
+                            <td><input type="radio" name="rec-co-c-m2" value="m23" class="data-input:rec-co-c:m2"/>$10^8$</td>
+                            <td><input type="radio" name="rec-co-c-m2" value="m24" class="data-input:rec-co-c:m2"/>$10^{10}$</td>
+                            <td><input type="radio" name="rec-co-c-m2" value="m25" class="data-input:rec-co-c:m2"/>$10^{12} \quad m_1 \rm\ kg$</td>
+                        </tr>
+                    </table>
                 </div>
             </div>
             <div class="infoCol">
@@ -501,7 +508,11 @@
                         <a href="https://www.maths.tcd.ie/~lebed/Galperin.%20Playing%20pool%20with%20pi.pdf">published</a> this in 2003.
                         Famous YouTuber <a href="https://www.youtube.com/c/3blue1brown"><i>3Blue1Brown</i></a> 
                         made a <a href="https://www.youtube.com/watch?v=HEfHFsfGXjs">video</a> on this explaining this
-                        seemingly paradoxical result. You can play around with this below:
+                        seemingly paradoxical result. However, looking at the velocity phase space,
+                        which is graphing the velocity of $m_1$ on one axis, and the velocity of $m_2$
+                        on another. This arises from conservation of kinetic energy in elastic collisions,
+                        which will be explored below, and it makes sense of why $\pi$ shows up. You 
+                        can play around with this below.
                     </p>
                 </div>
             </div>
