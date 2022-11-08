@@ -52,23 +52,25 @@ $(document).ready(function() {
 
         this.setUnits(8, 4);
 
-        this.addOption("conForce", true);
-        this.addOption("nconForce", false);
-
         var O = $V([0, 0]);
 
         var A = $V([-3, -1]);
         var B = A.x(-1);
 
         this.save();
-        this.setProp('pointRadiusPx', "4");
-        this.point(A);
-        this.point(B);
-        this.restore();
         this.text(A, O.subtract($V([-1, -1])), "TEX:$A$");
         this.text(B, O.subtract($V([1, 1])), "TEX:$B$");
         this.setProp('shapeOutlineColor', "rgb(0, 0, 255)");
         this.line(A, B);
         this.restore();
+        this.setProp('shapeOutlineColor', "rgb(255, 0, 0)");
+        this.cubicBezier(A, O, O.add($V([-2, 2])), B);
+        this.restore();
+        this.setProp('shapeOutlineColor', "rgb(0, 200, 0)");
+        this.cubicBezier(A, O, O.add($V([-2, -3])), B);
+        this.setProp("pointRadiusPx", 4);
+        this.setProp('shapeOutlineColor', "rgb(0, 0, 0)");
+        this.point(A);
+        this.point(B);
     });
 });

@@ -192,6 +192,17 @@
                         </p>
                     </div>
                 </div>
+                <div class="envContainer warning" id="rec-wlmc">
+                    <p class="envHeader">Warning: Linear momentum is conserved if and only if the sum of external forces is zero.</p>
+                    <div class="envBody">
+                        <p>
+                            As seen from <a href="#rec-lmc">#rec-lmc</a>, linear momentum is conserved if the sum of the external forces
+                            is zero. This is why choosing an appropriate system and
+                            drawing a free-body diagram is crucial in determining whether linear momentum is conserved.
+                            See examples below.
+                        </p>
+                    </div>
+                </div>
                 <div class="envContainer equation" id="rec-amc">
                     <p class="envHeader">Conservation of angular momentum.</p>
                     <div class="envBody">
@@ -201,6 +212,95 @@
                             &amp;= \vec{0}
                             \end{aligned}\]
                         </p>
+                    </div>
+                </div>
+                <div class="envContainer warning" id="rec-wamc">
+                    <p class="envHeader">Warning: Angular momentum is conserved if and only if the sum of external moments is zero.</p>
+                    <div class="envBody">
+                        <p>
+                            As seen from <a href="#rec-lmc">#rec-amc</a>, angular momentum is conserved if the sum of the external moments
+                            is zero. This is why choosing an appropriate system and
+                            and drawing a free-body diagram is crucial in determining whether angular momentum is conserved.
+                            See examples below.
+                        </p>
+                    </div>
+                </div>
+                <div class="envContainer exampleProblem" id="rec-xlmc">
+                    <p class="envHeader">Example Problem: An object in free-fall</p>
+                    <div class="envBody">
+                        <div class="question">
+                            <canvas id="rec-xlm-c" width="300" height="200" class="floatRight">
+                            </canvas>
+                            <p>
+                                An object is free-falling in the air under the influence of gravity.
+                                Take the system to be the object. Is linear momentum conserved?
+                            </p>
+                        </div>
+                        <div class="envContainer solution">
+                            <div class="envBody">
+                                <p>
+                                    Begin with a free-body diagram of the forces acting on the system:
+                                </p>
+                                <canvas id="rec-xlm-f" width="300" height="200" class="standaloneImage">
+                                </canvas>
+                                <p>
+                                    Write <a href="#rec-mn">Newton's second law in terms of momentum</a>:
+                                    \[\begin{aligned}
+                                    \sum \vec{F}_{ext} &amp;= \frac{d\vec{p}}{dt} \\
+                                    m\vec{g} &amp; = \frac{d\vec{p}}{dt}
+                                    \end{aligned}\]
+                                </p>
+                                <p>
+                                    Verifying with <a href="#rec-lmc">conservation of linear momentum</a>, it's clear to see
+                                    that the sum of external forces is not zero, as the weight of the object is external to the system,
+                                    and is not balanced by any other force. Therefore, linear momentum is not conserved.
+                                </p>
+                                <p>
+                                    If however, the system was chosen to be the object <em>and the Earth</em>, then linear
+                                    momentum is conserved, as by Newton's third law, the Earth exerts a force equal to $mg$,
+                                    and the object exerts a force $-mg$ on the Earth. Therefore, the sum of external forces 
+                                    acting on the system is zero, and linear momentum is conserved.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="envContainer exampleProblem" id="rec-xamc">
+                    <p class="envHeader">Example Problem: A satellite in a circular orbit around the Earth</p>
+                    <div class="envBody">
+                        <div class="question">
+                            <canvas id="rec-xam-c" width="300" height="200" class="floatRight">
+                            </canvas>
+                            <p>
+                                A satellite of mass $m$ is inserted into a circular orbit around the Earth.
+                                Take the system to be the satellite and the Earth. Ignoring the effects
+                                of gravity from any other celestial body, is angular momentum conserved?
+                            </p>
+                        </div>
+                        <div class="envContainer solution">
+                            <div class="envBody">
+                                <p>
+                                    Begin with a free-body diagram of the forces acting on the system. Assume the altitude of the satellite
+                                    is negligble enough so that the gravitational acceleration is $g$. Otherwise, Newton's Law of Gravitation
+                                    would need to be used to denote the forces.
+                                </p>
+                                <canvas id="rec-xam-f" width="300" height="200" class="standaloneImage">
+                                </canvas>
+                                <p>
+                                    Write <a href="#rec-mm">Newton's second law in terms of momentum</a>:
+                                    \[\begin{aligned}
+                                    \sum \vec{M}_{ext} &amp;= \frac{d\vec{H}}{dt} \\
+                                    \vec{r} \times m\vec{g} - \vec{r} \times m\vec{g} &amp; = \frac{d\vec{H}}{dt}
+                                    \end{aligned}\]
+                                </p>
+                                <p>
+                                    Verifying with <a href="#rec-amc">conservation of angular momentum</a>, it's clear to see
+                                    that the sum of external moments is zero, as the moment due to the pull of the Earth on the satellite is equal
+                                    and opposite to the moment due to the pull of the satellite on the Earth. Moreover, those moments
+                                    are equal to zero as the position vector $r$ and $mg$ are parallel, which yields a cross product of zero.
+                                </p>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <p>
@@ -293,7 +393,7 @@
                 <div class="infoBox notationBox" id="rec-nb">
                     <p>
                         You may have seen other notations for angular momentum (e.g $\vec{L}$). The common 
-                        notation is $\vec{H}$, and that is what will be used in this class.
+                        notation is $\vec{H}$, and that is what will be used in these pages.
                     </p>
                 </div>
             </div>
@@ -477,23 +577,113 @@
                     Collisions
                 </h1>
                 <p>
-
+                    A collision is when two or more objects exert forces on each other in a relatively short time. These problems are usually
+                    solved using conservation of momentum and energy. There are two general types of collisions: elastic and inelastic collisions.
+                    They are categorized by the state of the kinetic energy before and after the collisions:
+                </p>
+                <table id="rec-tc">
+                    <tr>
+                        <th>type of collision</th>
+                        <th>definition</th>
+                    </tr>
+                    <tr>
+                        <td>elastic collisions</th>
+                        <td>collisions where there is no loss in kinetic energy</td> 
+                    </tr>
+                    <tr>
+                        <td>inelastic collisions</td>
+                        <td>collisions where there are losses in kinetic energy, typically due to heat</td>
+                    </tr>
+                </table>
+                <p>
+                    Typically in collisions, it is assumed it takes place on a frictionless surface. This is important, since if friction were to be present, the system
+                    is not isolated, and therefore momentum is not conserved. 
+                </p>
+                <p>
+                    The steps involved in solving an elastic collision with conservation of momentum and energy are detailed as follows:
+                </p>
+                <div class="envContainer equation" id="rec-ecp">
+                    <p class="envHeader">Solution procedure of elastic collisions.</p>
+                    <div class="envBody">
+                        <p>
+                            \[\begin{aligned}
+                            m_1 \vec{v}_{1, i} + m_2 \vec{v}_{2, i} &amp;= m_1 \vec{v}_{1, f} + m_2 \vec{v}_{2, f} \\
+                            \frac{1}{2} m_1 v_{1, i}^2 + \frac{1}{2} m_2 v_{2, i}^2 &amp; = \frac{1}{2} m_1 v_{1, f}^2 + \frac{1}{2} m_2 v_{2, f}^2
+                            \end{aligned}\]
+                        </p>
+                        <p>
+                            where subscripts $i, f$ denote initial and final velocities, respectively.
+                        </p>
+                    </div>
+                </div>
+                <p>
+                    Below an animation to simulate a 1D elastic collision between two blocks.
                 </p>
                 <div class="figureContainer width600">
-                    <canvas id="rec-co-c" width="600" height="200" class="figureImage">
+                    <canvas id="rec-eco-c" width="600" height="200" class="figureImage">
                     </canvas>
                     <p class="controls">
-                        <button class="anim-toggle:rec-co-c">animation</button>
-                        <button class="reset:rec-co-c">reset</button>
+                        <button class="anim-toggle:rec-eco-c">animation</button>
+                        <button class="reset:rec-eco-c">reset</button>
                     </p>
                     <table>
                         <tr>
-                            <td>$m_2 = $</td>
-                            <td><input type="radio" name="rec-co-c-m2" value="m21" class="data-input:rec-co-c:m2"/>$10^4$</td>
-                            <td><input type="radio" name="rec-co-c-m2" value="m22" class="data-input:rec-co-c:m2"/>$10^6$</td>
-                            <td><input type="radio" name="rec-co-c-m2" value="m23" class="data-input:rec-co-c:m2"/>$10^8$</td>
-                            <td><input type="radio" name="rec-co-c-m2" value="m24" class="data-input:rec-co-c:m2"/>$10^{10}$</td>
-                            <td><input type="radio" name="rec-co-c-m2" value="m25" class="data-input:rec-co-c:m2"/>$10^{12} \quad m_1 \rm\ kg$</td>
+                            <td>$m_1 = $<span class="data-option:rec-eco-c:m1"></span></td>
+                            <td><input type="range" min="1" max="50" value="0" step="1" class="data-input:rec-eco-c:m1"/></td>
+                            <td>$v_1 = $</td>
+                            <td><input type="range" min="-5" max="5" value="0" step="1" class="data-input:rec-eco-c:v1x"/></td>
+                        </tr>
+                        <tr>
+                            <td>$m_2 = $<span class="data-option:rec-eco-c:m2"></span></td>
+                            <td><input type="range" min="1" max="50" value="0" step="1" class="data-input:rec-eco-c:m2"/></td>
+                            <td>$v_2 = $</td>
+                            <td><input type="range" min="-5" max="5" value="0" step="1" class="data-input:rec-eco-c:v2x"/></td>
+                        </tr>
+                    </table>
+                </div>
+                <p>
+                    The solution procedure to solve inelastic collisions is simpler, as the objects stick together after an inelastic collision.
+                    It involves using conservation of momentum only, as kinetic energy is lost in the collision, as aforementioned.
+                </p>
+                <div class="envContainer equation" id="rec-icp">
+                    <p class="envHeader">Solution procedure of inelastic collisions.</p>
+                    <div class="envBody">
+                        <p>
+                            \[
+                            m_1 \vec{v}_{1, i} + m_2 \vec{v}_{2, i} = (m_1 + m_2)\vec{v}_f
+                            \]
+                        </p>
+                        <p>
+                            where subscripts $i, f$ denote initial and final velocities, respectively.
+                        </p>
+                    </div>
+                </div>
+                <p>
+                    Note the $\vec{v}_f$ shown above is the velocity of the <em>center of mass</em>. It is the same before and after the collision due to conservation of
+                    momentum where the net external force is zero (and therefore, the acceleration of the center of mass).
+                </p>
+                <p>
+                    Below is an animation to simulate a 1D inelastic collision between two blocks.
+                </p>
+                <div class="figureContainer width600">
+                    <canvas id="rec-ico-c" width="600" height="200" class="figureImage">
+                    </canvas>
+                    <p class="controls">
+                        <button class="anim-toggle:rec-ico-c">animation</button>
+                        <button class="reset:rec-ico-c">reset</button>
+                    </p>
+                    <table>
+                        <tr>
+                            <td>$m_1 = $<span class="data-option:rec-ico-c:m1"></span></td>
+                            <td><input type="range" min="1" max="50" value="0" step="1" class="data-input:rec-ico-c:m1"/></td>
+                            <td>$v_1 = $</td>
+                            <td><input type="range" min="-5" max="5" value="0" step="1" class="data-input:rec-ico-c:v1x"/></td>
+                        </tr>
+                        <tr>
+                            <td>$m_2 = $<span class="data-option:rec-ico-c:m2"></span></td>
+                            <td><input type="range" min="1" max="50" value="0" step="1" class="data-input:rec-ico-c:m2"/></td>
+                            <td>$v_2 = $</td>
+                            <td><input type="range" min="-5" max="5" value="0" step="1" class="data-input:rec-ico-c:v2x"/></td>
                         </tr>
                     </table>
                 </div>
@@ -510,9 +700,7 @@
                         made a <a href="https://www.youtube.com/watch?v=HEfHFsfGXjs">video</a> on this explaining this
                         seemingly paradoxical result. However, looking at the velocity phase space,
                         which is graphing the velocity of $m_1$ on one axis, and the velocity of $m_2$
-                        on another. This arises from conservation of kinetic energy in elastic collisions,
-                        which will be explored below, and it makes sense of why $\pi$ shows up. You 
-                        can play around with this below.
+                        on another. This arises from conservation of kinetic energy in elastic collisions.
                     </p>
                 </div>
             </div>
