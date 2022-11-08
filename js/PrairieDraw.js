@@ -1602,31 +1602,6 @@ PrairieDraw.prototype.line = function(startDw, endDw, type) {
     this._ctx.stroke();
     this._ctx.restore();
 }
-/*****************************************************************************/
-
-    /** Draw a cubic Bezier segment.
-
-        @param {Vector} p0Dw The starting point.
-        @param {Vector} p1Dw The first control point.
-        @param {Vector} p2Dw The second control point.
-        @param {Vector} p3Dw The ending point.
-        @param {string} type (Optional) type of line being drawn.
-    */
-    PrairieDraw.prototype.cubicBezier = function(p0Dw, p1Dw, p2Dw, p3Dw, type) {
-        var p0Px = this.pos2Px(this.pos3To2(p0Dw));
-        var p1Px = this.pos2Px(this.pos3To2(p1Dw));
-        var p2Px = this.pos2Px(this.pos3To2(p2Dw));
-        var p3Px = this.pos2Px(this.pos3To2(p3Dw));
-        this._ctx.save();
-        this._setLineStyles(type);
-        this._ctx.lineWidth = this._props.shapeStrokeWidthPx;
-        this._ctx.setLineDash(this._dashPattern(this._props.shapeStrokePattern));
-        this._ctx.beginPath();
-        this._ctx.moveTo(p0Px.e(1), p0Px.e(2));
-        this._ctx.bezierCurveTo(p1Px.e(1), p1Px.e(2), p2Px.e(1), p2Px.e(2), p3Px.e(1), p3Px.e(2))
-        this._ctx.stroke();
-        this._ctx.restore();
-}
 
 /*****************************************************************************/
 
