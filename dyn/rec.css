@@ -19,6 +19,20 @@
     top: 410px;
 }
 
+#rec-iscb
+{
+    margin: auto;
+    position: relative
+}
+
+#rec-isc
+{
+    margin: auto;
+    position: absolute;
+    right: 400px;
+    top: 4400px;
+}
+
 #rec-tc {
     border-collapse: collapse;
     border-spacing: 0px;

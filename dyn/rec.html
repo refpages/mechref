@@ -594,7 +594,7 @@
                     </tr>
                     <tr>
                         <td>inelastic collisions</td>
-                        <td>collisions where there are losses in kinetic energy, typically due to heat</td>
+                        <td>collisions where there are losses in kinetic energy, typically due to internal friction</td>
                     </tr>
                 </table>
                 <p>
@@ -602,10 +602,13 @@
                     is not isolated, and therefore momentum is not conserved. 
                 </p>
                 <p>
-                    The steps involved in solving an elastic collision with conservation of momentum and energy are detailed as follows:
+                    The types of collisions that will be noted are <em>perfectly</em> inelastic and elastic collisions.
+                </p>
+                <p>
+                    The steps involved in solving a perfectly elastic collision with conservation of momentum and energy are detailed as follows:
                 </p>
                 <div class="envContainer equation" id="rec-ecp">
-                    <p class="envHeader">Solution procedure of elastic collisions.</p>
+                    <p class="envHeader">Solution procedure of perfectly elastic collisions.</p>
                     <div class="envBody">
                         <p>
                             \[\begin{aligned}
@@ -619,7 +622,7 @@
                     </div>
                 </div>
                 <p>
-                    Below an animation to simulate a 1D elastic collision between two blocks.
+                    Below an animation to simulate a 1D perfectly elastic collision between two blocks.
                 </p>
                 <div class="figureContainer width600">
                     <canvas id="rec-eco-c" width="600" height="200" class="figureImage">
@@ -644,11 +647,11 @@
                     </table>
                 </div>
                 <p>
-                    The solution procedure to solve inelastic collisions is simpler, as the objects stick together after an inelastic collision.
+                    The solution procedure to solve a perfectly inelastic collisions is simpler, as the objects stick together after an inelastic collision.
                     It involves using conservation of momentum only, as kinetic energy is lost in the collision, as aforementioned.
                 </p>
                 <div class="envContainer equation" id="rec-icp">
-                    <p class="envHeader">Solution procedure of inelastic collisions.</p>
+                    <p class="envHeader">Solution procedure of perfectly inelastic collisions.</p>
                     <div class="envBody">
                         <p>
                             \[
@@ -665,7 +668,7 @@
                     momentum where the net external force is zero (and therefore, the acceleration of the center of mass).
                 </p>
                 <p>
-                    Below is an animation to simulate a 1D inelastic collision between two blocks.
+                    Below is an animation to simulate a 1D perfectly inelastic collision between two blocks.
                 </p>
                 <div class="figureContainer width600">
                     <canvas id="rec-ico-c" width="600" height="200" class="figureImage">
@@ -689,6 +692,114 @@
                         </tr>
                     </table>
                 </div>
+                <p>
+                    One way collisions can be classified into elastic and inelastic collisions is using what is called <em>the coefficient of restitution</em>.
+                    It is the ratio of the final to initial relative speeds between two objects after the collision. It can be a way to solve collisions that
+                    are not classified as perfectly inelastic or elastic, as well as collisions of more than two objects.
+                </p>
+                <div class="envContainer equation" id="rec-cor">
+                    <p class="envHeader">Coefficient of restitution.</p>
+                    <div class="envBody">
+                        <p>
+                            \[
+                            e = \frac{\left|v_{2,f} - v_{1,f}\right|}{\left|v_{2,i} - v_{1,i}\right|}
+                            \]
+                        </p>
+                        <p>
+                            where subscripts $i, f$ denote initial and final velocities, respectively.
+                        </p>
+                    </div>
+                </div>
+                <div class="envContainer derivation">
+                    <div class="envBody">
+                        <p>
+                            Using the solution procedure of perfectly elastic collisions at <a href="#rec-ecp">#rec-ecp</a> and assuming
+                            a one-dimensional collision:
+                            \[\begin{aligned}
+                            m_1 v_{1, i} + m_2 v_{2, i} &amp;= m_1 v_{1, f} + m_2 v_{2, f} \\
+                            \frac{1}{2} m_1 v_{1, i}^2 + \frac{1}{2} m_2 v_{2, i}^2 &amp; = \frac{1}{2} m_1 v_{1, f}^2 + \frac{1}{2} m_2 v_{2, f}^2
+                            \end{aligned}\]
+                        </p>
+                        <p>
+                            From conservation of kinetic energy:
+                            \[\begin{aligned}
+                            m_1 \left(v_{1, i}^2 - v_{1, f}^2\right) &amp;= m_2 \left(v_{2, f}^2 - v_{2, i}^2\right)
+                            \end{aligned}\]
+                        </p>
+                        <p>
+                            Using the difference of two squares :
+                            \[\begin{aligned}
+                            m_1 \left(v_{1, i} - v_{1, f}\right) \left(v_{1, i} + v_{1, f}\right) &amp;= m_2 \left(v_{2, f} - v_{2, i}\right) \left(v_{2, f} + v_{2, i}\right)
+                            \end{aligned}\]
+                        </p>
+                        <p>
+                            From conservation of linear momentum:
+                            \[\begin{aligned}
+                            m_1 \left(v_{1, i} - v_{1, f}\right) &amp;= m_2 \left(v_{2, f} - v_{2, i}\right)
+                            \end{aligned}\]
+                        </p>
+                        <p>
+                            Divide the conservation of linear momentum equation:
+                            \[\begin{aligned}
+                            \frac{m_1 \left(v_{1, i} - v_{1, f}\right)}{m_2 \left(v_{2, f} - v_{2, i}\right)} &amp;= 1
+                            \end{aligned}\]
+                        </p>
+                        <p>
+                            Divide the conservation of kinetic energy equation:
+                            \[\begin{aligned}
+                            \frac{m_1 \left(v_{1, i} - v_{1, f}\right)}{m_2 \left(v_{2, f} - v_{2, i}\right)} &amp;= \frac{\left(v_{2, f} + v_{2, i}\right)}{\left(v_{1, i} + v_{1, f}\right)}
+                            \end{aligned}\]
+                        </p>
+                        <p>
+                            Substituting the division from conservation of momentum into the division from the conservation of kinetic energy:
+                            \[\begin{aligned}
+                            1 &amp;= \frac{\left(v_{2, f} + v_{2, i}\right)}{\left(v_{1, i} + v_{1, f}\right)}
+                            \end{aligned}\]
+                        </p>
+                        <p>
+                            Rearranging:
+                            \[\begin{aligned}
+                            v_{1, i} + v_{1, f} &amp;= v_{2, f} + v_{2, i} \\
+                            v_{1, i} - v_{2, i} &amp; = -\left(v_{1, f} - v_{2, f}\right)
+                            \end{aligned}\]
+                        </p>
+                        <p>
+                            Finally, one more divison and taking the absolute value:
+                            \[\begin{aligned}
+                            1 &amp; = \frac{\left|v_{2,f} - v_{1,f}\right|}{\left|v_{2,i} - v_{1,i}\right|}
+                            \end{aligned}\]
+                        </p>
+                        <p>
+                            Which equals 1, which is the coefficient of restitution for a perfectly elastic collision.
+                        </p>
+                    </div>
+                </div>
+                <p>
+                    The range of values of the coefficient of restitution corresponds to different types of collisions. It is a dimensionless parameter, usually between
+                    0 and 1. Those ranges are tabulated below.
+                </p>
+                <table id="rec-tc">
+                    <tr>
+                        <th>range</th>
+                        <th>type of collision</th>
+                    </tr>
+                    <tr>
+                        <td>$e = 0$</th>
+                        <td>This corresponds to a perfectly inelastic collision. The velocity of both objects after the collision is the same</td> 
+                    </tr>
+                    <tr>
+                        <td>$0 < e < 1$</td>
+                        <td>This corresponds to an inelastic collision that happens in the real world, where some kinetic energy is lost</td>
+                    </tr>
+                    <tr>
+                        <td>$e = 1$</td>
+                        <td>This corresponds to a perfectly elastic collision, where no kinetic energy is lost.</td>
+                    </tr>
+                    <tr>
+                        <td>$e > 1$</td>
+                        <td>This corresponds to a superelastic collision, where energy is gained/released, like a chemical reaction, a reduction of rotational energy.</td>
+                    </tr>
+                </table>
             </div>
             <div class="infoCol">
                 <div class="infoBox factBox">
@@ -705,7 +816,17 @@
                         on another. This arises from conservation of kinetic energy in elastic collisions.
                     </p>
                 </div>
+                <div class="infoBox factBox">
+                    <p>
+                        There was a time when hitting the perfect shot in a game of billiards could result in the ball to explode. 
+                        They were made from <a href="https://pubchem.ncbi.nlm.nih.gov/compound/Nitrocellulose"><em>nitrocellulose</em></a>, which is
+                        a plastic that is easily combustible, as an alternative to ivory. This corresponds to a coefficient of restitution greater than 1.
+                    </p>
+                </div>
             </div>
+        </div>
+        <div class="footer">
+            <p class="copyright">Copyright (C) 2021-2022 Felix Marrar</p>
         </div>
     </body>
 </html>
