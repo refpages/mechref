@@ -1,0 +1,52 @@
+#rec-xlmc .question {
+    height: 210px;
+}
+
+#rec-xamc .question {
+    height: 210px;
+}
+
+#rec-ic
+{
+    margin: auto;
+    position: relative
+}
+
+#rec-nb
+{
+    margin: auto;
+    position: absolute;
+    top: 410px;
+}
+
+#rec-tc {
+    border-collapse: collapse;
+    border-spacing: 0px;
+    font-size: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#rec-tc td {
+    padding: 0px 5px 0px 5px;
+}
+
+#rec-tc th {
+    border-bottom: 1px solid black;
+}
+
+#rec-tc th {
+    text-align: center;
+}
+
+#rec-tc td {
+    text-align: center;
+}
+
+#rec-tc tr th:last-child {
+    text-align: left
+}
+
+#rec-tc tr td:last-child {
+    text-align: left
+}
