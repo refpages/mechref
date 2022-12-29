@@ -1,48 +1,224 @@
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html>
+    <head profile="http://www.w3.org/2005/10/profile">
+        <link rel="icon" type="image/png" href="favicon.png">
+        <meta charset="UTF-8">
+        <link href="../style.css" type="text/css" rel="stylesheet" />
+        <link href="../icomoon.css" type="text/css" rel="stylesheet" />
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});</script>
+        <script src="../MathJax-master/MathJax.js?config=TeX-AMS-MML_HTMLorMML,local/local"> type = "text/javascript" </script>
+        <!-- <script>
+        MathJax = {
+            tex: {
+            inlineMath: [['$', '$'], ['\\(', '\\)']]
+            }
+        };
+        </script>
+        <script type="text/javascript" id="MathJax-script" src="../MathJax-master2/es5/tex-mml-chtml.js"></script> -->
+        <script src="../js/jquery-2.1.4.min.js" type="text/javascript"></script>
+        <script src="../js/sylvester.js" type="text/javascript"></script>
+        <script src="../js/sha1.js" type="text/javascript"></script>
+        <script src="../js/PrairieDraw.js" type="text/javascript"></script>
 
-<head profile="http://www.w3.org/2005/10/profile">
-    <link rel="icon" type="image/png" href="favicon.png" />
-    <meta charset="UTF-8">
-    <link href="../style.css" type="text/css" rel="stylesheet">
+        <script>
+            $(function(){
+                $("#nav-placeholder").load("../nav.html");
+            });
+        </script>
 
-    <script src="../MathJax-master/MathJax.js?config=TeX-AMS-MML_HTMLorMML,local/local"> type="text/javascript" </script>
-    <script src="../js/jquery-2.1.4.min.js" type="text/javascript"></script>
-    <script src="../js/pageControl.js" type="text/javascript"></script>
-    <script src="../js/sylvester.js" type="text/javascript"></script>
-    <script src="../js/sha1.js" type="text/javascript"></script>
-    <script src="../js/PrairieDraw.js" type="text/javascript"></script>
-    <script>
-        $(function () {
-            $("#nav-placeholder").load("../nav.html");
-        });
-    </script>
-    <title>RKC: Constraints and constrained motion</title>
-</head>
+        <script type="text/javascript">
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-37625161-1']);
+            _gaq.push(['_trackPageview']);
+            (function() {
+                var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+                ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http:/www') + '.google-analytics.com/gar.js';
+                var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+            })();
+        </script>
 
-<body>
-    <div class="container">
-        <div class="header">
-            <div class="login">
-                <p>Log in</p>
-            </div>
-            <h1>Dynamics</h1>
-        </div>
-        <div id="nav-placeholder"></div>
-        
-        <div class="mainblock">
-            <div class="contentBlock">
-                <div id="RKC" class="section level2 contentCol">
-                    <h2>RKC: Constraints and constrained motion</h2>
-                    <p>Differentiating constraints. Pulley systems.</p>
+        <title>Constraints and constrained motions</title>
+        <link href="rkc.css" type="text/css" rel="stylesheet" />
+        <script src="rkc.js" type="text/javascript"></script>
+
+        <script src="../js/pageControl.js" type="text/javascript"></script>
+    </head>
+
+    <body>
+        <div class="container">
+            <div class="header"><h1>Dynamics</h1></div>
+            <div id="nav-placeholder"></div>
+
+            <div class="mainBlock">
+        <div class="contentBlock">
+            <div id="rec" class="contentCol">
+                <h1>
+                    Constraints and constrainted motions
+                </h1>
+                <p>
+                    One of the most common type of motion is constrained motion, where an object is
+                    restricted to move in a certain way.
+                </p>
+                <p>
+                    Generally, a point constrained to move in a specific direction obeys the following equation:
+                </p>
+                <div class="envContainer equation" id="rkc-pc">
+                    <p class="envHeader">Constraint equation for a point $P$.</p>
+                    <div class="envBody">
+                        <p>
+                            \[
+                            \vec{v}_P \cdot \hat{n}_P = 0
+                            \]
+                        </p>
+                        <p>
+                            where $\hat{n}_P$ is the normal vector to the motion of point $P$.
+                        </p>
+                    </div>
                 </div>
-                <div class="infoCol"></div>
+                <p>
+                    The above equation is difficult to apply to a system with a collection of points or particles.
+                    It is not the only way to derive constraint equations. For example, rigid body kinematics
+                    equations (also known as relative motion equations) are derived using the definition of a rigid body. Namely,
+                    the distance and angles between all points remain constant. See <a href="rkg.html#rkg-er">rigid body relations</a>.
+                    It is often best to look at examples of constrained motion to see how constraint equations are differentiated to obtain
+                    velocity and acceleration.
+                </p>
+                <p>
+                    We will begin with a simple example of a ladder leaning against a wall constrained to maintain contact with the wall and ground.
+                </p>
+                <div class="envContainer exampleProblem" id="rkc-xcl">
+                    <p class="envHeader">Example Problem: Ladder leaning against a wall</p>
+                    <div class="envBody">
+                        <div class="question">
+                            <canvas id="rkc-xcl-c" width="300" height="200" class="floatRight">
+                            </canvas>
+                            <p>
+                                A ladder leaning against a wall has a fixed length of $\ell = 10 \rm\ m$. 
+                                The bottom of the ladder is $8 \rm\ m$ from the wall. 
+                                The bottom of the ladder is moving away from the wall at a speed of $6 \rm\ m/s$. 
+                                Assume that the ladder remains in contact with the ground and wall at all times.
+                                What is the vertical velocity $v_y$ of the top of the ladder?
+                            </p>
+                        </div>
+                        <div class="envContainer solution">
+                            <div class="envBody">
+                                <p>
+                                    To solve this, note the question states that the ladder's length is fixed, and is not permitted to
+                                    lose contact with the wall and ground. Therefore, 
+                                    the constraint equation is given by the Pythagorean theorem:
+                                    \[\begin{aligned}
+                                    x^2 + y^2 = \ell^2
+                                    \end{aligned}\]
+                                </p>
+                                <p>
+                                    where $x$ is the distance of the bottom of the ladder from the wall,
+                                    and $y$ is the distance of the top of the ladder from the ground.
+                                    This becomes a related rates problem from calculus 1.
+                                </p>
+                                <p>
+                                    Differentiating with respect to time, keeping in mind the chain rule:
+                                    \[\begin{aligned}
+                                    2x\dot{x} + 2y\dot{y} = 0
+                                    \end{aligned}\]
+                                </p>
+                                <p>
+                                    The quantity we're interested in is $\dot{y}$, or $v_y$, and $y = \sqrt{\ell^2 - x^2}$.
+                                </p>
+                                <p>
+                                    Solving yields $v_y = -8 \rm\ m/s$.
+                                </p>
+                                <p>
+                                    Another way to solve this is using the <a href="rkg.html#rkg-er">rigid body relations</a>,
+                                    knowing that the distance and angles from the top to the bottom of the ladder remains constant,
+                                    which is a rigid body by definition. Let point $P$ be the point at the bottom of the ladder,
+                                    and point $Q$ be the point at the top of the ladder. Using rigid body relations:
+                                    \[\begin{aligned}
+                                    \vec{v}_Q &amp;= \vec{v}_P + \vec\omega \times \vec{r}_{PQ} \\
+                                    &amp;= \vec{v}_P + \omega_z \vec{r}_{PQ}^{\perp}
+                                    \end{aligned}\]
+
+                                    where we have two unknowns: $\vec{v}_Q$, and $\vec\omega$, and 
+                                    $\vec{r}_{PQ} = -\ell \cos\theta \hat{\imath} + \ell \sin\theta \hat{\jmath} \rm\ m$,
+                                    where $\theta = \cos^{-1}\left(\frac{x}{\ell}\right)$
+                                 </p>
+                                 <p>
+                                    Therefore, $\vec{r}_{PQ}^{\perp} = -\ell \sin\theta \hat{\imath} - \ell \cos\theta \hat{\jmath} \rm\ m$
+                                 </p>
+                                <p>
+                                    Expanding the vector equation into its two scalar equations yields:
+                                    \[\begin{aligned}
+                                    v_{Qx} &amp;= v_{Px} - \omega_z \ell \sin\theta \\
+                                    v_{Qy} &amp;= v_{Py} - \omega_z \ell \cos\theta
+                                    \end{aligned}\]
+                                </p>
+                                <p>
+                                    Since the top of the ladder can only move vertically, $v_{Qx} = 0$, and $\omega_z = \frac{v_{Px}}{\ell \sin\theta} \rm\ rad/s$
+                                </p>
+                                <p>
+                                    Since the bottom of the ladder can only move horizontally, $v_{Py} = 0$, and $v_{Qy} = -\omega_z \ell \cos\theta \rm\ m/s$
+                                </p>
+                                <p>
+                                    Plugging in $\omega_z$ expression:
+                                    \[
+                                    v_{Qy} = -\frac{v_{Px}}{\ell \sin\theta} \ell \cos\theta = -v_{Px}\cot\theta \rm\ m/s
+                                    \]
+                                </p>
+                                <p>
+                                    Plugging in the numbers yields the same result of $v_{Qy} = -8 \rm\ m/s$.
+                                </p>
+                                <p>
+                                    Note in the rigid body relations method, we implicitly used the constraint equation for a point. Namely,
+                                    we know that the top of the ladder can only move vertically, so $\vec{v}_Q \cdot \hat{n}_Q = 0$, where $\hat{n}_Q = \hat{\imath}$
+                                    and $\vec{v}_P \cdot \hat{n}_P = 0$, where $\hat{n}_P = \hat{\jmath}$.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <p>
+                    Interestingly, the sliding ladder problem reveals a paradox that will be explored further in these pages.
+                    We will return to it once the concept of <em>constraint forces</em> are explained.
+                </p>
+                <p>
+                    In general, the steps involved in analyzing systems with constrained motions are as follows:
+                </p>
+                <div class="envContainer equation" id="rkc-cp">
+                    <p class="envHeader">Solution procedure for constrained motion.</p>
+                    <div class="envBody">
+                        <p>
+                            \[\begin{aligned}
+                            &amp;\text{1. Write down constraint equation in terms of distances/positions.} \\
+                            &amp;\text{2. Differentiate once or twice with respect to time to obtain $\vec{v}$ and $\vec{a}$ relationships.} \\
+                            &amp;\text{3. Solve for the desired quantity.}
+                            \end{aligned}\]
+                        </p>
+                    </div>
+                </div>
+                <div class="envContainer exampleProblem" id="rkc-xcp">
+                    <p class="envHeader">Example Problem: Compound pulley system</p>
+                    <div class="envBody">
+                        <div class="question">
+                            <canvas id="rkc-xcp-c" width="300" height="200" class="floatRight">
+                            </canvas>
+                            <p>
+                                Consider the compound pulley system shown, consisting of two massless pulleys $A, B$. Pulley $A$ is free to
+                                move vertically, and pulley $B$ is fixed to the top. The two pulleys are connected by an inextensible, massless rope.
+                                One block of mass $m_1$ is connected to pulley $A$ by a string, and another block of mass $m_2$ is hanging from the
+                                rope connecting the two pulleys. Assume the rope can only slip, and the pulleys' radii are negligbile. 
+                                If $m_2$ moves downwards at a velocity $v_2 = 2 \rm\ m/s$ and acceleration $a_2 = 6 \rm\ m/s^2$, what are
+                                the velocity and acceleration of $m_1$?
+                            </p>
+                        </div>
+                        <div class="envContainer solution">
+                            <div class="envBody">
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="footer">
-            <p class="version">Version: 2012-06-25T17:30:52.081117</p>
-            <p class="copyright">Copyright (C) 2012 Matthew West</p>
+            <p class="copyright">Copyright (C) 2021-2022 Felix Marrar</p>
         </div>
-    </div>
-</body>
-
+    </body>
 </html>

@@ -1,0 +1,39 @@
+#rkc-xcl .question {
+    height: 210px;
+}
+
+#rkc-xcp .question {
+    height: 300px;
+}
+
+#rkc-tc {
+    border-collapse: collapse;
+    border-spacing: 0px;
+    font-size: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#rkc-tc td {
+    padding: 0px 5px 0px 5px;
+}
+
+#rkc-tc th {
+    border-bottom: 1px solid black;
+}
+
+#rkc-tc th {
+    text-align: center;
+}
+
+#rkc-tc td {
+    text-align: center;
+}
+
+#rkc-tc tr th:last-child {
+    text-align: left
+}
+
+#rkc-tc tr td:last-child {
+    text-align: left
+}
