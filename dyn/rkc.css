@@ -6,6 +6,10 @@
     height: 300px;
 }
 
+#rkc-xcf .question {
+    height: 210px;
+}
+
 #rkc-tc {
     border-collapse: collapse;
     border-spacing: 0px;

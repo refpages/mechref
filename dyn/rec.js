@@ -176,8 +176,17 @@ $(document).ready(function() {
         this.ground($V([5.8, 0.2]), ei.x(-1), 4);
         this.rectangle(width_m1, height_m1, $V([r1x, r1y]));
         this.rectangle(width_m2, height_m2, $V([r2x, r2y]));
-        this.arrow($V([r1x, r1y]), $V([r1x, r1y]).add($V([v1x, 0])), "velocity");
-        this.arrow($V([r2x, r2y]), $V([r2x, r2y]).add($V([v2x, 0])), "velocity");
+        if (Math.abs(v1x) > 0) {
+            this.arrow($V([r1x, r1y]), $V([r1x, r1y]).add($V([v1x, 0])), "velocity");
+            this.labelLine($V([r1x, r1y]), $V([r1x, r1y]).add($V([v1x, 0])), ei, "TEX:$\\vec{v}_1$");
+        }
+
+        if (Math.abs(v2x) > 0) {
+            this.arrow($V([r2x, r2y]), $V([r2x, r2y]).add($V([v2x, 0])), "velocity");
+            this.labelLine($V([r2x, r2y]), $V([r2x, r2y]).add($V([v2x, 0])), ei, "TEX:$\\vec{v}_2$");
+        }
+        this.text($V([r1x, r1y]), $V([0, r1y - 2.5*width_m1]), "TEX:$m_1$");
+        this.text($V([r2x, r2y]), $V([0, r2y - 2.5*width_m2]), "TEX:$m_2$");
     });
 
     var rec_ico_c = new PrairieDrawAnim("rec-ico-c", function(t) {
@@ -197,6 +206,7 @@ $(document).ready(function() {
         var P2 = $V([5.8, r1y]);
 
         dt = this.deltaTime();
+        var coll = false;
 
         this.setUnits(2*xViewMax, 2*yViewMax);
 
@@ -233,6 +243,7 @@ $(document).ready(function() {
             };
             // Check blocks collision
             if (r1x + width_m1/2 >= r2x-width_m2/2) {
+                coll = true;
 
                 p1 = m1*v1x + m2*v2x;
 
@@ -255,7 +266,22 @@ $(document).ready(function() {
         this.ground($V([5.8, 0.2]), ei.x(-1), 4);
         this.rectangle(width_m1, height_m1, $V([r1x, r1y]));
         this.rectangle(width_m2, height_m2, $V([r2x, r2y]));
-        this.arrow($V([r1x, r1y]), $V([r1x, r1y]).add($V([v1x, 0])), "velocity");
-        this.arrow($V([r2x, r2y]), $V([r2x, r2y]).add($V([v2x, 0])), "velocity");
+        if (Math.abs(v1x) > 0 && coll === false) {
+            this.arrow($V([r1x, r1y]), $V([r1x, r1y]).add($V([v1x, 0])), "velocity");
+            this.labelLine($V([r1x, r1y]), $V([r1x, r1y]).add($V([v1x, 0])), ei, "TEX:$\\vec{v}_1$");
+        } else if (v1x > 0 && coll === true) {
+            this.arrow($V([r2x, r2y]), $V([r2x, r2y]).add($V([v2x, 0])), "velocity");
+            this.labelLine($V([r2x, r2y]), $V([r2x, r2y]).add($V([v2x, 0])), ei, "TEX:$\\vec{v}_f$");
+        } else if (v1x < 0 && coll === true) {
+            this.arrow($V([r1x, r1y]), $V([r1x, r1y]).add($V([v1x, 0])), "velocity");
+            this.labelLine($V([r1x, r1y]), $V([r1x, r1y]).add($V([v1x, 0])), ei, "TEX:$\\vec{v}_f$");
+        }
+
+        if (Math.abs(v2x) > 0 && coll === false) {
+            this.arrow($V([r2x, r2y]), $V([r2x, r2y]).add($V([v2x, 0])), "velocity");
+            this.labelLine($V([r2x, r2y]), $V([r2x, r2y]).add($V([v2x, 0])), ei, "TEX:$\\vec{v}_2$");
+        }
+        this.text($V([r1x, r1y]), $V([0, r1y - 2.5*width_m1]), "TEX:$m_1$");
+        this.text($V([r2x, r2y]), $V([0, r2y - 2.5*width_m2]), "TEX:$m_2$");
     });
 });

@@ -55,6 +55,13 @@
                 <h1>
                     Constraints and constrainted motions
                 </h1>
+            </div>
+        </div>
+        <div class="contentBlock">
+            <div id="rec-c" class="contentCol">
+                <h1>
+                    Constraints
+                </h1>
                 <p>
                     One of the most common type of motion is constrained motion, where an object is
                     restricted to move in a certain way.
@@ -84,54 +91,51 @@
                     velocity and acceleration.
                 </p>
                 <p>
-                    We will begin with a simple example of a ladder leaning against a wall constrained to maintain contact with the wall and ground.
+                    We will begin with a simple example of a rod leaning against a wall constrained to maintain contact with the wall and ground.
                 </p>
                 <div class="envContainer exampleProblem" id="rkc-xcl">
-                    <p class="envHeader">Example Problem: Ladder leaning against a wall</p>
+                    <p class="envHeader">Example Problem: Sliding rod</p>
                     <div class="envBody">
                         <div class="question">
                             <canvas id="rkc-xcl-c" width="300" height="200" class="floatRight">
                             </canvas>
                             <p>
-                                A ladder leaning against a wall has a fixed length of $\ell = 10 \rm\ m$. 
-                                The bottom of the ladder is $8 \rm\ m$ from the wall. 
-                                The bottom of the ladder is moving away from the wall at a speed of $6 \rm\ m/s$. 
-                                Assume that the ladder remains in contact with the ground and wall at all times.
-                                What is the vertical velocity $v_y$ of the top of the ladder?
+                                A uniform rod leaning against a wall has a fixed length of $\ell = 10 \rm\ m$. 
+                                The bottom of the rod at point $P$ is $8 \rm\ m$ from the wall. 
+                                Point $P$ is moving away from the wall at a speed of $6 \rm\ m/s$. 
+                                The rod maintains contact with the wall and ground at all times.
+                                What is $\vec{v}_Q$ of point $Q$, the point at the top of the ladder?
                             </p>
                         </div>
                         <div class="envContainer solution">
                             <div class="envBody">
                                 <p>
-                                    To solve this, note the question states that the ladder's length is fixed, and is not permitted to
+                                    To solve this, note the question states that the rod's length is fixed, and is not permitted to
                                     lose contact with the wall and ground. Therefore, 
                                     the constraint equation is given by the Pythagorean theorem:
                                     \[\begin{aligned}
-                                    x^2 + y^2 = \ell^2
+                                    x_P^2 + y_Q^2 = \ell^2
                                     \end{aligned}\]
                                 </p>
                                 <p>
-                                    where $x$ is the distance of the bottom of the ladder from the wall,
-                                    and $y$ is the distance of the top of the ladder from the ground.
                                     This becomes a related rates problem from calculus 1.
                                 </p>
                                 <p>
                                     Differentiating with respect to time, keeping in mind the chain rule:
                                     \[\begin{aligned}
-                                    2x\dot{x} + 2y\dot{y} = 0
+                                    2x_P\dot{x}_P + 2y_Q\dot{y}_Q = 0
                                     \end{aligned}\]
                                 </p>
                                 <p>
-                                    The quantity we're interested in is $\dot{y}$, or $v_y$, and $y = \sqrt{\ell^2 - x^2}$.
+                                    The quantity we're interested in is $\dot{y}_Q$, or $v_Q$, and $y_Q = \sqrt{\ell^2 - x_P^2}$.
                                 </p>
                                 <p>
-                                    Solving yields $v_y = -8 \rm\ m/s$.
+                                    Solving yields $\vec{v}_Q = -8\hat{\jmath} \rm\ m/s$.
                                 </p>
                                 <p>
                                     Another way to solve this is using the <a href="rkg.html#rkg-er">rigid body relations</a>,
-                                    knowing that the distance and angles from the top to the bottom of the ladder remains constant,
-                                    which is a rigid body by definition. Let point $P$ be the point at the bottom of the ladder,
-                                    and point $Q$ be the point at the top of the ladder. Using rigid body relations:
+                                    knowing that the distance and angles from the top to the bottom of the rod remains constant,
+                                    which is a rigid body by definition. Using rigid body relations:
                                     \[\begin{aligned}
                                     \vec{v}_Q &amp;= \vec{v}_P + \vec\omega \times \vec{r}_{PQ} \\
                                     &amp;= \vec{v}_P + \omega_z \vec{r}_{PQ}^{\perp}
@@ -139,7 +143,7 @@
 
                                     where we have two unknowns: $\vec{v}_Q$, and $\vec\omega$, and 
                                     $\vec{r}_{PQ} = -\ell \cos\theta \hat{\imath} + \ell \sin\theta \hat{\jmath} \rm\ m$,
-                                    where $\theta = \cos^{-1}\left(\frac{x}{\ell}\right)$
+                                    where $\theta = \cos^{-1}\left(\frac{x_P}{\ell}\right)$
                                  </p>
                                  <p>
                                     Therefore, $\vec{r}_{PQ}^{\perp} = -\ell \sin\theta \hat{\imath} - \ell \cos\theta \hat{\jmath} \rm\ m$
@@ -152,10 +156,10 @@
                                     \end{aligned}\]
                                 </p>
                                 <p>
-                                    Since the top of the ladder can only move vertically, $v_{Qx} = 0$, and $\omega_z = \frac{v_{Px}}{\ell \sin\theta} \rm\ rad/s$
+                                    Since the top of the rod can only move vertically, $v_{Qx} = 0$, and $\omega_z = \frac{v_{Px}}{\ell \sin\theta} \rm\ rad/s$
                                 </p>
                                 <p>
-                                    Since the bottom of the ladder can only move horizontally, $v_{Py} = 0$, and $v_{Qy} = -\omega_z \ell \cos\theta \rm\ m/s$
+                                    Since the bottom of the rod can only move horizontally, $v_{Py} = 0$, and $v_{Qy} = -\omega_z \ell \cos\theta \rm\ m/s$
                                 </p>
                                 <p>
                                     Plugging in $\omega_z$ expression:
@@ -164,11 +168,11 @@
                                     \]
                                 </p>
                                 <p>
-                                    Plugging in the numbers yields the same result of $v_{Qy} = -8 \rm\ m/s$.
+                                    Plugging in the numbers yields the same result of $\vec{v}_{Q} = -8\hat{\jmath} \rm\ m/s$.
                                 </p>
                                 <p>
                                     Note in the rigid body relations method, we implicitly used the constraint equation for a point. Namely,
-                                    we know that the top of the ladder can only move vertically, so $\vec{v}_Q \cdot \hat{n}_Q = 0$, where $\hat{n}_Q = \hat{\imath}$
+                                    we know that the top of the rod can only move vertically, so $\vec{v}_Q \cdot \hat{n}_Q = 0$, where $\hat{n}_Q = \hat{\imath}$
                                     and $\vec{v}_P \cdot \hat{n}_P = 0$, where $\hat{n}_P = \hat{\jmath}$.
                                 </p>
                             </div>
@@ -176,7 +180,7 @@
                     </div>
                 </div>
                 <p>
-                    Interestingly, the sliding ladder problem reveals a paradox that will be explored further in these pages.
+                    Interestingly, the sliding rod problem reveals a paradox that will be explored further in these pages.
                     We will return to it once the concept of <em>constraint forces</em> are explained.
                 </p>
                 <p>
@@ -204,13 +208,148 @@
                                 Consider the compound pulley system shown, consisting of two massless pulleys $A, B$. Pulley $A$ is free to
                                 move vertically, and pulley $B$ is fixed to the top. The two pulleys are connected by an inextensible, massless rope.
                                 One block of mass $m_1$ is connected to pulley $A$ by a string, and another block of mass $m_2$ is hanging from the
-                                rope connecting the two pulleys. Assume the rope can only slip, and the pulleys' radii are negligbile. 
-                                If $m_2$ moves downwards at a velocity $v_2 = 2 \rm\ m/s$ and acceleration $a_2 = 6 \rm\ m/s^2$, what are
+                                rope connecting the two pulleys. Assume the pulleys' radii are negligbile. 
+                                If $m_2$ moves downwards at a velocity $v_2 = 6 \rm\ m/s$ and acceleration $a_2 = 2 \rm\ m/s^2$, what are
                                 the velocity and acceleration of $m_1$?
                             </p>
                         </div>
                         <div class="envContainer solution">
                             <div class="envBody">
+                                <p>
+                                    We will begin by underlining important information given in the question. Namely:
+                                    <ol>
+                                        <li>The rope is inextensible, meaning the total length of the rope remains constant. This is our constraint.</li>
+                                        <li>The pulleys are massless, meaning we do not need to consider any rotational motion they may exhibit.</li>
+                                        <li>The pulleys radii' are negligbile, meaning we do not need to consider their radii as a part of the total length of the rope.</li>
+                                    </ol>
+                                </p>
+                                <p>
+                                    Using the solution procedure highlighted in <a href="#rkc-cp">#rkc-cp</a>:
+                                </p>
+                                <p>
+                                    <strong>1. Write down constraint equation in terms of distances/positions.</strong>
+                                    If the rope's length remains constant, we need to choose a reference line to relate the distances of
+                                    the masses to that reference line and set it equal to the rope's length. The following figure shows
+                                    the reference line, as well as the masses' distances from that line.
+                                </p>
+                                <canvas id="rkc-xcp-cs" width="300" height="200" class="standaloneImage">
+                                </canvas>
+                                <p>
+                                    Note that $y_1$ is only extended to pulley $A$. Since the pulleys are massless, they will not rotate,
+                                    and therefore $m_1$ and pulley $A$ will translate vertically together at the same rate.
+                                </p>
+                                <p>
+                                    Now, we can write the total length of the rope in terms of those two distances. The total length of the rope, $L$ will be:
+                                    \[
+                                    2y_1 + y_2 = L
+                                    \]
+                                </p>
+                                <p>
+                                    <strong>2. Differentiate once or twice with respect to time to obtain $\vec{v}$ and $\vec{a}$ relationships.</strong>
+                                    Now, we can take two derivatives with respect to time to obtain the relationship between the speeds $v_1, v_2$, and
+                                    the accelerations $a_1, a_2$.
+                                    \[\begin{aligned}
+                                    2v_1 + v_2 &amp;= 0 \\
+                                    2a_1 + a_2 &amp;= 0 
+                                    \end{aligned}\]
+                                </p>
+                                <p>
+                                    Notice that the length of the rope does not matter ultimately. This makes sense,
+                                    as the length of the rope is constant, and therefore does not change with time.
+                                </p>
+                                <p>
+                                    <strong>3. Solve for the desired quantity.</strong>
+                                    We are interested in both the velocity and acceleration of $m_1$.
+                                    <br>
+                                    Solving for $\vec{v}_1 = \frac{-\vec{v}_2}{2} = 3\hat{\jmath}\rm\ m/s$ and $\vec{a}_1 = \frac{-\vec{a}_2}{2} = \hat{\jmath}\rm\ m/s^2$ 
+                                </p>
+                                <p>
+                                    Reflecting on the result obtained, it makes sense. The distance $m_1$ has to travel up the rope is two times
+                                    more than the length $m_2$ has to travel. We can also draw a free-body diagram to understand
+                                    this result further. We will return to this example further down when constraint forces are covered.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="contentBlock">
+            <div id="rec-f" class="contentCol">
+                <h1>
+                    Constraint forces
+                </h1>
+                <p>
+                    If an object is constrained to move in a specific direction, by Newton's second law, there must be
+                    forces or moments preventing the movement of the object in that direction. Those are called <em>constraint forces</em>.
+                </p>
+                <p>
+                    The approach to solving for constraint forces is the same approach to solve for any forces/moments that are not constraint forces. Namely,
+                    drawing a free body diagram, and applying Newton's equations. See <a href="rep.html#rep-ep">the solution procedure with Newton's equations.</a>
+                </p>
+                <p>
+                    Let's return to our example of the rod leaning against a wall.
+                </p>
+                <div class="envContainer exampleProblem" id="rkc-xcf">
+                    <p class="envHeader">Example Problem: Constraint forces on a sliding rod.</p>
+                    <div class="envBody">
+                        <div class="question">
+                            <canvas id="rkc-xcf-c" width="300" height="200" class="floatRight">
+                            </canvas>
+                            <p>
+                                A uniform rod of mass $m$ and length $\ell$ is leaning against a wall at an angle $\phi$ as shown.
+                                The rod starts sliding under the influence of gravity $\vec{g}$.
+                                What are the expressions of the constraint forces $\vec{F}_P, \vec{F}_Q$ that ensure the rod maintains contact with the wall
+                                and ground at all times? 
+                            </p>
+                        </div>
+                        <div class="envContainer solution">
+                            <div class="envBody">
+                                <p>
+                                    We will begin by drawing a free body diagram on the rod.
+                                    <canvas id="rkc-xcf-s" width="300" height="200" class="standaloneImage">
+                                    </canvas>
+                                </p>
+                                <p>
+                                    Note that due to the constraint placed on the rod, point $P$ can only slide along the ground
+                                    and therefore by <a href="#rkc-pc">#rkc-pc</a>, $\vec{F}_P$ acts vertically. Similarly for point $Q$, $\vec{F}_Q$
+                                    acts horizontally.
+                                </p>
+                                <p>
+                                    Applying Newton's second law:
+                                    \[
+                                    \sum \vec{F}_{ext} = m\vec{a}_C
+                                    \]
+                                </p>
+                                <p>
+                                    Breaking it up into the scalar equations. Note we will use $\ddot{x}_C, \ddot{y}_C$ to denote
+                                    the acceleration of the center of mass $C$ in each direction.
+                                    \[\begin{aligned}
+                                    F_Q &amp;= m\ddot{x}_C \\
+                                    F_P - mg &amp;= m\ddot{y}_C
+                                    \end{aligned}\]
+                                </p>
+                                <p>
+                                    Now we can apply the solution procedure detailed in <a href="#rkc-cp">#rkc-cp</a> to find
+                                    the acceleration of point $C$. Due to our constraint, the following applies at all times:
+                                    \[
+                                    x_C = \frac{\ell}{2}\sin\phi \qquad \qquad y_C = \frac{\ell}{2}\cos\phi
+                                    \]
+                                </p>
+                                <p>
+                                    Differentiating twice, keeping in mind the chain rule:
+                                    \[\begin{aligned}
+                                    \ddot{x}_C &amp;= -\frac{\ell\dot\theta^2}{2}\sin\phi + \frac{\ell\ddot\theta}{2}\cos\phi  \\
+                                    \ddot{y}_C &amp;= -\frac{\ell\dot\theta^2}{2}\cos\phi - \frac{\ell\ddot\theta}{2}\sin\phi
+                                    \end{aligned}\]
+                                </p>
+                                <p>
+                                    Plugging into Newton's second law equations and solving for each constraint force yields:
+                                    \[\begin{aligned}
+                                    F_Q &amp;= -\frac{m\ell\dot\theta^2}{2}\sin\phi + \frac{m\ell\ddot\theta}{2}\cos\phi \\
+                                    F_P &amp;= -\frac{m\ell\dot\theta^2}{2}\cos\phi - \frac{m\ell\ddot\theta}{2}\sin\phi + mg
+                                    \end{aligned}\]
+                                </p>
                             </div>
                         </div>
                     </div>
