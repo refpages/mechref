@@ -104,7 +104,7 @@
                                 The bottom of the rod at point $P$ is $8 \rm\ m$ from the wall. 
                                 Point $P$ is moving away from the wall at a speed of $6 \rm\ m/s$. 
                                 The rod maintains contact with the wall and ground at all times.
-                                What is $\vec{v}_Q$ of point $Q$, the point at the top of the ladder?
+                                What is $\vec{v}_Q$ of point $Q$, the point at the top of the rod?
                             </p>
                         </div>
                         <div class="envContainer solution">
@@ -179,10 +179,6 @@
                         </div>
                     </div>
                 </div>
-                <p>
-                    Interestingly, the sliding rod problem reveals a paradox that will be explored further in these pages.
-                    We will return to it once the concept of <em>constraint forces</em> are explained.
-                </p>
                 <p>
                     In general, the steps involved in analyzing systems with constrained motions are as follows:
                 </p>
@@ -273,6 +269,20 @@
                     </div>
                 </div>
             </div>
+            <div class="infoCol">
+                <div class="infoBox conceptsBox">
+                    <p>
+                        <ul>
+                            <li><a href="rvc.html">Calculus and vectors</a></li>
+                            <li><a href="rkg.html">Rigid bodies</a></li>
+                            <li><a href="rep.html">Kinetics of point masses</a></li>
+                            <li><a href="reg.html">Kinetics of rigid bodies</a></li>
+                            <li><a href="rfd.html">Free body diagrams</a></li>
+                            <li><a href="ren.html">Energy and work</a></li>
+                        </ul>
+                    </p>
+                </div>
+            </div>
         </div>
         <div class="contentBlock">
             <div id="rec-f" class="contentCol">
@@ -297,8 +307,8 @@
                             <canvas id="rkc-xcf-c" width="300" height="200" class="floatRight">
                             </canvas>
                             <p>
-                                A uniform rod of mass $m$ and length $\ell$ is leaning against a wall at an angle $\phi$ as shown.
-                                The rod starts sliding under the influence of gravity $\vec{g}$.
+                                A uniform rod of mass $m$ and length $\ell$ is leaning against a frictionless wall at an angle $\phi$ as shown.
+                                The rod starts sliding along a frictionless ground under the influence of gravity $\vec{g}$.
                                 What are the expressions of the constraint forces $\vec{F}_P, \vec{F}_Q$ that ensure the rod maintains contact with the wall
                                 and ground at all times? 
                             </p>
@@ -353,6 +363,240 @@
                             </div>
                         </div>
                     </div>
+                </div>
+                <div class="envContainer exampleProblem" id="rkc-xlc">
+                    <p class="envHeader">Example Problem: Instance where rod loses contact with a wall.</p>
+                    <div class="envBody">
+                        <div class="question">
+                            <canvas id="rkc-xlc-c" width="300" height="200" class="floatRight">
+                            </canvas>
+                            <p>
+                                A uniform rod of mass $m$ and length $\ell$ is leaning against a frictionless wall at rest at an angle $\phi$ as shown.
+                                The rod starts sliding on a frictionless ground under the influence of gravity $\vec{g}$.
+                                At what angle $\theta$ does the rod lose contact with the wall?
+                            </p>
+                        </div>
+                        <div class="envContainer solution">
+                            <div class="envBody">
+                                <p>
+                                    While there is contact with the wall, our constraint still holds. This means
+                                    our constraint forces expressions from <a href="#rkc-cf">#rkc-cf</a> still hold.
+                                    We are only interested in the constraint force from the wall on the rod, $\vec{F}_Q$ at $\theta$:
+                                    \[
+                                    F_Q = -\frac{m\ell\dot\theta^2}{2}\sin\theta + \frac{m\ell\ddot\theta}{2}\cos\theta
+                                    \]
+                                </p>
+                                <p>
+                                    If the rod loses contact with the wall, then $F_Q = 0$. We have two unknowns:
+                                    the angular velocity $\dot\theta$ and the angular acceleration $\ddot\theta$.
+                                    However, we know that $\ddot\theta = \frac{d\dot\theta}{dt}$, so if we obtain
+                                    an expression for $\dot\theta$, then finding $\ddot\theta$ is possible.
+                                    We can use conservation of energy to obtain an expression for $\dot\theta$.  
+                                </p>
+                                <p>
+                                    Using <a href="ren.html#ren-eco">the work-energy theorem</a>:
+                                    \[
+                                    W = \Delta T + \Delta V
+                                    \]
+                                </p>
+                                <p>
+                                    The rod is sliding along frictionless surfaces, so there are no non-conservative forces present,
+                                    and constraint forces do no work (See <a href="ren.html#ren-wt">work done by a constraint force</a>)
+                                </p>
+                                <p>
+                                    Therefore:
+                                    \[\begin{aligned}
+                                    T_1 + V_1 &amp;= T_2 + V_2 \\
+                                    0 + mgh_{C, 1} &amp;= \frac{1}{2}mv_C^2 + \frac{1}{2}I_{C, \hat{k}}\omega^2 + mgh_{C, 2}
+                                    \end{aligned}\]
+                                </p>
+                                <p>
+                                    From before:
+                                    \[\begin{aligned}
+                                    h_{C, 1} = y_{C, 1} = \ell\cos\phi \qquad h_{C, 2} = y_{C, 2} = \ell\cos\theta
+                                    \end{aligned}\]
+                                </p>
+                                <p>
+                                    And the velocity of the center of mass at $\theta$:
+                                    \[\begin{aligned}
+                                    \vec{v}_C &amp;= \dot{x}_{C,2}\hat{\imath} + \dot{y}_{C, 2}\hat{\jmath} \\
+                                    &amp;= \ell\dot\theta\cos\theta \hat{\imath} - \ell\dot\theta\sin\theta \hat{\jmath}
+                                    \end{aligned}\]
+                                </p>
+                                <p>
+                                    So $v_C$ is simply $l\dot\theta$.
+                                </p>
+                                <p>
+                                    Plugging into our energy conservation, where $I_{C, \hat{k}} = \frac{1}{12}m\ell^2$:
+                                    \[\begin{aligned}
+                                    mg\ell\cos\phi &amp;= \frac{1}{2}m(\ell\dot\theta)^2 + \frac{1}{2}\left(\frac{1}{12}m\ell^2 \right) \dot\theta^2 + mg\ell\cos\theta \\
+                                    mg\ell\cos\phi &amp;= \frac{1}{2}m\ell^2 \dot\theta^2 + \frac{1}{24}m\ell^2 \dot\theta^2 + mg\ell\cos\theta \\
+                                    mg\ell\cos\phi &amp;= \frac{13}{24}m\ell^2 \dot\theta^2 + mg\ell\cos\theta
+                                    \end{aligned}\]
+                                </p>
+                                <p>
+                                    Solving for $\dot\theta^2$:
+                                    \[
+                                    \dot\theta^2 = \frac{24g}{13\ell}\left(\cos\phi - \cos\theta\right)
+                                    \]
+                                </p>
+                                <p>
+                                    Differentiating to obtain $\ddot\theta$:
+                                    \[\begin{aligned}
+                                    2\dot\theta\ddot\theta &amp;= \frac{24g}{13\ell}\sin\theta\dot\theta \\
+                                    \ddot\theta &amp; = \frac{12g}{13\ell}\sin\theta
+                                    \end{aligned}\]
+                                </p>
+                                <p>
+                                    Plugging our results into $F_Q$:
+                                    \[\begin{aligned}
+                                    F_Q &amp;= -\frac{m\ell\frac{24g}{13\ell}\left(\cos\phi - \cos\theta\right)}{2}\sin\theta + \frac{m\ell\frac{12g}{13\ell}\sin\theta}{2}\cos\theta \\
+                                    &amp;= -\frac{12}{13}mg\sin\theta \left(\cos\phi - \cos\theta\right) + \frac{6}{13}mg\cos\theta\sin\theta \\
+                                    \end{aligned}\]
+                                </p>
+                                <p>
+                                    Setting $F_Q = 0$:
+                                    \[\begin{aligned}
+                                    \frac{12}{13}mg\sin\theta \left(\cos\phi - \cos\theta\right) &amp;= \frac{6}{13}mg\cos\theta\sin\theta \\
+                                    2\left(\cos\phi - \cos\theta\right) &amp;= \cos\theta \\
+                                    2\cos\phi - 2\cos\theta - \cos\theta &amp;= 0 \\
+                                    2\cos\phi - 3\cos\theta &amp;= 0 \\
+                                    \end{aligned}\]
+                                </p>
+                                <p>
+                                    Solving for $\theta$ yields $\theta = \arccos\left(\frac{2}{3}\cos\phi\right)$, or when the rod has fallen 2/3 of the original height.
+                                    Note if the rod was unconstrained, the constraint we used still holds until the rod has fallen 2/3 of the original height.
+                                    We can use rigid body relations to find the velocity of point $Q$ once the rod loses contact with the wall, and it will have
+                                    both vertical and horizontal components of velocity, as expected. 
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="envContainer exampleProblem" id="rkc-xtp">
+                    <p class="envHeader">Example Problem: Tension in a compound pulley system</p>
+                    <div class="envBody">
+                        <div class="question">
+                            <canvas id="rkc-xtp-c" width="300" height="200" class="floatRight">
+                            </canvas>
+                            <p>
+                                Consider the compound pulley system shown, consisting of two massless pulleys $A, B$. Pulley $A$ is free to
+                                move vertically, and pulley $B$ is fixed to the top. The two pulleys are connected by an inextensible, massless rope.
+                                One block of mass $m_1$ is connected to pulley $A$ by a string, and another block of mass $m_2$ is hanging from the
+                                rope connecting the two pulleys. Assume the pulleys' radii are negligbile, and the rope can only slip. What is the tension
+                                $T$ in the rope?
+                            </p>
+                        </div>
+                        <div class="envContainer solution">
+                            <div class="envBody">
+                                <p>
+                                    We added one more assumption to the ones made in <a href="#rkc-xcp">#rkc-xcp</a>. Namely, the rope can only slip.
+                                    This simply means that the tension is the same at any point in the rope.
+                                </p>
+                                <p>
+                                    We will begin by drawing a free body diagram and applying Newton's second law 
+                                    on three bodies: $m_1$, $m_2$ and pulley $A$. We will
+                                    neglect pulley $B$ as it is fixed to the wall, and the results obtained from it are trivial.
+                                </p>
+                                <p>
+                                    The free body diagram on pulley $A$ is as follows:
+                                    <canvas id="rkc-xtp-sa" width="300" height="200" class="standaloneImage">
+                                    </canvas>
+                                </p>
+                                <p>
+                                    Applying Newton's second law:
+                                    \[
+                                    2T - T_2 = m_A a_A
+                                    \]
+                                </p>
+                                <p>
+                                    Since the pulley is massless, that means $T_2 = 2T$.
+                                </p>
+                                <p>
+                                    The free body diagram on $m_1$ is as follows:
+                                    <canvas id="rkc-xtp-s1" width="300" height="200" class="standaloneImage">
+                                    </canvas>
+                                </p>
+                                <p>
+                                    Applying Newton's second law:
+                                    \[
+                                    2T - m_1 g = m_1 a_1
+                                    \]
+                                </p>
+                                <p>
+                                    Finally, the free body diagram on $m_2$ is as follows:
+                                    <canvas id="rkc-xtp-s2" width="300" height="200" class="standaloneImage">
+                                    </canvas>
+                                </p>
+                                <p>
+                                    Applying Newton's second law:
+                                    \[
+                                    T - m_2 g = m_2 a_2
+                                    \]
+                                </p>
+                                <p>
+                                    We have 3 unknowns, 2 equations. We apply our constraint equation from <a href="#rkc-xcp">#rkc-xcp</a> to relate
+                                    the accelerations of $m_1$ and $m_2$:
+                                    \[
+                                    2a_1 + a_2 = 0
+                                    \]
+                                </p>
+                                <p>
+                                    Solving for $T$ from Newton's second law on $m_2$:
+                                    \[
+                                    T = m_2 a_2 + m_2 g
+                                    \]
+                                </p>
+                                <p>
+                                    Plugging it into Newton's second law on $m_1$:
+                                    \[
+                                    2m_2 a_2 + 2m_2 g - m_1 g = m_1 a_1
+                                    \]
+                                </p>
+                                <p>
+                                    Since $a_2 = -2a_1$:
+                                    \[\begin{aligned}
+                                    -4m_2 a_1 + 2m_2 g - m_1g &amp;= m_1 a_1 \\
+                                    g\left(2m_2 - m_1 \right) &amp;= a_1\left(m_1 + 4m_2\right)
+                                    \end{aligned}\]
+                                </p>
+                                <p>
+                                    Solving for $a_1$:
+                                    \[
+                                    a_1 = \frac{g\left(2m_2 - m_1 \right)}{m_1 + 4m_2}
+                                    \]
+                                </p>
+                                <p>
+                                    Plugging that result into Newton's second law on $m_1$ and solving for $T$:
+                                    \[
+                                    T = \frac{m_1\frac{g\left(2m_2 - m_1 \right)}{m_1 + 4m_2} + m_1g}{2}
+                                    \]
+                                </p>
+                                <p>
+                                    Simplifying a little by multiplying the top and bottom by $m_1 + 4m_2$:
+                                    \[
+                                    T = \frac{m_1g(2m_2 - m_1) + m_1g(m_1 + 4m_2)}{2(m_1 + 4m_2)}
+                                    \]
+                                </p>
+                                <p>
+                                    We obtain our final result for the tension in the rope $T$:
+                                    \[
+                                    T = \frac{3m_1m_2g}{m_1 + 4m_2}
+                                    \]
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="infoCol">
+                <div class="infoBox factBox">
+                    <p>
+                        If the rod were to slide along the ground at constant velocity, the constraint forces
+                        from the ground and wall tend to infinity, and it yields large speeds. This motion then
+                        becomes unrealistic, as the related rates problem from calculus 1 places no regard on the
+                        constraint forces that cause this motion.
+                    </p>
                 </div>
             </div>
         </div>

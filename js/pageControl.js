@@ -31,6 +31,7 @@ $(document).ready(function() {
     $("div.notationBox").prepend('<h2>Notation note</h2>');
     $("div.requirementsBox").prepend('<h2>Reference material</h2>');
     $("div.applicationsBox").prepend('<h2>Related applications</h2>');
+    $("div.conceptsBox").prepend('<h2>Relevant concepts</h2>');
     $("div.warningBox").prepend('<h2>Warning!</h2>');
     $("div.linksBox").prepend('<h2>Extra links</h2>');
 
