@@ -3166,9 +3166,9 @@ PrairieDraw.prototype.findAnchorForIntersection = function(labelPointDw, pointsD
     @param {Array} points The end of the lines that meet at labelPoint.
     @param {string} label The label text.
 */
-PrairieDraw.prototype.labelIntersection = function(labelPoint, points, label) {
+PrairieDraw.prototype.labelIntersection = function(labelPoint, points, label, scaleOffset=1) {
     var anchor = this.findAnchorForIntersection(labelPoint, points);
-    this.text(labelPoint, anchor, label);
+    this.text(labelPoint, anchor.x(scaleOffset), label);
 };
 
 /*****************************************************************************/

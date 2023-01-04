@@ -14,34 +14,27 @@
     height: 210px;
 }
 
-#rkc-tc {
+#rkc-tr {
     border-collapse: collapse;
     border-spacing: 0px;
-    font-size: 100%;
-    margin-left: auto;
-    margin-right: auto;
 }
 
-#rkc-tc td {
-    padding: 0px 5px 0px 5px;
+#rkc-tr td {
+    padding: 3px 7px 3px 7px;
+    border-right: 1px solid #666;
 }
 
-#rkc-tc th {
-    border-bottom: 1px solid black;
+#rkc-tr th {
+    padding: 3px 7px 3px 7px;
+    font-family: 'NoticiaTextBold',Arial,Sans-serif;
+    border-bottom: 1px solid #666;
+    border-right: 1px solid #666;
 }
 
-#rkc-tc th {
-    text-align: center;
+#rkc-tr tr td:last-child {
+    border-right: none;
 }
 
-#rkc-tc td {
-    text-align: center;
-}
-
-#rkc-tc tr th:last-child {
-    text-align: left
-}
-
-#rkc-tc tr td:last-child {
-    text-align: left
+#rkc-tr tr th:last-child {
+    border-right: none;
 }

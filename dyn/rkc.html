@@ -91,6 +91,46 @@
                     velocity and acceleration.
                 </p>
                 <p>
+                    We can visualize the motion of several constrained systems, shown on the figure below.
+                </p>
+                <div class="figureContainer width600" id="rkc-cm">
+                    <canvas id="rkc-cm-c" width="600" height="600" class="figureImage">
+                    </canvas>
+                    <p class="controls">
+                        <button class="anim-toggle:rkc-cm-c">animation</button>
+                        <button class="reset:rkc-cm-c">reset</button>
+                        <button class="option-toggle:rkc-cm-c:showLabels">show labels</button>
+                        <button class="option-toggle:rkc-cm-c:showVelocity">show velocity</button>
+                    </p>
+                    <table id="rkc-ts" class="controls">
+                        <tr>
+                            <td>System:</td>
+                            <td><input type="radio" name="rkc-cm-c-movement" value="rodCircle" class="data-input:rkc-cm-c:movement" />rod-circular</td>
+                            <td><input type="radio" name="rkc-cm-c-movement" value="sliderCrank" class="data-input:rkc-cm-c:movement" />slider-crank</td>
+                        </tr>
+                    </table>
+                    <p>
+                    </p>
+                    <table id="rkc-tr">
+                        <tr>
+                            <th>rod-circular</th>
+                            <th>slider-crank</th>
+                        </tr>
+                        <tr>
+                            <td><button class="option-toggle:rkc-cm-c:showQTrace">Trace $Q$</button></td>
+                            <td><button class="option-toggle:rkc-cm-c:showBTrace">Trace $B$</button></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td><button class="option-toggle:rkc-cm-c:showBPath">$B$ path</button></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td><button class="option-toggle:rkc-cm-c:flipSystem">$\hat{v}_C = \hat{\jmath}$</button></td>
+                        </tr>
+                    </table>
+                </div>
+                <p>
                     We will begin with a simple example of a rod leaning against a wall constrained to maintain contact with the wall and ground.
                 </p>
                 <div class="envContainer exampleProblem" id="rkc-xcl">
@@ -279,6 +319,13 @@
                             <li><a href="reg.html">Kinetics of rigid bodies</a></li>
                             <li><a href="rfd.html">Free body diagrams</a></li>
                             <li><a href="ren.html">Energy and work</a></li>
+                        </ul>
+                    </p>
+                </div>
+                <div class="infoBox applicationsBox">
+                    <p>
+                        <ul>
+                            <li><a href="aml.html">Four-bar linkages</a></li>
                         </ul>
                     </p>
                 </div>
