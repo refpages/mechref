@@ -1,0 +1,16 @@
+#rfb-xpm .question {
+    height: 210px;
+}
+
+#rfb-xcm .question {
+    height: 210px;
+}
+
+#rfb-xrs .question {
+    height: 210px;
+}
+
+.floatCenter {
+    position: relative;
+    left: 107px;
+}

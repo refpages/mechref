@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html>
+    <head profile="http://www.w3.org/2005/10/profile">
+        <link rel="icon" type="image/png" href="favicon.png">
+        <meta charset="UTF-8">
+        <link href="../style.css" type="text/css" rel="stylesheet" />
+        <link href="../icomoon.css" type="text/css" rel="stylesheet" />
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});</script>
+        <script src="../MathJax-master/MathJax.js?config=TeX-AMS-MML_HTMLorMML,local/local"> type = "text/javascript" </script>
+        <!-- <script>
+        MathJax = {
+            tex: {
+            inlineMath: [['$', '$'], ['\\(', '\\)']]
+            }
+        };
+        </script>
+        <script type="text/javascript" id="MathJax-script" src="../MathJax-master2/es5/tex-mml-chtml.js"></script> -->
+        <script src="../js/jquery-2.1.4.min.js" type="text/javascript"></script>
+        <script src="../js/sylvester.js" type="text/javascript"></script>
+        <script src="../js/sha1.js" type="text/javascript"></script>
+        <script src="../js/PrairieDraw.js" type="text/javascript"></script>
+        <script src="../js/PrairieGeom.js" type="text/javascript"></script>
+
+        <script>
+            $(function(){
+                $("#nav-placeholder").load("../nav.html");
+            });
+        </script>
+
+        <script type="text/javascript">
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-37625161-1']);
+            _gaq.push(['_trackPageview']);
+            (function() {
+                var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+                ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http:/www') + '.google-analytics.com/gar.js';
+                var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+            })();
+        </script>
+
+        <title>Free body diagrams</title>
+        <link href="rfb.css" type="text/css" rel="stylesheet" />
+        <script src="rfb.js" type="text/javascript"></script>
+
+        <script src="../js/pageControl.js" type="text/javascript"></script>
+    </head>
+
+    <body>
+        <div class="container">
+            <div class="header"><h1>Dynamics</h1></div>
+            <div id="nav-placeholder"></div>
+
+            <div class="mainBlock">
+        <div class="contentBlock">
+            <div id="rfb" class="contentCol">
+                <h1>
+                    Free body diagrams
+                </h1>
+                <p>
+                    A free-body diagram (abbreviated as FBD, also called force diagram) is a diagram used to show the magnitude and direction of all applied forces,
+                    moments, and reaction and constraint forces acting on a body. They are important and necessary in solving complex problems in mechanics.
+                </p>
+                <p>
+                    What is and is not included in a free-body diagram is important. Every free-body diagram should have the following:
+                    <ul>
+                        <li>The body represented as a dot if it is a point mass, and the body itself if it is a rigid body.</li>
+                        <li>The external forces/moments. The force vector should indicate: relative magnitude, point of application, and the direction.
+                        </li>
+                        <li>A properly defined coordinate system.</li>
+                    </ul>
+                </p>
+                <p>
+                    A free-body diagram should <em>not</em> include the following:
+                    <ul>
+                        <li>Bodies other than the body we are interested in.</li>
+                        <li>Forces applied <em>by</em> the body.</li>
+                        <li>Internal forces depending on the chosen system. For example, a free-body diagram on a truss should not include the forces between
+                            individual truss members.
+                        </li>
+                        <li>Kinematic quantities (velocity and acceleration).</li>
+                    </ul>
+                </p>
+            </div>
+            <div class="infoCol" id="rfb-ic">
+                <div class="infoBox warningBox" id="rfb-wd">
+                    <p>
+                        Always assume the direction of forces/moments to be positive according to the appropriate
+                        coordinate system. The calculations from Newton/Euler equations will provide you with the correct direction of those forces/moments.
+                        Things that should not follow this are:
+                        <ul>
+                            <li>Gravity</li>
+                            <li>Tension</li>
+                            <li>Friction if the velocity $\vec{v}$ is provided</li>
+                        </ul>
+                    </p>
+                </div>
+                <div class="infoBox warningBox" id="rfb-wf">
+                    <p>
+                        If forces/moments are present, always begin with a free-body diagram. Do not
+                        write down equations before drawing the FBD as those are often simple kinematic equations, or Newton/Euler equations.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="contentBlock">
+            <div id="rfb-pm" class="contentCol">
+                <h2>
+                    Point-masses
+                </h2>
+                <p>
+                    Drawing free-body diagrams on point-masses/particles is straightforward, as all the forces
+                    are applied at a single point, and the point-mass cannot rotate about its own axis due to the
+                    absence of a moment of inertia. In some instances, Newton's 2nd Law 
+                    in rotation is not necessary at all. We will look at one such example. 
+                </p>
+                <div class="envContainer exampleProblem" id="rfb-xpm">
+                    <p class="envHeader">Example Problem: Point-mass on an incline</p>
+                    <div class="envBody">
+                        <div class="question">
+                            <canvas id="rfb-xpm-c" width="300" height="200" class="floatRight">
+                            </canvas>
+                            <p>
+                                An object of mass $m$ is at rest on an incline at an angle $\theta$ with gravity $\vec{g}$ present as shown. The
+                                coefficient of friction between the object and incline is $\mu$.
+                                Draw the free-body diagram on the object, and write down the corresponding
+                                Newton's 2nd Law for the object.
+                            </p>
+                        </div>
+                        <div class="envContainer solution">
+                            <div class="envBody">
+                                <p>
+                                    We have four forces: gravity, the normal force due to the incline, and friction.
+                                    We will use a dot to represent the object as it is a point mass. Recall we also
+                                    have to define a coordinate system, so we will choose a convenient set of basis vectors.
+                                    The tangential/normal basis vectors $\hat{e}_t, \hat{e}_n$ work best for this problem.
+                                    Therefore, our free-body diagram is the following:
+                                </p>
+                                <canvas id="rfb-xpm-f" width="300" height="200" class="standaloneImage">
+                                </canvas>
+                                <p>
+                                    Now, we can proceed with Newton's 2nd Law:
+                                    \[\begin{aligned}
+                                    \sum \vec{F}_{ext} &amp;= m\vec{a} \\
+                                    m\vec{g} + \vec{F}_s + \vec{N} &amp;= m\vec{a}
+                                    \end{aligned}\]
+                                </p>
+                                <p>
+                                    Decomposing the vector equation into scalar equations in $\hat{e}_t, \hat{e}_n$ :
+                                    \[\begin{aligned}
+                                    \hat{e}_t: \qquad F_s + mg\sin\theta = ma_t \\
+                                    \hat{e}_n: \qquad N - mg\cos\theta = ma_n
+                                    \end{aligned}\]
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="envContainer exampleProblem" id="rfb-xcm">
+                    <p class="envHeader">Example Problem: Uniform circular motion of a particle</p>
+                    <div class="envBody">
+                        <div class="question">
+                            <canvas id="rfb-xcm-c" width="300" height="200" class="floatRight">
+                            </canvas>
+                            <p>
+                                A particle of mass $m$ is undergoing uniform circular motion due to gravity from point $O$, which is fixed. Another force $\vec{F}$ is present.
+                                Draw the free-body diagram on the particle and write down the corresponding Newton's 2nd Law for the particle.
+                            </p>
+                        </div>
+                        <div class="envContainer solution">
+                            <div class="envBody">
+                                <p>
+                                   We will choose the polar basis to model this <button class="option-toggle:rfb-xcm-c:showBasis">show basis</button>
+                                </p>
+                                <p>
+                                    There are two forces present: Gravity, which is the force that allows for circular motion to be possible,
+                                    and another force present. Think of this force as something that represents some kind of thrust on a rocket
+                                    modeled as a point mass. Circular motion is still possible without it, however, the addition of it helps 
+                                    understand and model complex dynamical systems better. All in all, the free-body diagram is as follows:
+                                </p>
+                                <canvas id="rfb-xcm-f" width="300" height="200" class="standaloneImage">
+                                </canvas>
+                                <p>
+                                    Now, we can proceed with Newton's 2nd Law:
+                                    \[\begin{aligned}
+                                    \sum \vec{F}_{ext} &amp;= m\vec{a} \\
+                                    m\vec{g} + \vec{F} &amp;= m\vec{a}
+                                    \end{aligned}\]
+                                </p>
+                                <p>
+                                    Decomposing the vector equation into scalar equations in $\hat{e}_t, \hat{e}_n$ :
+                                    \[\begin{aligned}
+                                    \hat{e}_r&amp;: \qquad F_r - mg = ma_r \\
+                                    \hat{e}_\theta&amp;: \qquad F_\theta = ma_\theta
+                                    \end{aligned}\]
+                                </p>
+                                <p>
+                                    We can now substitute in the acceleration in polar found <a href="rkv.html#rkv-ep">here</a>:
+                                    \[\begin{aligned}
+                                    \vec{a} &amp;= (\ddot{r} - r\dot\theta^2)\hat{e}_r + (r\ddot\theta + 2\dot{r}\dot\theta)\hat{e}_\theta \\
+                                    &amp;= a_r \hat{e}_r + a_\theta \hat{e}_\theta
+                                    \end{aligned}\]
+                                </p>
+                                <p>
+                                    Substituting:
+                                    \[\begin{aligned}
+                                    F_r - mg &amp;= m\ddot{r} - mr\dot\theta^2 \\
+                                    F_\theta &amp;= mr\ddot\theta + 2m\dot{r}\dot\theta
+                                    \end{aligned}\]
+                                </p>
+                                <p>
+                                    Since $r$ is constant, $\dot r = 0$ and $\ddot r = 0$. Therefore:
+                                    \[\begin{aligned}
+                                    F_r - mg &amp;= - mr\dot\theta^2 \\
+                                    F_\theta &amp;= mr\ddot\theta
+                                    \end{aligned}\]
+                                </p>
+                                <p>
+                                    There's a reason choosing a coordinate system is important when solving kinetics problems.
+                                    We can verify that $F_\theta = mr\ddot\theta$ is true using Newton's 2nd Law in rotation.
+                                    However, we have to choose an appropriate axis to apply it about, since the choice of an axis
+                                    matters. We will choose point $O$ to be our reference point. Using that:
+                                    \[\begin{aligned}
+                                    \sum \vec{M}_O = I_O\vec{\alpha}
+                                    \end{aligned}\]
+                                </p>
+                                <p>
+                                    where $I_O = mr^2$ (see <a href="rem.html#rem-ep">here</a>), and $\alpha = \ddot\theta$. Now the external
+                                    moment about point $O$ is as follows:
+                                    \[\begin{aligned}
+                                    \vec{M}_O &amp;= \vec{r} \times \vec{F} + \vec{r} \times m\vec{g} \\
+                                    &amp;= r\hat{e}_r \times (F_r \hat{e}_r + F_\theta \hat{e}_\theta) + r\hat{e}_r \times (-mg \hat{e}_r) \\
+                                    &amp;= F_r r (\hat{e}_r \times \hat{e}_r) + F_\theta r (\hat{e}_r \times \hat{e}_\theta) - mgr (\hat{e}_r \times \hat{e}_r) \\
+                                    &amp;= F_\theta r \, \hat{k}
+                                    \end{aligned}\]
+                                </p>
+                                <p>
+                                    Substituting everything:
+                                    \[\begin{aligned}
+                                    F_\theta r &amp;= mr^2 \ddot\theta \\
+                                    F_\theta &amp;= mr \ddot\theta 
+                                    \end{aligned}\]
+                                </p>
+                                <p>
+                                    Precisely as we obtained from linear Newton's 2nd Law.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="contentBlock">
+            <div id="rfb-rb" class="contentCol">
+                <h2>
+                    Rigid bodies
+                </h2>
+                <p>
+                    We will extend our understanding of drawing free-body diagrams on a single mass point to a body of continuously 
+                    distributed mass, or rigid bodies. To solve the kinetics problem of rigid bodies, we will utilize <a href="reg.html#reg-se">Euler's equations</a> 
+                    .We will continue to call the equations Newton's equations, as they are simply an extension of Newton's equations from point masses to rigid bodies.
+                    Since rigid bodies can rotate about their own axis (namely, center of mass),
+                    Euler's 2nd Law is often used to compute angular quantities alongside the <a href="rkg.html#rkg-er">rigid body equations</a>.
+                </p>
+                <div class="envContainer exampleProblem" id="rfb-xrs">
+                    <p class="envHeader">Example Problem: Rolling without slipping kinetics</p>
+                    <div class="envBody">
+                        <div class="question">
+                            <canvas id="rfb-xrs-c" width="300" height="200" class="floatRight">
+                            </canvas>
+                            <p>
+                                A circular rigid body of mass $m$ and radius $r$ is rolling without slipping on a flat 2D surface 
+                                under the influence of gravity $\vec{g}$. Another force $\vec{F}$ is applied at the top of the disk at point $P$ as shown. 
+                                Draw the free-body diagram on the body and write down the corresponding Newton's 2nd Law for the body.
+                            </p>
+                        </div>
+                        <div class="envContainer solution">
+                            <div class="envBody">
+                                <p>
+                                    We have four forces: gravity at point $C$, normal force from the ground at point $Q$, force $\vec{F}$ at point $P$, and
+                                    friction at point $Q$. Therefore, the free-body diagram is the following:
+                                </p>
+                                <canvas id="rfb-xrs-f" width="300" height="200" class="standaloneImage">
+                                </canvas>
+                                <p>
+                                    Now, we can proceed with Newton's 2nd Law. Recall Newton's 2nd Law for rigid bodies is about the center of mass. Therefore:
+                                    \[\begin{aligned}
+                                    \sum \vec{F}_{ext} &amp;= m\vec{a}_C \\
+                                    m\vec{g} + \vec{F}_s + \vec{N} + \vec{F} &amp;= m\vec{a}_C
+                                    \end{aligned}\]
+                                </p>
+                                <p>
+                                    Applying Newton's 2nd Law in rotation (Euler's 2nd Law). We will choose the center of mass as the axis of rotation:
+                                    \[\begin{aligned}
+                                    \sum \vec{M}_{ext} &amp;= I_C \, \vec \alpha \\
+                                    \vec{r}_{CP} \times \vec{F} + \vec{r}_{CQ} \times \vec{F}_s &amp;= I_C \, \vec \alpha
+                                    \end{aligned}\]
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <h3>
+                    Trusses
+                </h3>
+                <p>
+                    Trusses are structures made up of long, slim members connected at their ends. In this section, we will analyze a simplified version of planar
+                    trusses called simple trusses, which consist of two-force members connected by frictionless joints/pins.  
+                </p>
+                <p>
+                    In complicated trusses, there are often what is known as zero-force members, which are members that carry no load or force. The rules
+                    for identifying zero-force members are the following:
+                </p>
+                <div class="envContainer equation" id="rfb-zf">
+                    <p class="envHeader">Rules for identifying zero-force members.</p>
+                    <div class="envBody">
+                        <p>
+                            <ul>
+                                <li>If two non-collinear members meet at a joint with no loading, then both members are zero-force members.</li>
+                                <li>If three forces meet at a joint, and two of them are collinear, then the third is a zero-force member.</li>
+                            </ul>
+                        </p>
+                    </div>
+                </div>
+                <p>
+                    These rules will help us simplify trusses and solve for the internal forces in the desired members.
+                </p>
+                <p>
+                    Drawing free-body diagrams on trusses is simple. As mentioned in the beginning, we will choose
+                    the entire truss as our system and draw the free-body diagram to determine the reaction forces
+                    on pinned/roller joints. Note we will need more equations and free-body diagrams on individual truss
+                    members to fully determine the reaction forces. See statics reference pages on how that is done.
+                    The following is a diagram showcasing eliminating zero-force members as well as the free-body diagram
+                    on the truss.
+                </p>
+                <div class="figureContainer width600" id="rfb-xzf">
+                    <canvas id="rfb-xzf-f" width="600" height="600" class="figureImage">
+                    </canvas>
+                    <p class="controls">
+                        <button class="option-toggle:rfb-xzf-f:FBD">free-body diagram</button>
+                    </p>
+                    <table>
+                        <tr>
+                            <td>Stage: <span class="data-option:rfb-xzf-f:stage"></span></td>
+                            <td><input type="range" min="0" max="6" value="0" step="1" class="data-input:rfb-xzf-f:stage"/></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="contentBlock">
+            <div id="rfb-if" class="contentCol">
+                <h2>
+                    Deformable bodies and internal forces
+                </h2>
+                <p>
+                    Neither point masses nor rigid bodies can physically exist, as no body can really be a 
+                    single point with no extent, and no extended body can be exactly rigid.
+                    Despite this, these are very useful models for mechanics and dynamics. 
+                </p>
+                <p>
+                    In the instance of rigid bodies, there must be internal forces keeping those bodies together.
+                    For example, internal forces in truss members.
+                </p>
+                <p>
+                    The following truss showcases the internal forces between truss members.
+                </p>
+                <p>
+                <canvas id="rfb-ft-c" width="700" height="500">
+                </canvas>
+                </p>
+                <p>
+                    These internal forces between truss members (action-reaction pairs) are the forces present in two-force members that were discussed earlier.
+                    To solve for those forces, see statics for method of joints and method of sections.
+                </p>
+                <p>
+                    However now, imagine if we <button class="option-toggle:rfb-it-c:cut">cut</button> the member at an arbitrary point along its length. To maintain equlibrium,
+                    there must be forces at the cut, that are equal and opposite to the external forces (note those external forces are actually the action-reaction pairs,
+                    external to the member, but internal to the entire truss).
+                </p>
+                <div class="figureContainer width600">
+                    <canvas id="rfb-it-c" width="600" height="600" class="figureImage">
+                    </canvas>
+                    <p class="controls">
+                        <button class="option-toggle:rfb-it-c:cut">cut</button>
+                        <input type="radio" name="rfb-it-c-forces" value="tension" class="data-input:rfb-it-c:forces" />tension
+                        <input type="radio" name="rfb-it-c-forces" value="compression" class="data-input:rfb-it-c:forces" />compression
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <p class="copyright">Copyright (C) 2023 Felix Marrar</p>
+        </div>
+    </body>
+</html>

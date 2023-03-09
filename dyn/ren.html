@@ -177,8 +177,8 @@
                     <div class="envBody">
                         <p>
                             \[\begin{aligned}
-                            \vec{F} &amp;= -\nabla U \\
-                            &amp; = -\frac{\partial U}{\partial x}\hat{\imath} -\frac{\partial U}{\partial y}\hat{\jmath} - \frac{\partial U}{\partial z}\hat{k}
+                            \vec{F} &amp;= -\nabla V \\
+                            &amp; = -\frac{\partial V}{\partial x}\hat{\imath} -\frac{\partial V}{\partial y}\hat{\jmath} - \frac{\partial V}{\partial z}\hat{k}
                             \end{aligned}\]
                         </p>
                     </div>
@@ -192,34 +192,34 @@
                             \end{aligned}\]
                         </p>
                         <p>
-                            Assuming the only force applied is the force $\vec{F}$, then the system gains potential energy, so the amount of work done is equal to $\Delta{U}$.
+                            Assuming the only force applied is the force $\vec{F}$, then the system gains potential energy, so the amount of work done is equal to $\Delta{V}$.
                             \[\begin{aligned}
-                            \Delta{U} &amp;= \vec{F} \cdot \Delta{\vec{y}}
+                            \Delta{V} &amp;= \vec{F} \cdot \Delta{\vec{y}}
                             \end{aligned}\]
                         </p>
                         <p>
                             Rearranging:
                             \[\begin{aligned}
-                            F &amp;= \frac{\Delta{U}}{\Delta{y}}
+                            F &amp;= \frac{\Delta{V}}{\Delta{y}}
                             \end{aligned}\]
                         </p>
                         <p>
                             Since we are interested in the force the field exerts on the system, due to Newton's Third Law, the force is equal and opposite. Therefore, the above result becomes:
                             \[\begin{aligned}
-                            F &amp;= -\frac{\Delta{U}}{\Delta{y}}
+                            F &amp;= -\frac{\Delta{V}}{\Delta{y}}
                             \end{aligned}\]
                         </p>
                         <p>
                             If the change in potential energy and displacement is infinitesimally small, this becomes a derivative:
                             \[\begin{aligned}
-                            F &amp;= -\frac{dU}{dy}
+                            F &amp;= -\frac{dV}{dy}
                             \end{aligned}\]
                         </p>
                         <p>
                             Generalizing this result to 3 dimensions, we use the gradient to obtain the following result:
                             \[\begin{aligned}
-                            \vec{F} &amp;= -\nabla U \\
-                            &amp; = -\frac{\partial U}{\partial x}\hat{\imath} -\frac{\partial U}{\partial y}\hat{\jmath} - \frac{\partial U}{\partial z}\hat{k}
+                            \vec{F} &amp;= -\nabla V \\
+                            &amp; = -\frac{\partial V}{\partial x}\hat{\imath} -\frac{\partial V}{\partial y}\hat{\jmath} - \frac{\partial V}{\partial z}\hat{k}
                             \end{aligned}\]
                         </p>
                     </div>
@@ -232,7 +232,7 @@
                             </canvas>
                             <p>
                                 Consider an object of mass $m$ in the air under the influence of gravity.
-                                Derive the potential energy $U$ of the object.
+                                Derive the potential energy $V_g$ of the object.
                             </p>
                         </div>
                         <div class="envContainer solution">
@@ -246,22 +246,22 @@
                                   <p>
                                     Since gravity only acts in one direction, we can simplify <a href="ren-efp">#ren-efp</a> to:
                                     \[\begin{aligned}
-                                    F &amp;= -\frac{dU}{dy} \\
-                                    -mg &amp;= -\frac{dU}{dy} \\
-                                    mg \, dy &amp;= dU \\
+                                    F &amp;= -\frac{dV}{dy} \\
+                                    -mg &amp;= -\frac{dV}{dy} \\
+                                    mg \, dy &amp;= dV \\
                                     \end{aligned}\]
                                   </p>
                                   <p>
                                     Integrating both sides:
                                     \[\begin{aligned}
-                                    \int_{U_1}^{U_2} dU &amp;= \int_{y_1}^{y_2} mg \, dy \\
-                                    \Delta U &amp; = mg\Delta y
+                                    \int_{V_1}^{V_2} dU &amp;= \int_{y_1}^{y_2} mg \, dy \\
+                                    \Delta V &amp; = mg\Delta y
                                     \end{aligned}\]
                                   </p>
                                   <p>
                                     We can simplify the result by assuming $U_1$ is zero, and $y_1$ is at the reference zero-potential height. Therefore, the above becomes:
                                     \[\begin{aligned}
-                                    U &amp; = mgy = mgh
+                                    V_g &amp; = mgy = mgh
                                     \end{aligned}\]
                                   </p>
                                   <p>
@@ -279,7 +279,7 @@
                             </canvas>
                             <p>
                                 Consider an object of mass $m$ attached to a spring of stiffness $k$.
-                                Derive the potential energy $U_s$ stored in the spring.
+                                Derive the potential energy $V_s$ stored in the spring.
                             </p>
                         </div>
                         <div class="envContainer solution">
@@ -294,22 +294,22 @@
                                   <p>
                                     Since the restoring force in a spring only acts in one direction, we can simplify <a href="ren-efp">#ren-efp</a> to:
                                     \[\begin{aligned}
-                                    F &amp;= -\frac{dU}{dx} \\
-                                    -kx &amp;= -\frac{dU}{dx} \\
-                                    kx \, dx &amp;= dU \\
+                                    F &amp;= -\frac{dV}{dx} \\
+                                    -kx &amp;= -\frac{dV}{dx} \\
+                                    kx \, dx &amp;= dV \\
                                     \end{aligned}\]
                                   </p>
                                   <p>
                                     Integrating both sides:
                                     \[\begin{aligned}
-                                    \int_{U_1}^{U_2} dU &amp;= \int_{x_1}^{x_2} kx \, dx \\
-                                    \Delta U &amp; = \frac{1}{2}k\Delta x^2 = \frac{1}{2}k(x^2_2 - x^2_1)
+                                    \int_{V_1}^{V_2} dU &amp;= \int_{x_1}^{x_2} kx \, dx \\
+                                    \Delta V &amp; = \frac{1}{2}k\Delta x^2 = \frac{1}{2}k(x^2_2 - x^2_1)
                                     \end{aligned}\]
                                   </p>
                                   <p>
                                     We can simplify the result by assuming $U_1$ is zero, and $x_1$ is at the reference zero-potential displacement. Therefore, the above becomes:
                                     \[\begin{aligned}
-                                    U &amp; = \frac{1}{2}kx^2
+                                    V &amp; = \frac{1}{2}kx^2
                                     \end{aligned}\]
                                   </p>
                                   <p>
@@ -334,7 +334,7 @@
                     <p class="envHeader">Gravitational potential energy with uniform gravitational acceleration $g$.</p>
                     <div class="envBody">
                         <p>
-                            \[V = mgh_C\]
+                            \[V_g = mgh_C\]
                         </p>
                         <p>
                             The distance $h_C$ is the height of the center of mass
@@ -346,7 +346,7 @@
                     <p class="envHeader">Potential energy stored in a spring with stiffness $k$.</p>
                     <div class="envBody">
                         <p>
-                            \[U_s = \frac{1}{2}kx_C^2\]
+                            \[V_s = \frac{1}{2}kx_C^2\]
                         </p>
                         <p>
                             The distance $x_C$ is the displacement of the center of mass
@@ -358,7 +358,7 @@
                     <p class="envHeader">Work-potential energy theorem.</p>
                     <div class="envBody">
                         <p>
-                            \[W = -\Delta U\]
+                            \[W = -\Delta V\]
                         </p>
                     </div>
                 </div>
@@ -373,8 +373,8 @@
                         <p>
                             Assuming one-dimensional motion, and using the force-potential energy relationship:
                             \[\begin{aligned}
-                            W &amp; = -\frac{\Delta U}{\Delta x}\Delta x\\
-                            &amp; = -\Delta U
+                            W &amp; = -\frac{\Delta V}{\Delta x}\Delta x\\
+                            &amp; = -\Delta V
                             \end{aligned}\]
                         </p>
                     </div>
@@ -610,7 +610,7 @@
                     <p class="envHeader">Work-energy theorem.</p>
                     <div class="envBody">
                         <p>
-                            \[W = \Delta T + \Delta U\]
+                            \[W = \Delta T + \Delta V\]
                         </p>
                         <p>
                             where $W$ is the work done by non-conservative forces. If non-conservative forces are not present, then
