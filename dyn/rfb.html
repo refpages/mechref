@@ -382,9 +382,17 @@
                     </canvas>
                     <p class="controls">
                         <button class="option-toggle:rfb-it-c:cut">cut</button>
-                        <input type="radio" name="rfb-it-c-forces" value="tension" class="data-input:rfb-it-c:forces" />tension
-                        <input type="radio" name="rfb-it-c-forces" value="compression" class="data-input:rfb-it-c:forces" />compression
+                        <td>Force:</td>
+                        <td><input type="radio" name="rfb-it-c-forces" value="tension" class="data-input:rfb-it-c:forces" />tension</td>
+                        <td><input type="radio" name="rfb-it-c-forces" value="compression" class="data-input:rfb-it-c:forces" />compression</td>
                     </p>
+                    <table>
+                        <tr>
+                            <td>At:</td>
+                            <td><input type="range" min="0.2" max="0.8" value="0.5" step="0.1" class="data-input:rfb-it-c:k"/>
+                                $kL = $<span class="data-option:rfb-it-c:k"></span>$L$</td>
+                        </tr>
+                    </table>
                 </div>
             </div>
         </div>

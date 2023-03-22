@@ -566,55 +566,108 @@ $(document).ready(function () {
 
         this.setUnits(10, 4);
 
-        this.addOption("cut", false);
+        this.addOption("cut", true);
+        this.addOption("k", 0.5);
         this.addOption("forces", "tension");
+
+        var k = this.getOption("k");
 
         var forces = this.getOption("forces");
 
         var O = $V([0, 0]);
         var ei = $V([1, 0]);
         var ej = $V([0, 1]);
-        var w = 0.2;
+        var w = 0.3;
+        var rectWidth = 1.5;
 
-        var rP, rQ;
+        var rP = ei.x(-3.5);
+        var rQ = ei.x(3.5);
+
+        var length = rP.subtract(rQ).modulus()
+
+        var rC = rP.add($V([k*length, 0]));
+        var rCx = rC.e(1);
+
+        var p00 = $V([rCx + 0.1, 0.3]);
+        var p10 = $V([rCx + -0.15, 0.2]);
+        var p20 = rC;
+
+        var p01 = rC;
+        var p11 = $V([rCx + 0.15, -0.2]);
+        var p21 = $V([rCx + -0.1, -0.3]);
+
+        this.rod(rP, rQ, w);
+
+        this.point(rP);
+        this.point(rQ);
+        this.point(rC);
 
         if (!this.getOption("cut")) {
-            rP = ei.x(-2);
-            rQ = ei.x(2);
 
-            this.rod(rP, rQ, w);
+            this.save();
 
-            this.point(rP);
-            this.point(rQ);
-            this.point(O);
+            this.setProp("shapeOutlineColor", "rgb(255, 0, 0)");
+            this.quadraticBezier(p00, p10, p20);
+            this.quadraticBezier(p01, p11, p21);
+
+            this.restore();
         } else {
-            rP = ei.x(-3.5);
-            rQ = ei.x(3.5);
+            this.save();
 
-            this.rod(rP, ei.x(-1.5), w);
-            this.rod(ei.x(1.5), rQ, w);
+            this.setProp("shapeOutlineColor", "rgb(255, 255, 255)");
+            this.rectangle(rectWidth, 2*w, rC);
 
-            this.point(O);
-            this.point(rP);
-            this.point(rQ);
+            this.restore();
+
+            this.save();
+
+            this.translate($V([rectWidth/2, 0]));
+            this.setProp("shapeOutlineColor", "rgb(255, 0, 0)");
+            this.quadraticBezier(p00, p10, p20);
+            this.quadraticBezier(p01, p11, p21);
+
+            this.restore();
+
+            this.save();
+
+            this.translate($V([-rectWidth/2, 0]));
+            this.setProp("shapeOutlineColor", "rgb(255, 0, 0)");
+            this.quadraticBezier(p00, p10, p20);
+            this.quadraticBezier(p01, p11, p21);
+            
+            this.restore();
+
+            this.point(rC);
         };
         
         if (forces === "tension") {
-            this.arrow(rP, rP.add(ei.x(-1)), "force");
-            this.arrow(rQ, rQ.add(ei), "force");
+            this.arrow(rP, rP.add($V([-rectWidth/2 + 0.1, 0])), "force");
+            this.arrow(rQ, rQ.add($V([rectWidth/2 - 0.1, 0])), "force");
 
             if (this.getOption("cut")) {
-                this.arrow(ei.x(-1.5), ei.x(-0.5), "force");
-                this.arrow(ei.x(1.5), ei.x(0.5), "force");
+                this.arrow(rC.subtract($V([rectWidth/2, 0])), rC.subtract($V([0.1, 0])), "force");
+                this.arrow(rC.add($V([rectWidth/2, 0])), rC.add($V([0.1, 0])), "force");
+
+                this.labelLine(rC.subtract($V([rectWidth/2, 0])), rC.subtract($V([0.1, 0])), ej.x(1.5), "TEX:$N$");
+                this.labelLine(rC.add($V([rectWidth/2, 0])), rC.add($V([0.1, 0])), ej.x(-1.5), "TEX:$N$");
             };
+
+            this.labelLine(rP, rP.add($V([-rectWidth/2 + 0.1, 0])), ej.x(-1.5), "TEX:$P$");
+            this.labelLine(rQ, rQ.add($V([rectWidth/2 - 0.1, 0])), ej.x(1.5), "TEX:$P$");
         } else {
-            this.arrow(rP.add(ei.x(-1)), rP, "force");
-            this.arrow(rQ.add(ei), rQ, "force");
+            this.arrow(rP.add($V([-rectWidth/2 + 0.1, 0])), rP, "force");
+            this.arrow(rQ.add($V([rectWidth/2 - 0.1, 0])), rQ, "force");
 
             if (this.getOption("cut")) {
-                this.arrow(ei.x(-0.5), ei.x(-1.5), "force");
-                this.arrow(ei.x(0.5), ei.x(1.5), "force");
+                this.arrow(rC.subtract($V([0.1, 0])), rC.subtract($V([rectWidth/2, 0])), "force");
+                this.arrow(rC.add($V([0.1, 0])), rC.add($V([rectWidth/2, 0])), "force");
+
+                this.labelLine(rC.subtract($V([0.1, 0])), rC.subtract($V([rectWidth/2, 0])), ej.x(-1.5), "TEX:$N$");
+                this.labelLine(rC.add($V([0.1, 0])), rC.add($V([rectWidth/2, 0])), ej.x(1.5), "TEX:$N$");
             };
+
+            this.labelLine(rP.add($V([-rectWidth/2 + 0.1, 0])), rP, ej.x(1.5), "TEX:$P$");
+            this.labelLine(rQ.add($V([rectWidth/2 - 0.1, 0])), rQ, ej.x(-1.5), "TEX:$P$");
         };
     });
 })

@@ -1630,6 +1630,30 @@ PrairieDraw.prototype.cubicBezier = function(p0Dw, p1Dw, p2Dw, p3Dw, type) {
 
 /*****************************************************************************/
 
+/** Draw a quadratic Bezier segment.
+
+    @param {Vector} p0Dw The starting point.
+    @param {Vector} p1Dw The control point.
+    @param {Vector} p2Dw The ending point.
+    @param {string} type (Optional) type of line being drawn.
+*/
+PrairieDraw.prototype.quadraticBezier = function(p0Dw, p1Dw, p2Dw, type) {
+    var p0Px = this.pos2Px(this.pos3To2(p0Dw));
+    var p1Px = this.pos2Px(this.pos3To2(p1Dw));
+    var p2Px = this.pos2Px(this.pos3To2(p2Dw));
+    this._ctx.save();
+    this._setLineStyles(type);
+    this._ctx.lineWidth = this._props.shapeStrokeWidthPx;
+    this._ctx.setLineDash(this._dashPattern(this._props.shapeStrokePattern));
+    this._ctx.beginPath();
+    this._ctx.moveTo(p0Px.e(1), p0Px.e(2));
+    this._ctx.quadraticCurveTo(p1Px.e(1), p1Px.e(2), p2Px.e(1), p2Px.e(2))
+    this._ctx.stroke();
+    this._ctx.restore();
+}
+
+/*****************************************************************************/
+
 /** @private Draw an arrowhead in pixel coords.
 
     @param {Vector} posPx Position of the tip.
@@ -2584,6 +2608,75 @@ PrairieDraw.prototype.rod = function(startDw, endDw, widthDw) {
     this._ctx.stroke();
     this._ctx.restore();
 }
+
+/*****************************************************************************/
+
+/** Draw a L-shape rod with hinge points at start, center and end, and the given width.
+    @param {Vector} startDw The first hinge point (center of circular end) in drawing coordinates.
+    @param {Vector} centerDw The second hinge point (drawing coordinates).
+    @param {Vector} endDw The third hinge point (drawing coordinates).
+    @param {number} widthDw The width of the rod (drawing coordinates).
+*/
+
+PrairieDraw.prototype.LshapeRod = function (startDw, centerDw, endDw, widthDw) {
+    var offsetLength1Dw = centerDw.subtract(startDw);
+    var offsetLength2Dw = endDw.subtract(centerDw);
+    var offsetWidthDw = offsetLength1Dw
+      .rotate(Math.PI / 2, $V([0, 0]))
+      .toUnitVector()
+      .x(widthDw);
+
+    var startPx = this.pos2Px(startDw);
+    var centerPx = this.pos2Px(centerDw);
+    var endPx = this.pos2Px(endDw);
+    var offsetLength1Px = this.vec2Px(offsetLength1Dw);
+    var offsetLength2Px = this.vec2Px(offsetLength2Dw);
+    var offsetWidthPx = this.vec2Px(offsetWidthDw);
+    var length1Px = offsetLength1Px.modulus();
+    var length2Px = offsetLength2Px.modulus();
+    var rPx = offsetWidthPx.modulus() / 2;
+
+    this._ctx.save();
+    this._ctx.translate(startPx.e(1), startPx.e(2));
+    this._ctx.rotate(PrairieGeom.angleOf(offsetLength1Px));
+    this._ctx.beginPath();
+    this._ctx.moveTo(0, rPx);
+
+    var beta = -PrairieGeom.angleFrom(offsetLength1Px, offsetLength2Px);
+    var x1 = length1Px + rPx / Math.sin(beta) - rPx / Math.tan(beta);
+    var y1 = rPx;
+    var x2 = length1Px + length2Px * Math.cos(beta);
+    var y2 = -length2Px * Math.sin(beta);
+    var x3 = x2 + rPx * Math.sin(beta);
+    var y3 = y2 + rPx * Math.cos(beta);
+    var x4 = x3 + rPx * Math.cos(beta);
+    var y4 = y3 - rPx * Math.sin(beta);
+    var x5 = x2 + rPx * Math.cos(beta);
+    var y5 = y2 - rPx * Math.sin(beta);
+    var x6 = x5 - rPx * Math.sin(beta);
+    var y6 = y5 - rPx * Math.cos(beta);
+    var x7 = length1Px - rPx / Math.sin(beta) + rPx / Math.tan(beta);
+    var y7 = -rPx;
+
+    this._ctx.arcTo(x1, y1, x3, y3, rPx);
+    this._ctx.arcTo(x4, y4, x5, y5, rPx);
+    this._ctx.arcTo(x6, y6, x7, y7, rPx);
+    this._ctx.arcTo(x7, y7, 0, -rPx, rPx);
+    this._ctx.arcTo(-rPx, -rPx, -rPx, rPx, rPx);
+    this._ctx.arcTo(-rPx, rPx, 0, rPx, rPx);
+
+    if (this._props.shapeInsideColor !== 'none') {
+      this._ctx.fillStyle = this._props.shapeInsideColor;
+      this._ctx.fill();
+    }
+    this._ctx.lineWidth = this._props.shapeStrokeWidthPx;
+    this._ctx.setLineDash(this._dashPattern(this._props.shapeStrokePattern));
+    this._ctx.strokeStyle = this._props.shapeOutlineColor;
+    this._ctx.stroke();
+    this._ctx.restore();
+}
+
+/*****************************************************************************/
 
 /** Draw a pivot.
 
