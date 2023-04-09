@@ -562,15 +562,12 @@ $(document).ready(function () {
         this.text(rC, ej.x(-2), "TEX:$C$");
     });
 
-    var rfb_it_c = new PrairieDraw("rfb-it-c", function() {
+    var rfb_it_c = new PrairieDrawAnim("rfb-it-c", function(t) {
 
         this.setUnits(10, 4);
 
-        this.addOption("cut", true);
-        this.addOption("k", 0.5);
+        this.addOption("cut", false);
         this.addOption("forces", "tension");
-
-        var k = this.getOption("k");
 
         var forces = this.getOption("forces");
 
@@ -579,14 +576,30 @@ $(document).ready(function () {
         var ej = $V([0, 1]);
         var w = 0.3;
         var rectWidth = 1.5;
-
+        
+        var rM = this.mousePositionDw();
+        var dt = this.deltaTime();
+    
         var rP = ei.x(-3.5);
         var rQ = ei.x(3.5);
 
-        var length = rP.subtract(rQ).modulus()
+        var length = rP.subtract(rQ).modulus();
 
-        var rC = rP.add($V([k*length, 0]));
-        var rCx = rC.e(1);
+        var rCx;
+        
+        if (dt > 0) {
+            if (rM.e(1) <= rP.e(1) + 0.15*length) {
+                rCx = rP.e(1) + 0.15*length
+            } else if (rM.e(1) >= rQ.e(1) - 0.15*length) {
+                rCx = rQ.e(1) - 0.15*length
+            } else {
+                rCx = rM.e(1)
+            };
+        } else {
+            rCx = 0;
+        };
+        
+        var rC = $V([rCx, 0]);
 
         var p00 = $V([rCx + 0.1, 0.3]);
         var p10 = $V([rCx + -0.15, 0.2]);
@@ -670,4 +683,70 @@ $(document).ready(function () {
             this.labelLine(rQ.add($V([rectWidth/2 - 0.1, 0])), rQ, ej.x(-1.5), "TEX:$P$");
         };
     });
+    rfb_it_c.activateMouseTracking();
+    rfb_it_c.activateAnimOnClick();
+
+    var rfb_it_b = new PrairieDrawAnim("rfb-it-b", function(t) {
+
+        this.setUnits(10, 6);
+
+        this.addOption("cut", false);
+        this.addOption("forces", "tension");
+        this.addOption("components", false);
+
+        var forces = this.getOption("forces");
+
+        var O = $V([0, 0]);
+        var ei = $V([1, 0]);
+        var ej = $V([0, 1]);
+        var w = 0.3;
+
+        var rM = this.mousePositionDw();
+        var dt = this.deltaTime();
+
+        var rP = ei.x(-2).add($V([0, -1]));
+        var rR = ej.x(2).add($V([0, -1]));
+        var rQ = ei.x(2).add($V([0, -1]));
+
+        var lengthRQ = rQ.subtract(rR).modulus();
+        var theta = this.angleOf(rQ.subtract(rR));
+        var eT = this.vector2DAtAngle(theta);
+        var eN = this.perp(eT);
+        var proj = this.orthProj(rM, eT);
+
+        var rC;
+        if (dt > 0) {
+            if (proj.e(1) >= eT.e(1) && proj.e(2) <= eT.e(2)) {
+                rC = rR.add(eT);
+            } else if (proj.e(1) <= eT.x(-1).e(1) && proj.e(2) >= eT.x(-1).e(2)) {
+                rC = rR.add(eT.x(-1));
+            } else {
+                rC = rR.add(proj);
+            };
+        } else {
+            rC = rR.add(eT.x(lengthRQ/2));
+        };
+        
+        this.LshapeRod(rP, rR, rQ, 0.3);
+        this.point(rP);
+        this.point(rQ);
+        this.point(rC);
+
+        if (forces === "tension") {
+            this.arrow(rP, rP.add(ei.x(-1)), "force");
+            this.arrow(rQ, rQ.add(ei), "force");
+
+            this.labelLine(rP, rP.add(ei.x(-1)), ej.x(-1.5), "TEX:$P$");
+            this.labelLine(rQ, rQ.add(ei), ej.x(1.5), "TEX:$P$");
+
+        } else {
+            this.arrow(rP.add(ei.x(-1)), rP, "force");
+            this.arrow(rQ.add(ei), rQ, "force");
+
+            this.labelLine(rP.add(ei.x(-1)), rP, ej.x(1.5), "TEX:$P$");
+            this.labelLine(rQ.add(ei), rQ, ej.x(-1.5), "TEX:$P$");
+        }
+    });
+    rfb_it_b.activateMouseTracking();
+    rfb_it_b.activateAnimOnClick();
 })
