@@ -83,14 +83,12 @@
                 </p>
                 <div class="envContainer equation" id="rec-am">
                     <p class="envHeader">Angular momentum of a rigid body rotating about principal axis $\hat{a}$ through 
-                    point $P$.</p>
+                    point $O$.</p>
                     <div class="envBody">
                         <p>
                             \[
-                            \vec{H}_P = I_{P,\, \hat{a}} \vec{\omega}
+                            \vec{L}_O = I_{O,\, \hat{a}} \vec{\omega}
                             \]
-                            <br>
-                            where $I_{P,\, \hat{a}}$ is the moment of inertia about axis $\hat{a}$ through point $P$.
                         </p>
                     </div>
                 </div>
@@ -99,15 +97,13 @@
                     the change in momentum and Newton's second law can be related.
                 </p>
                 <div class="envContainer equation" id="rec-mn">
-                    <p class="envHeader">Newton's second law and linear momentum.</p>
+                    <p class="envHeader">Newton's equations and linear momentum.</p>
                     <div class="envBody">
                         <p>
                             \[\begin{aligned}
-                            \sum \vec{F}_{ext} &amp;= \frac{d\vec{p}}{dt}\\
-                            &amp;= \dot{\vec{p}}
+                            \sum \vec{F} &amp;= \frac{d\vec{p}_C}{dt}\\
+                            &amp;= \dot{\vec{p}_C}
                             \end{aligned}\]
-                            <br>
-                            where $\sum \vec{F}_{ext}$ is the sum of the external forces acting on the body.
                         </p>
                     </div>
                 </div>
@@ -116,22 +112,22 @@
                         <p>
                             We begin with Newton's second law:
                             \[\begin{aligned}
-                            \sum \vec{F}_{ext} &amp;= m\vec{a}_C\\
+                            \sum \vec{F} &amp;= m\vec{a}_C\\
                             &amp;= m \frac{d\vec{v}_C}{dt} \\
                             \end{aligned}\]
                         </p>
                         <p>
                             Assuming constant mass, then this can be rewritten as:
                             \[\begin{aligned}
-                            \sum \vec{F}_{ext} &amp;= \frac{d}{dt} (m\vec{v}_C)\\
-                            &amp; = \frac{d\vec{p}}{dt} \\
-                            &amp; = \dot{\vec{p}}
+                            \sum \vec{F} &amp;= \frac{d}{dt} (m\vec{v}_C)\\
+                            &amp; = \frac{d\vec{p}_C}{dt} \\
+                            &amp; = \dot{\vec{p}_C}
                             \end{aligned}\]
                         </p>
                     </div>
                 </div>
                 <div class="envContainer warning" id="rec-wm">
-                    <p class="envHeader">Warning: $\sum \vec{F}_{ext} = \dot{\vec{p}}$ is not applicable with variable mass.</p>
+                    <p class="envHeader">Warning: $\sum \vec{F} = \dot{\vec{p}_C}$ is not applicable with variable mass.</p>
                     <div class="envBody">
                         <p>
                             In the derivation of <a href="#rec-mn">#ren-mn</a>, the mass was assumed to be constant.
@@ -146,15 +142,13 @@
                     momentum.
                 </p>
                 <div class="envContainer equation" id="rec-mm">
-                    <p class="envHeader">Newton's second law and angular momentum.</p>
+                    <p class="envHeader">Newton's equations and angular momentum.</p>
                     <div class="envBody">
                         <p>
                             \[\begin{aligned}
-                            \sum \vec{M}_{ext} &amp;= \frac{d\vec{H}}{dt}\\
-                            &amp;= \dot{\vec{H}}
+                            \sum \vec{M}_{C} &amp;= \frac{d\vec{L}_C}{dt}\\
+                            &amp;= \dot{\vec{L}_C}
                             \end{aligned}\]
-                            <br>
-                            where $\sum \vec{M}_{ext}$ is the sum of the external moments acting on the body.
                         </p>
                     </div>
                 </div>
@@ -163,16 +157,16 @@
                         <p>
                             We begin with Newton's second law:
                             \[\begin{aligned}
-                            \sum \vec{M}_{ext} &amp;= I_{C, \hat{a}}\vec{\alpha}\\
+                            \sum \vec{M}_{C} &amp;= I_{C, \hat{a}}\vec{\alpha}\\
                             &amp;= I_{C, \hat{a}} \frac{d\vec{\omega}}{dt} \\
                             \end{aligned}\]
                         </p>
                         <p>
                             Assuming constant moment of inertia, then this can be rewritten as:
                             \[\begin{aligned}
-                            \sum \vec{M}_{ext} &amp;= \frac{d}{dt} (I_{C, \hat{a}}\vec{\omega})\\
-                            &amp; = \frac{d\vec{H}}{dt} \\
-                            &amp; = \dot{\vec{H}}
+                            \sum \vec{M}_{C} &amp;= \frac{d}{dt} (I_{C, \hat{a}}\vec{\omega})\\
+                            &amp; = \frac{d\vec{L}_C}{dt} \\
+                            &amp; = \dot{\vec{L}_C}
                             \end{aligned}\]
                         </p>
                     </div>
@@ -188,7 +182,7 @@
                     <div class="envBody">
                         <p>
                             \[\begin{aligned}
-                            \sum \vec{F}_{ext} &amp;= \frac{d\vec{p}}{dt}\\
+                            \sum \vec{F} &amp;= \frac{d\vec{p}_C}{dt}\\
                             &amp;= \vec{0}
                             \end{aligned}\]
                         </p>
@@ -210,7 +204,7 @@
                     <div class="envBody">
                         <p>
                             \[\begin{aligned}
-                            \sum \vec{M}_{ext} &amp;= \frac{d\vec{H}}{dt}\\
+                            \sum \vec{M}_{C} &amp;= \frac{d\vec{L}_C}{dt}\\
                             &amp;= \vec{0}
                             \end{aligned}\]
                         </p>
@@ -248,8 +242,8 @@
                                 <p>
                                     Write <a href="#rec-mn">Newton's second law in terms of momentum</a>:
                                     \[\begin{aligned}
-                                    \sum \vec{F}_{ext} &amp;= \frac{d\vec{p}}{dt} \\
-                                    m\vec{g} &amp; = \frac{d\vec{p}}{dt}
+                                    \sum \vec{F} &amp;= \frac{d\vec{p}_C}{dt} \\
+                                    m\vec{g} &amp; = \frac{d\vec{p}_C}{dt}
                                     \end{aligned}\]
                                 </p>
                                 <p>
@@ -291,8 +285,8 @@
                                 <p>
                                     Write <a href="#rec-mm">Newton's second law in terms of momentum</a>:
                                     \[\begin{aligned}
-                                    \sum \vec{M}_{ext} &amp;= \frac{d\vec{H}}{dt} \\
-                                    \vec{r} \times m\vec{g} - \vec{r} \times m\vec{g} &amp; = \frac{d\vec{H}}{dt}
+                                    \sum \vec{M}_C &amp;= \frac{d\vec{L}}{dt} \\
+                                    \vec{r} \times m\vec{g} - \vec{r} \times m\vec{g} &amp; = \frac{d\vec{L}}{dt}
                                     \end{aligned}\]
                                 </p>
                                 <p>
@@ -314,7 +308,7 @@
                     <div class="envBody">
                         <p>
                             \[
-                            \vec{H}_{O} = \vec{r}_{OP} \times \vec{p}_P
+                            \vec{L}_{O} = \vec{r}_{OP} \times \vec{p}_P
                             \]
                         </p>
                     </div>
@@ -324,7 +318,7 @@
                         <p>
                             Begin with the relationship between angular momentum and moment at <a href="#rec-mm">#rec-mm</a>
                             \[\begin{aligned}
-                            \sum \vec{M}_{ext} &amp;= \frac{d\vec{H}}{dt}\\
+                            \sum \vec{M}_C &amp;= \frac{d\vec{L}}{dt}\\
                             \end{aligned}\]
                         </p>
                         <p>
@@ -338,21 +332,21 @@
                         <p>
                             Then <a href="#rec-mm">#rec-mm</a> becomes:
                             \[\begin{aligned}
-                            \frac{d\vec{H}}{dt} &amp;= \vec{r}_{OP} \times \vec{F}_P
+                            \frac{d\vec{L}}{dt} &amp;= \vec{r}_{OP} \times \vec{F}_P
                             \end{aligned}\]
                         </p>
                         <p>
                             Using the relationship between linear momentum and force at <a href="#rec-mn">#rec-mn</a>
                             , the above equation becomes:
                             \[\begin{aligned}
-                            \frac{d\vec{H}}{dt} &amp;= \vec{r}_{OP} \times \vec{F}_P \\
+                            \frac{d\vec{L}}{dt} &amp;= \vec{r}_{OP} \times \vec{F}_P \\
                             &amp; = \vec{r}_{OP} \times \frac{d\vec{p}_P}{dt}
                             \end{aligned}\]
                         </p>
                         <p>
                             Multiplying both sides by $dt$ yields:
                             \[
-                            d\vec{H} = \vec{r}_{OP} \times d\vec{p}_P
+                            d\vec{L} = \vec{r}_{OP} \times d\vec{p}_P
                             \]
                         </p>
                         <p>
@@ -371,14 +365,14 @@
                         <p>
                             Therefore:
                             \[\begin{aligned}
-                            \int d\vec{H} &amp;= \int \vec{r}_{OP} \times d\vec{p}_P \\
+                            \int d\vec{L} &amp;= \int \vec{r}_{OP} \times d\vec{p}_P \\
                             &amp;= \vec{r}_{OP} \times \vec{p}_P - \int \vec{p}_P \times \vec{v}_P \,dt
                             \end{aligned}\]
                         </p>
                         <p>
                             However, $\vec{p}_P = m\vec{v}_P$ as established in <a href="#rec-lm">#rec-lm</a>:
                             \[\begin{aligned}
-                            \vec{H} &amp;= \vec{r}_{OP} \times \vec{p}_P - \int m\vec{v}_P \times \vec{v}_P \,dt
+                            \vec{L} &amp;= \vec{r}_{OP} \times \vec{p}_P - \int m\vec{v}_P \times \vec{v}_P \,dt
                             \end{aligned}\]
                         </p>
                         <p>
@@ -389,14 +383,6 @@
                             desired expression.
                         </p>
                     </div>
-                </div>
-            </div>
-            <div class="infoCol" id="rec-ic">
-                <div class="infoBox notationBox" id="rec-nb">
-                    <p>
-                        You may have seen other notations for angular momentum (e.g $\vec{L}$). The common 
-                        notation is $\vec{H}$, and that is what will be used in these pages.
-                    </p>
                 </div>
             </div>
         </div>
@@ -414,7 +400,7 @@
                     <div class="envBody">
                         <p>
                             \[
-                            \vec{J} = \int_{t_1}^{t_2} \vec{F}_{net} \, dt
+                            \vec{J} = \int_{t_1}^{t_2} \sum \vec{F} \, dt
                             \]
                         </p>
                     </div>
@@ -432,7 +418,7 @@
                     <div class="envBody">
                         <p>
                             \[
-                            \vec{J} = \Delta \vec{p}
+                            \vec{J} = \Delta \vec{p}_C
                             \]
                         </p>
                     </div>
@@ -442,15 +428,15 @@
                         <p>
                             From Newton's second law and linear momentum at <a href="#rec-mn">#rec-mn</a>:
                             \[
-                            \vec{F}_{net} = \frac{d\vec{p}}{dt}
+                            \sum \vec{F} = \frac{d\vec{p}_C}{dt}
                             \]
                         </p>
                         <p>
                             Plugging into the impulse definition:
                             \[\begin{aligned}
-                            \vec{J} &amp;= \int_{t_1}^{t_2} \frac{d\vec{p}}{dt} \, dt \\
+                            \vec{J} &amp;= \int_{t_1}^{t_2} \frac{d\vec{p}_C}{dt} \, dt \\
                             &amp;= \int_{\vec{p}_1}^{\vec{p}_2} d\vec{p} \\
-                            &amp;= \vec{p}_2 - \vec{p}_1 = \Delta \vec{p}
+                            &amp;= \vec{p}_2 - \vec{p}_1 = \Delta \vec{p}_C
                             \end{aligned}\]
                         </p>
                     </div>
@@ -528,41 +514,41 @@
                         <p>
                             By the impulse-momentum theorem:
                             \[\begin{aligned}
-                            \vec{J} = \Delta \vec{p} = \vec{F}_{net} dt
+                            \vec{J} = \Delta \vec{p}_C = \sum \vec{F} dt
                             \end{aligned}\]
                         </p>
                         <p>
                             Plugging into the above equation:
                             \[\begin{aligned}
-                            (m + \dot{m}dt)(\vec{v} + d\vec{v}) - \dot{m}dt(\vec{c} + \vec{v}) - m\vec{v} = \vec{F}_{net} dt
+                            (m + \dot{m}dt)(\vec{v} + d\vec{v}) - \dot{m}dt(\vec{c} + \vec{v}) - m\vec{v} = \sum \vec{F} dt
                             \end{aligned}\]
                         </p>
                         <p>
                             Expanding:
                             \[\begin{aligned}
-                            m\vec{v} + md\vec{v} + \dot{m}\vec{v}dt + \dot{m}d\vec{v}dt - \dot{m}\vec{c}dt - \dot{m}\vec{v}dt - m\vec{v} = \vec{F}_{net} dt
+                            m\vec{v} + md\vec{v} + \dot{m}\vec{v}dt + \dot{m}d\vec{v}dt - \dot{m}\vec{c}dt - \dot{m}\vec{v}dt - m\vec{v} = \sum \vec{F} dt
                             \end{aligned}\]
                         </p>
                         <p>
                             Simplifying:
                             \[\begin{aligned}
-                            md\vec{v} + \dot{m}d\vec{v}dt - \dot{m}\vec{c}dt &amp;= \vec{F}_{net}dt \\
-                            md\vec{v} + \dot{m}dt(d\vec{v} - \vec{c}) &amp;= \vec{F}_{net}dt
+                            md\vec{v} + \dot{m}d\vec{v}dt - \dot{m}\vec{c}dt &amp;= \sum \vec{F}dt \\
+                            md\vec{v} + \dot{m}dt(d\vec{v} - \vec{c}) &amp;= \sum \vec{F}dt
                             \end{aligned}\]
                         </p>
                         <p>
                             Dividing by $dt$:
                             \[\begin{aligned}
-                            m\frac{d\vec{v}}{dt} + \dot{m}(d\vec{v} - \vec{c}) &amp;= \vec{F}_{net} \\
-                            m\vec{a} + \dot{m}(d\vec{v} - \vec{c}) &amp;= \vec{F}_{net}
+                            m\frac{d\vec{v}}{dt} + \dot{m}(d\vec{v} - \vec{c}) &amp;= \sum \vec{F} \\
+                            m\vec{a} + \dot{m}(d\vec{v} - \vec{c}) &amp;= \sum \vec{F}
                             \end{aligned}\]
                         </p>
                         <p>
                             This shows that Newton's equations in linear momentum form do not work
-                            with variable mass, as $\vec{F}_{net} - m\vec{a}$ is not zero in this case.
+                            with variable mass, as $\sum \vec{F} - m\vec{a}$ is not zero in this case.
                             Rearranging one more time:
                             \[\begin{aligned}
-                            m\frac{d\vec{v}}{dt} = \dot{m}(d\vec{v} - \vec{c}) + \vec{F}_{net}
+                            m\frac{d\vec{v}}{dt} = \dot{m}(d\vec{v} - \vec{c}) + \sum \vec{F}
                             \end{aligned}\]
                         </p>
                         <p>

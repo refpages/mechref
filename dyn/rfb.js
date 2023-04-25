@@ -712,25 +712,10 @@ $(document).ready(function () {
         var theta = this.angleOf(rQ.subtract(rR));
         var eT = this.vector2DAtAngle(theta);
         var eN = this.perp(eT);
-        var proj = this.orthProj(rM, eT);
-
-        var rC;
-        if (dt > 0) {
-            if (proj.e(1) >= eT.e(1) && proj.e(2) <= eT.e(2)) {
-                rC = rR.add(eT);
-            } else if (proj.e(1) <= eT.x(-1).e(1) && proj.e(2) >= eT.x(-1).e(2)) {
-                rC = rR.add(eT.x(-1));
-            } else {
-                rC = rR.add(proj);
-            };
-        } else {
-            rC = rR.add(eT.x(lengthRQ/2));
-        };
         
-        this.LshapeRod(rP, rR, rQ, 0.3);
+        this.LshapeRod(rP, rR, rQ, w);
         this.point(rP);
         this.point(rQ);
-        this.point(rC);
 
         if (forces === "tension") {
             this.arrow(rP, rP.add(ei.x(-1)), "force");
