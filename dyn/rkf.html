@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html>
+    <head profile="http://www.w3.org/2005/10/profile">
+        <link rel="icon" type="image/png" href="favicon.png">
+        <meta charset="UTF-8">
+        <link href="../style.css" type="text/css" rel="stylesheet" />
+        <link href="../icomoon.css" type="text/css" rel="stylesheet" />
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});</script>
+        <script src="../MathJax-master/MathJax.js?config=TeX-AMS-MML_HTMLorMML,local/local"> type = "text/javascript" </script>
+        <!-- <script>
+        MathJax = {
+            tex: {
+            inlineMath: [['$', '$'], ['\\(', '\\)']]
+            }
+        };
+        </script>
+        <script type="text/javascript" id="MathJax-script" src="../MathJax-master2/es5/tex-mml-chtml.js"></script> -->
+        <script src="../js/jquery-2.1.4.min.js" type="text/javascript"></script>
+        <script src="../js/sylvester.js" type="text/javascript"></script>
+        <script src="../js/sha1.js" type="text/javascript"></script>
+        <script src="../js/PrairieDraw.js" type="text/javascript"></script>
+
+        <script>
+            $(function(){
+                $("#nav-placeholder").load("../nav.html");
+            });
+        </script>
+
+        <script type="text/javascript">
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-37625161-1']);
+            _gaq.push(['_trackPageview']);
+            (function() {
+                var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+                ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http:/www') + '.google-analytics.com/gar.js';
+                var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+            })();
+        </script>
+
+        <title>Relative motion and frames</title>
+        <link href="rkf.css" type="text/css" rel="stylesheet" />
+        <script src="rkf.js" type="text/javascript"></script>
+
+        <script src="../js/pageControl.js" type="text/javascript"></script>
+    </head>
+
+    <body>
+        <div class="container">
+            <div class="header"><h1>Dynamics</h1></div>
+            <div id="nav-placeholder"></div>
+
+            <div class="mainBlock">
+        <div class="contentBlock">
+            <div id="rkf" class="contentCol">
+                <h1>
+                    Relative motion and frames
+                </h1>
+            </div>
+        </div>
+        <div class="contentBlock">
+            <div id="rkf-f" class="contentCol">
+                <h1>
+                    Reference frames and coordinate systems
+                </h1>
+                <p>
+                    A <em>reference frame</em> (or simply a <em>frame</em> moving forward) is a view that allows us to make observations and measurements regarding
+                    the kinematics and kinetics of a system. Solving a dynamical system <em>always</em> starts with defining the necessary frames.
+                </p>
+                <p>
+                    Frames should not be confused with <em>coordinate systems</em>, which is the set of scalars used to describe the location of a point relative to another
+                    point in a frame. Coordinate systems are complementary to reference frames.
+                </p>
+                <div class="figureContainer width500" id="rkf-fi">
+                    <canvas id="rkf-fi-c" width="500" height="300" class="figureImage">
+                    </canvas>
+                    <p class="figureCaption">
+                        The figure shows two frames, $\mathcal{I}, \mathcal{F}$, and
+                        their coordinate systems. Frame $\mathcal{I}$ has origin $O$ and uses the
+                        Cartesian coordinate system $(x, y, z)$, and frame $\mathcal{F}$ has origin
+                        $O\,'$ and uses the coordinates $(u, v, w)$ for its coordinate system.
+                    </p> 
+                </div>
+                <p>
+                    As showcased in the figure above, a well-defined frame has the following:
+                    <ul>
+                        <li>A labeled origin.</li>
+                        <li>Three orthogonal directions/axes.</li>
+                        <li>A coordinate system.</li>
+                    </ul>
+                </p>
+                <p>
+                    To distinguish between the frames used when it comes to coordinates, we will specify the frame with a subscript.
+                    For example, $(x, y, z)_{\mathcal{I}}$ represents the Cartesian coordinates with respect to frame $\mathcal{I}$, and
+                    $(u, v, w)_\mathcal{F}$ represents the coordinates $(u, v, w)$ with respect to frame $\mathcal{F}$.
+                </p>
+                <p>
+                    All in all, we will express our frames in the following way:
+                </p>
+                <div class="envContainer equation" id="rkf-fe">
+                    <p class="envHeader">Frame notation.</p>
+                    <div class="envBody">
+                        <p>
+                            \[
+                            \mathcal{I} = \left[O, \hat{e}_1, \hat{e}_2, \hat{e}_3\right]
+                            \]
+                        </p>
+                        <p>
+                            $\mathcal{I}$ is the frame name, $O$ is the origin of the frame, and $(\hat{e}_1, \hat{e}_2, \hat{e}_3)$ are 
+                            the three orthogonal directions of the frame (the basis of the frame).
+                        </p>
+                    </div>
+                </div>
+                <p>
+                    As stated previously, solving dynamical systems begins with defining the necessary frames.
+                </p>
+                <div class="envContainer exampleProblem" id="rkf-xf">
+                    <p class="envHeader">Example Problem: Precession of a circular body.</p>
+                    <div class="envBody">
+                        <div class="question">
+                            <canvas id="rkf-xf-c" width="500" height="300" class="floatRight">
+                            </canvas>
+                            <p>
+                                Consider the following system, which shows the precession of a circular rigid body.
+                                Identify and label the appropriate frames needed to model the equations of motion
+                                of point $P$ on the body.  
+                            </p>
+                        </div>
+                        <div class="envContainer solution">
+                            <div class="envBody">
+                                <p>
+                                    To model the dynamics of point $P$ on the body, we need 3 frames: the fixed frame, the
+                                    polar frame to model the rotation of the body about point $O$ through the axis $\hat{k}$,
+                                    and the rotation of point $P$ about the center of mass $C$ through the axis $\hat{k}$ (or more generally,
+                                    the axis $\hat{e}_r \times \hat{e}_\theta$). We will denote the fixed, polar by $\mathcal{I}, \mathcal{B}$ respectively,
+                                    and the final frame $\mathcal{F}$. Using frame notation, we have:
+                                    \[\begin{aligned}
+                                    \mathcal{I} &amp;= [O, \hat{\imath}, \hat{\jmath}, \hat{k}] \\
+                                    \mathcal{B} &amp;= [O, \hat{e}_r, \hat{e}_\theta, \hat{k}] \\
+                                    \mathcal{F} &amp;= [C, \hat{e}_R, \hat{e}_\phi, \hat{k}]
+                                    \end{aligned}\]
+                                </p>
+                                <p>
+                                    Later on, we will derive the equations of motion of point $P$. 
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="infoCol">
+                <div class="infoBox requirementsBox">
+                    <ul>
+                        <li><a href="rvp.html">Positions and coordinates</a></li>
+                        <li><a href="rvv.html">Vectors and bases</a></li>
+                        <li><a href="rvc.html">Vector calculus</a></li>
+                        <li><a href="rvy.html">Cylindrical coordinates</a></li>
+                        <li><a href="rkv.html">Position, velocity, and acceleration</a></li>
+                        <li><a href="rep.html">Kinetics of point masses</a></li>
+                        <li><a href="reg.html">Kinetics of rigid bodies</a></li>
+                    </ul>
+                </div>
+                <div class="infoBox warningBox">
+                    <p>
+                        We will be redefining a lot of terms in this page, and we will
+                        be emphasizing the importance of notations (particularly when it comes to labeling frames).
+                        When many different frames are used within a problem, labeling those frames will become very important. 
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="contentBlock">
+            <div id="rkf-r" class="contentCol">
+                <h1>
+                    Velocity and acceleration notation
+                </h1>
+                <p>
+                    We will be defining the notation used throughout this page explicitly here, specifically the
+                    velocity and acceleration with respect to a particular frame.
+                </p>
+                <p>
+                    The velocity and acceleration of a point $P$ with respect to a specific frame is the following:
+                </p>
+                <div class="envContainer equation" id="rkf-fe">
+                    <p class="envHeader">Velocity and acceleration of point $P$ with respect to frame $\mathcal{I}$.</p>
+                    <div class="envBody">
+                        <p>
+                            \[\begin{aligned}
+                            \vec{v}_\mathcal{I}(P) &amp;= \left.\frac{d}{dt}\right|_\mathcal{I}\vec{r}_{OP} \\
+                            \vec{a}_\mathcal{I}(P) &amp;= \left.\frac{d^2}{dt^2}\right|_\mathcal{I}\vec{r}_{OP}
+                            \end{aligned}\]
+                        </p>
+                    </div>
+                </div>
+                <div class="envContainer warning" id="rkf-wn">
+                    <p class="envHeader">Warning: Only use dot notation when working with coordinates.</p>
+                    <div class="envBody">
+                        <p>
+                            When working with vectors in different frames, it is best to express the velocity
+                            in fraction-derivative form, as it may look messy and confusing otherwise, particularly when
+                            it comes to expressing the acceleration as a time derivative of velocity, which is also relative to a frame.
+                            Using dots should be reserved to time derivatives of coordinates.
+                            For example:
+                            \[
+                            \frac{d}{dt}(x, y, z)_{\mathcal{I}} = (\dot{x}, \dot{y}, \dot{z})
+                            \]
+                        </p>
+                        <p>
+                            The frame identification could be dropped as they are scalars.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="infoCol">
+                <div class="infoBox notationBox">
+                    <p>
+                        <ul>
+                            <li>
+                                Many textbooks use the notation $\vec{r}_{Q / P}$ to denote the position
+                                of point $P$ relative to point $Q$. This is equivalent to $\vec{r}_{PQ}$ 
+                                in these pages (i.e the vector from $P$ to $Q$).
+                            </li>
+                            <br>
+                            <li>
+                                Many textbooks also use the notation $^{\mathcal{I}}\vec{v}_P$ to denote
+                                the velocity of point $P$ with respect to frame $\mathcal{I}$. Another
+                                common notation is $\vec{v}_{P / \mathcal{I}}$.
+                            </li>
+                        </ul>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="contentBlock">
+            <div id="rkf-r" class="contentCol">
+                <h1>
+                    Relative motion
+                </h1>
+                <p>
+                    We will examine different types of motion of a frame relative to another. We will start with
+                    the motion of one frame at constant velocity relative to another frame, as shown below.
+                </p>
+                <div class="figureContainer width600" id="rkf-cv">
+                    <canvas id="rkf-cv-c" width="600" height="600" class="figureImage">
+                    </canvas>
+                    <p class="figureCaption">
+                        The figure showcases two frames, $\mathcal{I}, \mathcal{F}$, and
+                        their coordinate systems. Frame $\mathcal{I}$ has origin $O$ and uses the
+                        Cartesian coordinate system $(x, y, z)$, and frame $\mathcal{F}$ has origin
+                        $O\,'$ and uses the coordinates $(u, v, w)$ for its coordinate system.
+                    </p> 
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <p class="copyright">Copyright (C) 2023 Felix Marrar</p>
+        </div>
+    </body>
+</html>

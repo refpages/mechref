@@ -1,12 +1,20 @@
 
 /*****************************************************************************/
 
-table.basic td {
-    text-align: left;
+table.centerMass {
+    width: 100%;
 }
 
-table.basic th {
-    text-align: left;
+table.centerMass td:first-child {
+    width: 300px;
+}
+
+table.centerMass canvas {
+    border: 0px;
+}
+
+#reg-xc .question {
+    height: 210px;
 }
 
 /*****************************************************************************/

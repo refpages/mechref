@@ -1,187 +1,222 @@
 <!DOCTYPE html>
 <html>
-  <head profile="http://www.w3.org/2005/10/profile">
-    <link rel="icon" type="image/png" href="favicon.png">
-    <meta charset="UTF-8">
+    <head profile="http://www.w3.org/2005/10/profile">
+        <link rel="icon" type="image/png" href="favicon.png">
+        <meta charset="UTF-8">
+        <link href="../style.css" type="text/css" rel="stylesheet" />
+        <link href="../icomoon.css" type="text/css" rel="stylesheet" />
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});</script>
+        <script src="../MathJax-master/MathJax.js?config=TeX-AMS-MML_HTMLorMML,local/local"> type = "text/javascript" </script>
+        <!-- <script>
+        MathJax = {
+            tex: {
+            inlineMath: [['$', '$'], ['\\(', '\\)']]
+            }
+        };
+        </script>
+        <script type="text/javascript" id="MathJax-script" src="../MathJax-master2/es5/tex-mml-chtml.js"></script> -->
+        <script src="../js/jquery-2.1.4.min.js" type="text/javascript"></script>
+        <script src="../js/sylvester.js" type="text/javascript"></script>
+        <script src="../js/sha1.js" type="text/javascript"></script>
+        <script src="../js/PrairieDraw.js" type="text/javascript"></script>
 
-    <link href="../style.css" type="text/css" rel="stylesheet" />
-    <link href="../icomoon.css" type="text/css" rel="stylesheet" />
+        <script>
+            $(function(){
+                $("#nav-placeholder").load("../nav.html");
+            });
+        </script>
 
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});</script>
-    <script src="../MathJax-master/MathJax.js?config=TeX-AMS-MML_HTMLorMML,local/local"> type = "text/javascript" </script>
-    <!-- <script>
-      MathJax = {
-        tex: {
-          inlineMath: [['$', '$'], ['\\(', '\\)']]
-        }
-      };
-    </script>
-    <script type="text/javascript" id="MathJax-script" src="../MathJax-master2/es5/tex-mml-chtml.js"></script> -->
-    <script src="../js/jquery-2.1.4.min.js" type="text/javascript"></script>
-    <script src="../js/sylvester.js" type="text/javascript"></script>
-    <script src="../js/sha1.js" type="text/javascript"></script>
-    <script src="../js/PrairieDraw.js" type="text/javascript"></script>
-    
-    <script>
-      $(function(){
-        $("#nav-placeholder").load("../nav.html");
-      });
-    </script>
+        <script type="text/javascript">
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-37625161-1']);
+            _gaq.push(['_trackPageview']);
+            (function() {
+                var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+                ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http:/www') + '.google-analytics.com/gar.js';
+                var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+            })();
+        </script>
 
-    <script type="text/javascript">
-      var _gaq = _gaq || [];
-      _gaq.push(['_setAccount', 'UA-37625161-1']);
-      _gaq.push(['_trackPageview']);
+        <title>Kinetics of rigid bodies</title>
+        <link href="reg.css" type="text/css" rel="stylesheet" />
+        <script src="reg.js" type="text/javascript"></script>
 
-      (function() {
-        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-      })();
-    </script>
+        <script src="../js/pageControl.js" type="text/javascript"></script>
+    </head>
 
-    <title>Kinetics of rigid bodies</title>
-    <link href="reg.css" type="text/css" rel="stylesheet" />
-    
-    <script src="../js/pageControl.js" type="text/javascript"></script>
-  </head>
-  
-  <body>
-    <div class="container">
-      <div class="header"><h1>Dynamics</h1></div>
-      <div id="nav-placeholder"></div>
+    <body>
+        <div class="container">
+            <div class="header"><h1>Dynamics</h1></div>
+            <div id="nav-placeholder"></div>
 
-      <div class="mainBlock">
-    <div class="contentBlock">
-      <div id="reg" class="contentCol">
-        <h1>
-          Kinetics of rigid bodies
-        </h1>
-      </div>
-      <div class="infoCol">
-      </div>
-    </div>
-    <div class="contentBlock">
-      <div id="reg-sc" class="contentCol">
-        <h2>
-          Center of mass
-        </h2>
-        <div class="envContainer equation" id="reg-em">
-          <p class="envHeader">Total mass of a body.</p>
-          <div class="envBody">
-            <p>
-              \[m = \int_V \rho \,dV\]
-            </p>
-          </div>
+            <div class="mainBlock">
+        <div class="contentBlock">
+            <div id="reg" class="contentCol">
+                <h1>
+                    Kinetics of rigid bodies
+                </h1>
+            </div>
         </div>
-        <div class="envContainer equation" id="reg-ec">
-          <p class="envHeader">Center of mass $C$.</p>
-          <div class="envBody">
-            <p>
-              \[\vec{r}_C = \frac{1}{m} \int_V \rho \vec{r} \,dV\]
-            </p>
-          </div>
+        <div class="contentBlock">
+            <div id="reg-el" class="contentCol">
+                <h1>
+                    Euler's laws of motion
+                </h1>
+                <p>
+                    The laws of motion for rigid bodies were formulated by <a href="https://en.wikipedia.org/wiki/Leonhard_Euler">Leonhard Euler</a>, which
+                    extended Newton's equations for point-masses to rigid bodies. 
+                </p>
+                <p>
+                    Euler's first law relates the mass $m$ and acceleration of the center of mass $\vec{a}_C$ of the body to the total force $\vec{F}$ on
+                    the body (sum of all external forces). It describes the translational motion of the body.
+                </p>
+                <div class="envContainer equation" id="reg-ef1">
+                    <p class="envHeader">Euler's first law (acceleration form).</p>
+                    <div class="envBody">
+                        <p>
+                            \[
+                            \vec{F} = m\vec{a}_C
+                            \]
+                        </p>
+                    </div>
+                </div>
+                <p>
+                    Euler's second law relates the moment of inertia about the center of mass $I_C$ and the angular acceleration of the body to the total moment
+                    $\vec{M}_C$ (sum of all external moments) about the center of mass. It describes the rotational motion of the body.
+                </p>
+                <div class="envContainer equation" id="reg-es1">
+                    <p class="envHeader">Euler's second law (angular acceleration form).</p>
+                    <div class="envBody">
+                        <p>
+                            \[
+                            \vec{M}_C = I_C\vec\alpha
+                            \]
+                        </p>
+                    </div>
+                </div>
+                <p>
+                    Recall that the total force on a particle is related to the linear momentum of the particle. Thus, if we extend that to
+                    rigid bodies, we have an alternative way to express Euler's first law:
+                </p>
+                <div class="envContainer equation" id="reg-ef2">
+                    <p class="envHeader">Euler's first law (momentum form).</p>
+                    <div class="envBody">
+                        <p>
+                            \[
+                            \vec{F} = \frac{d\vec{p}_C}{dt} = \frac{d}{dt}(m\vec{v}_C)
+                            \]
+                        </p>
+                    </div>
+                </div>
+                <p>
+                    Similarly, the total moment on a particle about a certain point is related to the angular momentum of the particle about the same base point.
+                    We can do the same thing as above, and extend it to rigid bodies, and obtain an alternative form to Euler's second law:
+                </p>
+                <div class="envContainer equation" id="reg-es2">
+                    <p class="envHeader">Euler's second law (momentum form).</p>
+                    <div class="envBody">
+                        <p>
+                            \[
+                            \vec{M}_C = \frac{d\vec{L}_C}{dt} = \frac{d}{dt}(I_C \, \vec\omega)
+                            \]
+                        </p>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-    <div class="contentBlock">
-      <div id="reg-si" class="contentCol">
-        <h2>
-          Moment of inertia
-        </h2>
-        <div class="envContainer equation" id="reg-ei">
-          <p class="envHeader">Moment of inertia about axis $\hat{a}$ through point $P$.</p>
-          <div class="envBody">
-            <p>
-              \[I_{P,\hat{a}} = \int_V \rho r^2 \,dV\]
-            </p>
-            <p>
-              Here $r$ is the distance from the axis through $P$ in direction $\hat{a}$.
-            </p>
-          </div>
+        <div class="contentBlock">
+            <div id="reg-ro" class="contentCol">
+                <h1>
+                    Rotation about arbitrary reference points
+                </h1>
+                <p>
+                    In some cases, using the center of mass as a reference point is not ideal, and we might encounter
+                    situations in which we would need to consider the dynamics about another point. We will begin by
+                    finding the angular momentum of a rigid body about any arbitrary point, and extend that from there.
+                </p>
+                <div class="envContainer equation" id="reg-lp">
+                    <p class="envHeader">Angular momentum of a rigid body about an arbitrary point $P$.</p>
+                    <div class="envBody">
+                        <p>
+                            \[
+                            \vec{L}_P = \vec{r}_{PC} \times m\vec{v}_C + I_C \, \vec\omega
+                            \]
+                        </p>
+                    </div>
+                </div>
+                <!-- <div class="envContainer derivation">
+                    <div class="envBody">
+                        <p>
+                            Recall that the angular momentum of a collection of particles about any point $P$ is:
+                            \[
+                            \vec{L}_P = \sum_{i=1}^{N} \vec{r}_{P, i} \times m_i\vec{v}_i
+                            \]
+                        </p>
+                        <p>
+                            Using <a href="rkg.html#rkg-er">rigid body point relations</a>:
+                            \[\begin{aligned}
+                            \vec{r}_{P, i} &amp;= \vec{r}_{PC} + \vec{r}_{C, i} \\
+                            \vec{v}_{i} &amp;= \vec{v}_C + \vec\omega \times \vec{r}_{C, i}
+                            \end{aligned}\]
+                        </p>
+                        <p>
+                            Substituting:
+                            \[\begin{aligned}
+                            \vec{L}_P &amp;= \sum_{i=1}^{N} \left[\vec{r}_{PC} + \vec{r}_{C, i}\right] \times \left[m_i\vec{v}_C + m_i\vec\omega \times \vec{r}_{C, i}\right] \\
+                            &amp;= \sum_{i=1}^{N} \vec{r}_{PC} \times \left[m_i\vec{v}_C + m_i\vec\omega \times \vec{r}_{C, i}\right] + \vec{r}_{C,i} \times \left[m_i\vec{v}_C + m_i\vec\omega \times \vec{r}_{C, i}\right] \\
+                            &amp;= \sum_{i=1}^{N} \vec{r}_{PC} \times m_i\vec{v}_C + \vec{r}_{PC} \times m_i\vec\omega \times \vec{r}_{C,i}
+                            \end{aligned}\]
+                        </p>
+                    </div>
+                </div> -->
+                <p>
+                    We can differentiate the above expression with respect to time and obtain the time derivative of
+                    the angular momentum of the rigid body about point $P$. This will yield two important special cases of
+                    rotations. 
+                </p>
+                <div class="envContainer equation" id="reg-lt">
+                    <p class="envHeader">Rate of change of angular momentum about an arbitrary point $P$.</p>
+                    <div class="envBody">
+                        <p>
+                            \[
+                            \frac{d\vec{L}_P}{dt} = \vec{M}_P - \vec{r}_{PC} \times m\vec{a}_P
+                            \]
+                        </p>
+                    </div>
+                </div>
+                <p>
+                    The important special cases are outlined below.
+                </p>
+                <div class="envContainer equation" id="reg-lm">
+                    <p class="envHeader">Special cases of the angular momentum rate of change.</p>
+                    <div class="envBody">
+                        <p>
+                            <table class="basic">
+                                <tr class="lineBelow">
+                                  <th>case</th>
+                                  <th>result</th>
+                                  <th>consequence</th>
+                                </tr>
+                                <tr class="lineBelow">
+                                    <th>$P = C$</th>
+                                    <td>$\vec{M}_P = \vec{M}_C = \frac{d\vec{L}_C}{dt}$</td>
+                                    <td>This is Euler's 2nd law.</td>
+                                  </tr>
+                                <tr class="lineBelow">
+                                  <th>$\vec{a}_P = \vec{0}$</th>
+                                  <td>$\vec{M}_P = \frac{d\vec{L}_P}{dt}$</td>
+                                  <td>The rigid body is rotating about a fixed point $P$. This is another
+                                    form of Euler's 2nd law.
+                                  </td>
+                                </tr>
+                            </table>
+                        </p>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-    <div class="contentBlock">
-      <div id="reg-se" class="contentCol">
-        <h2>
-          Euler's equations
-        </h2>
-        <div class="envContainer equation" id="reg-ee">
-          <p class="envHeader">Rigid body equations for rotation about a principal axis $\hat{a}$.</p>
-          <div class="envBody">
-            <p>
-              \[\begin{aligned}
-              \sum_i \vec{F}_i &amp;= m \vec{a}_C \\
-              \sum_i \vec{M}_{C,i} &amp;= I_{C,\hat{a}} \vec\alpha \\
-              \text{or } \sum_i \vec{M}_{O,i} &amp;= I_{O,\hat{a}} \vec\alpha \qquad \text{if $O$ is a fixed point}
-              \end{aligned}\]
-            </p>
-          </div>
+        <div class="footer">
+            <p class="copyright">Copyright (C) 2023 Felix Marrar</p>
         </div>
-      </div>
-    </div>
-    <div class="contentBlock">
-      <div id="reg-sl" class="contentCol">
-        <h2>
-          Linear momentum
-        </h2>
-        <div class="envContainer equation" id="reg-el">
-          <p class="envHeader">Linear momentum of a rigid body.</p>
-          <div class="envBody">
-            <p>
-              \[\vec{p} = m \vec{v}_C\]
-            </p>
-          </div>
-        </div>
-        <div class="envContainer equation" id="reg-el">
-          <p class="envHeader">Kinetics equation using linear momentum.</p>
-          <div class="envBody">
-            <p>
-              \[\sum_i \vec{F}_i = \dot{\vec{p}}\]
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="contentBlock">
-      <div id="reg-sa" class="contentCol">
-        <h2>
-          Angular momentum
-        </h2>
-        <div class="envContainer equation" id="reg-ea">
-          <p class="envHeader">Angular momentum of a rigid body rotating about a principal axis $\hat{a}$ through point $O$.</p>
-          <div class="envBody">
-            <p>
-              \[\vec{L}_O = I_{O,\hat{a}} \vec\omega \]
-            </p>
-            <p>i.e the rigid body is rotating about point $O$ (or point $O$ is fixed).</p>
-          </div>
-        </div>
-        <div class="envContainer equation" id="reg-er">
-          <p class="envHeader">Rotation equation using angular momentum.</p>
-          <div class="envBody">
-            <p>
-              \[\begin{aligned}
-              \sum_i \vec{M}_{C,i} &amp;= \dot{\vec{L}}_C \\
-              \text{or } \sum_i \vec{M}_{O,i} &amp;= \dot{\vec{L}}_O \qquad \text{if $O$ is a fixed point}
-              \end{aligned}\]
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="contentBlock">
-      <div id="reg-so" class="contentCol">
-        <h2>
-          Force couples and pure moments
-        </h2>
-      </div>
-    </div>
-    </div>
-      <div class="footer">
-        <p class="copyright">Copyright (C) 2012-2015 Matthew West</p>
-      </div>
-    </div>
-  </body>
+    </body>
 </html>

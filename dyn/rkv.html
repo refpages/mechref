@@ -306,7 +306,7 @@
     <div class="contentBlock">
       <div id="rkv-so" class="contentCol">
         <h2>
-          Rotation about a fixed origin
+          Pure rotation about a fixed origin
         </h2>
         <p>
           If an object is rotating with angular velocity $\omega$ about a fixed origin, then the velocity and acceleration are given by the following relations:
@@ -327,18 +327,40 @@
         <div class="envContainer derivation">
           <div class="envBody">
             <p>
-              Establishing some mathematical intuition first, the cross product yields a counterclockwise orthogonal vector to the two vectors that we are crossing. 
-	      This result also yields a vector tangent to the direction of travel. Knowing that, and knowing that velocity is always tangent to the direction of travel,
-	      as well as orthogonal to position, we can arrive at the relationship $\vec{v} = \vec{\omega} \times \vec{r}$. Acceleration can be obtained by differentiating
-	      velocity with respect to time:
-	      \[\begin{aligned}
-              \vec{a} &amp;= \frac{d\vec{v}}{dt} \\
-	      &amp;= \frac{d}{dt}(\vec{\omega}) \times \vec{r} + \vec{\omega} \times \frac{d}{dt}(\vec{r})\\
-	      &amp;= \vec{\alpha} \times \vec{r} + \vec{\omega} \times \vec{v}\\	
-	      &amp;= \vec{\alpha} \times \vec{r} + \vec{\omega} \times (\vec{\omega} \times \vec{r})\\
-	      \end{aligned}\]
-		  
-		  Another perhaps more intuitive approach to this is observing that the origin is what is called the <em> instantaneous center </em>. More on that derivation at <a href="rkg.html#rkg-ev">#rkg-ev.</a>
+              We know that the velocity $\vec{v} = \dot{\vec{r}}$.
+            </p>
+            <p>
+              Recall that the time derivative of a vector can be decomposed into the following, as shown <a href="rvc.html#rvc-em">here</a>:
+              \[
+              \dot{\vec{r}} = \dot{r}\, \hat{r} + r\, \dot{\hat{r}}
+              \]
+            </p>
+            <p>
+              In pure rotation, the vector length is not changing, therefore $\dot{r} = 0$.
+            </p>
+            <p>
+              Recall that the vector direction derivative can be expressed as:
+              \[
+              \dot{\hat{r}} = \vec\omega \times \hat{r}
+              \]
+            </p>
+            <p>
+              Plugging in the above expression:
+              \[\begin{aligned}
+              \dot{\vec{r}} &amp;= r \, \dot{\hat{r}} \\
+              &amp;= r \, \left(\vec\omega \times \hat{r}\right) \\
+              &amp;= \vec\omega \times r \, \hat{r} \\
+              &amp;= \vec\omega \times \vec{r} 
+              \end{aligned}\]
+            </p>
+            <p>
+              We can now differentiate the expression for velocity with time to obtain acceleration:
+              \[\begin{aligned}
+              \vec{a} &amp;= \dot{\vec{v}} \\
+              &amp;= \dot{\vec{\omega}} \times \vec{r} + \vec\omega \times \dot{\vec{r}} \\
+              &amp;= \vec\alpha \times \vec{r} + \vec\omega \times \vec{v} \\ 
+              &amp;= \vec\alpha \times \vec{r} + \vec\omega \times \left(\vec\omega \times \vec{r}\right)
+              \end{aligned}\]
             </p>
           </div>
         </div>

@@ -1,0 +1,19 @@
+table.centerMass {
+    width: 100%;
+}
+
+table.centerMass td:first-child {
+    width: 300px;
+}
+
+table.centerMass canvas {
+    border: 0px;
+}
+
+#rcm-xc .question {
+    height: 210px;
+}
+
+#rcm-xl .question {
+    height: 210px;
+}
