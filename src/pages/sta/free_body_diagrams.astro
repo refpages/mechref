@@ -1,0 +1,41 @@
+---
+import Layout from "../../layouts/Layout.astro" 
+import Image from "../../components/Image.astro" 
+import Section from "../../components/Section.astro" 
+import SubSection from "../../components/SubSection.astro" 
+import BlueText from "../../components/BlueText.astro" 
+import InlineEquation from "../../components/InlineEquation.astro" 
+import DisplayEquation from "../../components/DisplayEquation.astro" 
+---
+<Layout title="Free Body Diagrams">
+<Section>Free Body Diagrams</Section>
+
+<BlueText>Insert the same content here as from the TAM212 Reference Pages (Free Body Diagrams - the top introduction section). Note that if you try to click on the link to "Free Body Diagrams" from the TAM 210 reference page it doesn't work. You have to go into the TAM 212 reference page to access Free Body Diagrams. </BlueText>
+
+<SubSection>Pulley Idealizations</SubSection>
+
+In this course we assume that a pulley is frictionless, meaning that the magnitude of the tensile force of the rope on either side of a pulley will be the same. 
+
+<DisplayEquation equation='{T_1} = {T_2}\\' />
+
+<Image src='/Statics/FBDFigures/PulleyAssumptions.png' width='3'><BlueText>Taken from TAM 210 Lecture 5 - Slide 6</BlueText></Image>
+
+<SubSection>Spring Idealizations</SubSection>
+
+In this course, we assume springs are linearly elastic, which means that the force (tension) in the spring is linearly proportional to the extension of the spring (<InlineEquation equation='s' />) through the spring constant, <InlineEquation equation='k' />.
+
+<DisplayEquation equation='{F} = {k*s}\\' />
+
+<DisplayEquation equation='{s} = {l-l_0}\\' />
+
+<Image src='/Statics/FBDFigures/SpringAssumptions.png' width='2'><BlueText>Taken from TAM 210 Lecture 5 - Slide 7. Make this picture and put it next to a stress-strain curve with the straight linear elastic line and the slope as k.</BlueText></Image>
+
+<SubSection>Smooth Surface Idealizations</SubSection>
+
+If a surface is described as "smooth", we assume that there is no frictional force on the surface. Therefore, any force applied by the surface is normal to the surface. 
+
+<Image src='/Statics/FBDFigures/SmoothAssumptions.png' width='3'><BlueText>Taken from TAM 210 Lecture 5 - Slide 8. This could become an interactive image eventually where the angles of the surfaces are changed by the user and then the reaction forces are also changing.</BlueText></Image>
+
+<!-- \subsection{\red{Equivalent force systems}} -->
+%lecture 10
+</Layout>

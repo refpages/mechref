@@ -1,0 +1,219 @@
+[
+  [
+    "Dynamics",
+    [
+      [
+        "Positions and Vectors",
+        [
+          {
+            "name": "Positions and coordinates",
+            "id": "rvp"
+          },
+          {
+            "name": "Vectors and bases",
+            "id": "rvv"
+          },
+          {
+            "name": "Vector identities",
+            "id": "rvi"
+          },
+          {
+            "name": "Vector calculus",
+            "id": "rvc"
+          },
+          {
+            "name": "Cylindrical coordinates",
+            "id": "rvy"
+          },
+          {
+            "name": "Spherical coordinates",
+            "id": "rvs"
+          },
+          {
+            "name": "Notation",
+            "id": "rvn"
+          }
+        ]
+      ],
+      [
+        "Kinematics",
+        [
+          {
+            "name": "Rotations and angular velocity",
+            "id": "rkr"
+          },
+          {
+            "name": "Position, velocity, and acceleration",
+            "id": "rkv"
+          },
+          {
+            "name": "Tangential/normal basis",
+            "id": "rkt"
+          },
+          {
+            "name": "Elementary motions",
+            "id": "rke"
+          },
+          {
+            "name": "Coordinate system comparison",
+            "id": "rkm"
+          },
+          {
+            "name": "Rigid bodies",
+            "id": "rkg"
+          },
+          {
+            "name": "Constraints and constrained motion",
+            "id": "rkc"
+          },
+          {
+            "name": "Rolling motion",
+            "id": "rko"
+          },
+          {
+            "name": "Relative motion and frames",
+            "id": "rkf"
+          }
+        ]
+      ],
+      [
+        "Kinetics",
+        [
+          {
+            "name": "Kinetics of point masses",
+            "id": "rep"
+          },
+          {
+            "name": "Kinetics of rigid bodies",
+            "id": "reg"
+          },
+          {
+            "name": "Moments of inertia",
+            "id": "rem"
+          },
+          {
+            "name": "Centers of mass",
+            "id": "rcm"
+          },
+          {
+            "name": "Free body diagrams",
+            "id": "rfb"
+          },
+          {
+            "name": "Energy and work",
+            "id": "ren"
+          },
+          {
+            "name": "Momentum, impulse, and collisions",
+            "id": "rec"
+          },
+          {
+            "name": "Friction and damping",
+            "id": "rfr"
+          }
+        ]
+      ],
+      [
+        "Applications",
+        [
+          {
+            "name": "Shortest flight paths",
+            "id": "aos"
+          },
+          {
+            "name": "Celestical velocities",
+            "id": "aov"
+          },
+          {
+            "name": "Accelerating and braking",
+            "id": "ava"
+          },
+          {
+            "name": "Track transition curves",
+            "id": "avt"
+          },
+          {
+            "name": "Banked turns",
+            "id": "avb"
+          },
+          {
+            "name": "Steering geometry",
+            "id": "avs"
+          },
+          {
+            "name": "Four-bar linkages",
+            "id": "aml"
+          },
+          {
+            "name": "Projectiles with air resistance",
+            "id": "afp"
+          }
+        ]
+      ]
+    ]
+  ],
+  [
+    "Solid Mechanics",
+    [[
+      "Course Material",
+      [
+        {
+          "name": "Stress",
+          "id": "stress"
+        },
+        {
+          "name": "Strain",
+          "id": "strain"
+        },
+        {
+          "name": "Material Properties",
+          "id": "material"
+        },
+        {
+          "name": "Axial Deformation",
+          "id": "axial"
+        },
+        {
+          "name": "Torsion",
+          "id": "torsion"
+        },
+        {
+          "name": "Bending",
+          "id": "bending"
+        },
+        {
+          "name": "Transverse Shear",
+          "id": "transverse"
+        },
+        {
+          "name": "Pressure Vessels",
+          "id": "pressure"
+        },
+        {
+          "name": "Combined Loading",
+          "id": "combined"
+        },
+        {
+          "name": "Stress Transformation",
+          "id": "transformation"
+        },
+        {
+          "name": "Deflection",
+          "id": "deflection"
+        },
+        {
+          "name": "Buckling",
+          "id": "buckling"
+        },
+        {
+          "name": "Sign Convention",
+          "id": "signConvention"
+        },
+        {
+          "name": "Formula Sheet",
+          "id": "FormulaSheet.pdf"
+        }
+      ]
+    ]]
+  ]
+]

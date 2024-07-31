@@ -1,0 +1,72 @@
+---
+import Layout from "../../layouts/Layout.astro" 
+import Image from "../../components/Image.astro" 
+import Section from "../../components/Section.astro" 
+import SubSection from "../../components/SubSection.astro" 
+import BlueText from "../../components/BlueText.astro" 
+---
+<Layout title="Trusses">
+<Section>Trusses</Section>
+
+Trusses are support members that are joined together at the ends. The function of a truss is to transmit loads to a support joint. In this section, we will analyze a simplified version of planar trusses called simple trusses, which consist of two-force members connected by frictionless joints/pins.
+
+<!-- starting in lecture 16 -->
+
+<!-- Definition of a truss -->
+
+<SubSection>Truss Assumptions</SubSection>
+
+The main assumptions for trusses and truss structures are:
+<ol>
+	<li>All loading is applied at the joints.</li>
+	<li>The weight of the truss is negligible.</li>
+</ol>
+
+Because of these assumptions, all trusses are <em>two force members</em>, with the forces on the truss acting along the axis of the member. 
+<!-- good summary in lecture 17, slide 5 -->
+
+<SubSection>Two Force Member</SubSection>
+
+A two force member is a rigid body that has two forces (no moments) acting on it in two locations. 
+
+Assumptions of two force members (for equilibrium to hold): 
+<ol>
+	<li>|F_A| = |F_B|</li>
+	<li>F_A</li>
+	<li>F_A</li>
+</ol>
+
+<Image src='/Statics/TrussFigures/2ForceMembers.jpg' width='5'> Examples of different two force members.</Image>
+
+    
+<!-- Lecture 16 -->
+<SubSection>Zero Force Member</SubSection>
+
+Zero force members are members in a truss structure that experience no force. They act as support trusses to add stability, but are not load bearing. There are 2 cases where zero force members occur: 
+<ol>
+	<li> Two noncolinear members share a pin with no support or external forces (Zero force member example, left)
+    </li>
+	<li> Two colinear forces with a third noncolinear force on a pin (zero force member example, right)
+</li>
+</ol>
+
+<Image src='/Statics/TrussFigures/0ForceMembers.jpg' width='5'> Examples of different zero force members, highlighted in red.</Image>
+
+<BlueText>Insert content here from TAM 212 reference page - Free Body Diagrams - Rigid Bodies - Trusses section. This has a really good analysis of eliminating zero force members to simplify the structure</BlueText>
+
+<!-- lecture 18 -->
+
+<SubSection>Truss Analysis: Joints</SubSection>
+
+<Image src='/Statics/TrussFigures/MethodofJoints.png' width='5'><BlueText>Taken from TAM 210 Lecture 17 notes</BlueText></Image>
+
+<SubSection>Truss Analysis: Sections</SubSection>
+
+<Image src='/Statics/TrussFigures/MethodofSections.png' width='5'><BlueText>Taken from TAM 210 Lecture 19 notes</BlueText></Image>
+
+<!-- lecture 19  -->
+
+
+
+
+</Layout>

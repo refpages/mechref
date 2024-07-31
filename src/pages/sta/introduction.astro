@@ -1,0 +1,64 @@
+---
+import Layout from "../../layouts/Layout.astro" 
+import Image from "../../components/Image.astro" 
+import Section from "../../components/Section.astro" 
+import SubSection from "../../components/SubSection.astro" 
+import SubSubSection from "../../components/SubSubSection.astro" 
+import BlueText from "../../components/BlueText.astro" 
+import InlineEquation from "../../components/InlineEquation.astro" 
+import DisplayEquation from "../../components/DisplayEquation.astro" 
+---
+<Layout title="Introduction">
+<Section>Introduction to Statics</Section>
+
+<SubSection>Newton's Laws</SubSection>
+
+<BlueText>From TAM212 Reference Pages (Kinetics of Point Masses - Newton's Equations):</BlueText>
+
+
+Newton's equations relate the acceleration <InlineEquation equation='\\vec{a}' /> of a point mass with mass <InlineEquation equation='m' /> to the total applied force <InlineEquation equation='\\vec{F}' /> on the mass (sum of all applied forces). There is no derivation for Newton's equations, because they are an assumed model for dynamics. We can only verify them by comparing with experimental evidence, which confirms that Newtonian dynamics are accurate for non-relativistic and non-quantum systems.
+
+They are:
+
+<SubSubSection>Newton's First Law</SubSubSection>
+
+A particle at rest stays that way unless acted on by unbalanced forces. 
+
+<SubSubSection>Newton's Second Law</SubSubSection>
+
+<DisplayEquation equation='\\vec{F} = m \\vec{a}\\' />
+
+<SubSubSection>Newton's Third Law</SubSubSection>
+
+The mutual forces of action and reaction between two particles are equal, opposite, and collinear. 
+
+<SubSubSection>Example</SubSubSection>
+
+
+<Image src='/Statics/IntroductionFigures/NewtonsLaws.png' width='5'><BlueText>Taken from TAM212 Reference Pages (Kinetics of Point Masses - Newton's Equations)</BlueText></Image>
+
+<SubSection>Idealizations</SubSection>
+
+<SubSubSection>Particles</SubSubSection>
+<!-- Could change this section to "Idealizations" and write about particle idealizations, rigid body assumptions, and concentrated / distributed force assumptions.  -->
+
+In this course, we assume two things about particles: 
+
+<ol>
+	<li>The mass of the particle is not 0.</li>
+	<li>The radius of the mass is 0.</li>
+</ol>
+
+
+ Through these assumptions, we are essentially concentrating all of the mass of an object at a single point in space. The particle has a mass but the size and shape of the particle is not taken into account. 
+
+<SubSubSection>Rigid Bodies</SubSubSection>
+
+For rigid bodies, we assume that the object has both mass (similar to particles) but also take its shape into account. 
+
+We call these bodies "rigid" because we assume that they do not deform under applied forces or moments. 
+
+<BlueText>Insert the same content here as from the TAM212 Reference Pages (Rigid Bodies - introductory section at the top of the page).</BlueText>
+
+
+</Layout>

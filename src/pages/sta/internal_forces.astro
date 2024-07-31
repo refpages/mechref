@@ -1,0 +1,52 @@
+---
+import Layout from "../../layouts/Layout.astro" 
+import Image from "../../components/Image.astro" 
+import Section from "../../components/Section.astro" 
+import SubSection from "../../components/SubSection.astro" 
+import BlueText from "../../components/BlueText.astro" 
+import RedText from "../../components/RedText.astro" 
+import InlineEquation from "../../components/InlineEquation.astro" 
+---
+<Layout title="Internal Forces">
+<Section>Internal Forces</Section>
+
+Internal forces of a member can be determined by creating an imaginary cut in a member, and then solving for the internal shear force, normal force, and bending moment (which, after the cut, become "external" forces that can be solved for). 
+
+To determine how the internal shear force and bending moment change throughout the member, shear force and bending moment diagrams are created. Shear force diagrams provide a graphical representation of the internal shear force within a member, and bending moment diagrams provide a graphical representation of the internal bending moment within a member. 
+
+<Image src='/Statics/IntForceFigures/IntForces.jpg' width='5 '> Internal shear force (V), internal normal force (N), and internal moment (M).</Image>
+
+<!-- starts in lecture 19 -->
+
+<SubSection>Sign Conventions</SubSection>
+
+<Image src='/Statics/IntForceFigures/SignConventions.jpg' width=''> Sign conventions for internal forces and moments</Image>
+
+
+<SubSection>General Procedure</SubSection>
+
+Creating a shear force and bending moment diagram allows us to create a graphical representation of <InlineEquation equation='V' /> and <InlineEquation equation='M' /> as a function of the position along the beam, <InlineEquation equation='x' />. Therefore when creating internal loading diagrams we are trying to write equations for <InlineEquation equation='V(x)' /> and <InlineEquation equation='M(x)' />.
+
+<Image src='/Statics/IntForceFigures/DiagramProcedure.png' width=''><BlueText>Taken from TAM 210 Lecture 22</BlueText></Image>
+
+<Image src='/Statics/IntForceFigures/IntLoadRecap.png' width=''><BlueText>Taken from TAM 210 Lecture 23</BlueText></Image>
+
+<SubSection><RedText>General Rules</RedText></SubSection>
+
+<ol>
+	<li> When there is an external concentrated force or moment, there will be a "jump" in the shear force or bending moment diagram
+    </li>
+	<li>w(x)</li>
+</ol>
+
+<Image src='/Statics/IntForceFigures/IntDerivRelationships.jpg' width=''><BlueText>See TAM 210 Lecture 25</BlueText></Image>
+
+<SubSection><RedText>Shear Force Diagram</RedText></SubSection>
+
+<!-- Lecture 22, 23, 24 -->
+
+<SubSection><RedText>Bending Moment Diagram</RedText></SubSection>
+
+<!-- Lecture 22, 23, 24 -->
+
+</Layout>

@@ -1,0 +1,80 @@
+---
+import Layout from "../../layouts/Layout.astro" 
+import Image from "../../components/Image.astro" 
+import Section from "../../components/Section.astro" 
+import SubSection from "../../components/SubSection.astro" 
+import BlueText from "../../components/BlueText.astro" 
+import RedText from "../../components/RedText.astro" 
+import InlineEquation from "../../components/InlineEquation.astro" 
+import DisplayEquation from "../../components/DisplayEquation.astro" 
+---
+<Layout title="Moments">
+<Section>Moments</Section>
+
+<!-- Lectures 7, 8, 9, 10 -->
+
+A moment is a force applied at a distance from a point, which causes rotation about that point. 
+
+The distance that the force is applied from is called the <em>moment arm</em>. 
+
+<Image src='/Statics/MomentsFigures/Moment.jpg' width='5'> If the bar is pinned at point  <InlineEquation equation='A' /> , the force  <InlineEquation equation='F' /> , applied at a distance  <InlineEquation equation='d' />  from point A, will cause a moment  <InlineEquation equation='M_A' />  about point A and make the bar rotate clockwise.</Image>
+
+The only force that produces a rotation about a point is a force perpendicular to the moment arm (in this case, the moment arm is <InlineEquation equation='d' />).
+
+<BlueText>This could be a good place to add in example moments later in the side column for applications - could include muscle moments about a joint, oil rigs, the giant bucket that splashes water at a waterpark, pulling out a nail with a hammer.</BlueText>
+
+<SubSection>Moments as scalars</SubSection>
+
+Moments can be written as scalar quantities, where 
+
+<DisplayEquation equation='{M_A} = F*d\\' />
+
+Note that d is the distance from the applied force to the point of interest and that the force F is the force perpendicular to the moment arm. 
+
+<Image src='/Statics/MomentsFigures/MomentScalar.jpg' width='5'> The moment about point A is dependent on how much of the force  <InlineEquation equation='F' />  is perpendicular to the moment arm  <InlineEquation equation='d' /> .</Image>
+
+
+
+You can determine the direction of moments using the right hand rule and wrapping your fingers around where the moment is turning. The direction your thumb is pointing is the direction of the moment. 
+
+Moments are assumed to be positive when they point in the <InlineEquation equation='-\\hat{k}' /> direction (clockwise rotation) and negative when they point in the <InlineEquation equation='+\\hat{k}' /> direction (counterclockwise rotation). 
+
+<Image src='/Statics/MomentsFigures/MomentConventions.jpg' width='5'> Positive and negative moment conventions.</Image>
+
+<!-- lectures 7 and 8 -->
+
+<SubSection>Moments as vectors</SubSection>
+
+Moments can also be written as vector quantities, where the moment about point A is the cross product of the moment arm, <InlineEquation equation='r' /> and the force <InlineEquation equation='F' />. 
+
+<DisplayEquation equation='\\vec{M_A} = \\vec{r} \\times \\vec{F}\\' />
+
+Using this formula, moments could have an <InlineEquation equation='\\hat{i}' />, <InlineEquation equation='\\hat{j}' />, and <InlineEquation equation='\\hat{k}' /> component. 
+
+The magnitude of the moment can be written as 
+
+<DisplayEquation equation='\\vert\\vec{M_A}\\vert = \\vert\\vec{r}\\vert \\vert\\vec{F}\\vert sin\\theta\\' />
+
+<!-- lectures 7 and 8 -->
+
+<SubSection><RedText>Couple Moment</RedText></SubSection>
+
+A couple moment is a set of two equal and opposite forces with parallel lines of action that produce a moment. 
+
+The resulting moment from a force couple can be written as 
+
+<DisplayEquation equation='M_A = F*d_{\\perp}\\' />
+
+where <InlineEquation equation='F' /> is the magnitude of one of the force vectors and d is the perpendicular distance between the two vectors. 
+
+Note: Couple moments are independent of location when applied to a rigid body, which means the resulting moment from a force couple can be "placed" anywhere on the rigid body with the same resulting rotation from the couple moment. 
+
+<Image src='/Statics/MomentsFigures/CoupleMoment.jpg' width=' 2.5'> A couple moment</Image>
+
+<!-- In vector notation, a couple moment can be written as  -->
+
+<!-- lectures 9 and 10 -->
+
+<!-- \subsection{\red{Moment about an axis}} -->
+
+</Layout>
