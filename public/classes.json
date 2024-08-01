@@ -43,6 +43,10 @@
         "name": "Moments"
       },
       {
+        "id": "moment_of_inertia",
+        "name": "Moment Of Inertia"
+      },
+      {
         "id": "reaction_forces",
         "name": "Reaction Forces"
       },
