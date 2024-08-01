@@ -8,7 +8,7 @@ import RedText from "../../components/RedText.astro"
 import InlineEquation from "../../components/InlineEquation.astro" 
 ---
 <Layout title="Internal Forces">
-<Section>Internal Forces</Section>
+<Section title="Internal Forces">
 
 Internal forces of a member can be determined by creating an imaginary cut in a member, and then solving for the internal shear force, normal force, and bending moment (which, after the cut, become "external" forces that can be solved for). 
 
@@ -16,14 +16,18 @@ To determine how the internal shear force and bending moment change throughout t
 
 <Image src='/Statics/IntForceFigures/IntForces.jpg' width='5 '> Internal shear force (V), internal normal force (N), and internal moment (M).</Image>
 
+</Section>
+
 <!-- starts in lecture 19 -->
 
-<SubSection>Sign Conventions</SubSection>
+<SubSection title="Sign Conventions">
 
 <Image src='/Statics/IntForceFigures/SignConventions.jpg' width=''> Sign conventions for internal forces and moments</Image>
 
+</SubSection>
 
-<SubSection>General Procedure</SubSection>
+
+<SubSection title="General Procedure">
 
 Creating a shear force and bending moment diagram allows us to create a graphical representation of <InlineEquation equation='V' /> and <InlineEquation equation='M' /> as a function of the position along the beam, <InlineEquation equation='x' />. Therefore when creating internal loading diagrams we are trying to write equations for <InlineEquation equation='V(x)' /> and <InlineEquation equation='M(x)' />.
 
@@ -31,7 +35,9 @@ Creating a shear force and bending moment diagram allows us to create a graphica
 
 <Image src='/Statics/IntForceFigures/IntLoadRecap.png' width=''><BlueText>Taken from TAM 210 Lecture 23</BlueText></Image>
 
-<SubSection><RedText>General Rules</RedText></SubSection>
+</SubSection>
+
+<SubSection title="<RedText>General Rules</RedText>">
 
 <ol>
 	<li> When there is an external concentrated force or moment, there will be a "jump" in the shear force or bending moment diagram
@@ -41,11 +47,13 @@ Creating a shear force and bending moment diagram allows us to create a graphica
 
 <Image src='/Statics/IntForceFigures/IntDerivRelationships.jpg' width=''><BlueText>See TAM 210 Lecture 25</BlueText></Image>
 
-<SubSection><RedText>Shear Force Diagram</RedText></SubSection>
+</SubSection>
+
+<SubSection title="<RedText>Shear Force Diagram</RedText>"></SubSection>
 
 <!-- Lecture 22, 23, 24 -->
 
-<SubSection><RedText>Bending Moment Diagram</RedText></SubSection>
+<SubSection title="<RedText>Bending Moment Diagram</RedText>"></SubSection>
 
 <!-- Lecture 22, 23, 24 -->
 

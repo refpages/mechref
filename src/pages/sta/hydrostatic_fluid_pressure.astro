@@ -8,12 +8,14 @@ import InlineEquation from "../../components/InlineEquation.astro"
 import DisplayEquation from "../../components/DisplayEquation.astro" 
 ---
 <Layout title="Hydrostatic Fluid Pressure">
-<Section>Hydrostatic Fluid Pressure</Section>
+<Section title="Hydrostatic Fluid Pressure">
 
 <!-- Lecture 30, 31, 32 -->
 <strong>Pascal's Law:</strong> A fluid at rest creates a pressure point <em>p</em> at a point that is the same in all directions. 
 
-<SubSection>Fluid Pressure</SubSection>
+</Section>
+
+<SubSection title="Fluid Pressure">
 
 For an incompressible fluid (density <InlineEquation equation='\\rho' />) at rest, the pressure <InlineEquation equation='p' /> varies linearly with fluid depth <InlineEquation equation='z' />. This means that the pressure along a horizontal plane (at a certain depth <InlineEquation equation='z' /> is constant.
 
@@ -27,11 +29,16 @@ The fluid pressure <InlineEquation equation='P(z)' /> can be written as:
 
 <Image src='/Statics/FluidFigures/FluidDerivation.jpg' width=''> Derivation of the pressure  <InlineEquation equation='P(z)' />  at the bottom of a cylinder of liquid with cross-sectional area  <InlineEquation equation='A' /></Image>
 
-<SubSection>Buoyancy</SubSection>
+</SubSection>
+
+<SubSection title="Buoyancy">
 
 <strong>Archimedes' Principle:</strong> Any object that is either partially or totally immersed in a fluid has a buoyancy force equal to the weight of the fluid displaced by the object. 
 
 
 <BlueText>Do we need to include anything else for buoyancy?</BlueText>
 %Lecture 32
+
+</SubSection>
+
 </Layout>

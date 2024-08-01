@@ -1,1 +1,14 @@
-<h3 class="text-center"><slot /></h3>
+---
+const {title} = Astro.props;
+---
+
+<div class="content-grid">
+    <div class="w-100">
+        <h3 class="fw-bold text-center" set:html={title}></h3>
+
+        <slot />
+    </div>
+    <div class="w-100">
+        <slot name="cards"/>
+    </div>
+</div>

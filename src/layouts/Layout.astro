@@ -36,7 +36,7 @@ const { title } = Astro.props;
 		<div class="container-xxl content">
 			<Sidebar/>
 			<div class="w-100 pt-3">
-				<slot/>
+				<slot />
 			</div>
 
 		</div>
@@ -55,5 +55,16 @@ const { title } = Astro.props;
 			rgb(var(--accent-light)) 30%,
 			white 60%
 		);
+
+		
+	}
+
+	body {
+		font-size: 1.1rem;
+	}
+
+	.content-grid{
+		display: grid;
+		grid-template-columns: 10fr 3fr;
 	}
 </style>
