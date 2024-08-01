@@ -15,6 +15,7 @@
 
 {#each classes as course}
     {#if (course[0] == target_course)}
+    
         {#each course[1] as section}
             <section class="mt-sm-4 mt-2">
                 <div class="d-flex justify-content-between">
