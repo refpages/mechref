@@ -9,7 +9,7 @@ import InlineEquation from "../../components/InlineEquation.astro"
 import DisplayEquation from "../../components/DisplayEquation.astro" 
 ---
 <Layout title="Moments">
-<Section>Moments</Section>
+<Section title="Moments">
 
 <!-- Lectures 7, 8, 9, 10 -->
 
@@ -23,7 +23,9 @@ The only force that produces a rotation about a point is a force perpendicular t
 
 <BlueText>This could be a good place to add in example moments later in the side column for applications - could include muscle moments about a joint, oil rigs, the giant bucket that splashes water at a waterpark, pulling out a nail with a hammer.</BlueText>
 
-<SubSection>Moments as scalars</SubSection>
+</Section>
+
+<SubSection title="Moments as scalars">
 
 Moments can be written as scalar quantities, where 
 
@@ -41,9 +43,11 @@ Moments are assumed to be positive when they point in the <InlineEquation equati
 
 <Image src='/Statics/MomentsFigures/MomentConventions.jpg' width='5'> Positive and negative moment conventions.</Image>
 
+</SubSection>
+
 <!-- lectures 7 and 8 -->
 
-<SubSection>Moments as vectors</SubSection>
+<SubSection title="Moments as vectors">
 
 Moments can also be written as vector quantities, where the moment about point A is the cross product of the moment arm, <InlineEquation equation='r' /> and the force <InlineEquation equation='F' />. 
 
@@ -55,9 +59,11 @@ The magnitude of the moment can be written as
 
 <DisplayEquation equation='\\vert\\vec{M_A}\\vert = \\vert\\vec{r}\\vert \\vert\\vec{F}\\vert sin\\theta\\' />
 
+</SubSection>
+
 <!-- lectures 7 and 8 -->
 
-<SubSection><RedText>Couple Moment</RedText></SubSection>
+<SubSection title="<RedText>Couple Moment</RedText>">
 
 A couple moment is a set of two equal and opposite forces with parallel lines of action that produce a moment. 
 
@@ -70,6 +76,8 @@ where <InlineEquation equation='F' /> is the magnitude of one of the force vecto
 Note: Couple moments are independent of location when applied to a rigid body, which means the resulting moment from a force couple can be "placed" anywhere on the rigid body with the same resulting rotation from the couple moment. 
 
 <Image src='/Statics/MomentsFigures/CoupleMoment.jpg' width=' 2.5'> A couple moment</Image>
+
+</SubSection>
 
 <!-- In vector notation, a couple moment can be written as  -->
 

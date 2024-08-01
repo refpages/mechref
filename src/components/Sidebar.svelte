@@ -29,7 +29,7 @@
                     
                       <ul class="course-list">
                             {#each course[1] as page}
-                                  <li class="mb-1"><a href="#">{page.name}</a></li>
+                                  <li class="mb-1"><a href="/{course_tags[course[0]]}/{page.id}">{page.name}</a></li>
                             {/each}
                       </ul>
                     </div>

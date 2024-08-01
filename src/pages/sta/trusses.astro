@@ -6,15 +6,17 @@ import SubSection from "../../components/SubSection.astro"
 import BlueText from "../../components/BlueText.astro" 
 ---
 <Layout title="Trusses">
-<Section>Trusses</Section>
+<Section title="Trusses">
 
 Trusses are support members that are joined together at the ends. The function of a truss is to transmit loads to a support joint. In this section, we will analyze a simplified version of planar trusses called simple trusses, which consist of two-force members connected by frictionless joints/pins.
+
+</Section>
 
 <!-- starting in lecture 16 -->
 
 <!-- Definition of a truss -->
 
-<SubSection>Truss Assumptions</SubSection>
+<SubSection title="Truss Assumptions">
 
 The main assumptions for trusses and truss structures are:
 <ol>
@@ -23,9 +25,11 @@ The main assumptions for trusses and truss structures are:
 </ol>
 
 Because of these assumptions, all trusses are <em>two force members</em>, with the forces on the truss acting along the axis of the member. 
+</SubSection>
+
 <!-- good summary in lecture 17, slide 5 -->
 
-<SubSection>Two Force Member</SubSection>
+<SubSection title="Two Force Member">
 
 A two force member is a rigid body that has two forces (no moments) acting on it in two locations. 
 
@@ -38,9 +42,10 @@ Assumptions of two force members (for equilibrium to hold):
 
 <Image src='/Statics/TrussFigures/2ForceMembers.jpg' width='5'> Examples of different two force members.</Image>
 
-    
+</SubSection>
+
 <!-- Lecture 16 -->
-<SubSection>Zero Force Member</SubSection>
+<SubSection title="Zero Force Member">
 
 Zero force members are members in a truss structure that experience no force. They act as support trusses to add stability, but are not load bearing. There are 2 cases where zero force members occur: 
 <ol>
@@ -54,18 +59,23 @@ Zero force members are members in a truss structure that experience no force. Th
 
 <BlueText>Insert content here from TAM 212 reference page - Free Body Diagrams - Rigid Bodies - Trusses section. This has a really good analysis of eliminating zero force members to simplify the structure</BlueText>
 
+</SubSection>
+
 <!-- lecture 18 -->
 
-<SubSection>Truss Analysis: Joints</SubSection>
+<SubSection title="Truss Analysis: Joints">
 
 <Image src='/Statics/TrussFigures/MethodofJoints.png' width='5'><BlueText>Taken from TAM 210 Lecture 17 notes</BlueText></Image>
 
-<SubSection>Truss Analysis: Sections</SubSection>
+</SubSection>
+
+<SubSection title="Truss Analysis: Sections">
 
 <Image src='/Statics/TrussFigures/MethodofSections.png' width='5'><BlueText>Taken from TAM 210 Lecture 19 notes</BlueText></Image>
 
 <!-- lecture 19  -->
 
+</SubSection>
 
 
 

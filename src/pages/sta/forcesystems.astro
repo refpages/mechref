@@ -9,9 +9,9 @@ import InlineEquation from "../../components/InlineEquation.astro"
 import DisplayEquation from "../../components/DisplayEquation.astro" 
 ---
 <Layout title="ForceSystems">
-<Section>Force Systems</Section>
+<Section title="Force Systems"></Section>
 
-<SubSection>Equivalent systems</SubSection>
+<SubSection title="Equivalent systems">
 
 <BlueText>Do we need this section?</BlueText>
 
@@ -19,7 +19,9 @@ It can be helpful at times to reduce the forces on a body and combine resultant 
 
 These forces and moments will have the same external effect on the body, but the internal forces on the rigid body may be different. 
 
-<SubSection>Concentrated forces</SubSection>
+</SubSection>
+
+<SubSection title="Concentrated forces">
 
 <BlueText>Do we need this section? - from lecture 2</BlueText>
 
@@ -27,7 +29,9 @@ Concentrated forces are forces acting at a specific point on a body.
 
 <Image src='/Statics/ForceSystemsFigures/ConcentratedForce.PNG' width='5 '> A concentrated force applied to a bar at point A.</Image>
 
-<SubSection>Distributed loads</SubSection>
+</SubSection>
+
+<SubSection title="Distributed loads">
 <!-- from lecture 11 and 12 -->
 
 Distributed loads (usually written as <InlineEquation equation='w(x)' />) are forces applied over a length, volume, or area. The SI units for distributed loads are N/m. These loads, written as a function of length <InlineEquation equation='x' /> can be simplified into an equivalent force, <InlineEquation equation='F_R' />, which results in the same external loading on the rigid body. 
@@ -36,7 +40,9 @@ The magnitude of the equivalent force <InlineEquation equation='F_R' /> is the a
 
 <BlueText>Later, we can add a side comment about examples of distributed loads in real life. For example, books on a bookshelf, air pressure over a lake, the distribution of loads on on the ground over your foot when you take a step</BlueText>
 
-<SubSubSection>Rectangular loading</SubSubSection>
+</SubSection>
+
+<SubSubSection title="Rectangular loading">
 
 For a constant distributed load of magnitude c applied to a bar over a length l, the resultant force magnitude is 
 
@@ -44,10 +50,11 @@ For a constant distributed load of magnitude c applied to a bar over a length l,
 
 the resultant force location is at <InlineEquation equation='l/2' />.
 
-<Image src='/Statics/ForceSystemsFigures/DistLoad.PNG' width='5 '> Example distributed load (top) and its equivalent force system (bottom).</Image>
+<Image src='/Statics/ForceSystemsFigures/DistLoad.PNG' width='5'> Example distributed load (top) and its equivalent force system (bottom).</Image>
 
+</SubSubSection>
 
-<SubSubSection>Triangular loading</SubSubSection>
+<SubSubSection title="Triangular loading">
 
 For a triangular distributed load (a uniformly varying load), the magnitude of the load is equivalent to the area of the triangle. 
 
@@ -55,11 +62,13 @@ For a triangular distributed load (a uniformly varying load), the magnitude of t
 
 The location of <InlineEquation equation='F_R' /> is 1/3 from the base of the triangle. 
 
-<Image src='/Statics/ForceSystemsFigures/TriangleLoad.PNG' width='5 '> Example triangular distributed load (top) and its equivalent force system (bottom).</Image>
+<Image src='/Statics/ForceSystemsFigures/TriangleLoad.PNG' width='5'> Example triangular distributed load (top) and its equivalent force system (bottom).</Image>
+
+</SubSubSection>
 
 <!-- from lecture 11 and 12 -->
 
-<SubSubSection>Nonuniform distributed loads</SubSubSection>
+<SubSubSection title="Nonuniform distributed loads">
 
 More complex distributed loads can be reduced to two distributed loads of uniform shape, or the integral of the distributed load function can be taken to obtain the area under <InlineEquation equation='w(x)' />, which is <InlineEquation equation='F_R' />. 
 
@@ -73,8 +82,8 @@ Now we can solve for the center of mass of the distributed load, <InlineEquation
 
 <DisplayEquation equation='\\bar{x} = \\dfrac{M_R}{F_R}\\' />
 
-<Image src='/Statics/ForceSystemsFigures/NonuniformLoad.PNG' width='5 '> Nonuniform load. Need to remake this in the same style as the other pictures.</Image>
-
+<Image src='/Statics/ForceSystemsFigures/NonuniformLoad.png' width='5'> Nonuniform load. Need to remake this in the same style as the other pictures.</Image>
+</SubSubSection>
 
 <!-- from lecture 11 and 12 -->
 </Layout>

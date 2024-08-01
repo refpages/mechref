@@ -1,0 +1,161 @@
+---
+import Layout from "../../layouts/Layout.astro" 
+import Image from "../../components/Image.astro" 
+import Section from "../../components/Section.astro" 
+import SubSection from "../../components/SubSection.astro" 
+import BlueText from "../../components/BlueText.astro" 
+import InlineEquation from "../../components/InlineEquation.astro" 
+import DisplayEquation from "../../components/DisplayEquation.astro" 
+---
+<style>
+    table { border-collapse: collapse; }
+    tr {
+        border: none; 
+    }
+    td {
+        border-right: solid 1px #000; 
+        border-left: solid 1px #000;
+        text-align:center;
+        padding-top: .5em;
+        padding-bottom: .5em;
+    }
+
+    th{
+        border-right: solid 1px #000; 
+        border-left: solid 1px #000;
+        border-bottom: solid 1px #000;;
+        text-align:center;
+    }
+</style>
+
+<Layout title="Moment of Inertia">
+<Section title="Moment of Inertia">
+
+<!-- Lecture 33 -->
+<em>Note that in statics we are using the second moment of area as our moment of inertia. In dynamics a different moment of inertia is used (the mass moment of inertia). The differences between these two quantities are summarized in the table below: </em>
+
+<table>
+    <thead>
+        <tr>
+            <th>
+                
+            </th>
+            <th>
+                <strong>Mass moment of inertia</strong>
+            </th>
+            <th>
+                <strong>Area moment of inertia</strong>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+                <strong>Other names</strong>
+            </td>
+            <td>
+
+            </td>
+            <td>
+                Second moment of area
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <strong>Description</strong>
+            </td>
+            <td>
+                Determines the torque needed to produce a desired angular rotation about an axis of rotation (resistance to rotation)
+            </td>
+            <td>
+                Determines the moment needed to produce a desired curvature about an axis(resistance to bending)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <strong>Equations</strong>
+            </td>
+            <td>
+                <DisplayEquation equation='I_{P,\\hat{a}} = \\iiint_\\mathcal{B} \\rho r^2 \\,dV\\' /> 
+            </td>
+            <td>
+                <DisplayEquation equation='I_x = \\int_{A}^{} y^2 \\,dA \\' />
+                <DisplayEquation equation='I_y = \\int_{A}^{} x^2 \\,dA \\' />
+                <DisplayEquation equation='J_O = \\int_{A}^{} r^2 \\,dA = \\int_{A}^{} (x^2+y^2) \\,dA\\' />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <strong>Units</strong> 
+            </td>
+            <td>
+                <InlineEquation equation="length*mass^2"/>
+            </td>
+            <td>
+                <InlineEquation equation="length^4"/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <strong>Typical Equations</strong>
+            </td>
+            <td>
+                <DisplayEquation equation='\\tau = I\\alpha' /> 
+            </td>
+            <td>
+                <DisplayEquation equation='\\sigma = (My)/I \\' />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <strong>Courses</strong>
+            </td>
+            <td>
+                TAM 212
+            </td>
+            <td>
+                TAM 210, TAM 251
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+</Section>
+
+<SubSection title="Moment of Inertia (Second Moment of Area)">
+
+The moment of inertia used in statics is the "second moment of area", which is a mass property that determines the amount of torque that is needed to create an angular acceleration about a specific axis of rotation. The dimension of the area moment of inertia is <InlineEquation equation='length^4' />.\\
+
+Moment of inertia about the x-axis:  <DisplayEquation equation='I_x = \\int_{A}^{} y^2 \\,dA \\' />
+
+Moment of inertia about the y-axis: <DisplayEquation equation='I_y = \\int_{A}^{} x^2 \\,dA \\' />
+
+Polar moment of inertia: <DisplayEquation equation='J_O = \\int_{A}^{} r^2 \\,dA = \\int_{A}^{} (x^2+y^2) \\,dA\\' />
+<em>Note that the polar moment of inertia depicts the measure of the distribution of area about a point (usually the origin), rather than about an axis.</em>
+
+</SubSection>
+
+<SubSection title="Parallel axis theorem">
+
+<BlueText>Need to transcribe this to be the correct format and drawings</BlueText>
+
+
+<Image src='/Statics/MOIFigures/ParallelAxisThm.png' width='5'><BlueText>Taken from TAM 210 Lecture 3 - Slide 3</BlueText></Image>
+
+</SubSection>
+
+<SubSection title="Combining moments of inertia">
+
+<BlueText>Need to transcribe this to be the correct format and drawings - show the example problem with the house-shaped object.</BlueText>
+
+<Image src='/Statics/MOIFigures/MOIComposite.png' width='5'><BlueText>Taken from TAM 210 Lecture 3 - Slide 3</BlueText></Image>
+
+</SubSection>
+
+<SubSection title="Moment of inertia for typical shapes">
+
+<Image src='/Statics/MOIFigures/TypicalMOI.png' width='5'><BlueText>Taken from TAM 210 Lecture 3 - Slide 3</BlueText></Image>
+
+</SubSection>
+
+</Layout>
