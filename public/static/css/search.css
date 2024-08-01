@@ -1,0 +1,10 @@
+#searchtype{
+    width: 40%;
+}
+
+@media (min-width: 992px){
+    #searchtype{
+        width: 25%;
+    }
+}
+

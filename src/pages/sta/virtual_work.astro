@@ -1,0 +1,40 @@
+---
+import Layout from "../../layouts/Layout.astro" 
+import Image from "../../components/Image.astro" 
+import Section from "../../components/Section.astro" 
+import SubSection from "../../components/SubSection.astro" 
+import BlueText from "../../components/BlueText.astro" 
+import InlineEquation from "../../components/InlineEquation.astro" 
+import DisplayEquation from "../../components/DisplayEquation.astro" 
+---
+<Layout title="Virtual Work">
+<Section>Virtual Work</Section>
+
+<!-- Lectures 34 and 35 -->
+A force does work when it produces a displacement along its line of action. 
+
+Virtual work (<InlineEquation equation='dU' />) is the work produced by a force over an infinitesimally small displacement <InlineEquation equation='dr' />.
+
+<DisplayEquation equation='dU = F\\cdot dr\\' />
+
+Virtual work of a couple moment: 
+
+<DisplayEquation equation='dU = \\vec{M}\\cdot d\\theta \\vec{k}\\' />
+
+<Image src='/Statics/VWorkFigures/VWorkCoupleMoment.png' width='5 '> Virtual work  <InlineEquation equation='dU' />  completed by a couple moment,  <InlineEquation equation='M' /> .  <BlueText>Need to add a coordinate system to this picture. Taken from lecture 34.</BlueText></Image>
+
+We can use virtual work to solve for the forces in a system without needing to solve for all of the support reactions. For example, if a truss is completely pinned on one end, it doesn't move, which means there is no virtual work completed on that pin because there are no virtual displacements!
+
+<SubSection>Virtual displacements</SubSection>
+A virtual displacement is an infinitesimally small displacement (or rotation) that is possible in the system, denoted usually as <InlineEquation equation='dx' /> or <InlineEquation equation='d\\theta' />. It's important to note that virtual displacements are assumed to be possible but don't actually exist. 
+
+<SubSection>Principle of Virtual Work</SubSection>
+
+If a body is in equilibrium, the sum of the virtual work done by all the forces and couple moments acting on the body is zero. 
+
+<Image src='/Statics/VWorkFigures/PVW.png' width='5 '> Principle of virtual work.  <BlueText>Taken from lecture 34.</BlueText></Image>
+
+<SubSection>Virtual work analysis</SubSection>
+
+<Image src='/Statics/VWorkFigures/VWAnalysis.png' width='5 '> Analysis procedure for virtual work problems.  <BlueText>Taken from lecture 34.</BlueText></Image>
+</Layout>

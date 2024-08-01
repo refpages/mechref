@@ -1,0 +1,312 @@
+[
+  [
+    "Dynamics",
+    [
+      {
+        "name": "Positions and coordinates",
+        "id": "rvp",
+        "section": "Positions and Vectors"
+      },
+      {
+        "name": "Vectors and bases",
+        "id": "rvv",
+        "section": "Positions and Vectors"
+      },
+      {
+        "name": "Vector identities",
+        "id": "rvi",
+        "section": "Positions and Vectors"
+      },
+      {
+        "name": "Vector calculus",
+        "id": "rvc",
+        "section": "Positions and Vectors"
+      },
+      {
+        "name": "Cylindrical coordinates",
+        "id": "rvy",
+        "section": "Positions and Vectors"
+      },
+      {
+        "name": "Spherical coordinates",
+        "id": "rvs",
+        "section": "Positions and Vectors"
+      },
+      {
+        "name": "Notation",
+        "id": "rvn",
+        "section": "Positions and Vectors"
+      },
+      {
+        "name": "Rotations and angular velocity",
+        "id": "rkr",
+        "section": "Kinematics"
+      },
+      {
+        "name": "Position, velocity, and acceleration",
+        "id": "rkv",
+        "section": "Kinematics"
+      },
+      {
+        "name": "Tangential/normal basis",
+        "id": "rkt",
+        "section": "Kinematics"
+      },
+      {
+        "name": "Elementary motions",
+        "id": "rke",
+        "section": "Kinematics"
+      },
+      {
+        "name": "Coordinate system comparison",
+        "id": "rkm",
+        "section": "Kinematics"
+      },
+      {
+        "name": "Rigid bodies",
+        "id": "rkg",
+        "section": "Kinematics"
+      },
+      {
+        "name": "Constraints and constrained motion",
+        "id": "rkc",
+        "section": "Kinematics"
+      },
+      {
+        "name": "Rolling motion",
+        "id": "rko",
+        "section": "Kinematics"
+      },
+      {
+        "name": "Relative motion and frames",
+        "id": "rkf",
+        "section": "Kinematics"
+      },
+      {
+        "name": "Kinetics of point masses",
+        "id": "rep",
+        "section": "Kinetics"
+      },
+      {
+        "name": "Kinetics of rigid bodies",
+        "id": "reg",
+        "section": "Kinetics"
+      },
+      {
+        "name": "Moments of inertia",
+        "id": "rem",
+        "section": "Kinetics"
+      },
+      {
+        "name": "Centers of mass",
+        "id": "rcm",
+        "section": "Kinetics"
+      },
+      {
+        "name": "Free body diagrams",
+        "id": "rfb",
+        "section": "Kinetics"
+      },
+      {
+        "name": "Energy and work",
+        "id": "ren",
+        "section": "Kinetics"
+      },
+      {
+        "name": "Momentum, impulse, and collisions",
+        "id": "rec",
+        "section": "Kinetics"
+      },
+      {
+        "name": "Friction and damping",
+        "id": "rfr",
+        "section": "Kinetics"
+      },
+      {
+        "name": "Shortest flight paths",
+        "id": "aos",
+        "section": "Applications"
+      },
+      {
+        "name": "Celestical velocities",
+        "id": "aov",
+        "section": "Applications"
+      },
+      {
+        "name": "Accelerating and braking",
+        "id": "ava",
+        "section": "Applications"
+      },
+      {
+        "name": "Track transition curves",
+        "id": "avt",
+        "section": "Applications"
+      },
+      {
+        "name": "Banked turns",
+        "id": "avb",
+        "section": "Applications"
+      },
+      {
+        "name": "Steering geometry",
+        "id": "avs",
+        "section": "Applications"
+      },
+      {
+        "name": "Four-bar linkages",
+        "id": "aml",
+        "section": "Applications"
+      },
+      {
+        "name": "Projectiles with air resistance",
+        "id": "afp",
+        "section": "Applications"
+      }
+    ]
+  ],
+  [
+    "Solid Mechanics",
+    [
+      {
+        "name": "Stress",
+        "id": "stress",
+        "section": "Course Material"
+      },
+      {
+        "name": "Strain",
+        "id": "strain",
+        "section": "Course Material"
+      },
+      {
+        "name": "Material Properties",
+        "id": "material",
+        "section": "Course Material"
+      },
+      {
+        "name": "Axial Deformation",
+        "id": "axial",
+        "section": "Course Material"
+      },
+      {
+        "name": "Torsion",
+        "id": "torsion",
+        "section": "Course Material"
+      },
+      {
+        "name": "Bending",
+        "id": "bending",
+        "section": "Course Material"
+      },
+      {
+        "name": "Transverse Shear",
+        "id": "transverse",
+        "section": "Course Material"
+      },
+      {
+        "name": "Pressure Vessels",
+        "id": "pressure",
+        "section": "Course Material"
+      },
+      {
+        "name": "Combined Loading",
+        "id": "combined",
+        "section": "Course Material"
+      },
+      {
+        "name": "Stress Transformation",
+        "id": "transformation",
+        "section": "Course Material"
+      },
+      {
+        "name": "Deflection",
+        "id": "deflection",
+        "section": "Course Material"
+      },
+      {
+        "name": "Buckling",
+        "id": "buckling",
+        "section": "Course Material"
+      },
+      {
+        "name": "Sign Convention",
+        "id": "signConvention",
+        "section": "Course Material"
+      },
+      {
+        "name": "Formula Sheet",
+        "id": "FormulaSheet.pdf",
+        "section": "Course Material"
+      }
+    ]
+  ],
+  [
+    "Statics",
+    [
+      {
+        "name": "Vectors and bases",
+        "id": "dyn_rvv",
+        "section": "Course Material"
+      },
+      {
+        "name": "Vector identities",
+        "id": "dyn_rvi",
+        "section": "Course Material"
+      },
+      {
+        "name": "Positions and coordinates",
+        "id": "dyn_rvp",
+        "section": "Course Material"
+      },
+      {
+        "name": "Notation",
+        "id": "dyn_rvn",
+        "section": "Course Material"
+      },
+      {
+        "name": "Free body diagrams",
+        "id": "Freebodydiagrams",
+        "section": "Course Material"
+      },
+      {
+        "name": "Kinetics of point masses",
+        "id": "dyn_rep",
+        "section": "Course Material"
+      },
+      {
+        "name": "Kinetics of rigid bodies",
+        "id": "dyn_reg",
+        "section": "Course Material"
+      },
+      {
+        "name": "Structural analysis",
+        "id": "Structuralanalysis",
+        "section": "Course Material"
+      },
+      {
+        "name": "Internal Loading",
+        "id": "sol_signConvention",
+        "section": "Course Material"
+      },
+      {
+        "name": "Friction and damping",
+        "id": "dyn_rfr",
+        "section": "Course Material"
+      },
+      {
+        "name": "Moments of inertia",
+        "id": "Momentsofinertia",
+        "section": "Course Material"
+      },
+      {
+        "name": "Hydrostatic fluid pressure",
+        "id": "Hydrostaticfluidpressure",
+        "section": "Course Material"
+      },
+      {
+        "name": "Virtual work",
+        "id": "Virtualwork",
+        "section": "Course Material"
+      }
+    ]
+  ]
+]

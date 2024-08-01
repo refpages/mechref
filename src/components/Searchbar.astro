@@ -1,0 +1,19 @@
+---
+function search(origin, destination){
+    let a = 1;
+}
+---
+
+<div id="search-menu" class="position-relative dropdown sticky">
+    <div class="input-group input-group-lg " data-bs-toggle="dropdown">
+        <input type="text" class="form-control w-75" type="search" placeholder="Search for keyword" oninput="search('searchbox', 'searchresults')" onchange="search('searchbox', 'searchresults')" id="searchbox">
+
+        <select class="form-select w-25" id="searchtype" onchange="search('searchbox', 'searchresults')">
+            <option value="all" selected>All courses</option>
+            <option value="210">Statics</option>
+            <option value="212">Dynamics</option>
+            <option value="251">Solid Mechanics</option>
+        </select>
+    </div>
+    <ul id="searchresults" class="position-absolute z-3 w-100 dropdown-menu p-0"></ul>
+</div>
