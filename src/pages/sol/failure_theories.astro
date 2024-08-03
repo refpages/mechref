@@ -1,0 +1,125 @@
+---
+import Layout from "../../layouts/Layout.astro" 
+import Image from "../../components/Image.astro" 
+import Section from "../../components/Section.astro" 
+import SubSection from "../../components/SubSection.astro" 
+import SubSubSection from "../../components/SubSubSection.astro" 
+import InlineEquation from "../../components/InlineEquation.astro" 
+import DisplayEquation from "../../components/DisplayEquation.astro" 
+import BlueText from "../../components/BlueText.astro" 
+---
+<Layout title="Failure Theories">
+<Section title="Failure Theories-NEW PAGE">
+
+<BlueText>BSM: Nice work on this new page. A table at the end summarizing the three main theories and their failure conditions would be a nice addition.</BlueText>
+
+Failure of a material depends on (1) nature of loading and (2) type of material. There are theories that can predict material failure for complex states. 
+
+</Section>
+
+<SubSection title="5.6.1 Types of Material Failure - move here?"></SubSection>
+
+<SubSection title="Maximum Shear Stress (Tresca) Criterion">
+
+ If a material is <strong>ductile</strong>, failure is defined by <strong>yield stress</strong> (<InlineEquation equation="\\sigma_Y" />) and occurs at <strong>max shear stress</strong> (<InlineEquation equation="\\tau_{max}" />).
+
+</SubSection>
+
+<SubSubSection title="Uniaxial Tension">
+
+<Image src='/Solid_Mechanics/Failure Theories-Figures/Tresca.png' width='2'>  <BlueText>Taken from TAM251 Lecture Notes - L10S3</BlueText></Image>
+
+ Consider a material subjected to <strong>uniaxial tension</strong> <InlineEquation equation="\\sigma = \\frac{P}{A}" /> and <InlineEquation equation="P" /> is loaded to the yield point, then the following is true:
+
+<DisplayEquation equation="\\sigma_1 = \\sigma_Y\\" />
+<DisplayEquation equation="\\sigma_2 = 0\\" />
+<DisplayEquation equation="\\tau_{max} = \\frac{\\sigma_Y}{2}\\" />
+
+ If <strong>shear stress</strong> is responsible for causing the ductile material to yield, then 
+
+<DisplayEquation equation="\\tau_{max} \\ge \\frac{\\sigma_Y}{2}\\" />
+
+ where <InlineEquation equation="\\sigma_Y" /> is the <strong>tensile</strong> yield strength.
+
+</SubSubSection>
+
+<SubSubSection title="General 2D Loading State">
+
+<DisplayEquation equation="\\sigma_z = \\sigma_3 = 0\\" />
+
+ Failure still occurs at 
+
+<DisplayEquation equation="\\tau_{max} = \\frac{\\sigma_Y}{2}\\" />
+
+<Image src='/Solid_Mechanics/Failure Theories-Figures/TrescaSurface.png' width='3'>  <BlueText>Taken from TAM251 Lecture Notes - L10S4</BlueText></Image>
+
+ The equations for <InlineEquation equation="\\sigma_1" /> and <InlineEquation equation="\\sigma_2" /> can be plotted to show the failure surface. Loading conditions that occur <strong>outside</strong> of the surface are when the material fails.
+
+ If <InlineEquation equation="\\sigma_1" /> and <InlineEquation equation="\\sigma_2" /> have the <strong>same</strong> signs
+
+<DisplayEquation equation="|\\sigma_1| = \\sigma_Y\\" />
+<DisplayEquation equation="|\\sigma_2| = \\sigma_Y\\" />
+
+<Image src='/Solid_Mechanics/Failure Theories-Figures/TrescaSameSigns.png' width='2'>  <BlueText>Taken from TAM251 Lecture Notes - L10S5</BlueText></Image>
+
+ If <InlineEquation equation="\\sigma_1" /> and <InlineEquation equation="\\sigma_2" /> have <strong>opposite</strong> signs
+
+<Image src='/Solid_Mechanics/Failure Theories-Figures/TrescaOppositeSigns.png' width='2'>  <BlueText>Taken from TAM251 Lecture Notes - L10S5</BlueText></Image>
+
+<DisplayEquation equation="|\\sigma_1 - \\sigma_2| = \\sigma_Y\\" />
+
+</SubSubSection>
+
+<SubSection title="Maximum Distortion Energy (Von Misses) Criterion">
+
+<strong>Ductile</strong> materials likely do not fail due to stresses that only result in a <strong>volume change</strong>. It is hypothesized that failure is driven by <strong>distortion strain energy</strong>.
+
+<Image src='/Solid_Mechanics/Failure Theories-Figures/VonMises.png' width='4'>  <BlueText>Taken from TAM251 Lecture Notes - L10S6</BlueText></Image>
+
+ All elastic deformations can be broken down into <strong>volumetric</strong> and <strong>distortional</strong> deformations. 
+
+
+
+ The total strain energy <InlineEquation equation="W" /> in a material is broken into these same parts, resulting in
+
+<DisplayEquation equation="W = W_v + W_d\\" />
+
+ For plane stress
+<DisplayEquation equation="W_d = \\frac{1+\\nu}{3E}(\\sigma_1^2 - \\sigma_1 \\sigma_2 + \\sigma_2^2)\\" />
+
+ At the moment of yield
+<DisplayEquation equation="W_{d,yield} = \\frac{1+\\nu}{3E}\\sigma_Y^2\\" />
+
+ Equating these conditions gives
+
+<DisplayEquation equation="\\sigma_1^2 - \\sigma_1 \\sigma_2 + \\sigma_2^2 = \\sigma_Y^2\\" />
+
+ At yield
+
+<DisplayEquation equation="\\sigma_{VM}^2 = \\sigma_Y^2\\" />
+
+ Failure occurs at
+<DisplayEquation equation="\\sigma_{VM} = \\sqrt{\\sigma_1^2 - \\sigma_1 \\sigma_2 + \\sigma_2^2} \\ge \\sigma_Y\\" />
+
+<Image src='/Solid_Mechanics/Failure Theories-Figures/VonMisesSurface.png' width='3'>  <BlueText>Taken from TAM251 Lecture Notes - L10S8</BlueText></Image>
+
+ The equating equation be plotted to show the failure surface. The elliptical surface is the Von Mises surface overlaid with the Teresca surface. Loading conditions that occur <strong>outside</strong> of the surface are when the material fails.
+
+</SubSection>
+
+<SubSection title="Maximum Normal Stress Criterion">
+
+For <strong>brittle</strong> materials, failure is caused by the <strong>maximum tensile stress</strong> and NOT compressive stress.
+
+<DisplayEquation equation="|\\sigma_1| = \\sigma_{ult}\\" />
+<DisplayEquation equation="|\\sigma_2| = \\sigma_{ult}\\" />
+ 
+<Image src='/Solid_Mechanics/Failure Theories-Figures/Brittle.png' width='3'>  <BlueText>Taken from TAM251 Lecture Notes - L10S8</BlueText></Image>
+
+ The <InlineEquation equation="\\sigma_1" /> and <InlineEquation equation="\\sigma_2" /> equations can be plotted to show the failure surface. Loading conditions that occur <strong>outside</strong> of the surface are when the material fails.
+
+ Brittle fracture can be difficult to predict, so use this theory with caution
+
+</SubSection>
+
+</Layout>

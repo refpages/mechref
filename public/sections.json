@@ -10,7 +10,64 @@
     "Solid Mechanics",
     [[
       "Course Material",
-      []
+      [
+        {
+          "id": "axial_loading",
+          "name": "Axial Loading"
+        },
+        {
+          "id": "beam_deflection",
+          "name": "Beam Deflection"
+        },
+        {
+          "id": "bending",
+          "name": "Bending"
+        },
+        {
+          "id": "buckling",
+          "name": "Buckling"
+        },
+        {
+          "id": "combined_loading",
+          "name": "Combined Loading"
+        },
+        {
+          "id": "failure_theories",
+          "name": "Failure Theories"
+        },
+        {
+          "id": "material_properties",
+          "name": "Material Properties"
+        },
+        {
+          "id": "pressure_vessels",
+          "name": "Pressure Vessels"
+        },
+        {
+          "id": "shear_moment_diagrams",
+          "name": "Shear Moment Diagrams"
+        },
+        {
+          "id": "strain",
+          "name": "Strain"
+        },
+        {
+          "id": "stress",
+          "name": "Stress"
+        },
+        {
+          "id": "stress_transformation",
+          "name": "Stress Transformation"
+        },
+        {
+          "id": "torsion",
+          "name": "Torsion"
+        },
+        {
+          "id": "transverse_shear",
+          "name": "Transverse Shear"
+        }
+      ]
     ]]
   ],
   [

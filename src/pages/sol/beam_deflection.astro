@@ -1,0 +1,125 @@
+---
+import Layout from "../../layouts/Layout.astro" 
+import Image from "../../components/Image.astro" 
+import Section from "../../components/Section.astro" 
+import SubSection from "../../components/SubSection.astro" 
+import SubSubSection from "../../components/SubSubSection.astro" 
+import BlueText from "../../components/BlueText.astro" 
+import InlineEquation from "../../components/InlineEquation.astro" 
+import DisplayEquation from "../../components/DisplayEquation.astro" 
+import Item from "../../components/Item.astro"
+import Itemize from "../../components/Itemize.astro"
+---
+<Layout title="Beam Deflection">
+<Section title="Beam Deflection">
+
+<strong>Goal:</strong> Determine the deflection and slope at specified points of beams and shafts
+
+ <strong>Solve statically indeterminate beams:</strong> where the number of reactions at the supports exceeds the number of equilibrium equations available.
+
+ <strong>Maximum deflection of the beam:</strong> Design specifications of a beam will generally include a maximum allowable value for its deflection.
+
+</Section>
+
+<SubSection title="Sign Conventions">
+
+<Image src='/Solid_Mechanics/Beam Deflection-Figures/signConvention1.png' width='4'> From ref pages</Image>
+
+</SubSection>
+
+<SubSection title="Boundary Conditions">
+
+<Image src='/Solid_Mechanics/Beam Deflection-Figures/BoundryConditions.png' width='4'> From ref pages</Image>
+
+</SubSection>
+
+<SubSection title="Moment-Curvature Equation">
+
+ <strong>Elastic Curve of a Beam:</strong> 
+
+<Image src='/Solid_Mechanics/Beam Deflection-Figures/ElasticCurveBeam.png' width='2.5'>  <BlueText>Taken from TAM251 Lecture Notes - L12S3</BlueText></Image>
+
+
+ Moment-curvature equation:
+ 
+<DisplayEquation equation='M(x) = \\frac{E(x)I(x)}{\\rho(x)}\\' />
+<DisplayEquation equation='\\kappa = \\frac{1}{\\rho} = \\frac{M(x)}{EI}\\' />
+
+<Image src='/Solid_Mechanics/Beam Deflection-Figures/ElasticCurveGraph.png' width='3'>  <BlueText>Taken from TAM251 Lecture Notes - L12S3</BlueText></Image>
+
+ Governing equation of the elastic curve:
+<DisplayEquation equation='\\frac{d^2y}{dx^2} = \\frac{M(x)}{EI}\\' />
+
+</SubSection>
+
+
+<SubSubSection title="Assumptions">
+
+<BlueText>
+<Itemize>
+    <Item> <InlineEquation equation='y(x)' /> is the vertical direction </Item>
+    <Item> Bending only: we will neglect effects of transverse shear </Item>
+    <Item> Small deflection angles </Item>
+</Itemize>
+</BlueText>
+
+</SubSubSection>
+
+<SubSection title="Integration Methods">
+
+    Elastic curve equation for constant <InlineEquation equation='E' /> and <InlineEquation equation='I' />: <InlineEquation equation="EIy'' = M(x)" />
+   
+    Differentiating both sides gives: <InlineEquation equation="EIy''' = \\frac{dM(x)}{dx} = V(x)" />
+   
+    Differentiating again: <InlineEquation equation="EIy'''' = \\frac{dV(x)}{dx} = w(x)" /> 
+   
+    In summary, we have:
+   
+   <DisplayEquation equation='V(x) = \\int w(x) dx\\' />
+   <DisplayEquation equation='M(x) = \\int V(x)dx\\' />
+   <DisplayEquation equation='\\frac{dy}{dx} = \\int \\frac{1}{EI}M(x)dx\\' />
+   <DisplayEquation equation="y(x) = \\int y'(x) dx\\" />
+   
+    Where:
+   
+    <InlineEquation equation="y(x):" /> deflection
+
+   
+    <InlineEquation equation="y'(x):" /> slope
+
+    <InlineEquation equation="EIy''(x):" /> bending moment
+   
+    <InlineEquation equation="EIy '''(x):" /> shear force
+   
+    <InlineEquation equation="EIy''''(x):" /> distributed load
+   
+    <strong>Example:</strong> Overhanging Beam
+   
+   <Image src='/Solid_Mechanics/Beam Deflection-Figures/Overhang Ex.png' width='3'>  <BlueText>Taken from TAM251 Lecture Notes - L12S8</BlueText></Image>
+   
+    <strong>Example:</strong> Cantilever Beam
+   
+   <Image src='/Solid_Mechanics/Beam Deflection-Figures/Cantilever Ex.png' width='3'>  <BlueText>Taken from TAM251 Lecture Notes - L12S8</BlueText></Image>
+   
+   </SubSection>
+
+
+<SubSection title="Beam Solutions"> 
+    <BlueText>Common beam deflection solutions have been worked out.</BlueText>
+    
+    <Image src='/Solid_Mechanics/Beam Deflection-Figures/Common Solutions.png' width='5'>  <BlueText> Taken from the formula sheet</BlueText></Image>
+    
+    
+    
+     <BlueText>To solve loadings that are not in the table, use <strong>superposition</strong> to get the resulting deflection curve.</BlueText>
+    
+    
+    
+     <BlueText><strong>Example:</strong> Moment and distributed load</BlueText>
+    
+    <Image src='/Solid_Mechanics/Beam Deflection-Figures/Superposition Ex.png' width='3'>  <BlueText>Taken from TAM251 Lecture Notes - L12S16</BlueText></Image>
+    
+</SubSection>
+
+</Layout>
+

@@ -1,0 +1,165 @@
+---
+import Layout from "../../layouts/Layout.astro" 
+import Image from "../../components/Image.astro" 
+import Section from "../../components/Section.astro" 
+import SubSection from "../../components/SubSection.astro" 
+import SubSubSection from "../../components/SubSubSection.astro" 
+import Itemize from "../../components/Itemize.astro" 
+import Item from "../../components/Item.astro" 
+import InlineEquation from "../../components/InlineEquation.astro" 
+import DisplayEquation from "../../components/DisplayEquation.astro" 
+import CalloutCard from "../../components/CalloutCard.astro"
+import CalloutContainer from "../../components/CalloutContainer.astro"
+---
+<Layout title="Stress">
+<Section title="Stress">
+The internal forces and moments generally vary from point to point. Obtaining this distribution is of primary importance in mechanics of materials. The total force in a cross-section, divided by the cross-sectional area, is the <strong>stress</strong>. We use stress to <strong>normalize forces</strong> with respect to the size of the geometry.
+
+
+
+</Section>
+
+<SubSection title="Units">
+The units of stress can be found in the table below.
+
+<Image src="/Solid_Mechanics/Stress-Figures/Units.png" width="6"> Table screenshot from ref pages</Image>
+
+ It is also important to recall some of the most common prefixes used to denote quantity.
+
+<Image src="/Solid_Mechanics/Stress-Figures/Prefixes.png" width="4"> Table screenshot from ref pages</Image>
+
+<Itemize>
+    <Item> <strong>Tension:</strong> <InlineEquation equation="\\sigma > 0" /> </Item>
+    <Item> <strong>Compression:</strong> <InlineEquation equation="\\sigma < 0" /> </Item>
+</Itemize>
+Typical sign convention for axial (normal) stress:
+</SubSection>
+
+
+<SubSection title="Stress under general loading conditions">
+
+We consider a homogeneous distribution of the internal force <InlineEquation equation="\\Delta F" /> over an infinitesimal area <InlineEquation equation="\\Delta A" />. The stress is defined by the infinitesimal force divided by the infinitesimal area.
+
+<Itemize>
+    <Item> <strong>Normal Stress:</strong> Defined by the intensity of the force acting NORMAL to <InlineEquation equation="\\Delta A" /></Item>
+    <Item> <strong>Shear Stress:</strong> Defined by the intensity of the force acting TANGENT to <InlineEquation equation="\\Delta A" /></Item>
+</Itemize> 
+</SubSection>
+
+<SubSubSection title="Average Normal Stress - Axial Loading">
+
+<Image src="/Solid_Mechanics/Stress-Figures/Normal Stress.png" width="5"> Normal stress</Image>
+
+ Here we assume that the<strong> distribution of normal stresses</strong> in an axially loaded member is <strong>uniform</strong>. Stress is calculated away from the points of application of the concentrated loads. Uniform distribution of stress is possible only if the line of action of the concentrated load <InlineEquation equation="P" /> passes through the centroid of the section considered
+
+<DisplayEquation equation="\\sigma_{ave} = \\frac{F}{A}\\" />
+
+ where <InlineEquation equation="F" /> is the internal resultant normal force and <InlineEquation equation="A" /> is the cross-sectional area of the bar where the normal stress <InlineEquation equation="\\sigma_{ave}" /> is calculated.
+
+<Image src="/Solid_Mechanics/Stress-Figures/Stress Distribution.png" width="5"> Non-uniform stress distribution</Image>
+
+ Around the point where the load is applied, the stress distribution is non-uniform. Cross-sections farther away from the point load gradually have a more uniform distribution. When the distance is greater than the widest dimension of the cross-section (<InlineEquation equation="l > b" />), the stress distribution is uniform.
+
+</SubSubSection>
+
+<SubSubSection title="Average Shear Stress">
+
+<CalloutContainer slot="cards">
+    <CalloutCard>
+        <p class="m-0"><u>Test content:</u></p>
+        <img src="https://picsum.photos/400" class="w-100 overflow-hidden">
+    </CalloutCard>
+
+    <CalloutCard>
+        <p class="m-0"><u>Test video:</u></p>
+        <iframe src="https://www.youtube.com/embed/aQf6Q8t1FQE?si=cSAplDLVMVYzCZRx" class="w-100" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </CalloutCard>
+</CalloutContainer>
+
+<Image src="/Solid_Mechanics/Stress-Figures/Shear Stress.png" width="2"> Shear stress</Image>
+
+ Obtained when transverse forces are applied to a member. The distribution of shear stresses cannot be assumed uniform. Common in bolts, pins and rivets used to connect various structural members.
+
+<Image src="/Solid_Mechanics/Stress-Figures/Avg Shear Stress.png" width="4"> Average shear stress</Image>
+
+<DisplayEquation equation="\\tau_{ave} = \\frac{V}{A}\\" />
+
+ where <InlineEquation equation="V" /> is the internal resultant shear force and <InlineEquation equation="A" /> is the cross-sectional area of the bar where the shear stress <InlineEquation equation="\\tau_{ave}" /> is calculated.
+
+
+
+
+ <strong>Example:</strong> Single Shear
+Determine the shear stress in the bolt.
+
+<Image src="/Solid_Mechanics/Stress-Figures/SingleShear.png" width="2.5"> Single shear stress</Image>
+
+<DisplayEquation equation="\\tau_{ave} = \\frac{P}{A}\\" />
+ <strong>*Expandable derivation*</strong>
+<DisplayEquation equation="\\Sigma F_y = V-P = 0\\" />
+<DisplayEquation equation="V = P\\" />
+
+ <strong>**End Derivation**</strong>
+
+ <strong>Example:</strong> Double Shear
+
+Determine the shear stress in the bolt.
+
+<Image src="/Solid_Mechanics/Stress-Figures/DoubleShear.png" width="2.5"> Double shear stress</Image>
+
+<DisplayEquation equation="\\tau_{ave} = \\frac{P}{2A}\\" />
+
+<strong>*Expandable derivation*</strong>
+<DisplayEquation equation="\\Sigma F_y = 2V-P = 0\\" />
+<DisplayEquation equation="V = \\frac{P}{2}\\" />
+
+ <strong>**End Derivation**</strong>
+
+</SubSubSection>
+
+<SubSubSection title="Stress Tensor">
+
+<Image src="/Solid_Mechanics/Stress-Figures/Stress Element.png" width="8"> Stress element</Image>
+
+ The components of normal and shear stress can be combined into the stress tensor. This is a symmetric matrix representing the state of stress with respect to three directions.
+
+<DisplayEquation equation=" T= \\begin{bmatrix} \\sigma_{x} & \\tau_{xy} & \\tau_{xz} \\\\ \\tau_{yx}& \\sigma_{y} & \\tau_{yz} \\\\ \\tau_{zx}&\\tau_{zy}&\\sigma_{z} \\end{bmatrix} \\" />
+
+<!--  <DisplayEquation equation=" T&nbsp;= \\begin{bmatrix} \\sigma_{x} &amp; \\tau_{xy} &amp; \\tau_{xz} \\\\ \\tau_{yx}&nbsp;&amp; \\sigma_{y} &amp; \\tau_{yz} \\\\ \\tau_{zx}&nbsp;&amp; \\tau_{zy}&nbsp;&amp; \\sigma_{z} \\end{bmatrix} \\" /> -->
+
+<Itemize>
+    <Item>  Three normal stress components: <InlineEquation equation="\\sigma_x, \\sigma_y, \\sigma_z" /></Item>
+    <Item> Six shear stress components: <InlineEquation equation="\\tau_{xy} =\\tau_{yx}, \\tau_{xz}=\\tau_{zx}, \\tau_{yz}=\\tau_{zy}" /></Item>
+</Itemize>
+
+ The first subscript describes the surface <strong>orientation</strong> in the normal direction. The second subscript describes the <strong>direction</strong> of the stress.
+
+</SubSubSection>
+
+<SubSection title="Support Reactions">
+
+
+<Image src="/Solid_Mechanics/Stress-Figures/Support reactions.png" width="8"> Support reactions</Image>
+
+</SubSection>
+
+<SubSection title="Allowable Strength Design">
+
+<strong>Design Requirement:</strong> A structural design is intended to support and/or transmit loads while maintaining safety and utility: <strong><em>don't break</em></strong>. Strength of a structure reflects its ability to resist failure.
+
+<Itemize>
+    <Item> <strong>Ultimate load ( <InlineEquation equation="P_u" /> ):</strong> force when specimen fails (breaks).</Item> 
+    <Item> <strong>Ultimate normal stress ( <InlineEquation equation="\\sigma_u" /> ):</strong> <DisplayEquation equation="\\sigma_u = \\frac{P_u}{A}\\" /></Item>
+</Itemize>
+
+ A structure is safe if its strength exceeds the required strength.
+
+ <strong>Factor of Safety (FS):</strong> Ratio of structural strength to maximum (allowed) applied load (<InlineEquation equation="P_{all}" />).
+
+<DisplayEquation equation="P_{all} \\le \\frac{P_u}{FS}\\" />
+
+ Similarly, <DisplayEquation equation="\\sigma_{all} \\le \\frac{\\sigma_u}{FS}\\" />
+
+</SubSection>
+
+</Layout>

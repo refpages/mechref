@@ -2,10 +2,10 @@
 const { src, width} = Astro.props;
 ---
 
-<div class="container w-100 d-flex flex-column align-items-center">
+<div class="container w-100 d-flex flex-column align-items-center my-3">
     <div style=`width: calc(${Number(width)} / 8 * 100%)` class="d-flex flex-column align-items-center">
         <img src={src} class="w-100">
     </div>
-    <div class="d-flex flex-row justify-content-center align-items-baseline flex-wrap" style="gap: 5px;"><slot /></div>
+    <div class="d-flex flex-row justify-content-center align-items-baseline flex-wrap" style="gap: 5px;"><u><slot /></u></div>
     
 </div>

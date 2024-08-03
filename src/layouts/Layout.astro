@@ -1,8 +1,4 @@
 ---
-interface Props {
-	title: string;
-}
-
 import Navbar from '../components/Navbar.astro';
 import Sidebar from '../components/Sidebar.svelte';
 
@@ -63,8 +59,14 @@ const { title } = Astro.props;
 		font-size: 1.1rem;
 	}
 
-	.content-grid{
+	.callout-grid{
 		display: grid;
-		grid-template-columns: 10fr 3fr;
+		grid-template-columns: 1fr;
+	}
+
+	@media (min-width: 992px){
+		.callout-grid{
+			grid-template-columns: 10fr 3fr;
+		}
 	}
 </style>
