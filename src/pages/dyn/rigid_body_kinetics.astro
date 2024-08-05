@@ -1,0 +1,75 @@
+---
+import Layout from "../../layouts/Layout.astro" 
+import Image from "../../components/Image.astro" 
+import Section from "../../components/Section.astro" 
+import SubSection from "../../components/SubSection.astro" 
+import SubSubSection from "../../components/SubSubSection.astro" 
+import BlueText from "../../components/BlueText.astro" 
+import RedText from "../../components/RedText.astro" 
+import Itemize from "../../components/Itemize.astro" 
+import Item from "../../components/Item.astro" 
+---
+<Layout title="Rigid Body Kinetics">
+<Section title="Rigid Body Kinetics"></Section>
+
+<SubSection title="Center of mass (COM)">
+    <BlueText>Complete in "Center of mass"</BlueText> 
+
+    <RedText>Add to this section the information shown in Fig fig:COM</RedText>
+
+    <Image src="/Dynamics/RigidBodyKineticsFigs/CenterofMass.png" width="5" id="COM"></Image>
+</SubSection>
+
+<SubSection title="Mass moment of Inertia">
+    <BlueText>Complete in "Moments of Inertia"</BlueText> 
+</SubSection>
+
+<SubSubSection title="Parallel axis theorem">
+    <BlueText>Complete in "Moments of Inertia"</BlueText> 
+</SubSubSection>
+ 
+<SubSubSection title="Additive theorem">
+    <BlueText>Complete in "Moments of Inertia"</BlueText> 
+</SubSubSection>
+
+<SubSection title="Instantaneous centers">
+    <RedText>Add this information:</RedText>
+    <Itemize>
+        <Item><RedText>For a rigid body moving in 2D (rotating and possibly translating)</RedText></Item>
+        <Item><RedText>Instantaneous Center “M” is the point on or off the rigid body that has zero
+    velocity at that instant (i.e. no translation at this point)</RedText></Item>
+        <Item><RedText>Point that the body rotates about (at that instant in time)</RedText></Item>
+    </Itemize>
+
+    <RedText>Add some examples as shown in Figs  \ref fig:ICexamples1 ,  \ref fig:ICexamples2</RedText>
+
+    <Image src="/Dynamics/RigidBodyKineticsFigs/ICexamples1.png" width="5"></Image>
+
+    <Image src="/Dynamics/RigidBodyKineticsFigs/ICexamples2.png" width="5"></Image>
+
+    <RedText>Add: Graphical rules for finding (M) (Instantaneous Center) as shown in Fig \ref fig:ICgraphRules</RedText>
+
+    <Image src="/Dynamics/RigidBodyKineticsFigs/ICgraphicalRules.png" width="5"></Image>
+</SubSection>
+
+<SubSection title="Applications"></SubSection>
+<SubSubSection title="Cargo Ships">
+    <RedText>This topic is in L22-Notes, slides 3-4, refer to Fig  \ref fig:AppCargoShip</RedText>. Application for "Center of mass".
+
+    <Image src="/Dynamics/RigidBodyKineticsFigs/AppCargoShip.png" width="5"></Image>
+</SubSubSection>
+
+<SubSubSection title="Tuned Mass Damper">
+    <RedText>This topic is in L24-Notes, slide 9, include the information in Fig  \ref fig:AppCargoShip , and this link to a YouTube video  <a href="https://www.youtube.com/watch?v=GzMuF-LMGaM ">https://www.youtube.com/watch?v=GzMuF-LMGaM</a></RedText>. Application for "Rigid body kinetics".
+
+    <Image src="/Dynamics/RigidBodyKineticsFigs/AppCargoShip.png" width="5"></Image>
+</SubSubSection>
+
+<SubSubSection title="Accelerating and braking">
+    <BlueText>Complete in "Accelerating and braking". Include all the information starting at "2D rigid body model".</BlueText> Refer back to  \ref sub:PartKin_acce
+</SubSubSection>
+
+<SubSubSection title="Banked turns">
+    <BlueText>Complete in "Banked turns". Include all the information starting at "2D rigid body model".</BlueText> Refer back to  \ref sub:PartKin_turns
+</SubSubSection>
+</Layout>

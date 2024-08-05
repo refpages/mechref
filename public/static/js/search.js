@@ -1,4 +1,4 @@
-import { HtmlSanitizer } from "../modules/sanitizer.js";
+import { HtmlSanitizer } from "../public/static/modules/sanitizer.js";
 
 export function search(search_div, data_div, length=40){
     const request_time = Date.now();

@@ -1,0 +1,51 @@
+---
+import Layout from "../../layouts/Layout.astro" 
+import Image from "../../components/Image.astro" 
+import Section from "../../components/Section.astro" 
+import SubSection from "../../components/SubSection.astro" 
+import SubSubSection from "../../components/SubSubSection.astro" 
+import BlueText from "../../components/BlueText.astro" 
+import RedText from "../../components/RedText.astro" 
+---
+<Layout title="Particle Kinetics">
+<Section title="Particle Kinetics"></Section>
+
+<SubSection title="Classical mechanics">
+    <BlueText>Complete in "Kinetics of point masses"</BlueText>
+</SubSection>
+
+<SubSubSection title="Method of assumed forces and method of assumed motion">
+    <BlueText>Complete in "Kinetics of point masses"</BlueText>
+</SubSubSection>
+
+<SubSubSection title="Solution steps">
+    <BlueText>Complete in "Kinetics of point masses"</BlueText>
+    <BlueText>More information about Free body diagrams included in "Free boy diagrams"</BlueText>
+</SubSubSection>
+
+<SubSection title="Numerical integration">
+    <RedText>Add information shown in Fig  \ref fig:NumericalIntegration</RedText>
+    <Image src="/Dynamics/ParticleKinetics/NumericalIntegration.png" width="5"></Image>
+</SubSection>
+
+<SubSection title="Applications"></SubSection>
+<SubSubSection title="Kiiking">
+    <RedText>This topic is in L13-Notes, slides 9-10. Include information in Fig  \ref {}  and this YouTube link  <a href="https://www.youtube.com/shorts/qvW0sz4kBLQ">https://www.youtube.com/shorts/qvW0sz4kBLQ</a></RedText>. Application for "Particle kinetics".
+
+    <Image src="/Dynamics/ParticleKinetics/AppKiiking.png" width="5"></Image>
+</SubSubSection>
+
+<SubSubSection title="Accelerating and braking">
+    \label sub:PartKin_acce
+    <BlueText>Complete in "Accelerating and braking". Just the introduction and the information under "Point mass model".</BlueText> 
+</SubSubSection>
+
+<SubSubSection title="Banked turns">
+    \label sub:PartKin_turns
+    <BlueText>Complete in "Banked turns". Just the introduction and the information under "Track geometry" and "Point mass model".</BlueText> 
+</SubSubSection>
+
+<SubSubSection title="Projectiles with air resistance">
+    <BlueText>Complete in "Projectiles with air resistance".</BlueText>
+</SubSubSection> 
+</Layout>

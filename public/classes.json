@@ -127,6 +127,43 @@
   ],
   [
     "Dynamics",
-    []
+    [
+      {
+        "id": "contact_and_rolling",
+        "name": "Contact And Rolling"
+      },
+      {
+        "id": "particle_kinematics",
+        "name": "Particle Kinematics"
+      },
+      {
+        "id": "particle_kinetics",
+        "name": "Particle Kinetics"
+      },
+      {
+        "id": "questions_to_ask_instructor",
+        "name": "Questions To Ask Instructor"
+      },
+      {
+        "id": "rigid_body_kinematics",
+        "name": "Rigid Body Kinematics"
+      },
+      {
+        "id": "rigid_body_kinetics",
+        "name": "Rigid Body Kinetics"
+      },
+      {
+        "id": "vector_calculus",
+        "name": "Vector Calculus"
+      },
+      {
+        "id": "vectors",
+        "name": "Vectors"
+      },
+      {
+        "id": "work_and_energy",
+        "name": "Work And Energy"
+      }
+    ]
   ]
 ]
