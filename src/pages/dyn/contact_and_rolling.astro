@@ -6,6 +6,10 @@ import SubSection from "../../components/SubSection.astro"
 import SubSubSection from "../../components/SubSubSection.astro" 
 import BlueText from "../../components/BlueText.astro" 
 import RedText from "../../components/RedText.astro" 
+import DisplayEquation from "../../components/DisplayEquation.astro"
+import InlineEquation from "../../components/InlineEquation.astro"
+import Enumerate from "../../components/Enumerate.astro"
+import Item from "../../components/Item.astro"
 ---
 <Layout title="Contact and Rolling">
 <Section title="Contact and Rolling"></Section>
@@ -15,16 +19,81 @@ import RedText from "../../components/RedText.astro"
 </SubSection>
 
 <SubSection title="Rolling motion">
-    <BlueText>Complete in "Rolling motion"</BlueText>
+    <p>
+        A special case of rigid body motion is <em>rolling without
+        slipping</em> on a stationary ground surface. This is
+        defined by motion where the point of contact with the ground
+        has zero velocity, so it matches the ground velocity and is
+        not slipping.
+    </p>
+    
+    
+    <DisplayEquation equation="\\text{Contact point P has zero velocity}: \\quad \\vec{v}_P = 0" title="Rolling without slipping on stationary ground surfaces:" derivation="True" background="True" id="rko-er">
+        <p class="m-0">
+            Rolling without slipping means by definition that the
+            contacting points have the same velocity. For a
+            stationary ground the velocity is zero, so the contact
+            point on the body must also have zero velocity.
+          </p>
+     
+    </DisplayEquation>
+
+    
+    <p>
+        It is helpful to think about the motion of the body in two
+        ways:
+    </p>
+
+    <Enumerate>
+        <Item>
+            The body rotates about the moving center <InlineEquation equation="C" />.
+        </Item>
+        <Item>
+            The body rotates about the instantaneous center at the contact point <InlineEquation equation="P" />.
+        </Item>
+    </Enumerate>
+
+    <p>
+        These two ways of visualizing the motion can be seen on the
+        figure below.
+    </p>
+
+    <RedText>INSERT INTERACTIVE BLOCK HERE</RedText>
 </SubSection>
 
 <SubSection title="Rolling on curved surfaces">
-    <BlueText>Complete in "Rolling motion"</BlueText>
-</SubSection>
+    <p>
+        When a circular rigid body rolls without slipping on a
+        surface which is itself curved, the radius of curvature of
+        the surface affects the acceleration (but not velocity) of
+        points on the rolling body.
+    </p>
 
+    <RedText>INSERT INTERACTIVE BLOCK HERE</RedText>
+
+    <DisplayEquation id="rko-eg" derivation='True' background="True" title="Geometric quantities for rolling on a curved surface." equation="\\begin{aligned} \\left.\\begin{aligned} R &amp;= \\rho - r \\\\ \\vec{\\omega} &amp;= -\\omega \\,\\hat{e}_b \\\\ \\vec{\\alpha} &amp;= -\\alpha \\,\\hat{e}_b \\end{aligned}\\right\\} &amp; \\text{ when rolling on the inside of a curved surface} \\\\[1em] \\left.\\begin{aligned} R &amp;= \\rho + r \\\\ \\vec{\\omega} &amp;= \\omega \\,\\hat{e}_b \\\\ \\vec{\\alpha} &amp;= \\alpha \\,\\hat{e}_b \\end{aligned}\\right\\} &amp; \\text{ when rolling on the outside of a curved surface} \\end{aligned}"> 
+            These formulas are all choices of sign conventions for
+            <InlineEquation equation="\\omega" /> and <InlineEquation equation="\\alpha" />, and definitions of <InlineEquation equation="R" />. Figure <a
+            href="#rko-fc">#rko-fc</a> shows the appropriate
+            geometry. Note that <InlineEquation equation="\\omega" /> and <InlineEquation equation="\\alpha" /> are defined
+            with positive values corresponding to motion in the
+            tangential direction.
+    </DisplayEquation>
+
+    <!-- WARNING -->
+    <p>Warning: Radii of curvature <InlineEquation equation="\\rho" /> and
+    <InlineEquation equation="R" /> may not be constant.</p>
+    <p>
+        The radius of curvature <InlineEquation equation="\\rho" /> of the surface may be
+        varying with position as the body rolls. If <InlineEquation equation="\\rho" />
+        changes then this will also cause <InlineEquation equation="R" /> to change. These
+        two variables will only be constant if the surface is in
+        fact perfectly circular.
+      </p>
+</SubSection>
 <SubSection title="Applications"></SubSection>
 <SubSubSection title="Bearings">
-    <RedText>This topic is in L27, slides 13-14, include information in Fig  \ref fig:AppBearings . Pictures are from this book  <a href="https://i-share-uiu.primo.exlibrisgroup.com/permalink/01CARLI_UIU/gpjosq/alma99955068260305899">https://i-share-uiu.primo.exlibrisgroup.com/permalink/01CARLI_UIU/gpjosq/alma99955068260305899</a></RedText>. Application for "Rolling on curved surfaces".
+    <RedText>This topic is in L27, slides 13-14, include information in Fig  \\ref fig:AppBearings . Pictures are from this book  <a href="https://i-share-uiu.primo.exlibrisgroup.com/permalink/01CARLI_UIU/gpjosq/alma99955068260305899">https://i-share-uiu.primo.exlibrisgroup.com/permalink/01CARLI_UIU/gpjosq/alma99955068260305899</a></RedText>. Application for "Rolling on curved surfaces".
 
     <Image src="/Dynamics/ContactRollingFigs/AppBearings.png" width="5"></Image>
 </SubSubSection>

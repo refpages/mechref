@@ -1,4 +1,64 @@
 ---
-const { equation } = Astro.props;
+const { equation, id="", title="", derivation="", background=""} = Astro.props;
+console.log(typeof(id))
 ---
-{`$$ ${equation} $$`}
+
+<style>
+    #derivation_menu {
+        transition-property: max-height;
+        transition-duration: 1s ;
+        overflow:hidden;
+        max-height: 0;
+    }
+
+    .derivation_container{
+        background-color: #eee;
+    }
+
+    .background-yellow{
+        background-color: #f0f0d0;
+        border: 1px solid #444;
+        border-radius: 5px;
+    }
+</style>
+
+
+
+<div id={id} class={background ? 'background-yellow overflow-auto my-2' : 'mb-2'}>
+    <div class="px-2">
+        {title && title}{id && <small>{` #${id}`}</small>}
+    </div>
+    
+    {`$$ ${equation} $$`}
+    {derivation && <button class="btn btn-secondary py-0" id={'derivation_btn_'+id}>Derivation</button>}
+</div>
+
+
+{derivation && 
+<div class="mb-2">
+    <div id={'derivation_menu_'+id} hidden>
+        <div class="derivation_container p-2">
+            <slot />
+        </div>
+    </div> 
+</div>}
+
+<script define:vars={{id}}>
+    console.log(id)
+    function toggle_display(){
+        const elem = document.getElementById(`derivation_menu_${id}`);
+        console.log(elem)
+        if(elem.hasAttribute('hidden')){
+            elem.style.maxHeight = `1000px`;
+            elem.removeAttribute('hidden')
+        }else{
+            elem.style.maxHeight = '0px';
+            elem.setAttribute('hidden', '')
+        }
+    }
+
+    document.getElementById(`derivation_btn_${id}`).addEventListener('click', toggle_display);
+</script>
+
+
+
