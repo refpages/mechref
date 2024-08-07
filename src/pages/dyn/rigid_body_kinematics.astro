@@ -6,16 +6,144 @@ import SubSection from "../../components/SubSection.astro"
 import SubSubSection from "../../components/SubSubSection.astro" 
 import BlueText from "../../components/BlueText.astro" 
 import RedText from "../../components/RedText.astro" 
+import InlineEquation from "../../components/InlineEquation.astro"
+import Center from "../../components/Center.astro"
+import CalloutCard from "../../components/CalloutCard.astro"
+import CalloutContainer from "../../components/CalloutContainer.astro"
+import Enumerate from "../../components/Enumerate.astro"
+import Item from "../../components/Item.astro"
 ---
+<style>
+    table { border-collapse: collapse; }
+    tr {
+        border: none; 
+    }
+    td {
+        border-bottom: solid 1px #000; 
+        text-align:center;
+        padding-top: .5em;
+        padding-bottom: .5em;
+    }
+
+    th{
+        border-bottom: solid 1px #000;;
+        text-align:center;
+    }
+</style>
+
 <Layout title="Rigid Body Kinematics">
 <Section title="Rigid Body Kinematics"></Section>
 
 <SubSection title="Rigid bodies">
     <BlueText>Complete in "Rigid bodies"</BlueText>
+
+    A <em>rigid body</em> is an extended area of material that
+          includes all the points inside it, and which moves so that
+          the distances and angles between all its points remain
+          constant. The location of a rigid body can be described by
+          the position of one point $P$ inside it, together with the
+          rotation angle of the body (one angle in 2D, three angles in
+          3D).
+    <Center>
+        <table>
+            <tr>
+            <th></th>
+            <th>location description</th>
+            <th>velocity description</th>
+            </tr>
+            <tr>
+            <th>point mass</th>
+            <td>position vector <InlineEquation equation="\\vec{r}_P" /></td>
+            <td>velocity vector <InlineEquation equation="\\vec{v}_P" /></td>
+            </tr>
+            <tr>
+            <th>rigid body in 2D</th>
+            <td>
+                position vector <InlineEquation equation="\\vec{r}_P" />
+                <br />
+                angle $\theta$
+            </td>
+            <td>
+                velocity vector <InlineEquation equation="\\vec{v}_P"/>
+                <br />
+                angular velocity <InlineEquation equation="\\omega" />
+            </td>
+            </tr>
+            <tr>
+            <th>rigid body in 3D</th>
+            <td>
+                position vector <InlineEquation equation="\\vec{r}_P"/>
+                <br />
+                angles <InlineEquation equation="\\theta,\\phi,\\psi"/>
+            </td>
+            <td>
+                velocity vector <InlineEquation equation="\\vec{v}_P"/>
+                <br />
+                angular velocity vector <InlineEquation equation="\\vec{\\omega}" />
+            </td>
+            </tr>
+        </table>
+    </Center>
+
+    <p>
+        Neither point masses nor rigid bodies can physically exist,
+        as no body can really be a single point with no extent, and
+        no extended body can be exactly rigid. Despite this, these
+        are very useful models for mechanics and dynamics.
+      </p>
 </SubSection>
 
 <SubSection title="Rotating rigid bodies">
     <BlueText>Complete in "Rigid bodies"</BlueText>
+
+    <p>
+        All points on a rigid body have the same angular rotation
+        angles, as we can see on the figure below. Because the
+        angular velocity is the derivative of the rotation angles,
+        this means that every point on a rigid body has the same
+        angular velocity <InlineEquation equation="\\vec{\\omega}" />, and also the same angular
+        acceleration <InlineEquation equation="\\vec{\\alpha}" />.
+      </p>
+      <p>
+        In 2D the angle <InlineEquation equation="\\theta" /> of a rigid body the angle of
+        rotation from a fixed reference (typically the <InlineEquation equation="\\hat\\imath" />
+        direction), measured positive counter-clockwise. The angular
+        velocity is <InlineEquation equation="\\omega = \\dot\\theta" /> and the angular
+        acceleration is <InlineEquation equation="\\alpha = \\dot\\omega = \\ddot\\theta"/>. The
+        vector versions of these are <InlineEquation equation="\\vec\\omega = \\omega \\, \\hat{k}" />
+        and <InlineEquation equation="\\vec\\alpha = \\alpha\\,\\hat{k}" />, where <InlineEquation equation="\\hat{k}" /> is the
+        out-of-plane direction.
+      </p>
+      <CalloutContainer slot="cards">
+          <CalloutCard>
+            <p>
+                Rotations in 3D are significantly more complicated than
+                rotations in 2D. Unlike positions, velocities, etc, which
+                simply go from 2D vectors to 3D vectors, rotational
+                quantities go from scalars in 2D to full 3D vectors in
+                3D. Angular velocity and angular acceleration are somewhat
+                straightforward, so equations <a
+                href="#rkg-er">#rkg-er</a> hold in both 2D and 3D, but
+                understanding the rotations themselves is significantly
+                more complicated. There are three main ways that 3D
+                rotations can be represented:
+              </p>
+              <Enumerate>
+                <Item><a href="http://en.wikipedia.org/wiki/Euler_angles">Euler angles</a></Item>
+                <Item><a href="http://en.wikipedia.org/wiki/Rotation_matrix">Rotation matrices</a></Item>
+                <Item><a href="http://en.wikipedia.org/wiki/Quaternions">Quaternions</a></Item>
+              </Enumerate>
+              <p>
+                Detailed study of rotations in 3D is necessary for a full
+                understanding of topics ranging from <a
+                href="http://en.wikipedia.org/wiki/Attitude_control_(spacecraft)">satellite
+                attitude control</a> to <a
+                href="http://en.wikipedia.org/wiki/Articulated_robot">articulated
+                robot construction</a>, and is usually covered in advanced
+                dynamics courses.
+              </p>
+          </CalloutCard>
+      </CalloutContainer>
 </SubSection>
 
 <SubSection title="Rigid body velocity">

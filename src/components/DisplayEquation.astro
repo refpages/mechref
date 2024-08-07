@@ -1,6 +1,5 @@
 ---
 const { equation, id="", title="", derivation="", background=""} = Astro.props;
-console.log(typeof(id))
 ---
 
 <style>
@@ -43,21 +42,17 @@ console.log(typeof(id))
     </div> 
 </div>}
 
-<script define:vars={{id}}>
-    console.log(id)
-    function toggle_display(){
-        const elem = document.getElementById(`derivation_menu_${id}`);
-        console.log(elem)
-        if(elem.hasAttribute('hidden')){
-            elem.style.maxHeight = `1000px`;
-            elem.removeAttribute('hidden')
-        }else{
-            elem.style.maxHeight = '0px';
-            elem.setAttribute('hidden', '')
-        }
-    }
+<script define:vars={{id, derivation}} is:inline>
 
-    document.getElementById(`derivation_btn_${id}`).addEventListener('click', toggle_display);
+    $(document).ready(function(){
+        const menu = $(`#derivation_menu_${id}`)
+        menu.hide();
+        
+        $(`#derivation_btn_${id}`).on('click', function(){
+            menu.slideToggle()
+        })
+    })
+    
 </script>
 
 

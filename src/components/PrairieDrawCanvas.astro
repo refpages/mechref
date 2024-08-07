@@ -1,0 +1,14 @@
+---
+const {id, height, width, show_border="True"} = Astro.props;
+---
+
+<style>
+    .canvas-container{
+        border: solid 2px;
+        border-color:  black;
+    }
+</style>
+
+<div class={show_border=='True' ? "canvas-container" : ''}>
+    <canvas id={id} height={height} width={width}></canvas>
+</div>

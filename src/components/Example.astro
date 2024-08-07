@@ -1,0 +1,61 @@
+---
+const { id, title } = Astro.props;
+---
+
+<style>
+
+    .example_container{
+        background-color: #eee;
+    }
+
+    .background-green{
+        background-color: #e0f0e0;
+        border: 1px solid #444;
+        border-radius: 5px;
+    }
+</style>
+
+
+<div class="my-2">
+    <div class="background-green d-flex flex-column">
+        <div id={id} class='overflow-auto d-flex flex-row align-items-center'>
+            <button class="btn btn-secondary" id={'example_btn_'+id}>+</button>
+            <div class="px-2">
+                {"Example Problem: " + title}{<small>{` #${id}`}</small>}
+            </div>
+        </div>
+
+        <div id={'example_menu_'+id} class="p-2">
+            <div class="w-100">
+                <slot />
+            </div>
+            
+            <button class="btn btn-secondary" id={'solution_btn_'+id}>Solution</button>
+            <div id={'solution_menu_'+id}>
+                <div class="background-green p-2">
+                    <slot name="solution"/>
+                </div>
+            </div> 
+        </div>
+    </div>
+</div>
+
+
+
+<script define:vars={{id}} is:inline>
+    $(document).ready(function(){
+        const menu = $(`#example_menu_${id}`)
+        menu.hide();
+        
+        $(`#example_btn_${id}`).on('click', function(){
+            menu.slideToggle()
+        })
+
+        const solution_menu = $(`#solution_menu_${id}`)
+        solution_menu.hide();
+
+        $(`#solution_btn_${id}`).on('click', function(){
+            solution_menu.slideToggle()
+        })
+    })
+</script>
