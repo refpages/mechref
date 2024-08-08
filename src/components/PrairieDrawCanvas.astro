@@ -9,6 +9,9 @@ const {id, height, width, show_border="True"} = Astro.props;
     }
 </style>
 
-<div class={show_border=='True' ? "canvas-container" : ''}>
-    <canvas id={id} height={height} width={width}></canvas>
+<div class="d-flex flex-column align-items-center" style=`width: ${width}px`>
+    <canvas id={id} height={height} width={width} class={show_border=='True' ? "canvas-container" : ''}></canvas>
+    <div>
+        <slot />
+    </div>
 </div>

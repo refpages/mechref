@@ -3,15 +3,11 @@ const { equation, id="", title="", derivation="", background=""} = Astro.props;
 ---
 
 <style>
-    #derivation_menu {
-        transition-property: max-height;
-        transition-duration: 1s ;
-        overflow:hidden;
-        max-height: 0;
-    }
 
     .derivation_container{
-        background-color: #eee;
+        background-color: #f8f8f8;
+        border-top: 1px solid #444;
+        border-radius: 5px;
     }
 
     .background-yellow{
@@ -23,24 +19,23 @@ const { equation, id="", title="", derivation="", background=""} = Astro.props;
 
 
 
-<div id={id} class={background ? 'background-yellow overflow-auto my-2' : 'mb-2'}>
-    <div class="px-2">
+<div id={id} class={background ? 'background-yellow overflow-hidden my-2' : 'mb-2'}>
+    <div class="mb-2 px-2">
         {title && title}{id && <small>{` #${id}`}</small>}
     </div>
-    
+
     {`$$ ${equation} $$`}
+
     {derivation && <button class="btn btn-secondary py-0" id={'derivation_btn_'+id}>Derivation</button>}
+    {derivation && 
+        <div id={'derivation_menu_'+id}>
+            <div class="derivation_container p-2">
+                <slot />
+            </div>
+        </div> 
+    }
 </div>
 
-
-{derivation && 
-<div class="mb-2">
-    <div id={'derivation_menu_'+id} hidden>
-        <div class="derivation_container p-2">
-            <slot />
-        </div>
-    </div> 
-</div>}
 
 <script define:vars={{id, derivation}} is:inline>
 
