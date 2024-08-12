@@ -6,36 +6,644 @@ import SubSection from "../../components/SubSection.astro"
 import SubSubSection from "../../components/SubSubSection.astro" 
 import BlueText from "../../components/BlueText.astro" 
 import RedText from "../../components/RedText.astro" 
+import DisplayEquation from "../../components/DisplayEquation.astro"
+import DisplayEquationCustom from "../../components/DisplayEquationCustom.astro"
+import PrairieDrawCanvas from "../../components/PrairieDrawCanvas.astro"
+import Center from "../../components/Center.astro"
+import InlineEquation from "../../components/InlineEquation.astro"
+import CalloutContainer from "../../components/CalloutContainer.astro"
+import CalloutCard from "../../components/CalloutCard.astro"
+import Warning from "../../components/Warning.astro"
+import Example from "../../components/Example.astro"
 ---
+<style>
+    table{
+        border-collapse: collapse;
+    }
+
+    th {
+        padding: 0 15px;
+        text-align: center
+    }
+    td{
+        padding: 0 15px;
+        text-align: center
+    }
+
+    .border-below{
+        border-bottom: solid 1px black;
+    }
+</style>
+
 <Layout title="Vectors">
-<Section title="Vectors"></Section>
+<Section title="Vectors">
+
+    <p>
+        A <em>vector</em> is an arrow with a length and a
+        direction. Just like positions, vectors exist before we
+        measure or describe them. Unlike positions, vectors can
+        mean many different things, such as position vectors,
+        velocities, etc. Vectors are not anchored to particular
+        positions in space, so we can slide a vector around and
+        locate it at any position.
+      </p>
+
+    <Center>
+        <PrairieDrawCanvas id="rvv-fc-c" width="600" height="500">
+            <p class="controls">
+                <button class="anim-toggle:rvv-fc-c" onclick="rvv_fc_c.toggleAnim()">animate</button>
+                <button class="reset:rvv-fc-c" onclick="rvv_fc_c.reset()">reset</button>
+                Change:
+                <button class="option-toggle:rvv-fc-c:otherLength"onclick="rvv_fc_c.toggleOption('otherLength')">length</button>
+                <button class="option-toggle:rvv-fc-c:otherDir" onclick="rvv_fc_c.toggleOption('otherDir')">direction</button>
+            </p>
+            <p>
+                Two vectors, which may or may not be the same
+                vector. Moving a vector around does not change it: it is
+                still the same vector.
+            </p>
+        </PrairieDrawCanvas>
+    </Center>
+</Section>
 
 <SubSection title="Notation">
     <BlueText>Complete reference page "vector and bases"</BlueText>
+
+    <p>
+        Some textbooks differentiate between <em>free
+        vectors</em>, which are free to slide around, and
+        <em>bound vectors</em>, which are anchored in space. We
+        will only use free vectors.
+      </p>
+
+      <p>
+        We will use the over-arrow notation <InlineEquation equation="\\vec{a}" /> for vector
+        quantities. Other common notations include bold
+        <InlineEquation equation="\\boldsymbol{a}" /> and under-bars <InlineEquation equation="\\underline{a}" />. For unit
+        (length one) vectors we will use an over-hat <InlineEquation equation="\\hat{a}" />.
+      </p>
 </SubSection>
 
 <SubSection title="Cartesian coordinate system">
     <BlueText>Complete in reference page "position and coordinates"</BlueText>
+
+    <p>
+        Cartesian coordinates (also known as rectangular
+        coordinates) are the regular \(x,y\) or \(x,y,z\) coordinates in
+        2D and 3D, with perpendicular straight-line axes.
+      </p>
+      <Center>
+      <table id="rvp-tc" class="mb-3">
+        <tr class="border-below">
+          <th>coordinate</th>
+          <th>name</th>
+          <th>range</th>
+          <th>definition</th>
+        </tr>
+        <tr>
+          <td>\(x\)</td>
+          <td>horizontal</td>
+          <td>\(-\infty \lt x \lt \infty\)</td>
+          <td>horizontal distance from the \(y\)-axis</td>
+        </tr>
+        <tr>
+          <td>\(y\)</td>
+          <td>vertical</td>
+          <td>\(-\infty \lt y \lt \infty\)</td>
+          <td>vertical distance from the \(x\)-axis</td>
+        </tr>
+      </table>
+    </Center>
+      <p>
+        In 3D the \(x\),\(y\),\(z\) axes are oriented in <em>right-handed
+        order</em>, so that fingers curling from \(x\) to \(y\) means
+        the thumb points in the \(z\) direction.
+      </p>
+    <Center>
+        <PrairieDrawCanvas id="rvp-fc-c" width="450" height="450">
+            <p class="figureCaption">
+                Cartesian coordinate system, showing the origin \(O\) and
+                three positions with their coordinates.
+            </p>
+        </PrairieDrawCanvas>
+    </Center>
+
+    <CalloutContainer slot="cards">
+        <CalloutCard title="Notation note">
+            <p>
+                When writing coordinates we can either list the coordinate
+                values explicitly, like \(x = 2\), \(y = 1\), or we can just
+                write the numbers in an ordered list, like \( (2,
+                1) \).
+              </p>
+              <p>
+                Writing them as a list assumes that we know which
+                coordinate system we are using, and which order the
+                coordinates are in. We will typically write the coordinate
+                values explicitly to avoid confusion. This also applies to
+                <a href="rvv.html#rvv-ic">vector components</a>.
+              </p>
+        </CalloutCard>
+
+        <CalloutCard>
+            <p>
+                While the idea of \(x,y\) coordinates specifying positions
+                might seem obvious, the use of algebraic quantities to
+                define geometry in this way was a major discovery of <a
+                href="http://en.wikipedia.org/wiki/Ren%C3%A9_Descartes">René
+                Descartes</a> and a key event in the <a
+                href="http://en.wikipedia.org/wiki/Scientific_Revolution">scientific
+                revolution</a>. Descartes was also instrumental in
+                establishing the philosophical groundwork of <a
+                href="http://en.wikipedia.org/wiki/Age_of_Enlightenment">The
+                Enlightenment</a>, and we owe to him the famous phrase <a
+                href="http://en.wikipedia.org/wiki/Cogito_ergo_sum">“<em>Cogito
+                ergo sum</em>”</a>.
+              </p>
+        </CalloutCard>
+    </CalloutContainer>
 </SubSection>
 
 <SubSection title="Polar coordinate system">
     <BlueText>Complete in reference page "position and coordinates"</BlueText>
+
+    <p>
+        Polar coordinates are an alternative 2D coordinate system
+        that are useful for rotating or circular motion.
+      </p>
+    <Center>
+        <table id="rvp-tp" class="mb-3">
+            <tr class="border-below">
+            <th>coordinate</th>
+            <th>name</th>
+            <th>range</th>
+            <th>definition</th>
+            </tr>
+            <tr>
+            <td>\(r\)</td>
+            <td>radius</td>
+            <td>\(0 \le r \lt \infty\)</td>
+            <td>distance from the origin \(O\)</td>
+            </tr>
+            <tr>
+            <td>\(\theta\)</td>
+            <td>angle</td>
+            <td>\(-\pi \lt \theta \le \pi\)</td>
+            <td>angle from the \(x\)-axis in the \(x\)–\(y\) plane</td>
+            </tr>
+        </table>
+    </Center>
+
+    <p>
+        The two common extensions of polar coordinates to 3D are
+        <a href="rvy.html">cylindrical coordinates</a> and <a
+        href="rvs.html">spherical coordinates</a>.
+      </p>
+
+    <Center>
+        <PrairieDrawCanvas id="rvp-fp-c" width="450" height="450">
+            <p>
+            Polar coordinate system, showing the origin \(O\) and
+            three positions with their coordinates.
+            </p>
+        </PrairieDrawCanvas>
+    </Center>
+
+    <p>
+        To define polar coordinates, we relate them to another known
+        coordinate system, typically Cartesian coordinates as
+        follows, where we use the <a
+        href="rvp.html#rvp-it">atan2</a> function.
+      </p>
+
+    <DisplayEquation title="Conversion between polar and Cartesian coordinates" id="rvp-ep" equation = "\\begin{aligned}x &amp;= r \\cos\\theta&amp; r &amp;= \\sqrt{x^2 + y^2} \\\\y &amp;= r \\sin\\theta&amp; \\theta &amp;= \\operatorname{atan2}(y, x)\\end{aligned}" background="True"/>
+
+    <CalloutContainer slot="cards">
+        <CalloutCard>
+            <p>
+                Angles can be measured in many different units. While <a
+                href="http://en.wikipedia.org/wiki/Radian">radians</a> are
+                the most mathematically elegant unit, their use dates only
+                from <a
+                href="http://en.wikipedia.org/wiki/Roger_Cotes">Roger
+                Cotes</a> in the 18th century. <a
+                href="http://en.wikipedia.org/wiki/Degree_(angle)">Degrees</a>
+                are a much older unit, dating back to the <a
+                href="http://en.wikipedia.org/wiki/Sexagesimal">sexagesimal</a>
+                number system of the ancient <a
+                href="http://en.wikipedia.org/wiki/Babylonia">Babylonians</a>,
+                and are convenient for celestial calculations because
+                there are approximately 360 days in one year. Other units
+                include <a
+                href="http://en.wikipedia.org/wiki/Gradian">grads</a> (100
+                grads in a right angle) and <a
+                href="http://en.wikipedia.org/wiki/Angular_mil">mils</a>
+                (various definitions, all approximately equal to a
+                milliradian).
+              </p>
+        </CalloutCard>
+
+        <CalloutCard title="Notation note">
+            <p>
+                When solving for \(\theta\) in terms of \(x\) and \(y\) we know
+                that \(\tan\theta = y / x\). However, this does not
+                necessary mean that <InlineEquation equation="\\theta = \\tan^{-1}(y / x)" />, because
+                \(\tan\) is not a one-to-one function. For example,
+                <InlineEquation equation="\\tan^{-1}(1/1)" /> is the same as  <InlineEquation equation="\\tan^{-1}(-1/-1)" />. We
+                thus need to take  <InlineEquation equation="\\theta = \\tan^{-1}(y/x) + \pi" /> if the
+                point is in quadrants II or III.
+              </p>
+              <p>
+                An alternative is to use
+                the <a href="http://en.wikipedia.org/wiki/Atan2">atan2</a>
+                function, which takes \(x\) and \(y\) as separate arguments
+                and correctly handles the conversion to \(\theta\) in any
+                quadrant. This function is available in all common
+                programming languages, including C, MATLAB, Python, and
+                others.
+              </p>
+              <p>
+                Scientific calculators typically have special commands to
+                convert to/from polar and Cartesian coordinates, which
+                also automatically correctly handle the different
+                quadrants.
+              </p>
+        </CalloutCard>
+    </CalloutContainer>
 </SubSection>
 
 <SubSection title="Units">
     <BlueText>Complete in reference page "position and coordinates"</BlueText>
+
+    <p>
+        When using coordinates to describe the location of physical
+        positions in the real world, we must always have appropriate
+        units of length for the coordinates. For example, the
+        following coordinates all specify the same position:
+
+        <DisplayEquation equation="\\begin{aligned}        x &amp;= 2{\\rm\\ m} &amp; x &amp;= 6.56{\\rm\\ ft}        &amp; r &amp;= 6.32{\\rm\\ m} &amp; r &amp;= 249{\\rm\\ in} \\\\        y &amp;= -6{\\rm\\ m} &amp; y &amp;= -6 \\times 10^6{\\rm\\ \\mu m}        &amp; \\theta &amp;= 1.25{\\rm\\ rad} &amp; \\theta &amp;= 71.6^\\circ.        \\end{aligned}" />
+      </p>
+      <p>
+        It is important to distinguish between <em>units</em> and
+        <em>dimensions</em>. The base dimensions include mass (M),
+        length (L), and time (T), and can be combined to produce
+        dimensions such as L/T or L T<InlineEquation equation="^{-1}" /> for velocity. Each
+        physical quantity such as velocity has just one set of
+        dimensions, and there is no choice in this.
+      </p>
+      <p>
+        Units are particular ways of measuring dimensional
+        quantities, and include the SI units kilogram (kg), meter
+        (m), and second (s), as well as the customary U.S. units
+        pound (lb) and foot (ft). A given physical quantity can be
+        written in terms of many different units, although all of
+        these must conform to the dimensions of the quantity. For
+        example, velocity has dimension L/T and so it can be
+        written in terms of the units m/s, ft/s, km/h, or many other
+        choices.
+      </p>
+
+      <p>
+        Angles are an example of a <em>dimensionless</em> quantity
+        (having dimension 1), but they still have units, typically
+        either radians (rad) or degrees (°).
+      </p>
+
+    <CalloutContainer slot=cards>
+        <CalloutCard>
+            <p>
+                The <a
+                href="http://en.wikipedia.org/wiki/International_System_of_Units">SI
+                unit system</a> is the definitive system of measurement
+                used in science and engineering. Other systems, such as <a
+                href="http://en.wikipedia.org/wiki/U.S._customary_unit">U.S. customary
+                units</a> are defined in terms of SI units, so that an
+                inch is defined to be exactly 2.54 cm, for example.
+              </p>
+              <p>
+                The National Institute of Standards and Technology (NIST)
+                maintains an excellent <a
+                href="http://physics.nist.gov/cuu/Units/index.html">reference
+                guide</a> to SI units, including precise <a
+                href="http://physics.nist.gov/cuu/Units/checklist.html">rules
+                and style conventions</a> for writing units in scientific
+                and engineering work.
+              </p>
+        </CalloutCard>
+    </CalloutContainer>
 </SubSection>
 
 <SubSection title="Unit vectors">
     <BlueText>Complete in reference page "vector and bases"</BlueText>
+
+    <p>
+      A <em>unit vector</em> is any vector with a length of
+      one. We use the special over-hat notation <InlineEquation equation="\\hat{a}" /> to
+      indicate when a vector is a unit vector. Any non-zero vector
+      <InlineEquation equation="\\vec{a}" /> gives a unit vector <InlineEquation equation="\\hat{a}" /> that specifies the
+      direction of <InlineEquation equation="\\vec{a}" />.
+    </p>
+
+    <DisplayEquation title="Normalization to unit vector." id="rvv-eu" background="True" equation="\\begin{aligned} \\hat{a} =\\frac{\\vec{a}}{a}\\end{aligned}" derivation="True">
+      <p>
+        If we compute the length of <InlineEquation equation="\\hat{a}" /> then we find:
+        
+        <DisplayEquation equation="        \\| \\hat{a} \\| = \\left\\| \\frac{\\vec{a}}{a} \\right\\|        = \\frac{\\|\\vec{a}\\|}{a} = \\frac{a}{a} = 1," />
+
+        so <InlineEquation equation="\\hat{a}" /> is really a unit vector, and it is in the
+        same direction as <InlineEquation equation="\\vec{a}" /> as they differ only by a
+        scalar factor.
+      </p>
+    </DisplayEquation>
+
+    <p>
+      Any vector can be written as the product of its length and
+      direction:
+    </p>
+
+    <DisplayEquation title="Vector decomposition into length and direction." id="rvv-ei" background="True" equation=" \\begin{aligned} \\vec{a} = a\\hat{a}\\end{aligned}" derivation="True">
+      <p>
+        This follows from rearranging <a
+        href="#rvv-eu">#rvv-eu</a>.
+      </p>
+    </DisplayEquation>
+
+    <Center>
+      <PrairieDrawCanvas id="rvv-fu-c" width="500" height="350">
+      <p>
+        Three vectors and their decompositions into lengths and directional unit vectors.
+      </p>
+      </PrairieDrawCanvas>
+    </Center>
 </SubSection>
 
 <SubSection title="Vectors bases">
     <BlueText>Complete in reference page "vector and bases"</BlueText>
+
+    <p>
+      To describe vectors mathematically, we write them as a
+      combination of <em>basis vectors</em>. An <em>orthonormal
+      basis</em> is a set of two (in 2D) or three (in 3D) basis
+      vectors which are <em>orthogonal</em> (have 90°
+      angles between them) and <em>normal</em> (have length equal
+      to one). We will not be using non-orthogonal or non-normal
+      bases.
+    </p>
+    <p>
+      Any other vector can be written as a <em>linear
+      combination</em> of the basis vectors:
+    </p>
+
+    <DisplayEquation id="rvv-ec" title="Components of a vector." background=True equation="\\vec{a} = a_1 \\,\\hat{\\imath}+ a_2 \\,\\hat{\\jmath} + a_3 \\,\\hat{k}"/>
+
+    <p>
+      The numbers \(a_1, a_2, a_3\) are called the
+      <em>components</em> of <InlineEquation equation="\\vec{a}" /> in the <InlineEquation equation="\\,\\hat{\\imath}, \\hat{\\jmath}, \\hat{k}" /> basis. If we are in 2D then we will
+      only have two components for a vector.
+    </p>
+
+    <Center>
+      <PrairieDrawCanvas id="rvv-fb-c" width="400" height="300">
+        
+        <p>Writing a vector as the sum of scaled basis vectors. The
+        scale factors are the components of the vector. Here
+        <InlineEquation equation="\\vec{a} = 3\\hat\\imath + 2\\hat\\jmath" />, so the components
+        of <InlineEquation equation="\\vec{a}" /> are \(a_1 = 3\) and \(a_2 = 2\).</p>
+      </PrairieDrawCanvas>
+    </Center>
+
+    <p>
+      We draw the symbol \(\odot\) (arrow tip) to indicate a vector
+      coming out of the page, and \(\otimes\) (arrow <a
+      href="http://en.wikipedia.org/wiki/Fletching">fletching</a>)
+      to indicate an arrow going into the page.
+    </p>
+
+    <Center>
+      <PrairieDrawCanvas id="rvv-f3-c" width="400" height="300">
+      <p>
+        Two standard arrangements of the basis vectors when
+            working in 2D. Either \(\hat\jmath\) is the vertical and
+            <InlineEquation equation="\\hat{k}" /> is out of the page, or <InlineEquation equation="\\hat{k}" />  is the vertical
+            and \(\hat\jmath\) is into the page. In both cases
+            \(\hat\imath\) is horizontal.
+      </p>
+      </PrairieDrawCanvas>
+    </Center>
+
+    <CalloutContainer slot=cards>
+      <CalloutCard title="Notation note">
+        <p>
+          Just <a href="rvp.html#rvp-ic">as for position
+          coordinates</a>, we can write the vector components
+          \(3\hat\imath + 2\hat\jmath\) as the ordered list \((3, 2)\)
+          if we know which basis we are using. Because we often will
+          be using several bases simultaneously, we will generally
+          write the components explicitly in the \(3\hat\imath +
+          2\hat\jmath\) form.
+        </p>
+      </CalloutCard>
+
+      <CalloutCard>
+        <p>
+          The use of the letter \(i,j,k\) for basis vectors is due to
+          <a
+          href="http://en.wikipedia.org/wiki/William_Rowan_Hamilton">William
+          Hamilton</a>, who was motivated by thinking of basis
+          vectors as extensions of the complex number \(i\). This
+          notation was popularized by the book <a
+          href="http://en.wikipedia.org/wiki/Vector_Analysis_(Gibbs/Wilson)"><i>Vector
+          Analysis: A Text Book for the Use of Students of
+          Mathematics and Physics Founded upon the Lectures of
+          J. Willard Gibbs</i></a> (1901), by <a
+          href="http://en.wikipedia.org/wiki/Edwin_Bidwell_Wilson">E. B. Wilson</a>. This
+          book also introduced the use of bold letters to represent
+          vectors.
+        </p>
+      </CalloutCard>
+    </CalloutContainer>
 </SubSection>
+
+<SubSubSection title="Length of vectors">
+  <p>
+    The length of a vector <InlineEquation equation="\\vec{a}" /> is written
+    either <InlineEquation equation="\\| \\vec{a} \\|" /> or just plain \(a\). The
+    length can be computed using <em>Pythagorus’
+    theorem</em>:
+  </p>
+
+  <DisplayEquation id="rvv-ey" title="Pythagorus' length formula." background=True derivation=True equation="a = \\|\\vec{a}\\|            = \\sqrt{a_1^2 + a_2^2 + a_3^2}">
+    <p>
+      First we prove Pythagorus' theorem for right-angle
+      triangles. For side lengths \(a\) and \(b\) and hypotenuse
+      \(c\), the fact that \(a^2 + b^2 = c^2\) can be seen
+      graphically below, where the gray area is the same before
+      and after the triangles are rotated in the animation:
+    </p>
+
+    <Center>
+      <PrairieDrawCanvas id="rvv-fy-c" width="300" height="300" show_border=False>
+      <p>
+        <button class="anim-toggle:rvv-fy-c" onclick="rvv_fy_c.toggleAnim();">animate</button>
+        <button class="reset:rvv-fy-c" onclick="rvv_fy_c.reset();">reset</button>
+      </p>
+      </PrairieDrawCanvas>
+    </Center>
+
+    <p>
+      Pythagorus' theorem immediately gives us vector lengths
+      in 2D.  To find the length of a vector in 3D we can use
+      Pythagorus' theorem twice, as shown below. This gives
+      the two right-triangle calculations:
+
+      <DisplayEquation equation="\\begin{aligned}      \\ell^2 &amp;= a_1^2 + a_2^2 \\\\      a^2 &amp;= \\ell^2 + a_3^2 = a_1^2 + a_2^2 + a_3^2.      \\end{aligned}" />
+    </p>
+
+    <Center>
+      <PrairieDrawCanvas id="rvv-fr-c" width="300" height="300">
+        Click and drag to rotate.
+      </PrairieDrawCanvas>
+    </Center>
+  </DisplayEquation>
+
+  <Warning id="rvv-wl" title="Length must be computed in a single basis.">
+      The Pythagorean length formula can only be used if all
+      the components are written in a single orthonormal
+      basis.
+  </Warning>
+
+  <Center>
+    <PrairieDrawCanvas id="rvv-fl-c" width="400" height="400">
+      <p>
+        Computing the length of a vector using Pythagorus'
+        theorem.
+      </p>
+    </PrairieDrawCanvas>
+  </Center>
+
+  <p>
+    Some common integer vector lengths are <InlineEquation equation="\\vec{a} = 4\\hat\\imath + 3\\hat\\jmath" /> (length \(a = 5\)) and <InlineEquation equation="\\vec{b} = 12\\hat\\imath + 5\\hat\\jmath"/> (length \(b = 13\)).
+  </p>
+
+  <Warning id="rvv-wa" title="Adding vectors does not add lengths.">
+    <p>
+      If <InlineEquation equation="\\vec{c} = \\vec{a} + \\vec{b}" />, then <InlineEquation equation="\\|\\vec{c}\\| \\ne \\|\\vec{a}\\| + \\|\\vec{b}\\|" /> unless <InlineEquation equation="\\vec{a}" /> and
+      <InlineEquation equation="\\vec{b}" /> are parallel and in the same direction.
+    </p>
+    <p>
+      It will always be true, however, that <InlineEquation equation="\\|\\vec{c}\\| \\le \\|\\vec{a}\\| + \\|\\vec{b}\\|" />. This fact is known as the
+      <em>triangle inequality</em>, for reasons that should be
+      obvious.
+    </p>
+</Warning>
+
+<CalloutContainer slot="cards">
+  <CalloutCard>
+    <p>
+      Sets of three integers \(a,b,c\) where \(a^2 + b^2 = c^2\) are
+      called <a
+      href="http://en.wikipedia.org/wiki/Pythagorean_triples"><em>Pythagorean
+      triples</em></a>. A long list of such triples is given on
+      the <a
+      href="http://en.wikipedia.org/wiki/Plimpton_322">Plimpton
+      322</a> clay tablet written by the ancient Babylonians
+      around 1800 BCE, although it is unclear how they generated
+      these numbers. Pythagorean triples lead to complex
+      mathematics, including the curious patterns shown below
+      and <a
+      href="http://en.wikipedia.org/wiki/Fermat's_Last_Theorem">Fermat's
+      Last Theorem</a>.
+    </p>
+
+    <Center>
+      <PrairieDrawCanvas id="rvv-ft-c" width="250" height="250">
+        <p class="mt-3 mb-2">
+          The values of \(a\) and \(b\) for all Pythagorean triples
+        \(a,b,c\) with \(a\) and \(b\) up to 2000.
+        </p>
+      </PrairieDrawCanvas>
+    </Center>
+  </CalloutCard>
+</CalloutContainer>
+</SubSubSection>
 
 <SubSection title="Changing bases">
     <BlueText>Complete in reference page "vector and bases"</BlueText>
+
+    <p>
+      To change the basis that a vector is written in, we need
+      to know how the basis vectors are related. We do this by
+      writing one set of basis vectors in terms of the other
+      basis vectors. If we want to change from
+      \( \hat\imath,\hat\jmath \) to <InlineEquation equation="\\hat{u},\\hat{v}" />, then we
+      need to write \( \hat\imath,\hat\jmath \) in terms of
+      <InlineEquation equation="\\hat{u},\\hat{v}" /> and then substitute the expressions.
+    </p>
+
+    <Example id="rvv-xn" title="Example: Basis change." solution="False">
+      <p>
+        For example, if we have <InlineEquation equation="\\vec{a} = 3\\,\\hat{\\imath} + 2\\,\\hat{\\jmath}" /> and we want to
+        write this in the <InlineEquation equation="\\,\hat{u}, \,\hat{v}" /> basis,
+        then we need to know <InlineEquation equation="\\,\\hat{\\imath}, \\,\\hat{\\jmath}" /> in terms of <InlineEquation equation="\\,\\hat{u}, \\,\\hat{v}" />.
+      </p>
+
+      <Center>
+        <PrairieDrawCanvas id="rvv-xn-c" width="300" height="200" />
+      </Center>
+
+      <p>
+        From above we see that:
+        <DisplayEquation equation="\\begin{aligned} \\hat{\\imath} &amp;=        \\cos\\theta \\, \\hat{u} - \\sin\\theta \\, \\hat{v}        = \\frac{1}{\\sqrt{2}} \\,\\hat{u} - \\frac{1}{\\sqrt{2}}        \\,\\hat{v} \\\\        \\hat{\\jmath} &amp;=        \\sin\\theta \\, \\hat{u} + \\cos\\theta \\, \\hat{v}        = \\frac{1}{\\sqrt{2}}        \\,\\hat{u} + \\frac{1}{\\sqrt{2}}        \\,\\hat{v}.\\end{aligned}" />
+      </p>
+      <p>
+        Then we can substitute and re-arrange:
+      </p>
+      <p>
+        <DisplayEquation equation="\\begin{aligned} \\vec{a} &amp;=        3\\,\\hat{\\imath} + 2\\,\\hat{\\jmath} \\\\ &amp;=        3\\left(\\frac{1}{\\sqrt{2}} \\,\\hat{u} -        \\frac{1}{\\sqrt{2}} \\,\\hat{v}\\right) +        2\\left(\\frac{1}{\\sqrt{2}} \\,\\hat{u} +        \\frac{1}{\\sqrt{2}} \\,\\hat{v}\\right) \\\\ &amp;=        \\left(\\frac{3}{\\sqrt{2}} + \\frac{2}{\\sqrt{2}} \\right)        \\,\\hat{u} + \\left(-\\frac{3}{\\sqrt{2}} +        \\frac{2}{\\sqrt{2}} \\right) \\,\\hat{v} \\\\ &amp;=        \\frac{5}{\\sqrt{2}} \\,\\hat{u} - \\frac{1}{\\sqrt{2}}        \\,\\hat{v}.\\end{aligned}" />
+      </p>
+      <p>
+        If we want to convert back the other way then we would
+        need to know <InlineEquation equation="\\,\\hat{u}, \\,\\hat{v}" /> in terms of
+        <InlineEquation equation="\\,\\hat{\\imath}, \\,\\hat{\\jmath}" />. We can find this by
+        solving for <InlineEquation equation="\\,\\hat{u}, \\,\\hat{v}" /> above, giving:
+
+        <DisplayEquation equation="\\begin{aligned} \\hat{u} &amp;=        \\cos\\theta \\, \\hat\\imath + \\sin\\theta \\, \\hat\\jmath        = \\frac{1}{\\sqrt{2}} \\,\\hat\\imath + \\frac{1}{\\sqrt{2}}        \\,\\hat\\jmath \\\\        \\hat{v} &amp;=        -\\sin\\theta \\, \\hat\\imath + \\cos\\theta \\, \\hat\\jmath        = -\\frac{1}{\\sqrt{2}}        \\,\\hat\\imath + \\frac{1}{\\sqrt{2}}        \\,\\hat\\jmath.\\end{aligned}" />
+      </p>
+    </Example>
+
+    <p>
+      We can also write the general expressions for basis change,
+      as below.
+    </p>
+
+    <DisplayEquation title="Change of basis formulas." id="rvv-eg" background=True derivation="True" equation="\\begin{aligned}\\vec{a} &amp;=a_i \\, \\hat\\imath + a_j \\, \\hat\\jmath + a_k \\, \\hat{k}&amp; \\vec{a} &amp;=a_u \\, \\hat{u} + a_v \\, \\hat{v} + a_w \\, \\hat{w} \\\\[1em]a_i &amp;= a_u u_i + a_v v_i + a_w w_i&amp; a_u &amp;= a_i i_u + a_j j_u + a_k k_u \\\\a_j &amp;= a_u u_j + a_v v_j + a_w w_j&amp; a_v &amp;= a_i i_v + a_j j_v + a_k k_v \\\\a_k &amp;= a_u u_k + a_v v_k + a_w w_k&amp; a_w &amp;= a_i i_w + a_j j_w + a_k k_w\\end{aligned}">
+      <p>
+        We will derive the first set of equations (the second
+        set are derived similarly). The vector <InlineEquation equation="\\vec{a}" /> can be
+        written in both the <InlineEquation equation="\\hat\\imath,\\hat\\jmath,\\hat{k}" />  and
+        <InlineEquation equation="\\hat{u},\\hat{v},\\hat{w}" /> bases:
+
+        <DisplayEquation equation="\\begin{aligned}        \\vec{a} &amp;= a_i \\hat\\imath + a_j \\hat\\jmath + a_k \\hat{k}        &amp; \\vec{a} &amp;= a_u \\hat{u} + a_v \\hat{v} + a_w \\hat{w}.        \\end{aligned}" />
+      </p>
+      <p>
+        We can write each <InlineEquation equation="\\hat{u},\\hat{v},\\hat{w}" /> basis vector
+        in terms of the <InlineEquation equation="\\hat\\imath,\\hat\\jmath,\\hat{k}" /> basis:
+
+        <DisplayEquation equation="\\begin{aligned}        \\hat{u} &amp;= u_i \\hat\\imath + u_j \\hat\\jmath + u_k \\hat{k} \\\\        \\hat{v} &amp;= v_i \\hat\\imath + v_j \\hat\\jmath + v_k \\hat{k} \\\\        \\hat{w} &amp;= w_i \\hat\\imath + w_j \\hat\\jmath + w_k \\hat{k}.        \\end{aligned}" />
+
+        Substituting these expressions into <InlineEquation equation="\\vec{a}" /> gives:
+        
+        <DisplayEquation equation="\\begin{aligned}        \\vec{a} &amp;= a_u \\hat{u} + a_v \\hat{v} + a_w \\hat{w} \\\\        &amp;= a_u (u_i \\hat\\imath + u_j \\hat\\jmath + u_k \\hat{k})        + a_v (v_i \\hat\\imath + v_j \\hat\\jmath + v_k \\hat{k})        + a_w (w_i \\hat\\imath + w_j \\hat\\jmath + w_k \\hat{k}) \\\\        &amp;= (a_u u_i + a_v v_i + a_w w_i) \\hat\\imath        + (a_u u_j + a_v v_j + a_w w_j) \\hat\\jmath        + (a_u u_k + a_v v_k + a_w w_k) \\hat{k} \\\\        &amp;= a_i \\hat\\imath + a_j \\hat\\jmath + a_k \\hat{k}.        \\end{aligned}" />
+
+        Comparing the last two lines gives the component formulas.
+      </p>
+    </DisplayEquation>
+
+    <p>
+      In 2D the change between two orthonormal bases is a rotation
+      by an angle \( \theta \), resulting in the change of basis
+      expression below.
+    </p>
 </SubSection>
 
 <SubSection title="Projection and complementary projection">
@@ -66,3 +674,6 @@ import RedText from "../../components/RedText.astro"
     <BlueText>Complete in reference page "Shortest flight paths"</BlueText>. Application for Spherical coordinates.
 </SubSubSection>
 </Layout>
+
+<script src="/dyn/vectors/py_triples.js" is:inline></script>
+<script src="/dyn/vectors/canvases.js" is:inline></script>

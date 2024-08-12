@@ -206,7 +206,7 @@ import Warning from "../../components/Warning.astro"
       </div>
     </DisplayEquationCustom>
     
-    <Warning title="Warning: The cross product is not associative." id="rvv-wc">
+    <Warning title="The cross product is not associative." id="rvv-wc">
       <p>
         The cross product is not <a
         href="http://en.wikipedia.org/wiki/Associative_property">associative</a>,
@@ -279,6 +279,44 @@ import Warning from "../../components/Warning.astro"
       </p>
     </DisplayEquation>
 </SubSection>
+
+<SubSubSection title="Cross product identities">
+  <DisplayEquation id="rvi-ea" title="Cross product anti-symmetry." equation="\\begin{aligned} \\vec{a} \\times\\vec{b} = - \\vec{b} \\times\\vec{a}\\end{aligned}" background="true" derivation="true">
+    <p>
+      Writing the component expression <a
+      href="rvv.html#rvv-ex">#rvv-ex</a> gives:
+
+      <DisplayEquation equation="\\begin{aligned}      \\vec{a} \\times \\vec{b}      &amp;= (a_2 b_3 - a_3 b_2) \\,\\hat{\\imath}      + (a_3 b_1 - a_1 b_3) \\,\\hat{\\jmath}      + (a_1 b_2 - a_2 b_1) \\,\\hat{k} \\\\      &amp;= -(a_3 b_2 - a_2 b_3) \\,\\hat{\\imath}      - (a_1 b_3 - a_3 b_1) \\,\\hat{\\jmath}      - (a_2 b_1 - a_1 b_2) \\,\\hat{k} \\\\      &amp;= -\\vec{b} \\times \\vec{a}.      \\end{aligned}" />
+    </p>
+  </DisplayEquation>
+
+  <DisplayEquation id="rvi-ez" title="Cross product self-annihilation." equation="\\begin{aligned}\\vec{a} \\times \\vec{a} = 0\\end{aligned}" background="true" derivation="true">
+    <p>
+      From anti-symmetry <a href="#rvi-ea">#rvi-ea</a> we
+      have:
+
+      <DisplayEquation equation="\\begin{aligned}      \\vec{a} \\times \\vec{a} &amp;= - \\vec{a} \\times \\vec{a} \\\\      2 \\vec{a} \\times \\vec{a} &amp;= 0 \\\\      \\vec{a} \\times \\vec{a} &amp;= 0.      \\end{aligned}" />
+    </p>
+  </DisplayEquation>
+
+  <DisplayEquation id="rvi-eb2" title="Cross product bi-linearity." equation="\\begin{aligned}\\vec{a} \\times (\\vec{b} + \\vec{c})&amp;= \\vec{a} \\times \\vec{b} + \\vec{a} \\times \\vec{c} \\\\(\\vec{a} + \\vec{b}) \\times \\vec{c}&amp;= \\vec{a} \\times \\vec{c} + \\vec{b} \\times \\vec{c} \\\\\\vec{a} \\times (\\beta \\vec{b})&amp;= \\beta (\\vec{a} \\times \\vec{b})= (\\beta \\vec{a}) \\times \\vec{b}\\end{aligned}" background="true" derivation="true">
+    <p>
+      Writing the component expression <a
+      href="rvv.html#rvv-ex">#rvv-ex</a> for the first
+      equation gives:
+
+      <DisplayEquation equation="\\begin{aligned}      \\vec{a} \\times (\\vec{b} + \\vec{c})      &amp;= (a_2 (b_3 + c_3) - a_3 (b_2 + c_2)) \\,\\hat{\\imath} \\\\      &amp;\\quad + (a_3 (b_1 + c_1) - a_1 (b_3 + c_3)) \\,\\hat{\\jmath} \\\\      &amp;\\quad + (a_1 (b_2 + c_2) - a_2 (b_1 + c_1)) \\,\\hat{k} \\\\      &amp;= \\Big((a_2 b_3 - a_3 b_2) \\,\\hat{\\imath}      + (a_3 b_1 - a_1 b_3) \\,\\hat{\\jmath}      + (a_1 b_2 - a_2 b_1) \\,\\hat{k} \\Big) \\\\      &amp;\\quad + \\Big((a_2 c_3 - a_3 c_2) \\,\\hat{\\imath}      + (a_3 c_1 - a_1 c_3) \\,\\hat{\\jmath}      + (a_1 c_2 - a_2 c_1) \\,\\hat{k} \\Big) \\\\      &amp;= \\vec{a} \\times \\vec{b} + \\vec{a} \\times \\vec{c}. \\\\      \\end{aligned}" />
+
+      The second equation follows similarly, and for the third
+      equation we have:
+
+      <DisplayEquation equation="\\begin{aligned}      \\vec{a} \\times (\\beta \\vec{b})      &amp;= (a_2 (\\beta b_3) - a_3 (\\beta b_2)) \\,\\hat{\\imath}      + (a_3 (\\beta b_1) - a_1 (\\beta b_3)) \\,\\hat{\\jmath}      + (a_1 (\\beta b_2) - a_2 (\\beta b_1)) \\,\\hat{k} \\\\      &amp;= \\beta \\Big( (a_2 b_3 - a_3 b_2) \\,\\hat{\\imath}      + (a_3 b_1 - a_1 b_3) \\,\\hat{\\jmath}      + (a_1 b_2 - a_2 b_1) \\,\\hat{k} \\Big) \\\\      &amp;= \\beta (\\vec{a} \\times \\vec{b}).      \\end{aligned}" />
+
+      The last part of the third equation can be seen with a
+      similar derivation.
+    </p>
+  </DisplayEquation>
+</SubSubSection>
 
 <SubSection title="Derivatives"></SubSection>
 

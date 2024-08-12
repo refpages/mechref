@@ -1,5 +1,5 @@
 ---
-const { id, title } = Astro.props;
+const { id, title, solution="True" } = Astro.props;
 ---
 
 <style>
@@ -29,13 +29,15 @@ const { id, title } = Astro.props;
             <div class="w-100">
                 <slot />
             </div>
-            
+             
+           { solution == 'True' && 
             <button class="btn btn-secondary" id={'solution_btn_'+id}>Solution</button>
             <div id={'solution_menu_'+id}>
                 <div class="background-green p-2">
                     <slot name="solution"/>
                 </div>
             </div> 
+            }
         </div>
     </div>
 </div>
