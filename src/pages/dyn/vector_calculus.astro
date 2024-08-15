@@ -1,0 +1,702 @@
+---
+import Layout from "../../layouts/Layout.astro" 
+import Image from "../../components/Image.astro" 
+import Section from "../../components/Section.astro" 
+import SubSection from "../../components/SubSection.astro" 
+import SubSubSection from "../../components/SubSubSection.astro" 
+import BlueText from "../../components/BlueText.astro" 
+import RedText from "../../components/RedText.astro" 
+import DisplayEquation from "../../components/DisplayEquation.astro"
+import DisplayEquationCustom from "../../components/DisplayEquationCustom.astro"
+import PrairieDrawCanvas from "../../components/PrairieDrawCanvas.astro"
+import InlineEquation from "../../components/InlineEquation.astro"
+import Center from "../../components/Center.astro"
+import Warning from "../../components/Warning.astro"
+import Example from "../../components/Example.astro"
+import Row from "../../components/Row.astro"
+import Col from "../../components/Col.astro"
+---
+<Layout title="Vector Calculus">
+<Section title="Vector Calculus"></Section>
+
+<SubSection title="Dot product">
+    <RedText>*This topic appears in 2 reference pages*</RedText>
+    <BlueText>Complete in reference page "vector and bases"</BlueText>
+    <BlueText>Explained in reference page "vector identities"</BlueText>
+
+    <p>
+        The <em>dot product</em> (also called the <em>inner
+        product</em> or <em>scalar product</em>) is defined by
+      </p>
+
+    <DisplayEquation equation="\\vec{a} \\cdot \\vec{b}= a_1 b_1 + a_2 b_2 + a_3 b_3" title="Dot product from components." background="True"/>
+
+    <p>
+        An alternative expression for the dot product can be
+        given in terms of the lengths of the vectors and the
+        angle between them:
+      </p>
+    
+    <DisplayEquation id="rvv-ed" title="Dot product from length/angle." background="True" equation="\\vec{a} \\cdot \\vec{b}= a b \\cos\\theta" derivation="True">
+
+        <p>
+            We will present a simple 2D proof here. A more complete proof in 3D uses the law of cosines.
+          </p>
+          <p>
+            Start with two vectors <InlineEquation equation="\\vec{a}" /> and <InlineEquation equation="\\vec{b}" /> with an
+            angle <InlineEquation equation="\\theta" /> between them, as shown below.
+          </p>
+          <PrairieDrawCanvas id="rvv-ed-c" width="400" height="400" />
+          <p>
+            Observe that the angle <InlineEquation equation="\\theta" /> between vectors
+            <InlineEquation equation="\\vec{a}" /> and <InlineEquation equation="\\vec{b}" /> is the difference between the
+            <button onclick="rvv_ed_c.toggleOption('angles');">angles</button>
+            <InlineEquation equation="\\theta_a" /> and <InlineEquation equation="\\theta_b" /> from horizontal.
+          </p>
+          <p>
+            If we use the angle sum formula for cosine, we have
+          </p>
+          
+            <DisplayEquation equation="\\begin{aligned} a b \\cos\\theta &amp;= a b            \\cos(\\theta_b - \\theta_a) \\\\ &amp;= a b (\\cos\\theta_b            \\cos\\theta_a + \\sin\\theta_b \\sin\\theta_a)            \\end{aligned}" />
+          
+          <p>
+            We now want to express the sine and cosine of <InlineEquation equation="\\theta_a" />
+            and <InlineEquation equation="\\theta_b" /> in terms of the <button
+            onclick="rvv_ed_c.toggleOption('components');">components</button>
+            of <InlineEquation equation="\\vec{a}" /> and <InlineEquation equation="\\vec{b}" />.
+          </p>
+          <p>
+            We re-arrange the expression so that we can use the fact
+            that <InlineEquation equation="a_1 = a \\cos\\theta_a" /> and <InlineEquation equation="a_2 = a \\sin\\theta_a" />,
+            and similarly for <InlineEquation equation="\\vec{b}" />. This gives:
+          </p>
+          
+            <DisplayEquation equation="\\begin{aligned} a b \\cos\\theta &amp;= (a \\cos\\theta_a)            (b \\cos\\theta_b) + (a \\sin\\theta_a) (b \\sin\\theta_b) \\\\            &amp;= a_1 b_1 + a_2 b_2 \\\\ &amp;= \\vec{a} \\cdot \\vec{b}            \\end{aligned}" />
+          
+    </DisplayEquation>
+
+    <p>
+      The fact that we can write the dot product <a
+      href="#rvv-es">in terms of components</a> as well as <a
+      href="#rvv-ed">in terms of lengths and angle</a> is very
+      helpful for calculating the length and angles of vectors
+      from the component representations.
+    </p>
+
+    <DisplayEquation id="rvv-el" title="Length and angle from dot product." background="True" equation="\\begin{aligned} a &amp;= \\sqrt{\\vec{a} \\cdot\\vec{a}} \\\\ \\cos\\theta &amp;= \\frac{\\vec{b}\\cdot \\vec{a}}{b a}\\end{aligned}" derivation="True">
+      <p>
+        The angle between <InlineEquation equation="\\vec{a}" /> and itself is $\theta = 0$,
+        so <InlineEquation equation="\\vec{a} \\cdot \\vec{a} = a^2 \\cos 0 = a^2" />, which
+        gives the first equation for the length in terms of the
+        dot product.
+      </p>
+      <p>
+        The second equation is a rearrangement of <a
+        href="#rvv-ed">#rvv-ed</a>.
+      </p>
+    </DisplayEquation>
+
+    <p>
+      If two vectors have zero dot product <InlineEquation equation="\\vec{a} \\cdot \\vec{b} = 0" /> then they have an angle of <InlineEquation equation="\\theta = 90^\\circ = \\frac{\\pi}{2}\\rm\\ rad" /> between them and we say that the
+      vectors are <em>perpendicular</em>, <em>orthogonal</em>, or
+      <em>normal</em> to each other.
+    </p>
+    <p>
+      In 2D we can easily find a perpendicular vector by rotating <InlineEquation equation="\\vec{a}" /> counterclockwise with the following equation.
+    </p>
+
+    <DisplayEquation id="rvv-en" title="Counterclockwise perpendicular vector in 2D." background="True" equation="\\vec{a}^\\perp = -a_2\\,\\hat\\imath + a_1\\hat\\jmath" derivation="True">
+      <p>
+        It is easy to check that <InlineEquation equation="\\vec{a}^\\perp" /> is always
+        perpendicular to <InlineEquation equation="\\vec{a}" />:
+
+        <DisplayEquation equation="\\vec{a} \\cdot \\vec{a}^\\perp        = (a_1\\,\\hat\\imath + a_2\\,\\hat\\jmath) \\cdot        (-a_2\\,\\hat\\imath + a_1\\hat\\jmath)        = -a_1 a_2 + a_2 a_1 = 0." />
+
+        The fact that <InlineEquation equation="\\vec{a}^\\perp" /> is a <InlineEquation equation="+90^\\circ" /> rotation
+        of <InlineEquation equation="\\vec{a}" /> is apparent from Figure <a
+        href="#rvv-fn">#rvv-fn</a>.
+      </p>
+    </DisplayEquation>
+
+    <p>
+      In 2D there are two perpendicular directions to a given
+      vector <InlineEquation equation="\\vec{a}" />, given by <InlineEquation equation="\\vec{a}^\\perp" /> and
+      <InlineEquation equation="-\\vec{a}^\\perp" />. In 3D there is are many perpendicular
+      vectors, and there is no simple formula like <a
+      href="#rvv-en">#rvv-en</a> for 3D.
+    </p>
+
+    <Center>
+      <PrairieDrawCanvas id="rvv-fn-c" width="400" height="300" class="figureImage">
+        <p class="controls">
+          <button class="anim-toggle:rvv-fn-c" onclick="rvv_fn_c.toggleAnim()">animate</button>
+          <button class="reset:rvv-fn-c" onclick="rvv_fn_c.reset()">reset</button>
+          <button class="option-toggle:rvv-fn-c:showComponents" onclick="rvv_fn_c.toggleOption('showComponents')">show components</button>
+        </p>
+        <p class="figureCaption">
+          The perpendicular vector <InlineEquation equation="\\vec{a}^\\perp" /> is always a
+          <InlineEquation equation="+90^\\circ" /> rotation of <InlineEquation equation="\\vec{a}" />.
+        </p>
+      </PrairieDrawCanvas>
+    </Center>
+</SubSection>
+
+<SubSubSection title="Dot product identities">
+  <DisplayEquation id="rvi-ed" title="Dot product symmetry." equation="\\vec{a} \\cdot \\vec{b} = \\vec{b} \\cdot \\vec{a}" background="true" derivation="true">
+    <p>
+      Using the coordinate expression <a
+      href="rvv.html#rvv-es">#rvv-es</a> gives:
+
+      <DisplayEquation equation="      \\vec{a} \\cdot \\vec{b}      = a_1 b_1 + a_2 b_2 + a_3 b_3      = b_1 a_1 + b_2 a_2 + b_3 a_3      = \\vec{b} \\cdot \\vec{a}." />
+    </p>
+  </DisplayEquation>
+
+  <DisplayEquation id="rvi-eg" title="Dot product vector length." equation="\\vec{a} \\cdot \\vec{a} = \\|a\\|^2" background="true" derivation="true">
+    <p>
+      Using the coordinate expression <a
+      href="rvv.html#rvv-es">#rvv-es</a> gives:
+
+      <DisplayEquation equation="      \\vec{a} \\cdot \\vec{a}      = a_1 a_1 + a_2 a_2 + a_3 a_3 = \\|a\\|^2." />
+    </p>
+  </DisplayEquation>
+
+  <DisplayEquation id="rvi-ei" title="Dot product bi-linearity." equation="\\begin{aligned} \\vec{a} \\cdot(\\vec{b} + \\vec{c}) &amp;=\\vec{a} \\cdot \\vec{b} + \\vec{a}\\cdot \\vec{c} \\\\ (\\vec{a} +\\vec{b}) \\cdot \\vec{c} &amp;=\\vec{a} \\cdot \\vec{c} + \\vec{b}\\cdot \\vec{c} \\\\ \\vec{a} \\cdot (\\beta\\vec{b}) &amp;= \\beta (\\vec{a} \\cdot\\vec{b}) = (\\beta \\vec{a}) \\cdot\\vec{b}\\end{aligned}" background="true" derivation="true">
+    <p>
+      Using the coordinate expression <a
+      href="rvv.html#rvv-es">#rvv-es</a> gives:
+
+      <DisplayEquation equation="\\begin{aligned}      \\vec{a} \\cdot (\\vec{b} + \\vec{c})      &amp;= a_1 (b_1 + c_1) + a_2 (b_2 + c_2) + a_3 (b_3 + c_3) \\\\      &amp;= (a_1 b_1 + a_2 b_2 + a_3 b_3) + (a_1 c_1 + a_2 c_2 + a_3 c_3) \\\\      &amp;= \\vec{a} \\cdot \\vec{b} + \\vec{a} \\cdot \\vec{c} \\\\      (\\vec{a} + \\vec{b}) \\cdot \\vec{c}      &amp;= (a_1 + b_1) c_1 + (a_2 + b_2) c_2 + (a_3 + b_3) c_3 \\\\      &amp;= (a_1 c_1 + a_2 c_2 + a_3 c_3) + (b_1 c_1 + a_2 c_2 + a_3 c_3) \\\\      &amp;= \\vec{a} \\cdot \\vec{c} + \\vec{b} \\cdot \\vec{c} \\\\      \\vec{a} \\cdot (\\beta \\vec{b})      &amp;= a_1 (\\beta b_1) + a_2 (\\beta b_2) + a_3 (\\beta b_3) \\\\      &amp;= \\beta (a_1 b_1 + a_2 b_2 + a_3 b_3) \\\\      &amp;= \\beta (\\vec{a} \\cdot \\vec{b}) \\\\      &amp;= (\\beta a_1) b_1 + (\\beta a_2) b_2 + (\\beta a_3) b_3 \\\\      &amp;= (\\beta \\vec{a}) \\cdot \\vec{b}.      \\end{aligned}" />
+    </p>
+  </DisplayEquation>
+</SubSubSection>
+
+<SubSection title="Cross product">
+    <RedText>*This topic appears in 2 reference pages*</RedText>
+    <BlueText>Complete in reference page "vector and bases"</BlueText>
+    <BlueText>Explained in reference page "vector identities"</BlueText>
+
+    <p>
+      The cross product can be defined in terms of components by:
+    </p>
+
+    <DisplayEquation id="rvv-ex" title="Cross product in components." equation="\\vec{a} \\times \\vec{b}            = (a_2 b_3 - a_3 b_2) \\,\\hat{\\imath}            + (a_3 b_1 - a_1 b_3) \\,\\hat{\\jmath}            + (a_1 b_2 - a_2 b_1) \\,\\hat{k}" background="true" />
+
+    <p>
+      It is sometimes more convenient to work with cross products
+      of individual basis vectors, which are related as follows.
+    </p>
+
+    <DisplayEquationCustom id="rvv-eo" title="Cross products of basis vectors." background="True" derivation=True>
+      <Center>
+        <PrairieDrawCanvas id="rvv-eo-c" width="500" height="200" show_border="False" />
+      </Center>
+      <DisplayEquation equation="\\begin{aligned}\\hat\\imath \\times \\hat\\jmath &amp;= \\hat{k}&amp; \\hat\\jmath \\times \\hat{k} &amp;= \\hat\\imath&amp; \\hat{k} \\times \\hat\\imath &amp;= \\hat\\jmath \\\\\\hat\\jmath \\times \\hat\\imath &amp;= -\\hat{k}&amp; \\hat{k} \\times \\hat\\jmath &amp;= -\\hat\\imath&amp; \\hat\\imath \\times \\hat{k} &amp;= -\\hat\\jmath \\\\\\end{aligned}" />
+
+      <div slot="derivation">
+        <p>
+          Writing the basis vectors in terms of themselves gives the
+          components:
+
+          <DisplayEquation equation="\\begin{aligned}          i_1 &amp;= 1 &amp; i_2 &amp;= 0 &amp; i_3 &amp;= 0 \\\\          j_1 &amp;= 0 &amp; j_2 &amp;= 1 &amp; j_3 &amp;= 0 \\\\          k_1 &amp;= 0 &amp; k_2 &amp;= 0 &amp; k_3 &amp;= 1.          \\end{aligned}" />
+
+          These values can now be substituted into the definition <a
+          href="#rvv-ex">#rvv-ex</a>. For example,
+
+          <DisplayEquation equation="\\begin{aligned}          \\hat\\imath \\times \\hat\\jmath          &amp;= (i_2 j_3 - i_3 j_2) \\,\\hat{\\imath}          + (i_3 j_1 - i_1 j_3) \\,\\hat{\\jmath}          + (i_1 j_2 - i_2 j_1) \\,\\hat{k} \\\\          &amp;= (0 \\times 0 - 0 \\times 1) \\,\\hat{\\imath}          + (0 \\times 0 - 1 \\times 0) \\,\\hat{\\jmath}          + (1 \\times 1 - 0 \\times 0) \\,\\hat{k} \\\\          &amp;= \\hat{k}          \\end{aligned}" />
+
+          The other combinations can be computed similarly.
+        </p>
+      </div>
+    </DisplayEquationCustom>
+    
+    <Warning title="The cross product is not associative." id="rvv-wc">
+      <p>
+        The cross product is not <a
+        href="http://en.wikipedia.org/wiki/Associative_property">associative</a>,
+        meaning that in general
+
+        <DisplayEquation equation="\\vec{a} \\times (\\vec{b} \\times \\vec{c})        \\ne (\\vec{a} \\times \\vec{b}) \\times \\vec{c}." />
+
+        For example,
+
+        <DisplayEquation equation="\\begin{aligned}        \\hat{\\imath} \\times (\\hat{\\imath} \\times \\hat{\\jmath})        &amp;= \\hat{\\imath} \\times \\hat{k} = - \\hat{\\jmath} \\\\        (\\hat{\\imath} \\times \\hat{\\imath}) \\times \\hat{\\jmath}        &amp;= \\vec{0} \\times \\hat{\\jmath} = \\vec{0}.        \\end{aligned}" />
+
+        This means that we should never write an expression like
+
+        <DisplayEquation equation="\\vec{a} \\times \\vec{b} \\times \\vec{c}" />
+
+        because it is not clear in which order we should perform
+        the cross products. Instead, if we have more than one
+        cross product, we should always use parentheses to
+        indicate the order.
+      </p>
+    </Warning>
+
+    <p>
+      Rather than using components, the cross product can be
+      defined by specifying the length and direction of the
+      resulting vector. The direction of <InlineEquation equation="\\vec{a} \\times \\vec{b}" />
+      is orthogonal to both <InlineEquation equation="\\vec{a}" /> and <InlineEquation equation="\\vec{b}" />, with the
+      direction given by the right-hand rule. The magnitude of the
+      cross product is given by:
+    </p>
+
+    <DisplayEquation id="rvv-el2" title="Cross product length." equation="\\| \\vec{a} \\times \\vec{b} \\| = a b \\sin\\theta" background="true" derivation="true">
+      <p>
+        Using <a href="rvi.html#rvi-el">Lagrange's identity</a> we can calculate:
+
+        <DisplayEquation equation="\\begin{aligned}        \\| \\vec{a} \\times \\vec{b} \\|^2        &amp;= \\|\\vec{a}\\|^2 \\|\\vec{b}\\|^2        - (\\vec{a} \\cdot \\vec{b})^2 \\\\        &amp;= a^2 b^2 - (a b \\cos\\theta)^2 \\\\        &amp;= a^2 b^2 (1 - \\cos^2\\theta) \\\\        &amp;= a^2 b^2 \\sin^2\\theta.        \\end{aligned}" />
+
+        Taking the square root of this expression gives the
+        desired cross-product length formula.
+      </p>
+    </DisplayEquation>
+
+    <p>
+      This second form of the cross product definition can also be
+      related to the area of a parallelogram.
+    </p>
+    <Center>
+      <PrairieDrawCanvas id="rvv-fx-c" width="500" height="300">
+        <p>
+          The area of a parallelogram is the length of the base
+          multiplied by the perpendicular height, which is also the
+          magnitude of the cross product of the side vectors.
+        </p>
+      </PrairieDrawCanvas>
+    </Center>
+    <p>
+      A useful special case of the cross product occurs when
+      vector <InlineEquation equation="\\vec{a}" /> is in the 2D <InlineEquation equation="\\hat\\imath,\\hat\\jmath" /> plane
+      and the other vector is in the orthogonal <InlineEquation equation="\\hat{k}" />
+      direction. In this case the cross product rotates <InlineEquation equation="\\vec{a}" />
+      by <InlineEquation equation="90^\\circ" /> counterclockwise to give the perpendicular
+      vector <InlineEquation equation="\\vec{a}^\\perp" />, as follows.
+    </p>
+
+    <DisplayEquation id="rvv-e9" title="Cross product of out-of-plane vector \\( \\hat{k} \\) with 2D vector \\( \\vec{a} = a_1\\,\\hat\\imath + a_2\\,\\hat\\jmath \\)." equation="\\hat{k} \\times \\vec{a} = \\vec{a}^\\perp" background="true" derivation="true">
+      <p>
+        Using <a href="#rvv-eo">#rvv-eo</a> we can compute:
+
+        <DisplayEquation equation="\\begin{aligned}        \\hat{k} \\times \\vec{a}        &amp;= \\hat{k} \\times (a_1\\,\\hat\\imath + a_2\\,\\hat\\jmath) \\\\        &amp; a_1 (\\hat{k} \\times \\hat\\imath) + a_2 (\\hat{k} \\times \\hat\\jmath) \\\\        &amp;= a_1\\,\\hat\\jmath - a_2\\,\\hat\\imath \\\\        &amp;= \\vec{a}^\\perp.        \\end{aligned}" />
+      </p>
+    </DisplayEquation>
+</SubSection>
+
+<SubSubSection title="Cross product identities">
+  <DisplayEquation id="rvi-ea" title="Cross product anti-symmetry." equation="\\begin{aligned} \\vec{a} \\times\\vec{b} = - \\vec{b} \\times\\vec{a}\\end{aligned}" background="true" derivation="true">
+    <p>
+      Writing the component expression <a
+      href="rvv.html#rvv-ex">#rvv-ex</a> gives:
+
+      <DisplayEquation equation="\\begin{aligned}      \\vec{a} \\times \\vec{b}      &amp;= (a_2 b_3 - a_3 b_2) \\,\\hat{\\imath}      + (a_3 b_1 - a_1 b_3) \\,\\hat{\\jmath}      + (a_1 b_2 - a_2 b_1) \\,\\hat{k} \\\\      &amp;= -(a_3 b_2 - a_2 b_3) \\,\\hat{\\imath}      - (a_1 b_3 - a_3 b_1) \\,\\hat{\\jmath}      - (a_2 b_1 - a_1 b_2) \\,\\hat{k} \\\\      &amp;= -\\vec{b} \\times \\vec{a}.      \\end{aligned}" />
+    </p>
+  </DisplayEquation>
+
+  <DisplayEquation id="rvi-ez" title="Cross product self-annihilation." equation="\\begin{aligned}\\vec{a} \\times \\vec{a} = 0\\end{aligned}" background="true" derivation="true">
+    <p>
+      From anti-symmetry <a href="#rvi-ea">#rvi-ea</a> we
+      have:
+
+      <DisplayEquation equation="\\begin{aligned}      \\vec{a} \\times \\vec{a} &amp;= - \\vec{a} \\times \\vec{a} \\\\      2 \\vec{a} \\times \\vec{a} &amp;= 0 \\\\      \\vec{a} \\times \\vec{a} &amp;= 0.      \\end{aligned}" />
+    </p>
+  </DisplayEquation>
+
+  <DisplayEquation id="rvi-eb2" title="Cross product bi-linearity." equation="\\begin{aligned}\\vec{a} \\times (\\vec{b} + \\vec{c})&amp;= \\vec{a} \\times \\vec{b} + \\vec{a} \\times \\vec{c} \\\\(\\vec{a} + \\vec{b}) \\times \\vec{c}&amp;= \\vec{a} \\times \\vec{c} + \\vec{b} \\times \\vec{c} \\\\\\vec{a} \\times (\\beta \\vec{b})&amp;= \\beta (\\vec{a} \\times \\vec{b})= (\\beta \\vec{a}) \\times \\vec{b}\\end{aligned}" background="true" derivation="true">
+    <p>
+      Writing the component expression <a
+      href="rvv.html#rvv-ex">#rvv-ex</a> for the first
+      equation gives:
+
+      <DisplayEquation equation="\\begin{aligned}      \\vec{a} \\times (\\vec{b} + \\vec{c})      &amp;= (a_2 (b_3 + c_3) - a_3 (b_2 + c_2)) \\,\\hat{\\imath} \\\\      &amp;\\quad + (a_3 (b_1 + c_1) - a_1 (b_3 + c_3)) \\,\\hat{\\jmath} \\\\      &amp;\\quad + (a_1 (b_2 + c_2) - a_2 (b_1 + c_1)) \\,\\hat{k} \\\\      &amp;= \\Big((a_2 b_3 - a_3 b_2) \\,\\hat{\\imath}      + (a_3 b_1 - a_1 b_3) \\,\\hat{\\jmath}      + (a_1 b_2 - a_2 b_1) \\,\\hat{k} \\Big) \\\\      &amp;\\quad + \\Big((a_2 c_3 - a_3 c_2) \\,\\hat{\\imath}      + (a_3 c_1 - a_1 c_3) \\,\\hat{\\jmath}      + (a_1 c_2 - a_2 c_1) \\,\\hat{k} \\Big) \\\\      &amp;= \\vec{a} \\times \\vec{b} + \\vec{a} \\times \\vec{c}. \\\\      \\end{aligned}" />
+
+      The second equation follows similarly, and for the third
+      equation we have:
+
+      <DisplayEquation equation="\\begin{aligned}      \\vec{a} \\times (\\beta \\vec{b})      &amp;= (a_2 (\\beta b_3) - a_3 (\\beta b_2)) \\,\\hat{\\imath}      + (a_3 (\\beta b_1) - a_1 (\\beta b_3)) \\,\\hat{\\jmath}      + (a_1 (\\beta b_2) - a_2 (\\beta b_1)) \\,\\hat{k} \\\\      &amp;= \\beta \\Big( (a_2 b_3 - a_3 b_2) \\,\\hat{\\imath}      + (a_3 b_1 - a_1 b_3) \\,\\hat{\\jmath}      + (a_1 b_2 - a_2 b_1) \\,\\hat{k} \\Big) \\\\      &amp;= \\beta (\\vec{a} \\times \\vec{b}).      \\end{aligned}" />
+
+      The last part of the third equation can be seen with a
+      similar derivation.
+    </p>
+  </DisplayEquation>
+</SubSubSection>
+
+<SubSection title="Derivatives">
+
+  <p>
+    Time-dependent vectors can be differentiated in exactly
+    the same way that we differentiate scalar functions. For
+    a time-dependent vector <InlineEquation equation="\\vec{a}(t)" />, the
+    derivative <InlineEquation equation="\\dot{\\vec{a}}(t)" /> is:
+  </p>
+
+  <DisplayEquation id="rvc-ed" title="Vector derivative definition." background=True equation="\\begin{aligned} \\dot{\\vec{a}}(t)&amp;= \\frac{d}{dt} \\vec{a}(t) = \\lim_{\\Delta t\\to 0} \\frac{\\vec{a}(t + \\Delta t) -\\vec{a}(t)}{\\Delta t}\\end{aligned}" />
+
+  <p>
+    Note that vector derivatives are a purely geometric
+    concept. They don't rely on any basis or coordinates, but
+    are just defined in terms of the physical actions of adding
+    and scaling vectors.
+  </p>
+
+  <PrairieDrawCanvas id="rvc-fd-c" width="600" height="200">
+    <div style="width: 600px;">
+      <p class="controls">
+        <button class="reset:rvc-fd-c" onclick="rvc_fd_c.reset()">reset</button>
+        <button class="option-toggle:rvc-fd-c:showLabels" onclick="rvc_fd_c.toggleOption('showLabels')">labels</button>
+      </p>
+
+      <Row>
+        <Col values="12">
+          <div class="d-flex">
+            <p class="m-0 flex-shrink-1">Increment:<p>
+            <div class="flex-grow-1 d-flex align-items-baseline"> 
+              <input type="range" min="0" max="4" value="2" step="0.01" class="data-input:rvc-fd-c:dt flex-grow-1 mx-2" onchange="rvc_fd_c.setOption('dt', this.value); document.querySelector('span[class*=deltat]').innerText = this.value; console.log(this.value);" oninput="rvc_fd_c.setOption('dt', this.value); document.querySelector('span[class*=deltat]').innerText = this.value;"/>
+            \(\Delta t = \) <span class="data-option:rvc-fd-c:deltat mx-2" >2</span> s
+            </div>
+          </div>
+         
+        </Col>
+
+        <Col values="12">
+          <div class="d-flex flex-row flex-wrap">
+            <p class="me-2 my-0">Show:</p>
+            <button class="option-toggle:rvc-fd-c:showIncrement" onclick="rvc_fd_c.toggleOption('showIncrement');">vector increment <InlineEquation equation="\\Delta\\vec{a}" /></button>
+              <button class="option-toggle:rvc-fd-c:showApproxDeriv" onclick="rvc_fd_c.toggleOption('showApproxDeriv');">approximate derivative <InlineEquation equation="\\Delta\\vec{a} / \\Delta t" /></button>
+              <button class="option-toggle:rvc-fd-c:showExactDeriv" onclick="rvc_fd_c.toggleOption('showExactDeriv');">exact derivative <InlineEquation equation="\\dot{\\vec{a}}" /></button>
+          </div>
+          
+        </Col>
+
+        <Col values="12">
+          <div class="d-flex">
+            <p class="m-0 flex-shrink-1">Time:<p>
+            <div class="flex-grow-1 d-flex align-items-baseline"> 
+              <input type="range" min="0" max="10" value="0" step="0.01" class="data-input:rvc-fd-c:t flex-grow-1 mx-2" onchange="rvc_fd_c.setOption('t', this.value); document.querySelector('span[class*=t_step]').innerText = this.value;" oninput="rvc_fd_c.setOption('t', this.value); document.querySelector('span[class*=t_step]').innerText = this.value;"/>
+              \(t = \) <span class="data-option:rvc-fd-c:t_step mx-2"></span> s
+            </div>
+          </div>
+         
+        </Col>
+      </Row>
+      <p class="figureCaption mt-3">
+        Vector derivatives shown as functions of \(t\) and \(\Delta
+        t\). We can hold \(t\) fixed and vary \(\Delta t\) to see how
+        the approximate derivative <InlineEquation equation="\\Delta\\vec{a}/\\Delta t" />
+        approaches <InlineEquation equation="\\dot{\\vec{a}}" />. Alternatively, we can hold
+        \(\Delta t\) fixed and vary \(t\) to see how the approximation
+        changes depending on how <InlineEquation equation="\\vec{a}" /> is changing.
+      </p>
+  </div>
+
+  
+  </PrairieDrawCanvas>
+
+  <p>
+    We will use either the dot notation
+    <InlineEquation equation="\\dot{\\vec{a}}(t)" /> (also known as Newton notation) or the full derivative notation
+    <InlineEquation equation="\\frac{d\\vec{a}(t)}{dt}" /> (also known as Leibniz notation), depending on which is
+    clearer and more convenient. We will often not write the
+    time dependency explicitly, so we might write just
+    <InlineEquation equation="\\dot{\\vec{a}}" /> or <InlineEquation equation="\\frac{d\\vec{a}}{dt}" />. See below for more details.
+  </p>
+
+</SubSection>
+
+<SubSubSection title="Newton versus Leibniz Notation">
+  <p>
+    Most people know who Isaac Newton is, but perhaps fewer 
+    have heard of Gottfried Leibniz. Leibniz was a prolific 
+    mathematician and a contemporary of Newton.  Both of them 
+    claimed to have invented calculus independently of each 
+    other, and this became the source of a bitter rivalry 
+    between the two of them.  Each of them had different 
+    notation for derivatives, and both notations are commonly 
+    used today.
+  </p>
+  <p>
+    Leibniz notation is meant to be reminiscent of the 
+    definition of a derivative:
+  </p>
+  <p>
+    <DisplayEquation equation="\\frac{dy}{dt}=\\lim_{\\Delta t\\rightarrow0}\\frac{\\Delta y}{\\Delta t}." />
+  </p>
+  <p>
+    Newton notation is meant to be compact:
+  </p>
+  <p>
+    <DisplayEquation equation="\\dot{y} = \\frac{dy}{dt}." />
+  </p>
+  <p>
+    Note that a superscribed dot always denotes differentiation 
+    with respect to time \(t\).  A superscribed dot is never used 
+    to denote differentiation with respect to any other variable, 
+    such as \(x\).
+  </p>
+  <p>
+    But what about primes? A prime is used to denote differentiation 
+    with respect to a function's argument.  For example, suppose 
+    we have a function \(f=f(x)\).  Then
+  </p>
+  <p>
+    <DisplayEquation equation="f'(x) = \\frac{df}{dx}." />
+  </p>
+  <p>
+    Suppose we have another function \(g=g(s)\). Then
+  </p>
+  <p>
+    <DisplayEquation equation="g'(s) = \\frac{dg}{ds}." />s
+  </p>
+  <p>
+    As you can see, while a superscribed dot always denotes 
+    differentiation with respect to time \(t\), a prime can denote 
+    differentiation with respect to any variable; but that variable 
+    is always the function's argument.
+  </p>
+  <p>
+    Sometimes, for convenience, we drop the argument altogether.  So, 
+    if we know that \(y=y(x)\), then \(y'\) is understood to be the same 
+    as \(y'(x)\).  This is sloppy, but it is very common in practice.
+  </p>
+  <p>
+    Each notation has advantages and disadvantages.  The main advantage 
+    of Newton notation is that it is compact: it does not take a lot of 
+    effort to write a dot or a prime over a variable.  However, the price 
+    you pay for convenience is clarity.  The main advantage of Leibniz 
+    notation is that it is absolutely clear exactly which variable you are 
+    differentiating with respect to.  
+  </p>
+  <p>
+    Leibniz notation is also very convenient for remembering the chain rule.  
+    Consider the following examples of the chain rule in the two notations:
+  </p>
+  <p>
+    <DisplayEquation equation="\\begin{aligned}&amp;\\text{Newton:}&amp;\\dot{y}=y'(x)\\dot{x} \\\\      &amp;\\text{Leibniz:}&amp;\\frac{dy}{dt}=\\frac{dy}{dx}\\frac{dx}{dt}.\\end{aligned}" />
+  </p>
+  <p>
+    Notice how, with Leibniz notation, you can imagine the \(dx\)'s "cancelling 
+    out" on the right-hand side, leaving you with \(dy/dt\).
+  </p>
+</SubSubSection>
+
+<SubSection title="Derivatives and vector &quot;positions&quot;">
+
+  <p>
+    When thinking about vector derivatives, it is important to
+    remember that vectors <a href="rvv.html#rvv-fc">don't have
+    positions</a>. Even if a vector is drawn moving about, this
+    is irrelevant for the derivative.  Only changes to length
+    and direction are important.
+  </p>
+
+  <PrairieDrawCanvas id="rvc-fp-c" width="600" height="400">
+    <div style="width: 600px;">
+      <p class="controls">
+        <button class="reset:rvc-fp-c" onclick="rvc_fp_c.toggleAnim()">animate</button>
+        <button class="reset:rvc-fp-c" onclick="rvc_fp_c.reset()">reset</button>
+      </p>
+
+      <p class="controls">
+        Show:
+        <button class="option-toggle:rvc-fp-c:showVelocity0" onclick="rvc_fp_c.toggleOption('showVelocity0')">derivative at \(t = 0\)</button>
+        <button class="option-toggle:rvc-fp-c:showFixedBase"><InlineEquation equation="\\vec{a}(t)" onclick="rvc_fp_c.toggleOption('showFixedBase'); "/> with fixed base</button>
+        <button class="option-toggle:rvc-fp-c:showVelocity" onclick="rvc_fp_c.toggleOption('showVelocity'); rvc_fp_c.redraw();">derivative at current \(t\)</button>
+      </p>
+    </div>
+  </PrairieDrawCanvas>
+</SubSection>
+
+<SubSubSection title="Cartesian">
+    <BlueText>Complete in reference page "vector calculus"</BlueText>
+    <RedText>The example in Fig \ref Fig:CartesianDerivatives  could be added:</RedText>
+
+    <Image src="/Dynamics/VectorCalculusFigures/Cartesian Derivatives.png" width="7"> Taken from L03-Notes, slide 6.</Image>
+
+    
+</SubSubSection>
+    
+<SubSubSection title="Non-Cartesian: Polar basis">
+    <RedText>An example like in Fig \ref Fig:Non-CartesianPolarBasis  could be added in "vector and bases"</RedText> 
+
+    <Image src="/Dynamics/VectorCalculusFigures/Non-Cartesian Polar Basis.png" width="7"> Taken from L03-Notes, slide 7.</Image>
+</SubSubSection>
+
+<SubSubSection title="Graphical estimation">
+    <RedText>The information in Fig  \ref Fig:GraphicalEstimation  could be included as a new section in "vector and bases"</RedText> 
+
+    <Image src="/Dynamics/VectorCalculusFigures/Graphical Estimation of Derivatives.png" width="7"> Taken from L03-Notes, slide 8.</Image>
+</SubSubSection>
+
+<SubSection title="Chain rule"></SubSection>
+
+<SubSubSection title="Scalars">
+    <BlueText>Complete in "Vector Calculus"</BlueText>
+</SubSubSection>
+
+<SubSubSection title="Second derivative">
+    <BlueText>Complete in "vector Calculus"</BlueText>
+</SubSubSection>
+    
+<SubSection title="Integration">
+    <RedText>Include summary of both Polar and Cartesian integration as in Fig  \ref fig:SummaryVecInt</RedText>
+
+    <Image src="/Dynamics/VectorCalculusFigures/SummaryVectorIntegration.png" width="7"></Image>
+</SubSection>
+
+<SubSubSection title="Cartesian basis">
+    <BlueText>Complete in "Vector calculus"</BlueText>
+
+    <p>
+      The Riemann-sum definition of the vector integral is:
+    </p>
+
+    <DisplayEquation id="rvc-ei" title="Vector integral." background="True" equation="\\int_0^t \\vec{a}(\\tau) \\, d\\tau= \\lim_{N \\to \\infty} \\underbrace{\\sum_{i=1}^N \\vec{a}(\\tau_i) \\Delta\\tau}_{\\vec{S}_N}\\qquad \\tau_i = \\frac{i - 1}{N}\\qquad \\Delta \\tau = \\frac{1}{N}     " />
+
+    <p>
+      In the above definition <InlineEquation equation="\\vec{S}_N" /> is the sum with \(N\)
+      intervals, written here using the left-hand edge <InlineEquation equation="\\tau_i" /> in
+      each interval.
+    </p>
+    <Center>
+      <PrairieDrawCanvas id="rvc-fi-c" width="600" height="400">
+        <div style="width: 600px;">
+        <p class="controls">
+          <button class="reset:rvc-fi-c" onclick="rvc_fi_c.reset()">reset</button>
+          <button class="option-toggle:rvc-fi-c:showLabels" onclick="rvc_fi_c.toggleOption('showLabels')">labels</button>
+        </p>
+
+        <Row>
+          <Col values="12">
+            <div class="d-flex">
+              <p class="m-0 flex-shrink-1">Time:<p>
+              <div class="flex-grow-1 d-flex align-items-baseline"> 
+                <input type="range" min="0" max="10" value="0" step="0.01" class="data-input:rvc-fi-c:t flex-grow-1 mx-2" onchange="rvc_fi_c.setOption('t', this.value); document.querySelector('span[class*=t]').innerText = this.value;" oninput="rvc_fi_c.setOption('t', this.value); document.querySelector('span[class*=t]').innerText = this.value;"/>
+              \(t = \) <span class="data-option:rvc-fi-c:t mx-2" >0</span> s
+              </div>
+            </div>
+           
+          </Col>
+
+          <Col values="12">
+            <div class="d-flex flex-row">
+              <p class="mx-2 my-0">Show:</p>
+              <button class="option-toggle:rvc-fi-c:showExact mx-2 py-0" onclick="rvc_fi_c.toggleOption('showExact')">integral of <InlineEquation equation="\\vec{a}(t)" /></button>
+              <button class="option-toggle:rvc-fi-c:showApprox mx-2 py-0" onclick="rvc_fi_c.toggleOption('showApprox')">approximate integral</button>
+            </div>
+            
+          </Col>
+
+          <Col values="12">
+            <div class="d-flex">
+              <p class="m-0 flex-shrink-1">Segments:<p>
+              <div class="flex-grow-1 d-flex align-items-baseline"> 
+                <input type="range" min="0" max="4.61" value="0" step="0.01" class="data-input:rvc-fi-c:logN flex-grow-1 mx-2" onchange="rvc_fi_c.setOption('logN', this.value); document.querySelector('span[class*=N]').innerText = Math.round(2.71543**this.value); console.log(this.value);" oninput="rvc_fi_c.setOption('logN', this.value); document.querySelector('span[class*=N]').innerText = Math.round(2.71543**this.value); console.log(this.value);"/>
+              \(N = \) <span class="data-option:rvc-fi-c:N mx-2">1</span>
+              </div>
+            </div>
+           
+          </Col>
+        </Row>
+      </div>
+
+      <p>
+        Integral of a vector function <InlineEquation equation="\\vec{a}(t)" />, together with
+            the approximation using a Riemann sum.
+      </p>
+      </PrairieDrawCanvas>
+    </Center>
+      <p>
+        Just like vector derivatives, vector integrals only use the
+        geometric concepts of scaling and addition, and do not rely
+        on using a basis. If we do write a vector function in terms
+        of a fixed basis, then we can integrate each component:
+      </p>
+
+      <DisplayEquation title="Vector integral in components." id="rvc-et" background="True" derivation="True" equation="\\int_0^t \\vec{a}(\\tau) \\, d\\tau= \\left( \\int_0^t a_1(\\tau) \\, d\\tau \\right) \\,\\hat\\imath+ \\left( \\int_0^t a_2(\\tau) \\, d\\tau \\right) \\,\\hat\\jmath+ \\left( \\int_0^t a_3(\\tau) \\, d\\tau \\right) \\,\\hat{k}">
+        <p>
+          Consider a time-dependent vector <InlineEquation equation="\\vec{a}(t)" /> written in
+          components with a fixed basis:
+
+          <DisplayEquation equation="\\vec{a}(t) = a_1(t) \\,\\hat\\imath + a_2(t) \\,\\hat\\jmath." />
+
+          Using the definition <a href="#rvc-ei">#rvc-ei</a> of
+          the vector integral gives:
+
+          <DisplayEquation equation="\\begin{aligned}\\int_0^t \\vec{a}(\\tau) \\, d\\tau&amp;= \\lim_{N \\to \\infty} \\sum_{i=1}^N\\vec{a}(\\tau_i) \\Delta\\tau \\\\&amp;= \\lim_{N \\to \\infty} \\sum_{i=1}^N\\left( a_1(\\tau_i) \\,\\hat\\imath+ a_2(\\tau_j) \\,\\hat\\jmath \\right) \\Delta\\tau \\\\&amp;= \\lim_{N \\to \\infty} \\left( \\sum_{i=1}^Na_1(\\tau_i) \\Delta\\tau \\,\\hat\\imath+ \\sum_{i=1}^N a_2(\\tau_j) \\Delta\\tau \\,\\hat\\jmath \\right) \\\\&amp;= \\left( \\lim_{N \\to \\infty} \\sum_{i=1}^Na_1(\\tau_i) \\Delta\\tau \\right) \\,\\hat\\imath+ \\left( \\lim_{N \\to \\infty}\\sum_{i=1}^N a_2(\\tau_j) \\Delta\\tau \\right) \\,\\hat\\jmath \\\\&amp;= \\left( \\int_0^t a_1(\\tau) \\, d\\tau \\right) \\,\\hat\\imath+ \\left( \\int_0^t a_2(\\tau) \\, d\\tau \\right) \\,\\hat\\jmath.\\end{aligned}" />
+
+          The second-to-last line used the Riemann-sum definition
+          of regular scalar integrals of <InlineEquation equation="a_1(t)" /> and <InlineEquation equation="a_2(t)" />.
+        </p>
+      </DisplayEquation>
+    
+      <Warning title="Integrating each component is only valid if the basis is fixed." id="rvc-wi">
+        <p>
+          Integrating a vector function by integrating each
+          component separately is only valid if the basis vectors
+          are not changing with time. If the basis vectors are
+          changing then we must either transform to a fixed basis
+          or otherwise take this change into account.
+        </p>
+      </Warning>
+
+      <Example title="Integrating a vector function." id="rvc-xi">
+        <p>
+          The vector <InlineEquation equation="\\vec{a}(t)" /> is given by
+
+          <DisplayEquation equation="\\vec{a}(t) = \\Big(2 \\sin(t + 1) + t^2 \\Big) \\,\\hat\\imath+ \\Big(3 - 3 \\cos(2t)\\Big) \\,\\hat\\jmath." />
+
+          What is <InlineEquation equation="\\int_0^t \\vec{a}(\\tau) \\, d\\tau" />?
+        </p>
+
+        <div slot="solution">
+          <p>
+            <DisplayEquation equation="\\begin{aligned}\\int_0^t \\vec{a}(\\tau) \\,d\\tau&amp;= \\left(\\int_0^t \\Big(2 \\sin(\\tau + 1) + \\tau^2 \\Big)\\,d\\tau\\right) \\,\\hat\\imath+ \\left(\\int_0^t \\Big(3 - 3 \\cos(2\\tau)\\Big)\\,d\\tau\\right) \\,\\hat\\jmath \\\\&amp;=\\left[-2 \\cos(\\tau + 1) + \\frac{\\tau^3}{3}\\right]_{\\tau=0}^{\\tau=t} \\,\\hat\\imath+ \\left[3 \\tau - \\frac{3}{2} \\sin(2\\tau)\\right]_{\\tau=0}^{\\tau=t} \\,\\hat\\jmath \\\\&amp;= \\left( -2\\cos(t + 1) + 2 \\cos(1)+ \\frac{t^3}{3}\\right)\\,\\hat\\imath+ \\left(3t - \\frac{3}{2} \\sin(2t)\\right)\\,\\hat\\jmath.\\end{aligned}" />
+          </p>
+        </div>
+      </Example>
+
+      <Warning title="The dummy variable of integration must be different to the limit variable." id="rvc-wd">
+        <p>
+          In the coordinate integral expression <a
+          href="#rvc-ei">#rvc-ei</a>, it is important that the
+          component expressions \(a_1(t)\), \(a_2(t)\) are re-written
+          with a different dummy variable such as \(\tau\) when
+          integrating. If we used $\tau$ for integration but kept
+          \(a_1(t)\) then we would obtain
+
+          <DisplayEquation equation="\\int_0^t a_1(t) \\,d\\tau= \\left[a_1(t) \\, \\tau\\right]_{\\tau = 0}^{\\tau = t}= a_1(t) \\, t,      " />
+
+          which is not what we mean by the integral.
+
+          Alternatively, if we leave everything as \(t\) then we
+          would obtain
+
+          <DisplayEquation equation="\\int_0^t a_1(t) \\,dt" />
+
+          which is a meaningless expression, as dummy variables
+          must only appear inside an integral.
+        </p>
+      </Warning>
+</SubSubSection>
+
+<SubSubSection title="Polar basis">
+    <RedText>Add the information in Fig  \ref fig:PolarIntegration</RedText>
+    
+    <Image src="/Dynamics/VectorCalculusFigures/PolarIntegration.png" width="7"></Image>
+</SubSubSection>
+
+<SubSection title="Solving equations">
+    <RedText>Include step by step on how to solve vector equations as shown in Fig  \ref fig:SolvingEqnsSteps</RedText>
+
+    <Image src="/Dynamics/VectorCalculusFigures/SolvingEqnsSteps.png" width="7"></Image>
+
+
+    Include examples as shown in Figs \ref fig:SolvingEqns, \ref fig:SolvingEqns2 
+
+    <Image src="/Dynamics/VectorCalculusFigures/SolvingEqns.png" width="7"></Image>
+
+    <Image src="/Dynamics/VectorCalculusFigures/SolvingEqns2.png" width="7"></Image>
+</SubSection>
+</Layout>
+
+<script src="/dyn/vector_calculus/canvases.js" is:inline></script>

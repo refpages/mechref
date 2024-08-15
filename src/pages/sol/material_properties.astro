@@ -1,0 +1,178 @@
+---
+import Layout from "../../layouts/Layout.astro" 
+import Image from "../../components/Image.astro" 
+import Section from "../../components/Section.astro" 
+import SubSection from "../../components/SubSection.astro" 
+import SubSubSection from "../../components/SubSubSection.astro" 
+import Itemize from "../../components/Itemize.astro" 
+import Item from "../../components/Item.astro" 
+import InlineEquation from "../../components/InlineEquation.astro" 
+import DisplayEquation from "../../components/DisplayEquation.astro" 
+import BlueText from "../../components/BlueText.astro" 
+import RedText from "../../components/RedText.astro" 
+---
+<Layout title="Material Properties">
+<Section title="Material Properties (Images need updating)"></Section>
+
+<SubSection title="Stress-Strain Diagram">
+
+A <strong>stress-strain diagram</strong> is the relationship of normal stress as a function of normal strain. One way to collect these measurement is a <strong>uniaxial tension test</strong> in which a specimen at a very slow, constant rate (quasi-static). A load <InlineEquation equation="P" /> and distance <InlineEquation equation="L" /> are measured at frequent intervals.
+
+
+
+ Evaluation of average normal strain, or engineering strain (relative to undeformed length):
+
+<DisplayEquation equation="\\varepsilon = \\frac{\\delta}{L_0} = \\frac{L-L_0}{L_0}\\" />
+
+ Evaluation of average normal stress, or engineering stress (relative to undeformed cross section):
+
+<DisplayEquation equation="\\sigma = \\frac{P}{A_0}\\" />
+
+ Note that two stress-strain diagrams for a particular material will be similar, but not identical, e.g. because of imperfections, different composition, rate or loading, or temperature.
+
+<Image src='/Solid_Mechanics/Material Properties-Figures/Stress Strain Diagram.png' width='3'> Stress-strain diagram showing key properties</Image>
+</SubSection>
+<SubSubSection title="Elastic Behavior">
+Loading in this region results <strong>elastic behavior</strong>, meaning the material returns to its original shape when unloaded. This region of the diagram is mostly a straight line, limited by the proportional limit). This region ends at <InlineEquation equation="\\sigma_Y" /> (yielding). For <InlineEquation equation="\\sigma \\le \\sigma_{pl}" />, the diagram is linear, and the behavior is elastic. For <InlineEquation equation="\\sigma_{pl} < \\sigma < \\sigma_Y" />, the diagram is nonlinear, but the behavior is still elastic.
+
+
+ <strong>Young's Modulus</strong>
+
+
+
+ Hooke's law is used for small deformations in the elastic region. The Young's modulus is the slope <InlineEquation equation="E" />.
+<DisplayEquation equation="\\sigma = E\\varepsilon\\" />
+
+<Image src='/Solid_Mechanics/Material Properties-Figures/Modulus Examples.png' width='2'> Table screenshot from ref pages. Approximate elastic modulus values for different material families.</Image>
+
+
+<strong>Shear Modulus</strong>
+
+<Image src='/Solid_Mechanics/Material Properties-Figures/Shear Diagram.png' width='4'>  <BlueText>Taken from TAM251 Lecture Notes - L3S14</BlueText></Image>
+
+
+ Hooke's law: <DisplayEquation equation="\\tau_{xy} = G\\gamma_{xy}\\" />
+
+ Shear Modulus: <DisplayEquation equation="G = \\frac{E}{2(1+\\nu)}\\" />
+ Only two of the three material constants (ie; <InlineEquation equation="G" />, <InlineEquation equation="E" />, <InlineEquation equation="\\nu" />) are independent in isotropic materials.
+
+</SubSubSection>
+
+<SubSubSection title="Plastic Behavior">
+
+Stresses above the plastic limit (<InlineEquation equation="\\sigma_Y < \\sigma" />) cause the material to permanently deform.
+
+
+ <strong>Yield Strength</strong>
+
+
+
+ Perfect plastic or ideal plastic: well-defined <InlineEquation equation="\\sigma_Y" />, stress plateau up to failure. Some materials (e.g. mild steel) have two yield points (stress plateau at <InlineEquation equation="\\sigma_{YL}" />). Most ductile metals do not have a stress plateau; yield strength <InlineEquation equation="\\sigma_{YS}" /> is then defined by the <strong>0.002 (0.2\%) offset method</strong>.
+
+
+ <strong>Strain Hardening</strong>
+
+<Image src='/Solid_Mechanics/Material Properties-Figures/Strain Hardening.png' width='4'>  <BlueText>Taken from TAM251 Lecture Notes - L3S8</BlueText></Image>
+
+ <em>Atoms rearrange</em> in plastic region of ductile materials when a higher stress is sustained. Plastic strain remains after unloading as <em>permanent set</em>, resulting in permanent deformation. Reloading is linear elastic up to the new, higher yield stress (at <strong>A'</strong>) and a reduced ductility.
+
+
+ <strong>Ultimate Strength</strong>
+
+
+
+ The ultimate strength (<InlineEquation equation="\\sigma_u" />) is the maximum stress the material can withstand.
+
+
+ <strong>Necking</strong>
+
+<Image src='/Solid_Mechanics/Material Properties-Figures/Necking.png' width='3'>  <BlueText>Taken from TAM251 Lecture Notes - L3S5</BlueText></Image>
+
+ After ultimate stress (<InlineEquation equation="\\sigma_u < \\sigma" />), the middle of the material elongates before failure.
+
+
+ <strong>Failure</strong>
+
+
+
+ Also called fracture or rupture stress (<InlineEquation equation="\\sigma_f" />) is the stress at the point of failure for the material. Brittle and Ductile materials fail differently.
+
+<Image src='/Solid_Mechanics/Material Properties-Figures/Ductile vs Brittle.png' width='3'>  <BlueText>Taken from TAM251 Lecture Notes - L9S19</BlueText></Image>
+
+<Itemize>
+    <Item><strong>Brittle materials:</strong> small plastic region between yield and failure (fracture), no necking, primary fail by normal stress.</Item>
+    <Item><strong>Ductile materials:</strong> large region of plastic deformation before failure (fracture) at higher strain, necking; often fails under 45° cone angles by shear stress.</Item>
+</Itemize>
+
+ Note the difference between engineering and true stress/strain diagrams: ultimate stress is a consequence of necking, and the true maximum is the true fracture stress.
+
+
+ <strong>Example:</strong> Concrete is a brittle material.
+
+<Itemize>
+	<Item>Maximum compressive strength is substantially larger than the maximum tensile strength.
+    </Item>
+	<Item>For this reason, concrete is almost always reinforced with steel bars or rods whenever it is designed to support tensile loads.
+    </Item>
+</Itemize>
+
+</SubSubSection>
+
+<SubSection title="Other Derived Properties"></SubSection>
+
+<SubSubSection title="Directional Materials">
+
+<Itemize>
+    <Item><strong>Isotropic:</strong> material properties are independent of the direction</Item>
+    <Item><strong>Anisotropic:</strong> material properties depend on the direction (ie; composites, wood, and tissues)</Item>
+</Itemize>
+
+</SubSubSection>
+
+<SubSubSection title="Poisson's Ratio">
+
+<Image src="/Solid_Mechanics/Material Properties-Figures/Poisson's Ratio.png" width='4'>  <BlueText>Taken from TAM251 Lecture Notes - L3S15</BlueText></Image>
+
+ Axial (normal) strain: <DisplayEquation equation="\\varepsilon_{x} = \\frac{\\delta}{L}\\" />
+
+ Poisson's ratio <InlineEquation equation="\\nu" />: <DisplayEquation equation="\\nu = -\\frac{\\text{lateral strain}}{\\text{axial strain}}" />
+
+ Typical Range: <DisplayEquation equation="0 < \\nu < 0.5\\" /> 
+
+ Lateral strain: <DisplayEquation equation="\\varepsilon_{z} = \\varepsilon_{y} = -\\nu\\varepsilon_{x}\\" />
+
+ <strong>Negative Poisson's Ratio (auxetics)</strong>
+
+
+
+ Possible because of non-trivial structure of the material.
+
+</SubSubSection>
+
+<SubSubSection title="Strain Energy /!\\ BSM: we do not cover this topic in class/hw/exams. ME 330 is covered in an introductory way in ME 330; not sure where else it might come up in ME curriculum.">
+
+
+
+ <strong><RedText>**Reference pages have a broken link image here**</RedText></strong>
+
+ Deformation does work on the material: equal to internal strain energy (by energy conservation).
+
+<DisplayEquation equation="\\Delta U = \\int F_{z}dz = \\int \\sigma_{z}(\\Delta x \\Delta y \\Delta z)d\\varepsilon_{z}\\" />
+
+ Energy Density: <DisplayEquation equation="u = \\frac{\\Delta U}{\\Delta V} = \\int \\sigma_{z}d\\varepsilon_{z}\\" />
+
+ Can be generalized to any deformation: areas under stress-strain curves
+
+<DisplayEquation equation="u = \\int \\sigma d\\varepsilon\ \\quad \\text{or} \\quad u = \\int \\tau d\\gamma\\" />
+
+</SubSubSection>
+
+<SubSubSection title="Fatigue - Repeated Loading /!\\ BSM: we do not cover this topic in class/hw/exams. Fatigue is covered in ME 330 briefly, and ME 371 more in depth.">
+
+<Image src='/Solid_Mechanics/Material Properties-Figures/SN Curve.png' width='4'>  <BlueText>Taken from TAM251 Lecture Notes - L3S6</BlueText></Image>
+
+ If stress does not exceed the elastic limit, the specimen returns to its original configuration. However, this is not the case if the loading is repeated thousands or millions of times. In such cases, rupture will happen at stress lower than the fracture stress - this phenomenon is known as fatigue.
+
+</SubSubSection>
+
+</Layout>

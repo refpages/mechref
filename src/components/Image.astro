@@ -1,11 +1,27 @@
 ---
-const { src, width} = Astro.props;
+const { src, width="5", alt=''} = Astro.props;
+
+const img_path_split = src.split('/')
+
+const filename = 'Fig: ' + img_path_split.pop().replace('.png', '')
 ---
 
-<div class="container w-100 d-flex flex-column align-items-center">
+<style>
+    .filename{
+        display: none;
+    }
+
+   .img-container:hover .filename{
+        display: block;
+    }
+</style>
+
+<div class="container img-container w-100 d-flex flex-column align-items-center my-3">
     <div style=`width: calc(${Number(width)} / 8 * 100%)` class="d-flex flex-column align-items-center">
-        <img src={src} class="w-100">
+        <img src={src} class="w-100" alt={alt}>
     </div>
-    <div class="d-flex flex-row justify-content-center align-items-baseline flex-wrap" style="gap: 5px;"><slot /></div>
-    
+    <figcaption class="filename">{filename}</figcaption>
+    <div class="d-flex flex-row justify-content-center align-items-baseline flex-wrap" style="gap: 5px;">
+        <u><slot /></u>
+    </div>
 </div>

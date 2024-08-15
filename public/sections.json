@@ -3,14 +3,108 @@
     "Dynamics",
     [[
       "Course Material",
-      []
+      [
+        {
+          "id": "contact_and_rolling",
+          "name": "Contact And Rolling"
+        },
+        {
+          "id": "particle_kinematics",
+          "name": "Particle Kinematics"
+        },
+        {
+          "id": "particle_kinetics",
+          "name": "Particle Kinetics"
+        },
+        {
+          "id": "questions_to_ask_instructor",
+          "name": "Questions To Ask Instructor"
+        },
+        {
+          "id": "rigid_body_kinematics",
+          "name": "Rigid Body Kinematics"
+        },
+        {
+          "id": "rigid_body_kinetics",
+          "name": "Rigid Body Kinetics"
+        },
+        {
+          "id": "vector_calculus",
+          "name": "Vector Calculus"
+        },
+        {
+          "id": "vectors",
+          "name": "Vectors"
+        },
+        {
+          "id": "work_and_energy",
+          "name": "Work And Energy"
+        }
+      ]
     ]]
   ],
   [
     "Solid Mechanics",
     [[
       "Course Material",
-      []
+      [
+        {
+          "id": "axial_loading",
+          "name": "Axial Loading"
+        },
+        {
+          "id": "beam_deflection",
+          "name": "Beam Deflection"
+        },
+        {
+          "id": "bending",
+          "name": "Bending"
+        },
+        {
+          "id": "buckling",
+          "name": "Buckling"
+        },
+        {
+          "id": "combined_loading",
+          "name": "Combined Loading"
+        },
+        {
+          "id": "failure_theories",
+          "name": "Failure Theories"
+        },
+        {
+          "id": "material_properties",
+          "name": "Material Properties"
+        },
+        {
+          "id": "pressure_vessels",
+          "name": "Pressure Vessels"
+        },
+        {
+          "id": "shear_moment_diagrams",
+          "name": "Shear Moment Diagrams"
+        },
+        {
+          "id": "strain",
+          "name": "Strain"
+        },
+        {
+          "id": "stress",
+          "name": "Stress"
+        },
+        {
+          "id": "stress_transformation",
+          "name": "Stress Transformation"
+        },
+        {
+          "id": "torsion",
+          "name": "Torsion"
+        },
+        {
+          "id": "transverse_shear",
+          "name": "Transverse Shear"
+        }
+      ]
     ]]
   ],
   [

@@ -1,0 +1,186 @@
+---
+import Layout from "../../layouts/Layout.astro" 
+import Image from "../../components/Image.astro" 
+import Section from "../../components/Section.astro" 
+import SubSection from "../../components/SubSection.astro" 
+import SubSubSection from "../../components/SubSubSection.astro" 
+import BlueText from "../../components/BlueText.astro" 
+import RedText from "../../components/RedText.astro" 
+import Itemize from "../../components/Itemize.astro" 
+import Item from "../../components/Item.astro" 
+import InlineEquation from "../../components/InlineEquation.astro" 
+import DisplayEquation from "../../components/DisplayEquation.astro" 
+---
+<Layout title="Torsion">
+<Section title="Torsion">
+
+<strong>Torsion</strong> refers to the twisting of a specimen when it is loaded by couples (or <strong>moments</strong>) that produce rotation about the longitudinal axis. Applications include aircraft engines, car transmissions, and bicycles, etc.
+
+</Section>
+
+<SubSection title="Units">
+
+Force X distance [lb-in or N-m]
+
+</SubSection>
+
+<SubSection title="Notation and Convention">
+
+<Image src="/Solid_Mechanics/Torsion-Figures/Convention.png" width="5">  <BlueText>Taken from TAM251 Lecture Notes - L5S11</BlueText></Image>
+
+<BlueText>
+ <Itemize>
+     <Item><InlineEquation equation="\\phi > 0" /> : counter clockwise </Item>
+     <Item><InlineEquation equation="\\phi < 0" /> : clockwise </Item>
+ </Itemize>
+</BlueText>
+
+
+<Image src="/Solid_Mechanics/Torsion-Figures/RightHandRule.png" width="2">  <BlueText>Taken from TAM251 Lecture Notes - L5S11</BlueText></Image>
+
+ Torque and angle of twist follow the right hand rule sign convention. When positive, using the right hand, the thumb points outward from the shaft and the fingers will curl in the direction of the positive twist/torque.
+
+</SubSection>
+
+<SubSection title="Equilibrium">
+<BlueText>
+The stress distribution in the shaft is not known.
+ <Itemize>
+     <Item>Statically indeterminate: must consider shaft deformations. </Item>
+     <Item>Multi-planar: equilibrium requires the existence of shear stresses on the faces formed by the two planes containing the axis of the shaft </Item>
+ </Itemize>
+</BlueText>
+
+<Image src="/Solid_Mechanics/Torsion-Figures/Equilibrium.png" width="4">  <BlueText>Taken from TAM251 Lecture Notes - L5S3</BlueText></Image>
+
+</SubSection>
+
+<SubSection title="Assumptions">
+
+<Itemize>
+	<Item>For circular shafts (hollow and solid): cross-sections remain plane and undistorted due to axisymmetric geometry</Item>
+	<Item>For non-circular shafts,: cross-sections are distorted when subject to torsion</Item>
+	<Item>Linear and elastic deformation</Item>
+</Itemize>
+
+<Image src="/Solid_Mechanics/Torsion-Figures/TorsionLines.png" width="6">  <BlueText>Taken from TAM251 Lecture Notes - L5S5</BlueText></Image>
+
+</SubSection>
+
+<SubSection title="Shear Stress and Strain"></SubSection>
+
+<SubSubSection title="Shear Strain: Geometry of Deformation">
+
+<Image src="/Solid_Mechanics/Torsion-Figures/GeometryDeformation.png" width="4">  <BlueText>Taken from TAM251 Lecture Notes - L5S6</BlueText></Image>
+
+ The angle of twist increases as x increases. The twist rate is given by: <DisplayEquation equation="\\frac{d\\phi}{dx} = \\frac{\\gamma}{\\rho} = \\frac{\\gamma_{max}}{c}\\" />
+
+ Moving terms we get:<DisplayEquation equation="\\gamma = \\rho \\frac{d\\phi}{dx}\\" />
+
+ Hence, the shear strain (<InlineEquation equation="\\gamma" />):
+<Itemize>
+    <Item> is proportional to the angle of twist</Item>
+    <Item> varies linearly with the distance from the axis of the shaft</Item>
+    <Item> is <strong>maximum</strong> at the surface</Item>
+</Itemize>
+
+</SubSubSection>
+
+<SubSubSection title="Shear Stress: Torsion Formula">
+
+Geometry: <DisplayEquation equation="\\gamma = \\rho \\frac{d\\phi}{dx}\\" />
+
+ Hooke's Law: <DisplayEquation equation="\\tau = G\\gamma\\" />
+
+ From equilibrium: <DisplayEquation equation="\\frac{d\\phi}{dx} = \\frac{T}{GJ}\\" />
+
+ Elastic torsion formula: <DisplayEquation equation="\\tau = \\frac{T\\rho}{J}\\" />
+
+ <BlueText>The shear stress in the elastic range varies linearly with the radial position in the section</BlueText>
+
+<Image src="/Solid_Mechanics/Torsion-Figures/StressDistribution.png" width="4">  <BlueText>Taken from TAM251 Lecture Notes - L5S8</BlueText></Image>
+
+ <BlueText><em>Note:</em>  shaft under torque T rotating at angular speed w transmits power  
+ <DisplayEquation equation="P=T\\omega\\" /></BlueText>
+
+</SubSubSection>
+
+<SubSubSection title="Shear Stress: Polar Moment of Inertia">
+
+Solid Shaft (radius and diameter): <DisplayEquation equation="J = \\int_0^R{\\rho^2dA} = \\int_0^R{\\rho^2(2\\pi\\rho d\\rho)dA} =2\\pi \\int_0^R{\\rho^3d\\rho} = \\frac{\\pi R^4}{2} = \\frac{\\pi D^4}{32}\\" />
+
+ Hollow Shaft (inner and outer radius): <DisplayEquation equation="J = \\frac{\\pi}{2}(R_o^4-R_i^4) = \\frac{\\pi}{32}(D_o^4-D_i^4)\\" />
+</SubSubSection>
+
+<SubSubSection title="Shear Stress: Symmetry in Axial Planes-?? /!\\BSM: not sure what this topic is; can probably omit">
+
+ <strong><RedText>**Reference pages have a broken link image X2 here and no text**</RedText></strong>
+</SubSubSection>
+
+<SubSubSection title="Shear Stress: Angle of Twist">
+From observation:
+<Itemize>
+	<Item>The angle of twist of the shaft is proportional to the applied torque </Item>
+	<Item>The angle of twist of the shaft is proportional to the length </Item>
+	<Item>The angle of twist of the shaft decreases when the diameter of the shaft increases
+</Item>
+</Itemize>
+
+
+
+ <strong>Angle of Twist:</strong> <DisplayEquation equation="\\phi = \\frac{TL}{GJ}\\" />
+
+ Torsional stiffness: <DisplayEquation equation="k_T = \\frac{GJ}{L}\\" />
+
+ Torsional flexibility: <DisplayEquation equation="f_T = \\frac{L}{GJ}\\" />
+
+</SubSubSection>
+
+<SubSection title="Miscellaneous"></SubSection>
+<SubSubSection title="Types of Material Failure">
+
+<strong>Ductile </strong>materials generally fail in shear
+
+<Image src="/Solid_Mechanics/Torsion-Figures/ductile.png" width="4"> From reference pages</Image>
+
+<!-- \begin{multicols}{2} -->
+<div class="row">
+	<div class="col-6">Axial: maximum shear stress at </div>
+	<div class="col-6">Torsion: maximum shear stress at </div>
+</div>
+
+
+ 
+ <strong>Brittle</strong> materials are weaker in tension than shear
+
+<Image src="/Solid_Mechanics/Torsion-Figures/brittle.png" width="4"> From reference pages</Image>
+
+<!-- \begin{multicols}{2} -->
+<div class="row">
+	<div class="col-6">Axial: maximum normal stress at </div>
+	<div class="col-6">Torsion: maximum normal stress at </div>
+</div>
+
+</SubSubSection>
+
+
+<SubSubSection title="Thin-walled hollow shafts  /!\\ BSM: we do not cover this topic in class/hw/exams. Not sure if/when this topic is covered in ME curriculum.">
+
+In general, the maximum shear stress is given by <DisplayEquation equation="\\phi = \\frac{TL}{GJ}\\" />
+
+ For thin-walled shafts: <DisplayEquation equation="\\tau_{max} = \\frac{T}{2tA_m}\\" />
+
+ where <DisplayEquation equation="\\begin{align} A_m &= \\pi R_{ave}^2 \\\\ R_{ave} &= \\frac{R_o + R_i}{2} \\end{align}" />
+
+ Note that is NOT the cross sectional area of the hollow shaft!
+
+</SubSubSection>
+
+<SubSubSection title="Gear Systems - do we want to add?">
+
+<BlueText>BSM: I think it's a nice idea to add some basic info/equations. The biggest is the constraint of the statics version of the ``no slip'' condition between gears (mated gears twist through the same arc length).</BlueText>
+
+<Image src="/Solid_Mechanics/Torsion-Figures/GearSystem.png" width="3">  <BlueText>Taken from TAM251 Lecture Notes - L5S15</BlueText></Image>
+</SubSubSection>
+
+</Layout>

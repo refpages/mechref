@@ -1,0 +1,24 @@
+<style>
+    .card-container{
+        width: min(100%, 400px);
+    }
+
+    .sticky{
+        align-self: start;
+        position: sticky;
+        top: 1rem;
+    }
+
+    @media (min-width: 992px){
+        .card-container{
+            width: 100%;
+        }
+    }
+</style>
+
+<div class="d-flex flex-column align-items-center w-100 sticky">
+    <div class="card-container">
+        <slot />
+    </div>
+    
+</div>

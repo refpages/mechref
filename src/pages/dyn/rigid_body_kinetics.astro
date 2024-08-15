@@ -1,0 +1,1915 @@
+---
+import Layout from "../../layouts/Layout.astro" 
+import Image from "../../components/Image.astro" 
+import Section from "../../components/Section.astro" 
+import SubSection from "../../components/SubSection.astro" 
+import SubSubSection from "../../components/SubSubSection.astro" 
+import BlueText from "../../components/BlueText.astro" 
+import RedText from "../../components/RedText.astro" 
+import Itemize from "../../components/Itemize.astro" 
+import Item from "../../components/Item.astro" 
+import DisplayEquation from "../../components/DisplayEquation.astro"
+import DisplayEquationCustom from "../../components/DisplayEquationCustom.astro"
+import PrairieDrawCanvas from "../../components/PrairieDrawCanvas.astro"
+import InlineEquation from "../../components/InlineEquation.astro"
+import Example from "../../components/Example.astro"
+import Center from "../../components/Center.astro"
+import SubSubSubSection from "../../components/SubSubSubSection.astro"
+import Warning from "../../components/Warning.astro"
+import CalloutCard from "../../components/CalloutCard.astro"
+import CalloutContainer from "../../components/CalloutContainer.astro"
+---
+<Layout title="Rigid Body Kinetics">
+<Section title="Rigid Body Kinetics"></Section>
+
+<SubSection title="Center of mass (COM)">
+    <BlueText>Complete in "Center of mass"</BlueText> 
+
+    <p>
+        The total mass of a rigid body is as follows:
+    </p>
+
+    <DisplayEquation equation="m = \\iiint_{\\mathcal{B}} \\rho \\, dV" background="True" derivation="True" title="Total mass of a rigid body." id="rcm-tm">
+        <p>
+            The mass of an infinitesimally small element of the rigid body $dm$ assuming constant density is:
+            \[
+            dm =  \rho \, dV
+            \]
+            Therefore, integrating over the entire volume of the body gives us the expression above.
+        </p>
+    </DisplayEquation>
+
+    <p>
+        The center of mass of a rigid body can be calculated as follows:
+    </p>
+
+    <DisplayEquationCustom background="True" derivation="True" title="Center of mass \\(C\\) of a rigid body." id="rcm-cm">
+        <div class="w-100 d-flex flex-row align-items-center">
+            <div class="w-50">
+                <DisplayEquation equation="\\begin{gathered} \\vec{r}_C = \\frac{1}{m}\\iiint_{\\mathcal{B}} \\rho \\vec{r} \\, dV \\\\ \\end{gathered}" />
+            </div>
+            <div class="w-50">
+                <PrairieDrawCanvas id="rcm-cm-c" width="300" height="300" show_border="False">
+            </div>
+        </div>
+        
+        <p>
+            <InlineEquation equation="\\vec{r}" /> is the vector from a reference origin <InlineEquation equation="O" /> to <InlineEquation equation="dV" />.
+        </p>
+        <p>
+            The integral term <InlineEquation equation="\\iiint_{\\mathcal{B}} \\rho \\vec{r} \\, dV" /> is known as the "first moment of mass".
+        </p>
+
+        <div class="w-100" slot="derivation">
+            <p>
+                The center of mass of a collection of particles is given by the finite sum:
+                <DisplayEquation equation="\\vec{r}_C = \\frac{1}{m} \\sum_{i=1}^{N} m_i \\, \\vec{r}_i" />
+            </p>
+            <p>
+                Therefore, for a continuous mass distribution and infinite number of particles, the sum becomes an integral
+                and the masses become the mass of an infinitesimally small element on the rigid body:
+                <DisplayEquation equation="\\vec{r}_C = \\frac{1}{m}\\iiint_{\\mathcal{B}} \\vec{r} dm" />
+            </p>
+            <p>
+                Where <InlineEquation equation="dm = \\rho \\, dV" /> from the differential of <a href="rcm.html#rcm-tm">#rcm-tm</a>. Substituting in:
+                <DisplayEquation equation="\\begin{aligned} \\vec{r}_C &amp;= \\frac{1}{m}\\iiint_{\\mathcal{B}} \\vec{r} dm \\\\ &amp;= \\frac{1}{m}\\iiint_{\\mathcal{B}} \\vec{r} \\rho \\, dV \\\\ &amp;= \\frac{1}{m}\\iiint_{\\mathcal{B}} \\rho \\vec{r} \\, dV \\\\ \\end{aligned}" />
+            </p>
+        </div>
+    </DisplayEquationCustom>
+
+    <Example title="Center of mass of a right-triangular plate." id="rcm-xc">        
+        <div class="w-100 d-flex flex-row ">
+            <div class="w-50">
+                <p>
+                    A solid uniform right-triangular plate with mass <InlineEquation equation="m" /> has width <InlineEquation equation="w" />, height <InlineEquation equation="h" />. Where is the
+                    center of mass <InlineEquation equation="\\vec{r}_C" />located? 
+                </p>
+            </div>
+            <div class="w-50">
+                <PrairieDrawCanvas id="rcm-xc-c" width="300" height="200"/>
+            </div>
+        </div>
+
+        <div slot="solution">
+            <p>
+                In order to figure out where the center of mass is located, we will need to choose an origin. The origin chosen
+                in this instant is where the base and height begin, as shown. Using the center of mass formula will allow us
+                to calculate the vector shown below (i.e we are calculating <InlineEquation equation="\\vec{r}_{OC}" />).
+            </p>
+            <Center>
+                <PrairieDrawCanvas id="rcm-xc-s1" width="300" height="200"/>
+            </Center>
+            <p>
+                Using the formula <a href="#rcm-cm">#rcm-cm</a>:
+                <DisplayEquation equation="\\begin{aligned} \\vec{r}_C &amp;= \\frac{1}{m} \\iiint_{\\mathcal{B}} \\rho \\vec{r} \\, dV \\\\  &amp;= \\frac{1}{m} \\iint_{A} \\rho \\vec{r} \\, tdA \\\\ \\end{aligned}" />
+            </p>
+            <p>
+                Where <InlineEquation equation="A" /> represents the surface area of the plate, and <InlineEquation equation="t" /> is the thickness. We will assume the thickness is 1, as 
+                we are only interested in the center of mass in the <InlineEquation equation="x" />-<InlineEquation equation="y" /> plane. Our triple integral with <InlineEquation equation="dV" />instead becomes a
+                double integral with <InlineEquation equation="dV = t dA" />. We therefore have:
+                <DisplayEquation equation="\\vec{r}_C = \\frac{1}{m} \\int_{x_1}^{x_2} \\int_{y_1}^{y_2} \\rho \\vec{r} \\, dA" />
+            </p>
+            <p>
+                We will redraw the figure and show the \(dA\) element. We will also find the \(x\)-coordinate and \(y\)-coordinate ranges
+                for the body. 
+            </p>
+            <Center>
+                <PrairieDrawCanvas id="rcm-xc-s2" width="300" height="200" />
+            </Center>
+            <p>
+                Examining the figure above, we can see that the <InlineEquation equation="x" />-coordinate range is <InlineEquation equation="0" /> to <InlineEquation equation="w" />. Our <InlineEquation equation="y" />-coordinate range
+                has a dependence on the <InlineEquation equation="x" />-value, and the equation of the hypotenuse is <InlineEquation equation="y = h - \\frac{h}{w}x" />, using the point-slope formula. Therefore,
+                the <InlineEquation equation="y" />-coordinate range is <InlineEquation equation="0" /> to <InlineEquation equation="h - \\frac{h}{w}x" />. As a result of this, we will have to integrate with respect to <InlineEquation equation="y" /> first. All in all,
+                our center of mass equation becomes:
+                <DisplayEquation equation="\\vec{r}_C = \\frac{1}{m} \\int_{0}^{w} \\int_{0}^{h - \\frac{h}{w}x} \\rho \\vec{r} \\, dydx" />
+                
+            </p>
+            <p>
+                where <InlineEquation equation="vec{r}" /> is the distance to the <InlineEquation equation="dA" /> element. We can see the coordinates of <InlineEquation equation="dA" /> are \([x,y]\). Thus, 
+                <InlineEquation equation="\\vec{r} = x\\hat{\\imath} + y\\hat{\\jmath}" />. Therefore:
+                <DisplayEquation equation="\\begin{aligned} \\vec{r}_C &amp;= \\frac{1}{m} \\int_{0}^{w} \\int_{0}^{h - \\frac{h}{w}x} \\rho \\left(x\\hat{\\imath} + y\\hat{\\jmath}\\right) \\, dydx \\\\ &amp;= \\frac{\\rho}{m} \\int_{0}^{w} \\int_{0}^{h - \\frac{h}{w}x} \\left(x\\hat{\\imath} + y\\hat{\\jmath}\\right) \\, dydx \\\\ &amp;= \\frac{\\rho}{m} \\left[\\int_{0}^{w} \\int_{0}^{h - \\frac{h}{w}x} \\left(x\\hat{\\imath} \\, dy\\right)dx + \\int_{0}^{w} \\int_{0}^{h - \\frac{h}{w}x} \\left(y\\hat{\\jmath} \\, dy\\right)dx\\right] \\\\ &amp;= \\frac{\\rho}{m} \\left[\\int_{0}^{w} x\\left(h - \\frac{h}{w}x\\right)\\hat{\\imath}dx + \\int_{0}^{w} \\frac{1}{2}\\left(h - \\frac{h}{w}x\\right)^2\\hat{\\jmath}dx\\right] \\\\ &amp;= \\frac{\\rho}{m} \\left[\\frac{w^2 h}{6}\\hat{\\imath} + \\frac{wh^2}{6}\\hat{\\jmath}\\right] \\end{aligned}" />
+            </p>
+            <p>
+                where <InlineEquation equation="\\frac{\\rho}{m} = \\frac{1}{A} = \\frac{1}{\\frac{1}{2}wh} = \\frac{2}{wh}" />. Substituting that in yields:
+            
+                <DisplayEquation equation="\\vec{r}_C = \\frac{1}{3}w \\hat{\\imath} + \\frac{1}{3}h \\hat{\\jmath}" />
+                
+            </p>
+            <p>
+                Meaning the center of mass for a right-triangular plate is located at 1/3rd of the width, and 1/3rd of the height.
+                This formula has been used to calculate the center of mass of different common shapes.
+            </p>
+        </div>
+    </Example>
+
+    <p>
+        Finding the center of mass allows us to treat complex shapes as point-masses with all their mass at the center of mass.
+    </p>
+    <p>
+        To find the center of mass of a body made up of composite shapes, we simply do the weighted average of each body by
+        using the fact above.
+    </p>
+
+    <DisplayEquationCustom title="Center of mass \(C\) of composite bodies." id="rcm-cb" background="True" derivation="True">
+        <div class="w-100 d-flex flex-row align-items-center">
+            <div class="w-50">
+                <DisplayEquation equation="\\vec{r}_C = \\frac{m_1 \\vec{r}_1 + m_2 \\vec{r}_2}{m_1 + m_2}" />
+            </div>
+            <div class="w-50">
+                <PrairieDrawCanvas id="rcm-cm-cb" width="300" height="300" show_border="False">
+            </div>
+        </div>
+        
+        <p>            
+            <InlineEquation equation="\\vec{r}_i" /> is the center of mass of the \(i\)th body. 
+                The whole body <InlineEquation equation="\\mathcal{B}" /> is composed of sub-bodies <InlineEquation equation="\\mathcal{B}_1" /> and <InlineEquation equation="\\mathcal{B}_2" />
+            
+        </p>
+
+        <div class="w-100" slot="derivation">
+            <p>
+                Finding the center of mass of the whole body follows directly from the fact that the integral
+                over the whole body is the sum of the integrals over the sub-bodies. That is, for <InlineEquation equation="\\mathcal{B} = \\mathcal{B}_1 \\cup \\mathcal{B}_2" />
+                (and <InlineEquation equation="\\mathcal{B}_1" />not overlapping with <InlineEquation equation="\\mathcal{B}_2$" />, we have:
+                <DisplayEquation equation="\\begin{aligned} \\vec{r}_C &amp;= \\frac{1}{M}\\iiint_\\mathcal{B} \\rho \\vec{r} \\, dV \\\\ &amp;= \\frac{1}{M}\\iiint_{\\mathcal{B}_1 \\cup \\mathcal{B}_2} \\rho \\vec{r} \\, dV \\\\ &amp;= \\frac{1}{M}\\left[\\iiint_{\\mathcal{B}_1} \\rho_1 \\vec{r}_1 \\, dV + \\iiint_{\\mathcal{B}_2} \\rho_2 \\vec{r}_2 \\, dV \\right] \\\\ &amp;= \\frac{m_1 \\vec{r}_1 + m_2 \\vec{r}_2}{M} \\\\ &amp;= \\frac{m_1 \\vec{r}_1 + m_2 \\vec{r}_2}{m_1 + m_2} \\end{aligned}" />
+            </p>
+        </div>
+    </DisplayEquationCustom>
+
+    <Example title="Center of mass of an L-shaped plate." id="rcm-xl">
+        <div class="w-100 d-flex flex-row ">
+            <div class="w-50 p-2">
+                <PrairieDrawCanvas id="rcm-xl-c" width="300" height="200"/>
+            </div>
+            <div class="w-50 p-2">
+                <p>
+                    A solid uniform L-shaped plate has mass \(m\) and dimensions as shown. What
+                is the location of the center of mass?
+                </p>
+            </div>
+        </div>
+
+        <div slot="solution">
+            <div class="w-100 d-flex flex-row ">
+                <Center>
+                    <PrairieDrawCanvas id="rcm-xl-cd" width="300" height="200" show_border="False" />
+                </Center>
+                <div>
+                    <p>
+                        In order to figure out where the center of mass is located, we will need to choose an origin. The origin chosen
+                        here is the corner shown.
+                    </p>
+                    <p>
+                        Then we must realize that the L-shape can be decomposed into four square plates, as shown.
+                        Each square plate has the same mass, so:
+                        <DisplayEquation equation="m_i = \\frac{1}{4}m" />
+                    </p>
+                </div>
+                
+            </div>
+            
+            <p>
+                Using the addition formula <a href="#rcm-cb">#rcm-cb</a>:
+                <DisplayEquation equation="\\vec{r}_C = \\frac{1}{m} \\sum_{i=1}^{4} m_i \\vec{r}_i" />
+            </p>
+            <p>
+                where:
+                <DisplayEquation equation="\\begin{aligned} \\vec{r}_1 &amp;= d\\hat{\\imath} + 3d\\hat{\\jmath} \\\\ \\vec{r}_2 &amp;= d\\hat{\\imath} + d\\hat{\\jmath} \\\\ \\vec{r}_3 &amp;= 3d\\hat{\\imath} + d\\hat{\\jmath} \\\\ \\vec{r}_4 &amp;= 5d\\hat{\\imath} + d\\hat{\\jmath} \\end{aligned}" />
+            </p>
+            <p>
+                Substituting in:
+                <DisplayEquation equation="\\begin{aligned} x_C = \\frac{\\frac{1}{4}md + \\frac{1}{4}md + \\frac{3}{4}md + \\frac{5}{4}md}{m} = \\frac{5}{2}d \\\\ y_C = \\frac{\\frac{3}{4}md + \\frac{1}{4}md + \\frac{1}{4}md + \\frac{1}{4}md}{m} = \\frac{3}{2}d \\end{aligned}" />
+            </p>
+            <p>
+                Thus, the center of mass of the L-shape plate:
+                <DisplayEquation equation="\\vec{r}_C = \\frac{5}{2}d \\hat{\\imath} + \\frac{3}{2}d \\hat{\\jmath}" />
+            </p>
+            <p>
+                And its location on the plate is shown below.
+            </p>
+            <Center>
+                <PrairieDrawCanvas id="rcm-xl-cf" width="300" height="200">
+            </Center>
+        </div>
+    </Example>
+
+    <RedText>Add to this section the information shown in Fig fig:COM</RedText>
+
+    <Image src="/Dynamics/RigidBodyKineticsFigs/CenterofMass.png" width="8" id="COM"></Image>
+</SubSection>
+
+<SubSubSection title="Basic Shapes">
+    <p>
+        The centers of mass listed below are all computed directly from the integral <a href="#rcm-cm">#rcm-cm</a>. Note
+        the center of mass provided is the vector from point \(O\) (the reference origin).
+    </p>
+
+    <DisplayEquationCustom id="rcm-er" title="Rectangular plate: center of mass" background="True" derivation=True>
+        <div class="w-100 d-flex flex-row align-items-center">
+            <div class="w-50">
+                <PrairieDrawCanvas id="rcm-er-c" width="300" height="300" show_border=False>
+            </div>
+
+            <div class="w-50">
+                <DisplayEquation equation="\\vec{r}_C = \\frac{\\ell_x}{2}\\hat{\\imath} + \\frac{\\ell_y}{2}\\hat{\\jmath}" />
+            </div>
+        </div>
+        
+        <div slot="derivation">
+            <p>
+                <DisplayEquation equation="\\begin{aligned} \\vec{r}_C &amp;= \\frac{1}{m}\\iiint_\\mathcal{B} \\rho \\vec{r} \\, dV \\\\ &amp;= \\frac{1}{m}\\iint_{A} \\rho \\vec{r} \\, dA \\\\ &amp;= \\frac{\\rho}{m}\\int_{0}^{\\ell_x}\\int_{0}^{\\ell_y} \\left[x\\hat{\\imath} + y\\hat{\\jmath}\\right] \\, dydx \\\\ &amp;= \\frac{\\rho}{m}\\int_{0}^{\\ell_x} \\left[xy\\hat{\\imath} + \\frac{y^2}{2}\\hat{\\jmath}\\right]_{y = 0}^{y = \\ell_y} dx \\\\ &amp; = \\frac{\\rho}{m}\\int_{0}^{\\ell_x} \\left[x\\ell_y \\hat{\\imath} + \\frac{\\ell^2_y}{2}\\hat{\\jmath}\\right]dx \\\\ &amp; = \\frac{\\rho}{m} \\left[\\frac{x^2}{2}\\ell_y \\hat{\\imath} + \\frac{\\ell^2_y}{2}x\\right]_{x = 0}^{x = \\ell_x} \\\\ &amp; = \\frac{\\rho}{m} \\left[\\frac{\\ell_y \\, \\ell^2_x}{2} \\hat{\\imath} + \\frac{\\ell^2_y \\, \\ell_x}{2} \\hat{\\jmath}\\right] \\\\ \\end{aligned}" />
+            </p>
+            <p>
+                The total mass of the plate is <InlineEquation equation="m = \\rho A = \\rho \\ell_x \\ell_y "/>. Thus we have:
+                <DisplayEquation equation="\\vec{r}_C = \\frac{\\ell_x}{2}\\hat{\\imath} + \\frac{\\ell_y}{2}\\hat{\\jmath}" />
+            </p>
+        </div>
+    </DisplayEquationCustom>
+
+    <DisplayEquationCustom id="rcm-et" title="Triangular plate: center of mass" background="True" derivation=True>
+        <div class="w-100 d-flex flex-row align-items-center">
+            <div class="w-50">
+                <PrairieDrawCanvas id="rcm-et-c" width="300" height="300" show_border=False>
+            </div>
+
+            <div class="w-50">
+                <DisplayEquation equation="\\vec{r}_C = \\frac{x_P + x_Q}{3}\\hat{\\imath} + \\frac{y_Q}{3}\\hat{\\jmath}" />
+            </div>
+        </div>
+        
+        <div slot="derivation">
+            <p>
+                <DisplayEquation equation="\\begin{aligned} \\vec{r}_C &amp;= \\frac{1}{m}\\iiint_\\mathcal{B} \\rho \\vec{r} \\, dV \\\\ &amp;= \\frac{1}{m}\\iint_{A} \\rho \\vec{r} \\, dA \\\\ \\end{aligned}" />
+            </p>
+            <p>
+                It is convenient to do a linear transformation from \(x\)-\(y\) plane to the \(u\)-\(v\) plane,
+                to transform the triangle into a right-triangle with \(b = 1\), \(h = 1\):
+                <DisplayEquation equation="\\begin{aligned} x &amp;= au + bv \\\\ y &amp;= cu + dv \\\\ \\end{aligned}" />
+            </p>
+            <p>
+                Or solve the following system of equations:
+                <DisplayEquation equation="\\begin{aligned} x_P &amp;= a(1) + b(0) \\\\ x_Q &amp;= a(0) + b(1) \\ y_P &amp;= c(1) + d(0) \\\\ y_Q &amp;= c(0) + d(1) \\\\ \\end{aligned}" />
+            </p>
+            <p>
+                We find that the linear transformation is:
+                <DisplayEquation equation="\\begin{aligned} x &amp;= x_P u + x_Q v \\\\ y &amp;= y_P u + y_Q v \\\\ \\end{aligned}" />
+            </p>
+            <p>
+                The Jacobian of this coordinate transformation is:
+                <DisplayEquation equation="\\begin{aligned} J &amp;= \\begin{vmatrix}  \\frac{\\partial x}{\\partial u} &amp; \\frac{\\partial x}{\\partial v} \\\\  \\frac{\\partial y}{\\partial u} &amp; \\frac{\\partial y}{\\partial v}  \\end{vmatrix}  = \\begin{vmatrix} x_P &amp; x_Q \\\\  y_P &amp; y_Q \\end{vmatrix} = x_P y_Q - x_Q y_P \\end{aligned}" />
+            </p>
+            <p>
+                Starting with the $x$-coordinate:
+                <DisplayEquation equation="\\begin{aligned} x_C &amp;= \\frac{\\rho}{m}\\int_{0}^{1}\\int_{0}^{1 - u} (x_P u + x_Q v) \\, J \\, dvdu \\\\ &amp;= \\frac{\\rho}{m}\\int_{0}^{1}\\int_{0}^{1 - u} (x_P u + x_Q v) \\, (x_P y_Q - x_Q y_P) \\, dvdu \\\\ &amp;= \\frac{\\rho}{m}(x_P y_Q - x_Q y_P)\\int_{0}^{1}\\int_{0}^{1 - u} (x_P u + x_Q v) \\, dvdu \\\\ &amp;= \\frac{\\rho}{m}(x_P y_Q - x_Q y_P)\\int_{0}^{1}x_P u\\left[v\\right]_{v = 0}^{v = 1-u} + \\frac{x_Q}{2}\\left[v^2\\right]_{v = 0}^{v = 1-u}du \\\\ &amp;= \\frac{\\rho}{m}(x_P y_Q - x_Q y_P)\\int_{0}^{1} x_P u(1 - u) + \\frac{x_Q}{2}(1 - u)^2 du \\\\ &amp;= \\frac{\\rho}{m}(x_P y_Q - x_Q y_P) \\left(\\frac{x_P}{2} \\left[u^2\\right]_{0}^{1} - \\frac{x_P}{3}\\left[u^3\\right]_{0}^{1}  + \\frac{x_Q}{2}\\left[u\\right]_{0}^{1} - \\frac{x_Q}{2}\\left[u^2\\right]_{0}^{1} + \\frac{x_Q}{6}\\left[u^3\\right]_{0}^{1}\\right) \\\\  &amp;= \\frac{\\rho}{m}(x_P y_Q - x_Q y_P) \\left(\\frac{x_P}{2} - \\frac{x_P}{3} + \\frac{x_Q}{2} - \\frac{x_Q}{2} + \\frac{x_Q}{6}\\right) \\\\ &amp;= \\frac{\\rho}{m}(x_P y_Q - x_Q y_P) \\left(\\frac{x_P + x_Q}{6}\\right) \\end{aligned}" />
+            </p>
+            <p>
+                The total mass of the plate is <InlineEquation equation="m = \rho A = \frac{1}{2}\rho x_P y_Q" />, and with the chosen configuration \(y_P = 0\). Thus:
+                <DisplayEquation equation="x_C = \frac{x_P + x_Q}{3}" />
+            </p>
+        </div>
+    </DisplayEquationCustom>
+
+    <DisplayEquationCustom id="rcm-ee" title="Elliptical plate: center of mass" background="True" derivation=True>
+        <div class="w-100 d-flex flex-row align-items-center">
+            <div class="w-50">
+                <PrairieDrawCanvas id="rcm-ee-c" width="300" height="300" show_border=False>
+            </div>
+
+            <div class="w-50">
+                <DisplayEquation equation="\\vec{r}_C = \\frac{2a\\sin\\theta}{3\\theta}\\hat{\\imath} + \\frac{2b\\left(1 - \\cos\\theta\\right)}{3\\theta}\\hat{\\jmath}" />
+            </div>
+        </div>
+        
+        <div slot="derivation">
+            <p>
+                <DisplayEquation equation="\\begin{aligned} \\vec{r}_C &amp;= \\frac{1}{m}\\iiint_\\mathcal{B} \\rho \\vec{r} \\, dV \\\\ &amp;= \\frac{1}{m}\\iint_{A} \\rho \\vec{r} \\, dA \\\\ \\end{aligned}" />
+            </p>
+            <p>
+                It is convenient to switch to <a href="rvy.html#rvy-ec">cylindrical coordinates</a>: 
+                <DisplayEquation equation="\\begin{aligned} x &amp;= a \\, r \\cos\\theta \\\\ y &amp;= b \\, r \\sin\\theta \\\\ \\end{aligned}" />
+            </p>
+            <p>
+                The Jacobian of this coordinate transformation is:
+                <DisplayEquation equation="\\begin{aligned} J &amp;= \\begin{vmatrix}  \\frac{\\partial x}{\\partial r} &amp; \\frac{\\partial x}{\\partial \\theta} \\\\  \\frac{\\partial y}{\\partial r} &amp; \\frac{\\partial y}{\\partial \\theta}  \\end{vmatrix}  = \\begin{vmatrix} a\\cos\\theta &amp; -a r \\sin\\theta \\\\  b \\sin\\theta &amp; b r\\cos\\theta \\end{vmatrix} = a b r \\cos^2\\theta + a b r\\sin^2\\theta = a b r  \\\\ \\end{aligned}" />
+            </p>
+            <p>
+                Therefore:
+                <DisplayEquation equation="\\begin{aligned} \\vec{r}_C &amp;= \\frac{1}{m}\\iint_{A} \\rho \\vec{r} \\, dx \\, dy \\\\ &amp;= \\frac{\\rho}{m}\\int_{0}^{\\theta} \\int_{0}^{1} \\left[ar\\cos\\theta\\hat{\\imath} + br\\sin\\theta\\hat{\\jmath}\\right] \\, J \\, dr \\, d\\theta \\\\ &amp;= \\frac{\\rho ab}{m}\\int_{0}^{\\theta} \\int_{0}^{1} \\left[ar^2\\cos\\theta\\hat{\\imath} + br^2\\sin\\theta\\hat{\\jmath}\\right] \\, dr \\, d\\theta \\\\ &amp;= \\frac{\\rho ab}{m}\\int_{0}^{\\theta} \\left[\\frac{r^3}{3}\\right]_{0}^{1}a\\cos\\theta\\hat{\\imath} + \\left[\\frac{r^3}{3}\\right]_{0}^{1}b\\sin\\theta\\hat{\\jmath} \\, d\\theta \\\\ &amp;= \\frac{\\rho ab}{m}\\int_{0}^{\\theta} \\left[\\frac{1}{3}a\\cos\\theta\\hat{\\imath} + \\frac{1}{3}b\\sin\\theta\\hat{\\jmath}\\right] \\, d\\theta \\\\ &amp;= \\frac{\\rho ab}{m}\\left(\\left[\\sin\\theta\\right]_{0}^{\\theta}\\frac{1}{3}a\\hat{\\imath} + \\left[-\\cos\\theta\\right]_{0}^{\\theta}\\frac{1}{3}b\\hat{\\jmath}\\right) \\\\ &amp;= \\frac{\\rho ab}{m}\\left[\\frac{1}{3}a\\sin\\theta\\hat{\\imath} + \\frac{1}{3}b\\left(1 - \\cos\\theta\\right)\\hat{\\jmath}\\right] \\\\ \\end{aligned}" />
+            </p>
+            <p>
+                The total mass of the sector is <InlineEquation equation="m = \\rho A = \\frac{\\theta}{2}\\rho ab" />. Thus:
+                <DisplayEquation equation="\\begin{aligned} \\vec{r}_C &amp;= \\frac{\\rho ab}{m}\\left[\\frac{1}{3}a\\sin\\theta\\hat{\\imath} + \\frac{1}{3}b\\left(1 - \\cos\\theta\\right)\\hat{\\jmath}\\right] \\\\ &amp;= \\frac{\\rho ab}{\\frac{\\theta}{2}\\rho ab}\\left[\\frac{1}{3}a\\sin\\theta\\hat{\\imath} + \\frac{1}{3}b\\left(1 - \\cos\\theta\\right)\\hat{\\jmath}\\right] \\\\ &amp;= \\frac{2}{\\theta}\\left[\\frac{1}{3}a\\sin\\theta\\hat{\\imath} + \\frac{1}{3}b\\left(1 - \\cos\\theta\\right)\\hat{\\jmath}\\right] \\\\ &amp;= \\frac{2a\\sin\\theta}{3\\theta}\\hat{\\imath} + \\frac{2b\\left(1 - \\cos\\theta\\right)}{3\\theta}\\hat{\\jmath}  \\end{aligned}" />
+            </p>
+        </div>
+    </DisplayEquationCustom>
+</SubSubSection>
+
+<SubSubSection title="Simplified shapes">
+    <p>
+        The centers of mass listed below are all special cases of the basic shapes given in Section <a href="#rcm-bs">#rcm-bs</a>. Other
+        special cases can be easily obtained by similar methods, or directly computing the integral.
+    </p>
+    
+    <DisplayEquationCustom title="Right triangular plate: center of mass" background="True" derivation="True" id="rcm-eg">
+        <div class="w-100 d-flex flex-row align-items-center">
+            <div class="w-50">
+                <PrairieDrawCanvas id="rcm-eg-c" width="300" height="300" show_border=False>
+            </div>
+
+            <div class="w-50">
+                <DisplayEquation equation="\\vec{r}_C = \\frac{b}{3}\\hat{\\imath} + \\frac{h}{3}\\hat{\\jmath}" />
+            </div>
+        </div>
+
+        <div slot="derivation">
+            <p>
+                See <a href="#rcm-xc">example problem</a> on how to derive it by directly computing the integrals.
+            </p>
+            <p>
+                The other perhaps simpler approach is to let \(x_Q = 0\) in <a href="#rcm-et">#rcm-et</a>, which forms a right triangle if the configuration
+                is the same as the one shown in the figure. Thus:
+                <DisplayEquation equation="\\begin{aligned} \\vec{r}_C &amp;= \\frac{x_P + x_Q}{3}\\hat{\\imath} + \\frac{y_Q}{3}\\hat{\\jmath} \\\\ &amp;= \\frac{x_P}{3}\\hat{\\imath} + \\frac{y_Q}{3}\\hat{\\jmath} \\\\ &amp;= \\frac{b}{3}\\hat{\\imath} + \\frac{h}{3}\\hat{\\jmath} \\end{aligned}" />
+            </p>
+        </div>
+    </DisplayEquationCustom>
+
+    <DisplayEquationCustom title="Isosceles triangular plate: center of mass" background="True" derivation="True" id="rcm-ei">
+        <div class="w-100 d-flex flex-row align-items-center">
+            <div class="w-50">
+                <PrairieDrawCanvas id="rcm-ei-c" width="300" height="300" show_border=False>
+            </div>
+
+            <div class="w-50">
+                <DisplayEquation equation="\\vec{r}_C = \\frac{b}{2}\\hat{\\imath} + \\frac{h}{3}\\hat{\\jmath}" />
+            </div>
+        </div>
+
+        <div slot="derivation">
+            <p>
+                See <a href="#rcm-xc">example problem</a> on how to derive it by directly computing the integrals.
+            </p>
+            <p>
+                The other perhaps simpler approach is to let \(x_Q = 0\) in <a href="#rcm-et">#rcm-et</a>, which forms a right triangle if the configuration
+                is the same as the one shown in the figure. Thus:
+                <DisplayEquation equation="\\begin{aligned} \\vec{r}_C &amp;= \\frac{x_P + x_Q}{3}\\hat{\\imath} + \\frac{y_Q}{3}\\hat{\\jmath} \\\\ &amp;= \\frac{x_P + \\frac{x_P}{2}}{3}\\hat{\\imath} + \\frac{y_Q}{3}\\hat{\\jmath} \\\\ &amp;= \\frac{\\frac{3}{2}x_P}{3}\\hat{\\imath} + \\frac{y_Q}{3}\\hat{\\jmath} \\\\ &amp;= \\frac{b}{2}\\hat{\\imath} + \\frac{h}{3}\\hat{\\jmath} \\end{aligned}" />
+            </p>
+        </div>
+    </DisplayEquationCustom>
+
+    <DisplayEquationCustom title="Circular sector: center of mass" background="True" derivation="True" id="rcm-ec">
+        <div class="w-100 d-flex flex-row align-items-center">
+            <div class="w-50">
+                <PrairieDrawCanvas id="rcm-ec-c" width="300" height="300" show_border=False>
+            </div>
+
+            <div class="w-50">
+                <DisplayEquation equation="\\vec{r}_C = \\frac{2r\\sin\\theta}{3\\theta}\\hat{\\imath} + \\frac{2r\\left(1 - \\cos\\theta\\right)}{3\\theta}\\hat{\\jmath}" />
+            </div>
+        </div>
+
+        <div slot="derivation">
+            <p>
+                We could use the integral definition of the center of mass and compute it directly:
+            </p>
+            <p>
+                <DisplayEquation equation="\\begin{aligned} \\vec{r}_C &amp;= \\frac{1}{m}\\iiint_\\mathcal{B} \\rho \\vec{r} \\, dV \\\\ &amp;= \\frac{1}{m}\\iint_{A} \\rho \\vec{r} \\, dA \\\\ \\end{aligned}" />
+            </p>
+            <p>
+                It is convenient to switch to <a href="rvy.html#rvy-ec">cylindrical coordinates</a>:
+                <DisplayEquation equation="\\begin{aligned} x &amp;= r \\cos\\theta \\\\ y &amp;= r \\sin\\theta \\\\ \\end{aligned}"/>
+            </p>
+            <p>
+                The Jacobian of this coordinate transformation is:
+                <DisplayEquation equation="\\begin{aligned} J &amp;= \\begin{vmatrix}  \\frac{\\partial x}{\\partial r} &amp; \\frac{\\partial x}{\\partial \\theta} \\\\  \\frac{\\partial y}{\\partial r} &amp; \\frac{\\partial y}{\\partial \\theta}  \\end{vmatrix}  = \\begin{vmatrix} \\cos\\theta &amp; -r \\sin\\theta \\\\  \\sin\\theta &amp; r\\cos\\theta \\end{vmatrix} = r \\cos^2\\theta + r \\sin^2\\theta = r \\end{aligned}" />
+            </p>
+            <p>
+                Therefore:
+                <DisplayEquation equation="\\begin{aligned} \\vec{r}_C &amp;= \\frac{1}{m}\\iint_{A} \\rho \\vec{r} \\, dx \\, dy \\\\ &amp;= \\frac{\\rho}{m}\\int_{0}^{\\theta} \\int_{0}^{r} \\left[r\\cos\\theta\\hat{\\imath} + r\\sin\\theta\\hat{\\jmath}\\right] \\, J \\, dr \\, d\\theta \\\\ &amp;= \\frac{\\rho}{m}\\int_{0}^{\\theta} \\int_{0}^{r} \\left[r^2\\cos\\theta\\hat{\\imath} + r^2\\sin\\theta\\hat{\\jmath}\\right] \\, dr \\, d\\theta \\\\ &amp;= \\frac{\\rho}{m}\\int_{0}^{\\theta} \\left[\\frac{r^3}{3}\\right]_{0}^{r}\\cos\\theta\\hat{\\imath} + \\left[\\frac{r^3}{3}\\right]_{0}^{r}\\sin\\theta\\hat{\\jmath} \\, d\\theta \\\\ &amp;= \\frac{\\rho}{m}\\int_{0}^{\\theta} \\left[\\frac{r^3}{3}\\cos\\theta\\hat{\\imath} + \\frac{r^3}{3}\\sin\\theta\\hat{\\jmath}\\right] \\, d\\theta \\\\ &amp;= \\frac{\\rho}{m}\\left(\\left[\\sin\\theta\\right]_{0}^{\\theta}\\frac{r^3}{3}\\hat{\\imath} + \\left[-\\cos\\theta\\right]_{0}^{\\theta}\\frac{r^3}{3}\\hat{\\jmath}\\right) \\\\ &amp;= \\frac{\\rho}{m}\\left[\\frac{1}{3}r^3\\sin\\theta\\hat{\\imath} + \\frac{1}{3}r^3\\left(1 - \\cos\\theta\\right)\\hat{\\jmath}\\right] \\\\ \\end{aligned}" />
+            </p>
+            <p>
+                The total mass of the sector is <InlineEquation equation="m = \\rho A = \\frac{\\theta}{2}\\rho r^2" />. Thus:
+                <DisplayEquation equation="\\begin{aligned} \\vec{r}_C &amp;= \\frac{\\rho}{m}\\left[\\frac{1}{3}r^3\\sin\\theta\\hat{\\imath} + \\frac{1}{3}r^3\\left(1 - \\cos\\theta\\right)\\hat{\\jmath}\\right] \\\\ &amp;= \\frac{\\rho}{\\frac{\\theta}{2}\\rho r^2}\\left[\\frac{1}{3}r^3\\sin\\theta\\hat{\\imath} + \\frac{1}{3}r^3\\left(1 - \\cos\\theta\\right)\\hat{\\jmath}\\right] \\\\ &amp;= \\frac{2}{\\theta r^2}\\left[\\frac{1}{3}r^3\\sin\\theta\\hat{\\imath} + \\frac{1}{3}r^3\\left(1 - \\cos\\theta\\right)\\hat{\\jmath}\\right] \\\\ &amp;= \\frac{2r\\sin\\theta}{3\\theta}\\hat{\\imath} + \\frac{2r\\left(1 - \\cos\\theta\\right)}{3\\theta}\\hat{\\jmath}  \\end{aligned}" />
+            </p>
+            <p>
+                Another way to reach this formula is to use <a href="#rcm-ee">#rcm-ee</a>, and for a circular
+                sector, let \(a = b = r\).
+            </p>
+        </div>
+    </DisplayEquationCustom>
+
+    <DisplayEquationCustom title="Semi-circular sector: center of mass" background="True" derivation="True" id="rcm-es">
+        <div class="w-100 d-flex flex-row align-items-center">
+            <div class="w-50">
+                <PrairieDrawCanvas id="rcm-es-c" width="300" height="300" show_border=False>
+            </div>
+
+            <div class="w-50">
+                <DisplayEquation equation="\\vec{r}_C = \\frac{4r}{3\\pi}\\hat{\\jmath}" />
+            </div>
+        </div>
+
+        <div slot="derivation">
+            <p>
+                Using <a href="#rcm-ec">#rcm-ec</a>, for a semi-circular sector, the angle <InlineEquation equation="\\theta = \\pi" />. Therefore:
+                <DisplayEquation equation="\\begin{aligned} \\vec{r}_C &amp;= \\frac{2r\\sin\\theta}{3\\theta}\\hat{\\imath} + \\frac{2r\\left(1 - \\cos\\theta\\right)}{3\\theta}\\hat{\\jmath} \\\\ &amp;= \\frac{2r\\sin(\\pi)}{3\\pi}\\hat{\\imath} + \\frac{2r\\left(1 - \\cos(\\pi)\\right)}{3\\pi}\\hat{\\jmath} \\\\ &amp;= 0 + \\frac{4r}{3\\pi}\\hat{\\jmath} \\\\ &amp;= \\frac{4r}{3\\pi}\\hat{\\jmath} \\end{aligned}" />
+            </p>
+        </div>
+    </DisplayEquationCustom>
+</SubSubSection>
+
+<SubSection title="Mass moment of Inertia">
+    <BlueText>Complete in "Moments of Inertia"</BlueText> 
+
+    <p>
+        The moment of inertia of a body, written <InlineEquation equation="I_{P,\\hat{a}}" />, is
+        measured about a rotation axis through point \(P\) in
+        direction <InlineEquation equation="\\hat{a}" />. The moment of inertia expresses how
+        hard it is to produce an angular acceleration of the body
+        about this axis. That is, a body with high moment of inertia
+        resists angular acceleration, so if it is not rotating then
+        it is hard to start a rotation, while if it is already
+        rotating then it is hard to stop.
+      </p>
+      <p>
+        The moment of inertia plays the same role for rotational
+        motion as the mass does for translational motion (a
+        high-mass body resists is hard to start moving and hard to
+        stop again).
+      </p>
+
+      <DisplayEquationCustom id="rem-ei" title="Moment of inertia about axis \\( \\hat{a} \\) through point \(P\)." background="True">
+        <div class="w-100 d-flex flex-row align-items-center">
+            <div class="w-50">
+                <DisplayEquation equation="\\begin{gathered} I_{P,\\hat{a}} = \\iiint_\\mathcal{B} \\rho r^2 \\,dV \\\\ \\text{(units: $\\rm kg\\ m^2$)} \\end{gathered}" />
+            </div>
+
+            <div class="w-50">
+                <PrairieDrawCanvas id="rem-ei-c" width="300" height="300" show_border=False>
+            </div>            
+        </div>
+        <p>
+            The distance \(r \) is the perpendicular distance to \( dV \)
+            from the axis through \(P\) in direction <InlineEquation equation="\\hat{a}." />
+          </p>
+      </DisplayEquationCustom>
+
+      <Warning id="rem-wm" title="Mass moments of inertia are different to area moments of inertia.">
+        <p>
+            Be advised that the "moment of inertia" encountered 
+            in Statics is not the same as the moment of inertia used 
+            in Dynamics.  Strictly speaking, the "moment of inertia" 
+            from Statics shouldn't even be called "moment of inertia."  
+            What it really is is the "second moment of area."  
+            Below are the definitions of two such second moments of area:
+          </p>
+          <p>
+            <DisplayEquation equation="J_{xx}=\\iint_{A}{y^{2}dA}" />
+          </p>
+          <p>
+            <DisplayEquation equation="J_{yy}=\\iint_{A}{x^{2}dA}" />
+          </p>
+          <p>
+            In contrast, the moment of inertia (about the \(z\)-axis) 
+            is defined as stated above.
+          </p>
+          <p>
+            For example, a rectangle of base \(b\) and height \(h\) 
+            has the following moments about its centroid \(C\):
+          </p>
+          <p>
+            <DisplayEquation equation="J^{C}_{xx}=\\frac{1}{12}bh^{3}" />
+          </p>
+          <p>
+            <DisplayEquation equation="J^{C}_{yy}=\\frac{1}{12}b^{3}h" />
+          </p>
+          <p>
+            <DisplayEquation equation="I^{C}_{zz}=\\frac{1}{12}m(b^{2}+h^{2})" />
+          </p>
+          <p>
+            Notice that the dimensions of the two quantities are different.  
+            While the dimension of second moment of area is <InlineEquation equation= 
+            "(\\text{length})^{4}" />, 
+            the dimension of moment of inertia is <InlineEquation equation= 
+            "(\\text{mass})(\\text{length})^{2}" />.
+            When doing dynamics problems with moments of inertia, you should 
+            not use the formulas you remember for second moment of area instead.  
+            You will get the wrong answer!
+          </p>
+      </Warning>
+
+      <p>
+        Observe that the moment of inertia is proportional to the
+        mass, so that doubling the mass of an object will also
+        double its moment of inertia. In addition, the moment of
+        inertia is proportional to the square of the size of the
+        object, so that doubling every dimension of an object
+        (height, width, etc) will cause it to have four times the
+        moment of inertia.
+      </p>
+
+      <DisplayEquationCustom title="Moments of inertia about coordinate axes through point \(P\)." id="rem-ec" background="True" derivation="True">
+        <DisplayEquation equation="\\begin{aligned} I_{P,x} &amp;= I_{P,xx} = I_{P,\\hat\\imath} = \\iiint_\\mathcal{B} \\rho (y^2 + z^2) \\,dx\\,dy\\,dz \\\\ I_{P,y} &amp;= I_{P,yy} = I_{P,\\hat\\jmath} = \\iiint_\\mathcal{B} \\rho (z^2 + x^2) \\,dx\\,dy\\,dz \\\\ I_{P,z} &amp;= I_{P,zz} = I_{P,\\hat{k}} = \\iiint_\\mathcal{B} \\rho (x^2 + y^2) \\,dx\\,dy\\,dz \\end{aligned}" />
+        
+        <p>
+            The coordinates \((x,y,z)\) in the body are measured from
+            point \(P\).
+        </p>
+
+        <div slot="derivation">
+            <div class="w-100 d-flex flex-row align-items-center">
+                <div class="w-50">
+                    <p>
+                        The distance\(r\) in the moment of inertia integral <a
+                        href="#rem-ei">#rem-ei</a> is the <em>perpendicular</em>
+                        distance from the axis of rotation to the infinitesimal
+                        volume \(dV \). If we are using rectangular coordinates
+                        \((x,y,z)\) measured from point \(P\), and the axis of
+                        rotation is one of the coordinate axes, then the
+                        perpendicular distance is very simple.
+                        </p>
+                </div>
+                <div class="w-50">
+                    <PrairieDrawCanvas id="rem-ec-c" width="300" height="200" />
+                </div>
+            </div>
+            <p>
+              As an example, consider the case when the axis of
+              rotation <InlineEquation equation="\\hat{a}" /> is the <InlineEquation equation="\\hat{k}" /> axis, as shown in
+              the figure. Then the perpendicular distance \(r\)
+              satisfies \(r^2 = x^2 + y^2\), giving the coordinate
+              expression above. The other two coordinate axes are
+              similar.
+            </p>
+        </div>
+
+      </DisplayEquationCustom>
+
+      <Example id="rem-xs" title="Moment of inertia of a square plate.">
+        <div class="w-100 d-flex flex-row">
+            <div class="w-50">
+                <p>
+                    A solid square uniform plate has mass \(m\), side-length
+                    \( \ell \), and thickness \( h \). What is the moment of
+                    inertia about the \(z \)-axis through the center of mass
+                    \(C\)?
+                </p>
+            </div>
+            <div class="w-50">
+                <PrairieDrawCanvas id="rem-xs-c" width="300" height="200" />
+            </div>
+        </div>
+
+        <div slot="solution">
+
+            <div class="w-100 d-flex flex-row">
+                <div class="w-50">
+                    <p>
+                        We will use the coordinate formula <a
+                        href="#rem-ec">#rem-ec</a>. To do this, we measure
+                        the position from the point \(C\) about which we are
+                        computing the moment of inertia, so the coordinate
+                        origin is at \(C\). The figure to the right shows the
+                        3D configuration of the body, where we see that the
+                        \(x\)-coordinate range of the body is \(-\ell/2\) to
+                        \(\ell/2\), and the same for the \(y\)-coordinate, while
+                        the \(z\)-coordinate ranges from \(-h/2\) to \(h/2\).
+                      </p>
+                </div>
+                <div class="w-50">
+                    <PrairieDrawCanvas id="rem-xs-c3" width="300" height="200" />
+                </div>
+            </div>
+            
+            
+            <p>
+              Taking the density of the plate to be $\rho$, we
+              thus have:
+
+              <DisplayEquation equation="\\begin{aligned} I_{C,z} &amp;= \\iiint_\\mathcal{B} \\rho (x^2 + y^2) \\,dx\\,dy\\,dz \\\\ &amp;= \\int_{-h/2}^{h/2} \\int_{-\\ell/2}^{\\ell/2} \\int_{-\\ell/2}^{\\ell/2} \\rho (x^2 + y^2) \\,dx\\,dy\\,dz \\\\ &amp;= \\int_{-h/2}^{h/2} \\int_{-\\ell/2}^{\\ell/2} \\left[ \\rho \\left(\\frac{1}{3}x^3 + y^2 x\\right)\\right]_{x = -\\ell/2}^{x = \\ell/2} \\,dy\\,dz \\\\ &amp;= \\int_{-h/2}^{h/2} \\int_{-\\ell/2}^{\\ell/2} \\rho \\left(\\frac{1}{12}\\ell^3 + y^2 \\ell \\right) \\,dy\\,dz \\\\ &amp;= \\int_{-h/2}^{h/2} \\left[ \\rho \\left(\\frac{1}{12}\\ell^3 y + \\frac{1}{3} y^3 \\ell \\right) \\right]_{y = -\\ell/2}^{y = \\ell/2} \\,dz \\\\ &amp;= \\int_{-h/2}^{h/2} \\rho \\left(\\frac{1}{12}\\ell^4 + \\frac{1}{12} \\ell^4 \\right) \\,dz \\\\ &amp;= \\int_{-h/2}^{h/2} \\rho \\frac{1}{6}\\ell^4 \\,dz \\\\ &amp;= \\left[ \\rho \\frac{1}{6}\\ell^4 z \\right]_{z = -h/2}^{z = h/2} \\\\ &amp;= \\rho \\frac{1}{6}\\ell^4 h. \\end{aligned}" />
+
+              The total mass of the plate is \( m = \rho \ell^2 h \),
+              so we can write the moment of inertia as
+
+              <InlineEquation equation="I_{C,z} = \\frac{1}{6} m \\ell^2." />
+
+              The square plate moment of inertia is actually a
+              special case of the rectangular prism formula <a
+              href="#rem-er">#rem-er</a> with \( \ell_y = \ell_z =
+              \ell \)
+            </p>
+        </div>
+      </Example>
+
+      <CalloutContainer slot="cards">
+        <CalloutCard>
+            <p>
+                We are always considering the moment of inertia to be a
+                scalar value \( I \), which is valid for rotation about a
+                fixed axis. For more complicated dynamics with tumbling
+                motion about multiple axes simultaneously, it is necessary
+                to consider the full 3 × 3 <i>moment of inertia
+                matrix</i>:
+            </p>
+            
+                <DisplayEquation equation="I = \\begin{bmatrix} I_{xx} &amp; I_{xy} &amp; I_{xz} \\\\ I_{yx} &amp; I_{yy} &amp; I_{yz} \\\\ I_{zx} &amp; I_{zy} &amp; I_{zz} \\end{bmatrix}"/>
+                
+                
+            <p>
+                The three scalar moments of inertia
+                from <a href="#rem-ec">#rem-ec</a> appear on the
+                diagonal. The off-diagonal terms are called
+                the <i>products of inertia</i> and are given by
+            </p>
+                
+                <DisplayEquation equation="I_{xy} = -\\iiint_{\\mathcal{B}} \\rho xy \\,dx\\,dy\\,dz," />
+            <p>
+                and similarly for the other terms. The angular momentum of
+                a rigid body is given by <InlineEquation equation="\\vec{H} = I \\vec{\\omega}" />, which
+                is the matrix product of the moment of inertia matrix with
+                the angular velocity vector. This is important in advanced
+                dynamics applications such as unbalanced rotating shafts
+                and the precession of gyroscopes.
+              </p>
+        </CalloutCard>
+      </CalloutContainer>
+</SubSection>
+
+<SubSubSection title="Parallel axis theorem">
+    <BlueText>Complete in "Moments of Inertia"</BlueText> 
+
+    <DisplayEquationCustom title="Parallel axis theorem." id="rem-el" background="True" derivation="True">
+        <DisplayEquation equation="I_{P,\\hat{a}} = I_{C,\\hat{a}} + m \\, d^2"/>
+
+        <p>
+            Here \( d \) is the perpendicular distance between the axes
+            through \( P \) and \(C \) in direction <InlineEquation equation="\\hat{a}" />, so <InlineEquation equation="d = \\| \\operatorname*{Comp}(\\vec{r}_{CP}, \\hat{a})\\|" />.
+          </p>
+
+          <div slot="derivation">
+            <div class="w-100 d-flex flex-row">
+                <div class="w-50">
+                    <p>
+                        To easily compute the moments of inertia relative to
+                        axes through \( P \) and \( C \) it is easiest to choose a
+                        coordinate system aligned with the rotation axis
+                        direction <InlineEquation equation="\\hat{a}" />. We will choose coordinates
+                        \( (x,y,z) \) measured from the center of mass \( C \) and with
+                        the \(z\)-axis <InlineEquation equation="\\hat{k}" /> in the direction of <InlineEquation equation="\\hat{a}" />, as
+                        shown in the figure.
+                      </p>
+                      
+                </div>
+                <div class="w-50">
+                    <PrairieDrawCanvas id="rem-el-c" width="300" height="200" />
+                </div>
+                </div>
+                <p>
+                    As we integrate over the body with infinitesimal volume
+                    \( dV \) at position \( (x,y,z) \) from \( C \), we will write the
+                    distance from the axis through \( C \) as \( r_c \) and the
+                    distance from the axis through \( P \) as \( r_P \), as
+                    illustrated. The distance between the two rotation axes
+                    is \( d \). In the chosen coordinate system this means that:
+                    </p>
+                <DisplayEquation equation="\\begin{aligned} {r_C}^2 &amp;= x^2 + y^2 \\\\ {r_P}^2 &amp;= (x - x_P)^2 + (y - y_P)^2 \\\\ d^2 &amp;= {x_P}^2 + {y_P}^2, \\end{aligned}" />
+                        <p>
+                        where \( P \) has position \( (x_P, y_P, z_P) \) in these
+                        coordinates.
+                      </p>
+                      <p>
+                        Computing the integral <a href="#rem-ec">#rem-ec</a> to
+                        find the moment of inertia about the axis through \( P \) in
+                        direction <InlineEquation equation="\\hat{a}" /> now gives:
+          
+                        <DisplayEquation equation="\\begin{aligned} I_{P,\\hat{a}} &amp;= \\int_{\\mathcal{B}} \\rho {r_P}^2 \\,dV \\\\ &amp;= \\iiint_{\\mathcal{B}} \\rho \\left((x - x_P)^2 + (y - y_P)^2\\right) \\,dx\\,dy\\,dz \\\\ &amp;= \\iiint_{\\mathcal{B}} \\rho \\left(x^2 - 2 x x_P + {x_P}^2 + y^2 - 2 y y_P + {y_P}^2\\right) \\,dx\\,dy\\,dz \\\\ &amp;= \\iiint_{\\mathcal{B}} \\rho (x^2 + y^2) \\,dx\\,dy\\,dz - 2 x_P \\iiint_{\\mathcal{B}} \\rho x \\,dx\\,dy\\,dz \\\\ &amp;\\quad - 2 y_P \\iiint_{\\mathcal{B}} \\rho y \\,dx\\,dy\\,dz + ({x_P}^2 + {y_P}^2) \\iiint_{\\mathcal{B}} \\rho \\,dx\\,dy\\,dz \\\\ &amp;= \\int_{\\mathcal{B}} \\rho {r_C}^2 \\,dV + d^2 \\int_{\\mathcal{B}} \\rho \\,dV \\\\ &amp;= I_{C,\\hat{a}} + m d^2. \\end{aligned}" />
+          
+                        Here we used the coordinate representation of the center
+                        of mass to realize that the \( x \) coordinate of \( C \) is
+                        <InlineEquation equation="x_C = \\frac{1}{m} \\int_{\\mathcal{B}} \\rho x \\,dV" />, but
+                        because our coordinates are measured from \( C \) we must
+                        have \( x_C = 0 \) and so <InlineEquation equation="\\int_{\\mathcal{B}} \\rho x \\,dV = 0" />. The integral of \( \rho y \) is similarly zero.
+                      </p>
+            </div>
+    </DisplayEquationCustom>
+
+    <Warning title="Parallel axis theorem must start from center of mass \\( C \\)." id="rem-wl">
+        <p>
+            The parallel axis theorem does not apply to any two
+            parallel rotation axes. The rotation axis on the
+            right-hand-side of the equation must be through the
+            center of mass \( C \), although the other axis can be
+            through any point \( P \).
+          </p>
+    </Warning>
+
+    <Warning title="Parallel axis theorem \\( d \\) is perpendicular distance, not \\( r_{CP} \\)." id="rem-wp">
+        <p>
+            The distance \( d \) in the parallel axis theorem is the
+            <em>perpendicular distance</em> between the axes through
+            points \( P \) and \( C \). This will normally not be the same
+            as the distance <InlineEquation equation="r_{CP}" /> between \( P \) and \( C \), except in
+            2D problems or if it happens that <InlineEquation equation="\\vec{r}_{CP}" /> is
+            already perpendicular to the rotation axis
+            <InlineEquation equation="\\hat{a}"/>. The distance <InlineEquation equation="d"/> can be computed by taking
+            the orthogonal complement of <InlineEquation equation="\\vec{r}_{CP}" /> with respect
+            to <InlineEquation equation="\\hat{a}"/>, so <InlineEquation equation="d = \\|\\operatorname{Comp}(\\vec{r}_{CP}, \\hat{a})\\|" />.
+          </p>
+    </Warning>
+
+    <Example title="Moment of inertia of a square plate about a corner." id="rem-xc">
+        <div class="w-100 d-flex flex-row">
+            <div class="w-50">
+                <p>
+                    A solid uniform square plate has mass \( m \), side-length
+                    \( \ell \), and thickness \( h \). What is the moment of
+                    inertia about the \( z \)-axis through the corner \( P \)?
+                  </p>
+
+                  <p>
+                    Use the answer to Example Problem <a
+                    href="#rem-xs">#rem-xs</a> and the parallel axis
+                    theorem <a href="#rem-el">#rem-el</a>.
+                  </p>
+            </div>
+            <div class="w-50">
+                <PrairieDrawCanvas id="rem-xc-c" width="300" height="200" />
+            </div>
+        </div>
+
+        <div slot="solution">
+            <p>
+                In Example Problem <a href="#rem-xs">#rem-xs</a> we
+                computed the moment of inertia of a square place
+                about the center to be <InlineEquation equation="I_{C,z} = \\frac{1}{6} m \\ell^2" />. The parallel axis theorem <a
+                href="#rem-el">#rem-el</a> now gives:
+
+                <DisplayEquation equation="\\begin{aligned} I_{P,z} &amp;= I_{C,z} + m \\, {r_{CP}}^2 \\\\ &amp;= \\frac{1}{6} m \\ell^2 + m \\left( \\left(\\frac{\\ell}{2}\\right)^2 + \\left(\\frac{\\ell}{2}\\right)^2 \\right) \\\\ &amp;= \\frac{2}{3} m \\ell^2. \\end{aligned}" />
+              </p>
+              <div class="w-100 d-flex flex-row">
+                <div class="w-50">
+                    <p>
+                        To check our answer, we can compute the corner
+                        moment of inertia directly by integrating with
+                        formula <a href="#rem-ec">#rem-ec</a>. To do this,
+                        we put the coordinate origin at the point \( P \) about
+                        which we wish to find the moment of inertia, as
+                        shown in 3D to the right. From this we see that the
+                        \(x \)range is \(0\) to <InlineEquation equation="\\ell"/>, the same for the \( y \)
+                        range, and the \(z\) range is \(-h/2\) to \(h/2\).
+                      </p>
+                </div>
+                <div class="w-50">
+                    <PrairieDrawCanvas id="rem-xc-c3" width="300" height="200" />
+                </div>
+              </div>
+                
+              
+              <p>
+                The integral formula now gives:
+
+                <DisplayEquation equation="\\begin{aligned} I_{P,z} &amp;= \\iiint_\\mathcal{B} \\rho (x^2 + y^2) \\,dx\\,dy\\,dz \\\\ &amp;= \\int_{-h/2}^{h/2} \\int_0^{\\ell} \\int_{0}^{\\ell} \\rho (x^2 + y^2) \\,dx\\,dy\\,dz \\\\ &amp;= \\int_{-h/2}^{h/2} \\int_{0}^{\\ell} \\left[ \\rho \\left(\\frac{1}{3}x^3 + y^2 x\\right)\\right]_{x = 0}^{x = \\ell} \\,dy\\,dz \\\\ &amp;= \\int_{-h/2}^{h/2} \\int_{0}^{\\ell} \\rho \\left(\\frac{1}{3}\\ell^3 + y^2 \\ell \\right) \\,dy\\,dz \\\\ &amp;= \\int_{-h/2}^{h/2} \\left[ \\rho \\left(\\frac{1}{3}\\ell^3 y + \\frac{1}{3} y^3 \\ell \\right) \\right]_{y = 0}^{y = \\ell} \\,dz \\\\ &amp;= \\int_{-h/2}^{h/2} \\rho \\left(\\frac{1}{3}\\ell^4 + \\frac{1}{3} \\ell^4 \\right) \\,dz \\\\ &amp;= \\int_{-h/2}^{h/2} \\rho \\frac{2}{3}\\ell^4 \\,dz \\\\ &amp;= \\left[ \\rho \\frac{2}{3}\\ell^4 z \\right]_{z = -h/2}^{z = h/2} \\\\ &amp;= \\rho \\frac{2}{3}\\ell^4 h. \\end{aligned}" />
+
+                The total mass of the plate is <InlineEquation equation="m = \\rho \ell^2 h" />,
+                so we can write the final expression for the moment of inertia is
+
+                <DisplayEquation equation="I_{P,z} = \\frac{2}{3} m \\ell^2." />
+
+                This is the same as the expression we obtained above
+                using the parallel axis theorem, but clearly the
+                parallel axis theorem version is much easier.
+              </p>
+        </div>
+    </Example>
+
+    <p>
+        One consequence of the parallel axis theorem is that the
+        moment of inertia can only increase as we move the rotation
+        point \( P \) away from the center of mass \( C \). This means that
+        the point with the lowest moment of inertia is always the
+        center of mass itself.
+      </p>
+      <p>
+        A second consequence of the parallel axis theorem is that
+        moving the point \( P \) along the direction <InlineEquation equation="\\hat{a}" /> doesn't
+        change the moment of inertia, because the axis of rotation
+        is not changing as the point moves along the axis itself.
+      </p>
+</SubSubSection>
+ 
+<SubSubSection title="Additive theorem">
+    <BlueText>Complete in "Moments of Inertia"</BlueText>
+    
+    <DisplayEquationCustom title="Adding moments of inertia." id="rem-ea" background="True" derivation="True">
+        <div class="w-100 d-flex flex-row align-items-center">
+            <div class="w-50">
+                <p>
+                    <DisplayEquation equation="I^{\\mathcal{B}}_{P,\\hat{a}} = I^{\\mathcal{B}_1}_{P,\\hat{a}} + I^{\\mathcal{B}_2}_{P,\\hat{a}}" />
+                </p>
+            </div>
+            <div class="w-50">
+                <PrairieDrawCanvas id="rem-ea-c" width="300" height="300" show_border="False"/>
+            </div>
+        </div>
+        <p>
+            The whole body <InlineEquation equation="\\mathcal{B}" /> is composed of sub-bodies
+            <InlineEquation equation="\\mathcal{B}_1" /> and <InlineEquation equation="\\mathcal{B}_2" />.
+          </p>
+
+        <div slot="derivation">
+            <p>
+                The addition of moments of inertia for sub-bodies to
+                give the full moment of inertia follows directly from
+                the fact that the integral over the whole body is the
+                sum of the integrals over the sub-bodes. That is, for
+                <InlineEquation equation="\\mathcal{B} = \\mathcal{B}_1 \\cup \\mathcal{B}_2" /> (and
+                <InlineEquation equation="\\mathcal{B}_1" /> not overlapping with <InlineEquation equation="\\mathcal{B}_2"/>),
+                we have:
+  
+                <DisplayEquation equation="\\begin{aligned} I^{\\mathcal{B}}_{P,\\hat{a}} &amp;= \\int_{\\mathcal{B}} \\rho r^2 \\,dV \\\\ &amp;= \\int_{\\mathcal{B_1} \\cup \\mathcal{B}_2} \\rho r^2 \\,dV \\\\ &amp;= \\int_{\\mathcal{B_1}} \\rho r^2 \\,dV + \\int_{\\mathcal{B}_2} \\rho r^2 \\,dV \\\\ &amp;= I^{\\mathcal{B}_1}_{P,\\hat{a}} + I^{\\mathcal{B}_2}_{P,\\hat{a}}. \\end{aligned}" />
+              </p>
+        </div>
+    </DisplayEquationCustom>
+
+    <Warning title="To add moments of inertia they must be about the same axis." id="rem-wa">
+        <p>
+            It is only valid to add together moments of inertia for
+            different sub-bodies if each moment of inertia is
+            computed about the same axis of rotation. For example,
+            consider <InlineEquation equation="I^{\\mathcal{B}_1}_{C_1,z}" /> and
+            <InlineEquation equation="I^{\\mathcal{B}_2}_{C_2,z}" />, which are the moments
+            of inertia of bodies <InlineEquation equation="\\mathcal{B}_1" /> and <InlineEquation equation="\\mathcal{B}_2" />
+            about each of their individual centers of mass \( C_1 \) and
+            \( C_2 \) (with axis direction \( z \)). Now it is
+            physically meaningless to form the sum
+            <InlineEquation equation="I^{\\mathcal{B}_1}_{C_1,z} + I^{\\mathcal{B}_2}_{C_2,z}" />, because each moment of
+            inertia is about a different axis. We must first shift
+            both moments of inertia to a common axis point \( P \)
+            (perhaps by using the parallel axis theorem), and then
+            we can meaningfully add them together.
+          </p>
+    </Warning>
+
+    <Example title="Moment of inertia of an L-shaped plate." id="rem-xl">
+        <div class="w-100 d-flex flex-row">
+            <div class="w-50">
+                <p>
+                    A solid uniform L-shaped plate has mass \(m\) and
+                    dimensions as shown. What is the moment of inertia
+                    about the \(z\)-axis through the corner \(P\)?
+                  </p>
+            </div>
+            <div class="w-50">
+                <PrairieDrawCanvas id="rem-xl-c" width="300" height="200"/>
+            </div>
+        </div>
+
+        <div slot="solution">
+            <div class="w-100 d-flex flex-row">
+                <div class="w-50">
+                    <p>
+                        Recall that in Example Problem <a
+                        href="#rem-xs">#rem-xs</a> we computed the
+                        moment of inertia of a square place about the center
+                        to be <InlineEquation equation="I_{C,z} = \\frac{1}{6} m \\ell^2" />.
+                      </p>
+                </div>
+                <div class="w-50">
+                    <PrairieDrawCanvas id="rem-xl-cd" width="300" height="200" />
+                </div>
+            </div>
+            
+            
+            <p>
+              To use this together with the parallel axis theorem
+              <a href="#rem-el">#rem-el</a> and the additive
+              theorem <a href="#rem-ea">#rem-ea</a>, we must first
+              realize that the L-shape can be decomposed into four
+              square plates, as shown. Each small square body has
+              the same mass and the same moment of inertia about
+              its center, so:
+
+              <DisplayEquation equation="\\begin{aligned} m_1 &amp;= \\frac{1}{4} m \\\\ I^{\\mathcal{B}_1}_{C_1,z} &amp;= \\frac{1}{6} m_1 (2d)^2 = \\frac{1}{6} \\left(\\frac{1}{4} m\\right) 4d^2 = \\frac{1}{6} m d^2, \\end{aligned}" />
+
+              and similarly for each other small square body.
+            </p>
+            <p>
+              Now individual moments of inertia about the corner
+              $P$ can be found using the parallel axis
+              theorem:
+
+              <DisplayEquation equation="\\begin{aligned} I^{\\mathcal{B}_1}_{P,z} &amp;= I^{\\mathcal{B}_1}_{C_1,z} + m_1 \\, {r_{C_1P}}^2 = \\frac{1}{6} m d^2 + \\left(\\frac{1}{4} m\\right) \\left(d^2 + (3d)^2\\right) = \\frac{8}{3} m d^2 \\\\ I^{\\mathcal{B}_2}_{P,z} &amp;= I^{\\mathcal{B}_2}_{C_2,z} + m_2 \\, {r_{C_2P}}^2 = \\frac{1}{6} m d^2 + \\left(\\frac{1}{4} m\\right) \\left(d^2 + d^2\\right) = \\frac{2}{3} m d^2 \\\\ I^{\\mathcal{B}_3}_{P,z} &amp;= I^{\\mathcal{B}_1}_{P,z} = \\frac{8}{3} m d^2 \\\\ I^{\\mathcal{B}_4}_{P,z} &amp;= I^{\\mathcal{B}_4}_{C_4,z} + m_4 \\, {r_{C_4P}}^2 = \\frac{1}{6} m d^2 + \\left(\\frac{1}{4} m\\right) \\left((5d)^2 + d^2\\right) = \\frac{20}{3} m d^2. \\end{aligned}" />
+
+              Here we observed that body <InlineEquation equation="\\mathcal{B}_3" /> will have
+              the same moment of inertia as <InlineEquation equation="\\mathcal{B}_1" /> ,
+              saving some computation.
+            </p>
+            <p>
+              Combining the individual moments of inertia now
+              gives us the total:
+
+              <DisplayEquation equation="\\begin{aligned} I_{P,z} &amp;= I^{\\mathcal{B}_1}_{P,z} + I^{\\mathcal{B}_2}_{P,z} + I^{\\mathcal{B}_3}_{P,z} + I^{\\mathcal{B}_4}_{P,z} \\\\ &amp;= \\frac{8}{3} m d^2 + \\frac{2}{3} m d^2 + \\frac{8}{3} m d^2 + \\frac{20}{3} m d^2\\\\ &amp;= \\frac{38}{3} m d^2. \\end{aligned}" />
+
+              We could also directly compute the total moment of
+              inertia using the integral formula <a
+              href="#rem-ec">#rem-ec</a>, which would be quite
+              complex.
+            </p>
+        </div>
+    </Example>
+</SubSubSection>
+
+<SubSubSection title="Basic shapes">
+    <p>
+        The moments of inertia listed below are all computed
+        directly from the integrals <a href="#rem-ec">#rem-ec</a>.
+    </p>
+
+    <DisplayEquationCustom title="Point mass: moments of inertia" id="rem-ep" background=True>
+        <div class="w-100 d-flex flex-row align-items-center">
+            <div class="w-50">
+                <PrairieDrawCanvas id="rem-ep-c" width="300" height="300" />
+            </div>
+            <div class="w-50">
+                <DisplayEquation equation="I_{P,z} = m r^2" />
+            </div>
+        </div>
+    </DisplayEquationCustom>
+
+    <DisplayEquationCustom id="rem-er" title="Rectangular prism: moments of inertia" background=True derivation=True>
+        <div class="w-100 d-flex flex-row align-items-center">
+            <div class="w-50">
+                <PrairieDrawCanvas id="rem-er-c" width="300" height="300" />
+            </div>
+            <div class="w-50">
+                <DisplayEquation equation="\\begin{aligned}I_{C,x}&=\\frac{1}{12}m({\\ell_y}^2+{\\ell_z}^2)\\\\I_{C,y}&=\\frac{1}{12}m({\\ell_z}^2+{\\ell_x}^2)\\\\I_{C,z}&=\\frac{1}{12}m({\\ell_x}^2+{\\ell_y}^2)\\end{aligned}" />
+            </div>
+        </div>
+    
+        <div slot="derivation">
+
+            <p>
+                The calculation for any of the axes is the same, so we
+                will only write out the derivation of <InlineEquation equation="I_{C,z}" /> 
+                here. We use <a href="#rem-ec">#rem-ec</a>, which gives:
+            </p>
+            <DisplayEquation equation="\\begin{aligned} I_{C,z} &amp;= \\iiint_\\mathcal{B} \\rho (x^2 + y^2) \\,dx\\,dy\\,dz \\\\ &amp;= \\int_{-\\ell_z/2}^{\\ell_z/2} \\int_{-\\ell_y/2}^{\\ell_y/2} \\int_{-\\ell_x/2}^{\\ell_x/2} \\rho (x^2 + y^2) \\,dx\\,dy\\,dz \\\\ &amp;= \\int_{-\\ell_z/2}^{\\ell_z/2} \\int_{-\\ell_y/2}^{\\ell_y/2} \\left[ \\rho \\left(\\frac{1}{3}x^3 + y^2 x\\right)\\right]_{x = -\\ell_x/2}^{x = \\ell_x/2} \\,dy\\,dz \\\\ &amp;= \\int_{-\\ell_z/2}^{\\ell_z/2} \\int_{-\\ell_y/2}^{\\ell_y/2} \\rho \\left(\\frac{1}{12}{\\ell_x}^3 + y^2 \\ell_x \\right) \\,dy\\,dz \\\\ &amp;= \\int_{-\\ell_z/2}^{\\ell_z/2} \\left[ \\rho \\left(\\frac{1}{12}{\\ell_x}^3 y + \\frac{1}{3} y^3 \\ell_x \\right) \\right]_{y = -\\ell_y/2}^{y = \\ell_y/2} \\,dz \\\\ &amp;= \\int_{-\\ell_z/2}^{\\ell_z/2} \\rho \\left(\\frac{1}{12}{\\ell_x}^3 \\ell_y + \\frac{1}{12} \\ell_x {\\ell_y}^3 \\right) \\,dz \\\\ &amp;= \\int_{-\\ell_z/2}^{\\ell_z/2} \\rho \\ell_x \\ell_y \\frac{1}{12}\\left( {\\ell_x}^2 + {\\ell_y}^2\\right) \\,dz \\\\ &amp;= \\left[ \\rho \\ell_x \\ell_y \\frac{1}{12}\\left( {\\ell_x}^2 + {\\ell_y}^2\\right) z \\right]_{z = -\\ell_z/2}^{z = \\ell_z/2} \\\\ &amp;= \\rho \\ell_x \\ell_y \\ell_z \\frac{1}{12}\\left( {\\ell_x}^2 + {\\ell_y}^2\\right). \\end{aligned}" /> 
+
+            <p>
+                The total mass of the plate is  <InlineEquation equation="m=\\rho\\ell_x\\ell_y\\ell_z" />, so we can write the moment of inertia as
+            </p>
+
+            <DisplayEquation equation="I_{C,z}=\\frac{1}{12}m\\left({\\ell_x}^2+{\\ell_y}^2\\right).\\" /> 
+    
+    
+            
+       
+    
+        </div>
+    </DisplayEquationCustom>
+
+
+    <DisplayEquationCustom id="rem-ey" title="Cylindrical thick shell: moments of inertia" background=True derivation=True>
+        <div class="w-100 d-flex flex-row align-items-center">
+            <div class="w-50">
+                <PrairieDrawCanvas id="rem-ey-c" width="300" height="300" />
+            </div>
+            <div class="w-50">
+                <DisplayEquation equation="\\begin{aligned}I_{C,x}&=I_{C,y}=\\frac{1}{12}m(3({r_1}^2+{r_2}^2)+\\ell^2)\\\\I_{C,z}&=\\frac{1}{2}m({r_1}^2+{r_2}^2)\\end{aligned}" />
+            </div>
+        </div>
+
+        <div slot="derivation">
+            <p>
+                To compute the integrals in <a
+                href="#rem-ec">#rem-ec</a> it is convenient to switch to
+                <a href="rvy.html">cylindrical coordinates</a>:
+            </p>
+            <DisplayEquation equation="\\begin{aligned}x &= r \\cos\\theta \\\\y &= r \\sin\\theta \\\\z &= z.\\end{aligned}\\" /> 
+
+            <p>The Jacobian of this coordinate transformation is:</p>
+
+            <DisplayEquation equation="\\begin{aligned}J &= \\begin{vmatrix}\\frac{\\partial x}{\\partial r} & \\frac{\\partial x}{\\partial \\theta} & \\frac{\\partial x}{\\partial z} \\\\\\frac{\\partial y}{\\partial r} & \\frac{\\partial y}{\\partial \\theta} & \\frac{\\partial y}{\\partial z} \\\\\\frac{\\partial z}{\\partial r} & \\frac{\\partial z}{\\partial \\theta} & \\frac{\\partial z}{\\partial z}\\end{vmatrix}= \\begin{vmatrix}\\cos\\theta & -r \\sin\\theta & 0 \\\\\\sin\\theta &  r \\cos\\theta & 0 \\\\0 & 0 & 1\\end{vmatrix}= r \\cos^2\\theta + r \\sin^2\\theta= r.\\end{aligned}\\" />
+            
+            <p>Starting with the <InlineEquation equation="z" /> axis, the moment of inertia
+                is thus:</p>
+            
+            <DisplayEquation equation="\\begin{aligned}I_{C,z} &amp;= \\iiint_\\mathcal{B} \\rho (x^2 + y^2) \\,dx\\,dy\\,dz \\\\&amp;= \\int_{-\\ell/2}^{\\ell/2} \\int_0^{2\\pi} \\int_{r_1}^{r_2}\\rho \\left( (r \\cos\\theta)^2 + (r \\sin\\theta)^2 \\right) \\,J \\,dr\\,d\\theta\\,dz \\\\&amp;= \\int_{-\\ell/2}^{\\ell/2} \\int_0^{2\\pi} \\int_{r_1}^{r_2}\\rho r^3 \\,dr\\,d\\theta\\,dz \\\\&amp;= \\int_{-\\ell/2}^{\\ell/2} \\int_0^{2\\pi} \\left[\\rho \\frac{1}{4} r^4 \\right]_{r = r_1}^{r = r_2} \\,d\\theta\\,dz \\\\&amp;= \\int_{-\\ell/2}^{\\ell/2} \\int_0^{2\\pi} \\frac{1}{4} \\rho \\left({r_2}^4 - {r_1}^4 \\right) \\,d\\theta\\,dz \\\\&amp;= \\int_{-\\ell/2}^{\\ell/2} \\left[ \\frac{1}{4} \\rho \\left({r_2}^4 - {r_1}^4 \\right) \\theta \\right]_{\\theta = 0}^{\\theta = 2\\pi} \\,dz \\\\&amp;= \\int_{-\\ell/2}^{\\ell/2} \\frac{\\pi}{2} \\rho \\left({r_2}^4 - {r_1}^4 \\right) \\,dz \\\\&amp;= \\left[ \\frac{\\pi}{2} \\rho \\left({r_2}^4 - {r_1}^4 \\right) z \\right]_{z = -\\ell/2}^{z = \\ell/2} \\\\&amp;= \\frac{\\pi}{2} \\rho \\ell \\left({r_2}^4 - {r_1}^4 \\right).\\end{aligned}" />
+
+            The total mass of the cylindrical shell is <InlineEquation equation="m = \\rho(\\pi {r_2}^2 - \\pi {r_1}^2) \\ell" /> , so we can write the
+              moment of inertia as
+
+            <DisplayEquation equation="\\begin{aligned}I_{C,z}&= \\frac{1}{2} \\frac{m}{{r_2}^2 - {r_1}^2}\\left( {r_2}^4 - {r_1}^4 \\right) \\\\&= \\frac{1}{2} \\frac{m}{{r_2}^2 - {r_1}^2}\\left( {r_2}^2 + {r_1}^2 \\right) \\left( {r_2}^2 - {r_1}^2 \\right) \\\\&= \\frac{1}{2} m\\left( {r_2}^2 + {r_1}^2 \\right).\\end{aligned}\\" /> 
+            
+            Due to rotational symmetry of the cylinder, the moment
+              of inertia will be the same about any axis orthogonal to
+              <InlineEquation equation="z" /> , so we will just write out the derivation for
+              <InlineEquation equation="I_{C,x}" /> here. We again use <a
+              href="#rem-ec">#rem-ec</a> in <a
+              href="rvy.html">cylindrical coordinates</a>, giving:
+              
+              
+            <DisplayEquation equation="\\begin{aligned}I_{C,x} &amp;= \\iiint_\\mathcal{B} \\rho (y^2 + z^2) \\,dx\\,dy\\,dz \\\\&amp;= \\int_{-\\ell/2}^{\\ell/2} \\int_0^{2\\pi} \\int_{r_1}^{r_2}\\rho \\left( (r \\sin\\theta)^2 + z^2 \\right) \\,J \\,dr\\,d\\theta\\,dz \\\\&amp;= \\int_{-\\ell/2}^{\\ell/2} \\int_0^{2\\pi} \\int_{r_1}^{r_2}\\rho \\left( r^3 \\sin^2\\theta + r z^2 \\right) \\,dr\\,d\\theta\\,dz \\\\&amp;= \\int_{-\\ell/2}^{\\ell/2} \\int_0^{2\\pi} \\left[\\rho \\left( \\frac{1}{4} r^4 \\sin^2\\theta + \\frac{1}{2} r^2 z^2 \\right)\\right]_{r = r_1}^{r = r_2} \\,d\\theta\\,dz \\\\&amp;= \\int_{-\\ell/2}^{\\ell/2} \\int_0^{2\\pi}\\rho \\left( \\frac{1}{4} ({r_2}^4 - {r_1}^4) \\sin^2\\theta+ \\frac{1}{2} ({r_2}^2 - {r_1}^2) z^2 \\right) \\,d\\theta\\,dz \\\\&amp;= \\int_{-\\ell/2}^{\\ell/2} \\int_0^{2\\pi}\\rho \\left( \\frac{1}{8} ({r_2}^4 - {r_1}^4) (1 - \\cos 2\\theta)+ \\frac{1}{2} ({r_2}^2 - {r_1}^2) z^2 \\right) \\,d\\theta\\,dz \\\\&amp;= \\int_{-\\ell/2}^{\\ell/2} \\left[\\rho \\left( \\frac{1}{8} ({r_2}^4 - {r_1}^4)\\left(\\theta - \\frac{1}{2} \\sin 2\\theta\\right)+ \\frac{1}{2} ({r_2}^2 - {r_1}^2) z^2 \\theta \\right)\\right]_{\\theta = 0}^{\\theta = 2\\pi} \\,d\\theta\\,dz \\\\&amp;= \\int_{-\\ell/2}^{\\ell/2} \\rho \\left( \\frac{\\pi}{4} ({r_2}^4 - {r_1}^4)+ \\pi ({r_2}^2 - {r_1}^2) z^2 \\right) \\,d\\theta\\,dz \\\\&amp;= \\left[ \\rho \\left( \\frac{\\pi}{4} ({r_2}^4 - {r_1}^4) z+ \\pi ({r_2}^2 - {r_1}^2) \\frac{1}{3} z^3 \\right) \\right]_{z = -\\ell/2}^{z = \\ell/2} \\\\&amp;= \\rho \\left( \\frac{\\pi}{4} ({r_2}^3 - {r_1}^3) \\ell+ \\pi ({r_2}^2 - {r_1}^2) \\frac{1}{12} \\ell^3 \\right) \\\\&amp;= \\frac{1}{12} \\rho \\pi ({r_2}^2 - {r_1}^2) \\ell \\left( 3 ({r_2}^2 + {r_1}^2)+ \\ell^2 \\right).\\end{aligned}" />
+
+
+            In the last line we again used the factorization
+            <InlineEquation equation="({r_2}^4 - {r_1}^4) = ({r_2}^2 + {r_1}^2) ({r_2}^2 -{r_1}^2)" /> . Now we can substitute in the total mass <InlineEquation equation="m =\\rho \\pi ({r_2}^2 - {r_1}^2) \\ell" />  to obtain:
+            
+             
+            <DisplayEquation equation="\\begin{aligned}I_{C,x}&amp;= \\frac{1}{12} m \\left( 3 ({r_2}^2 + {r_1}^2)+ \\ell^2 \\right).\\end{aligned}" />
+            
+
+        </div>
+    </DisplayEquationCustom>
+
+
+<DisplayEquationCustom id="rem-es" title="Spherical thick shell: moments of inertia" background=True derivation=True>
+    <div class="w-100 d-flex flex-row align-items-center">
+        <div class="w-50">
+            <PrairieDrawCanvas id="rem-es-c" width="300" height="300" />
+        </div>
+        <div class="w-50">
+            <DisplayEquation equation="\\begin{aligned}I_C&=\\frac{2}{5}m\\left(\\frac{{r_2}^5-{r_1}^5}{{r_2}^3-{r_1}^3}\\right)\\end{aligned}" />
+        </div>
+    </div>
+
+    <div slot="derivation">
+        <p>
+            To compute the integrals in <a
+            href="#rem-ec">#rem-ec</a> it is convenient to switch to
+            <a href="rvs.html">spherical coordinates</a>:
+        </p>
+        <DisplayEquation equation="\\begin{aligned}x &= r \\cos\\theta \\sin\\phi \\\\y &= r \\sin\\theta \\sin\\phi \\\\z &= r \\cos\\phi.\\end{aligned}\\" /> 
+
+        To find the Jacobian of this coordinate transformation
+              we use the coordinate order <InlineEquation equation="(r,\\phi,\\theta)" />  to give a
+              right-handed spherical system. Then:
+
+              Due to spherical symmetry, all axes through <InlineEquation equation="C" /> will have
+              the same moment of inertia. We will compute
+              <InlineEquation equation="I_{C,z}" /> , which is:
+    
+              
+              <DisplayEquation equation="\\begin{aligned}I_{C,z} &amp;= \\iiint_\\mathcal{B} \\rho (x^2 + y^2) \\,dx\\,dy\\,dz \\\\&amp;= \\int_0^{\\pi} \\int_{-\\pi}^{\\pi} \\int_{r_1}^{r_2}\\rho \\left( (r \\cos\\theta \\sin\\phi)^2 + (r \\sin\\theta \\sin\\phi)^2 \\right) \\,J \\,dr\\,d\\theta\\,d\\phi \\\\&amp;= \\int_0^{\\pi} \\int_{-\\pi}^{\\pi} \\int_{r_1}^{r_2}\\rho r^4 \\sin^3\\phi \\,dr\\,d\\theta\\,d\\phi \\\\&amp;= \\int_0^{\\pi} \\int_{-\\pi}^{\\pi} \\left[\\rho \\frac{1}{5} r^5 \\sin^3\\phi \\right]_{r = r_1}^{r = r_2} \\,d\\theta\\,d\\phi \\\\&amp;= \\int_0^{\\pi} \\int_{-\\pi}^{\\pi}\\rho \\frac{1}{5} ({r_2}^5 - {r_1}^5) \\sin^3\\phi \\,d\\theta\\,d\\phi \\\\&amp;= \\int_0^{\\pi} \\left[\\rho \\frac{1}{5} ({r_2}^5 - {r_1}^5) \\sin^3\\phi \\, \\theta\\right]_{\\theta = -\\pi}^{\\theta = \\pi} \\,d\\phi \\\\&amp;= \\int_0^{\\pi}\\rho \\frac{2\\pi}{5} ({r_2}^5 - {r_1}^5) \\sin^3\\phi \\,d\\phi \\\\&amp;= \\int_0^{\\pi}\\rho \\frac{2\\pi}{5} ({r_2}^5 - {r_1}^5) \\frac{1}{4} (3\\sin\\phi - \\sin 3\\phi) \\,d\\phi \\\\&amp;= \\left[ \\rho \\frac{2\\pi}{5} ({r_2}^5 - {r_1}^5) \\frac{1}{4}\\left(\\frac{1}{3} \\cos 3\\phi - 3\\cos\\phi\\right) \\right]_{\\phi = 0}^{\\phi = \\pi} \\\\&amp;= \\rho \\frac{2\\pi}{5} ({r_2}^5 - {r_1}^5) \\frac{1}{4}\\left(-\\frac{2}{3} + 6\\right) \\\\&amp;= \\frac{8}{15} \\rho \\pi ({r_2}^5 - {r_1}^5).\\end{aligned}" />
+
+              The total mass of the spherical shell is <InlineEquation equation="m = \\rho\\left(\\frac{4}{3} \\pi {r_2}^3 - \\frac{4}{3} \\pi{r_1}^3\\right)" /> , so we can write the moment of inertia
+              as
+            
+            <DisplayEquation equation="\\begin{aligned}I_{C,z}&= \\frac{8}{15} m \\frac{3}{4} \\frac{1}{{r_2}^3 - {r_1}^3} ({r_2}^5 - {r_1}^5) \\\\&= \\frac{2}{5} m \\left(\\frac{{r_2}^5 - {r_1}^5}{{r_2}^3 - {r_1}^3}\\right).\\end{aligned}\\" /> 
+    </div>
+</DisplayEquationCustom>
+
+
+</SubSubSection>
+
+<SubSubSection title="Simplified shapes">
+    <p>
+        The moments of inertia listed below are all special cases of
+        the basic shapes given in Section <a
+        href="#rem-sb">#rem-sb</a>. Other special cases can be
+        easily obtained by similar methods.
+      </p>
+
+
+<DisplayEquationCustom id="rem-eo" title="Rod: moments of inertia" background=True derivation=True>
+    <div class="w-100 d-flex flex-row align-items-center">
+        <div class="w-50">
+            <PrairieDrawCanvas id="rem-eo-c" width="300" height="300" />
+        </div>
+        <div class="w-50">
+            <DisplayEquation equation="\\begin{aligned}I_{C,z}&=\\frac{1}{12}m\\ell^2\\\\I_{P,z}&=\\frac{1}{3}m\\ell^2\\\\I_{C,x}&=I_{P,x}=0\\end{aligned}" />
+        </div>
+    </div>
+
+    <div slot="derivation">
+        <p>
+            A rod is assumed to be a shape with infinitesimally
+            small cross-section. We can use the formula <a
+            href="#rem-ey">#rem-ey</a> for a cylinder with zero
+            radii <InlineEquation equation="r_1 = r_2 = 0" /> . The coordinates here are set up
+            so that <InlineEquation equation="z" /> is orthogonal to the rod axis and
+            <InlineEquation equation="x" />  is along the axis, so <a
+            href="#rem-ey">#rem-ey</a> gives:
+        </p>
+        
+        
+        
+        <DisplayEquation equation="\\begin{aligned}I_{C,z} &= \\frac{1}{12} m (3({r_1}^2 + {r_2}^2) + \\ell^2)= \\frac{1}{12} m \\ell^2 \\\\I_{C,x} &= \\frac{1}{2} m ({r_1}^2 + {r_2}^2) = 0.\\end{aligned}\\" /> 
+
+        <p>
+            To find the moment of inertia about the end point <InlineEquation equation="P" />  we
+              can use the parallel axis theorem <a
+              href="#rem-el">#rem-el</a>. This results is:
+        </p>
+
+        <DisplayEquation equation="\\begin{aligned}I_{P,z} &= I_{C,z} + m {r_{CP}}^2 \\\\&= \\frac{1}{12} m \\ell^2 + m \\left(\\frac{\\ell}{2}\\right)^2 \\\\&= \\frac{1}{3} m \\ell^2.\\end{aligned}\\" /> 
+
+        <p>
+            The moment of inertia <InlineEquation equation="I_{P,x}" />  is still zero,
+              because <InlineEquation equation="\\vec{r}_{CP}" /> is parallel to <InlineEquation equation="x" />.
+        </p>
+        
+        
+        
+         
+         
+
+    </div>
+</DisplayEquationCustom>
+
+
+<DisplayEquationCustom id="rem-ek" title="Solid cylinder or disk: moments of inertia" background=True derivation=True>
+    <div class="w-100 d-flex flex-row align-items-center">
+        <div class="w-50">
+            <PrairieDrawCanvas id="rem-ek-c" width="300" height="300" />
+        </div>
+        <div class="w-50">
+            <DisplayEquation equation="\\begin{aligned}I_{C,x}&=I_{C,y}=\\frac{1}{12}m(3r^2+\\ell^2)\\\\I_{C,z}&=\\frac{1}{2}mr^2\\end{aligned}" />
+        </div>
+    </div>
+
+    <div slot="derivation">
+        <p>
+            The solid cylinder expressions are simply the
+            cylindrical thick shell formulas <a
+            href="#rem-ey">#rem-ey</a> with the inner radius set to
+            <InlineEquation equation="r_1 = 0" />  and the outer radius <InlineEquation equation="r_2 = r" /> .
+          </p>
+        
+        
+
+    </div>
+</DisplayEquationCustom>
+
+
+<DisplayEquationCustom id="rem-eh" title="Hollow cylinder or hoop: moments of inertia" background=True derivation=True>
+    <div class="w-100 d-flex flex-row align-items-center">
+        <div class="w-50">
+            <PrairieDrawCanvas id="rem-eh-c" width="300" height="300" />
+        </div>
+        <div class="w-50">
+            <DisplayEquation equation="\\begin{aligned}I_{C,x}&=I_{C,y}=\\frac{1}{12}m(6r^2+\\ell^2)\\\\I_{C,z}&=mr^2\\end{aligned}" />
+        </div>
+    </div>
+
+    <div slot="derivation">
+        
+        <p>
+            The hollow cylinder expressions can be found from
+            cylindrical thick shell formulas <a
+            href="#rem-ey">#rem-ey</a> by taking the same value for
+            both inner and outer radii, so that <InlineEquation equation="r_1 = r_2 = r" /> .
+          </p>
+        
+
+    </div>
+</DisplayEquationCustom>
+
+
+<DisplayEquationCustom id="rem-eb" title="Solid ball: moments of inertia" background=True derivation=True>
+    <div class="w-100 d-flex flex-row align-items-center">
+        <div class="w-50">
+            <PrairieDrawCanvas id="rem-eb-c" width="300" height="300" />
+        </div>
+        <div class="w-50">
+            <DisplayEquation equation="\\begin{aligned}I_C&=\\frac{2}{5}mr^2\\end{aligned}" />
+        </div>
+    </div>
+    <p>
+        All axes through \( C \) have the same moment of inertia.
+      </p>
+
+    <div slot="derivation">
+        <p>
+            The solid ball moment of inertia can be directly
+            obtained from the spherical thick shell expression <a
+            href="#rem-es">#rem-es</a> with inner radius  <InlineEquation equation="r_1 = 0" /> 
+            and outer radius <InlineEquation equation="r_2 = r" /> .
+          </p>
+
+       
+
+
+    </div>
+</DisplayEquationCustom>
+
+
+<DisplayEquationCustom id="rem-ew" title="Hollow sphere: moments of inertia" background=True derivation=True>
+    <div class="w-100 d-flex flex-row align-items-center">
+        <div class="w-50">
+            <PrairieDrawCanvas id="rem-ew-c" width="300" height="300" />
+        </div>
+        <div class="w-50">
+            <DisplayEquation equation="\\begin{aligned}I_C&=\\frac{2}{3}mr^2\\end{aligned}" />
+        </div>
+    </div>
+    <p>
+        All axes through \( C \) have the same moment of inertia.
+      </p>
+    <div slot="derivation">
+        A hollow sphere moment of inertia is the same as that
+        for the spherical thick shell <a
+        href="#rem-es">#rem-es</a> with inner radius and outer
+        radius both set to <InlineEquation equation="r_1 = r_2 = r" />. Some care is needed
+        here, however, as a simple substitution into the
+        spherical thick shell expression would give the
+        undefined value <InlineEquation equation="0 / 0" /> .
+      </p>
+      <p>
+        Instead we need to set <InlineEquation equation="r_2 = r" />  and then to take the
+        limit as <InlineEquation equation="r_1 \\to r" />  using l'Hôpital's rule:
+
+        <DisplayEquation equation="\\begin{aligned}I_C &= \\lim_{r_1 \\to r} \\frac{2}{5} m\\left(\\frac{r^5 - {r_1}^5}{r^3 - {r_1}^3}\\right) \\\\&= \\lim_{r_1 \\to r} \\frac{2}{5} m\\left(\\frac{\\frac{d}{d r_1}\\left(r^5 - {r_1}^5\\right)}{\\frac{d}{d r_1}\\left(r^3 - {r_1}^3\\right)}\\right) \\\\&= \\lim_{r_1 \\to r} \\frac{2}{5} m\\left(\\frac{5 {r_1}^4}{3 {r_1}^2}\\right) \\\\&= \\lim_{r_1 \\to r} \\frac{2}{3} m {r_1}^2 \\\\&= \\frac{2}{3} m r^2.\\end{aligned}\\" /> 
+    </div>
+</DisplayEquationCustom>
+
+
+
+
+</SubSubSection>
+<SubSection title="Instantaneous centers">
+    <RedText>Add this information:</RedText>
+    <Itemize>
+        <Item><RedText>For a rigid body moving in 2D (rotating and possibly translating)</RedText></Item>
+        <Item><RedText>Instantaneous Center “M” is the point on or off the rigid body that has zero
+    velocity at that instant (i.e. no translation at this point)</RedText></Item>
+        <Item><RedText>Point that the body rotates about (at that instant in time)</RedText></Item>
+    </Itemize>
+
+    <RedText>Add some examples as shown in Figs  \ref fig:ICexamples1 ,  \ref fig:ICexamples2</RedText>
+
+    <Image src="/Dynamics/RigidBodyKineticsFigs/ICexamples1.png" width="5"></Image>
+
+    <Image src="/Dynamics/RigidBodyKineticsFigs/ICexamples2.png" width="5"></Image>
+
+    <RedText>Add: Graphical rules for finding (M) (Instantaneous Center) as shown in Fig \ref fig:ICgraphRules</RedText>
+
+    <Image src="/Dynamics/RigidBodyKineticsFigs/ICgraphicalRules.png" width="5"></Image>
+</SubSection>
+
+<SubSection title="Applications"></SubSection>
+<SubSubSection title="Cargo Ships">
+    <RedText>This topic is in L22-Notes, slides 3-4, refer to Fig  \ref fig:AppCargoShip</RedText>. Application for "Center of mass".
+
+    <Image src="/Dynamics/RigidBodyKineticsFigs/AppCargoShip.png" width="5"></Image>
+</SubSubSection>
+
+<SubSubSection title="Tuned Mass Damper">
+    <RedText>This topic is in L24-Notes, slide 9, include the information in Fig  \ref fig:AppCargoShip , and this link to a YouTube video  <a href="https://www.youtube.com/watch?v=GzMuF-LMGaM ">https://www.youtube.com/watch?v=GzMuF-LMGaM</a></RedText>. Application for "Rigid body kinetics".
+
+    <Image src="/Dynamics/RigidBodyKineticsFigs/AppCargoShip.png" width="5"></Image>
+</SubSubSection>
+
+<SubSubSection title="Accelerating and braking">
+    <BlueText>Complete in "Accelerating and braking". Include all the information starting at "2D rigid body model".</BlueText> Refer back to  \ref sub:PartKin_acce
+</SubSubSection>
+<SubSubSubSection title="2D rigid body model" >
+        <p>
+        Consider a car sitting stationary on the ground, as shown
+        below. We will take the entire car plus wheels to be a
+        single rigid body. Clearly this is inaccurate (the wheels
+        can't turn), but it is <a href="roq.html#roq.su">still
+        useful</a>.
+        </p>
+        <p>
+        We start with the car stationary, sitting on the
+        road. Gravity acts downward through the center of mass,
+        while there are upwards reaction forces on the wheels and
+        corresponding equal and opposite forces downwards on the
+        ground. Because the car is not accelerating, the total
+        forces on the car are in balance, as we can see on the
+        <button onclick="ava_fr_c.stepSequence('fbd');">free body
+        diagram</button>.
+        </p>
+        <p>
+        When the driver <button
+        class="seq-step:ava-fr-c:motion:stationary" onclick="ava_fr_c.stepSequence('motion', 'stationary');">presses down on the gas
+        pedal</button>, this results in the car pushing back on the
+        road, giving a net forward force on the driving wheels (the
+        back wheels for our car), and the car accelerates up to
+        cruising speed. Here we are including <a
+        href="https://en.wikipedia.org/wiki/Drag_%28physics%29">air
+        resistance</a> but neglecting <a
+        href="https://en.wikipedia.org/wiki/Rolling_resistance">rolling
+        resistance</a>, and while cruising at constant speed the
+        driving force exactly balances the drag force from air
+        resistance. When the driver <button
+        class="seq-step:ava-fr-c:motion:cruising" onclick="ava_fr_c.stepSequence('motion', 'cruising');">presses down on the
+        brake pedal</button>, the car pushes on the road to slow
+        down, giving backward forces on both wheels and causing the
+        car to decelerate to a stop.
+        </p>
+        <p>
+            <Center>
+                <PrairieDrawCanvas id="ava-fr-c" width="400" height="400" show_border="False" />
+            </Center>
+        </p>
+        <p>
+        <button class="seq-step:ava-fr-c:motion:stationary" onclick="ava_fr_c.stepSequence('motion', 'stationary');">accelerate</button>
+        <button class="seq-step:ava-fr-c:motion:cruising" onclick="ava_fr_c.stepSequence('motion', 'cruising');">brake</button>
+        <button class="seq-toggle:ava-fr-c:fbd" onclick="ava_fr_c.stepSequence('fbd');">free body diagram</button>
+        <button class="option-toggle:ava-fr-c:components" onclick="ava_fr_c.toggleOption('components');">components</button>
+        <button class="anim-toggle:ava-fr-c" onclick="ava_fr_c.toggleAnim();">animation</button>
+        </p>
+        <p>
+        Repeat the <button
+        class="seq-step:ava-fr-c:motion:stationary" onclick="ava_fr_c.stepSequence('motion', 'stationary');">acceleration</button>/<button
+        class="seq-step:ava-fr-c:motion:cruising" onclick="ava_fr_c.stepSequence('motion', 'cruising');">braking</button>
+        cycle a few times while showing the <button
+        class="seq-toggle:ava-fr-c:fbd" onclick="ava_fr_c.stepSequence('fbd');">free body
+        diagram</button>. Observe the horizontal and vertical forces
+        of the road on the car wheels. Also view the forces both in
+        <button class="option-toggle:ava-fr-c:components" onclick="ava_fr_c.toggleOption('components');">vector
+        components</button> and as total force vectors.
+        </p>
+        <p>
+        The vertical forces of the road on the car always need to
+        balance the gravitational force, but we can see that the
+        distribution between front and rear wheels changes as the
+        car accelerates and decelerates. This is because the
+        horizontal driving and braking forces are below the center
+        of mass and produce a moment. The vehicle is not rotating,
+        so this moment must be counteracted by the ground
+        forces. The force directions mean that the rear wheels take
+        more weight during acceleration, while the front wheels take
+        more weight during braking.
+        </p>
+</SubSubSubSection>
+<SubSubSubSection title="Traction, acceleration, and braking" >
+        <p>
+        The maximum force with which the car can push against the
+        road is limited by the <a href="rff.html">friction
+        coefficient</a> of the tire multiplied by the normal
+        force. This applies both during acceleration and braking.
+        </p>
+        <p>
+        To accelerate as hard as possible, we should thus use a <a
+        href="http://en.wikipedia.org/wiki/Automobile_layout#Rear-wheel-drive_layouts">rear-wheel
+        drive</a> layout. If we accelerate too hard, however, then
+        the back wheels will slip and experience <a
+        href="http://en.wikipedia.org/wiki/Wheelspin">wheelspin</a>,
+        because the <a href="rff.html">dynamic coefficient of
+        friction</a> is lower than the static coefficient.  While
+        high-performance applications generally want to maintain
+        traction in all cases, the impressive effects of traction
+        loss are sometimes deliberately produced. Spinning the rear
+        wheels in a <a
+        href="http://en.wikipedia.org/wiki/Burnout_(vehicle)">burnout</a>
+        produces smoke as the tires vaporize due to the heat from
+        friction. <a
+        href="http://en.wikipedia.org/wiki/Drag_racing">Drag
+        racers</a> perform a burnout at the start of a race to clean
+        the tires and heat them to an optimal temperature. To easily
+        produce a burnout a <a
+        href="http://en.wikipedia.org/wiki/Line_lock">line lock</a>
+        can be installed to enable the brakes to be applied only to
+        the front wheels (although this is often illegal on street
+        cars). Alternatively, a burnout <a
+        href="http://youtu.be/rSwOTV-jbns">can be performed</a> by
+        disengaging the clutch, running the engine at a high revs,
+        and then rapidly engaging the clutch. The high <a
+        href="rkm">angular momentum</a> of the engine then provides
+        a <a href="rkm">rotational impulse</a> to the rear wheels,
+        causing them to lose traction.
+        </p>
+        <p>
+        Even if traction is maintained during acceleration, a second
+        problem that may occur is that the torque from the rear
+        wheels can be enough to lift the front wheels off the
+        ground, so that the vehicle performs a <a
+        href="http://en.wikipedia.org/wiki/Wheelie">wheelie</a>. This
+        occurs very easily for motorbikes and BMX bicycles, due to a
+        high center of mass to wheelbase ratio, but <a
+        href="http://en.wikipedia.org/wiki/File:Pro_Street_Camaro_at_launch.JPG">can
+        also occur for cars</a> with poor geometry and sufficient
+        power.
+        </p>
+        <p>
+        The problems of wheel slip and wheel lift-off occur in
+        reverse while braking. Any car with well-maintained brakes
+        has sufficient braking power to cause the wheels to lock,
+        even in dry conditions with good traction. For this reason
+        many cars now include <a
+        href="http://en.wikipedia.org/wiki/Anti-lock_braking_system">anti-lock
+        braking systems (ABS)</a>, which detect wheel locking and
+        rapidly pulse the brake force to prevent locking. Even
+        better than this are <a
+        href="http://en.wikipedia.org/wiki/Electronic_brakeforce_distribution">electronic
+        brakeforce distribution (EBD)</a> systems, which apply the
+        maximal brake force to each wheel while maintaining traction
+        and control, better than any unassisted human driver could
+        achieve. Due to the weight transfer to the front wheels
+        during braking, the front brakes generally apply much
+        greater force and thus wear out sooner than the rear brakes.
+        </p>
+
+    <CalloutContainer slot="cards">
+        <CalloutCard>
+            <p>
+                Using ABS to mean <em>Anti-lock Brake System</em> is an
+                example of a <a
+                href="http://en.wikipedia.org/wiki/Backronym">backronym</a>. This
+                is where the name ABS came first, and then <em>Anti-lock
+                Brake System</em> was made up later to fit the letters as
+                an <a
+                href="http://en.wikipedia.org/wiki/Acronym_and_initialism">ackronym</a>. In
+                fact ABS comes from the German phrase <a
+                href="http://en.wiktionary.org/wiki/ABS_brake">Antiblockiersystem</a>
+                (literally: Anti Locking System).
+            </p>
+        </CalloutCard>
+    </CalloutContainer>
+
+</SubSubSubSection>
+<SubSubSubSection title="Traction, acceleration, and braking" >
+        <p>
+        To understand how forces and moments act on the wheels, we
+        need to separate out the <a href="#ava-sr">single rigid-body
+        model</a> into multiple rigid bodies. The simplest version
+        of this has one rigid body for the body, and four rigid
+        bodies for the wheels. We will assume that the two front
+        wheels always act as a pair (same forces, same motion), and
+        similarly for the two back wheels.
+        </p>
+        <p>
+        Again we start with the car stationary, and on the <button
+        class="seq-toggle:ava-fm-c:fbd" onclick="ava_fm_c.stepSequence('fbd');">free body diagram</button>
+        we see the balance of vertical forces. Remember that the
+        force shown on each wheel is really doubled, as there are
+        two front and two rear wheels.
+        </p>
+        <p>
+        If we now <button
+        class="seq-step:ava-fm-c:motion:stationary" onclick="ava_fm_c.stepSequence('motion', 'stationary');">accelerate</button>,
+        then we see a clockwise moment applied to the rear (driving)
+        wheels. This causes the wheel to rotate, but friction forces
+        means that it must <a href="rkl.html">roll without
+        slipping</a>, so there must be a forward contact force
+        causing it to accelerate forwards. Counteracting this is a
+        backwards reaction force from the car on the wheel. On the
+        car we see that there are equal and opposite forces and
+        moments at the axles. Just as in the <a
+        href="#ava-sr">single rigid body</a> case, we have a net
+        horizontal force causing forward acceleration, and moment
+        balance means that the weight of the car is transferred
+        primarily to the rear wheels.
+        </p>
+        <p>
+            <Center>
+                <PrairieDrawCanvas id="ava-fm-c" width="400" height="400" show_border="False" />
+            </Center>
+        </p>
+        <p>
+        <button class="seq-step:ava-fm-c:motion:stationary" onclick="ava_fm_c.stepSequence('motion', 'stationary');">accelerate</button>
+        <button class="seq-step:ava-fm-c:motion:cruising" onclick="ava_fm_c.stepSequence('motion', 'cruising');">brake</button>
+        <button class="seq-toggle:ava-fm-c:fbd" onclick="ava_fm_c.stepSequence('fbd');">free body diagram</button>
+        <button class="option-toggle:ava-fm-c:components" onclick="ava_fm_c.toggleOption('components');">components</button>
+        <button class="anim-toggle:ava-fm-c" onclick="ava_fm_c.toggleAnim();">animation</button>
+        </p>
+        <p>
+        <button
+        class="seq-step:ava-fm-c:motion:cruising" onclick="ava_fm_c.stepSequence('motion', 'cruising');">Braking</button>
+        applies backwards moments to both wheels, causing them to
+        slow down. To maintain non-slip, there is a backwards force
+        from the ground at the point of contact. Because the wheel
+        is slowing down, the car pushes forward on the axle. The
+        ground/axle forces are trying to rotate the wheel forward,
+        which must be counteracted by the braking moment. The
+        braking moment is thus counteracting both the rotational
+        inertia of the wheel, as well as the force couple from the
+        ground/axle forces. Of these, the force couple is much
+        larger (stopping a wheel without the car attached would be
+        comparatively easy for the brakes). During braking we see
+        again the weight being transferred to the front wheels.
+        </p>
+</SubSubSubSection>
+<SubSubSubSection title="More complex models" >
+        <p>
+        While we can learn a lot about car performance from the
+        simple <a href="#ava-sr">rigid body</a> and <a
+        href="#ava-sm">multi-body</a> models, there is a great deal
+        of physics neglected by these models, which can be important
+        for engineering design.
+        </p>
+        <p>
+        Both the car and the tires are deformable bodies. The
+        deformation of the tire is responsible for the <a
+        href="http://en.wikipedia.org/wiki/Contact_patch">contact
+        patch</a> which generates the friction forces that allow a
+        car to accelerate and brake. The physics of the frictional
+        contact between the tire and ground can be very complex, as
+        can the geometry of the tire. Modern <a
+        href="http://en.wikipedia.org/wiki/Tire">tires</a> have
+        complex <a
+        href="http://en.wikipedia.org/wiki/Tread">tread</a> patterns
+        with grooves and lugs that are designed to channel away
+        water and snow, maintaining traction even in challenging
+        conditions.
+        </p>
+        <p>
+        As well as being individually deformable, the wheels are are
+        not rigidly connected to the car body <a href="#ava-sr">as
+        above</a>, but they are actually connected by a <a
+        href="http://en.wikipedia.org/wiki/Suspension_(vehicle)">suspension
+        system</a>, consisting of <a href="aml.html">linkages</a>,
+        <a href="rff.html">springs</a>, and <a
+        href="rff.html">shock absorbers</a>. These enable both a
+        comfortable ride and safe handling of the vehicle.
+        </p>
+        <p>
+        The simple models above included a simple model of <a
+        href="https://en.wikipedia.org/wiki/Drag_%28physics%29">air
+        resistance</a>, but they neglected <a
+        href="https://en.wikipedia.org/wiki/Rolling_resistance">rolling
+        resistance</a>. This is the force primarily produced by the
+        tire being compressed and re-expanded at the contact with
+        the ground as it rolls, producing a backward force on the
+        wheel. Using steel wheels on steel can result in trains
+        having up to <a
+        href="http://en.wikipedia.org/wiki/Rolling_resistance#Rolling_resistance_coefficient_examples">ten
+        times lower</a> coefficients of rolling resistance than car
+        tires, which is one reason for the efficiency of rail
+        transport.
+        </p>
+        
+    <CalloutContainer slot="cards">
+        <CalloutCard>
+            <p>
+                <a href="http://dx.doi.org/10.1159/000328223">There is
+                evidence</a> that the wrinkling of fingers in
+                water may serve the same purpose as tread patters on
+                tires, improving traction in wet conditions by forming
+                channels to carry away water. This hypothesis is supported
+                by the fact that <a
+                href="http://en.wikipedia.org/wiki/Wrinkle#Water-immersion_wrinkling">finger
+                wrinkling</a> relies on an active nervous system response,
+                meaning that the fingers of corpses cannot wrinkle (but
+                what about zombies' fingers?).
+            </p>
+        </CalloutCard>
+    </CalloutContainer>
+        
+</SubSubSubSection>
+<SubSubSubSection title="Brake system design" >
+        <p>
+        The above model shows equal brake force applied on the front
+        and rear wheels. This both inefficient and dangerous, as the
+        rear wheels will lock while the front wheels are still
+        turning. See #avs for steering and sliding. We want to apply
+        more force on the front brakes, so that we can deliver the
+        most total force while still having no sliding. This can be
+        achieved by <a
+        href="http://en.wikipedia.org/wiki/Electronic_brakeforce_distribution">electronic
+        brakeforce distribution (EBD)</a> systems, however
+        traditional systems are also possible.
+        </p>
+        <p>
+        The basic outline of a brake system is that the brake pedal
+        pushes on a <em>master cylinder</em>, which compresses
+        hydraulic <em>brake fluid</em> in the <em>brake
+        lines</em>. This then pushes on <em>slave cylinders</em> in
+        each wheel, which push the <em>brake pads</em> onto the
+        <em>brake rotors</em> (for disc brakes; drum brakes are
+        somewhat different). The combination of slave cylinders and
+        brake pads and their housing is called a <em>brake
+        caliper</em>.
+        </p>
+        <p>
+        To apply more force to the front brakes, one simple system
+        used in practice is to have the front-wheel slave cylinders
+        have a larger diameter than those on the rear
+        wheels. Because the pressure in the brake lines is the same
+        everywhere, the force exerted by the pistons is proportional
+        to their cross-sectional area, resulting in more force with
+        the larger-diameter front-wheel cylinders.
+        </p>
+        <p>
+        Modern cars use more advanced systems. The master cylinder
+        typically contains two pistons in a parallel arrangement, so
+        that it can apply pressure to the front or rear brake lines
+        even if the other brake line develops a leak. A <em>metering
+        valve</em> applies pressure to the rear brakes before the
+        front, improving vehicle steering stability and allowing
+        mixed drum/disc systems to be used. A <em>pressure
+        differential valve</em> detects brake hydraulic leaks by
+        sensing different front/rear line pressures. A
+        <em>proportioning valve</em> assists with applying a
+        different pressure distribution to the rear brakes.
+        </p>
+</SubSubSubSection>
+<SubSubSubSection title="Car model" >
+        <p>
+        This is a <a
+        href="http://en.wikipedia.org/wiki/Ford_Mustang_(first_generation)">1965
+        Ford Mustang</a> <a
+        href="http://en.wikipedia.org/wiki/Fastback">Fastback</a>. The
+        mass of the car body is 1100 kg and each of the wheels has
+        mass 20 kg, giving a total mass of 1180 kg. We assume that
+        the wheels are uniform cylinders. The dimensions of the car
+        are shown below.
+        </p>
+        <table>
+        <tr>
+            <td>
+            <Center>
+                <PrairieDrawCanvas id="ava-fc-c" width="400" height="400" show_border="False" />
+            </Center>
+            <td>
+            <p>
+                <DisplayEquation equation="\\begin{aligned}    h_1 &amp;= {0.31\\rm\\ m} &amp; \\ell_1 &amp;= {0.98\\rm\\ m} \\\\    h_2 &amp;= {0.29\\rm\\ m} &amp; \\ell_2 &amp;= {1.41\\rm\\ m} \\\\    h_3 &amp;= {0.79\\rm\\ m} &amp; \\ell_3 &amp;= {1.41\\rm\\ m} \\\\    &amp; &amp; \\ell_4 &amp;= {0.80\\rm\\ m}    \\end{aligned}" />
+            </p>
+            </td>
+        </tr>
+        </table>
+        <p>
+        The force of <a
+        href="http://en.wikipedia.org/wiki/Drag_(physics)">air
+        resistance</a> was computed above using the <a
+        href="http://en.wikipedia.org/wiki/Drag_equation">quadratic
+        drag equation</a> which is a good approximation for
+        medium- to high-velocity motion in air:
+        </p>
+        <p><InlineEquation equation="F_{\\rm D} = \\frac{1}{2} \\rho v^2 C_{\\rm D} A" /></p>
+        <p>
+        Here <InlineEquation equation="F_{\\rm D}" /> is the drag force, <InlineEquation equation="\\rho = 1.23\\rm\\ kg/m^3"/> is the air density, \(v\) is the velocity, <InlineEquation equation="C_{\\ D}" /> is the drag coefficient (taken to be 0.3 for the
+        Mustang), and \(A\) is the reference area (approximately the
+        cross-sectional area, taken to be \(2.2\rm\ m^2\) for the
+        Mustang).
+        </p>
+</SubSubSubSection>
+
+<SubSubSection title="Banked turns">
+    <BlueText>Complete in "Banked turns". Include all the information starting at "2D rigid body model".</BlueText> Refer back to  \ref sub:PartKin_turns
+
+</SubSubSection>
+<SubSubSubSection title="2D Rigid body model" >
+          <p>
+            We now use a single rigid body model for the bus and we will
+            do everything in 2D. Below we see a front-on diagram of the
+            bus, with the inside of the track to the left. If we turn on
+            the <button class="seq-toggle:avb-fr-c:fbd" onclick="avb_fr_c.stepSequence('fbd');">free body
+            diagram</button>, then we see that the weight of the bus is
+            supported by two forces, one on each wheel. If we increase
+            \(\theta\) then the weight is supported more by the
+            down-slope wheel, and we also see sideways friction forces
+            appear to stop the bus from sliding. If the slope becomes
+            too steep, then the normal force on the up-slope wheel
+            reverses direction, indicating that it is holding the wheel
+            down onto the road. Physically this cannot happen, so at
+            this point the bus would tip over. We needed this rigid-body
+            model to understand this tipping behavior, as we couldn't
+            model this with the <a href="#avb-sp">point mass
+            model</a>. Depending on the value of the friction
+            coefficient, the bus may either slide or roll first as
+            \(\theta\) increases.
+          </p>
+          <p>
+            <PrairieDrawCanvas id="avb-fr-c" width="600" height="600" />
+          </p>
+          <p>
+            <button class="seq-toggle:avb-fr-c:fbd" onclick="avb_fr_c.stepSequence('fbd');">free body diagram</button>
+            <button class="option-toggle:avb-fr-c:components" onclick="avb_fr_c.toggleOption('components');">components</button>
+          </p>
+          <p>
+            Road bank angle: <input type="range" min="0" max="85" value="45" class="data-input:avb-fr-c:thetaDeg" onchange="avb_fr_c.setOption('thetaDeg', this.value); document.querySelector('span[class*=thetaDeg]').innerText = this.value;"/>
+            \(\theta = \) <span class="data-option:avb-fr-c:thetaDeg" >45</span>\(^\circ\)
+          </p>
+          <p >
+            Bus speed: <input type="range" min="0" max="40" value="30" class="data-input:avb-fr-c:velocity" onchange="avb_fr_c.setOption('velocity', this.value); document.querySelector('span[class*=velocity]').innerText = this.value;"/>
+            \(v = \) <span class="data-option:avb-fr-c:velocity">30</span> \(\rm m/s\)
+          </p>
+          <p>
+            If we now set the bank angle \(\theta\) back to zero, we
+            can start to increase the speed \(v\). Now we see that the
+            wheel on the inside of the track takes less of the weight,
+            and the friction forces now stop the bus from sliding
+            outwards on the track. If the bus goes too fast then it will
+            roll outwards on the track (assuming the friction
+            coefficient is high enough that it didn't slide first).
+          </p>
+          <p>
+            Having considered both a banked road with stationary bus,
+            and a moving bus on a horizontal road, we can now combine
+            them to see the advantage of having a banked road when the
+            bus is cornering. Choose a bus velocity, and then change the
+            bank angle \(\theta\), so that the friction force is reduced
+            (helping to avoid sliding) and the normal forces on the
+            wheels are more evenly balanced (helping to avoid
+            rolling). For any given speed, we can choose a bank angle so
+            that there is simultaneously no sideways friction force and
+            also exactly balanced normal forces. This is the safest bank
+            angle for this speed.
+          </p>
+</SubSubSubSection>
+<SubSubSubSection title="Design of roads, tracks, and rail" >
+          <p>
+            A straight road generally has the center somewhat higher
+            than the edges to allow water to run off. This is called <a
+            href="https://en.wikipedia.org/wiki/Cross_slope">cross
+            slope</a> or camber. When it is desired to have a banked
+            turn, then the outer edge of the road is raised to produce
+            <em>superelevation</em>, with the outer edge rising above
+            both the center and the inner edge. The bank angle is chosen
+            based on the radius of curvature of the turn and the
+            expected speed of cars going around the turn, while still
+            allowing for the fact that cars might be moving slowly or
+            even stopped. The angle should thus not be chosen to
+            eliminate all friction forces when cars are traveling at
+            maximum speed, as this would be dangerous if traffic had to
+            stop on the road.
+          </p>
+          <p>
+            <a
+            href="http://en.wikipedia.org/wiki/Velodrome">Velodromes</a>
+            are arenas with tracks designed for high-speed bicycle
+            races, as shown below, with speeds up to 85 km/h. The bank
+            angle on velodrome tracks is chosen to minimize sideways
+            forces on the bicycles when they are traveling at near
+            maximum speeds, so the angle chosen depends on the radius of
+            curvature of the track corners. For example, the Blaine
+            velodrome track pictured below is 250 m long and has a
+            43&#xb0; bank angle on the corners and 15&#xb0; banking on
+            the straightaways.
+          </p>
+        <Image alt="Bicycle riders in a velodrome" src="avb_3886159972_71e0dc52d8_o_600.jpg">
+            <p class="figureCaption">
+              Bicycle riders on a banked turn at the <a
+              href="http://velodrome.nscsports.org/">Blaine
+              velodrome</a>, part of the <a
+              href="http://en.wikipedia.org/wiki/National_Sports_Center">National
+              Sports Center</a> in <a
+              href="http://en.wikipedia.org/wiki/Blaine,_Minnesota">Blaine,
+              Minnesota</a>. Image source: <a
+              href="http://www.flickr.com/photos/flyinswede/3886159972/">flikr
+              user flyinfoto</a> <a
+              href="http://creativecommons.org/licenses/by/2.0/deed.en">(CC
+              BY 2.0)</a> (<a
+              href="avb_3886159972_71e0dc52d8_o.jpg">full-sized
+              image</a>).
+            </p>
+        </Image>
+          <p>
+            High-speed trains such as the French <a
+            href="http://en.wikipedia.org/wiki/TGV">TGV</a> operate at
+            speeds of over 300 km/h and have run at <a
+            href="http://en.wikipedia.org/wiki/TGV_world_speed_record">up
+            to 575 km/h</a>. To accommodate cornering at such speeds,
+            track bends are constructed with a large radius of curvature
+            (at least 7 km for new tracks) and a bank angle of up to
+            about 7&#xb0; (180 mm maximum superelevation with <a
+            href="http://en.wikipedia.org/wiki/Standard_gauge">Standard
+            gauge</a> of 1435 mm). For railways, banking the track is
+            know as <a
+            href="https://en.wikipedia.org/wiki/Cant_%28road/rail%29">cant</a>.
+          </p>
+          <p>
+            An alternative approach for cornering with trains is to
+            leave the track relatively flat and to <a
+            href="http://en.wikipedia.org/wiki/Tilting_train">tilt the
+            train</a> as it travels around a corner. This allows
+            high-speed trains to operate on regular tracks, while
+            maintaining safety and comfort for the passengers. For
+            example, the <a
+            href="http://en.wikipedia.org/wiki/QR_Tilt_Train">Queensland
+            Rail Tilt Train</a> operates at 180 km/h by tilting at up to
+            5&#xb0; around corners. As we see from our <a
+            href="#avb-sr">rigid body analysis</a> above, tilting the
+            train will help with avoiding tipping over at high speeds,
+            but will not help with reducing horizontal friction
+            forces. Even with a tilting train, entering a curve at too
+            high a speed will lead to <a
+            href="http://en.wikipedia.org/wiki/Cairns_Tilt_Train_derailment">disastrous
+            results</a>.
+          </p>
+
+        <CalloutContainer slot='cards'>
+            <CalloutCard>
+            <p>
+              The <a href="http://velodrome.nscsports.org/">Blaine
+              velodrome</a> in Minnesota was designed by the famous <a
+              href="http://en.wikipedia.org/wiki/Schuermann">Schuermann</a>
+              velodrome architects and built from the extremely durable
+              African <a
+              href="http://en.wikipedia.org/wiki/Afzelia">Afzelia</a>
+              hardwood.  Velodrome races are always counter-clockwise
+              and use <a
+              href="http://en.wikipedia.org/wiki/Velodrome#Bicycles_and_track_design">special
+              bikes</a> with fixed chains (no freewheeling, no gears)
+              and <em>no brakes</em>. The corners are scarily steep:
+            </p>
+              <Image src="avb_velodrome_track_small.jpg"> 
+              <!-- alt="woman leaning against a velodrome track">< -->
+              <p class="caption">
+                Image credit: <a
+                href="http://cycletc.com/2011/06/30/track-cycling-we-have-a-what-nsc-velodrome-in-blaine-mn-by-nicole/">Tom
+                McGoldrick</a> (<a href="avb_velodrome_track.jpg">full
+                sized image</a>).
+
+              </p>
+            </Image>
+        </CalloutCard>
+        <CalloutCard>
+            <p>
+              High-speed trains such as the <a
+              href="http://en.wikipedia.org/wiki/TGV">French TGV</a> and
+              <a
+              href="http://en.wikipedia.org/wiki/Intercity-Express">German
+              ICE</a> require many sophisticated engineering techniques
+              to enable travel at extreme speed. Very smooth rails are
+              needed, so the track is formed by welding the segments
+              together into one precisely-aligned continuous steel
+              line. The steel rails conduct heat too well for
+              conventional welding, so <a href="">thermite</a> welding
+              is used to join the track segments.
+            </p>
+            <p>
+              At high speeds the train drivers are unable to see railway
+              signals on the side of the track. Electronic signaling
+              systems are used to communicate to the drivers, either <a
+              href="http://en.wikipedia.org/wiki/Transmission_Voie-Machine">through
+              the tracks</a> for the TGV or <a
+              href="http://en.wikipedia.org/wiki/Linienzugbeeinflussung">via
+              additional cables</a> for the ICE.
+            </p>
+            <p>
+              Friction-based brakes produce too much heat, as they would
+              need to absorb the kinetic energy of several hundred
+              tonnes of train moving at over 300 km/h. Instead, <a
+              href="http://en.wikipedia.org/wiki/Dynamic_braking">dynamic
+              breaking</a> is used, in which the electric motors
+              powering the trains are run in reverse as generators and
+              the energy is shed as heat in resistor arrays. At
+              extremely high speeds, the wheels themselves cannot
+              provide sufficient traction to enable braking, so
+              technologies like <a
+              href="http://en.wikipedia.org/wiki/Eddy_current_brake">magnetic
+              induction brakes</a> are being developed, which directly
+              push against the rails without involving the wheels at
+              all.
+            </p>
+        </CalloutCard>
+    </CalloutContainer>
+</SubSubSubSection>
+<SubSubSubSection title="Bus model" >
+          <p>
+            The bus model used above is a <a
+            href="http://en.wikipedia.org/wiki/Setra">Setra</a> <a
+            href="http://www.setra.de/en/coaches-buses/topclass/models/s-411-hd.html">S
+            411 HD</a> coach. The mass of the vehicle is 12.6 t and the
+            dimensions are shown below.
+          </p>
+          <table>
+            <tr>
+              <td>
+                <PrairieDrawCanvas id="avb-fb-c" width="300" height="300" show_border=False>
+              </td>
+              <td>
+                <p>
+                    <DisplayEquation equation="\\begin{aligned}    h_1 &amp;= {0.31\\rm\\ m} &amp; \\ell_1 &amp;= {0.98\\rm\\ m} \\\\    h_2 &amp;= {0.29\\rm\\ m} &amp; \\ell_2 &amp;= {1.41\\rm\\ m} \\\\    h_3 &amp;= {0.79\\rm\\ m} &amp; \\ell_3 &amp;= {1.41\\rm\\ m} \\\\    &amp; &amp; \\ell_4 &amp;= {0.80\\rm\\ m}    \\end{aligned}" />
+                </p>
+              </td>
+            </tr>
+          </table>
+</SubSubSection>
+</Layout>
+
+<script src="/dyn/rigid_body_kinetics/canvases.js" is:inline></script>

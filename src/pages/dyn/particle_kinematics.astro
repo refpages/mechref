@@ -1,0 +1,87 @@
+---
+import Layout from "../../layouts/Layout.astro" 
+import Image from "../../components/Image.astro" 
+import Section from "../../components/Section.astro" 
+import SubSection from "../../components/SubSection.astro" 
+import SubSubSection from "../../components/SubSubSection.astro" 
+import BlueText from "../../components/BlueText.astro" 
+import RedText from "../../components/RedText.astro" 
+---
+<Layout title="Particle Kinematics">
+<Section title="Particle Kinematics"></Section>
+
+<SubSection title="Position, velocity, acceleration">
+    <p>
+        The two basic geometric objects we are using are <a
+        href="rvp.html">positions</a> and <a
+        href="rvv.html">vectors</a>. Positions describe locations
+        in space, while vectors describe length and direction (no
+        position information). To describe the <em>kinematics</em>
+        (motion) of bodies we need to relate positions and vectors
+        to each other.
+    </p>
+    <RedText>Add the table summary shown in Fig  \ref fig:PosVelAcce</RedText>
+
+    <Image src="/Dynamics/ParticleKinematicsFigs/PosVelAcce.png" width="5"></Image>
+</SubSection>
+
+<SubSubSection title="Graphical understanding">
+    <BlueText>Complete in reference page "Position, velocity, and acceleration"</BlueText> 
+</SubSubSection>
+
+<SubSection title="Rotating frames"></SubSection>
+    <SubSubSection title="">Angular velocity
+    <BlueText>Complete in reference page "Rotations and angular velocity"</BlueText>
+</SubSubSection>
+
+<SubSubSection title="Angular acceleration">
+    <BlueText>Complete in reference page "Position, velocity, and acceleration"</BlueText>
+    <RedText>This equation is displayed under the title "Velocity and acceleration in polar basis". Add the description of each term as shown in Fig  \ref fig:AngularAccelerationEq</RedText>
+
+    <Image src="/Dynamics/ParticleKinematicsFigs/AngularAcceleration.png" width="5"></Image>
+</SubSubSection>
+
+<SubSection title="Tangential"></SubSection>
+
+<SubSubSection title="Normal basis">
+    <BlueText>Complete in reference page "Tangential/normal basis"</BlueText>
+</SubSubSection>
+
+<SubSubSection title="Normal and Tangential acceleration">
+    <BlueText>Complete in reference page "Tangential/normal basis"</BlueText>
+</SubSubSection>
+
+<SubSubSection title="Curvature">
+    <BlueText>Complete in reference page "Tangential/normal basis"</BlueText>
+</SubSubSection>
+
+<SubSection title="System comparison: Cartesian/Polar/Tangent-Normal">
+<RedText>Add summary table as in Fig  \ref fig:SystemsComparison</RedText>
+
+<Image src="/Dynamics/ParticleKinematicsFigs/SystemsComparison.png" width="5"></Image>
+</SubSection>
+
+<SubSection title="Applications"></SubSection>
+
+<SubSubSection title="Train wheels">
+    <RedText>This was mentioned in lecture but it was not expanded. It would be a great idea to include a picture or example.</RedText> Refers to "angular velocity".
+</SubSubSection>
+
+<SubSubSection title="Variable inertia flywheel">
+    <RedText>This is mentioned in L07-Notes, Slide 6. This paper is cited  <a href="https://doi.org/10.1016/j.egyr.2020.01.001">https://doi.org/10.1016/j.egyr.2020.01.001</a>. This picture is included  \ref fig:AppFlywheel .</RedText> Refers to "Angular accelerations".
+    
+    <Image src="/Dynamics/ParticleKinematicsFigs/AppFlywheel.png" width="5"></Image>
+</SubSubSection>  
+
+<SubSubSection title="Celestial velocities">
+    <BlueText>Complete in "Celestial Velocities".</BlueText> Refers to "angular velocity" and "angular acceleration".
+</SubSubSection>
+    
+<SubSubSection title="Track transition curves">
+    <BlueText>Complete in "Track transition curves".</BlueText> Refers to "position, velocity, and acceleration" and "Tangential".
+</SubSubSection>
+
+<SubSubSection title="Roller coaster">
+    <RedText>This topic needs to be created, it was mentioned in lecture with no information or figure</RedText>
+</SubSubSection>
+</Layout>
