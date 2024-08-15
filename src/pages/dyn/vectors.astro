@@ -15,6 +15,9 @@ import CalloutContainer from "../../components/CalloutContainer.astro"
 import CalloutCard from "../../components/CalloutCard.astro"
 import Warning from "../../components/Warning.astro"
 import Example from "../../components/Example.astro"
+import Row from "../../components/Row.astro"
+import Col from "../../components/Col.astro"
+import SubSubSubSection from "../../components/SubSubSubSection.astro"
 ---
 <style>
     table{
@@ -644,18 +647,554 @@ import Example from "../../components/Example.astro"
       by an angle \( \theta \), resulting in the change of basis
       expression below.
     </p>
+
+    <DisplayEquationCustom title="Change of basis formula in 2D." id="rvv-e2" background=True derivation="True">
+      <Center>
+        <PrairieDrawCanvas id="rvv-e2-c" width="200" height="200" show_border="False" />
+      </Center>
+
+      <DisplayEquation equation="\\begin{aligned}        \\vec{a} &amp;=        a_i \\, \\hat\\imath + a_j \\, \\hat\\jmath        &amp; \\vec{a} &amp;=        a_u \\, \\hat{u} + a_v \\, \\hat{v} \\\\[1em]        a_i &amp;= \\cos\\theta \\, a_u - \\sin\\theta \\, a_v        &amp; a_u &amp;= \\cos\\theta \\, a_i + \\sin\\theta \\, a_j \\\\        a_j &amp;= \\sin\\theta \\, a_u + \\cos\\theta \\, a_v        &amp; a_v &amp;= -\\sin\\theta \\, a_i + \\cos\\theta \\, a_j        \\end{aligned}" />
+
+
+      <div slot="derivation">
+        <p>
+          Elementary geometry gives the relationships between the
+          basis vectors:
+
+          <DisplayEquation equation="\\begin{aligned}          \\hat\\imath &amp;= \\cos\\theta \\, \\hat{u} - \\sin\\theta \\, \\hat{v}          &amp; \\hat{u} &amp;= \\cos\\theta \\, \\hat\\imath + \\sin\\theta \\, \\hat\\jmath \\\\          \\hat\\jmath &amp;= \\sin\\theta \\, \\hat{u} + \\cos\\theta \\, \\hat{v}          &amp; \\hat{v} &amp;= -\\sin\\theta \\, \\hat\\imath + \\cos\\theta \\, \\hat\\jmath.          \\end{aligned}" />
+
+          Thus we have the components:
+
+          <DisplayEquation equation="\\begin{aligned}          i_u &amp;= \\cos\\theta &amp; i_v &amp;= -\\sin\\theta          &amp; u_i &amp;= \\cos\\theta &amp; u_j &amp;= \\sin\\theta \\\\          j_u &amp;= \\sin\\theta &amp; j_v &amp;= \\cos\\theta          &amp; v_i &amp;= -\\sin\\theta &amp; v_j &amp;= \\cos\\theta.          \\end{aligned}" />
+
+          Substituting these into <a href="#rvv-eg">#rvv-eg</a>
+          and ignoring the third components gives the desired
+          expressions.
+        </p>
+      </div>
+    </DisplayEquationCustom>
+
+    <p>
+      Vector expressions are true no matter which basis we write
+      the vectors in, even if they are written in different bases.
+    </p>
+
+    <Example solution="False" id="rvv-xa" title="Vector addition in different bases.">
+      <p>
+        Adding <InlineEquation equation="\\vec{a}" /> and <InlineEquation equation="\\vec{b}" /> to get the result
+        <InlineEquation equation="\\vec{c}" /> is a well-defined operation even before any
+        basis is used, so it cannot depend on the basis
+        chosen. As we see below, we can do the calculation in
+        either the <InlineEquation equation="\\hat\\imath,\\hat\\jmath" /> or <InlineEquation equation="\\hat{u}, \\hat{v}" />
+        basis.
+      </p>
+      <Center>
+        <PrairieDrawCanvas id="rvv-xa-c" width="500" height="300" />
+      </Center>
+      <p>
+        
+        <div class="d-flex flex-row ">
+          Show components:
+          <input type="radio" name="rvv-xa-c-showBasis" value="none" class="data-input:rvv-xa-c:showBasis ms-3 me-2" onchange="rvv_xa_c.setOption('showBasis', this.value);" checked/>
+          none
+          <input type="radio" name="rvv-xa-c-showBasis" value="ij" class="data-input:rvv-xa-c:showBasis ms-3 me-2" onchange="rvv_xa_c.setOption('showBasis', this.value);"/>
+          <InlineEquation equation="\\hat\\imath,\\hat\\jmath" />
+          <input type="radio" name="rvv-xa-c-showBasis" value="uv" class="data-input:rvv-xa-c:showBasis ms-3 me-2" onchange="rvv_xa_c.setOption('showBasis', this.value);"/>
+          <InlineEquation equation="\\hat{u}, \\hat{v}" />
+          <input type="radio" name="rvv-xa-c-showBasis" value="mixed" class="data-input:rvv-xa-c:showBasis ms-3 me-2" onchange="rvv_xa_c.setOption('showBasis', this.value);"/>
+          mixed
+        </div>
+      </p>
+      <p>
+        <DisplayEquation equation="\\begin{aligned}        \\vec{c} &amp;= \\vec{a} + \\vec{b} \\\\        &amp;= (3\\hat\\imath + 2\\hat\\jmath) + (3\\hat\\imath - \\hat\\jmath) \\\\        &amp;= 6\\hat\\imath + \\hat\\jmath \\\\        \\vec{c} &amp;= \\vec{a} + \\vec{b} \\\\        &amp;= (3.5\\hat{u} - 0.7\\hat{v}) + (1.4\\hat{u} - 2.8\\hat{v}) \\\\        &amp;= 4.9\\hat{u} - 3.5\\hat{v} \\\\        \\vec{c} &amp;= \\vec{a} + \\vec{b} \\\\        &amp;= (3\\hat\\imath + 2\\hat\\jmath) + (1.4\\hat{u} - 2.8\\hat{v}) \\\\        &amp;= 3\\hat\\imath - 2.8\\hat{v} + 2\\hat\\jmath + 1.4\\hat{u}.        \\end{aligned}" />
+
+        The component order in the mixed expression is arbitrary.
+      </p>
+    </Example>
+
+    <Example id="rvv-xx" title="Cross product in different bases.">
+      Consider the two vectors shown below and their components
+      in two bases, together with their lengths:
+      
+      <DisplayEquation equation="\\begin{aligned}        \\vec{a} &amp;= 3\\hat\\imath + 2\\hat\\jmath = 3.5\\hat{u} - 0.7\\hat{v}        &amp; a &amp;= \\sqrt{3^2 + 2^2} = 3.6 \\\\        \\vec{b} &amp;= 3\\hat\\imath - \\hat\\jmath = 1.4\\hat{u} - 2.8\\hat{v}        &amp; b &amp;= \\sqrt{3^2 + 1^2} = 3.2        \\end{aligned}" />
+      
+      <Center>
+        <PrairieDrawCanvas id="rvv-xx-c" width="400" height="300" />
+      </Center>
+      <div class="d-flex flex-row ">
+        Show components:
+        <input type="radio" name="rvv-xa-c-showBasis" value="none" class="data-input:rvv-xa-c:showBasis ms-3 me-2" onchange="rvv_xx_c.setOption('showBasis', this.value);" checked />
+        none
+        <input type="radio" name="rvv-xa-c-showBasis" value="ij" class="data-input:rvv-xa-c:showBasis ms-3 me-2" onchange="rvv_xx_c.setOption('showBasis', this.value);"/>
+        <InlineEquation equation="\\hat\\imath,\\hat\\jmath" />
+        <input type="radio" name="rvv-xa-c-showBasis" value="uv" class="data-input:rvv-xa-c:showBasis ms-3 me-2" onchange="rvv_xx_c.setOption('showBasis', this.value);"/>
+        <InlineEquation equation="\\hat{u}, \\hat{v}" />
+      </div>
+      <p>
+        Compute the cross product <InlineEquation equation="\\vec{a} \\times \\vec{b}" />
+        using: (1) the angle formula <a
+        href="#rvv-el">#rvv-el</a>; (2) the component formula
+        <a href="#rvv-ex">#rvv-ex</a> with <InlineEquation equation="\\vec{a}, \\vec{b}" />
+        both in the <InlineEquation equation="\\hat\\imath,\\hat\\jmath" /> basis, both in the
+        <InlineEquation equation="\\hat{u}, \\hat{v}" /> basis, and with <InlineEquation equation="\\vec{a}" /> in the
+        <InlineEquation equation="\\hat\\imath,\\hat\\jmath" /> basis and <InlineEquation equation="\\vec{b}" /> in the
+        <InlineEquation equation="\\hat{u}, \\hat{v}" /> basis.
+      </p>
+
+      <div slot="solution">
+        <p>
+          (1) The dot product is <InlineEquation equation="\\vec{a} \\cdot \\vec{b} = 7" />
+          and the vector lengths are \(a = 3.6\) and \(b = 3.2\),
+          so \(\cos\theta = 7 / (ab)\) and \(\theta \approx
+          53^\circ\). Now using <a href="#rvv-el">#rvv-el</a>
+          gives:
+
+          <DisplayEquation equation="\\begin{aligned}          \\vec{a} \\times \\vec{b} &amp;= a b \\sin\\theta ( -\\hat{k}) \\\\          &amp;\\approx -9 \\hat{k}.          \\end{aligned}" />
+
+          (2) Using the component formula <a
+          href="#rvv-ex">#rvv-ex</a> gives:
+
+          <DisplayEquation equation="\\begin{aligned}          (3\\hat\\imath + 2\\hat\\jmath) \\times (3\\hat\\imath - \\hat\\jmath)          &amp;= -3 \\hat\\imath \\times \\hat\\jmath + 6 \\hat\\jmath \\times \\hat\\imath \\\\          &amp;= -3 \\hat{k} - 6 \\hat{k} \\\\          &amp;= -9 \\hat{k} \\\\          (3.5 \\hat{u} - 0.7 \\hat{v}) \\times (1.4 \\hat{u} - 2.8 \\hat{v})          &amp;= - (3.5 \\times 2.8) \\hat{u} \\times \\hat{v}          - (0.7 \\times 1.4) \\hat{v} \\times \\hat{u} \\\\          &amp;= -10 \\hat{k} + \\hat{k} \\\\          &amp;= -9 \\hat{k} \\\\          (3\\hat\\imath + 2\\hat\\jmath) \\times (1.4\\hat{u} - 2.8\\hat{v})          &amp;= (3 \\times 1.4) \\hat\\imath \\times \\hat{u}          - (3 \\times 2.8) \\hat\\imath \\times \\hat{v} \\\\          &amp;\\quad + (2 \\times 1.4) \\hat\\jmath \\times \\hat{u}          - (2 \\times 2.8) \\hat\\jmath \\times \\hat{v} \\\\          &amp;= 4.2 \\sin 53^\\circ \\, \\hat{k}          - 8.5 \\sin 143^\\circ \\, \\hat{k} \\\\          &amp;\\quad - 2.8 \\sin 53^\\circ \\, \\hat{k}          - 5.7 \\sin 53^\\circ \\, \\hat{k} \\\\          &amp;= - 9 \\hat{k}.          \\end{aligned}" />
+        </p>
+      </div>
+    </Example>
+
+    <Example id="rvv-xd" title="Dot product is independent of basis." solution=false>
+      <p>
+        Equation <a href="#rvv-ed">#rvv-ed</a> makes
+        it clear that the dot product does not depend on
+        which basis we use to write <InlineEquation equation="\\vec{a}" /> and
+        <InlineEquation equation="\\vec{b}" />, so long as we use the same
+        orthonormal basis for both of them. This is because
+        the dot product only depends on the lengths and angle
+        between the vectors, which are real physical
+        quantities that don’t change just because we use a
+        different basis.
+      </p>
+      <p>
+        However, we can also verify directly that the component
+        equation <a href="#rvv-es">#rvv-es</a> for the dot
+        product does not depend on which basis we use. To keep
+        the algebra short, we will only do this in 2D.
+      </p>
+      <p>
+        We compute the dot product using <a
+        href="#rvv-es">#rvv-es</a> in the
+        $\hat\imath,\hat\jmath$ basis and substitute in the
+        change-of-basis expressions <a
+        href="#rvv-eg">#rvv-eg</a>, giving:
+      </p>
+      <p>
+        <DisplayEquation equation="\\begin{aligned} \\vec{a} \\cdot \\vec{b}        &amp;= a_i b_i + a_j b_j \\\\        &amp;= (u_i a_u + v_i a_v ) (u_i b_u + v_i b_v) + (u_j a_u + v_j a_v) (u_j b_u + v_j b_v) \\\\        &amp;= (u_i^2 + u_j^2) a_u b_u + (v_i^2 + v_j^2) a_v b_v + (u_i v_i + u_j b_j) (a_u b_v + a_v b_u) \\\\        &amp;= \\| \\hat{u} \\|^2 a_u b_u + \\| \\hat{v} \\|^2 a_v b_v + (\\hat{u} \\cdot \\hat{v}) (a_u b_v + a_v b_u) \\\\        &amp;= a_u b_u + a_v b_v.        \\end{aligned}" />
+      </p>
+      <p>
+        To get the last line we used the fact that
+        <InlineEquation equation="\\hat{u}" /> and <InlineEquation equation="\\hat{v}" /> form an orthornormal
+        basis, so that they each have length 1 (that is,
+        <InlineEquation equation="\\|\\hat{u}\\| = \\|\\hat{v}\\| = 1" />) and they are
+        orthogonal (that is, <InlineEquation equation="\\hat{u} \\cdot \\hat{v} = 0" /> ).
+      </p>
+      <p>
+        This then shows that
+      </p>
+      <p>
+        <DisplayEquation equation=" \\begin{aligned}        a_i b_i + a_j b_j &amp;= a_u b_u + a_v b_v        \\end{aligned}" />
+      </p>
+      <p>
+        and so it doesn’t matter which basis we use to
+        compute <InlineEquation equation="\\vec{a} \\cdot \\vec{b}" /> , so
+        long as we use an orthonormal basis.
+      </p>
+    </Example>
 </SubSection>
 
 <SubSection title="Projection and complementary projection">
     <BlueText>Complete in reference page "vector and bases"</BlueText>
+
+    <p>
+      The projection and complementary projection are:
+    </p>
+
+    <DisplayEquation background=True id="rvv-ep" title="Projection of \\(\\vec{a}\\) onto \\(\\vec{b}\\)." equation="\\operatorname{Proj}(\\vec{a},\\vec{b})= (\\vec{a} \\cdot \\hat{b}) \\hat{b}= (a \\cos\\theta) \\, \\hat{b}" />
+
+    <DisplayEquation background=True id="rvv-em" title="Complementary projection of \\(\\vec{a}\\) with respect to \\(\\vec{b}\\)." equation="\\begin{aligned}\\operatorname{Comp}(\\vec{a}, \\vec{b})&amp;= \\vec{a} -\\operatorname{Proj}(\\vec{a}, \\vec{b}) =\\vec{a} - (\\vec{a} \\cdot \\hat{b}) \\hat{b} \\\\\\left\\|\\operatorname{Comp}(\\vec{a}, \\vec{b}) \\right\\|&amp;= a \\sin\\theta\\end{aligned}" />
+
+    <p>
+      Adding the projection and the complementary projection of a
+      vector just give the same vector again, as we can see on the
+      figure below.
+    </p>
+
+    <Center>
+      <PrairieDrawCanvas id="rvv-fm-c" width="500" height="300">
+        <p>
+          Projection of <InlineEquation equation="\\vec{a}"/> onto <InlineEquation equation="\\vec{b}"/> and the
+          complementary projection.
+        </p>
+      </PrairieDrawCanvas>
+    </Center>
+
+    <p>
+      As we see in the diagram above, the complementary projection
+      is orthogonal to the reference vector:
+    </p>
+
+    <DisplayEquation title="Complementary projection is orthogonal to the reference." background="True" id="rvv-er" equation="\\operatorname{Comp}(\\vec{a}, \\vec{b}) \\cdot \\vec{b} = 0" derivation=True>
+      <p>
+        Using the definitions of the complementary projection <a
+        href="#rvv-em">rvv-em</a> and projection <a
+        href="#rvv-ep">rvv-ep</a>, we compute:
+
+        <DisplayEquation equation="\\begin{aligned}        \\operatorname{Comp}(\\vec{a}, \\vec{b}) \\cdot \\vec{b}        &amp;= \\Big(\\vec{a} - (\\vec{a} \\cdot \\hat{b})        \\hat{b}\\Big) \\cdot \\vec{b} \\\\        &amp;= \\vec{a} \\cdot \\vec{b} - (\\vec{a} \\cdot \\hat{b})        (\\hat{b} \\cdot \\vec{b}) \\\\        &amp;= a b \\cos\\theta - (a\\cos\\theta) b \\\\        &amp;= 0.        \\end{aligned}" />
+      </p>
+    </DisplayEquation>
 </SubSection>
 
 <SubSection title="Change in length and direction">
     <BlueText>Complete in reference page "Vector calculus"</BlueText>
+
+    <p>
+      Two useful derivatives are the rates of change of a vector's
+      length and direction:
+    </p>
+
+    <DisplayEquation title="Derivative of vector length." background="True" id="rvc-el" equation="\\dot{a} = \\dot{\\vec{a}} \\cdot \\hat{a}" derivation=True>
+
+      <p>
+        We start with the dot product expression <a
+        href="rvv.html#rvv-ed">#rvv-ed</a> for length and
+        differentiate it:
+      </p>
+      <DisplayEquation equation="\\begin{aligned} a &amp;= \\sqrt{\\vec{a} \\cdot        \\vec{a}} \\\\ \\frac{d}{dt} a &amp;= \\frac{d}{dt}        \\big( (\\vec{a} \\cdot \\vec{a})^{1/2}        \\big) \\\\ \\dot{a} &amp;= \\frac{1}{2} (\\vec{a}        \\cdot \\vec{a})^{-1/2} (\\dot{\\vec{a}}        \\cdot \\vec{a} + \\vec{a} \\cdot        \\dot{\\vec{a}}) \\\\ &amp;= \\frac{1}{2\\sqrt{a^2}}        (2 \\dot{\\vec{a}} \\cdot \\vec{a}) \\\\        &amp;= \\dot{\\vec{a}} \\cdot        \\hat{a}.\\end{aligned}" />
+    </DisplayEquation>
+
+    <DisplayEquation title="Derivative of vector direction." background="True" id="rvc-eu" equation="\\dot{\\hat{a}} = \\frac{1}{a}\\operatorname{Comp}(\\dot{\\vec{a}}, \\vec{a})" derivation=True>
+      <p>
+        We take the definition <a
+        href="rvv.html#rvv-eu">#rvv-eu</a> for the unit vector
+        and differentiate it:
+      </p>
+      <p>
+        <DisplayEquation equation="\\begin{aligned} \\hat{a} &amp;=        \\frac{\\vec{a}}{a} \\\\ \\frac{d}{dt} \\hat{a}        &amp;=        \\frac{d}{dt}\\left(\\frac{\\vec{a}}{a}\\right) \\\\        \\dot{\\hat{a}} &amp;= \\frac{\\dot{\\vec{a}} a -        \\vec{a} \\dot{a}}{a^2} \\\\ &amp;=        \\frac{\\dot{\\vec{a}}}{a} -        \\frac{\\dot{\\vec{a}} \\cdot \\hat{a}}{a^2}        \\vec{a} \\\\ &amp;= \\frac{1}{a} \\big(        \\dot{\\vec{a}} - (\\dot{\\vec{a}} \\cdot        \\hat{a}) \\hat{a} \\big)\\\\ &amp;= \\frac{1}{a}        \\operatorname{Comp}(\\dot{\\vec{a}},        \\vec{a}).\\end{aligned}" />
+
+        Here we observed at the end that we had the expression
+        <a href="rvv.html#rvv-em">#rvv-em</a> for the
+        complementary projection of the derivative
+        <InlineEquation equation="\\dot{\\vec{a}}" /> with respect to <InlineEquation equation="\\vec{a}" />  itself.
+      </p>
+    </DisplayEquation>
+
+    <p>
+      An immediate consequence of the derivative of direction
+      formula is that the derivative of a unit vector is always
+      orthogonal to the unit vector:
+    </p>
+
+    <DisplayEquation title="Derivative of unit vector is orthogonal." background="True" id="rvc-eu2" equation="\\dot{\\hat{a}} \\cdot \\hat{a} = 0" derivation=True>
+      <p>
+        From <a href="#rvc-eu">#rvc-eu</a> we know that
+        <InlineEquation equation="\\dot{\\hat{a}}" /> is in the direction of <InlineEquation equation="\\operatorname{Comp}(\\dot{\\vec{a}}, \\vec{a})" />
+        , and from
+        <a href="rvv.html#rvv-er">#rvv-er</a> we know that this
+        is orthogonal to <InlineEquation equation="\\vec{a}" /> (and also <InlineEquation equation="\\hat{a}" />).
+      </p>
+    </DisplayEquation>
+
+    <p>
+      Recall that we can always write a vector as the <a
+      href="rvv.html#rvv-ei">product of its length and
+      direction</a>, so <InlineEquation equation="\\vec{a} = a \\hat{a}" />. This gives the
+      following decomposition of the derivative of <InlineEquation equation="\\vec{a}" />.
+    </p>
+
+    <DisplayEquation title="Vector derivative decomposition." background="True" id="rvc-em2" equation="\\begin{aligned} \\dot{\\vec{a}} &amp;=\\underbrace{\\dot{a}\\hat{a}}_{\\operatorname{Proj}(\\dot{\\vec{a}},\\vec{a})} + \\underbrace{a\\dot{\\hat{a}}}_{\\operatorname{Comp}(\\dot{\\vec{a}},\\vec{a})}\\end{aligned}" derivation=True>
+      <p>
+        Differentiating <InlineEquation equation="\\vec{a} = a \\hat{a}" /> and substituting
+        in <a href="#rvv-el">#rvv-el</a> and <a
+        href="#rvv-eu">#rvv-eu</a> gives
+
+        <DisplayEquation equation="\\begin{aligned}        \\dot{\\vec{a}}        &amp;= \\dot{a} \\hat{a} + a \\dot{\\hat{a}} \\\\        &amp;= ( \\dot{\\vec{a}} \\cdot \\hat{a} ) \\hat{a} + a        \\frac{1}{a} \\operatorname{Comp}(\\dot{\\vec{a}}, \\hat{a}) \\\\        &amp;= \\operatorname{Proj}(\\dot{\\vec{a}}, \\vec{a})        + \\operatorname{Comp}(\\dot{\\vec{a}}, \\vec{a}).        \\end{aligned}" />
+      </p>
+    </DisplayEquation>
+
+    <Center>
+      <PrairieDrawCanvas id="rvc-fm-c" width="600" height="300">
+        <p>
+          <button class="anim-toggle:rvc-fm-c me-1" onclick="rvc_fm_c.toggleAnim();">animate</button>
+          <button class="reset:rvc-fm-c mx-1" onclick="rvc_fm_c.reset();">reset</button>
+          <button class="option-toggle:rvc-fm-c:showLabels mx-1" onclick="rvc_fm_c.toggleOption('showLabels');">labels</button>
+        </p>
+        <p>
+          Show:
+          <button class="option-toggle:rvc-fm-c:showVelocity mx-2" onclick="rvc_fm_c.toggleOption('showVelocity');">derivative <InlineEquation equation="\\dot{\\vec{a}}" /></button>
+          <button class="option-toggle:rvc-fm-c:showVelocityDecomp" onclick="rvc_fm_c.toggleOption('showVelocityDecomp');">derivative decomposition</button>
+        </p>
+        <p class="figureCaption">
+          Vector derivatives can be decomposed into length changes
+          (projection onto <InlineEquation equation="\\vec{a}" />) and direction changes
+          (complementary projection). Compare to Figure <a
+          href="rvv.html#rvv-fu">#rvv-fu</a>.
+        </p>
+      </PrairieDrawCanvas>
+    </Center>
 </SubSection>
 
 <SubSection title="Spherical Coordinates">
     <BlueText>Complete in reference page "Spherical coordinates"</BlueText>
+
+    <p>
+      The spherical coordinate system extends polar coordinates
+      into 3D by using an angle \(\phi\) for the third
+      coordinate. This gives coordinates \((r, \theta, \phi)\)
+      consisting of:
+    </p>
+    <Center>
+      <table id="rvs-tc" class="mb-3">
+        <tr class="border-below">
+          <th>coordinate</th>
+          <th>name</th>
+          <th>range</th>
+          <th>definition</th>
+        </tr>
+        <tr>
+          <td>\(r\)</td>
+          <td>radius</td>
+          <td>\(0 \le r \lt \infty\)</td>
+          <td>distance from the origin</td>
+        </tr>
+        <tr>
+          <td>\(\theta\)</td>
+          <td>azimuth</td>
+          <td>\(-\pi \lt \theta \le \pi\)</td>
+          <td>angle from the \(x\)-axis in the \(x\)–\(y\) plane</td>
+        </tr>
+        <tr>
+          <td>\(\phi\)</td>
+          <td>inclination</td>
+          <td>\(0 \le \phi \le \pi\)</td>
+          <td>angle from the positive \(z\) axis</td>
+        </tr>
+      </table>
+    </Center>
+
+    <p>
+      The diagram below shows the spherical coordinates of a point
+      \(P\). By changing the display options, we can see that the
+      basis vectors are tangent to the corresponding coordinate
+      lines. Changing \(\theta\) moves \(P\) along the \(\theta\)
+      coordinate line in the direction <InlineEquation equation="\\hat{e}_\\theta" />, and
+      similarly for the other coordinates.
+    </p>
+    <Center>
+    <Row>
+      <Col values="12 md-6" class:list={['overflow-hidden']}>
+        <div class="d-flex justify-content-center justify-content-md-start">
+          <PrairieDrawCanvas id="rvs-fd-c" width="400" height="400" />
+        </div>
+        
+      </Col>
+      <Col values="12 md-6">
+        <div class="d-flex justify-content-center justify-content-md-start">
+        <div>
+          <Center>
+            <button class="reset:rvs-fd-c" onclick="rvs_fd_c.reset();">reset</button>
+          </Center>
+          <table class="alignTop">
+            <tr>
+              <td>Show:</td>
+              <td>
+                <button class="option-toggle:rvs-fd-c:showLabels m-1" onclick="rvs_fd_c.toggleOption('showLabels');">labels</button>
+                <button class="option-toggle:rvs-fd-c:showCoords m-1" onclick="rvs_fd_c.toggleOption('showCoords');">coordinates</button>
+              </td>
+            </tr>
+            <tr>
+              <td></td>
+              <td>
+                <button class="option-toggle:rvs-fd-c:showBasis" onclick="rvs_fd_c.toggleOption('showBasis');">basis vectors</button>
+              </td>
+            </tr>
+          </table>
+          <table class="mt-1">
+            <tr>
+              <td >Coordinate lines:</td>
+              <td>
+                <button class="option-toggle:rvs-fd-c:showCoordLineR mx-1" onclick="rvs_fd_c.toggleOption('showCoordLineR');">\(r\)</button>
+                <button class="option-toggle:rvs-fd-c:showCoordLineTheta mx-1" onclick="rvs_fd_c.toggleOption('showCoordLineTheta');">\(\theta\)</button>
+                <button class="option-toggle:rvs-fd-c:showCoordLinePhi mx-1" onclick="rvs_fd_c.toggleOption('showCoordLinePhi');">\(\phi\)</button>
+              </td>
+            </tr>
+          </table>
+          <table>
+            <tr>
+              <td>Radius:</td>
+              <td><input type="range" min="1" max="4" value="4" step="0.1" class="data-input:rvs-fd-c:r" onchange="rvs_fd_c.setOption('r', this.value); document.querySelector('span[class*=r]').innerText = this.value;" oninput="rvs_fd_c.setOption('r', this.value); document.querySelector('span[class*=r]').innerText = this.value;"/></td>
+              <td>\(r = \) <span class="data-option:rvs-fd-c:r">4</span></td>
+            </tr>
+            <tr>
+              <td>Azimuth:</td>
+              <td><input type="range" min="-180" max="180" value="45" step="5" class="data-input:rvs-fd-c:thetaDeg" onchange="rvs_fd_c.setOption('thetaDeg', this.value); document.querySelector('span[class*=thetaDeg]').innerText = this.value+'°';" oninput="rvs_fd_c.setOption('thetaDeg', this.value); document.querySelector('span[class*=thetaDeg]').innerText = this.value+'°';"/></td>
+              <td>\(\theta = \) <span class="data-option:rvs-fd-c:thetaDeg">45°</span></td>
+            </tr>
+            <tr>
+              <td>Inclination:</td>
+              <td><input type="range" min="0" max="180" value="45" step="5" class="data-input:rvs-fd-c:phiDeg" onchange="rvs_fd_c.setOption('phiDeg', this.value); document.querySelector('span[class*=phiDeg]').innerText = this.value+'°';" oninput="rvs_fd_c.setOption('phiDeg', this.value); document.querySelector('span[class*=phiDeg]').innerText = this.value+'°';"/></td>
+              <td>\(\phi = \) <span class="data-option:rvs-fd-c:phiDeg">45°</span></td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      </Col>  
+    </Row>
+  </Center>
+
+  <p>
+    Spherical coordinates are defined with respect to a set of
+    Cartesian coordinates, and can be converted to and from
+    these coordinates using the <a
+    href="rvp.html#rvp-it">atan2</a> function as follows.
+  </p>
+
+  <DisplayEquation title="Conversion between spherical and Cartesian coordinates." background="True" id="rvs-ec" equation="\\begin{aligned}x &amp;= r \\cos\\theta \\sin\\phi &amp; r &amp;= \\sqrt{x^2 + y^2 + z^2} \\\\y &amp;= r \\sin\\theta \\sin\\phi &amp; \\theta &amp;= \\operatorname{atan2}(y, x) \\\\z &amp;= r \\cos\\phi &amp; \\phi &amp;= \\operatorname{arccos}(z / r)\\end{aligned}" derivation=True>
+    <Row>
+      <Col values="9">
+        <p>
+          To find the conversion to Cartesian coordinates, we
+          consider the projection of <InlineEquation equation="\\vec{r}" /> down onto the
+          \(x\)–\(y\) plane, as shown. Then \(z = r \cos\phi\) and <InlineEquation equation="\\ell      = r \\sin\\phi" />, from which we obtain <InlineEquation equation="x = \\ell      \\cos\\theta" /> and <InlineEquation equation="y = \\ell \\sin\\theta" />.
+        </p>
+        <p>
+          To convert from Cartesian coordinates, we use the same
+          projection and read off the expressions for the
+          spherical coordinates. This uses the <a
+          href="rvp.html#rvp-it">atan2</a> function to handle the
+          different quadrants for \(\theta\).
+        </p>
+      </Col>
+      <Col values="3">
+        <Center>
+          <PrairieDrawCanvas id="rvs-ec-c" width="200" height="200"/>
+        </Center>
+      </Col>
+    </Row>
+  </DisplayEquation>
+
+  <p>
+    The basis vectors are tangent to the coordinate lines and
+    form an orthonormal basis <InlineEquation equation="\\hat{e}_r,    \\hat{e}_\\theta, \\hat{e}_\\phi" /> that depends on the current
+    position \(P\) as follows.
+  </p>
+
+  <DisplayEquation title="Spherical basis vectors." background="True" id="rvs-eb" equation="\\begin{aligned}\\hat{e}_r &amp;= \\cos\\theta \\sin\\phi \\,\\hat{\\imath}+ \\sin\\theta \\sin\\phi \\,\\hat{\\jmath} + \\cos\\phi \\,\\hat{k} \\\\\\hat{e}_{\\theta} &amp;= - \\sin\\theta \\,\\hat{\\imath}+ \\cos\\theta \\,\\hat{\\jmath} \\\\\\hat{e}_{\\phi} &amp;= \\cos\\theta \\cos\\phi \\,\\hat{\\imath}+ \\sin\\theta \\cos\\phi \\,\\hat{\\jmath} - \\sin\\phi \\,\\hat{k} \\\\[1em]\\hat{\\imath} &amp;= \\cos\\theta \\sin\\phi \\, \\hat{e}_r- \\sin\\theta \\, \\hat{e}_\\theta + \\cos\\theta \\cos\\phi \\, \\hat{e}_\\phi \\\\\\hat{\\jmath} &amp;= \\sin\\theta \\sin\\phi \\, \\hat{e}_r+ \\cos\\theta \\, \\hat{e}_\\theta + \\sin\\theta \\cos\\phi \\, \\hat{e}_\\phi \\\\\\hat{k} &amp;= \\cos\\phi \\, \\hat{e}_r - \\sin\\phi \\, \\hat{e}_\\phi\\end{aligned}" derivation=True>
+    <p>
+      We write the position vector <InlineEquation equation="\\vec{r} = r \\cos\\theta      \\sin\\phi \\, \\hat{\\imath} + r \\sin\\theta \\sin\\phi \\,      \\hat{\\jmath} + r \\cos\\phi \\, \\hat{k}" /> and then use the
+      definition of coordinate basis vectors to find the
+      non-normalized spherical basis vectors:
+    </p>
+    <p>
+      <DisplayEquation equation="\\begin{aligned}      \\vec{e}_r &amp;= \\frac{\\partial\\vec{r}}{\\partial r}      = \\cos\\theta \\sin\\phi \\, \\hat{\\imath}      + \\sin\\theta \\sin\\phi \\, \\hat{\\jmath}      + \\cos\\phi \\, \\hat{k} \\\\      \\vec{e}_\\theta &amp;= \\frac{\\partial\\vec{r}}{\\partial\\theta}      = -r \\sin\\theta \\sin\\phi \\, \\hat{\\imath}      + r \\cos\\theta \\sin\\phi \\, \\hat{\\jmath} \\\\      \\vec{e}_\\phi &amp;= \\frac{\\partial\\vec{r}}{\\partial\\phi}      = r \\cos\\theta \\cos\\phi \\, \\hat{\\imath}      + r \\sin\\theta \\cos\\phi \\, \\hat{\\jmath}      - r \\sin\\phi \\, \\hat{k}      \\end{aligned}" />
+    </p>
+    <p>
+      To normalize these vectors we divide by their lengths,
+      which we can compute to be <InlineEquation equation="\\| \\vec{e}_r \\| = 1" />, <InlineEquation equation="\\|      \\vec{e}_\\theta \\| = r \\sin\\phi, and \\| \\vec{e}_\\phi \\|      = r" />.
+    </p>
+    <p>
+      To invert the basis change we first observe that we can
+      take combinations of <InlineEquation equation="\\hat{e}_r" /> and <InlineEquation equation="\\hat{e}_{\\phi}" /> to
+      give:
+    </p>
+    <p>
+      <DisplayEquation equation="\\begin{aligned}      \\cos\\phi \\, \\hat{e}_r - \\sin\\phi \\, \\hat{e}_\\phi      &amp;= \\hat{k} \\\\      \\sin\\phi \\, \\hat{e}_r + \\cos\\phi \\, \\hat{e}_\\phi      &amp;= \\cos\\theta \\, \\hat{\\imath} + \\sin\\theta \\, \\hat{\\jmath}      \\end{aligned}" />
+    </p>
+    <p>
+      Then:
+    </p>
+    <p>
+      <DisplayEquation equation="\\begin{aligned}      \\cos\\theta(\\sin\\phi \\, \\hat{e}_r + \\cos\\phi \\, \\hat{e}_\\phi)      - \\sin\\theta \\, \\hat{e}_\\theta      &amp;= \\cos^2\\theta \\, \\hat{\\imath} + \\sin^2\\theta \\, \\hat{\\imath}      = \\hat{\\imath} \\\\      \\sin\\theta(\\sin\\phi \\, \\hat{e}_r + \\cos\\phi \\, \\hat{e}_\\phi)      + \\cos\\theta \\, \\hat{e}_\\theta      &amp;= \\sin^2\\theta \\, \\hat{\\imath} + \\cos^2\\theta \\, \\hat{\\jmath}      = \\hat{\\jmath}      \\end{aligned}" />
+    </p>
+    <p>
+      Rearranging these gives the Cartesian basis vector expressions above.
+    </p>
+  </DisplayEquation>
+
+  <Warning title="\\((\\hat{e}_r,\\hat{e}_\\theta,\\hat{e}_\\phi)\\) is not right-handed" id="rvs-wr">
+    <p>
+      Although it is common to write the spherical coordinates
+      in the order \((r,\theta,\phi)\), this order gives
+      a <i>left-handed</i> basis
+      <InlineEquation equation="(\\hat{e}_r,\\hat{e}_\\theta,\\hat{e}_\\phi)" />, which we can
+      see graphically from the fact that <InlineEquation equation="\\hat{e}_r \\times      \\hat{e}_\\theta = -\\hat{e}_\\phi" />. We can either work with
+      this as a left-handed basis, or re-order the coordinates
+      to give the right-handed basis
+      <InlineEquation equation="(\\hat{e}_r,\\hat{e}_\\phi,\\hat{e}_\\theta)" />.
+    </p>
+  </Warning>
+
+  <p>
+    If the spherical coordinates change with time then this
+    causes the spherical basis vectors to rotate with the
+    following angular velocity.
+  </p>
+
+  <DisplayEquation title="Angular velocity of the spherical basis." background="True" id="rvs-ew" equation="\\begin{aligned}\\vec{\\omega} &amp;= \\dot\\phi \\, \\hat{e}_\\theta + \\dot\\theta \\, \\hat{k} \\\\&amp;= \\dot\\theta \\cos\\phi \\,\\hat{e}_r + \\dot\\phi \\, \\hat{e}_\\theta- \\dot\\theta \\sin\\phi \\,\\hat{e}_{\\phi}\\end{aligned}" derivation=True>
+    <p>
+      Changing \(r\) does not cause a rotation of the basis,
+      while changing \(\theta\) rotates about the vertical axis
+      <InlineEquation equation=" \\hat{k}" /> and changing \(\phi \) rotates about
+      <InlineEquation equation="\\hat{e}_\\theta" />. Combining these angular
+      velocities gives the expression for <InlineEquation equation="\\vec{\\omega}" />.
+    </p>
+  </DisplayEquation>
+
+  <p>
+    The rotation of the basis vectors caused by changing
+    coordinates can be directly computed, giving the time
+    derivatives below.
+  </p>
+
+  <DisplayEquation title="Time derivatives of spherical basis vectors." background="True" id="rvs-et" equation="\\begin{aligned}\\dot{\\hat{e}}_r &amp;= \\dot\\theta \\sin\\phi \\,\\hat{e}_{\\theta}+ \\dot\\phi \\,\\hat{e}_{\\phi} \\\\\\dot{\\hat{e}}_{\\theta} &amp;= - \\dot\\theta \\sin\\phi \\,\\hat{e}_r- \\dot\\theta \\cos\\phi \\,\\hat{e}_{\\phi} \\\\\\dot{\\hat{e}}_{\\phi} &amp;= - \\dot\\phi \\,\\hat{e}_r+ \\dot\\theta \\cos\\phi \\,\\hat{e}_{\\theta}\\end{aligned}" derivation=True>
+    <p>
+      We can either directly differentiate the <a
+      href="#rvs-eb">basis vector expressions</a>, or we can
+      recall that <InlineEquation equation="\\dot{\\hat{e}} = \\vec{\\omega}      \\times \\hat{e}" /> for any basis vector <InlineEquation equation="\\hat{e}" />. This
+      gives:
+    </p>
+    <p>
+      <DisplayEquation equation="\\begin{aligned}      \\dot{\\hat{e}}_r &amp;= \\vec{\\omega} \\times \\hat{e}_r      = \\dot\\theta \\cos\\phi \\, \\hat{e}_r \\times \\hat{e}_r      + \\dot\\phi \\, \\hat{e}_\\theta \\times \\hat{e}_r      - \\dot\\theta \\sin\\phi \\, \\hat{e}_{\\phi} \\times \\hat{e}_r \\\\      \\dot{\\hat{e}}_{\\theta} &amp;= \\vec{\\omega} \\times \\hat{e}_{\\theta}      = \\dot\\theta \\cos\\phi \\,\\hat{e}_r \\times \\hat{e}_\\theta      + \\dot\\phi \\, \\hat{e}_\\theta \\times \\hat{e}_\\theta      - \\dot\\theta \\sin\\phi \\,\\hat{e}_{\\phi} \\times \\hat{e}_\\theta \\\\      \\dot{\\hat{e}}_{\\phi} &amp;= \\vec{\\omega} \\times \\hat{e}_{\\phi}      = \\dot\\theta \\cos\\phi \\,\\hat{e}_r \\times \\hat{e}_\\phi      + \\dot\\phi \\, \\hat{e}_\\theta \\times \\hat{e}_\\phi      - \\dot\\theta \\sin\\phi \\,\\hat{e}_{\\phi} \\times \\hat{e}_\\phi      \\end{aligned}" />
+    </p>
+    <p>
+      Now we evaluate the cross products graphically to obtain
+      the final expressions.
+    </p>
+  </DisplayEquation>
+
+  <p>
+    A point \(P\) at a time-varying position \((r,\theta,\phi)\) has
+    position vector <InlineEquation equation="\\vec{r}" />, velocity <InlineEquation equation="\\vec{v} =    \\dot{\\vec{r}}" />, and acceleration <InlineEquation equation="\\vec{a} = \\ddot{\\vec{r}}" />
+    given by the following expressions in spherical components.
+  </p>
+
+  <DisplayEquation title="Position, velocity, and acceleration in spherical components." background="True" id="rvs-ep" equation="\\begin{aligned}\\vec{r} &amp;= r \\,\\hat{e}_r \\\\\\vec{v} &amp;= \\dot{r} \\,\\hat{e}_r+ r \\dot\\theta \\sin\\phi \\,\\hat{e}_{\\theta}+ r \\dot\\phi \\,\\hat{e}_{\\phi} \\\\\\vec{a} &amp;= (\\ddot{r} - r \\dot{\\theta}^2 \\sin^2\\phi- r \\dot{\\phi}^2) \\,\\hat{e}_r \\\\&amp;\\quad + (r \\ddot\\theta \\sin\\phi+ 2 \\dot{r} \\dot\\theta \\sin\\phi+ 2 r \\dot\\theta \\dot\\phi \\cos\\phi) \\,\\hat{e}_{\\theta} \\\\&amp;\\quad + (r \\ddot\\phi + 2 \\dot{r} \\dot\\phi- r \\dot{\\theta}^2 \\sin\\phi \\cos\\phi) \\,\\hat{e}_{\\phi}\\end{aligned}" derivation=True>
+    <p>
+      Because <InlineEquation equation="\\hat{e}_r" /> is a unit vector in the direction of
+      the position vector <InlineEquation equation="\\vec{r}" />, we know that <InlineEquation equation="\\vec{r} = r      \\, \\hat{e}_r" />. Then we can differentiate this expression
+      to obtain:
+    </p>
+    <p>
+      <DisplayEquation equation="\\begin{aligned}      \\vec{v} &amp;= \\dot{\\vec{r}} = \\frac{d}{dt}\\Big(r \\, \\hat{e}_r \\Big)      = \\dot{r} \\, \\hat{e}_r + r \\, \\dot{\\hat{e}}_r      \\end{aligned}" />
+    </p>
+    <p>
+      and we substitute in the expression for
+      <InlineEquation equation="\\dot{\\hat{e}_r}" /><a href="#rvs-et">from
+      above</a>. Taking another derivative gives:
+    </p>
+    <p>
+      <DisplayEquation equation="\\begin{aligned}      \\vec{a} = \\dot{\\vec{v}} &amp;= \\frac{d}{dt}\\Big(      \\dot{r} \\,\\hat{e}_r      + r \\dot\\theta \\sin\\phi \\,\\hat{e}_{\\theta}      + r \\dot\\phi \\,\\hat{e}_{\\phi} \\Big) \\\\      &amp;= \\ddot{r} \\, \\hat{e}_r + \\dot{r} \\, \\dot{\\hat{e}}_r      + (\\dot{r} \\dot\\theta \\sin\\phi + r \\ddot\\theta \\sin\\phi      + r \\dot\\theta \\cos\\phi \\, \\dot\\phi) \\, \\hat{e}_\\theta \\\\      &amp;\\quad + r \\dot\\theta \\sin\\phi \\, \\dot{\\hat{e}}_\\theta      + (\\dot{r} \\dot\\phi + r \\ddot\\phi) \\, \\hat{e}_\\phi      + r \\dot\\phi \\, \\dot{\\hat{e}}_\\phi      \\end{aligned}" />
+    </p>
+    <p>
+      and again we can substitute the <a href="#rvs-et">basis
+      vector derivatives</a>.
+    </p>
+  </DisplayEquation>
 </SubSection>
 
 <SubSection title="Applications"></SubSection>
@@ -671,9 +1210,311 @@ import Example from "../../components/Example.astro"
 </SubSubSection>
 
 <SubSubSection title="Shortest flight paths">
-    <BlueText>Complete in reference page "Shortest flight paths"</BlueText>. Application for Spherical coordinates.
+    <BlueText>Complete in reference page "Shortest flight paths"</BlueText>
+
+    <p>
+      If we want to fly from Urbana, USA to Delhi, India, which
+      path should we follow? The locations of the two cities are:
+    </p>
+    <Center>
+      <table class="mb-3" id="coordinates">
+        <tr class="border-below">
+          <td></td>
+          <td class="fw-bold">Latitude</td>
+          <td class="fw-bold">Longitude</td>
+        </tr>
+        <tr>
+          <td>Urbana</td>
+          <td>\(\phi = 40^\circ 6' 35'' \rm N\)</td>
+          <td>\(\lambda = 88^\circ 12' 15'' \rm W\)</td>
+        </tr>
+        <tr>
+          <td>Delhi</td>
+          <td>\(\phi = 28^\circ 36' 36'' \rm N\)</td>
+          <td>\(\lambda = 77^\circ 13' 48'' \rm E\)</td>
+        </tr>
+      </table>
+    </Center>
+
+    <p>
+      Geographic coordinates are typically given
+      in <a href="rvs.html">spherical coordinates</a>, but without
+      the radius and with the angles given
+      in <a href="http://en.wikipedia.org/wiki/Arcminute">degrees,
+      minutes, and seconds</a>, with the latitude first, and the
+      direction given as North/South or East/West rather than
+      positive/negative. Also note that latitude is the elevation
+      angle up from the equator, whereas spherical coordinates
+      often use the inclination angle down from the polar axis.
+    </p>
+    <p>
+      Plotting the city locations on a map of the Earth gives the
+      figure below. Such a map can give a very misleading idea of
+      the shortest route, however.
+    </p>
+    <Center>
+      <PrairieDrawCanvas id="aos-fm-c" width="600" height="600">
+        <p>
+          Show: 
+          <button class="option-toggle:aos-fm-c:showMapPath mx-1" onclick="aos_fm_c.toggleOption('showMapPath')">straight path on map</button>
+          <button class="option-toggle:aos-fm-c:showShortestPath mx-1" onclick="aos_fm_c.toggleOption('showShortestPath')">shortest path</button>
+        </p>
+        <p class="figureCaption">
+          Map of the Earth in an <a href="#aos-ip">equirectangular
+          projection</a>, showing two possible flight paths from
+          Urbana, USA to Delhi, India.
+        </p>
+      </PrairieDrawCanvas>
+    </Center>
+
+    <CalloutContainer slot="cards">
+      <CalloutCard title="Reference material">
+        <ul>
+          <li><a href="rvv.html#rvv-sd">Dot product</a></li>
+          <li><a href="rvs.html">Spherical coordinates</a></li>
+        </ul>
+      </CalloutCard>
+      <CalloutCard>
+        <p>
+          To get an idea of what it looks like to fly along a great
+          circle path, we can view the <a
+          href="http://eol.jsc.nasa.gov/Videos/CrewEarthObservationsVideos/">crew
+          movies</a> taken from the <a
+          href="http://en.wikipedia.org/wiki/International_Space_Station">ISS</a>. The
+          movies taken at night are especially evocative, such as <a
+          href="http://vimeo.com/32001208">this montage</a> by
+          Michael König.
+        </p>
+        <p>
+          Technically the ISS is not following a great circle path
+          around the Earth, because the Earth is rotating underneath
+          it. However, because the speed of the ISS is much higher
+          than the Earth's rotational velocity (90 min versus 24 h
+          period), these paths are close to being great circles.
+        </p>
+      </CalloutCard>
+    </CalloutContainer>
 </SubSubSection>
+
+<SubSubSubSection title="Shortest paths on the sphere">
+  <p>
+    Finding the shortest distance between two points on the
+    sphere is not a simple calculation given their latitude and
+    longitude. As <a href="#aos-sf">proved below</a>, the
+    shortest path on the sphere is always a <i>great circle</i>,
+    which is the intersection of the sphere with a plane through
+    the origin. The shortest distance calculation thus reduces
+    to finding the angle between the vectors <InlineEquation equation="\\vec{OA}" /> and
+    <InlineEquation equation="\\vec{OB}" />, which can be easily done by finding their <a
+    href="rvv.html#rvv-sd">dot product</a> after changing them
+    to <a href="rvs.html#rvs-ec">rectangular coordinates</a>.
+  </p>
+  <Center>
+  <PrairieDrawCanvas id="aos-fd-c" width="600" height="600">
+    <table class=mt-2>
+      <tr>
+        <td colspan="3">
+          Click and drag to rotate.
+          <button class="reset:aos-fd-c" onclick="aos_fd_c.reset()">reset</button>
+        </td>
+      </tr>
+      <tr class="startSection">
+        <td>Show:</td>
+        <td colspan="2">
+          <button class="option-toggle:aos-fd-c:showLabels" onclick="aos_fd_c.toggleOption('showLabels')">labels</button>
+          <button class="option-toggle:aos-fd-c:showLatLongLines" onclick="aos_fd_c.toggleOption('showLatLongLines')">latitude/longitude grid</button>
+          <p>Earth transparency:
+          <input type="range" min="0" max="100" value="20" step="1" class="data-input:aos-fd-c:sphereTransPerc" onchange="aos_fd_c.setOption('sphereTransPerc', this.value); document.querySelector('span[class*=sphereTransPerc]').innerText = this.value;" oninput="aos_fd_c.setOption('sphereTransPerc', this.value); document.querySelector('span[class*=sphereTransPerc]').innerText = this.value;"/>
+          <span class="data-option:aos-fd-c:sphereTransPerc">20</span>%
+          </p>
+        </td>
+      </tr>
+      <tr>
+        <td></td>
+        <td colspan="2">
+          <button class="option-toggle:aos-fd-c:showCityLatLong" onclick="aos_fd_c.toggleOption('showCityLatLong')">city latitude and longitude</button>
+          <button class="option-toggle:aos-fd-c:showCityPositionVectors" onclick="aos_fd_c.toggleOption('showCityPositionVectors')">city position vectors</button>
+          <button class="option-toggle:aos-fd-c:showCityGreatCircle" onclick="aos_fd_c.toggleOption('showCityGreatCircle')">great circle between cities</button>
+        </td>
+      </tr>
+      <tr class="startSection latLong">
+        <td>City A:</td>
+        <td>Latitude:</td>
+        <td><input type="range" min="-90" max="90" value="0" step="1" class="data-input:aos-fd-c:latitudeDeg1" onchange="aos_fd_c.setOption('latitudeDeg1', this.value); document.querySelector('span[class*=latitudeDeg1]').innerText = this.value;" oninput="aos_fd_c.setOption('latitudeDeg1', this.value); document.querySelector('span[class*=latitudeDeg1]').innerText = this.value;"/>
+        \(\phi_1 = \) <span class="data-option:aos-fd-c:latitudeDeg1">50</span>°</td>
+      </tr>
+      <tr class="latLong">
+        <td></td>
+        <td>Longitude:</td>
+        <td><input type="range" min="-180" max="180" value="0" step="1" class="data-input:aos-fd-c:longitudeDeg1"onchange="aos_fd_c.setOption('longitudeDeg1', this.value); document.querySelector('span[class*=longitudeDeg1]').innerText = this.value;" oninput="aos_fd_c.setOption('longitudeDeg1', this.value); document.querySelector('span[class*=longitudeDeg1]').innerText = this.value;"/>
+        \(\lambda_1 = \) <span class="data-option:aos-fd-c:longitudeDeg1">-20</span>°</td>
+        
+      </tr>
+      
+      <tr class="startSection latLong">
+        <td>City B:</td>
+        <td>Latitude:</td>
+        <td><input type="range" min="-90" max="90" value="0" step="1" class="data-input:aos-fd-c:latitudeDeg2" onchange="aos_fd_c.setOption('latitudeDeg2', this.value); document.querySelector('span[class*=latitudeDeg2]').innerText = this.value;" oninput="aos_fd_c.setOption('latitudeDeg2', this.value); document.querySelector('span[class*=latitudeDeg2]').innerText = this.value;"/>
+        \(\phi_1 = \) <span class="data-option:aos-fd-c:latitudeDeg2">-20</span>°</td>
+      </tr>
+      <tr class="latLong">
+        <td></td>
+        <td>Longitude:</td>
+        <td><input type="range" min="-180" max="180" value="0" step="1" class="data-input:aos-fd-c:longitudeDeg2"onchange="aos_fd_c.setOption('longitudeDeg2', this.value); document.querySelector('span[class*=longitudeDeg2]').innerText = this.value;" oninput="aos_fd_c.setOption('longitudeDeg2', this.value); document.querySelector('span[class*=longitudeDeg2]').innerText = this.value;"/>
+        \(\lambda_1 = \) <span class="data-option:aos-fd-c:longitudeDeg2">65</span>°</td>
+      </tr>
+    </table>
+  </PrairieDrawCanvas>
+</Center>
+
+<CalloutContainer slot="cards">
+  <CalloutCard title="Reference material">
+    <p>
+      There are many different <a
+      href="http://en.wikipedia.org/wiki/Map_projection">map
+      projections</a> that draw the surface of the spherical
+      Earth on a two-dimensional map. Because the sphere is
+      curved, a map projection cannot preserve both areas and
+      angles simultaneously, leading to different trade-offs in
+      choosing an appropriate projection for a given
+      purpose. Some common projections are shown below.
+    </p>
+    <Center>
+      <PrairieDrawCanvas id="aos-fp-c" width="250" height="250" />
+    </Center>
+    <p>
+      <input type="radio" name="aoa-fp-c-projection" value="equirectangular" class="data-input:aos-fp-c:projection" onclick="aos_fp_c.setOption('projection', this.value);" checked/>
+      <a href="http://en.wikipedia.org/wiki/Equirectangular_projection">Equirectangular</a>.
+      <DisplayEquation equation="x = \\lambda, \\quad      y = \\phi" />
+    </p>
+    <p>
+      <input type="radio" name="aoa-fp-c-projection" value="mercator" class="data-input:aos-fp-c:projection" onclick="aos_fp_c.setOption('projection', this.value);" />
+      <a
+          href="http://en.wikipedia.org/wiki/Mercator_projection">Mercator</a>:
+      cylindrical, <a href="http://en.wikipedia.org/wiki/Conformal_map">conformal</a> (angle-preserving).
+      <DisplayEquation equation="x = \\lambda, \\quad y = \\log\\left(\\tan\\Big(\\frac{\\pi}{4} + \\frac{\\phi}{2}\\Big)\\right)      " />
+    </p>
+    <p>
+      <input type="radio" name="aoa-fp-c-projection" value="hobo-dyer" class="data-input:aos-fp-c:projection" onclick="aos_fp_c.setOption('projection', this.value);"/>
+      <a
+          href="http://en.wikipedia.org/wiki/Hobo%E2%80%93Dyer_projection">Hobo-Dyer</a>:
+      cylindrical, area-preserving.
+      <DisplayEquation equation="x = \\lambda, \\quad y = \\frac{\\sin\\phi}{\\cos^2(37.5^\\circ)}      " />
+    </p>
+    <p>
+      <input type="radio" name="aoa-fp-c-projection" value="winkel" class="data-input:aos-fp-c:projection" onclick="aos_fp_c.setOption('projection', this.value);"/>
+      <a
+          href="http://en.wikipedia.org/wiki/Winkel_tripel_projection">Winkel
+      tripel</a>: non-cylindrical, compromise.
+      <DisplayEquation equation="\\begin{aligned}\\small      x &amp;= \\frac{1}{2} \\left(\\lambda \\cos\\phi_1 + \\frac{2\\cos\\phi\\sin\\frac{\\lambda}{2}}{{\\rm sinc}\\,\\alpha}\\right) \\\\      y &amp;= \\frac{1}{2} \\left(\\phi + \\frac{\\sin\\phi}{{\\rm sinc}\\,\\alpha}\\right) \\\\      \\alpha &amp;= \\arccos\\Big(\\cos\\phi \\cos\\frac{\\lambda}{2}\\Big) \\\\      \\phi_1 &amp;= \\arccos\\frac{2}{\\pi}      \\end{aligned}     " />
+    </p>
+    <p>
+      You might also be interested in what your choice of map
+      projection <a href="http://xkcd.com/977/">says about your
+      personality</a>.
+    </p>
+  </CalloutCard>
+</CalloutContainer>
+</SubSubSubSection>
+
+<SubSubSubSection title="Proof that great circles are shortest paths">
+
+  <p>
+    Given any two points <InlineEquation equation="A" /> and <InlineEquation equation="B" /> on the surface of the
+    Earth, we choose coordinate axes and use <a
+    href="rvs.html">spherical coordinates</a> so that <InlineEquation equation="A" /> is at
+    <InlineEquation equation="(r = r_0, \\theta = 0, \\phi = \\pi - \\phi_0)" /> and <InlineEquation equation="B" /> is at
+    <InlineEquation equation="(r = r_0, \\theta = 0, \\phi = \\pi + \\phi_0)" />. Here <InlineEquation equation="r_0" /> is
+    the radius of the Earth and <InlineEquation equation="0 \\le \\phi_0 \\le \\pi/2" />. The
+    total angle between <InlineEquation equation="\\vec{OA}" /> and <InlineEquation equation="\\vec{OB}" /> is <InlineEquation equation="\\Delta\\phi    = 2\\phi_0" />, so the great-circle distance between <InlineEquation equation="A" /> and <InlineEquation equation="B" />
+    is <InlineEquation equation="r_0 \\Delta\\phi" />. We will now prove that this is the
+    smallest possible distance.
+  </p>
+  <p>
+    Consider any path from \(A\) to \(B\) on the Earth's
+    surface. Suppose we travel along this path, starting at \(A\)
+    at time \(t = 0\) and ending at \(B\) at time \(t = 1\). Then the
+    position vector at time \(t\) is given by <InlineEquation equation="\\vec{r}(t)" /> with
+    spherical coordinates \(r_0\), \(\theta(t)\), \(\phi(t)\) and
+    rectangular coordinates \(x(t), y(t), z(t)\).
+  </p>
+  <p>
+    The length \(L\) of our path can be computed by integrating
+    the speed from the start time to the end time:
+  </p>
+  <p>
+    <DisplayEquation equation="L = \\int_0^1 \\| \\dot{\\vec{r}} \\| \\, dt= \\int_0^1 \\sqrt{\\dot{x}^2 + \\dot{y}^2 + \\dot{z}^2} \\, dt." />
+  </p>
+  <p>
+    To switch from rectangular to spherical coordinates we use
+    the <a href="rvs.html#rvs-ec">conversion</a>:
+  </p>
+  <p>
+    <DisplayEquation equation="\\begin{aligned}    x &amp;= r \\cos\\theta \\sin\\phi \\\\    y &amp;= r \\sin\\theta \\sin\\phi \\\\    z &amp;= r \\cos\\phi.    \\end{aligned}" />
+  </p>
+  <p>
+    Differentiating these expressions and substituting (or using
+    the <a href="rvs.html#rvs-ep">spherical velocity
+    expression</a>) gives the path length expression:
+  </p>
+  <p>
+    <DisplayEquation equation="L = \\int_0^1 r_0 \\sqrt{\\dot{\\phi}^2 + \\dot{\\theta}^2 \\sin^2\\phi} \\, dt\\ge \\int_0^1 r_0 |\\dot{\\phi}| \\, dt\\ge r_0 \\Delta \\phi." />
+  </p>
+  <p>
+    Here we have used the fact that <InlineEquation equation="\\dot{\\theta}^2 \\sin^2\\phi    \\ge 0" /> to see that \(L\) must be at least as big as the
+    great-circle distance \(r_0 \Delta \phi\). Thus the
+    great-circle distance is the minimum path length between \(A\)
+    and \(B\) on the surface of the sphere.
+  </p>
+
+  <CalloutContainer slot="cards">
+    <CalloutCard>
+      <p>
+        All the calculations on this page have assumed a spherical
+        model of the Earth, given by
+        <DisplayEquation equation="x^2 + y^2 + z^2 = R^2," />
+        where the radius of the Earth is \(R = 6371\rm\ km.\)
+      </p>
+      <p>
+        Because it spins with a period of about 24 hours, the
+        Earth bulges outwards so the center is further from the
+        equator than from the poles. A shape that better
+        approximates the true Earth is thus an <a
+        href="http://en.wikipedia.org/wiki/Reference_ellipsoid">ellipsoid</a>,
+        given by:
+        <DisplayEquation equation="\\left(\\frac{x}{R_{\\rm xy}}\\right)^2+ \\left(\\frac{y}{R_{\\rm xy}}\\right)^2+ \\left(\\frac{z}{R_{\\rm z}}\\right)^2 = 1,      " />
+        where <InlineEquation equation="R_{\\rm xy} = 6378\\rm\\ km" /> and <InlineEquation equation="\R_{\\rm z} = 6357\\rm\\ km." />
+      </p>
+      <p>
+        Computing shortest path distances on ellipsoids turns out
+        to be much harder than shortest paths on spheres. One set
+        of equations for doing this are known as <a
+        href="http://en.wikipedia.org/wiki/Vincenty%27s_formulae">Vincenty's
+        formulae</a>.
+      </p>
+      <p>
+        There is no single best ellipsoid that fits the
+        Earth. Instead there are many different ellipsoids in use,
+        each of which fit the Earth better near different
+        countries (e.g., <a
+        href="http://en.wikipedia.org/wiki/North_American_Datum">NAD
+        83</a> for North America and <a
+        href="https://en.wikipedia.org/wiki/World_Geodetic_System">WGS
+        84</a> for GPS world-wide). When even more accuracy is
+        needed, such as for satellite orbit modeling, then true <a
+        href="http://en.wikipedia.org/wiki/Geoid">geoid</a> models
+        are used, with <a
+        href="http://en.wikipedia.org/wiki/Spherical_harmonics">spherical
+        harmonic expansions</a> determined from <a
+        href="http://en.wikipedia.org/wiki/Gravity_Recovery_and_Climate_Experiment">satellite
+        gravity measurements</a>.
+      </p>
+    </CalloutCard>
+  </CalloutContainer>
+
+</SubSubSubSection>
 </Layout>
 
+<script src="/dyn/vectors/worldCoastlineCompressed.js" is:inline></script>
 <script src="/dyn/vectors/py_triples.js" is:inline></script>
 <script src="/dyn/vectors/canvases.js" is:inline></script>
