@@ -38,7 +38,7 @@ $(document).ready(function(){
             this.text(T, $V([0, -1]), msg);
         });
 
-        var rvp_fc_c = new PrairieDraw("rvp-fc-c", function() {
+        rvp_fc_c = new PrairieDraw("rvp-fc-c", function() {
             this.setUnits(8, 8);
     
             var d = 3;
@@ -192,87 +192,9 @@ $(document).ready(function(){
 
     });
 
-    rvv_fu_c = new PrairieDraw("rvv-fu-c", function() {
-        this.setUnits(8, 4);
-    
-        var O = $V([0, 0]);
-
-        var a = $V([0.6, -1]);
-        var b = $V([1.5, 1.5]);
-        var c = $V([-0.5, 0.4]);
-
-        var aHat = a.toUnitVector();
-        var bHat = b.toUnitVector();
-        var cHat = c.toUnitVector();
-
-        this.save();
-        this.translate($V([-3, 0]));
-        this.arrow(O, a, "red");
-        this.arrow(O, b, "blue");
-        this.arrow(O, c, "darkgreen");
-        this.labelLine(O, a, $V([1, -1]), "TEX:$\\vec{a}$");
-        this.labelLine(O, b, $V([1, -1]), "TEX:$\\vec{b}$");
-        this.labelLine(O, c, $V([1, 1]), "TEX:$\\vec{c}$");
-        this.restore();
-
-        this.save();
-        this.translate($V([-0.2, -0.7]));
-        var d = 0.4;
-        this.line(O, $V([0, a.modulus()]), "red");
-        this.text($V([0, -0.4]), $V([0, -1]), "TEX:$a$");
-        this.translate($V([d, 0]));
-        this.line(O, $V([0, b.modulus()]), "blue");
-        this.text($V([0, -0.4]), $V([0, -1]), "TEX:$b$");
-        this.translate($V([d, 0]));
-        this.line(O, $V([0, c.modulus()]), "darkgreen");
-        this.text($V([0, -0.4]), $V([0, -1]), "TEX:$c$");
-        this.restore();
-
-        this.save();
-        this.translate($V([2.5, 0]));
-        this.arrow(O, aHat, "red");
-        this.arrow(O, bHat, "blue");
-        this.arrow(O, cHat, "darkgreen");
-        this.labelLine(O, aHat, $V([1, -1]), "TEX:$\\hat{a}$");
-        this.labelLine(O, bHat, $V([1, -1]), "TEX:$\\hat{b}$");
-        this.labelLine(O, cHat, $V([1, -1]), "TEX:$\\hat{c}$");
-        this.restore();
-
-        this.text($V([0.3, -2]), $V([0, -1]), "TEX:vectors\\qquad$=$\\qquad lengths\\qquad$\\times$\\qquad directions");
-
-    });
-
     rvv_fb_c = new PrairieDraw("rvv-fb-c", function() {
 	    this.setUnits(6, 4);
 
-        var O = $V([0, 0]);
-        var a = $V([3, 2]);
-        var ei = $V([1, 0]);
-        var ej = $V([0, 1]);
-
-        this.translate($V([-2.3, -1.3]));
-
-        this.arrow(O, ei);
-        this.arrow(O, ej);
-        this.labelLine(O, ei, $V([1, -1]), "TEX:$\\hat\\imath$");
-        this.labelLine(O, ej, $V([1, 1]), "TEX:$\\hat\\jmath$");
-
-        this.translate($V([1.3, 0.5]));
-
-        this.arrow(O, a, "red");
-        this.labelLine(O, a, $V([0, -1]), "TEX:$\\vec{a}$");
-
-        this.arrow(O, ei.x(a.e(1)));
-        this.labelLine(O, ei.x(a.e(1)), $V([0, -1]), "TEX:$3\\hat\\imath$");
-
-        this.arrow(ei.x(a.e(1)), a);
-        this.labelLine(ei.x(a.e(1)), a, $V([0, -1]), "TEX:$2\\hat\\jmath$");
-
-    });
-
-    rvv_fb_c = new PrairieDraw("rvv-fb-c", function() {
-        this.setUnits(6, 4);
-    
         var O = $V([0, 0]);
         var a = $V([3, 2]);
         var ei = $V([1, 0]);
@@ -1611,4 +1533,30 @@ $(document).ready(function(){
         }
         this.restore();
     });
+
+    $( window ).on( "resize", function() {
+        rvv_fc_c.redraw();
+        rvp_fc_c.redraw();
+        rvp_fp_c.redraw();
+        rvv_fu_c.redraw();
+        rvv_fb_c.redraw();
+        rvv_f3_c.redraw();
+        rvv_fy_c.redraw();
+        rvv_fr_c.redraw();
+        rvv_fl_c.redraw();
+        rvv_ft_c.redraw();
+        rvv_xn_c.redraw();
+        rvv_e2_c.redraw();
+        rvv_xa_c.redraw();
+        rvv_xx_c.redraw();
+        rvv_fm_c.redraw();
+        rvc_fm_c.redraw();
+        rvs_fd_c.redraw();
+        rvs_ec_c.redraw();
+        aos_fm_c.redraw();
+        aos_fd_c.redraw();
+        aos_fp_c.redraw();
+        rvc_fm_c.redraw();
+        rvs_fd_c.redraw();
+    } );
 })

@@ -6,6 +6,13 @@ import SubSection from "../../components/SubSection.astro"
 import SubSubSection from "../../components/SubSubSection.astro" 
 import BlueText from "../../components/BlueText.astro" 
 import RedText from "../../components/RedText.astro" 
+import InlineEquation from "../../components/InlineEquation.astro"
+import DisplayEquation from "../../components/DisplayEquation.astro"
+import PrairieDrawCanvas from "../../components/PrairieDrawCanvas.astro"
+import CalloutContainer from "../../components/CalloutContainer.astro"
+import CalloutCard from "../../components/CalloutCard.astro"
+import SubSubSubSection from "../../components/SubSubSubSection.astro"
+import DisplayEquationCustom from "../../components/DisplayEquationCustom.astro"
 ---
 <Layout title="Particle Kinematics">
 <Section title="Particle Kinematics"></Section>
@@ -22,43 +29,767 @@ import RedText from "../../components/RedText.astro"
     </p>
     <RedText>Add the table summary shown in Fig  \ref fig:PosVelAcce</RedText>
 
-    <Image src="/Dynamics/ParticleKinematicsFigs/PosVelAcce.png" width="5"></Image>
+    <Image src="/Dynamics/ParticleKinematicsFigs/PosVelAcce.png" width="6"></Image>
 </SubSection>
 
 <SubSubSection title="Graphical understanding">
     <BlueText>Complete in reference page "Position, velocity, and acceleration"</BlueText> 
+
+    
 </SubSubSection>
 
 <SubSection title="Rotating frames"></SubSection>
-    <SubSubSection title="">Angular velocity
+
+<SubSubSection title="Angular velocity">
     <BlueText>Complete in reference page "Rotations and angular velocity"</BlueText>
+    
+    <p>
+        A <em>rotation</em> of a vector is a change which only
+        alters the direction, not the length, of a vector. A
+        rotation consists of a <em>rotation axis</em> and a
+        <em>rotation rate</em>. By taking the rotation axis as a
+        direction and the rotation rate as a length, we can write
+        the rotation as a vector, known as the <em>angular velocity
+        vector</em> <InlineEquation equation="\\vec{\\omega}" />. We use the
+        <em>right-hand rule</em> to describe the direction of
+        rotation. The units of <InlineEquation equation="\\vec{\\omega}" /> are \(\rm rad/s\) or
+        <InlineEquation equation="{}^\\circ/s" />.
+      </p>
+
+      <PrairieDrawCanvas id="rkr-fc-c" width="600" height="400">
+        <div>
+            <p class="controls">
+                <button class="anim-toggle:rkr-fc-c" onclick="rkr_fc_c.toggleAnim()";>animate</button>
+                <button class="reset:rkr-fc-c" onclick="rkr_fc_c.reset()";>reset</button>
+              </p>
+              <p class="controls">
+                Rotation axis:
+                <input type="radio" name="rkr-fc-c-axis" value="i" class="data-input:rkr-fc-c:axis" onchange="rkr_fc_c.setOption('axis', this.value);"/> <InlineEquation equation="\\hat\\imath" />
+                <input type="radio" name="rkr-fc-c-axis" value="j" class="data-input:rkr-fc-c:axis ms-3" onchange="rkr_fc_c.setOption('axis', this.value);"/> <InlineEquation equation="\\hat\\jmath" />
+                <input type="radio" name="rkr-fc-c-axis" value="k" class="data-input:rkr-fc-c:axis ms-3" onchange="rkr_fc_c.setOption('axis', this.value);" checked/> <InlineEquation equation="\\hat{k}" />
+                <input type="radio" name="rkr-fc-c-axis" value="ij" class="data-input:rkr-fc-c:axis ms-3" onchange="rkr_fc_c.setOption('axis', this.value);"/> <InlineEquation equation="\\hat\\imath + \\hat\\jmath" />
+                <input type="radio" name="rkr-fc-c-axis ms-3" value="ijk" class="data-input:rkr-fc-c:axis ms-3" onchange="rkr_fc_c.setOption('axis', this.value);"/> <InlineEquation equation="\\hat\\imath + \\hat\\jmath + \\hat{k}" />
+              </p>
+              <p class="figureCaption mt-3">
+                Angular velocity vector \(\vec\omega\). The direction of
+                \(\vec\omega\) is the axis of rotation, while the magnitude
+                is the speed of rotation (positive direction given by the
+                right-hand rule).
+              </p>
+        </div>
+      </PrairieDrawCanvas>
+
+      <CalloutContainer slot="cards">
+        <CalloutCard>
+            <p>
+                The Greek letter ω (lowercase <a
+                href="http://en.wikipedia.org/wiki/Omega">omega</a>) is
+                the last letter of the <a
+                href="http://en.wikipedia.org/wiki/Greek_alphabet">Greek
+                alphabet</a>, leading to expressions such as “from alpha
+                to omega” meaning “from start to end”. Omega literally
+                means O-mega, meaning O-large, as capital Omega (written
+                Ω) developed from capital <a
+                href="http://en.wikipedia.org/wiki/Omicron">Omicron</a>
+                (written Ο) by breaking the circle and turning up the
+                edges. Omicron is literally O-micron, meaning O-small, and
+                it is the ancestor of the <a
+                href="http://en.wikipedia.org/wiki/Latin_alphabet">Latin</a>
+                letter O that we use today in <a
+                href="http://en.wikipedia.org/wiki/English_language">English</a>.
+              </p>
+              <table id="greek">
+                <tr>
+                  <td>Α</td><td>α</td><td><a href="http://en.wikipedia.org/wiki/Alpha">alpha</a></td>
+                  <td>Ι</td><td>ι</td><td><a href="http://en.wikipedia.org/wiki/Iota">iota</a></td>
+                  <td>Ρ</td><td>ρ</td><td><a href="http://en.wikipedia.org/wiki/Rho">rho</a></td>
+                </tr>
+                <tr>
+                  <td>Β</td><td>β</td><td><a href="http://en.wikipedia.org/wiki/Beta">beta</a></td>
+                  <td>Κ</td><td>κ</td><td><a href="http://en.wikipedia.org/wiki/Kappa">kappa</a></td>
+                  <td>Σ</td><td>σ</td><td><a href="http://en.wikipedia.org/wiki/Sigma">sigma</a></td>
+                </tr>
+                <tr>
+                  <td>Γ</td><td>γ</td><td><a href="http://en.wikipedia.org/wiki/Gamma">gamma</a></td>
+                  <td>Λ</td><td>λ</td><td><a href="http://en.wikipedia.org/wiki/Lambda">lambda</a></td>
+                  <td>Τ</td><td>τ</td><td><a href="http://en.wikipedia.org/wiki/Tau">tau</a></td>
+                </tr>
+                <tr>
+                  <td>Δ</td><td>δ</td><td><a href="http://en.wikipedia.org/wiki/Delta_(letter)">delta</a></td>
+                  <td>Μ</td><td>μ</td><td><a href="http://en.wikipedia.org/wiki/Mu_(letter)">mu</a></td>
+                  <td>Υ</td><td>υ</td><td><a href="http://en.wikipedia.org/wiki/Upsilon">upsilon</a></td>
+                </tr>
+                <tr>
+                  <td>Ε</td><td>ε</td><td><a href="http://en.wikipedia.org/wiki/Epsilon">epsilon</a></td>
+                  <td>Ν</td><td>ν</td><td><a href="http://en.wikipedia.org/wiki/Nu_(letter)">nu</a></td>
+                  <td>Φ</td><td>φ</td><td><a href="http://en.wikipedia.org/wiki/Phi">phi</a></td>
+                </tr>
+                <tr>
+                  <td>Ζ</td><td>ζ</td><td><a href="http://en.wikipedia.org/wiki/Zeta">zeta</a></td>
+                  <td>Ξ</td><td>ξ</td><td><a href="http://en.wikipedia.org/wiki/Xi_(letter)">xi</a></td>
+                  <td>Χ</td><td>χ</td><td><a href="http://en.wikipedia.org/wiki/Chi_(letter)">chi</a></td>
+                </tr>
+                <tr>
+                  <td>Η</td><td>η</td><td><a href="http://en.wikipedia.org/wiki/Eta">eta</a></td>
+                  <td>Ο</td><td>ο</td><td><a href="http://en.wikipedia.org/wiki/Omicron">omicron</a></td>
+                  <td>Ψ</td><td>ψ</td><td><a href="http://en.wikipedia.org/wiki/Psi_(letter)">psi</a></td>
+                </tr>
+                <tr>
+                  <td>Θ</td><td>θ</td><td><a href="http://en.wikipedia.org/wiki/Theta">theta</a></td>
+                  <td>Π</td><td>π</td><td><a href="http://en.wikipedia.org/wiki/Pi_(letter)">pi</a></td>
+                  <td>Ω</td><td>ω</td><td><a href="http://en.wikipedia.org/wiki/Omega">omega</a></td>
+                </tr>
+              </table>
+              <p>
+                The Greek alphabet, shown above, was the first true <a
+                href="http://en.wikipedia.org/wiki/Alphabet">alphabet</a>,
+                meaning that it has letters representing <a
+                href="http://en.wikipedia.org/wiki/Phoneme">phonemes</a>
+                (basic significant sounds) and includes <a
+                href="http://en.wikipedia.org/wiki/Vowel">vowels</a> as
+                well as <a
+                href="http://en.wikipedia.org/wiki/Consonant">consonants</a>. The
+                Greek alphabet was was derived from the earlier <a
+                href="http://en.wikipedia.org/wiki/Phoenician_alphabet">Phoenician
+                alphabet</a>, which was probably the original parent of
+                all alphabets. This shows that the idea of an alphabet is
+                so non-obvious that it has only ever been invented once,
+                and then always copied after that.
+              </p>
+        </CalloutCard>
+      </CalloutContainer>
+
+      
 </SubSubSection>
+
+<SubSubSubSection title="Vector derivatives and rotations">
+    <p>
+        If a unit vector <InlineEquation equation="\\hat{a}" /> is rotating, then the angular
+        velocity vector <InlineEquation equation="\\vec{\\omega}" /> is defined so that:
+    </p>
+
+    <DisplayEquation title="Derivative of unit vectors." id="rkr-ew" background="True" equation="\\dot{\\hat{a}} = \\vec{\\omega} \\times \\hat{a}" />
+
+    <DisplayEquation title="Derivative of general vectors." id="rkr-ed" background="True" derivation="True" equation="\\begin{aligned}\\dot{\\vec{a}} = \\underbrace{\\dot{a}\\hat{a}}_{\\operatorname{Proj}(\\dot{\\vec{a}}, \\vec{a})} +\\underbrace{\\vec{\\omega} \\times\\vec{a}}_{\\operatorname{Comp}(\\dot{\\vec{a}}, \\vec{a})}\\end{aligned}">
+        <p>
+            Using the same approach as <a
+            href="rvc.html#rvc-em">#rvc-em</a> we write <InlineEquation equation="\\vec{a} =a\\hat{a}" /> and differentiate this and use <a
+            href="#rkr-ew">rkr-ew</a> to find:
+
+            <DisplayEquation equation="\\begin{aligned}\\dot{\\vec{a}} &amp;= \\frac{d}{dt} \\big( a \\hat{a} \\big) \\\\&amp;= \\dot{a} \\hat{a} + a \\dot{\\hat{a}} \\\\&amp;= \\dot{a} \\hat{a} + a (\\vec\\omega \\times \\hat{a}) \\\\&amp;= \\dot{a} \\hat{a} + \\vec\\omega \\times (a \\hat{a}) \\\\&amp;= \\dot{a} \\hat{a} + \\vec\\omega \\times \\vec{a}.\\end{aligned}" />
+
+            Comparing this to <a href="rvc.html#rvc-em">#rvc-em</a>
+            shows that the two components are the projection and the
+            complementary projection, respectively.
+          </p>
+    </DisplayEquation>
+
+    <DisplayEquation title="Derivative of constant-length vectors." id="rkr-el" background="True" derivation="True" equation=" \\dot{\\vec{a}} = \\vec{\\omega} \\times \\vec{a}\\qquad\\text{if \\(\\vec{a}\\) is constant length}\\">
+        <p>
+            This can be seen from the fact that <InlineEquation equation="\\dot{a} = 0" /> if \(a\)
+            is constant (a fixed length vector), substituted into <a
+            href="#rkr-ed">#rkr-ed</a>.
+          </p>
+    </DisplayEquation>
+    
+</SubSubSubSection>
+
+<SubSubSubSection title="Rotations in 2D">
+    <p>
+        In 2D the angular velocity can be thought of as a scalar
+        (positive for counter-clockwise, negative for clockwise).
+        This scalar is just the out-of-plane component of the
+        full angular velocity vector. We can draw the angular
+        velocity as either a vector pointing out of the plane, or
+        as a circle-arrow in the plane, which is simpler for 2D
+        diagrams.
+      </p>
+
+      <PrairieDrawCanvas id="rkr-fe-c" width="600" height="400">
+        <div>
+            <p class="controls">
+                <button class="anim-toggle:rkr-fe-c" onclick="rkr_fe_c.toggleAnim();">animate</button>
+                <button class="reset:rkr-fe-c" onclick="rkr_fe_c.reset();">reset</button>
+              </p>
+              <p class="controls">
+                Show:
+                <button class="option-toggle:rkr-fe-c:showVelocity" onclick="rkr_fe_c.toggleOption('showVelocity');">derivative</button>
+              </p>
+              <p class="figureCaption mt-3">
+                Comparison of the vector and scalar representations of
+                \(\vec\omega\) for 2D rotations.
+              </p>
+        </div>
+      </PrairieDrawCanvas>
+
+      <p>
+        In 2D the angular velocity scalar \(\omega\) is simply the
+        derivative of the rotation angle \(\theta\) in the plane:
+      </p>
+
+      <DisplayEquation title="Magnitude \\(\\omega\\) is derivative of angle \\(\\theta\\) in 2D." id="rkr-e2" background="True" derivation="True" equation="\\omega = \\dot\\theta">
+        <p>
+            Take <InlineEquation equation="\\hat{a}" /> to be a unit vector rotating in the 2D
+            <InlineEquation equation="\\hat\\imath–\\hat\\jmath" /> plane, making an angle of
+            \(\theta\) with the \(x\)-axis, as in Figure <a
+            href="#rkr-f2">#rkr-f2</a>. Then:
+
+            <DisplayEquation equation="\\hat{a} = \\cos\\theta \\,\\hat\\imath            + \\sin\\theta \\,\\hat\\jmath." />
+
+            Differentiating this expression gives:
+
+            <DisplayEquation equation="\\dot{\\hat{a}} = -\\sin\\theta \\, \\dot\\theta \\,\\hat\\imath+ \\cos\\theta \\,\\dot\\theta \\,\\hat\\jmath." />
+
+            We now consider an angular velocity vector
+            \(\vec\omega\). Because the rotation is in the
+            \(\hat\imath\)–\(\hat\jmath\) plane, the angular velocity
+            vector must be in the <InlineEquation equation="\\hat{k}" /> direction. Thus
+            <InlineEquation equation="\\vec\\omega = \\omega \\hat{k}" />. Now we can compute the
+            derivative of <InlineEquation equation=" \\hat{a}" /> using <a
+            href="#rkr-ew">#rkr-ew</a>, giving:
+
+            <DisplayEquation equation="\\begin{aligned}\\dot{\\hat{a}} &amp;= \\vec\\omega \\times \\hat{a} \\\\&amp;= \\omega\\hat{k} \\times \\big( \\cos\\theta \\,\\hat\\imath+ \\sin\\theta \\,\\hat\\jmath \\big) \\\\&amp;= \\omega \\cos\\theta \\,(\\hat{k} \\times \\hat\\imath)+ \\omega \\sin\\theta \\,(\\hat{k} \\times \\hat\\jmath) \\\\&amp;= \\omega \\cos\\theta \\,\\hat\\jmath+ \\omega \\sin\\theta \\,(-\\hat\\imath) \\\\&amp;= - \\omega \\sin\\theta \\,\\hat\\imath+ \\omega \\cos\\theta \\,\\hat\\jmath.\\end{aligned}" />
+
+            Comparing this expression to the earlier one for
+            <InlineEquation equation="\\dot{\\hat{a}} " />we see that \(\omega = \dot\theta\).
+          </p>
+      </DisplayEquation>
+
+      <p>
+        The right-hand rule convention for angular velocities means
+        that counter-clockwise rotations are positive, just like the
+        usual angle direction convention.
+      </p>
+
+      <CalloutContainer slot="cards">
+        <CalloutCard>
+            <p>
+                Angular directions have long been considered to have
+                magical or spiritual significance. In Britain the
+                counterclockwise direction was once known
+                as <a href="https://en.wikipedia.org/wiki/Widdershins">widdershins</a>,
+                and it was considered unlucky to travel around a church in
+                a widdershins direction.
+              </p>
+              <p>
+                Interestingly, right-handed people tend to naturally draw
+                circles in a counterclockwise direction, and clockwise
+                drawing in right-handed children is an early warning sign
+                for the later development of schizophrenia [Blau, 1977].
+              </p>
+              <div class="references">
+                <h3>References</h3>
+                <ul class="references">
+                  <li>
+                    T. H. Blau.
+                    Torque and schizophrenic vulnerability.
+                    <i>American Psychologist</i>, 32(12):997–1005, 1977.
+                    DOI: <a href="http://dx.doi.org/10.1037/0003-066X.32.12.997">10.1037/0003-066X.32.12.997</a>.
+                  </li>
+                </ul>
+              </div>
+        </CalloutCard>
+    </CalloutContainer>
+</SubSubSubSection>
+
+<SubSubSubSection title="Rotations and vector “positions”">
+    <p>
+        The fact that vectors <a href="rvv.html#rvv-fc">don't have
+        positions</a> means that vector rotations are independent of
+        where vectors are drawn, just like <a
+        href="rvc.html#rvc-sp">for derivatives</a>.
+      </p>
+
+    <PrairieDrawCanvas id="rkr-fg-c" width="600" height="400">
+        <div >
+        
+        <p class="controls">
+            <button class="anim-toggle:rkr-fg-c" onclick="rkr_fg_c.toggleAnim();">animate</button>
+            <button class="reset:rkr-fg-c" onclick="rkr_fg_c.reset();">reset</button>
+          </p>
+          <p class="controls">
+            Show:
+            <button class="option-toggle:rkr-fg-c:showRigid" onclick="rkr_fg_c.toggleOption('showRigid');">rigid arrangement</button>
+            <button class="option-toggle:rkr-fg-c:showFixed" onclick="rkr_fg_c.toggleOption('showFixed');">fixed origins</button>
+            <button class="option-toggle:rkr-fg-c:showDerivatives" onclick="rkr_fg_c.toggleOption('showDerivatives');">derivatives</button>
+          </p>
+          <p class="figureCaption mt-3">
+            Rotational motion of vectors which are drawn moving
+            about. Note that the drawn position does not affect the
+            angular velocity $\omega$ or the derivative vectors.
+          </p>
+        </div>
+    </PrairieDrawCanvas>
+</SubSubSubSection>
+
+<SubSubSubSection title="Properties of rotations">
+    <p>
+        Rotations are <em>rigid transformations</em>, meaning that
+        they keep constant all vector lengths and all relative
+        vector angles. These facts are reflected in the following
+        results, which all consider two vectors <InlineEquation equation="\\vec{a}" /> and
+        <InlineEquation equation="\\vec{b}" /> that are rotating with angular velocity
+        <InlineEquation equation="\\vec\\omega" />.
+      </p>
+
+      <DisplayEquation title="Derivative of rotating vector is orthogonal." id="rkr-e2a" background="True" derivation="True" equation="\\dot{\\vec{a}} \\cdot \\vec{a} = 0">
+        <p>
+            Using <a href="#rkr-el">#rkr-el</a> and the scalar
+            triple product formula <a
+            href="rvi.html#rvi-es">#rvi-es</a> gives:
+
+            <DisplayEquation equation="\\begin{aligned}\\vec{a} \\cdot \\dot{\\vec{a}}&amp;= \\vec{a} \\cdot \\big( \\vec{\\omega} \\times \\vec{a} \\big) \\\\&amp;= \\vec{\\omega} \\cdot \\big( \\vec{a} \\times \\vec{a} \\big) \\\\&amp;= 0.\\end{aligned}" /> 
+          </p>
+      </DisplayEquation>
+
+      <DisplayEquation title="Angle \\(\\theta\\) between rotating vectors is constant." id="rkr-e2b" background="True" derivation="True" equation="\\theta = \\cos^{-1}\\left(\\frac{\\vec{b} \\cdot\\vec{a}}{b a}\\right) = \\text{constant}">
+        <p>
+            We first consider the dot product <InlineEquation equation="\\vec{a} \\cdot \\vec{b}" /> and show that this is not changing with
+            time. We do this by using the scalar triple product
+            formula <a href="rvi.html#rvi-es">#rvi-es</a> to find:
+
+            <DisplayEquation equation="\\begin{aligned}\\frac{d}{dt} \\big( \\vec{a} \\cdot \\vec{b} \\big)&amp;= \\dot{\\vec{a}} \\cdot \\vec{b} + \\vec{a} \\cdot \\dot{\\vec{b}} \\\\&amp;= (\\vec{\\omega} \\times \\vec{a}) \\cdot \\vec{b} + \\vec{a} \\cdot (\\vec{\\omega} \\times \\vec{b}) \\\\&amp;= \\vec{b} \\cdot (\\vec{\\omega} \\times \\vec{a}) + \\vec{b} \\cdot (\\vec{a} \\times \\vec{\\omega}) \\\\&amp;= \\vec{b} \\cdot (\\vec{\\omega} \\times \\vec{a}) - \\vec{b} \\cdot (\\vec{\\omega} \\times \\vec{a}) \\\\&amp;= 0.\\end{aligned}" />
+
+            Now <InlineEquation equation="\\vec{a} \\cdot \\vec{b}" /> is constant and the lengths
+            \(a\) and \(b\) are constant, so the angle \(\theta\) between
+            the vectors must be constant.
+          </p>
+      </DisplayEquation>
+
+      <DisplayEquation title="Rotating vectors parallel to \\(\\vec\\omega\\) are constant." id="rkr-e2c" background="True" derivation="True" equation="\\dot{\\vec{a}} = 0 \\qquad \\text{if \\(\\vec{a}\\) is rotating and parallel to \\(\\vec\\omega\\)}">
+        <p>
+            From <a href="#rkr-el">#rkr-el</a> we know that the
+            derivative is
+            
+            <DisplayEquation equation="\\dot{\\vec{a}} = \\vec\\omega \\times \\vec{a}," />
+
+            but the cross product is zero for parallel vectors, so
+            this the derivative is zero.
+          </p>
+      </DisplayEquation>
+</SubSubSubSection>
+
+<SubSubSubSection title="Rodrigues’ rotation formula">
+    <p>
+        Rodrigues’ rotation formula gives an explicit formula for a
+        vector rotated by an angle about a given axis.
+    </p>
+
+    <DisplayEquation title="Rodrigues’ rotation formula for \\(\\vec{a}\\) rotated by \\(\\theta\\) about \\(\\hat{b}\\)." id="rkr-er" background="True" derivation="True" equation="\\operatorname{Rot}(\\vec{a}; \\theta, \\hat{b}) =\\vec{a} \\cos\\theta + (\\hat{b} \\times\\vec{a}) \\sin\\theta + \\hat{b} (\\hat{b} \\cdot\\vec{a}) (1 - \\cos\\theta)">
+        <p>
+            Assume <InlineEquation equation="\\vec{a}" /> is not parallel to
+            <InlineEquation equation="\\hat{b}" />. Then let <InlineEquation equation="\\vec{v} = \\hat{b} \\times \\vec{a}" /> and <InlineEquation equation="\\vec{u} = \\vec{v} \\times \\vec{b}" />, so <InlineEquation equation="\\hat{u}, \\hat{v}, \\hat{b}" />
+            is a right-handed orthonormal basis. Take
+            \(\phi\) to be the angle between <InlineEquation equation="\\vec{a}" /> and
+            <InlineEquation equation="\\hat{b}" />. Then we do a rotation by \(\theta\) in
+            the <InlineEquation equation="\\hat{u}-\\hat{v}" /> plane:
+          </p>
+          <p>
+            <DisplayEquation equation="\\begin{aligned} \\vec{a} &amp;= a \\sin\\phi\\,\\hat{u} + a \\cos\\phi \\,\\hat{b} \\\\\\operatorname{Rot}(\\vec{a};\\theta,\\hat{b}) &amp;= a\\cos\\theta \\sin\\phi \\,\\hat{u} + a \\sin\\theta \\sin\\phi\\,\\hat{v} + a \\cos\\phi \\,\\hat{b}.\\end{aligned}" />
+          </p>
+          <p>
+            Now we want to convert from the
+            <InlineEquation equation="\\hat{u},\\hat{v},\\hat{b}" /> basis to write the rotated
+            result in terms of <InlineEquation equation="\\vec{a}, \\hat{b} \\times \\vec{a}), \\hat{b}" />. To do this, we need to work
+            out what <InlineEquation equation="\\hat{u},\\hat{v},\\hat{b} " />are in terms of
+            these other vectors.
+          </p>
+          <p>
+            <DisplayEquation equation="\\begin{aligned} \\hat{v} &amp;= \\frac{\\hat{b} \\times\\vec{a}}{\\|\\hat{b} \\times \\vec{a}\\|} =\\frac{\\hat{b} \\times \\vec{a}}{a \\sin\\phi} \\\\\\hat{u} &amp;= \\frac{\\vec{v} \\times\\hat{b}}{\\|\\vec{v} \\times \\vec{b}\\|} =\\frac{\\vec{v} \\times \\hat{b}}{a \\sin\\phi} =\\frac{(\\hat{b} \\times \\vec{a}) \\times \\hat{b}}{a\\sin\\phi} = \\frac{\\hat{b} \\times (\\vec{a} \\times\\hat{b})}{a \\sin\\phi} \\\\&amp;= \\frac{\\vec{a} - (\\hat{b}\\cdot \\vec{a}) \\hat{b}}{a \\sin\\phi} = \\frac{1}{a\\sin\\phi} \\vec{a} - \\frac{\\hat{b} \\cdot\\vec{a}}{a \\sin\\phi} \\hat{b}.\\end{aligned}" />
+          </p>
+          <p>
+            Substituting these into the rotated vector expression
+            above gives
+          </p>
+          <p>
+            <DisplayEquation equation="\\begin{aligned}\\operatorname{Rot}(\\vec{a};\\theta,\\hat{b}) &amp;= a\\cos\\theta \\sin\\phi \\, \\left( \\frac{1}{a \\sin\\phi}\\vec{a} - \\frac{\\hat{b} \\cdot \\vec{a}}{a\\sin\\phi} \\hat{b} \\right) \\\\&amp; \\qquad + a \\sin\\theta \\sin\\phi \\, \\left(\\frac{\\hat{b} \\times \\vec{a}}{a \\sin\\phi} \\right)+ a \\cos\\phi \\,\\hat{b} \\\\ &amp;= \\cos\\theta\\,\\vec{a} - \\cos\\theta \\,(\\hat{b} \\cdot\\vec{a}) \\,\\hat{b} + \\sin\\theta \\,(\\hat{b} \\times\\vec{a}) + a\\cos\\theta \\,\\hat{b} \\\\ &amp;=\\cos\\theta \\,\\vec{a} + (1 - \\cos\\theta) (\\hat{b}\\cdot \\vec{a}) \\,\\hat{b} + \\sin\\theta \\,(\\hat{b}\\times \\vec{a}).\\end{aligned}" />
+          </p>
+    </DisplayEquation>
+</SubSubSubSection>
 
 <SubSubSection title="Angular acceleration">
     <BlueText>Complete in reference page "Position, velocity, and acceleration"</BlueText>
     <RedText>This equation is displayed under the title "Velocity and acceleration in polar basis". Add the description of each term as shown in Fig  \ref fig:AngularAccelerationEq</RedText>
 
-    <Image src="/Dynamics/ParticleKinematicsFigs/AngularAcceleration.png" width="5"></Image>
+    <Image src="/Dynamics/ParticleKinematicsFigs/AngularAcceleration.png" width="6"></Image>
 </SubSubSection>
 
 <SubSection title="Tangential"></SubSection>
 
 <SubSubSection title="Normal basis">
     <BlueText>Complete in reference page "Tangential/normal basis"</BlueText>
+
+    <p>
+      Consider a particle moving with position vector <InlineEquation equation="\\vec{r}" />
+      and corresponding velocity <InlineEquation equation="\\vec{v}" /> and acceleration
+      <InlineEquation equation="\\vec{a}" />. The tangential/normal basis
+      <InlineEquation equation="\\hat{e}_t,\\hat{e}_n,\\hat{e}_b" /> is:
+    </p>
+
+    <DisplayEquation title="Tangential/normal basis vectors." id="rkt-eb" background="True" derivation="True" equation="\\begin{aligned}\\hat{e}_t &amp;= \\hat{v}&amp; &amp;\\text{tangential basis vector} \\\\\\hat{e}_n &amp;= \\frac{\\dot{\\hat{e}}_t}{\\|\\dot{\\hat{e}}_t\\|}= \\frac{\\operatorname{Comp}(\\vec{a},\\vec{v})}{\\|\\operatorname{Comp}(\\vec{a},\\vec{v})\\|}&amp; &amp;\\text{normal basis vector} \\\\\\hat{e}_b &amp;= \\hat{e}_t \\times \\hat{e}_n&amp; &amp;\\text{binormal basis vector} \\\\\\end{aligned}">
+      <p>
+        These equations are definitions of the basis vectors, so
+        the only thing to derive is the alternative formula for
+        <InlineEquation equation="\\hat{e}_n" />. Using the definition of <InlineEquation equation="\\hat{e}_t" /> above
+        and <a href="rvc.html#rvc-eu">#rvc-eu</a>, we see that
+
+        <DisplayEquation equation="\\dot{\\hat{e}}_t = \\dot{\\hat{v}}        = \\frac{1}{v} \\operatorname{Comp}(\\dot{\\vec{v}}, \\vec{v})        = \\frac{1}{v} \\operatorname{Comp}(\\vec{a}, \\vec{v})." />
+
+        Normalizing both sides gives the desired expression:
+
+        <DisplayEquation equation="\\frac{\\dot{\\hat{e}}_t}{\\|\\dot{\\hat{e}}_t\\|}        = \\frac{\\frac{1}{v} \\operatorname{Comp}(\\vec{a}, \\vec{v})}{        \\left\\|\\frac{1}{v} \\operatorname{Comp}(\\vec{a}, \\vec{v})\\right\\|}        = \\frac{\\frac{1}{v} \\operatorname{Comp}(\\vec{a}, \\vec{v})}{        \\frac{1}{v} \\|\\operatorname{Comp}(\\vec{a}, \\vec{v})\\|}        = \\frac{\\operatorname{Comp}(\\vec{a}, \\vec{v})}{        \\|\\operatorname{Comp}(\\vec{a}, \\vec{v})\\|}." />
+      </p>
+    </DisplayEquation>
+
+    <p>
+      The tangential basis vector <InlineEquation equation="\\hat{e}_t" /> points tangential to
+      the path, the normal basis vector <InlineEquation equation="\\hat{e}_n" /> points
+      perpendicular (normal) to the path towards the instantaneous
+      center of curvature, and the binormal basis vector
+      <InlineEquation equation="\\hat{e}_b" /> completes the right-handed basis.
+    </p>
+
+    <PrairieDrawCanvas id="rkt-fb-c" width="600" height="400">
+      <p class="controls">
+        <button class="anim-toggle:rkt-fb-c" onclick="rkt_fb_c.toggleAnim()">animate</button>
+        <button class="reset:rkt-fb-c" onclick="rkt_fb_c.reset()">reset</button>
+        <button class="option-toggle:rkt-fb-c:showLabels" onclick="rkt_fb_c.toggleOption('showLabels')">show labels</button>
+      </p>
+      <table class="alignTop">
+        <tr>
+          <td>Show:</td>
+          <td>
+            <button class="option-toggle:rkt-fb-c:showPosition" onclick="rkt_fb_c.toggleOption('showPosition')">position vector</button>
+            <button class="option-toggle:rkt-fb-c:showVelocity" onclick="rkt_fb_c.toggleOption('showVelocity')">velocity</button>
+            <button class="option-toggle:rkt-fb-c:showAcceleration" onclick="rkt_fb_c.toggleOption('showAcceleration')">acceleration</button>
+            <button class="option-toggle:rkt-fb-c:showAccDecomp" onclick="rkt_fb_c.toggleOption('showAccDecomp')">acceleration decomposition</button>
+          </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>
+            <button class="option-toggle:rkt-fb-c:showCenter" onclick="rkt_fb_c.toggleOption('showCenter')">center of curvature</button>
+            <button class="option-toggle:rkt-fb-c:showCircle" onclick="rkt_fb_c.toggleOption('showCircle')">osculating circle</button>
+            <button class="option-toggle:rkt-fb-c:showAngVel" onclick="rkt_fb_c.toggleOption('showAngVel')">ang. vel.</button>
+            <button class="option-toggle:rkt-fb-c:showAngVelDecomp" onclick="rkt_fb_c.toggleOption('showAngVelDecomp')">ang. vel. decomposition</button>
+          </td>
+        </tr>
+      </table>
+      <p class="figureCaption mt-3">
+        Tangential/normal basis associated with movement around a
+        curve in 3D. Observe that the velocity <InlineEquation equation="\\vec{v}" /> is always
+        in the <InlineEquation equation="\\hat{e}_t" /> direction and that the acceleration
+        <InlineEquation equation="\\vec{a}" /> always lies in the <InlineEquation equation="\\hat{e}_t,\\hat{e}_n" /> plane
+        (the osculating plane). The center of curvature and
+        osculating circle are defined below.
+      </p>
+    </PrairieDrawCanvas>
 </SubSubSection>
+
+<SubSubSubSection title="Basis derivatives and angular velocity">
+  <p>
+    As the point \(P\) moves along its path, the associated
+    tangential/normal basis rotates with an angular velocity
+    vector \(\omega\) given by:
+  </p>
+
+  <DisplayEquation title="Angular velocity of the tangential/normal basis." id="rkt-ew" background="True" derivation="True" equation="\\begin{aligned}\\vec{\\omega} &amp;= v\\tau \\,\\hat{e}_t + v \\kappa \\,\\hat{e}_b\\end{aligned}">
+    <p>
+      We start by writing the angular velocity in the
+      tangential/normal basis, giving:
+
+      <DisplayEquation equation="\\vec{\\omega} = \\omega_t\\,\\hat{e}_t + \\omega_n\\,\\hat{e}_n+ \\omega_b\\,\\hat{e}_b." />
+
+      Now the basis vector derivatives are given by the cross
+      product by <InlineEquation equation="\\vec{\\omega}" /> from <a
+      href="rkr.html#rkr-ew">#rkr-ew</a>, so we can evaluate
+      the expressions <a href="#rkt-ek">#rkt-ek</a> for
+      curvature and torsion to give:
+
+      <DisplayEquation equation="\\begin{aligned}\\kappa &amp;= \\frac{1}{v} \\dot{\\hat{e}}_t \\cdot \\hat{e}_n \\\\&amp;= \\frac{1}{v} (\\vec{\\omega} \\times \\hat{e}_t) \\cdot \\hat{e}_n \\\\&amp;= \\frac{1}{v} (\\omega_b\\,\\hat{e}_n - \\omega_n\\,\\hat{e}_b) \\cdot \\hat{e}_n \\\\&amp;= \\frac{1}{v} \\omega_b\\end{aligned}" />
+
+      and
+
+      <DisplayEquation equation="\\begin{aligned}\\tau &amp;= -\\frac{1}{v} \\dot{\\hat{e}}_b \\cdot \\hat{e}_n \\\\&amp;= -\\frac{1}{v} (\\vec{\\omega} \\times \\hat{e}_b) \\cdot \\hat{e}_n \\\\&amp;= -\\frac{1}{v} (\\omega_n\\,\\hat{e}_t - \\omega_t\\,\\hat{e}_n) \\cdot \\hat{e}_n \\\\&amp;= \\frac{1}{v} \\omega_t.\\end{aligned}" />
+
+      Rearranging the final expressions in each case gives
+      <InlineEquation equation="\\omega_b = v\\kappa" /> and <InlineEquation equation="\\omega_t = v\\tau" />.
+
+      From the definition <a href="#rkt-eb">#rkt-eb</a> of
+      <InlineEquation equation="\\hat{e}_n" />, we see that
+
+      <DisplayEquation equation="\\begin{aligned}\\hat{e}_n &amp;= \\frac{\\dot{\\hat{e}}_t}{\\|\\dot{\\hat{e}}_t\\|} \\\\\\hat{e}_n \\cdot \\hat{e}_b &amp;= \\frac{1}{\\|\\dot{\\hat{e}}_t\\|} (\\vec{\\omega} \\times \\hat{e}_t) \\cdot \\hat{e}_b \\\\0 &amp;= \\frac{1}{\\|\\dot{\\hat{e}}_t\\|} (\\omega_b\\,\\hat{e}_n - \\omega_n\\,\\hat{e}_b) \\cdot \\hat{e}_b \\\\&amp;= - \\frac{1}{\\|\\dot{\\hat{e}}_t\\|} \\omega_n.\\end{aligned}" />
+
+      from which we conclude that <InlineEquation equation="\\omega_n = 0" />, giving us
+      all three components of <InlineEquation equation="\\vec{\\omega}" />.
+    </p>
+  </DisplayEquation>
+
+  <p>
+    Knowing the angular velocity vector of the tangential/normal
+    basis allows us to easily compute the time derivatives of
+    each tangential/normal basis vector, as follows:
+  </p>
+
+  <DisplayEquation title="Tangential/normal basis vector derivatives." id="rkt-ed" background="True" derivation="True" equation="\\begin{aligned}\\dot{\\hat{e}}_t &amp;= \\phantom{-v\\kappa\\,\\hat{e}_t - } v\\kappa\\,\\hat{e}_n \\\\\\dot{\\hat{e}}_n &amp;= -v\\kappa\\,\\hat{e}_t \\phantom{ - v\\kappa\\,\\hat{e}_n + } + v\\tau\\,\\hat{e}_b \\\\\\dot{\\hat{e}}_b &amp;=\\phantom{-v\\kappa\\,\\hat{e}_t } - v\\tau\\,\\hat{e}_n\\end{aligned}">
+    <p>
+      We can use the expression <a href="#rkt-ew">#rkt-ew</a>
+      for <InlineEquation equation="\\vec{\\omega}" /> together with <a
+      href="rkr.html#rkr-ew">#rkr-ew</a> to find the basis
+      vector derivatives:
+
+      <DisplayEquation equation="\\begin{aligned}\\dot{\\hat{e}}_t &amp;= \\vec{\\omega} \\times \\hat{e}_t= (v\\tau \\,\\hat{e}_t + v \\kappa \\,\\hat{e}_b) \\times \\hat{e}_t= v \\kappa \\,\\hat{e}_n \\\\\\dot{\\hat{e}}_n &amp;= \\vec{\\omega} \\times \\hat{e}_n= (v\\tau \\,\\hat{e}_t + v \\kappa \\,\\hat{e}_b) \\times \\hat{e}_n= - v \\kappa \\,\\hat{e}_t + v \\tau \\,\\hat{e}_b \\\\\\dot{\\hat{e}}_b &amp;= \\vec{\\omega} \\times \\hat{e}_b= (v\\tau \\,\\hat{e}_t + v \\kappa \\,\\hat{e}_b) \\times \\hat{e}_b= -v \\tau \\,\\hat{e}_n.\\end{aligned}" />
+    </p>
+  </DisplayEquation>
+
+  <CalloutContainer slot="cards">
+    <CalloutCard title="Notation note">
+      <p>
+        The tangential/normal basis is also called the
+        Frenet–Serret frame after <a
+        href="http://en.wikipedia.org/wiki/Jean_Fr%C3%A9d%C3%A9ric_Frenet">Jean
+        Frédéric Frenet</a> and <a
+        href="http://en.wikipedia.org/wiki/Joseph_Alfred_Serret">Joseph
+        Alfred Serret</a>, who discovered it independently around
+        1850. The equations <a href="#rkt-ed">#rkt-ed</a> for the
+        basis derivatives are often called the <a
+        href="http://en.wikipedia.org/wiki/Frenet%E2%80%93Serret_formulas">Frenet-Serret
+        formulas</a>, typically written in terms of \(s\) derivatives:
+
+        <DisplayEquation equation="\\begin{aligned}\\frac{d\\hat{e}_t}{ds} &amp;= \\phantom{-\\kappa\\,\\hat{e}_t - } \\kappa\\,\\hat{e}_n \\\\\\frac{d\\hat{e}_n}{ds} &amp;= -\\kappa\\,\\hat{e}_t \\phantom{ - \\kappa\\,\\hat{e}_n + } + \\tau\\,\\hat{e}_b \\\\\\frac{d\\hat{e}_b}{ds} &amp;=\\phantom{-\\kappa\\,\\hat{e}_t } - \\tau\\,\\hat{e}_n.\\end{aligned}" />
+      </p>
+      <p>
+        If we divide the angular velocity vector <a
+        href="#rkt-ew">#rkt-ew</a> by \(v\) then we obtain the
+        vector
+
+        <DisplayEquation equation="\\frac{1}{v} \\vec{\\omega} = \\tau\\,\\hat{e}_t + \\kappa\\,\\hat{e}_b," />
+
+        which is known as the <a
+        href="http://en.wikipedia.org/wiki/Darboux_vector">Darboux
+        vector</a> after its discoverer, <a
+        href="http://en.wikipedia.org/wiki/Gaston_Darboux">Jean
+        Gaston Darboux</a>.
+      </p>
+    </CalloutCard>
+  </CalloutContainer>
+  
+</SubSubSubSection>
 
 <SubSubSection title="Normal and Tangential acceleration">
     <BlueText>Complete in reference page "Tangential/normal basis"</BlueText>
+
+    <p>
+      While the motion of a point \(P\) along a path defines the
+      tangential/normal basis, we can also use this basis to
+      express the kinematics of \(P\) itself, giving the following
+      expressions for velocity and acceleration.
+    </p>
+
+    <DisplayEquation title="Velocity and acceleration in tangential/normal basis." id="rkt-e" background="True" derivation="True"  equation="\\begin{aligned}\\vec{v} &amp;= \\dot{s} \\, \\hat{e}_t \\\\\\vec{a} &amp;= \\ddot{s} \\, \\hat{e}_t + \\frac{\\dot{s}^2}{\\rho} \\hat{e}_n\\end{aligned}">
+      <p>
+        From the definition <a href="#rkt-eb">#rkt-eb</a> of
+        <InlineEquation equation="\\hat{e}_t" /> we see that <InlineEquation equation="v\\,\\hat{e}_t = v\\hat{v} = \\vec{v}" />, which is the first equation
+        above. Differentiating this and using <InlineEquation equation="v = \\dot{s}" /> from
+        <a href="#rkt-es">#rkt-es</a> gives
+
+        <DisplayEquation equation="\\begin{aligned}\\vec{v} &amp;= \\dot{s}\\,\\hat{e}_t \\\\\\vec{a} = \\dot{\\vec{v}}&amp;= \\ddot{s}\\,\\hat{e}_t + \\dot{s}\\,\\dot{\\hat{e}}_t \\\\&amp;= \\ddot{s}\\,\\hat{e}_t + \\dot{s}(v \\kappa \\,\\hat{e}_n) \\\\&amp;= \\ddot{s}\\,\\hat{e}_t + \\frac{\\dot{s}^2}{\\rho} \\,\\hat{e}_n,\\end{aligned}" />
+
+        where we used the derivative <a
+        href="#rkt-ed">#rkt-ed</a> of <InlineEquation equation="\\hat{e}_t" /> in terms of
+        the curvature \(\kappa\), and the definition <a
+        href="#rkt-ek">#rkt-ek</a> of the radius of curvature to
+        give <InlineEquation equation="\\kappa = 1/\\rho" />.
+      </p>
+    </DisplayEquation>
+
+    <p>
+      The above formula shows that the normal acceleration
+      component \(a_n\) is determined by the radius of curvature. We
+      can therefore also find the radius of curvature from knowing
+      the normal acceleration:
+    </p>
+
+    <DisplayEquation title="Radius of curvature \\(\\rho\\) for velocity \\(\\vec{v}\\) and acceleration \\(\\vec{a}\\) with angle \\(\\theta\\) between them." id="rkt-er" background="True" derivation="True"  equation="\\rho = \\frac{v^2}{a_n} = \\frac{v^2}{|a\\sin\\theta|}">
+      <p>
+        From <a href="#rkt-ev">#rkt-ev</a> we known that the
+        normal component of the acceleration is given by <InlineEquation equation="a_n =\\dot{s}^2/\\rho" /> and from the definition <a
+        href="#rkt-es">#rkt-es</a> of path length we have
+        <InlineEquation equation="\\dot{s} = v" />, so this equation can be rearranged to
+        give <InlineEquation equation="\\rho = v^2 / a_n" />.
+      </p>
+      <p>
+        Now because <InlineEquation equation="\\vec{a}" /> only has <InlineEquation equation="\\hat{e}_t" /> and
+        <InlineEquation equation="\\hat{e}_n" /> components, the <InlineEquation equation="\\hat{e}_n" /> component is
+        given by
+
+        <DisplayEquation equation="\\begin{aligned}a_n &amp;= \\|\\operatorname{Comp}(\\vec{a}, \\hat{e}_t)\\| \\\\&amp;= \\|\\operatorname{Comp}(\\vec{a}, \\vec{v})\\| \\\\&amp;= |a \\sin\\theta|,\\end{aligned}" />
+
+        where we used the facts that <InlineEquation equation="\\vec{e}_t" /> is in the
+        direction of <InlineEquation equation="\\vec{v}" />, that
+        <InlineEquation equation="\\operatorname{Comp}(\\vec{a},\\vec{v})" /> does not depend
+        on the magnitude of <InlineEquation equation="\\vec{v}" />, and equation <a
+        href="rvv.html#rvv-em">#rvv-em</a> for the magnitude of
+        the complementary projection.
+      </p>
+    </DisplayEquation>
+
+    <PrairieDrawCanvas id="rkt-ft-c" width="600" height="400">
+      <p class="controls">
+        <button class="anim-toggle:rkt-ft-c" onclick="rkt_ft_c.toggleAnim()">animate</button>
+        <button class="reset:rkt-ft-c" onclick="rkt_ft_c.reset()">reset</button>
+        <button class="option-toggle:rkt-ft-c:showLabels" onclick="rkt_ft_c.toggleOption('showLabels')">show labels</button>
+      </p>
+      <table class="alignTop">
+        <tr>
+          <td>Movement:</td>
+          <td><input type="radio" name="rkt-ft-c-movement" value="circle" class="data-input:rkt-ft-c:movement" onclick="rkt_ft_c.setOption('movement', this.value)" checked/> circle</td>
+          <td><input type="radio" name="rkt-ft-c-movement" value="varCircle" class="data-input:rkt-ft-c:movement" onclick="rkt_ft_c.setOption('movement', this.value)"/> var-circle</td>
+          <td><input type="radio" name="rkt-ft-c-movement" value="ellipse" class="data-input:rkt-ft-c:movement" onclick="rkt_ft_c.setOption('movement', this.value)"/> ellipse</td>
+          <td><input type="radio" name="rkt-ft-c-movement" value="arc" class="data-input:rkt-ft-c:movement" onclick="rkt_ft_c.setOption('movement', this.value)"/> arc</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td><input type="radio" name="rkt-ft-c-movement" value="trefoil" class="data-input:rkt-ft-c:movement" onclick="rkt_ft_c.setOption('movement', this.value)"/> trefoil</td>
+          <td><input type="radio" name="rkt-ft-c-movement" value="eight" class="data-input:rkt-ft-c:movement" onclick="rkt_ft_c.setOption('movement', this.value)"/> eight</td>
+          <td><input type="radio" name="rkt-ft-c-movement" value="comet" class="data-input:rkt-ft-c:movement" onclick="rkt_ft_c.setOption('movement', this.value)"/> comet</td>
+          <td><input type="radio" name="rkt-ft-c-movement" value="pendulum" class="data-input:rkt-ft-c:movement" onclick="rkt_ft_c.setOption('movement', this.value)"/> pendulum</td>
+        </tr>
+        <tr>
+          <td>Show:</td>
+          <td colspan="4">
+            <button class="option-toggle:rkt-ft-c:showPosition" onclick="rkt_ft_c.toggleOption('showPosition')">position vector</button>
+            <button class="option-toggle:rkt-ft-c:showVelocity" onclick="rkt_ft_c.toggleOption('showVelocity')">velocity</button>
+            <button class="option-toggle:rkt-ft-c:showAcceleration" onclick="rkt_ft_c.toggleOption('showAcceleration')">acceleration</button>
+            <button class="option-toggle:rkt-ft-c:showAccDecomp" onclick="rkt_ft_c.toggleOption('showAccDecomp')">acceleration decomposition</button>
+          </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td colspan="4">
+            <button class="option-toggle:rkt-ft-c:showPath" onclick="rkt_ft_c.toggleOption('showPath')">path</button>
+            <button class="option-toggle:rkt-ft-c:showCenter" onclick="rkt_ft_c.toggleOption('showCenter')">center of curvature</button>
+            <button class="option-toggle:rkt-ft-c:showCircle" onclick="rkt_ft_c.toggleOption('showCircle')">osculating circle</button>
+            <button class="option-toggle:rkt-ft-c:showAngVel" onclick="rkt_ft_c.toggleOption('showAngVel')">angular velocity</button>
+          </td>
+        </tr>
+        <tr>
+          <td>Origin:</td>
+          <td><input type="radio" name="rkt-ft-c-origin" value="O1" class="data-input:rkt-ft-c:origin" onclick="rkt_ft_c.setOption('origin', this.value)" checked/> \(O_1\)</td>
+          <td><input type="radio" name="rkt-ft-c-origin" value="O2" class="data-input:rkt-ft-c:origin" onclick="rkt_ft_c.setOption('origin', this.value)"/> \(O_2\)</td>
+          <td></td>
+          <td></td>
+        </tr>
+      </table>
+      <p class="figureCaption mt-3">
+        Velocity and acceleration in the tangential/normal
+        basis. Note that the tangential/normal basis does not
+        depend on the choice of origin or the position vector, in
+        contrast to the polar basis.
+      </p>
+    </PrairieDrawCanvas>
 </SubSubSection>
 
 <SubSubSection title="Curvature">
     <BlueText>Complete in reference page "Tangential/normal basis"</BlueText>
+    
+    <DisplayEquationCustom title="Curvature and torsion." id="rkt-ek" background="True" derivation="True">
+      <p>
+        To better understand the geometry of the tangential/normal
+        basis, we can use the <em>curvature</em> \(\kappa\) to
+        describe the curving of the path, and the <em>torsion</em>
+        \(\tau\) to describe the rotation of the basis about the
+        path. These quantities are defined by:
+      </p>
+
+      <DisplayEquation equation="\\begin{aligned}\\kappa &amp;= \\frac{d\\hat{e}_t}{ds} \\cdot \\hat{e}_n= \\frac{1}{v} \\dot{\\hat{e}}_t \\cdot \\hat{e}_n &amp; &amp;\\text{curvature} \\\\\\rho &amp;= \\frac{1}{\\kappa}  &amp; &amp;\\text{radius of curvature} \\\\\\tau &amp;= -\\frac{d\\hat{e}_b}{ds} \\cdot \\hat{e}_n= -\\frac{1}{v} \\dot{\\hat{e}}_b \\cdot \\hat{e}_n  &amp; &amp;\\text{torsion} \\\\\\sigma &amp;= \\frac{1}{\\tau}  &amp; &amp;\\text{radius of torsion}\\end{aligned}" />
+      <div slot="derivation">
+        <p>
+          These equations are definitions, so we need only check
+          that the two expressions for each of \(\kappa\) and \(\tau\)
+          are equivalent. This follows immediately, however, from
+          the chain-rule conversions <a href="#rkt-ea">#rkt-ea</a>
+          between \(d/ds\) and \(d/dt\).
+        </p>
+      </div>
+    </DisplayEquationCustom>
+
+    <p>
+      The <em>radius of curvature</em> \(\rho\) is the radius of
+      equivalent circular motion, and the <em>torsion</em>
+      determines the rate of rotation of the osculating plane, as
+      described below in Section <a href="#rkt-so">#rkt-so</a>.
+    </p>
+
+    <p>
+      Given a parametric curve, its curvature can be directly
+      evaluated with:
+    </p>
+
+    <DisplayEquation title=" \Curvature of parametric curve \\(\\vec{r}(u)\\) in 3D." id="rkt-ec" background="True" derivation="True" equation="\\kappa = \\frac{\\|\\vec{r}' \\times \\vec{r}''\\|}{\\|\\vec{r}'\\|^3}">
+      <p>
+        Because the tangential/normal basis vectors <a
+        href="#rkt-eb">#rkt-eb</a> are all normalized, it does
+        not matter how fast the point moves along the line. We
+        can thus evaluate the parametric curve as a function of
+        time, giving <InlineEquation equation="\\vec{r}(t)" />. Now:
+
+        <DisplayEquation equation="\\begin{aligned}\\|\\vec{r}'' \\times \\vec{r}'\\| &amp;= \\|\\vec{a} \\times \\vec{v}\\| \\\\&amp;= a v \\sin\\theta \\\\&amp;= \\frac{v^3}{\\rho},\\end{aligned}" />
+
+        where we used the cross product length formula <a
+        href="rvv.html#rvv-el">#rvv-el</a> and equation <a
+        href="#rkt-er">#rkt-er</a> for the radius of curvature
+        <InlineEquation equation="\\rho" />. By definition <a href="#rkt-ek">#rkt-ek</a> the
+        curvature is <InlineEquation equation="\\kappa = 1/\\rho" />, so
+
+        <DisplayEquation equation="\\begin{aligned}\\|\\vec{r}'' \\times \\vec{r}'\\|&amp;= v^3 \\kappa \\\\\\kappa &amp;= \\frac{\\|\\vec{r}'' \\times \\vec{r}'\\|}{\\|\\vec{r}'\\|^3}.\\end{aligned}" />
+      </p>
+    </DisplayEquation>
+
+    <p>
+      While the above formula can be used in 2D by taking the
+      third component to be zero, it can also be written in an
+      explicitly 2D form:
+    </p>
+
+    <DisplayEquation title="Curvature of parametric curve \\(x = x(u)\\), \\(y = y(u)\\) in 2D." id="rkt-e2" background="True" derivation="True" equation="\\kappa = \\frac{|x''y' - y''x'|}{(x'^2 + y'^2)^{3/2}}">
+      <p>
+        This equation is just <a href="#rkt-ec">#rkt-ec</a>
+        written in explicit 2D coordinates. To see this, we
+        first take the position vector <InlineEquation equation="\\vec{r}(u)" /> to be
+
+        <DisplayEquation equation="\\vec{r}(u) = x(u)\\,\\hat\\imath + y(u)\\,\\hat\\jmath." />
+
+        Now <InlineEquation equation="r'(u) = \\sqrt{(x'(u))^2 + (y'(u))^2}" /> and
+
+        <DisplayEquation equation="\\begin{aligned}\\vec{r}'' \\times \\vec{r}'&amp;= (x''\\,\\hat\\imath + y''\\,\\hat\\jmath)\\times (x'\\,\\hat\\imath + y'\\,\\hat\\jmath) \\\\&amp;= (x''y' - y''x')\\,\\hat{k},\\end{aligned}" />
+
+        so evaluating <a href="#rkt-ec">#rkt-ec</a> gives the
+        desired expression.
+      </p>
+    </DisplayEquation>
+
+    <p>
+      We can take this a step further, and obtain an expression for an explicitly defined function.
+    </p>
+
+    <DisplayEquation title="Curvature of an explicitly defined function \\(y = f(x).\\)" id="rkt-e3" background="True" derivation="True" equation="\\kappa = \\frac{|y''(x)|}{(1 + y'(x)^2)^{3/2}}">
+      <p>
+        Use equation <a
+        href="rkt.html#rkt-e2">#rkt‑e2</a> and parametrize the curve using \(x\) as the parametrization variable. Namely:
+
+        <DisplayEquation equation="\\begin{aligned}x = u, \\quad \\quad y = y(u) = y(x)\\end{aligned}" />
+
+        This yields a very elegant expression, as <InlineEquation equation="x'(u) = 1" /> and <InlineEquation equation="x''(u) = 0" />, which lets us arrive at the desired expression <a
+        href="rkt.html#rkt-e3">#rkt‑e3</a>.
+      </p>
+    </DisplayEquation>
 </SubSubSection>
 
 <SubSection title="System comparison: Cartesian/Polar/Tangent-Normal">
 <RedText>Add summary table as in Fig  \ref fig:SystemsComparison</RedText>
 
-<Image src="/Dynamics/ParticleKinematicsFigs/SystemsComparison.png" width="5"></Image>
+<Image src="/Dynamics/ParticleKinematicsFigs/SystemsComparison.png" width="6"></Image>
 </SubSection>
 
 <SubSection title="Applications"></SubSection>
@@ -70,7 +801,7 @@ import RedText from "../../components/RedText.astro"
 <SubSubSection title="Variable inertia flywheel">
     <RedText>This is mentioned in L07-Notes, Slide 6. This paper is cited  <a href="https://doi.org/10.1016/j.egyr.2020.01.001">https://doi.org/10.1016/j.egyr.2020.01.001</a>. This picture is included  \ref fig:AppFlywheel .</RedText> Refers to "Angular accelerations".
     
-    <Image src="/Dynamics/ParticleKinematicsFigs/AppFlywheel.png" width="5"></Image>
+    <Image src="/Dynamics/ParticleKinematicsFigs/AppFlywheel.png" width="6"></Image>
 </SubSubSection>  
 
 <SubSubSection title="Celestial velocities">
@@ -85,3 +816,5 @@ import RedText from "../../components/RedText.astro"
     <RedText>This topic needs to be created, it was mentioned in lecture with no information or figure</RedText>
 </SubSubSection>
 </Layout>
+
+<script src="/dyn/particle_kinematics/canvases.js" is:inline></script>

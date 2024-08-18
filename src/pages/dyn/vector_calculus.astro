@@ -340,7 +340,7 @@ import Col from "../../components/Col.astro"
   </p>
 
   <PrairieDrawCanvas id="rvc-fd-c" width="600" height="200">
-    <div style="width: 600px;">
+    <div>
       <p class="controls">
         <button class="reset:rvc-fd-c" onclick="rvc_fd_c.reset()">reset</button>
         <button class="option-toggle:rvc-fd-c:showLabels" onclick="rvc_fd_c.toggleOption('showLabels')">labels</button>
@@ -372,8 +372,8 @@ import Col from "../../components/Col.astro"
           <div class="d-flex">
             <p class="m-0 flex-shrink-1">Time:<p>
             <div class="flex-grow-1 d-flex align-items-baseline"> 
-              <input type="range" min="0" max="10" value="0" step="0.01" class="data-input:rvc-fd-c:t flex-grow-1 mx-2" onchange="rvc_fd_c.setOption('t', this.value); document.querySelector('span[class*=t_step]').innerText = this.value;" oninput="rvc_fd_c.setOption('t', this.value); document.querySelector('span[class*=t_step]').innerText = this.value;"/>
-              \(t = \) <span class="data-option:rvc-fd-c:t_step mx-2"></span> s
+              <input type="range" min="0" max="10" value="0" step="0.01" class="data-input:rvc-fd-c:t flex-grow-1 mx-2" onchange="rvc_fd_c.setOption('t', this.value); document.querySelector('span[class*=t_step_fd]').innerText = this.value;" oninput="rvc_fd_c.setOption('t', this.value); document.querySelector('span[class*=t_step_fd]').innerText = this.value;"/>
+              \(t = \) <span class="data-option:rvc-fd-c:t_step_fd mx-2">0</span> s
             </div>
           </div>
          
@@ -445,7 +445,7 @@ import Col from "../../components/Col.astro"
     Suppose we have another function \(g=g(s)\). Then
   </p>
   <p>
-    <DisplayEquation equation="g'(s) = \\frac{dg}{ds}." />s
+    <DisplayEquation equation="g'(s) = \\frac{dg}{ds}." />
   </p>
   <p>
     As you can see, while a superscribed dot always denotes 
@@ -490,7 +490,7 @@ import Col from "../../components/Col.astro"
   </p>
 
   <PrairieDrawCanvas id="rvc-fp-c" width="600" height="400">
-    <div style="width: 600px;">
+    <div>
       <p class="controls">
         <button class="reset:rvc-fp-c" onclick="rvc_fp_c.toggleAnim()">animate</button>
         <button class="reset:rvc-fp-c" onclick="rvc_fp_c.reset()">reset</button>
@@ -512,6 +512,80 @@ import Col from "../../components/Col.astro"
 
     <Image src="/Dynamics/VectorCalculusFigures/Cartesian Derivatives.png" width="7"> Taken from L03-Notes, slide 6.</Image>
 
+    <p>
+      In a fixed basis we differentiate a vector by
+      differentiating each component:
+    </p>
+
+    <DisplayEquation title="Vector derivative in components." id="rvc-ec" background="True" equation="\\dot{\\vec{a}}(t) = \\dot{a}_1(t)\\,\\hat{\\imath} + \\dot{a}_2(t)\\,\\hat{\\jmath} + \\dot{a}_3(t) \\,\\hat{k}" derivation="True">
+      <p>
+        Writing a time-dependent vector expression in a fixed basis gives:
+
+        <DisplayEquation equation="\\vec{a}(t) = a_1(t)\\,\\hat{\\imath} + a_2(t) \\,\\hat{\\jmath}." />
+
+        Using the definition <a href="#rvc-ed">#rvc-ed</a> of
+        the vector derivative gives:
+
+        <DisplayEquation equation="\\begin{aligned}\\dot{\\vec{a}}(t) &amp;= \\lim_{\\Delta t \\to 0}\\frac{\\vec{a}(t + \\Delta t) -\\vec{a}(t)}{\\Delta t} \\\\ &amp;= \\lim_{\\Delta t\\to 0} \\frac{(a_1(t + \\Delta t) \\,\\hat{\\imath} +a_2(t + \\Delta t) \\,\\hat{\\jmath}) - (a_1(t)\\,\\hat{\\imath} + a_2(t) \\,\\hat{\\jmath})}{\\Delta t} \\\\&amp;= \\lim_{\\Delta t \\to 0} \\frac{(a_1(t + \\Delta t)- a_1(t)) \\,\\hat{\\imath} + (a_2(t + \\Delta t) -a_2(t)) \\,\\hat{\\jmath}}{\\Delta t} \\\\ &amp;=\\left(\\lim_{\\Delta t \\to 0} \\frac{a_1(t + \\Delta t) -a_1(t)}{\\Delta t} \\right) \\,\\hat{\\imath} +\\left(\\lim_{\\Delta t \\to 0} \\frac{a_2(t + \\Delta t) -a_2(t) }{\\Delta t}\\right) \\,\\hat{\\jmath} \\\\ &amp;=\\dot{a}_1(t) \\,\\hat{\\imath} + \\dot{a}_2(t)\\,\\hat{\\jmath}\\end{aligned}" />
+
+        The second-to-last line above is simply the definition
+        of the scalar derivative, giving the scalar derivatives
+        of the component functions \(a_1(t)\) and \(a_2(t)\).
+      </p>
+    </DisplayEquation>
+
+    <Warning title="Differentiating each component is only valid if the basis is fixed." id="rvc-wc">
+      <p>
+        When we differentiate a vector by differentiating each
+        component and leaving the basis vectors unchanged, we
+        are assuming that the basis vectors themselves are not
+        changing with time. If they are, then we need to <a
+        href="rkv.html#rkv-sb">take this into account</a> as
+        well.
+      </p>
+    </Warning>
+
+    <PrairieDrawCanvas id="rvc-fc-c" width="600" height="400">
+      <div>
+      <p class="controls">
+        <button class="reset:rvc-fc-c"  onclick="rvc_fc_c.reset()">reset</button>
+        <button class="option-toggle:rvc-fc-c:showLabels" onclick="rvc_fc_c.toggleOption('showLabels')">labels</button>
+      </p>
+      <table>
+        <tr>
+          <td>Time:</td>
+          <td>
+            <input type="range" min="0" max="10" value="0" step="0.01" class="data-input:rvc-fc-c:t flex-grow-1 mx-2" onchange="rvc_fc_c.setOption('t', this.value); document.querySelector('span[class*=t_step]').innerText = this.value; console.log(this.value);" oninput="rvc_fc_c.setOption('t', this.value); document.querySelector('span[class*=t_step_fc]').innerText = this.value; console.log(document.querySelector('span[class*=t_step_fc]'));" />
+            \(t = \) <span class="data-option:rvc-fc-c:t t_step_fc">0</span> s
+          </td>
+        </tr>
+        <tr>
+          <td>Show:</td>
+          <td>
+            <button class="option-toggle:rvc-fc-c:showVelocity" onclick="rvc_fc_c.toggleOption('showVelocity')">derivative</button>
+            <button class="option-toggle:rvc-fc-c:showComponent1" onclick="rvc_fc_c.toggleOption('showComponent1')">first component</button>
+            <button class="option-toggle:rvc-fc-c:showComponent2" onclick="rvc_fc_c.toggleOption('showComponent2')">second component</button>
+          </td>
+        </tr>
+        <tr>
+          <td>Basis:</td>
+          <td>
+            <input type="radio" name="rvc-fc-c-basis" value="ij" class="data-input:rvc-fc-c:basis" onchange="rvc_fc_c.setOption('basis', this.value);" checked/>
+            <InlineEquation equation="\\hat\\imath,\\hat\\jmath" />
+            <input type="radio" name="rvc-fc-c-basis" value="uv" class="data-input:rvc-fc-c:basis" onchange="rvc_fc_c.setOption('basis', this.value);"/>
+            <InlineEquation equation="\\hat{u},\\hat{v}" />
+          </td>
+        </tr>
+      </table>
+      <p class="figureCaption mt-2">
+        The vector derivative decomposed into components. This
+        demonstrates graphically that each component of a vector
+        in a particular basis is simply a scalar function, and the
+        corresponding derivative component is the regular scalar
+        derivative.
+      </p>
+    </div>
+    </PrairieDrawCanvas>
     
 </SubSubSection>
     
@@ -559,7 +633,7 @@ import Col from "../../components/Col.astro"
     </p>
     <Center>
       <PrairieDrawCanvas id="rvc-fi-c" width="600" height="400">
-        <div style="width: 600px;">
+        <div>
         <p class="controls">
           <button class="reset:rvc-fi-c" onclick="rvc_fi_c.reset()">reset</button>
           <button class="option-toggle:rvc-fi-c:showLabels" onclick="rvc_fi_c.toggleOption('showLabels')">labels</button>

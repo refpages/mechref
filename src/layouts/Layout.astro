@@ -6,7 +6,7 @@ const { title } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en" class="w-100">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="description" content="Astro description" />
@@ -33,7 +33,7 @@ const { title } = Astro.props;
 		<link rel="stylesheet" href="/static/css/main.css">
 		<link rel="stylesheet" href="/static/css/sidebar.css">
 	</head>
-	<body class="pb-5">
+	<body class="pb-5 w-100">
 		<Navbar/>
 		<div class="container-xxl content">
 			<Sidebar/>
@@ -59,6 +59,10 @@ const { title } = Astro.props;
 		);
 
 		
+	}
+
+	mjx-container{
+		max-width: 90vw;
 	}
 
 	body {

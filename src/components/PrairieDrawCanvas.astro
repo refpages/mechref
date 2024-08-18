@@ -9,13 +9,43 @@ import Center from "./Center.astro";
         border: solid 1px;
         border-color:  black;
     }
+
+    .figureCaption{
+        margin-top: 1rem;
+    }
 </style>
 
-<div class="d-flex flex-column align-items-center w-100">
-    <canvas id={id} height={height} width={width} class={show_border=='True' ? "canvas-container" : ''}></canvas>
-    <div class="w-100">
-        <Center>
-            <slot />
-        </Center>
+
+
+<div class="d-flex flex-column align-items-center" >
+    <Center>
+    <div id={id+'_container'}>
+        <canvas id={id} height={height} width={0} class={show_border=='True' ? "canvas-container" : ''}></canvas>
+    
+        <div class="w-100"> 
+                <slot />
+        </div>
     </div>
+    </Center>
 </div>
+
+<script is:inline define:vars={{id, width}}>
+    let body_width;
+    let canvas_width;
+
+    function set_width(id, width){
+        body_width = $('body').width();
+        canvas_width = Math.min(body_width - 32, width);
+        console.log(canvas_width)
+
+        $('#'+id+'_container').width(canvas_width);
+        document.querySelector(`canvas#${id}`).width = canvas_width - 2;
+        $('#'+id).width(canvas_width);
+    }
+
+    set_width(id, width);
+
+    $( window ).on( "resize", function() {
+        set_width(id, width)
+    } );
+</script>

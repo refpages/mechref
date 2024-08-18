@@ -6,7 +6,7 @@ const img_path_split = src.split('/')
 const filename = 'Fig: ' + img_path_split.pop().replace('.png', '')
 ---
 
-<style>
+<style define:vars={{width}}>
     .filename{
         display: none;
     }
@@ -14,10 +14,33 @@ const filename = 'Fig: ' + img_path_split.pop().replace('.png', '')
    .img-container:hover .filename{
         display: block;
     }
+
+
+    .image-block{
+        width: 100%;
+    }
+
+    @media (min-width: 768px){
+        .image-block{
+            width: calc(var(--width) / 6 * 100%);
+        }
+    }
+
+    @media (min-width: 992px){
+        .image-block{
+            width: calc(var(--width) / 7 * 100%);
+        }
+    }
+
+    @media (min-width: 1200px){
+        .image-block{
+            width: calc(var(--width) / 8 * 100%);
+        }
+    }
 </style>
 
-<div class="container img-container w-100 d-flex flex-column align-items-center my-3">
-    <div style=`width: calc(${Number(width)} / 8 * 100%)` class="d-flex flex-column align-items-center">
+<div class="img-container w-100 d-flex flex-column align-items-center my-3">
+    <div class="d-flex flex-column align-items-center image-block">
         <img src={src} class="w-100" alt={alt}>
     </div>
     <figcaption class="filename">{filename}</figcaption>
