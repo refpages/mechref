@@ -19,7 +19,7 @@ import RedText from "../../components/RedText.astro"
 The general state of stress at a point is characterized by three independent normal stress components and three independent shear stress components, and is represented by the <strong>stress tensor</strong>. The combination of the state of stress for every point in the domain is called the <strong>stress field</strong>.
 
 
-<Image src="/mechref/Solid_Mechanics/Stress Transformation-Figures/General Stress State.png" width="5">  <BlueText>Taken from TAM251 Lecture Notes - L9S2</BlueText></Image>
+<Image src="/Solid_Mechanics/Stress Transformation-Figures/General Stress State.png" width="5">  <BlueText>Taken from TAM251 Lecture Notes - L9S2</BlueText></Image>
 
 <DisplayEquation equation="\\begin{bmatrix} \\sigma_{x} & \\tau_{xy} & \\tau_{xz} \\\\ \\tau_{xy} & \\sigma_{y} & \\tau_{yz} \\\\ \\tau_{xz} & \\tau_{yz} & \\sigma_{z} \\end{bmatrix}" />
 
@@ -29,7 +29,7 @@ The general state of stress at a point is characterized by three independent nor
 
 <SubSubSection title="Sign Convention">
 
-<Image src="/mechref/Solid_Mechanics/Stress Transformation-Figures/Sign Convention.png" width="3.8">  <BlueText>Sign conventions on 2D elements</BlueText></Image>
+<Image src="/Solid_Mechanics/Stress Transformation-Figures/Sign Convention.png" width="3.8">  <BlueText>Sign conventions on 2D elements</BlueText></Image>
 
 <Itemize>
     <Item> <strong>Positive</strong> normal stress acts <strong>outward</strong> from all faces</Item>
@@ -42,7 +42,7 @@ The general state of stress at a point is characterized by three independent nor
 
 <SubSection title="Plane Stress">
 
-<Image src="/mechref/Solid_Mechanics/Stress Transformation-Figures/Plane Stress.png" width="1.5">  <BlueText>Taken from TAM251 Lecture Notes - L9S5</BlueText></Image>
+<Image src="/Solid_Mechanics/Stress Transformation-Figures/Plane Stress.png" width="1.5">  <BlueText>Taken from TAM251 Lecture Notes - L9S5</BlueText></Image>
 
  Plane stress occurs when two faces of the cube element are stress free.
 
@@ -50,7 +50,7 @@ The general state of stress at a point is characterized by three independent nor
 
  <strong>Example:</strong> Thin plates subject to forces acting in the mid-plane of the plate.
 
-<Image src="/mechref/Solid_Mechanics/Stress Transformation-Figures/Thin Plate.png" width="2.5">  <BlueText>Taken from TAM251 Lecture Notes - L9S3</BlueText></Image>
+<Image src="/Solid_Mechanics/Stress Transformation-Figures/Thin Plate.png" width="2.5">  <BlueText>Taken from TAM251 Lecture Notes - L9S3</BlueText></Image>
 
 </SubSection>
 
@@ -71,7 +71,7 @@ For any surface that divides the body ( imaginary or real surface), the action o
 
  We think of stresses acting on faces, so we often associate the state of stress with a coordinate system. However, the selection of a coordinate system is arbitrary (materials don't know about coordinates - it's a mathematical construct!) and we could choose to express the stress state acting on any set of faces aligned with <strong>any</strong> coordinate system axes. Furthermore, we can relate the states of stress in each coordinate system to one another through <strong>stress transformation equations.</strong>
 
-<Image src="/mechref/Solid_Mechanics/Stress Transformation-Figures/Plane Transformation.png" width="5">  <BlueText>Taken from TAM251 Lecture Notes - L9S6</BlueText></Image>
+<Image src="/Solid_Mechanics/Stress Transformation-Figures/Plane Transformation.png" width="5">  <BlueText>Taken from TAM251 Lecture Notes - L9S6</BlueText></Image>
 
 </SubSection>
 
@@ -152,22 +152,22 @@ For any surface that divides the body ( imaginary or real surface), the action o
 <DisplayEquation equation="\\tau_{ns} = -\\frac{P}{A_o}\\sin(\\theta)\\cos(\\theta)\\" />
 
  Maximum normal stress at 90 degrees: 
-<Image src="/mechref/Solid_Mechanics/Stress Transformation-Figures/Max Normal.png" width="2.25">  <BlueText>Max normal stress</BlueText></Image>
+<Image src="/Solid_Mechanics/Stress Transformation-Figures/Max Normal.png" width="2.25">  <BlueText>Max normal stress</BlueText></Image>
 
 
  Maximum shear stress at 45 degrees:
- <Image src="/mechref/Solid_Mechanics/Stress Transformation-Figures/Max Shear.png" width="2">
+ <Image src="/Solid_Mechanics/Stress Transformation-Figures/Max Shear.png" width="2">
   <BlueText>Max shear stress</BlueText>
 </Image>
 
  A circular shaft under torsion develops PURE SHEAR on cross sections between longitudinal planes (the faces of element <InlineEquation equation="a" /> are parallel and perpendicular to the axis of the shaft)
 
-<Image src="/mechref/Solid_Mechanics/Stress Transformation-Figures/Circular Shaft Torsion.png" width="3">  <BlueText>Taken from TAM251 Lecture Notes - L9S19</BlueText></Image>
+<Image src="/Solid_Mechanics/Stress Transformation-Figures/Circular Shaft Torsion.png" width="3">  <BlueText>Taken from TAM251 Lecture Notes - L9S19</BlueText></Image>
 
 <DisplayEquation equation="\\sigma_n = 2\\tau_{max} \\sin\\theta \\cos\\theta = \\tau_{max} \\sin (2\\theta)\\" /> 
 <DisplayEquation equation="\\tau_{ns} = \\tau_{max}(\\cos^2\\theta - \\sin^2\\theta) = \\tau_{max} \\cos(2\\theta)\\" />
 
-<Image src="/mechref/Solid_Mechanics/Stress Transformation-Figures/normalShearStressRelation.png" width="3"> From ref pages</Image>
+<Image src="/Solid_Mechanics/Stress Transformation-Figures/normalShearStressRelation.png" width="3"> From ref pages</Image>
 
  Maximum normal stress at:
 
@@ -185,7 +185,7 @@ For any surface that divides the body ( imaginary or real surface), the action o
 
 <SubSection title="Principal Stresses">
 
-<Image src="/mechref/Solid_Mechanics/Stress Transformation-Figures/Principle Stresses.png" width="3.5">  <BlueText>Taken from TAM251 Lecture Notes - L9S10</BlueText></Image>
+<Image src="/Solid_Mechanics/Stress Transformation-Figures/Principle Stresses.png" width="3.5">  <BlueText>Taken from TAM251 Lecture Notes - L9S10</BlueText></Image>
 
  The angle at which <InlineEquation equation="\\sigma_{x}'" /> is maximized is:
 
@@ -213,7 +213,7 @@ For any surface that divides the body ( imaginary or real surface), the action o
 
  We use the convention that <InlineEquation equation="\\sigma_1 > \\sigma_2" />
 
-<Image src="/mechref/Solid_Mechanics/Stress Transformation-Figures/principalStressesElement.png" width="3"> from ref pages</Image>
+<Image src="/Solid_Mechanics/Stress Transformation-Figures/principalStressesElement.png" width="3"> from ref pages</Image>
 
 </SubSection>
 
@@ -295,7 +295,7 @@ The stress tensor is a physical quantity and therefore independent of the coordi
 
 <SubSection title="Maximum Shear Stress">
 
-<Image src="/mechref/Solid_Mechanics/Stress Transformation-Figures/Max Shear Stresses.png" width="3.5">  <BlueText>Taken from TAM251 Lecture Notes - L9S13</BlueText></Image>
+<Image src="/Solid_Mechanics/Stress Transformation-Figures/Max Shear Stresses.png" width="3.5">  <BlueText>Taken from TAM251 Lecture Notes - L9S13</BlueText></Image>
 
  The angle at which <InlineEquation equation="\\tau_{x'y'}" /> is maximized is:
 
@@ -328,7 +328,7 @@ The stress tensor is a physical quantity and therefore independent of the coordi
 
  <em>i.e.;</em> unlike with the principal stress element, the normal stresses are not zero.
 
-<Image src="/mechref/Solid_Mechanics/Stress Transformation-Figures/maxShearStressState.png" width="2"> From ref pages</Image>
+<Image src="/Solid_Mechanics/Stress Transformation-Figures/maxShearStressState.png" width="2"> From ref pages</Image>
 
 
  The orientations for the principal stress element and max shear stress element are <InlineEquation equation="45^o" />
@@ -338,7 +338,7 @@ apart.
 
 <SubSection title="Mohr's Circle">
 
-<Image src="/mechref/Solid_Mechanics/Stress Transformation-Figures/mohrsCircle.png" width="2"> From ref pages</Image>
+<Image src="/Solid_Mechanics/Stress Transformation-Figures/mohrsCircle.png" width="2"> From ref pages</Image>
 
  Mohr's circle is a graphical representation of stress transformations. The equations for stress transformations actually describe a circle if we consider the normal stress <InlineEquation equation="\\sigma" /> to be the x-coordinate and the shear stress <InlineEquation equation="\\pi" /> to be the y-coordinate.
 
@@ -370,7 +370,7 @@ The state of plane stress at a point on a body is represented by the element bel
 
 Let us analyse the stress field in this cantilever beam problem:
 
-<Image src="/mechref/Solid_Mechanics/Stress Transformation-Figures/CantileverBeam.png" width="3.5"> From ref pages</Image>
+<Image src="/Solid_Mechanics/Stress Transformation-Figures/CantileverBeam.png" width="3.5"> From ref pages</Image>
 
  Choose the coordinates of the point in which you want to obtain the state of plane stress (at the plane z = 0):
 

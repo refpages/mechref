@@ -3,6 +3,12 @@
     import Card from "/src/components/Card.svelte";
 
     export let target_course;
+
+    const coursetags = {
+		'Statics': 'sta',
+		'Dynamics': 'dyn',
+		'Solid Mechanics': 'sol'
+	}
 </script>
 
 <style>
@@ -35,7 +41,7 @@
             <ol class="card-grid-simple d-none">
                 {#each section[1] as page}
                     <li class="">
-                        <a href={`/mechref/${course[0]}/${page.id}`} class="text-decoration-none text-black">{page.name}</a>
+                        <a href={`/${coursetags[course[0]]}/${page.id}`} class="text-decoration-none text-black">{page.name}</a>
                         
                     </li>
                 {/each}

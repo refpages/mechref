@@ -16,7 +16,7 @@
         <p>
         <ul class="list-group list-group-flush">
             <li class="list-group-item course-group p-0 my-2">
-                <a href="/mechref" class="text-decoration-none text-black w-100 d-flex justify-content-center">
+                <a href="/" class="text-decoration-none text-black w-100 d-flex justify-content-center">
                     <strong class="m-0 fw-semibold h5">Home</strong>
                 </a>
             </li>
@@ -29,7 +29,7 @@
                     
                       <ul class="course-list">
                             {#each course[1] as page}
-                                  <li class="mb-1"><a href="/mechref/{course_tags[course[0]]}/{page.id}">{page.name}</a></li>
+                                  <li class="mb-1"><a href="/{course_tags[course[0]]}/{page.id}">{page.name}</a></li>
                             {/each}
                       </ul>
                     </div>
