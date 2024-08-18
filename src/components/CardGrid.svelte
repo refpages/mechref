@@ -35,7 +35,7 @@
             <ol class="card-grid-simple d-none">
                 {#each section[1] as page}
                     <li class="">
-                        <a href={`${course[0]}/${page.id}`} class="text-decoration-none text-black">{page.name}</a>
+                        <a href={`/mechref/${course[0]}/${page.id}`} class="text-decoration-none text-black">{page.name}</a>
                         
                     </li>
                 {/each}
