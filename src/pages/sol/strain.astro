@@ -19,7 +19,7 @@ When forces are applied to a body, <strong>deformation</strong>, the change in l
 
 <SubSection title="Units">
 
-Dimensionless [mm/mm, in/in, or \%]
+Dimensionless [mm/mm, in/in, or %]
 
 </SubSection>
 
@@ -45,20 +45,17 @@ Relative change in <strong>length</strong> of a line element oriented in arbitra
 
 <Itemize>
     <Item> <strong>Engineering</strong> or nominal (normal) strain: Average normal strain using the original (undeformed) total length.
-    <DisplayEquation equation=" \\varepsilon_{eng} = \\frac{\\delta}{L_0}\\" /> </Item>
+    <DisplayEquation equation=" \\varepsilon_{eng} = \\frac{\\delta}{L_0}\\" id="sta-eng" background="True" title="Engineering strain"/> </Item>
     <Item> <strong>True</strong> (normal) strain: Integrate infinitesimal normal strains.
     <Image src="/Solid_Mechanics/Strain-Figures/Shear Strain.png" width="3.5"> Shear strain</Image>
 
-    <DisplayEquation equation=" \\varepsilon_{true} = ln(1 + \\frac{\\delta}{L_0})\\" />
-
-     <strong>*Expandable derivation*</strong>
-    <DisplayEquation equation=" \\varepsilon_{true} = \\Sigma\\Delta\\varepsilon_0 = \\int d\\varepsilon\\" />
-    <DisplayEquation equation=" \\varepsilon_{true} = \\int_{L_0}^{L_f}\\frac{1}{L}dL\\" />
-    <DisplayEquation equation=" \\varepsilon_{true} = ln(L)|_{L_0}^{L_f} = ln(\\frac{L_f}{L_0}) \\" />
-    <DisplayEquation equation=" \\varepsilon_{true} = ln(\\frac{L_0+\\delta}{L_0}) = ln(1+\\frac{\\delta}{L_0})\\" />
-    <DisplayEquation equation=" \\varepsilon_{true} = \\varepsilon_{eng}-\\frac{1}{2}\\varepsilon_{eng}^2 + \\frac{1}{3}\\varepsilon_{eng}^{3} + ...\\" />
-    <strong>**End Derivation**</strong></Item>  
-    <Item> For small strain: <InlineEquation equation="\\varepsilon_{true} \\approx \\varepsilon_{eng}" /></Item>
+    <DisplayEquation equation=" \\varepsilon_{true} = ln(1 + \\frac{\\delta}{L_0})\\" id="sta-ts"  derivation="True" background="True" title="True strain">
+        <DisplayEquation equation="\\begin{align} \\varepsilon_{true} &= \\Sigma\\Delta\\varepsilon_0 = \\int d\\varepsilon \\\\ \\varepsilon_{true} &= \\int_{L_0}^{L_f}\\frac{1}{L}dL \\\\ \\varepsilon_{true} &= ln(L)|_{L_0}^{L_f} = ln(\\frac{L_f}{L_0}) \\\\ \\varepsilon_{true} &= ln(\\frac{L_0+\\delta}{L_0}) = ln(1+\\frac{\\delta}{L_0}) \\\\ \\varepsilon_{true} &= \\varepsilon_{eng}-\\frac{1}{2}\\varepsilon_{eng}^2 + \\frac{1}{3}\\varepsilon_{eng}^{3} + ...\\end{align}" />
+    </DisplayEquation>
+    </Item>
+    <Item> For small strain: 
+        <DisplayEquation equation="\\varepsilon_{true} \\approx \\varepsilon_{eng}" id="sta-ssa" background="True" title="Small strain approximation"/>
+    </Item>
 </Itemize>
 
 </SubSubSection>
@@ -117,7 +114,7 @@ The components of normal and shear strain can be combined into the strain tensor
 
 Initial and final lengths of some section of the specimen are measured, perhaps by some handheld device such as a ruler. Axial strain computed directly by following formula:
 
-<DisplayEquation equation="\\varepsilon = \\frac{\\delta}{L} = \\frac{L_{final} - L_{initial}}{L_{initial}} \\" />
+<DisplayEquation equation="\\varepsilon = \\frac{\\delta}{L} = \\frac{L_{final} - L_{initial}}{L_{initial}} \\" id="sta-axs" background="True" title="Axial strain formula"/>
 
  Accurate measurements of strain in this way may require a fairly large initial length.
 

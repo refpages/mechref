@@ -22,13 +22,13 @@ const filename = 'Fig: ' + img_path_split.pop().replace('.png', '')
 
     @media (min-width: 768px){
         .image-block{
-            width: calc(var(--width) / 6 * 100%);
+            width: min(calc(var(--width) / 6 * 100%), 100%);
         }
     }
 
     @media (min-width: 992px){
         .image-block{
-            width: calc(var(--width) / 7 * 100%);
+            width: min(calc(var(--width) / 7 * 100%), 100%);
         }
     }
 

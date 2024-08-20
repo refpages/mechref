@@ -28,11 +28,12 @@ The units of stress can be found in the table below.
 
 <Image src="/Solid_Mechanics/Stress-Figures/Prefixes.png" width="4"> Table screenshot from ref pages</Image>
 
+Typical sign convention for axial (normal) stress:
 <Itemize>
     <Item> <strong>Tension:</strong> <InlineEquation equation="\\sigma > 0" /> </Item>
     <Item> <strong>Compression:</strong> <InlineEquation equation="\\sigma < 0" /> </Item>
 </Itemize>
-Typical sign convention for axial (normal) stress:
+
 </SubSection>
 
 
@@ -52,7 +53,7 @@ We consider a homogeneous distribution of the internal force <InlineEquation equ
 
  Here we assume that the<strong> distribution of normal stresses</strong> in an axially loaded member is <strong>uniform</strong>. Stress is calculated away from the points of application of the concentrated loads. Uniform distribution of stress is possible only if the line of action of the concentrated load <InlineEquation equation="P" /> passes through the centroid of the section considered
 
-<DisplayEquation equation="\\sigma_{ave} = \\frac{F}{A}\\" />
+<DisplayEquation equation="\\sigma_{ave} = \\frac{F}{A}\\" title="Average normal stress." id="sts-ans" background="True"/>
 
  where <InlineEquation equation="F" /> is the internal resultant normal force and <InlineEquation equation="A" /> is the cross-sectional area of the bar where the normal stress <InlineEquation equation="\\sigma_{ave}" /> is calculated.
 
@@ -82,7 +83,7 @@ We consider a homogeneous distribution of the internal force <InlineEquation equ
 
 <Image src="/Solid_Mechanics/Stress-Figures/Avg Shear Stress.png" width="4"> Average shear stress</Image>
 
-<DisplayEquation equation="\\tau_{ave} = \\frac{V}{A}\\" />
+<DisplayEquation equation="\\tau_{ave} = \\frac{V}{A}\\" title="Average shear stress." id="sts-tav" background="True"/>
 
  where <InlineEquation equation="V" /> is the internal resultant shear force and <InlineEquation equation="A" /> is the cross-sectional area of the bar where the shear stress <InlineEquation equation="\\tau_{ave}" /> is calculated.
 
@@ -94,12 +95,12 @@ Determine the shear stress in the bolt.
 
 <Image src="/Solid_Mechanics/Stress-Figures/SingleShear.png" width="2.5"> Single shear stress</Image>
 
-<DisplayEquation equation="\\tau_{ave} = \\frac{P}{A}\\" />
- <strong>*Expandable derivation*</strong>
-<DisplayEquation equation="\\Sigma F_y = V-P = 0\\" />
-<DisplayEquation equation="V = P\\" />
+<DisplayEquation equation="\\tau_{ave} = \\frac{P}{A}\\" title="Single shear stress." id="sts-sss" background="True" derivation="True">
 
- <strong>**End Derivation**</strong>
+    <DisplayEquation equation="\\Sigma F_y = V-P = 0\\" />
+    <DisplayEquation equation="V = P\\" />
+
+</DisplayEquation>
 
  <strong>Example:</strong> Double Shear
 
@@ -107,13 +108,12 @@ Determine the shear stress in the bolt.
 
 <Image src="/Solid_Mechanics/Stress-Figures/DoubleShear.png" width="2.5"> Double shear stress</Image>
 
-<DisplayEquation equation="\\tau_{ave} = \\frac{P}{2A}\\" />
+<DisplayEquation equation="\\tau_{ave} = \\frac{P}{2A}\\" title="Double shear stress." id="sts-dss" background="True" derivation="True">
 
-<strong>*Expandable derivation*</strong>
-<DisplayEquation equation="\\Sigma F_y = 2V-P = 0\\" />
-<DisplayEquation equation="V = \\frac{P}{2}\\" />
+    <DisplayEquation equation="\\Sigma F_y = 2V-P = 0\\" />
+    <DisplayEquation equation="V = \\frac{P}{2}\\" />
 
- <strong>**End Derivation**</strong>
+</DisplayEquation>
 
 </SubSubSection>
 

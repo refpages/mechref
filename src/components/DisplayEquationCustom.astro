@@ -1,5 +1,5 @@
 ---
-const { id="", title="", derivation="", background="", side='left'} = Astro.props;
+const { id="", title="", derivation="", background=""} = Astro.props;
 ---
 
 <style>
@@ -19,15 +19,17 @@ const { id="", title="", derivation="", background="", side='left'} = Astro.prop
 
 
 <div id={id} class={background ? 'background-yellow overflow-auto my-2' : 'mb-2'}>
-    <div class="mb-2 px-2">
-        {title && title}{id && <small>{` #${id}`}</small>}
-    </div>
+    { title &&
+        <div class="mb-2 px-2">
+            {title && title}{id && <small>{` #${id}`}</small>}
+        </div>
+    }
 
     <div class="w-100  p-2">
         <slot />
     </div>
 
-    {derivation && <button class="btn btn-secondary py-0" id={'derivation_btn_'+id}>Derivation</button>}
+    {derivation && <button class="btn btn-secondary py-0" id={'derivation_btn_'+id}>Derivation +</button>}
     {derivation && 
         <div id={'derivation_menu_'+id}>
             <div class="derivation_container p-2">
@@ -43,11 +45,15 @@ const { id="", title="", derivation="", background="", side='left'} = Astro.prop
 <script define:vars={{id, derivation}} is:inline>
 
     $(document).ready(function(){
-        const menu = $(`#derivation_menu_${id}`)
+        const menu = $(`#derivation_menu_${id}`);
         menu.hide();
+
+        const button = $(`#derivation_btn_${id}`);
         
-        $(`#derivation_btn_${id}`).on('click', function(){
-            menu.slideToggle()
+        button.on('click', function(){
+            menu.slideToggle('fast', function(){
+                button.text(button.text() == 'Derivation +' ? 'Derivation -' : 'Derivation +')
+            })
         })
     })
     

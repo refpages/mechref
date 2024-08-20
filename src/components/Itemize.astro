@@ -1,3 +1,7 @@
-<ul>
+---
+const { margin="True" } = Astro.props;
+---
+
+<ul class={margin == 'False'? 'm-0' : ''}>
     <slot />
 </ul>

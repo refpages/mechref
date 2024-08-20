@@ -31,7 +31,7 @@ const { id, title, solution="True" } = Astro.props;
             </div>
              
            { solution == 'True' && 
-            <button class="btn btn-secondary" id={'solution_btn_'+id}>Solution</button>
+            <button class="btn btn-secondary" id={'solution_btn_'+id}>Solution +</button>
             <div id={'solution_menu_'+id}>
                 <div class="background-green p-2">
                     <slot name="solution"/>
@@ -48,16 +48,22 @@ const { id, title, solution="True" } = Astro.props;
     $(document).ready(function(){
         const menu = $(`#example_menu_${id}`)
         menu.hide();
-        
-        $(`#example_btn_${id}`).on('click', function(){
-            menu.slideToggle()
+        const exbutton = $(`#example_btn_${id}`);
+
+        exbutton.on('click', function(){
+            menu.slideToggle('fast', function(){
+                exbutton.text(exbutton.text() == '+' ? '-' : '+')
+            })
         })
 
         const solution_menu = $(`#solution_menu_${id}`)
         solution_menu.hide();
+        const solbutton = $(`#solution_btn_${id}`);
 
-        $(`#solution_btn_${id}`).on('click', function(){
-            solution_menu.slideToggle()
+        solbutton.on('click', function(){
+            solution_menu.slideToggle('fast', function(){
+                solbutton.text(solbutton.text() == 'Solution +' ? 'Solution -' : 'Solution +')
+            })
         })
     })
 </script>

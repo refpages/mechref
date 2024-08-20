@@ -23,6 +23,8 @@
     }
 </style>
 
+
+
 {#each classes as course}
     {#if (course[0] == target_course)}
     
@@ -57,4 +59,3 @@
         {/each}
     {/if}
 {/each}
-

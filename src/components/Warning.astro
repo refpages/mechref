@@ -34,9 +34,12 @@ const { id, title } = Astro.props;
     $(document).ready(function(){
         const menu = $(`#warning_menu_${id}`)
         menu.hide();
+        const button = $(`#warning_btn_${id}`);
         
-        $(`#warning_btn_${id}`).on('click', function(){
-            menu.slideToggle()
+        button.on('click', function(){
+            menu.slideToggle('fast', function(){
+                button.text(button.text() == '+' ? '-' : '+')
+            })
         })
-    })
+    });
 </script>
