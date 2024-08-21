@@ -1,3 +1,9 @@
+package-lock.json
+package.json
+svelte.config.json
+astro.config.mjs
+tsconfig.json
+
 # build output
 dist/
 
