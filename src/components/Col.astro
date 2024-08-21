@@ -1,0 +1,21 @@
+---
+const {values} = Astro.props;
+
+let c = '';
+
+const split = values.split(' ')
+
+Array.from(split).forEach(e => {
+    c = c + ` col-${e}`;
+})
+
+console.log(c)
+
+
+---
+
+<div class={c}>
+    <div class="w-100">
+        <slot />
+    </div>  
+</div> 

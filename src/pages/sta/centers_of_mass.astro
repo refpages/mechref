@@ -4,6 +4,10 @@ import Image from "../../components/Image.astro"
 import Section from "../../components/Section.astro" 
 import SubSection from "../../components/SubSection.astro" 
 import BlueText from "../../components/BlueText.astro" 
+import Enumerate from "../../components/Enumerate.astro"
+import Item from "../../components/Item.astro"
+import InlineEquation from "../../components/InlineEquation.astro"
+import DisplayEquation from "../../components/DisplayEquation.astro"
 ---
 <Layout title="Centers of Mass">
 <Section title="Center of Mass">
@@ -18,17 +22,39 @@ import BlueText from "../../components/BlueText.astro"
 
 <BlueText>Take from the TAM 212 reference page - Centers of Mass - Simplified Shapes</BlueText>
 
+<p>
 Centroids of simple shapes can be combined to solve for the centroid of more complex parts. 
+</p>
+
+<BlueText>Insert content here from the TAM 212 reference page - Centers of Mass - starting at "To find the center of mass of a body made up of composite shapes..." and ending with the Example problem of the center of mass of an L-shaped plate</BlueText>
 
 </SubSection>
 
 <SubSection title="Centroid">
 
-The centroid denotes the <em>geometric</em> center of an object. When an object is made of a homogeneous material, the centroid and the center of mass are at the same point. If the object has an axis of symmetry, the centroid is on the axis of symmetry. In some cases, the centroid may not be on the object. 
+<p>
+    The centroid denotes the <em>geometric</em> center of an object. When an object is made of a homogeneous material, the centroid and the center of mass are at the same point. If the object has an axis of symmetry, the centroid is on the axis of symmetry. In some cases, the centroid may not be on the object. 
+</p>
 
-<BlueText>Should we include an example problem from lecture 28?</BlueText>
+To solve for the centroid of an object:
+<Enumerate>
+    <Item>Define your coordinate system</Item>
+    <Item>Define the infinitesimally small element (usually \(dL\), \(dA\), or \(dV\))</Item>
+    <Item>Express the element in terms of the coordinate system you defined</Item>
+    <Item>Identify any symmetry</Item>
+    <Item>Define the centroid <InlineEquation equation="(\\tilde{x}, \\tilde{y})" />of the element</Item>
+    <Item>Plug the equations from 3 and 5 into the equations for the centroid</Item>
+</Enumerate>
 
-<Image src='/Statics/COMFigures/CentroidAnalysis.png' width='5 '> Nonuniform load. Need to remake this in the same style as the other pictures.</Image>
+<p>The equation for the centroid of an object is as follows:</p>
+
+<DisplayEquation equation="\\begin{align} \\bar{x} = \\frac{\\int{\\tilde{x}dV}}{\\int{dV}} \\\\ {\\bar{x}} = \\frac{\\int{\\tilde{x}dA}}{\\int{dA}} \\\\ {\\bar{x}} = \\frac{\\int{\\tilde{x}dL}}{\\int{dL}} \\end{align}" />
+
+with similar equations for <InlineEquation equation="\\bar{y}" />. 
+
+<p>Example problem: Centroid of a curved area</p>
+
+<Image src='/Statics/COMFigures/CentroidEx.jpg' width='5'> <BlueText>Adapted from TAM 210 Lecture 28 Notes</BlueText></Image>
 
 </SubSection>
 </Layout>

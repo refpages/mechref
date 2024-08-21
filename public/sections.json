@@ -3,14 +3,110 @@
     "Dynamics",
     [[
       "Course Material",
-      []
+      [
+        {
+          "id": "vectors",
+          "name": "Vectors"
+        },
+        {
+          "id": "vector_calculus",
+          "name": "Vector Calculus"
+        },
+        {
+          "id": "particle_kinematics",
+          "name": "Particle Kinematics"
+        },
+        {
+          "id": "particle_kinetics",
+          "name": "Particle Kinetics"
+        },
+        
+        {
+          "id": "rigid_body_kinematics",
+          "name": "Rigid Body Kinematics"
+        },
+        {
+          "id": "rigid_body_kinetics",
+          "name": "Rigid Body Kinetics"
+        },
+        
+        {
+          "id": "contact_and_rolling",
+          "name": "Contact And Rolling"
+        },
+        {
+          "id": "work_and_energy",
+          "name": "Work And Energy"
+        },
+        {
+          "id": "questions_to_ask_instructor",
+          "name": "Questions To Ask Instructor"
+        }
+      ]
     ]]
   ],
   [
     "Solid Mechanics",
     [[
       "Course Material",
-      []
+      [
+        {
+          "id": "stress",
+          "name": "Stress"
+        },
+        {
+          "id": "strain",
+          "name": "Strain"
+        },
+        {
+          "id": "material_properties",
+          "name": "Material Properties"
+        },
+        {
+          "id": "axial_loading",
+          "name": "Axial Loading"
+        },
+        {
+          "id": "torsion",
+          "name": "Torsion"
+        },
+        {
+          "id": "shear_moment_diagrams",
+          "name": "Shear Moment Diagrams"
+        },
+        {
+          "id": "bending",
+          "name": "Bending"
+        },
+        {
+          "id": "transverse_shear",
+          "name": "Transverse Shear"
+        },
+        {
+          "id": "pressure_vessels",
+          "name": "Pressure Vessels"
+        },
+        {
+          "id": "combined_loading",
+          "name": "Combined Loading"
+        },
+        {
+          "id": "stress_transformation",
+          "name": "Stress Transformation"
+        },
+        {
+          "id": "failure_theories",
+          "name": "Failure Theories"
+        },
+        {
+          "id": "beam_deflection",
+          "name": "Beam Deflection"
+        },
+        {
+          "id": "buckling",
+          "name": "Buckling"
+        }
+      ]
     ]]
   ],
   [
@@ -19,65 +115,61 @@
       "Course Material",
       [
         {
-          "id": "blanktopic",
-          "name": "Blanktopic"
-        },
-        {
-          "id": "cartesian_coordinates",
-          "name": "Cartesian Coordinates"
-        },
-        {
-          "id": "centers_of_mass",
-          "name": "Centers Of Mass"
-        },
-        {
-          "id": "forcesystems",
-          "name": "Forcesystems"
-        },
-        {
-          "id": "free_body_diagrams",
-          "name": "Free Body Diagrams"
-        },
-        {
-          "id": "friction",
-          "name": "Friction"
-        },
-        {
-          "id": "hydrostatic_fluid_pressure",
-          "name": "Hydrostatic Fluid Pressure"
-        },
-        {
-          "id": "internal_forces",
-          "name": "Internal Forces"
-        },
-        {
           "id": "introduction",
           "name": "Introduction"
-        },
-        {
-          "id": "moments",
-          "name": "Moments"
-        },
-        {
-          "id": "moment_of_inertia",
-          "name": "Moment Of Inertia"
-        },
-        {
-          "id": "reaction_forces",
-          "name": "Reaction Forces"
-        },
-        {
-          "id": "trusses",
-          "name": "Trusses"
-        },
-        {
-          "id": "vectors_scalars",
-          "name": "Vectors Scalars"
-        },
-        {
-          "id": "virtual_work",
-          "name": "Virtual Work"
-        }
+          },
+          {
+            "id": "cartesian_coordinates",
+            "name": "Cartesian Coordinates"
+          },
+          {
+            "id": "vectors_scalars",
+            "name": "Vectors Scalars"
+          },
+          {
+            "id": "free_body_diagrams",
+            "name": "Free Body Diagrams"
+          },
+          {
+            "id": "moments",
+            "name": "Moments"
+          },
+          {
+            "id": "forcesystems",
+            "name": "Force Systems"
+          },
+          {
+            "id": "reaction_forces",
+            "name": "Reaction Forces"
+          },
+          {
+            "id": "internal_forces",
+            "name": "Internal Forces"
+          },
+          {
+            "id": "trusses",
+            "name": "Trusses"
+          },
+          {
+            "id": "friction",
+            "name": "Friction"
+          },
+          {
+            "id": "centers_of_mass",
+            "name": "Centers Of Mass"
+          },
+          {
+            "id": "hydrostatic_fluid_pressure",
+            "name": "Hydrostatic Fluid Pressure"
+          },
+          {
+            "id": "moment_of_inertia",
+            "name": "Moment Of Inertia"
+          },
+          {
+            "id": "virtual_work",
+            "name": "Virtual Work"
+          }
       ]
     ]]
   ]

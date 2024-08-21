@@ -6,13 +6,18 @@ import SubSection from "../../components/SubSection.astro"
 import BlueText from "../../components/BlueText.astro" 
 import RedText from "../../components/RedText.astro" 
 import InlineEquation from "../../components/InlineEquation.astro" 
+import Enumerate from "../../components/Enumerate.astro"
+import Item from "../../components/Item.astro"
 ---
 <Layout title="Internal Forces">
 <Section title="Internal Forces">
-
+<p>
 Internal forces of a member can be determined by creating an imaginary cut in a member, and then solving for the internal shear force, normal force, and bending moment (which, after the cut, become "external" forces that can be solved for). 
+</p>
 
+<p>
 To determine how the internal shear force and bending moment change throughout the member, shear force and bending moment diagrams are created. Shear force diagrams provide a graphical representation of the internal shear force within a member, and bending moment diagrams provide a graphical representation of the internal bending moment within a member. 
+</p>
 
 <Image src='/Statics/IntForceFigures/IntForces.jpg' width='5 '> Internal shear force (V), internal normal force (N), and internal moment (M).</Image>
 
@@ -28,28 +33,40 @@ To determine how the internal shear force and bending moment change throughout t
 
 
 <SubSection title="General Procedure">
-
+<p>
 Creating a shear force and bending moment diagram allows us to create a graphical representation of <InlineEquation equation='V' /> and <InlineEquation equation='M' /> as a function of the position along the beam, <InlineEquation equation='x' />. Therefore when creating internal loading diagrams we are trying to write equations for <InlineEquation equation='V(x)' /> and <InlineEquation equation='M(x)' />.
+</p>
 
-<Image src='/Statics/IntForceFigures/DiagramProcedure.png' width='5'><BlueText>Taken from TAM 210 Lecture 22</BlueText></Image>
+<p>
+The general procedures for creating shear / bending moment diagrams are:</p> 
+<!-- %from TAM 210 Lecture 22 -->
+<Enumerate>
+    <Item>Find support reactions</Item>
+    <Item>Specify the x-coordinates</Item>
+    <Item>Divide the beam into regions: one region for every change in loading</Item>
+    <Item>Analyze each region by cutting inside each region and analyzing the free body diagram of the left side of the cut</Item>
+    <Item>Apply equations of equilibrium to solve for \(V\) and \(M\) as functions of x</Item>
+<Enumerate>
 
-<Image src='/Statics/IntForceFigures/IntLoadRecap.png' width='5'><BlueText>Taken from TAM 210 Lecture 23</BlueText></Image>
+<Image src='/Statics/IntForceFigures/DiagramProcedure.png' width='5'><BlueText>Adapted from TAM 210 Lecture 22</BlueText></Image>
+
+<Image src='/Statics/IntForceFigures/IntLoadRecap.jpg' width='5'><BlueText>Taken from TAM 210 Lecture 23</BlueText></Image>
 
 </SubSection>
 
 <SubSection title="<RedText>General Rules</RedText>">
 
-<ol>
-	<li> When there is an external concentrated force or moment, there will be a "jump" in the shear force or bending moment diagram
-    </li>
-	<li>w(x)</li>
-</ol>
+<Enumerate>
+	<Item>When there is an external concentrated force or moment, there will be a "jump" in the shear force or bending moment diagram
+    </Item>
+	<Item>\(w(x)\)</Item>
+</Enumerate>
 
-<Image src='/Statics/IntForceFigures/IntDerivRelationships.jpg' width='5'><BlueText>See TAM 210 Lecture 25</BlueText></Image>
+<Image src='/Statics/IntForceFigures/IntDerivRelationships.jpg' width='5'><BlueText>Adapted from TAM 210 Lecture 25</BlueText></Image>
 
 </SubSection>
 
-<SubSection title="<RedText>Shear Force Diagram</RedText>"></SubSection>
+<!-- <SubSection title="<RedText>Shear Force Diagram</RedText>"></SubSection> -->
 
 <!-- Lecture 22, 23, 24 -->
 

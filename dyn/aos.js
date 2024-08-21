@@ -107,7 +107,7 @@ $(document).ready(function() {
     //var compressedWorldCoastline = compressMap(worldCoastline);
     //logMap("worldCoastline", compressedWorldCoastline, 1);
 
-    var aos_fm_c = new PrairieDraw("aos-fm-c", function() {
+    aos_fm_c = new PrairieDraw("aos-fm-c", function() {
         this.setUnits(360, 180);
 
         this.addOption("showMapPath", false);
@@ -239,7 +239,7 @@ $(document).ready(function() {
         }
     });
 
-    var aos_fd_c = new PrairieDraw("aos-fd-c", function() {
+    aos_fd_c = new PrairieDraw("aos-fd-c", function() {
         this.setUnits(2.5, 2.5);
 
         this.addOption("showLabels", true);
@@ -512,7 +512,7 @@ $(document).ready(function() {
 
     aos_fd_c.activate3DControl();
 
-    var aos_fp_c = new PrairieDraw("aos-fp-c", function() {
+    aos_fp_c = new PrairieDraw("aos-fp-c", function() {
         this.setUnits(360, 360);
 
         this.addOption("projection", "equirectangular");

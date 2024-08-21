@@ -136,25 +136,31 @@ Polar moment of inertia: <DisplayEquation equation='J_O = \\int_{A}^{} r^2 \\,dA
 </SubSection>
 
 <SubSection title="Parallel axis theorem">
+<p>
+    The parallel axis theorem is used to calculate the moment of inertia for an object around axes other than through the centroid. The parallel axis theorum states: 
+</p>
 
-<BlueText>Need to transcribe this to be the correct format and drawings</BlueText>
-
-
-<Image src='/Statics/MOIFigures/ParallelAxisThm.png' width='5'><BlueText>Taken from TAM 210 Lecture 3 - Slide 3</BlueText></Image>
+    <DisplayEquation equation="\\begin{align} I_{x} = I_{x'} + A(d_y)^2 \\\\ I_{y} = I_{y'} + A(d_x)^2 \\end{align}" />
+<p>
+    where <InlineEquation equation="I_{x'}" /> and <InlineEquation equation="I_{y'}" /> are the moments of inertia about the centroid, A is the total area of the shape, and d is the perpendicular distance from the centroid in either the x or y directions.
+</p>
 
 </SubSection>
 
 <SubSection title="Combining moments of inertia">
+<p>
+Moments of inertia of simple shapes can be combined to calculate the moments of inertia of more complex shapes using the parallel axis theorum. 
+</p>
 
-<BlueText>Need to transcribe this to be the correct format and drawings - show the example problem with the house-shaped object.</BlueText>
+<p>Example problem: what is the \(I_x\) of the composite shape? </p>
 
-<Image src='/Statics/MOIFigures/MOIComposite.png' width='5'><BlueText>Taken from TAM 210 Lecture 3 - Slide 3</BlueText></Image>
+<Image src='/Statics/MOIFigures/MOIComposite.jpg' width='5'><BlueText>Adapted from TAM 210 Lecture 33</BlueText></Image>
 
 </SubSection>
 
 <SubSection title="Moment of inertia for typical shapes">
 
-<Image src='/Statics/MOIFigures/TypicalMOI.png' width='5'><BlueText>Taken from TAM 210 Lecture 3 - Slide 3</BlueText></Image>
+<Image src='/Statics/MOIFigures/TypicalMOI.png' width='5'><BlueText>Taken from TAM 210 Lecture 33</BlueText></Image>
 
 </SubSection>
 

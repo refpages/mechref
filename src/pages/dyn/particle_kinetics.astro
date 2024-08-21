@@ -1,0 +1,500 @@
+---
+import Layout from "../../layouts/Layout.astro" 
+import Image from "../../components/Image.astro" 
+import Section from "../../components/Section.astro" 
+import SubSection from "../../components/SubSection.astro" 
+import SubSubSection from "../../components/SubSubSection.astro" 
+import SubSubSubSection from "../../components/SubSubSubSection.astro" 
+import BlueText from "../../components/BlueText.astro" 
+import RedText from "../../components/RedText.astro" 
+import InlineEquation from "../../components/InlineEquation.astro"
+import DisplayEquation from "../../components/DisplayEquation.astro"
+import CalloutContainer from "../../components/CalloutContainer.astro"
+import CalloutCard from "../../components/CalloutCard.astro"
+import Center from "../../components/Center.astro"
+import Example from "../../components/Example.astro"
+import Itemize from "../../components/Itemize.astro"
+import Item from "../../components/Item.astro"
+import PrairieDrawCanvas from "../../components/PrairieDrawCanvas.astro"
+---
+<Layout title="Particle Kinetics">
+<Section title="Particle Kinetics"></Section>
+
+<SubSection title="Classical mechanics">
+
+    <CalloutContainer slot="cards">
+        <CalloutCard>
+            <p>
+                If we have objects which are either very massive, very
+                small, or moving very fast, then Newton's equations do not
+                provide a good model of their motion. Instead we must use
+                Einstein's equations of <a
+                href="http://en.wikipedia.org/wiki/General_relativity">general
+                relativity</a> (for massive and fast objects) or the
+                equations of <a
+                href="http://en.wikipedia.org/wiki/Quantum_mechanics">quantum
+                mechanics</a> (for very small objects). Unfortunately,
+                these two theories cannot be used together, so we
+                currently have no good models for objects which are
+                simultaneously very small and very massive, such as <a
+                href="http://en.wikipedia.org/wiki/Micro_black_hole">micro
+                black holes</a> or the universe shortly after the <a
+                href="http://en.wikipedia.org/wiki/Big_Bang">big
+                bang</a>. Physicists are currently trying to reconcile
+                general relativity with quantum mechanics by devising a
+                new set of equations (sometimes called <a
+                href="http://en.wikipedia.org/wiki/Quantum_gravity">quantum
+                gravity</a> or a <a
+                href="http://en.wikipedia.org/wiki/Theory_of_everything">theory
+                of everything</a>). Current possibilities for new
+                equations include <a
+                href="http://en.wikipedia.org/wiki/String_theory">string
+                theory</a> and <a
+                href="http://en.wikipedia.org/wiki/Loop_quantum_gravity">loop
+                quantum gravity</a>, but none of these are generally
+                accepted yet.
+              </p>
+              <p>
+                It is important to remember that all of these different
+                equations are only models of reality and are not actually
+                real:
+              </p>
+              <blockquote>
+                “All models are wrong. Some models are useful.”
+                <br />
+                — <a href="http://en.wikipedia.org/wiki/George_E._P._Box">George Box</a>
+              </blockquote>
+        </CalloutCard>
+    </CalloutContainer>
+
+    Newton's equations relate the acceleration <InlineEquation equation="\\vec{a}" /> of a point mass with mass <InlineEquation equation="m" /> to the total applied force <InlineEquation equation="\\vec{F}" /> on the mass (sum of all applied forces). They are:
+    
+    <DisplayEquation equation="\\vec{F} = m\\vec{a}" background="True" title="Newton's equations: "/>
+
+    There is no derivation for Newton's equations, because they are an assumed model for dynamics. We can only verify them by comparing with experimental evidence, which confirms that Newtonian dynamics are accurate for non-relativistic and non-quantum systems.
+
+    <PrairieDrawCanvas id="rep-ff-c" width="600" height="600" />
+
+</SubSection>
+
+<SubSubSection title="Method of assumed forces and method of assumed motion">
+    Newton's equations can be used in two main ways. Either we
+          know the forces and we use this to compute the acceleration
+          of a mass, or we know the acceleration and use this to
+          compute the forces.
+
+        <DisplayEquation equation="\\begin{align}\\textbf{Method of assumed forces: } \\text{Know } \\vec{F} \\Longrightarrow \\text{Compute } \\vec{a} \\\\ \\textbf{Method of assumed motion: } \\text{Know } \\vec{a} \\Longrightarrow \\text{Compute } \\vec{F} \\end{align}" />
+
+    Of course there are other possibilities from these two, such
+          as knowing the vertical component of the force and the
+          horizontal component of acceleration, and then computing the
+          missing components of each.
+        
+    <Example id="rep-xf" title="Method of assumed forces">
+        A cannonball of mass <InlineEquation equation="m" /> is fired from the origin with initial velocity <InlineEquation equation="\\vec{v}_0" /> and then experiences a force <InlineEquation equation="\\vec{F}_{\\rm g} = -m g \\hat{\\jmath}" /> due to gravity and a wind force <InlineEquation equation="\\vec{F}_{\\rm w} = -C_{\\rm w} \\hat{\\imath}" />. What is the motion of the cannonball as a function of time?
+
+        <div slot="solution">
+            We can use Newton's equations to find the acceleration of the cannonball, using the method of assumed forces:
+
+            <DisplayEquation equation="\\begin{aligned} m \\vec{a} &amp;= \\vec{F}_{\\rm w} + \\vec{F}_{\\rm g} \\\\ \\vec{a} &amp;= \\frac{1}{m} \\left( - C_{\\rm w} \\hat{\\imath} - m g \\hat{\\jmath} \\right) \\end{aligned}" />
+        </div>
+    </Example>
+
+    <Example id="rep-xm" title="Method of assumed motion">
+        A car of mass <InlineEquation equation="m" /> is observed driving on a sinusoidal road at a constant horizontal speed <InlineEquation equation="v_0" />. The road surface has equation <InlineEquation equation="y = A \\sin(k x)" />, where <InlineEquation equation="A" /> is the amplitude and <InlineEquation equation="k" /> is the wavenumber. What is the force of the road on the car? Gravity <InlineEquation equation="g" /> acts vertically and assume no air resistance.
+
+        <div slot="solution">
+            We can determine the acceleration of the car, and then use Newton's equations and method of assumed motion to find the total force and thus the road force. First, we find the acceleration:
+
+            <DisplayEquation equation="\\begin{aligned} x(t) &amp;= x_0 + v_0 t \\\\ \\vec{r}(t) &amp;= x(t)\\,\\hat{\\imath} + y(x(t)) \\,\\hat{\\jmath} \\\\ &amp;= (x_0 + v_0 t)\\,\\hat{\\imath} + A \\sin(k x_0 + k v_0 t)\\,\\hat{\\jmath} \\\\ \\vec{a}(t) = \\ddot{\\vec{r}}(t) &amp;= - A (k v_0)^2 \\sin(k x_0 + k v_0 t)\\,\\hat{\\jmath} \\\\ &amp;= - A (k v_0)^2 \\sin(k x)\\,\\hat{\\jmath}. \\end{aligned}" />
+
+            Given the force of gravity <InlineEquation equation="\\vec{F}_{\\rm g} = - m g \\,\\hat{\\jmath}" /> and the road force <InlineEquation equation="\\vec{F}_{\\rm r} " />, Newton's equations give the forces as:
+
+            <DisplayEquation equation="\\begin{aligned} \\vec{F}_{\\rm r} + \\vec{F}_{\\rm g} &amp;= m \\vec{a} \\\\ \\vec{F}_{\\rm r} &amp;= - m A (k v_0)^2 \\sin(k x)\\,\\hat{\\jmath} + m g \\,\\hat{\\jmath} \\\\ &amp;= m \\Big(g - A (k v_0)^2 \\sin(k x)\\Big) \\,\\hat{\\jmath},  \\end{aligned}" />
+
+            where we have solved for the road force on the car.
+        </div>
+    </Example>
+</SubSubSection>
+
+<SubSubSection title="Solution steps">
+    The steps involved in analyzing a mechanical system with Newton's equations are as follows.
+
+    <DisplayEquation equation="\\begin{aligned} &amp;\\text{1. FBD: draw a Free Body Diagram.} \\\\ &amp;\\text{2. Kinematics: determine $\\vec{a}$.} \\\\ &amp;\\text{3. Newton: use $\\vec{F} = m\\vec{a}$.} \\\\ &amp;\\text{4. Algebra: rearrange and solve as needed.} \\end{aligned}" background="True"/>
+
+    <Example title="Pendulum with Newton's equations" id="rep‑xl">
+        <div class="d-flex flex-row">
+            <div class="w-50">
+                Consider the 2D pendulum with a massless rigid rod of
+                length <InlineEquation equation="\\ell" /> and a point mass <InlineEquation equation="m" />. What is the
+                equation of motion for <InlineEquation equation="\\ddot\\theta" /> and the tension
+                <InlineEquation equation="T" /> in the rod?
+            </div>
+            <div class="w-50">
+                <canvas id="rep-xl-c" width="300" height="200">
+            </div>
+        </div>
+        
+        
+
+        <div slot="solution">
+            <p>
+                It is helpful in this problem to use both Cartesian and polar bases:
+                <button class="option-toggle:rep-xl-c:showBases">show bases</button>
+              </p>
+              <p>
+                <strong>1. FBD:</strong> The free body diagram for the point mass is:
+              </p>
+              <canvas id="rep-xl-f" width="300" height="200" class="standaloneImage">
+              </canvas>
+              <p>
+                The forces on the free body diagram are:
+
+                <DisplayEquation equation="\\begin{aligned} \\vec{F}_g &amp;= - mg \\,\\hat\\jmath \\\\ \\vec{F}_T &amp;= - T \\,\\hat{e}_r.  \\end{aligned}" />
+              </p>
+              <p>
+                <strong>2. Kinematics:</strong> Using the polar
+                basis acceleration equation <a
+                href="rkv.html#rkv-ep">#rkv-ep</a> gives:
+                <DisplayEquation equation="\\begin{aligned} \\vec{a} &amp;= (\\ddot{r} - r\\dot\\theta^2) \\,\\hat{e}_r + (r\\ddot\\theta + 2\\dot{r}\\dot\\theta) \\,\\hat{e}_\\theta \\\\ &amp;= -\\ell \\dot\\theta^2 \\,\\hat{e}_r + \\ell\\ddot\\theta \\,\\hat{e}_\\theta. \\\\end{aligned}" />
+              </p>
+              <p>
+                <strong>3. Newton:</strong> Using <a
+                href="#rep-en">#rep-en</a> gives:
+                <DisplayEquation equation="\\begin{aligned} \\vec{F} &amp;= m\\vec{a} \\\\ \\vec{F}_T + \\vec{F}_g &amp;= m(-\\ell \\dot\\theta^2 \\,\\hat{e}_r + \\ell\\ddot\\theta \\,\\hat{e}_\\theta) \\\\ -T\\,\\hat{e}_r - mg\\,\\hat\\jmath &amp;= -m\\ell \\dot\\theta^2 \\,\\hat{e}_r + m\\ell\\ddot\\theta \\,\\hat{e}_\\theta. \\end{aligned}" />
+              </p>
+              <p>
+                <strong>4. Algebra:</strong> To compare components
+                in the above equation we need to switch to a single
+                basis. We will convert to <InlineEquation equation="\\hat{e}_r,\\hat{e}_\\theta" />
+                using: 
+                <DisplayEquation equation="\\hat\\jmath = -\\cos\\theta \\,\\hat{e}_r + \\sin\\theta \\,\\hat{e}_\\theta," />
+
+                which gives:
+
+                <DisplayEquation equation="(-T + mg\\cos\\theta)\\,\\hat{e}_r - mg\\sin\\theta\\,\\hat{e}_\\theta = -m\\ell \\dot\\theta^2 \\,\\hat{e}_r + m\\ell\\ddot\\theta \\,\\hat{e}_\\theta." />
+
+                Equating the <InlineEquation equation="\\hat{e}_\\theta" /> and <InlineEquation equation="\\hat{e}_r" /> terms
+                gives <InlineEquation equation="\\ddot\\theta" /> and <InlineEquation equation="T" /> by:
+
+                <DisplayEquation equation="\\begin{aligned} \\ddot\\theta &amp;= - \\frac{g}{\\ell} \\sin\\theta \\\\ T &amp;= mg\\cos\\theta + m\\ell\\dot\\theta^2. \\end{aligned}" />
+              </p>
+        </div>
+    </Example>
+
+    <BlueText>More information about Free body diagrams included in "Free boy diagrams"</BlueText>
+</SubSubSection>
+
+<SubSection title="Numerical integration">
+    <RedText>Add information shown in Fig  \ref fig:NumericalIntegration</RedText>
+    <Image src="/Dynamics/ParticleKinetics/NumericalIntegration.png" width="5"></Image>
+</SubSection>
+
+<SubSection title="Applications"></SubSection>
+<SubSubSection title="Kiiking">
+    <RedText>This topic is in L13-Notes, slides 9-10. Include information in Fig  \ref   and this YouTube link  <a href="https://www.youtube.com/shorts/qvW0sz4kBLQ">https://www.youtube.com/shorts/qvW0sz4kBLQ</a></RedText>. Application for "Particle kinetics".
+
+    <Image src="/Dynamics/ParticleKinetics/AppKiiking.png" width="5"></Image>
+</SubSubSection>
+
+<SubSubSection title="Accelerating and braking">
+    <p>
+        What happens when we step on the gas or brake in a car? The
+        car pushes against the road to either accelerate (gas pedal)
+        or decelerate (brake pedal). But how are the forces on the
+        car and wheels distributed? What determines whether the
+        wheels grip the road or lose traction and spin or slide?
+    </p>
+
+    <p>
+        To study this problem we <a href="rom">need a
+        model</a>. Let's start with the simplest model and then
+        gradually consider more complex models.
+    </p>
+    <Image src="/dyn/particle_kinetics/red_car.jpg" width="8">The classic American <a
+        href="http://en.wikipedia.org/wiki/Pony_car">Pony Car</a>:
+        a 1965 <a
+        href="http://en.wikipedia.org/wiki/Ford_Mustang">Ford
+        Mustang</a> <a
+        href="http://en.wikipedia.org/wiki/Fastback">Fastback</a>
+        with the <a
+        href="http://en.wikipedia.org/wiki/Golden_Gate_Bridge">Golden
+        Gate Bridge</a> in the background. Image source: <a
+        href="http://www.flickr.com/photos/aresauburnphotos/4704100327/">flikr
+        image </a> by <a
+        href="http://www.flickr.com/photos/aresauburnphotos/">Nick
+        Ares</a> <a
+        href="http://creativecommons.org/licenses/by-sa/2.0/">(CC
+        BY-SA 2.0)</a> (<a href="/public/dyn/particle_kinetics/red_car_full.jpg">full-sized
+        image</a>).</Image>
+
+    <p>
+        The simplest model of a car is to treat the entire vehicle
+        as a point mass. On a <button
+        class="seq-toggle:ava-fp-c:fbd">free body diagram</button>
+        we have vertical force balance for a stationary car. When
+        the car <button
+        class="seq-step:ava-fp-c:motion:stationary">accelerates</button>,
+        there is a horizontal forward force on the car, and a
+        corresponding backwards horizontal force on the ground. As
+        the car picks up speed, <a
+        href="https://en.wikipedia.org/wiki/Drag_%28physics%29">air
+        resistance</a> produces a backwards force. On the diagram we
+        have drawn some forces offset from the center of mass, so
+        that the vectors don't overlap. Because we are assuming a
+        point mass model, however, all vectors are really acting at
+        the same point.
+      </p>
+      <p>
+        While cruising at a constant speed, there is a balance
+        between the horizontal driving force and the drag force due
+        to air resistance. When the car <button
+        class="seq-step:ava-fp-c:motion:cruising">brakes</button>,
+        there is a backwards force that slows the car down to a
+        stop.
+      </p>
+
+    <Center>
+        <PrairieDrawCanvas id="ava-fp-c" width="600" height="600" />
+    </Center>
+        
+      <p>
+        <button class="seq-step:ava-fp-c:motion:stationary">accelerate</button>
+        <button class="seq-step:ava-fp-c:motion:cruising">brake</button>
+        <button class="seq-toggle:ava-fp-c:fbd">free body diagram</button>
+        <button class="option-toggle:ava-fp-c:components">components</button>
+        <button class="anim-toggle:ava-fp-c">animation</button>
+      </p>
+      <p>
+        We can think of the force vectors (such as the ground force
+        on the car) as either in separate horizontal and vertical
+        <button
+        class="option-toggle:ava-fp-c:components">components</button>
+        or as unified vectors. It may be helpful to pause the
+        <button class="anim-toggle:ava-fp-c">animation</button>
+        during <button
+        class="seq-step:ava-fp-c:motion:stationary">acceleration</button>
+        and <button
+        class="seq-step:ava-fp-c:motion:cruising">braking</button>
+        to consider the forces at work.
+      </p>
+
+    <CalloutContainer slot="cards">
+        <CalloutCard title="Reference material">
+            <Itemize>
+                <Item><a href="">Kinetics of point masses</a></Item>
+                <Item><a href="">Kinetics of rigid bodies</a></Item>
+            </Itemize>
+        </CalloutCard>
+        <CalloutCard title="Extra links">
+            <Itemize>
+                <Item><a
+                    href="http://www.youtube.com/watch?v=JAAZGDY7Fq0">Video of
+                    a burnout</a> with a deliberate loss of traction.</Item>
+                <Item><a
+                    href="http://www.youtube.com/watch?v=_07GEGeLR5c">Video of
+                    a wheelie</a>, where the front wheels lose contact.</Item>
+                <Item><a href="http://www.youtube.com/watch?v=_07GEGeLR5c">V<a
+                    href="http://www.youtube.com/watch?v=HnVkeZXsXjo">Video of
+                    braking</a> in which the rear wheels lose contact.</Item>
+                <Item><a
+                    href="http://www.youtube.com/watch?v=unwujSVpZwA">Another
+                    burnout video</a>, taken to the point of destruction.</Item>
+            </Itemize>
+        </CalloutCard>
+    </CalloutContainer>
+
+</SubSubSection>
+
+<SubSubSection title="Banked turns">
+    \label sub:PartKin_turns
+    <BlueText>Complete in "Banked turns". Just the introduction and the information under "Track geometry" and "Point mass model".</BlueText> 
+</SubSubSection>
+
+<SubSubSection title="Projectiles with air resistance">
+    <BlueText>Complete in "Projectiles with air resistance".</BlueText>
+
+    <p>
+        Consider a spherical object, such as a baseball, moving
+        through the air.  The motion of an object though a fluid is
+        one of the most complex problems in all of science, and it
+        is still not completely understood to this day.  One of the
+        reasons this problem is so challenging is that, in general,
+        there are many different forces acting on such objects,
+        including:
+      </p>
+    <Itemize>
+        <Item>gravity</Item>
+        <Item>drag</Item>
+        <Item>lift</Item>
+        <Item>thrust</Item>
+        <Item>buoyancy</Item>
+        <Item>bulk fluid motion, such as wind</Item>
+        <Item>inertial forces, such as the centrifugal and Coriolis forces</Item>
+    </Itemize>
+
+    <p>
+        In most introductory physics and dynamics courses, gravity
+        is the only force that is accounted for (this is equivalent
+        to assuming that the motion takes place in a vacuum).  Here
+        we will consider realistic and accurate models of air
+        resistance that are used to model the motion of projectiles
+        like baseballs.
+      </p>
+
+    <Image src="/dyn/particle_kinetics/baseball_field.jpg" width="8">
+        <a href="https://en.wikipedia.org/wiki/Wrigley_Field">Wrigley
+        Field</a> in Chicago, Illinois is the home of
+        the <a href="https://en.wikipedia.org/wiki/Chicago_Cubs">Chicago
+        Cubs</a> baseball team. In baseball, an “out of the
+        park” <a href="https://en.wikipedia.org/wiki/Home_run">home
+        run</a> is scored when the ball is hit beyond the
+        green <a href="https://en.wikipedia.org/wiki/Outfield">outfield</a>
+        (past the
+        yellow <a href="https://en.wikipedia.org/wiki/Baseball_field#Foul_poles">foul
+        pole</a> at the left of the above image).  Image
+        source: <a href="https://www.flickr.com/photos/jbash/1023071278">Flickr
+        image</a>
+        by <a href="http://www.flickr.com/photos/jbash/">Mike
+        Bash</a> (<a href="https://creativecommons.org/licenses/by-nc-nd/2.0/">CC
+        BY NC ND 2.0</a>)
+        (<a href="/public/dyn/particle_kinetics/baseball_field_full.jpg">full-sized
+        image</a>).
+    </Image>
+</SubSubSection> 
+
+<SubSubSubSection title="Drag forces and drag coefficients">
+    <p>
+        The <em>drag force</em> is always directly opposed to the velocity of
+        the object.  In vector notation,
+
+        <DisplayEquation equation="\\vec{F}_{\\rm D} = -F_{\\rm D} \\hat{v}," />
+
+        where <InlineEquation equation="F_{\\rm D}" /> is the magnitude of the drag force, and
+        <InlineEquation equation="\\hat{v}" /> is the unit vector in the direction of the
+        object's velocity.
+      </p>
+
+      <PrairieDrawCanvas id="afp-ff-c" width="600" height="600" />
+
+      <p>
+        The magnitude of the drag force is
+        characterized by the dimensionless <em>drag coefficient</em>
+        <InlineEquation equation="C_{\\rm D}"  />, given by
+
+        <DisplayEquation equation="C_{\\rm D} = \\frac{F_{\\rm D}}{\\frac{1}{2} \\rho A v^2}," />
+
+
+        where <InlineEquation equation="\\rho" /> is the density of the fluid (in this case,
+        air), <InlineEquation equation="A=(1/4)\\pi D^{2}" /> is the cross-sectional area of the object, and <InlineEquation equation="v" />        is the object's speed.
+      </p>
+
+      
+</SubSubSubSection>
+
+<SubSubSubSection title="Drag coefficients as a function of Reynolds number">
+    
+    <p>
+        A dimensionless parameter that is very useful in fluid
+        dynamics is the Reynolds number, which is defined as
+
+        <DisplayEquation equation="{\\rm Re} = \\frac{\\rho v L}{\\mu}," />
+
+        where <InlineEquation equation="L" /> is a characteristic length for the flow (in this
+        case, the diameter <InlineEquation equation="D" /> of the ball), and <InlineEquation equation="\\mu" /> is the
+        dynamic viscosity of the fluid.  The Reynolds number gives a
+        ratio between inertial forces and viscous forces in a fluid
+        flow.  For very small Reynolds numbers, the viscous forces
+        are much stronger than the inertial forces (think of trying
+        to stir a cup of honey).  For very large Reynolds numbers,
+        the viscous forces are negligible, and we refer to the flow
+        as <em>inviscid</em> (think of stirring a cup of coffee).
+      </p>
+      <p>
+        An important result in fluid dynamics is that the drag
+        coefficient is a function only of the Reynolds number of the
+        fluid flow about the object.  That is,
+  
+        <DisplayEquation equation="C_{\\rm D} = C_{\\rm D}({\\rm Re})." />
+
+        This functional relationship has no closed form.  However,
+        the relationship has been established numerically based on
+        experimental data.  See <a href="#afp-fd">Figure #aft-fd</a>
+        for a schematic diagram of the drag coefficient's dependence
+        on the Reynolds number.
+      </p>
+
+      <Image src="/dyn/particle_kinetics/drag_coefficient.png" width="8">
+        <p>
+            Experimental dependence of drag coefficient on Reynolds
+            number for a sphere. Image
+            credit: <a href="http://www.grc.nasa.gov/WWW/k-12/airplane/dragsphere.html">NASA</a>
+            via <a href="https://en.wikipedia.org/wiki/Stokes_number#/media/File:Drag_sphere_nasa.svg">Wikipedia</a>.
+          </p>
+      </Image>
+
+</SubSubSubSection>
+
+<SubSubSubSection title="Quadratic drag model">
+
+    <p>
+        Notice from <a href="#afp-fd">Figure #aft-fd</a> that there
+        is a range of Reynolds numbers (<InlineEquation equation="10^3 < {\\rm Re} < 10^5" />),
+        characteristic of macroscopic projectiles, for which the
+        drag coefficient is approximately constant at about 1/2 (see
+        the part of the curve labeled “4”
+        in <a href="#afp-fd">Figure #aft-fd</a>).  That the drag 
+    coefficient is constant means that,
+        within this region, the magnitude of the drag force is
+        proportional to the square of the object’s speed.
+    Substituting <InlineEquation equation="C_{\\rm D}=1/2$ into the definition of $C_{D}"/> above,
+        we obtain
+
+        <DisplayEquation equation="F_{\\rm D} = \\frac{1}{4} \\rho A v^2 = c v^2,"/>
+      
+    where we have defined the <em>quadratic drag parameter</em> $c$ as
+
+        <DisplayEquation equation="c = \\frac{1}{4} \\rho A = \\frac{\pi}{16} \\rho D^2," />
+
+        which is a constant for a given projectile. This is referred to as <em>quadratic
+        drag</em>, because the drag force magnitude is proportional
+        to the <em>square</em> of the speed.
+    Using this result, we can write the drag force vector as
+      
+        <DisplayEquation equation="\\vec{F}_{\\rm D} = - c v^2 \\hat{v}." />
+        
+      <p>
+      <p>
+        In the presence of gravity and quadratic drag alone, the net
+        force on an object is given by
+
+        <DisplayEquation equation="\\sum \\vec{F} = m \\vec{g} - c v^2 \\hat{v}," />
+        
+
+        where <InlineEquation equation="m" /> is the mass of the object and <InlineEquation equation="\\vec{g}" /> is the
+        local acceleration due to gravity. Below is an interactive
+        graphic showing the trajectory of an object with gravity and
+        quadratic drag.  You can change the various parameters to
+        see their effects on the object’s motion.
+      </p>
+
+    <PrairieDrawCanvas id="afp-ft-c" width="600" height="600" class="figureImage noBorder" />
+
+    <CalloutContainer slot="cards">
+        <CalloutCard>
+            <p>
+                There is no well-measured record for longest
+                baseball <a href="https://en.wikipedia.org/wiki/Home_run">home
+                run</a>. It is claimed
+                that <a href="https://en.wikipedia.org/wiki/Mickey_Mantle">Mickey
+                Mantle</a> hit a ball 643 feet (196 m), although this
+                apparently included rolling on the ground. Other power
+                hits by Mantle are reliably measured to be over 500 feet
+                (152 m).
+              </p>
+        </CalloutCard>
+    </CalloutContainer>
+</SubSubSubSection>
+</Layout>
+
+<script src="/dyn/particle_kinetics/particle_kinetics.js" is:inline></script>
