@@ -6,6 +6,8 @@ import SubSection from "../../components/SubSection.astro"
 import BlueText from "../../components/BlueText.astro" 
 import InlineEquation from "../../components/InlineEquation.astro" 
 import DisplayEquation from "../../components/DisplayEquation.astro" 
+import Enumerate from "../../components/Enumerate.astro"
+import Item from "../../components/Item.astro"
 ---
 <Layout title="Virtual Work">
 <Section title="Virtual Work">
@@ -21,7 +23,7 @@ Virtual work of a couple moment:
 
 <DisplayEquation equation='dU = \\vec{M}\\cdot d\\theta \\vec{k}\\' />
 
-<Image src='/Statics/VWorkFigures/VWorkCoupleMoment.png' width='5 '> Virtual work  <InlineEquation equation='dU' />  completed by a couple moment,  <InlineEquation equation='M' /> .  <BlueText>Need to add a coordinate system to this picture. Taken from lecture 34.</BlueText></Image>
+<Image src='/Statics/VWorkFigures/VWorkCoupleMoment.png' width='5 '> Virtual work  <InlineEquation equation='dU' />  completed by a couple moment,  <InlineEquation equation='M' /> .  <BlueText>Need to add a coordinate system to this picture. Taken from lecture 34. Maybe also add a picture of the virtual work of a force?</BlueText></Image>
 
 We can use virtual work to solve for the forces in a system without needing to solve for all of the support reactions. For example, if a truss is completely pinned on one end, it doesn't move, which means there is no virtual work completed on that pin because there are no virtual displacements!
 
@@ -36,13 +38,25 @@ A virtual displacement is an infinitesimally small displacement (or rotation) th
 
 If a body is in equilibrium, the sum of the virtual work done by all the forces and couple moments acting on the body is zero. 
 
-<Image src='/Statics/VWorkFigures/PVW.png' width='5 '> Principle of virtual work.  <BlueText>Taken from lecture 34.</BlueText></Image>
+<DisplayEquation equation="\\sum{dU} = \\sum{\\vec{F}d\\vec{x}} + \\sum{\\vec{M}d\\vec{\\theta}} = 0 " />
 
 </SubSection>
 
 <SubSection title="Virtual work analysis">
 
-<Image src='/Statics/VWorkFigures/VWAnalysis.png' width='5 '> Analysis procedure for virtual work problems.  <BlueText>Taken from lecture 34.</BlueText></Image>
+<p>Steps for completing an analysis of a system using virtual work: </p>
+
+<!-- %taken from TAM 210 Lecture 34 -->
+<Enumerate>
+    <Item>Draw a free body diagram of the system, including a coordinate system</Item>
+    <Item>Sketch the "deflected" position of the system</Item>
+    <Item>Define the position coordinates (measured from a fixed point), select the parallel line of action component, and remove all the forces that do not complete any work </Item>
+    <Item>Differentiate the position coordinates to obtain virtual displacement</Item>
+    <Item>Write the virtual work equation, expressing the virtual work of every force and moment</Item>
+    <Item>Factor out the common virtual displacement term and solve</Item>
+</Enumerate>
+
+<BlueText>It might be good to put an example problem here eventually</BlueText>
 
 </SubSection>
 </Layout>

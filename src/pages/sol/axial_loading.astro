@@ -14,31 +14,30 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
 
 <SubSection title="Notation and Convention">
 
-<Image src='/Solid_Mechanics/Axial Loading-Figures/Notation.png' width='3'><BlueText>Taken from TAM251 Lecture Notes - L4S4</BlueText></Image>
-<BlueText>
+<Image src='/Solid_Mechanics/Axial Loading-Figures/Notation.png' width='5'>Notation</Image>
+
 <ul>
     <li>   <strong>Displacement of points in space:</strong>  the movement of a point relative to its initial position in space (ex;  <InlineEquation equation='\\delta_B' /> )</li>
      <li><strong>Change in length of a segment:</strong>  the relative displacement of a point with respect to another point (ex;  <InlineEquation equation='\\delta_{B/A} = \\delta_B - \\delta_A = \\delta_1' /> ). This can be written multiple ways:
      <DisplayEquation equation='\\delta_{AD} \\equiv \\delta_{DA} \\equiv \\delta_{A/D} \\equiv \\delta_{D/A}\\' /></li>
 </ul>
-<strong>Sign Conventions <BlueText>BSM: for the forces, it would be wise to note the convention applies specifically to *internal* force in a bar.</BlueText></strong>
+<strong>Sign Conventions for internal forces in a bar.</strong>
 <ul>
      <li><InlineEquation equation='F>0' /> : tension</li>
      <li><InlineEquation equation='F<0' /> : compression</li>
      <li><InlineEquation equation='\\delta>0' /> : elongation</li>
      <li><InlineEquation equation='\\delta<0' /> : contraction</li>
 </ul>
-</BlueText>
 
 </SubSection>
 
 <SubSection title="Saint-Venant's Principle: slender beam case">
 
-Stress analysis very near to the point of application of load <InlineEquation equation='P' />. <strong>Saint-Venant's principle:</strong> the stress and strain produced at points in a body <em>sufficiently removed</em>* from the region of external load application will be the same as the stress and strain produced by any other applied external loading that has the same statically equivalent resultant and is applied to the body within the same region. 
+    <Image src='/Solid_Mechanics/Axial Loading-Figures/Saint-Venants.png' width='5'>Notation</Image>
+
+<p>Stress analysis very near to the point of application of load <InlineEquation equation='P' />. <strong>Saint-Venant's principle:</strong> the stress and strain produced at points in a body <em>sufficiently removed</em>* from the region of external load application will be the same as the stress and strain produced by any other applied external loading that has the same statically equivalent resultant and is applied to the body within the same region.</p> 
 
  *farther than the widest dimension of the cross section
-
-<BlueText>BSM: a figure would go a long way to clarifying this point, Hibbeler textbook probably has something to use for inspiration.</BlueText>
 
 </SubSection>
 
@@ -67,14 +66,12 @@ For non-uniform load, material property and cross-section area:
 
  Assume variations with <InlineEquation equation='x' /> are "mild" (on length scale longer than cross-sectional length scales)
 
-<BlueText>
 <strong>*Expandable Derivation*</strong>
  <DisplayEquation equation='\\sigma = E\\varepsilon\\' /> 
  <DisplayEquation equation='\\frac{F(x)}{A(x)} = E(x)\\varepsilon(x)\\' /> 
  <DisplayEquation equation='\\frac{F(x)}{A(x)} = E(x)\\frac{d\\delta(x)}{dx}\\' /> 
  <DisplayEquation equation='d\\delta = \\frac{F(x)}{E(x)A(x)}dx\\' /> 
-</BlueText>
- <BlueText><strong>**End Derivation**</strong></BlueText>
+<strong>**End Derivation**</strong>
 
 </SubSection>
 
@@ -103,18 +100,18 @@ Superposition: If the displacements are (1) small and (2) linearly related to th
 
 <SubSection title="Statically Determinate Problems">
 
-<Image src='/Solid_Mechanics/Axial Loading-Figures/StaticallyDeterminate.png' width='3'> 
-    <BlueText> Taken from TAM251 Lecture Notes - L4S9</BlueText>
+<Image src='/Solid_Mechanics/Axial Loading-Figures/StaticallyDeterminate.png' width='4'> 
+    Statically determinate
 </Image>
 
- <BlueText>All internal forces can be obtained from equilibrium analysis only</BlueText>
+All internal forces can be obtained from equilibrium analysis only
 
 </SubSection>
 
 <SubSection title="Statically Indeterminate Problems">
 
 <Image src='/Solid_Mechanics/Axial Loading-Figures/StaticallyIndeterminate.png' width='3'>
-    <BlueText>Taken from TAM251 Lecture Notes - L4S10</BlueText>
+    Statically indeterminate
 </Image>
 
  Equilibrium does not determine all internal forces.
@@ -123,22 +120,19 @@ Superposition: If the displacements are (1) small and (2) linearly related to th
 
 <SubSubSection title="Thermal Effects: Temperature Changes">
 
-<BlueText>
 <strong>Notation</strong>
 <ul> 
      <li>  <InlineEquation equation='\\Delta T > 0, \\sigma < 0' /> : Compression</li> 
      <li>   <InlineEquation equation='\\Delta T < 0, \\sigma > 0' /> : Tension</li> 
 </ul> 
-</BlueText>
 
-
- <BlueText>
+<p>
     <InlineEquation equation='\\delta_T' /> ,  <InlineEquation equation='\\varepsilon_T' />  present in addition to elastic  <InlineEquation equation='\\delta_E' /> ,  <InlineEquation equation='\\varepsilon_E' />  (from internal forces). Superposition (small strains):
  <DisplayEquation equation='\\varepsilon_{tot} = \\varepsilon_{E} + \\varepsilon_{T}\\' /> 
   <DisplayEquation equation='\\delta_{tot} = \\delta_{E} + \\delta_{T}\\' /> 
-</BlueText>
+</p>
 
-<Image src='/Solid_Mechanics/Axial Loading-Figures/Temperature_NoLoad.png' width='3'><BlueText>Taken from TAM251 Lecture Notes - L4S17</BlueText></Image>
+<Image src='/Solid_Mechanics/Axial Loading-Figures/Temperature_NoLoad.png' width='4'>Temperature changes with no applied loads</Image>
 
  A rod rests freely on a smooth horizontal surface. Temperature of the rod is raised by <InlineEquation equation='\\Delta T' />. Rod elongates by an amount.
 
@@ -148,8 +142,8 @@ Superposition: If the displacements are (1) small and (2) linearly related to th
 
 <DisplayEquation equation='\\varepsilon_{T} = \\frac{\\delta_T}{L} = \\alpha T\\' />
 
-<Image src='/Solid_Mechanics/Axial Loading-Figures/Temperature_TwoPlates.png' width='2'>  
-    <BlueText>Taken from TAM251 Lecture Notes - L4S17</BlueText>
+<Image src='/Solid_Mechanics/Axial Loading-Figures/Temperature_TwoPlates.png' width='1.5'>  
+    Temperature changes with statically indeterminate beam
 </Image>
 
  Initially, rod of length <InlineEquation equation='L' /> is placed between two supports at a distance <InlineEquation equation='L' /> from each other. With no internal forces, there is no stress or strain.

@@ -10,6 +10,8 @@ import Itemize from "../../components/Itemize.astro"
 import Item from "../../components/Item.astro" 
 import InlineEquation from "../../components/InlineEquation.astro" 
 import DisplayEquation from "../../components/DisplayEquation.astro" 
+import Row from "../../components/Row.astro"
+import Col from "../../components/Col.astro"
 ---
 <Layout title="Torsion">
 <Section title="Torsion">
@@ -144,10 +146,10 @@ From observation:
 <Image src="/Solid_Mechanics/Torsion-Figures/ductile.png" width="4"> From reference pages</Image>
 
 <!-- \begin{multicols}{2} -->
-<div class="row">
-	<div class="col-6">Axial: maximum shear stress at </div>
-	<div class="col-6">Torsion: maximum shear stress at </div>
-</div>
+<Row>
+    <Col values="12 md-6"><li>Axial – maximum shear stress at \(45^o\) angle</li></Col>
+    <Col values="12 md-6"><li>Torsion – maximum shear stress at \(0^o\) angle</li></Col>
+</Row>
 
 
  
@@ -156,10 +158,10 @@ From observation:
 <Image src="/Solid_Mechanics/Torsion-Figures/brittle.png" width="4"> From reference pages</Image>
 
 <!-- \begin{multicols}{2} -->
-<div class="row">
-	<div class="col-6">Axial: maximum normal stress at </div>
-	<div class="col-6">Torsion: maximum normal stress at </div>
-</div>
+<Row>
+    <Col values="12 md-6"><li>Axial – maximum normal stress at \(0^o\) angle</li></Col>
+    <Col values="12 md-6"><li>Torsion – maximum normal stress at \(45^o\) angle</li></Col>
+</Row>
 
 </SubSubSection>
 
@@ -180,7 +182,9 @@ In general, the maximum shear stress is given by <DisplayEquation equation="\\ph
 
 <BlueText>BSM: I think it's a nice idea to add some basic info/equations. The biggest is the constraint of the statics version of the ``no slip'' condition between gears (mated gears twist through the same arc length).</BlueText>
 
-<Image src="/Solid_Mechanics/Torsion-Figures/GearSystem.png" width="3">  <BlueText>Taken from TAM251 Lecture Notes - L5S15</BlueText></Image>
+<Image src="/Solid_Mechanics/Torsion-Figures/GearSystemv1.png" width="3">  <BlueText>Taken from TAM251 Lecture Notes - L5S15</BlueText></Image>
+
+<Image src="/Solid_Mechanics/Torsion-Figures/GearSystemv2.png" width="3">  <BlueText>Current redrawing</BlueText></Image>
 </SubSubSection>
 
 </Layout>

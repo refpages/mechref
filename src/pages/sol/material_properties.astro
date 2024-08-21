@@ -10,6 +10,9 @@ import InlineEquation from "../../components/InlineEquation.astro"
 import DisplayEquation from "../../components/DisplayEquation.astro" 
 import BlueText from "../../components/BlueText.astro" 
 import RedText from "../../components/RedText.astro" 
+import Row from "../../components/Row.astro"
+import Col from "../../components/Col.astro"
+import Center from "../../components/Center.astro"
 ---
 <Layout title="Material Properties">
 <Section title="Material Properties (Images need updating)"></Section>
@@ -48,7 +51,7 @@ Loading in this region results <strong>elastic behavior</strong>, meaning the ma
 
 <strong>Shear Modulus</strong>
 
-<Image src='/Solid_Mechanics/Material Properties-Figures/Shear Diagram.png' width='4'>  <BlueText>Taken from TAM251 Lecture Notes - L3S14</BlueText></Image>
+<Image src='/Solid_Mechanics/Material Properties-Figures/Shear Diagram.png' width='4'>Shear stress strain diagram</Image>
 
 
  Hooke's law: <DisplayEquation equation="\\tau_{xy} = G\\gamma_{xy}\\" />
@@ -66,46 +69,60 @@ Stresses above the plastic limit (<InlineEquation equation="\\sigma_Y < \\sigma"
  <strong>Yield Strength</strong>
 
 
-
+<p>
  Perfect plastic or ideal plastic: well-defined <InlineEquation equation="\\sigma_Y" />, stress plateau up to failure. Some materials (e.g. mild steel) have two yield points (stress plateau at <InlineEquation equation="\\sigma_{YL}" />). Most ductile metals do not have a stress plateau; yield strength <InlineEquation equation="\\sigma_{YS}" /> is then defined by the <strong>0.002 (0.2\%) offset method</strong>.
-
+</p>
 
  <strong>Strain Hardening</strong>
 
-<Image src='/Solid_Mechanics/Material Properties-Figures/Strain Hardening.png' width='4'>  <BlueText>Taken from TAM251 Lecture Notes - L3S8</BlueText></Image>
+<Image src='/Solid_Mechanics/Material Properties-Figures/Strain Hardening.png' width='5.5'>Strain hardening</Image>
 
+<p>
  <em>Atoms rearrange</em> in plastic region of ductile materials when a higher stress is sustained. Plastic strain remains after unloading as <em>permanent set</em>, resulting in permanent deformation. Reloading is linear elastic up to the new, higher yield stress (at <strong>A'</strong>) and a reduced ductility.
-
+</p>
 
  <strong>Ultimate Strength</strong>
 
 
-
+<p>
  The ultimate strength (<InlineEquation equation="\\sigma_u" />) is the maximum stress the material can withstand.
-
+</p>
 
  <strong>Necking</strong>
 
-<Image src='/Solid_Mechanics/Material Properties-Figures/Necking.png' width='3'>  <BlueText>Taken from TAM251 Lecture Notes - L3S5</BlueText></Image>
-
+<Image src='/Solid_Mechanics/Material Properties-Figures/Necking.png' width='3'>Necking</Image>
+<p>
  After ultimate stress (<InlineEquation equation="\\sigma_u < \\sigma" />), the middle of the material elongates before failure.
-
+</p>
 
  <strong>Failure</strong>
 
 
-
+<p>
  Also called fracture or rupture stress (<InlineEquation equation="\\sigma_f" />) is the stress at the point of failure for the material. Brittle and Ductile materials fail differently.
+</p>
 
-<Image src='/Solid_Mechanics/Material Properties-Figures/Ductile vs Brittle.png' width='3'>  <BlueText>Taken from TAM251 Lecture Notes - L9S19</BlueText></Image>
+<p><strong>Ductile</strong> materials generally fail in shear. There is a large region of plastic deformation before failure (fracture) at higher strain and necking.</p>
 
-<Itemize>
-    <Item><strong>Brittle materials:</strong> small plastic region between yield and failure (fracture), no necking, primary fail by normal stress.</Item>
-    <Item><strong>Ductile materials:</strong> large region of plastic deformation before failure (fracture) at higher strain, necking; often fails under 45° cone angles by shear stress.</Item>
-</Itemize>
+<Image src='/Solid_Mechanics/Material Properties-Figures/ductile.png' width='4.5'>Ductile failure</Image>
 
+<Row>
+    <Col values="12 md-6"><li>Axial – maximum shear stress at \(45^o\) angle</li></Col>
+    <Col values="12 md-6"><li>Torsion – maximum shear stress at \(0^o\) angle</li></Col>
+</Row>
+
+<p class="mt-2"><strong>Brittle</strong> materials are weaker in tension than shear. There is a small plastic region between yield and failure (fracture) and no necking.</p>
+
+<Image src='/Solid_Mechanics/Material Properties-Figures/brittle.png' width='4.5'>Brittle failure</Image>
+
+<Row>
+    <Col values="12 md-6"><li>Axial – maximum normal stress at \(0^o\) angle</li></Col>
+    <Col values="12 md-6"><li>Torsion – maximum normal stress at \(45^o\) angle</li></Col>
+</Row>
+
+<p class="mt-2">
  Note the difference between engineering and true stress/strain diagrams: ultimate stress is a consequence of necking, and the true maximum is the true fracture stress.
-
+</p>
 
  <strong>Example:</strong> Concrete is a brittle material.
 
@@ -131,7 +148,7 @@ Stresses above the plastic limit (<InlineEquation equation="\\sigma_Y < \\sigma"
 
 <SubSubSection title="Poisson's Ratio">
 
-<Image src="/Solid_Mechanics/Material Properties-Figures/Poisson's Ratio.png" width='4'>  <BlueText>Taken from TAM251 Lecture Notes - L3S15</BlueText></Image>
+<Image src="/Solid_Mechanics/Material Properties-Figures/Poisson's Ratio.png" width='4'>Poisson's ratio</Image>
 
  Axial (normal) strain: <DisplayEquation equation="\\varepsilon_{x} = \\frac{\\delta}{L}\\" />
 
@@ -169,7 +186,7 @@ Stresses above the plastic limit (<InlineEquation equation="\\sigma_Y < \\sigma"
 
 <SubSubSection title="Fatigue - Repeated Loading /!\\ BSM: we do not cover this topic in class/hw/exams. Fatigue is covered in ME 330 briefly, and ME 371 more in depth.">
 
-<Image src='/Solid_Mechanics/Material Properties-Figures/SN Curve.png' width='4'>  <BlueText>Taken from TAM251 Lecture Notes - L3S6</BlueText></Image>
+<Image src='/Solid_Mechanics/Material Properties-Figures/SN Curve.png' width='4'>SN curve examples</Image>
 
  If stress does not exceed the elastic limit, the specimen returns to its original configuration. However, this is not the case if the loading is repeated thousands or millions of times. In such cases, rupture will happen at stress lower than the fracture stress - this phenomenon is known as fatigue.
 
