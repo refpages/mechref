@@ -1,0 +1,157 @@
+---
+import Layout from "../../layouts/Layout.astro" 
+import Image from "../../components/Image.astro" 
+import Section from "../../components/Section.astro" 
+import SubSection from "../../components/SubSection.astro" 
+import SubSubSection from "../../components/SubSubSection.astro" 
+import Itemize from "../../components/Itemize.astro" 
+import Item from "../../components/Item.astro" 
+import InlineEquation from "../../components/InlineEquation.astro" 
+import DisplayEquation from "../../components/DisplayEquation.astro" 
+---
+
+<Layout title="Strain">
+<Section title="Strain">
+
+When forces are applied to a body, <strong>deformation</strong>, the change in length or shape, occurs. The change in length, divided by the original length, is the <strong>strain</strong>. We use strain to <strong>normalize deformations</strong> with respect to the size of the geometry.
+
+</Section>
+
+<SubSection title="Units">
+
+Dimensionless [mm/mm, in/in, or %]
+
+</SubSection>
+
+<SubSection title="Normal Strain">
+
+<Image src="/Solid_Mechanics/Strain-Figures/Normal Strain.png" width="3.5"> Normal strain</Image>
+
+Relative change in <strong>length</strong> of a line element oriented in arbitrary direction <InlineEquation equation="n" />.
+
+<DisplayEquation equation=" \\varepsilon_n = lim_{B  \\xrightarrow{} A \\rm\\ along \\rm\\ n} \\frac{\\Delta s - \\Delta s'}{\\Delta s} \\" />
+
+<!--  <DisplayEquation equation=" \\varepsilon_n = lim_{B-&gt;A \\rm\\ along \\rm\\ n} \\frac{\\Delta s = \\Delta s&#39;}{\\Delta s} \\" /> -->
+
+</SubSection>
+
+<SubSubSection title="Average Normal (extensional) Strain">
+
+<Image src="/Solid_Mechanics/Strain-Figures/Avg Normal Strain.png" width="2"> Average normal strain</Image>
+
+ Length change divided by total length.
+
+<DisplayEquation equation=" \\epsilon_n = \\frac{\\delta}{L}\\" />
+
+<Itemize>
+    <Item> <strong>Engineering</strong> or nominal (normal) strain: Average normal strain using the original (undeformed) total length.
+    <DisplayEquation equation=" \\varepsilon_{eng} = \\frac{\\delta}{L_0}\\" id="sta-eng" background="True" title="Engineering strain"/> </Item>
+    <Item> <strong>True</strong> (normal) strain: Integrate infinitesimal normal strains.
+    <Image src="/Solid_Mechanics/Strain-Figures/Shear Strain.png" width="3.5"> Shear strain</Image>
+
+    <DisplayEquation equation=" \\varepsilon_{true} = ln(1 + \\frac{\\delta}{L_0})\\" id="sta-ts"  derivation="True" background="True" title="True strain">
+        <DisplayEquation equation="\\begin{align} \\varepsilon_{true} &= \\Sigma\\Delta\\varepsilon_0 = \\int d\\varepsilon \\\\ \\varepsilon_{true} &= \\int_{L_0}^{L_f}\\frac{1}{L}dL \\\\ \\varepsilon_{true} &= ln(L)|_{L_0}^{L_f} = ln(\\frac{L_f}{L_0}) \\\\ \\varepsilon_{true} &= ln(\\frac{L_0+\\delta}{L_0}) = ln(1+\\frac{\\delta}{L_0}) \\\\ \\varepsilon_{true} &= \\varepsilon_{eng}-\\frac{1}{2}\\varepsilon_{eng}^2 + \\frac{1}{3}\\varepsilon_{eng}^{3} + ...\\end{align}" />
+    </DisplayEquation>
+    </Item>
+    <Item> For small strain: 
+        <DisplayEquation equation="\\varepsilon_{true} \\approx \\varepsilon_{eng}" id="sta-ssa" background="True" title="Small strain approximation"/>
+    </Item>
+</Itemize>
+
+</SubSubSection>
+
+<SubSection title="Shear Strain">
+Change in <strong>angle</strong> between line segments oriented in perpendicular directions <InlineEquation equation="n" /> and <InlineEquation equation="t" />:
+
+<Image src="/Solid_Mechanics/Strain-Figures/Avg Shear Strain.png" width="5"> Average shear strain</Image>
+
+<DisplayEquation equation=" \\gamma_{nt} = lim_{\\begin{matrix} B \\xrightarrow{} A \\rm\\ along \\rm\\ n\\\\ C \\xrightarrow{} A \\rm\\ along \\rm\\ t \\end{matrix}} (\\frac{\\pi}{2} - \\theta') \\" />
+
+<!--  <DisplayEquation equation=" \\gamma_{nt} = lim_{\\begin{matrix} B-&gt;A \\rm\\ along \\rm\\ n\\\\ C-&gt;A \\rm\\&nbsp;along \\rm\\ t \\end{matrix}} (\\frac{\\pi}{2} - \\theta &#39;) \\" /> -->
+
+ When strains are small, the small angle approximation, <InlineEquation equation="\\sin(\\theta)\\approx \\theta" />, results in
+
+<DisplayEquation equation="\\gamma = \\frac{\\pi}{2} - \\theta \\approx \\frac{\\delta}{L}\\" />
+
+</SubSection>
+
+<SubSubSection title="Average Shear Strain">
+
+<Image src="/Solid_Mechanics/Strain-Figures/extensometer.jpg" width="2"> A tensile test in the Materials Testing Instructional Laboratory, Talbot Lab, UIUC</Image>
+
+<DisplayEquation equation="tan(\\gamma) = \\frac{\\delta}{L} \\xrightarrow{} \\gamma = \\frac{\\delta}{L}\\" />
+<DisplayEquation equation="\\gamma = \\alpha + \\beta\\" />
+<DisplayEquation equation="\\gamma = \\frac{\\delta_x}{L_y} + \\frac{\\delta_y}{L_x}\\" />
+
+
+<Itemize>
+    <Item> <strong>Engineering</strong> (shear) strain: Compute angle from length changes and original (undeformed) total length.</Item>
+    <Item> <strong>True</strong> (shear) strain: Integrate infinitesimal angle changes.</Item>
+</Itemize>
+</SubSubSection>
+
+<SubSection title="Strain Tensor">
+The components of normal and shear strain can be combined into the strain tensor. This is a symmetric matrix.
+
+<DisplayEquation equation=" E = \\begin{bmatrix} \\varepsilon_{x} & \\gamma_{xy} & \\gamma_{xz} \\\\ \\gamma_{yx} & \\varepsilon_{y} &\\gamma_{yz} \\\\ \\gamma_{zx} & \\gamma_{zy} &\\varepsilon_{z} \\end{bmatrix} \\" />
+
+<!-- <DisplayEquation equation=" E&nbsp;= \\begin{bmatrix} \\varepsilon_{x} &amp; \\gamma_{xy} &amp; \\gamma_{xz} \\\\ \\gamma_{yx} &amp; \\varepsilon_{y} &amp; \\gamma_{yz} \\\\ \\gamma_{zx} &amp;\\gamma_{zy} &amp; \\varepsilon_{z} \\end{bmatrix} \\" /> -->
+
+
+<Itemize>
+    <Item>  Three normal strain components: <InlineEquation equation="\\varepsilon_x, \\varepsilon_y, \\varepsilon_z" /></Item>
+    <Item> Six shear strain components: <InlineEquation equation="\\gamma_{xy} =\\gamma_{yx}, \\gamma_{xz}=\\gamma_{zx}, \\gamma_{yz}=\\gamma_{zy}" /></Item>
+</Itemize>
+
+
+ The first subscript describes the surface <strong>orientation</strong> in the normal direction. The second subscript describes the <strong>direction</strong> of the stress.
+
+</SubSection>
+
+<SubSection title="Measurement of Strain"></SubSection>
+
+<SubSubSection title="Direct Measurement">
+
+Initial and final lengths of some section of the specimen are measured, perhaps by some handheld device such as a ruler. Axial strain computed directly by following formula:
+
+<DisplayEquation equation="\\varepsilon = \\frac{\\delta}{L} = \\frac{L_{final} - L_{initial}}{L_{initial}} \\" id="sta-axs" background="True" title="Axial strain formula"/>
+
+ Accurate measurements of strain in this way may require a fairly large initial length.
+
+</SubSubSection>
+ 
+<SubSubSection title="Contact Extensometer">
+
+A clip-on device that can measure very small deformations. Two clips attach to a specimen before testing. The clips are attached to a transducer body. The transducer outputs a voltage. Changes in voltage output are converted to strain.
+
+
+
+<Image src="/Solid_Mechanics/Strain-Figures/strainGauge.png" width="4"> Rosette strain gauge arrangement and example</Image>
+
+</SubSubSection>
+
+<SubSubSection title="Electrical Resistance Strain Gauges">
+
+Small electrical resistors whose resistance charges with strain. Change in resistance can be converted to strain measurement. Often sold as "rosettes", which can measure normal strain in two or more directions. Can be bonded to test specimen.
+
+<Image src="/Solid_Mechanics/Strain-Figures/VibratingWire.png" width="3"> Vibrating wire strain gauge attached to the side of a bridge</Image>
+
+</SubSubSection>
+
+<SubSubSection title="Vibrating Wire Strain Gauge">
+A calibrated wire is set into vibration and its frequency is measured. Small changes in the length of the wire as a result of strain produce a measurable change in frequency, allowing for accurate strain measurements over relatively long gauge lengths.
+
+<Image src="/Solid_Mechanics/Strain-Figures/dic.png" width="3"> Experiment set up. The diffuse light source consists of two fluorescent tube lights that produce white light, behind a translucent plastic sheet.</Image>
+
+</SubSubSection>
+
+<SubSubSection title="Digital Image Correlation (DIC)">
+
+Image placed on surface of test specimen. Image may consist of speckles or some regular pattern. Deformation of image tracked by digital camera. Image analysis used to determine multiple strain component.
+
+<Image src="/Solid_Mechanics/Strain-Figures/dic2.png" width="4">  <InlineEquation equation="\\varepsilon_{yy}" />  strain calculated through DIC of straight-curved specimen with an applied load of 114 N from TAM 456, UIUC.</Image>
+
+<Image src="/Solid_Mechanics/Strain-Figures/True Strain.png" width="4"> True strain</Image>
+</SubSubSection>
+
+</Layout>

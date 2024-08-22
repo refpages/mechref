@@ -4,12 +4,17 @@ import Image from "../../components/Image.astro"
 import Section from "../../components/Section.astro" 
 import SubSection from "../../components/SubSection.astro" 
 import BlueText from "../../components/BlueText.astro" 
+import Enumerate from "../../components/Enumerate.astro"
+import Item from "../../components/Item.astro"
+import RedText from "../../components/RedText.astro"
+import DisplayEquation from "../../components/DisplayEquation.astro"
+import InlineEquation from "../../components/InlineEquation.astro"
 ---
 <Layout title="Trusses">
 <Section title="Trusses">
 
-Trusses are support members that are joined together at the ends. The function of a truss is to transmit loads to a support joint. In this section, we will analyze a simplified version of planar trusses called simple trusses, which consist of two-force members connected by frictionless joints/pins.
-
+<p>Trusses are support members that are joined together at the ends. The function of a truss is to transmit loads to a support joint. In this section, we will analyze a simplified version of planar trusses called simple trusses, which consist of two-force members connected by frictionless joints/pins.
+</p>
 </Section>
 
 <!-- starting in lecture 16 -->
@@ -19,26 +24,28 @@ Trusses are support members that are joined together at the ends. The function o
 <SubSection title="Truss Assumptions">
 
 The main assumptions for trusses and truss structures are:
-<ol>
-	<li>All loading is applied at the joints.</li>
-	<li>The weight of the truss is negligible.</li>
-</ol>
-
+<Enumerate>
+	<Item>All loading is applied at the joints.</Item>
+	<Item>The weight of the truss is negligible.</Item>
+</Enumerate>
+<p>
 Because of these assumptions, all trusses are <em>two force members</em>, with the forces on the truss acting along the axis of the member. 
+</p>
 </SubSection>
 
 <!-- good summary in lecture 17, slide 5 -->
 
 <SubSection title="Two Force Member">
+<p>
+A two force member is a rigid body that has two forces (no moments) acting on it in two locations, say \(A\) and \(B\). <RedText> Nikhil's Comment: Equilibrium of the two-force member implies</RedText></p>
+	
+<DisplayEquation equation="\\vec{F_A} + \\vec{F_B} = \\vec 0," />
 
-A two force member is a rigid body that has two forces (no moments) acting on it in two locations. 
-
-Assumptions of two force members (for equilibrium to hold): 
-<ol>
-	<li>|F_A| = |F_B|</li>
-	<li>F_A</li>
-	<li>F_A</li>
-</ol>
+<RedText>resulting in</RedText>
+<Enumerate>
+	<Item>\(|F_A| = |F_B|\)</Item>
+	<Item><InlineEquation equation="\\vec{F_A}" /> and <InlineEquation equation="\\vec{F_B}" /> act along the same line of action.</Item>
+</Enumerate>
 
 <Image src='/Statics/TrussFigures/2ForceMembers.jpg' width='5'> Examples of different two force members.</Image>
 
@@ -48,12 +55,12 @@ Assumptions of two force members (for equilibrium to hold):
 <SubSection title="Zero Force Member">
 
 Zero force members are members in a truss structure that experience no force. They act as support trusses to add stability, but are not load bearing. There are 2 cases where zero force members occur: 
-<ol>
-	<li> Two noncolinear members share a pin with no support or external forces (Zero force member example, left)
-    </li>
-	<li> Two colinear forces with a third noncolinear force on a pin (zero force member example, right)
-</li>
-</ol>
+<Enumerate>
+	<Item> Two noncolinear members share a pin with no support or external forces (Zero force member example, left)
+    </Item>
+	<Item> Two colinear forces with a third noncolinear force on a pin (zero force member example, right)
+</Item>
+</Enumerate>
 
 <Image src='/Statics/TrussFigures/0ForceMembers.jpg' width='5'> Examples of different zero force members, highlighted in red.</Image>
 
@@ -65,13 +72,22 @@ Zero force members are members in a truss structure that experience no force. Th
 
 <SubSection title="Truss Analysis: Joints">
 
-<Image src='/Statics/TrussFigures/MethodofJoints.png' width='5'><BlueText>Taken from TAM 210 Lecture 17 notes</BlueText></Image>
+Method of joints for truss analysis: 
+<Enumerate>
+	<Item>Draw a free-body diagram for the entire truss and solve for the external reaction forces and moments at the supports</Item>
+	<Item>Draw a free-body diagram of a joint with at least 1 known force and at most two unknown forces</Item>
+	<Item>Use the equations of equilibrium for the joint to solve for the unknown forces</Item>
+	<Item>Repeat steps 2 and 3 to find the forces in the trusses you are interested in. </Item>
+</Enumerate>
+
+<p><em>Note:</em> Remember that truss members that are in compression "push back" on the pin joints, and truss members that are in tension "pull" on the pin joints. 
+</p>
 
 </SubSection>
 
 <SubSection title="Truss Analysis: Sections">
 
-<Image src='/Statics/TrussFigures/MethodofSections.png' width='5'><BlueText>Taken from TAM 210 Lecture 19 notes</BlueText></Image>
+<Image src='/Statics/TrussFigures/MethodofSections.jpg' width='5'><BlueText>Adapted from TAM 210 Lecture 19 notes</BlueText></Image>
 
 <!-- lecture 19  -->
 

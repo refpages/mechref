@@ -1,0 +1,80 @@
+---
+import Layout from "../../layouts/Layout.astro" 
+import Image from "../../components/Image.astro" 
+import Section from "../../components/Section.astro" 
+import SubSection from "../../components/SubSection.astro" 
+import SubSubSection from "../../components/SubSubSection.astro" 
+import Itemize from "../../components/Itemize.astro" 
+import Item from "../../components/Item.astro" 
+import InlineEquation from "../../components/InlineEquation.astro" 
+import DisplayEquation from "../../components/DisplayEquation.astro" 
+import BlueText from "../../components/BlueText.astro" 
+---
+<Layout title="Pressure Vessels">
+<Section title="Pressure Vessels"></Section>
+
+<SubSection title="Thin-Walled Pressure Vessels">
+<Itemize>
+	<Item>Inner radius: </Item>
+	<Item>Wall thickness: </Item>
+	<Item>Thin walls: </Item>
+	<Item>Assume that stress distribution through the thin wall is uniform
+    </Item>
+	<Item>Pressure vessel contains fluid under pressure p (understood to be gauge pressure, i.e., </Item>
+</Itemize>
+</SubSection>
+
+<SubSubSection title="Cylindrical Vessels">
+
+<Image src="/Solid_Mechanics/Pressure Vessels-Figures/cylindrical_vessel_example.jpg" width="3"> Cylindrical pressure vessel behind Transportation Building.</Image>
+
+ Cylindrical pressure vessels are an axisymmetric problem, there is no shear stress on an element parallel to the axis of the cylinder. Therefore, the only normal stresses are in the directions of axis and circumference.
+
+<Image src="/Solid_Mechanics/Pressure Vessels-Figures/CylindricalVessel.png" width="6"><BlueText>Taken from TAM251 Lecture Notes - L8S4</BlueText></Image>
+
+ <strong>Hoop stress:</strong> (circumferential stress): <DisplayEquation equation="\\sigma_1 = \\sigma_h = \\frac{pr}{t}\\" />
+
+ <strong>**Expandable Derivation**</strong>
+<DisplayEquation equation="\\sum F_z: \\sigma_h (2t \\Delta x) - p(2r \\Delta x)=0\\" />
+<DisplayEquation equation="\\therefore \\sigma_h = \\frac{pr}{t}\\" />
+ <strong>**End Derivation**</strong>
+
+ <strong>Axial stress:</strong> (longitudinal stress): <DisplayEquation equation="\\sigma_2 = \\sigma_a = \\frac{pr}{2t}\\" />
+
+ <strong>**Expandable Derivation**</strong>
+
+ The force of the fluid in the longitudinal direction will be the internal pressure, <InlineEquation equation="p" />, times the area of the fluid within the vessel, <InlineEquation equation="\\pi r^2" />. Similarly, the force within the vessel wall in the longitudinal direction will be the stress, <InlineEquation equation="\\sigma_a" />, times the area of the wall. We assume we can unravel the thin wall of the pressure vessel, simplifying the area of the thin wall as the circumference, <InlineEquation equation="2\\pi r" />, multiplied by the thickness, <InlineEquation equation="t" />.
+
+<DisplayEquation equation="\\sum F: \\sigma_a (2\\pi r t) - p(\\pi r^2)=0\\" />
+<DisplayEquation equation="\\therefore \\sigma_a = \\frac{pr}{2t}\\" />
+
+ <em>Note:</em> A more accurate derivation of the longitudinal stress may be calculated with the true area of the pressure vessel <InlineEquation equation="(A_{wall} = \\pi(r+t)^2 - \\pi r^2 = \\pi 2rt + \\pi t^2)" />, leading to an axial stress of: <InlineEquation equation="\\sigma_a = \\frac{pr^2}{2rt + t^2}" />. The approximation used in this course is only sufficient when <InlineEquation equation="\\frac{r}{t} \\ge 10" />. 
+
+
+
+ <strong>**End Derivation**</strong>
+
+
+
+ <strong>Radial Stress:</strong>
+
+<Image src="/Solid_Mechanics/Pressure Vessels-Figures/RadialStress.png" width="4"><BlueText>Taken from TAM251 Lecture Notes - L8S5</BlueText></Image>
+
+<Itemize>
+	<Item>Inner Surface: </Item>
+	<Item>Outer Surface: </Item>
+</Itemize>
+
+
+ Because <InlineEquation equation="t/r << 1" />: <DisplayEquation equation="\\sigma_h,\\sigma_a >> \\sigma_r\\" /> so in general we can <em>neglect  <InlineEquation equation="\\sigma_r" /></em>
+
+</SubSubSection>
+
+<SubSubSection title="Spherical Vessels">
+
+<Image src="/Solid_Mechanics/Pressure Vessels-Figures/SphericalVessel.png" width="4"><BlueText>Taken from TAM251 Lecture Notes - L8S6</BlueText></Image>
+
+ Due to symmetry: <DisplayEquation equation="\\sigma_1 = \\sigma_2 = \\frac{pr}{2t}\\" />
+
+</SubSubSection>
+</Layout>

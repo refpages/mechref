@@ -1,8 +1,4 @@
 ---
-interface Props {
-	title: string;
-}
-
 import Navbar from '../components/Navbar.astro';
 import Sidebar from '../components/Sidebar.svelte';
 
@@ -10,7 +6,7 @@ const { title } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en" class="w-100">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="description" content="Astro description" />
@@ -27,11 +23,17 @@ const { title } = Astro.props;
 
 
 		<script src="/static/js/simplified_view.js" is:inline></script>
+		<script src="/jquery-2.1.4.min.js" is:inline></script>
+		<script src="/PrairieDraw.js" is:inline></script>
+		<script src="/PrairieGeom.js" is:inline></script>
+		<script src="/sha1.js" is:inline></script>
+		<script src="/sylvester.js" is:inline></script>
+
 		
 		<link rel="stylesheet" href="/static/css/main.css">
 		<link rel="stylesheet" href="/static/css/sidebar.css">
 	</head>
-	<body class="pb-5">
+	<body class="pb-5 w-100">
 		<Navbar/>
 		<div class="container-xxl content">
 			<Sidebar/>
@@ -59,12 +61,22 @@ const { title } = Astro.props;
 		
 	}
 
+	mjx-container{
+		max-width: 90vw;
+	}
+
 	body {
 		font-size: 1.1rem;
 	}
 
-	.content-grid{
+	.callout-grid{
 		display: grid;
-		grid-template-columns: 10fr 3fr;
+		grid-template-columns: 1fr;
+	}
+
+	@media (min-width: 992px){
+		.callout-grid{
+			grid-template-columns: 20fr 7fr;
+		}
 	}
 </style>

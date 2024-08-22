@@ -3,6 +3,14 @@
     import Card from "/src/components/Card.svelte";
 
     export let target_course;
+
+    const coursetags = {
+		'Statics': 'sta',
+		'Dynamics': 'dyn',
+		'Solid Mechanics': 'sol'
+	}
+
+    
 </script>
 
 <style>
@@ -11,7 +19,13 @@
         grid-template-columns: repeat(auto-fit, 250px);
         justify-content: center;
     }
+
+    a:hover{
+        font-weight: bold;
+    }
 </style>
+
+
 
 {#each classes as course}
     {#if (course[0] == target_course)}
@@ -31,14 +45,15 @@
             <ol class="card-grid-simple d-none">
                 {#each section[1] as page}
                     <li class="">
-                        {page.name}
+                        <a href={`/${coursetags[course[0]]}/${page.id}`} class="text-decoration-none text-black">{page.name}</a>
+                        
                     </li>
                 {/each}
             </ol>
             
             <div class="card-grid card-grid-fancy w-100">
                 {#each section[1] as page}
-                    <Card name={page.name}/>
+                    <Card name={page.name} course={course[0]} id={page.id}/>
                 {/each}
             </div>
             
@@ -46,4 +61,3 @@
         {/each}
     {/if}
 {/each}
-

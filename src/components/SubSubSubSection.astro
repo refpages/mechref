@@ -1,0 +1,14 @@
+---
+const {title} = Astro.props;
+---
+
+<div class="callout-grid mt-3">
+    <div class="w-100 px-0 pe-lg-2">
+        <h4 class="fw-bold text-center" set:html={title}></h4>
+
+        <slot />
+    </div>
+    <div class="w-100">
+        <slot name="cards"/>
+    </div>
+</div>
