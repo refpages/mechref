@@ -15,23 +15,17 @@ import Col from "../../components/Col.astro"
 import Center from "../../components/Center.astro"
 ---
 <Layout title="Material Properties">
-<Section title="Material Properties (Images need updating)"></Section>
+<Section title="Material Properties"></Section>
 
 <SubSection title="Stress-Strain Diagram">
 
 A <strong>stress-strain diagram</strong> is the relationship of normal stress as a function of normal strain. One way to collect these measurement is a <strong>uniaxial tension test</strong> in which a specimen at a very slow, constant rate (quasi-static). A load <InlineEquation equation="P" /> and distance <InlineEquation equation="L" /> are measured at frequent intervals.
 
+<DisplayEquation equation="\\varepsilon = \\frac{\\delta}{L_0} = \\frac{L-L_0}{L_0}\\" title="Evaluation of average normal strain, or engineering strain (relative to undeformed length):" background="True" />
 
+<DisplayEquation equation="\\sigma = \\frac{P}{A_0}\\" title="Evaluation of average normal stress, or engineering stress (relative to undeformed cross section):" background="True" />
 
- Evaluation of average normal strain, or engineering strain (relative to undeformed length):
-
-<DisplayEquation equation="\\varepsilon = \\frac{\\delta}{L_0} = \\frac{L-L_0}{L_0}\\" />
-
- Evaluation of average normal stress, or engineering stress (relative to undeformed cross section):
-
-<DisplayEquation equation="\\sigma = \\frac{P}{A_0}\\" />
-
- Note that two stress-strain diagrams for a particular material will be similar, but not identical, e.g. because of imperfections, different composition, rate or loading, or temperature.
+Note that two stress-strain diagrams for a particular material will be similar, but not identical, e.g. because of imperfections, different composition, rate or loading, or temperature.
 
 <Image src='/Solid_Mechanics/Material Properties-Figures/Stress Strain Diagram.png' width='3'> Stress-strain diagram showing key properties</Image>
 </SubSection>
@@ -44,7 +38,7 @@ Loading in this region results <strong>elastic behavior</strong>, meaning the ma
 
 
  Hooke's law is used for small deformations in the elastic region. The Young's modulus is the slope <InlineEquation equation="E" />.
-<DisplayEquation equation="\\sigma = E\\varepsilon\\" />
+<DisplayEquation equation="\\sigma = E\\varepsilon\\" title="Hooke's law:" background="True" />
 
 <Image src='/Solid_Mechanics/Material Properties-Figures/Modulus Examples.png' width='2'> Table screenshot from ref pages. Approximate elastic modulus values for different material families.</Image>
 
@@ -54,9 +48,9 @@ Loading in this region results <strong>elastic behavior</strong>, meaning the ma
 <Image src='/Solid_Mechanics/Material Properties-Figures/Shear Diagram.png' width='4'>Shear stress strain diagram</Image>
 
 
- Hooke's law: <DisplayEquation equation="\\tau_{xy} = G\\gamma_{xy}\\" />
+<DisplayEquation equation="\\tau_{xy} = G\\gamma_{xy}\\" title="Hooke's law:" background="True" />
 
- Shear Modulus: <DisplayEquation equation="G = \\frac{E}{2(1+\\nu)}\\" />
+<DisplayEquation equation="G = \\frac{E}{2(1+\\nu)}\\" title="Shear modulus:" background="True"/>
  Only two of the three material constants (ie; <InlineEquation equation="G" />, <InlineEquation equation="E" />, <InlineEquation equation="\\nu" />) are independent in isotropic materials.
 
 </SubSubSection>
@@ -137,6 +131,36 @@ Stresses above the plastic limit (<InlineEquation equation="\\sigma_Y < \\sigma"
 
 <SubSection title="Other Derived Properties"></SubSection>
 
+    <CalloutContainer slot="cards">
+        <CalloutCard title="Heads  up!">
+            <p>
+               <strong> Strain Energy</strong> builds on this content in Engineering Materals.
+              </p>
+              <p>
+                 Deformation does work on the material: equal to internal strain energy (by energy conservation).
+
+		<DisplayEquation equation="\\Delta U = \\int F_{z}dz = \\int \\sigma_{z}(\\Delta x \\Delta y \\Delta z)d\\varepsilon_{z}\\" />
+
+		 Energy Density: <DisplayEquation equation="u = \\frac{\\Delta U}{\\Delta V} = \\int \\sigma_{z}d\\varepsilon_{z}\\" />
+
+ 		Can be generalized to any deformation: areas under stress-strain curves
+
+		<DisplayEquation equation="u = \\int \\sigma d\\varepsilon\ \\quad \\text{or} \\quad u = \\int \\tau d\\gamma\\" />
+              </p>
+        </CalloutCard>
+
+        <CalloutCard title="Heads up!">
+            <p>
+		<strong>Fatigue</strong> builds on this content in Engineering Materals and Mechanical Design.                
+              </p>
+		<p>
+		<Image src='/Solid_Mechanics/Material Properties-Figures/SN Curve.png' width='4'>SN curve examples</Image>
+
+		If stress does not exceed the elastic limit, the specimen returns to its original configuration. However, this is not the case if the loading is repeated thousands or millions of times. In such cases, rupture will happen at stress lower than the fracture stress - this phenomenon is known as fatigue.
+		</p>
+        </CalloutCard>
+    </CalloutContainer>
+
 <SubSubSection title="Directional Materials">
 
 <Itemize>
@@ -150,46 +174,14 @@ Stresses above the plastic limit (<InlineEquation equation="\\sigma_Y < \\sigma"
 
 <Image src="/Solid_Mechanics/Material Properties-Figures/Poisson's Ratio.png" width='4'>Poisson's ratio</Image>
 
- Axial (normal) strain: <DisplayEquation equation="\\varepsilon_{x} = \\frac{\\delta}{L}\\" />
+<DisplayEquation equation="\\varepsilon_{x} = \\frac{\\delta}{L}\\" title="Axial (normal) strain:" background="True" />
 
- Poisson's ratio <InlineEquation equation="\\nu" />: <DisplayEquation equation="\\nu = -\\frac{\\text{lateral strain}}{\\text{axial strain}}" />
+ <DisplayEquation equation="\\nu = -\\frac{\\text{lateral strain}}{\\text{axial strain}}" title=" Poisson's ratio <InlineEquation equation="\\nu" />:" background="True" />
 
- Typical Range: <DisplayEquation equation="0 < \\nu < 0.5\\" /> 
+<DisplayEquation equation="0 < \\nu < 0.5\\" title="Typical Range:" background="True" /> 
 
- Lateral strain: <DisplayEquation equation="\\varepsilon_{z} = \\varepsilon_{y} = -\\nu\\varepsilon_{x}\\" />
+<DisplayEquation equation="\\varepsilon_{z} = \\varepsilon_{y} = -\\nu\\varepsilon_{x}\\" title="Lateral strain:" background="True" />
 
  <strong>Negative Poisson's Ratio (auxetics)</strong>
 
-
-
  Possible because of non-trivial structure of the material.
-
-</SubSubSection>
-
-<SubSubSection title="Strain Energy /!\\ BSM: we do not cover this topic in class/hw/exams. ME 330 is covered in an introductory way in ME 330; not sure where else it might come up in ME curriculum.">
-
-
-
- <strong><RedText>**Reference pages have a broken link image here**</RedText></strong>
-
- Deformation does work on the material: equal to internal strain energy (by energy conservation).
-
-<DisplayEquation equation="\\Delta U = \\int F_{z}dz = \\int \\sigma_{z}(\\Delta x \\Delta y \\Delta z)d\\varepsilon_{z}\\" />
-
- Energy Density: <DisplayEquation equation="u = \\frac{\\Delta U}{\\Delta V} = \\int \\sigma_{z}d\\varepsilon_{z}\\" />
-
- Can be generalized to any deformation: areas under stress-strain curves
-
-<DisplayEquation equation="u = \\int \\sigma d\\varepsilon\ \\quad \\text{or} \\quad u = \\int \\tau d\\gamma\\" />
-
-</SubSubSection>
-
-<SubSubSection title="Fatigue - Repeated Loading /!\\ BSM: we do not cover this topic in class/hw/exams. Fatigue is covered in ME 330 briefly, and ME 371 more in depth.">
-
-<Image src='/Solid_Mechanics/Material Properties-Figures/SN Curve.png' width='4'>SN curve examples</Image>
-
- If stress does not exceed the elastic limit, the specimen returns to its original configuration. However, this is not the case if the loading is repeated thousands or millions of times. In such cases, rupture will happen at stress lower than the fracture stress - this phenomenon is known as fatigue.
-
-</SubSubSection>
-
-</Layout>
