@@ -18,6 +18,7 @@ import Example from "../../components/Example.astro"
 import Row from "../../components/Row.astro"
 import Col from "../../components/Col.astro"
 import SubSubSubSection from "../../components/SubSubSubSection.astro"
+import DisplayTable from "../../components/DisplayTable.astro"
 ---
 <style>
     table{
@@ -51,7 +52,6 @@ import SubSubSubSection from "../../components/SubSubSubSection.astro"
         locate it at any position.
       </p>
 
-    <Center>
         <PrairieDrawCanvas id="rvv-fc-c" width="600" height="500">
             <p class="controls">
                 <button class="anim-toggle:rvv-fc-c" onclick="rvv_fc_c.toggleAnim()">animate</button>
@@ -66,7 +66,6 @@ import SubSubSubSection from "../../components/SubSubSubSection.astro"
                 still the same vector.
             </p>
         </PrairieDrawCanvas>
-    </Center>
 </Section>
 
 <SubSection title="Notation">
@@ -95,28 +94,27 @@ import SubSubSubSection from "../../components/SubSubSubSection.astro"
         coordinates) are the regular \(x,y\) or \(x,y,z\) coordinates in
         2D and 3D, with perpendicular straight-line axes.
       </p>
-      <Center>
-      <table id="rvp-tc" class="mb-3">
-        <tr class="border-below">
-          <th>coordinate</th>
-          <th>name</th>
-          <th>range</th>
-          <th>definition</th>
-        </tr>
-        <tr>
-          <td>\(x\)</td>
-          <td>horizontal</td>
-          <td>\(-\infty \lt x \lt \infty\)</td>
-          <td>horizontal distance from the \(y\)-axis</td>
-        </tr>
-        <tr>
-          <td>\(y\)</td>
-          <td>vertical</td>
-          <td>\(-\infty \lt y \lt \infty\)</td>
-          <td>vertical distance from the \(x\)-axis</td>
-        </tr>
-      </table>
-    </Center>
+    <DisplayTable id="rvp-tc" class_="mb-3">
+          <tr class="border-below">
+            <th>coordinate</th>
+            <th>name</th>
+            <th>range</th>
+            <th>definition</th>
+          </tr>
+          <tr>
+            <td>\(x\)</td>
+            <td>horizontal</td>
+            <td>\(-\infty \lt x \lt \infty\)</td>
+            <td>horizontal distance from the \(y\)-axis</td>
+          </tr>
+          <tr>
+            <td>\(y\)</td>
+            <td>vertical</td>
+            <td>\(-\infty \lt y \lt \infty\)</td>
+            <td>vertical distance from the \(x\)-axis</td>
+          </tr>
+      </DisplayTable>
+    
       <p>
         In 3D the \(x\),\(y\),\(z\) axes are oriented in <em>right-handed
         order</em>, so that fingers curling from \(x\) to \(y\) means
@@ -174,8 +172,8 @@ import SubSubSubSection from "../../components/SubSubSubSection.astro"
         Polar coordinates are an alternative 2D coordinate system
         that are useful for rotating or circular motion.
       </p>
-    <Center>
-        <table id="rvp-tp" class="mb-3">
+      
+        <DisplayTable id="rvp-tp" class_="mb-3">
             <tr class="border-below">
             <th>coordinate</th>
             <th>name</th>
@@ -194,8 +192,7 @@ import SubSubSubSection from "../../components/SubSubSubSection.astro"
             <td>\(-\pi \lt \theta \le \pi\)</td>
             <td>angle from the \(x\)-axis in the \(x\)–\(y\) plane</td>
             </tr>
-        </table>
-    </Center>
+        </DisplayTable>
 
     <p>
         The two common extensions of polar coordinates to 3D are
@@ -948,8 +945,7 @@ import SubSubSubSection from "../../components/SubSubSubSection.astro"
       coordinate. This gives coordinates \((r, \theta, \phi)\)
       consisting of:
     </p>
-    <Center>
-      <table id="rvs-tc" class="mb-3">
+      <DisplayTable id="rvs-tc" class_="mb-3">
         <tr class="border-below">
           <th>coordinate</th>
           <th>name</th>
@@ -974,8 +970,7 @@ import SubSubSubSection from "../../components/SubSubSubSection.astro"
           <td>\(0 \le \phi \le \pi\)</td>
           <td>angle from the positive \(z\) axis</td>
         </tr>
-      </table>
-    </Center>
+      </DisplayTable>
 
     <p>
       The diagram below shows the spherical coordinates of a point
@@ -1216,8 +1211,7 @@ import SubSubSubSection from "../../components/SubSubSubSection.astro"
       If we want to fly from Urbana, USA to Delhi, India, which
       path should we follow? The locations of the two cities are:
     </p>
-    <Center>
-      <table class="mb-3" id="coordinates">
+      <DisplayTable class="mb-3" id="coordinates">
         <tr class="border-below">
           <td></td>
           <td class="fw-bold">Latitude</td>
@@ -1233,8 +1227,7 @@ import SubSubSubSection from "../../components/SubSubSubSection.astro"
           <td>\(\phi = 28^\circ 36' 36'' \rm N\)</td>
           <td>\(\lambda = 77^\circ 13' 48'' \rm E\)</td>
         </tr>
-      </table>
-    </Center>
+      </DisplayTable>
 
     <p>
       Geographic coordinates are typically given

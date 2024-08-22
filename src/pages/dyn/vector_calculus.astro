@@ -15,6 +15,7 @@ import Warning from "../../components/Warning.astro"
 import Example from "../../components/Example.astro"
 import Row from "../../components/Row.astro"
 import Col from "../../components/Col.astro"
+import DisplayTable from "../../components/DisplayTable.astro"
 ---
 <Layout title="Vector Calculus">
 <Section title="Vector Calculus"></Section>
@@ -188,7 +189,7 @@ import Col from "../../components/Col.astro"
 
     <DisplayEquationCustom id="rvv-eo" title="Cross products of basis vectors." background="True" derivation=True>
       <Center>
-        <PrairieDrawCanvas id="rvv-eo-c" width="500" height="200" show_border="False" />
+        <PrairieDrawCanvas id="rvv-eo-c" width="450" height="200" show_border="False" />
       </Center>
       <DisplayEquation equation="\\begin{aligned}\\hat\\imath \\times \\hat\\jmath &amp;= \\hat{k}&amp; \\hat\\jmath \\times \\hat{k} &amp;= \\hat\\imath&amp; \\hat{k} \\times \\hat\\imath &amp;= \\hat\\jmath \\\\\\hat\\jmath \\times \\hat\\imath &amp;= -\\hat{k}&amp; \\hat{k} \\times \\hat\\jmath &amp;= -\\hat\\imath&amp; \\hat\\imath \\times \\hat{k} &amp;= -\\hat\\jmath \\\\\\end{aligned}" />
 
@@ -551,7 +552,7 @@ import Col from "../../components/Col.astro"
         <button class="reset:rvc-fc-c"  onclick="rvc_fc_c.reset()">reset</button>
         <button class="option-toggle:rvc-fc-c:showLabels" onclick="rvc_fc_c.toggleOption('showLabels')">labels</button>
       </p>
-      <table>
+      <DisplayTable>
         <tr>
           <td>Time:</td>
           <td>
@@ -576,7 +577,7 @@ import Col from "../../components/Col.astro"
             <InlineEquation equation="\\hat{u},\\hat{v}" />
           </td>
         </tr>
-      </table>
+      </DisplayTable>
       <p class="figureCaption mt-2">
         The vector derivative decomposed into components. This
         demonstrates graphically that each component of a vector
