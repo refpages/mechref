@@ -70,7 +70,6 @@ import SubSubSubSection from "../../components/SubSubSubSection.astro"
 </Section>
 
 <SubSection title="Notation">
-    <BlueText>Complete reference page "vector and bases"</BlueText>
 
     <p>
         Some textbooks differentiate between <em>free
@@ -88,7 +87,6 @@ import SubSubSubSection from "../../components/SubSubSubSection.astro"
 </SubSection>
 
 <SubSection title="Cartesian coordinate system">
-    <BlueText>Complete in reference page "position and coordinates"</BlueText>
 
     <p>
         Cartesian coordinates (also known as rectangular
@@ -168,7 +166,6 @@ import SubSubSubSection from "../../components/SubSubSubSection.astro"
 </SubSection>
 
 <SubSection title="Polar coordinate system">
-    <BlueText>Complete in reference page "position and coordinates"</BlueText>
 
     <p>
         Polar coordinates are an alternative 2D coordinate system
@@ -276,7 +273,6 @@ import SubSubSubSection from "../../components/SubSubSubSection.astro"
 </SubSection>
 
 <SubSection title="Units">
-    <BlueText>Complete in reference page "position and coordinates"</BlueText>
 
     <p>
         When using coordinates to describe the location of physical
@@ -337,7 +333,6 @@ import SubSubSubSection from "../../components/SubSubSubSection.astro"
 </SubSection>
 
 <SubSection title="Unit vectors">
-    <BlueText>Complete in reference page "vector and bases"</BlueText>
 
     <p>
       A <em>unit vector</em> is any vector with a length of
@@ -381,7 +376,6 @@ import SubSubSubSection from "../../components/SubSubSubSection.astro"
 </SubSection>
 
 <SubSection title="Vectors bases">
-    <BlueText>Complete in reference page "vector and bases"</BlueText>
 
     <p>
       To describe vectors mathematically, we write them as a
@@ -571,7 +565,6 @@ import SubSubSubSection from "../../components/SubSubSubSection.astro"
 </SubSubSection>
 
 <SubSection title="Changing bases">
-    <BlueText>Complete in reference page "vector and bases"</BlueText>
 
     <p>
       To change the basis that a vector is written in, we need
@@ -809,7 +802,6 @@ import SubSubSubSection from "../../components/SubSubSubSection.astro"
 </SubSection>
 
 <SubSection title="Projection and complementary projection">
-    <BlueText>Complete in reference page "vector and bases"</BlueText>
 
     <p>
       The projection and complementary projection are:
@@ -851,7 +843,6 @@ import SubSubSubSection from "../../components/SubSubSubSection.astro"
 </SubSection>
 
 <SubSection title="Change in length and direction">
-    <BlueText>Complete in reference page "Vector calculus"</BlueText>
 
     <p>
       Two useful derivatives are the rates of change of a vector's
@@ -940,7 +931,6 @@ import SubSubSubSection from "../../components/SubSubSubSection.astro"
 </SubSection>
 
 <SubSection title="Spherical Coordinates">
-    <BlueText>Complete in reference page "Spherical coordinates"</BlueText>
 
     <p>
       The spherical coordinate system extends polar coordinates
@@ -1199,18 +1189,43 @@ import SubSubSubSection from "../../components/SubSubSubSection.astro"
 
 <SubSection title="Applications"></SubSection>
 
-<SubSubSection title="Spin lunch">
-    <RedText>This was mentioned in lecture but no actual example was given. It would be a good idea to include it.</RedText> Application for "Polar coordinates".
-</SubSubSection>
-
 <SubSubSection title="Haystack antenna">
-    <RedText>This is mentioned in L09-Notes, slide 2. This topic needs to be formally expanded. Refer to Fig  \ref fig:AppAnetnna  </RedText>. Application for "Change of basis".
+  <p>
+    The Haystack antenna is a large radio telescope used for radar astronomy, 
+    atmospheric science, and satellite tracking. When tracking objects in space,  
+    such as satellites or celestial bodies, the orientation of the object relative 
+    to the antenna's coordinate system changes as both the object and the Earth move. 
+    The change of basis is used to transform the coordinates of the observed object 
+    from a global coordinate system (e.g., a celestial coordinate system) to a local
+    coordinate system (relative to the antenna). This is essential for accurately 
+    pointing the antenna and tracking the object.
+  </p>
+
+<CalloutContainer slot="cards">
+      <CalloutCard title="Reference material">
+        <ul>
+          <li><a href="rvv.html#rvv-xn">Changing basis</a></li>
+        </ul>
+      </CalloutCard>
+      <CalloutCard>
+        <p>
+          The Haystack antenna was originally constructed in the 1960s 
+          for satellite tracking during the Cold War and has since been 
+          repurposed for scientific research.
+        </p>
+        <p>
+          The antenna is housed in a radome, a dome-like structure, to 
+          protect it from weather conditions while allowing it to operate 
+          smoothly. This structure also affects the antenna's orientation 
+          calculations, requiring constant adjustments via vector transformations.
+        </p>
+      </CalloutCard>
+ </CalloutContainer>
 
     <Image src="/Dynamics/VectorsFigs/AppAntenna.png" width="5"></Image>
 </SubSubSection>
 
 <SubSubSection title="Shortest flight paths">
-    <BlueText>Complete in reference page "Shortest flight paths"</BlueText>
 
     <p>
       If we want to fly from Urbana, USA to Delhi, India, which
