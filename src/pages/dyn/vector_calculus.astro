@@ -20,9 +20,6 @@ import Col from "../../components/Col.astro"
 <Section title="Vector Calculus"></Section>
 
 <SubSection title="Dot product">
-    <RedText>*This topic appears in 2 reference pages*</RedText>
-    <BlueText>Complete in reference page "vector and bases"</BlueText>
-    <BlueText>Explained in reference page "vector identities"</BlueText>
 
     <p>
         The <em>dot product</em> (also called the <em>inner
@@ -171,9 +168,6 @@ import Col from "../../components/Col.astro"
 </SubSubSection>
 
 <SubSection title="Cross product">
-    <RedText>*This topic appears in 2 reference pages*</RedText>
-    <BlueText>Complete in reference page "vector and bases"</BlueText>
-    <BlueText>Explained in reference page "vector identities"</BlueText>
 
     <p>
       The cross product can be defined in terms of components by:
@@ -467,13 +461,6 @@ import Col from "../../components/Col.astro"
     differentiating with respect to.  
   </p>
   <p>
-    Leibniz notation is also very convenient for remembering the chain rule.  
-    Consider the following examples of the chain rule in the two notations:
-  </p>
-  <p>
-    <DisplayEquation equation="\\begin{aligned}&amp;\\text{Newton:}&amp;\\dot{y}=y'(x)\\dot{x} \\\\      &amp;\\text{Leibniz:}&amp;\\frac{dy}{dt}=\\frac{dy}{dx}\\frac{dx}{dt}.\\end{aligned}" />
-  </p>
-  <p>
     Notice how, with Leibniz notation, you can imagine the \(dx\)'s "cancelling 
     out" on the right-hand side, leaving you with \(dy/dt\).
   </p>
@@ -506,11 +493,7 @@ import Col from "../../components/Col.astro"
   </PrairieDrawCanvas>
 </SubSection>
 
-<SubSubSection title="Cartesian">
-    <BlueText>Complete in reference page "vector calculus"</BlueText>
-    <RedText>The example in Fig \ref Fig:CartesianDerivatives  could be added:</RedText>
-
-    <Image src="/Dynamics/VectorCalculusFigures/Cartesian Derivatives.png" width="7"> Taken from L03-Notes, slide 6.</Image>
+<SubSubSection title="Cartesian derivatives">
 
     <p>
       In a fixed basis we differentiate a vector by
@@ -586,39 +569,89 @@ import Col from "../../components/Col.astro"
       </p>
     </div>
     </PrairieDrawCanvas>
-    
+
+     <Example title="Differentiating a vector function." >
+        <p>
+          The vector <InlineEquation equation="\\vec{r}(t)" /> is given by
+
+          <DisplayEquation equation="\\vec{r}(t) = 2t^2 \\,\\hat\\imath + 3t \\,\\hat\\jmath" />
+
+          What is <InlineEquation equation="\\dot\\vec{r}(t)} = \\frac{d}{dt} \\, \\vec{r}(t)" />?
+        </p>
+
+        <div slot="solution">
+          <p>
+           <DisplayEquation equation="\\dot\\vec{r}(t) = \\frac{d}{dt} [ 2t^2\\hat\\imath + 3t\\hat\\jmath ] ; =  4t\\hat\\imath + 2t^2\\frac{d}{dt} \\hat\\imath + 3\\hat\\jmath + 3t\\frac{d}{dt} \\hat\\jmath; = \\vec{f}(t) = 4t\\hat\\imath + 3\\hat\\jmath" />
+
+          </p>
+        </div>
+      </Example>
+
 </SubSubSection>
     
 <SubSubSection title="Non-Cartesian: Polar basis">
-    <RedText>An example like in Fig \ref Fig:Non-CartesianPolarBasis  could be added in "vector and bases"</RedText> 
 
     <Image src="/Dynamics/VectorCalculusFigures/Non-Cartesian Polar Basis.png" width="7"> Taken from L03-Notes, slide 7.</Image>
 </SubSubSection>
 
 <SubSubSection title="Graphical estimation">
-    <RedText>The information in Fig  \ref Fig:GraphicalEstimation  could be included as a new section in "vector and bases"</RedText> 
 
     <Image src="/Dynamics/VectorCalculusFigures/Graphical Estimation of Derivatives.png" width="7"> Taken from L03-Notes, slide 8.</Image>
 </SubSubSection>
 
 <SubSection title="Chain rule"></SubSection>
+    
+ <p>
+    Leibniz notation is very convenient for remembering the chain rule.  
+    Consider the following examples of the chain rule in the two notations:
+  </p>
+  <p>
+    <DisplayEquation equation="\\begin{aligned}&amp;\\text{Newton:}&amp;\\dot{y}=y'(x)\\dot{x} \\\\      &amp;\\text{Leibniz:}&amp;\\frac{dy}{dt}=\\frac{dy}{dx}\\frac{dx}{dt}.\\end{aligned}" />
+  </p>
+  <p>
+    Notice how, with Leibniz notation, you can imagine the \(dx\)'s "cancelling 
+    out" on the right-hand side, leaving you with \(dy/dt\).
+  </p>
+   
+    <BlueText> Add information in "Vector Calculus"> "Differentiating vector expressions"> From "The chain rule also applies to vector functions..." and below, including both boxes /BlueText>
 
-<SubSubSection title="Scalars">
-    <BlueText>Complete in "Vector Calculus"</BlueText>
-</SubSubSection>
+</SubSection>
 
-<SubSubSection title="Second derivative">
-    <BlueText>Complete in "vector Calculus"</BlueText>
-</SubSubSection>
     
 <SubSection title="Integration">
-    <RedText>Include summary of both Polar and Cartesian integration as in Fig  \ref fig:SummaryVecInt</RedText>
 
-    <Image src="/Dynamics/VectorCalculusFigures/SummaryVectorIntegration.png" width="7"></Image>
+<p>
+    Cartesian:
+  </p>
+  <p>
+    <DisplayEquation equation= "\\vec{v} = \\dot{x} \\hat\\imath + \\dot{y} \\hat\\jmath"/>
+  </p>
+  <p>
+    Integrate <InlineEquation equation="\\dot{x}" />  and <InlineEquation equation="\\dot{y}" /> to find \(x\) and \(y\).
+  </p>
+<p>
+    Polar:
+  </p>
+  <p>
+    <DisplayEquation equation= "\\vec{v} = \\dot{r} \\hat{e}_r + \\dot{r} \\dot{\\theta} \\hat{e}_\\theta"/>
+  </p>
+  <p>
+    Reduce <InlineEquation equation="\\dot{r} , r\\dot{\\theta}" />  to just <InlineEquation equation="\\dot{r}" /> and <InlineEquation equation="\\dot{\\theta}" /> before integrating.
+  </p>
+  <p>
+    Integrate scalars <InlineEquation equation="(\\dot{r} , r\\dot{\\theta})" /> rather than vector <InlineEquation equation="\\vec{v}" />.
+  </p>
+ <p>
+    Basic idea:
+  </p>
+    <ul>
+      <li>First, reduce the vector equations to scalae equations.</li>
+      <li>Then, integrate coordinates</li>
+      <li>Then reconstruct position vector</li>
+    </ul>
 </SubSection>
 
 <SubSubSection title="Cartesian basis">
-    <BlueText>Complete in "Vector calculus"</BlueText>
 
     <p>
       The Riemann-sum definition of the vector integral is:
@@ -754,15 +787,21 @@ import Col from "../../components/Col.astro"
 </SubSubSection>
 
 <SubSubSection title="Polar basis">
-    <RedText>Add the information in Fig  \ref fig:PolarIntegration</RedText>
     
     <Image src="/Dynamics/VectorCalculusFigures/PolarIntegration.png" width="7"></Image>
 </SubSubSection>
 
 <SubSection title="Solving equations">
-    <RedText>Include step by step on how to solve vector equations as shown in Fig  \ref fig:SolvingEqnsSteps</RedText>
+     <p>
+        Steps:
+    </p>
 
-    <Image src="/Dynamics/VectorCalculusFigures/SolvingEqnsSteps.png" width="7"></Image>
+    <ol>
+      <li>Write vector unknowns in term of scalar variables</li>
+      <li>Expand vector equations and equate components to get scalar variables</li>
+      <li>Solve scalar equations for scalar unknowns</li>
+      <li>Reconstruct vector unknowns</li>
+   </ol>
 
 
     Include examples as shown in Figs \ref fig:SolvingEqns, \ref fig:SolvingEqns2 
