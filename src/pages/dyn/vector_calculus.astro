@@ -576,12 +576,13 @@ import Col from "../../components/Col.astro"
 
           <DisplayEquation equation="\\vec{r}(t) = 2t^2 \\,\\hat\\imath + 3t \\,\\hat\\jmath" />
 
-          What is <InlineEquation equation="\\dot\\vec{r}(t)} = \\frac{d}{dt} \\, \\vec{r}(t)" />?
+          What is <InlineEquation equation="\\dot{\\vec{r}}(t) = \\frac{d}{dt} \\, \\vec{r}(t)" />?
         </p>
 
         <div slot="solution">
           <p>
-           <DisplayEquation equation="\\dot\\vec{r}(t) = \\frac{d}{dt} [ 2t^2\\hat\\imath + 3t\\hat\\jmath ] ; =  4t\\hat\\imath + 2t^2\\frac{d}{dt} \\hat\\imath + 3\\hat\\jmath + 3t\\frac{d}{dt} \\hat\\jmath; = \\vec{f}(t) = 4t\\hat\\imath + 3\\hat\\jmath" />
+           <DisplayEquation equation="\\dot{\\vec{r}}(t) = \\frac{d}{dt} [ 2t^2\\hat\\imath + 3t\\hat\\jmath ] ; =  4t\\hat\\imath + 2t^2\\frac{d}{dt} \\hat\\imath + 3\\hat\\jmath + 3t\\frac{d}{dt} \\hat\\jmath; = \\vec{f}(t) = 4t\\hat\\imath + 3\\hat\\jmath" />
+
 
           </p>
         </div>
@@ -591,7 +592,30 @@ import Col from "../../components/Col.astro"
     
 <SubSubSection title="Non-Cartesian: Polar basis">
 
-    <Image src="/Dynamics/VectorCalculusFigures/Non-Cartesian Polar Basis.png" width="7"> Taken from L03-Notes, slide 7.</Image>
+    </div>
+    </PrairieDrawCanvas>
+
+     <Example title="Differentiating a vector function." >
+        <p>
+          The vector <InlineEquation equation="\\vec{r}(t)" /> is given by
+
+          <DisplayEquation equation="\\vec{r}(t) = 2t^2 \\,\\hat{e}_r + 3t \\,\\hat{e}_\\theta" />
+
+          What is <InlineEquation equation="\\dot{\\vec{r}}(t) = \\frac{d}{dt} \\, \\vec{r}(t)" />?
+        </p>
+
+        <div slot="solution">
+          <p>
+           <DisplayEquation equation="\\dot{\\vec{r}}(t) = \\frac{d}{dt} [ 2t^2\\hat{e}_r + 3t\\hat{e}_\\theta ] ; =  4t\\hat{e}_r + 2t^2\\frac{d}{dt} \\hat{e}_r + 3\\hat{e}_\\theta + 3t\\frac{d}{dt} \\hat{e}_\\theta" />
+          </p>
+              
+      <ul>
+         <li>If only \( r \) changes: <InlineEquation equation="\\dot{\\hat{e}}_r = 0" /> and <InlineEquation equation="\\dot{\\hat{e}}_\\theta = 0" /> </li>
+         <li>If only \( \\theta \) changes: <InlineEquation equation="\\dot{\\hat{e}}_r \neq 0" /> and <InlineEquation equation="\\dot{\\hat{e}}_\\theta \neq 0" /> </li>
+      </ul>
+        </div>
+      </Example>
+
 </SubSubSection>
 
 <SubSubSection title="Graphical estimation">
@@ -612,8 +636,48 @@ import Col from "../../components/Col.astro"
     Notice how, with Leibniz notation, you can imagine the \(dx\)'s "cancelling 
     out" on the right-hand side, leaving you with \(dy/dt\).
   </p>
-   
-    <BlueText> Add information in "Vector Calculus"> "Differentiating vector expressions"> From "The chain rule also applies to vector functions..." and below, including both boxes /BlueText>
+
+    <p>
+      The chain rule also applies to vector functions. This is
+      helpful for parameterizing vectors in terms of arc-length
+          /(s/) or other quantities different than time /(t/).
+    </p>
+       
+    <DisplayEquation title="Chain rule for vectors." background="True" equation="\[\frac{d}{dt} \vec{a} (s(t)) = \frac{d\vec{a}}{ds}(s(t)) \frac{ds}{dt}(t) = \frac{d\vec{a}}{ds} \dot{s}\]">
+
+    <Example title="Chain rule.">
+      <p>
+        A vector is defined in terms of an angle /(\\theta/) by /(\\vec{r}(\\theta) = \\cos\\theta\\,\\hat\\imath +
+                \\sin\\theta\\,\\hat\\jmath/). If the angle is given by /(\\theta(t) = t^3/), what is /(\\dot{\\vec{r}}/)?
+      </p>
+
+
+       <div slot="solution">
+            <p>
+             We can use the chain rule to compute:
+
+             <DisplayEquation equation="\frac{d}{dt} \vec{r} &= \frac{d}{d\theta} \vec{r} \frac{d}{dt} \theta \\
+                     &= \frac{d}{d\theta}\Big( \cos\theta\,\hat\imath
+                     + \sin\theta\,\hat\jmath \Big) \frac{d}{dt} (t^3) \\
+                     &= \Big( -\sin\theta\,\hat\imath +
+                     \cos\theta\,\hat\jmath \Big) (3 t^2) \\
+                     &= -3 t^2 \sin(t^3)\,\hat\imath + 3 t^2
+                     \cos(t^3)\,\hat\jmath">
+                </p>
+                <p>
+                  Alternatively, we can evaluate $\vec{r}$ as a
+                  function of $t$ first and then differentiate it with
+                  respect to time, using the scalar chain rule for
+                  each component:
+
+                 <DisplayEquation equation=" \frac{d}{dt} \vec{r}
+                    &= \frac{d}{dt} \Big( \cos(t^3)\,\hat\imath +
+                    \sin(t^3)\,\hat\jmath \Big) \\
+                    &= -3 t^2 \sin(t^3)\,\hat\imath + 3 t^2
+                    \cos(t^3)\,\hat\jmath">
+                </p>
+        </div>
+    </Example>
 
 </SubSection>
 
@@ -626,29 +690,28 @@ import Col from "../../components/Col.astro"
   <p>
     <DisplayEquation equation= "\\vec{v} = \\dot{x} \\hat\\imath + \\dot{y} \\hat\\jmath"/>
   </p>
-  <p>
-    Integrate <InlineEquation equation="\\dot{x}" />  and <InlineEquation equation="\\dot{y}" /> to find \(x\) and \(y\).
-  </p>
+  <ul>
+    <li>Integrate <InlineEquation equation="\\dot{x}" />  and <InlineEquation equation="\\dot{y}" /> to find \(x\) and \(y\). </li>
+  <ul>
 <p>
     Polar:
   </p>
   <p>
     <DisplayEquation equation= "\\vec{v} = \\dot{r} \\hat{e}_r + \\dot{r} \\dot{\\theta} \\hat{e}_\\theta"/>
   </p>
-  <p>
-    Reduce <InlineEquation equation="\\dot{r} , r\\dot{\\theta}" />  to just <InlineEquation equation="\\dot{r}" /> and <InlineEquation equation="\\dot{\\theta}" /> before integrating.
-  </p>
-  <p>
-    Integrate scalars <InlineEquation equation="(\\dot{r} , r\\dot{\\theta})" /> rather than vector <InlineEquation equation="\\vec{v}" />.
-  </p>
+
+<ul>
+   <li> Reduce <InlineEquation equation="\\dot{r} , r\\dot{\\theta}" />  to just <InlineEquation equation="\\dot{r}" /> and <InlineEquation equation="\\dot{\\theta}" /> before integrating. </li>
+   <li> Integrate scalars <InlineEquation equation="(\\dot{r} , r\\dot{\\theta})" /> rather than vector <InlineEquation equation="\\vec{v}" />. </li>
+<ul>
  <p>
     Basic idea:
   </p>
-    <ul>
-      <li>First, reduce the vector equations to scalae equations.</li>
-      <li>Then, integrate coordinates</li>
-      <li>Then reconstruct position vector</li>
-    </ul>
+    <ol>
+      <li>Reduce the vector equations to scalae equations.</li>
+      <li>Integrate coordinates</li>
+      <li>Reconstruct position vector</li>
+    </ol>
 </SubSection>
 
 <SubSubSection title="Cartesian basis">
