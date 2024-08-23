@@ -1,0 +1,37 @@
+[
+  [
+    "section",
+    "Buckling",
+    "buckling"
+  ],
+  [
+    "subsection",
+    "Stability of Structures",
+    "stability_of_structures"
+  ],
+  [
+    "subsubsection",
+    "Single Column",
+    "single_column"
+  ],
+  [
+    "subsubsection",
+    "Two Rods and a Torsional Spring",
+    "two_rods_and_a_torsional_spring"
+  ],
+  [
+    "subsection",
+    "Euler's formula",
+    "euler's_formula"
+  ],
+  [
+    "subsubsection",
+    "Pinned-end Columns",
+    "pinned-end_columns"
+  ],
+  [
+    "subsubsection",
+    "Other Boundary Conditions",
+    "other_boundary_conditions"
+  ]
+]

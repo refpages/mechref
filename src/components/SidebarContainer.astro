@@ -1,0 +1,11 @@
+---
+    import Sidebar from "./Sidebar.svelte";
+    import NavTree from "./NavTreeContainer.astro";
+    
+    const {page, course} = Astro.props;
+---
+
+<div>
+    <Sidebar />
+    <NavTree page={page} course={course}/>
+</div>

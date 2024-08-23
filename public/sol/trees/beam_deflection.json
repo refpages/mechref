@@ -1,0 +1,37 @@
+[
+  [
+    "section",
+    "Beam Deflection",
+    "beam_deflection"
+  ],
+  [
+    "subsection",
+    "Sign Conventions",
+    "sign_conventions"
+  ],
+  [
+    "subsection",
+    "Boundary Conditions",
+    "boundary_conditions"
+  ],
+  [
+    "subsection",
+    "Moment-Curvature Equation",
+    "moment-curvature_equation"
+  ],
+  [
+    "subsubsection",
+    "Assumptions",
+    "assumptions"
+  ],
+  [
+    "subsection",
+    "Integration Methods",
+    "integration_methods"
+  ],
+  [
+    "subsection",
+    "Beam Solutions",
+    "beam_solutions"
+  ]
+]

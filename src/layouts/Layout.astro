@@ -1,8 +1,17 @@
 ---
 import Navbar from '../components/Navbar.astro';
-import Sidebar from '../components/Sidebar.svelte';
+import SidebarContainer from '../components/SidebarContainer.astro';
 
 const { title } = Astro.props;
+
+const current_path = Astro.url;
+const split_ = current_path.pathname.split('/')
+const cleaned = split_.slice(1, split_.length)
+
+const course = cleaned[0]
+const pagename = cleaned[1]
+
+console.log(cleaned)
 ---
 
 <!doctype html>
@@ -36,7 +45,7 @@ const { title } = Astro.props;
 	<body class="pb-5 w-100">
 		<Navbar/>
 		<div class="container-xxl content">
-			<Sidebar/>
+			<SidebarContainer page={pagename} course={course}/>
 			<div class="w-100 pt-3">
 				<slot />
 			</div>

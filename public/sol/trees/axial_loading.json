@@ -1,0 +1,62 @@
+[
+  [
+    "section",
+    "Axial Loading",
+    "axial_loading"
+  ],
+  [
+    "subsection",
+    "Notation and Convention",
+    "notation_and_convention"
+  ],
+  [
+    "subsection",
+    "Saint-Venant's Principle: slender beam case",
+    "saint-venant's_principle_slender_beam_case"
+  ],
+  [
+    "subsection",
+    "Force-Deformation Relation",
+    "force-deformation_relation"
+  ],
+  [
+    "subsection",
+    "Axially Varying Properties",
+    "axially_varying_properties"
+  ],
+  [
+    "subsection",
+    "Principle of Superposition ",
+    "principle_of_superposition_"
+  ],
+  [
+    "subsection",
+    "General Solving Procedure",
+    "general_solving_procedure"
+  ],
+  [
+    "subsection",
+    "Statically Determinate Problems",
+    "statically_determinate_problems"
+  ],
+  [
+    "subsection",
+    "Statically Indeterminate Problems",
+    "statically_indeterminate_problems"
+  ],
+  [
+    "subsubsection",
+    "Thermal Effects: Temperature Changes",
+    "thermal_effects_temperature_changes"
+  ],
+  [
+    "subsubsection",
+    "Misfit Problems",
+    "misfit_problems"
+  ],
+  [
+    "subsection",
+    "Stress Concentration",
+    "stress_concentration"
+  ]
+]

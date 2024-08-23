@@ -1,0 +1,42 @@
+[
+  [
+    "section",
+    "Stress",
+    "stress"
+  ],
+  [
+    "subsection",
+    "Units",
+    "units"
+  ],
+  [
+    "subsection",
+    "Stress under general loading conditions",
+    "stress_under_general_loading_conditions"
+  ],
+  [
+    "subsubsection",
+    "Average Normal Stress - Axial Loading",
+    "average_normal_stress_-_axial_loading"
+  ],
+  [
+    "subsubsection",
+    "Average Shear Stress",
+    "average_shear_stress"
+  ],
+  [
+    "subsubsection",
+    "Stress Tensor",
+    "stress_tensor"
+  ],
+  [
+    "subsection",
+    "Support Reactions",
+    "support_reactions"
+  ],
+  [
+    "subsection",
+    "Allowable Strength Design",
+    "allowable_strength_design"
+  ]
+]

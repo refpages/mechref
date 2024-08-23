@@ -1,0 +1,67 @@
+[
+  [
+    "section",
+    "Strain",
+    "strain"
+  ],
+  [
+    "subsection",
+    "Units",
+    "units"
+  ],
+  [
+    "subsection",
+    "Normal Strain",
+    "normal_strain"
+  ],
+  [
+    "subsubsection",
+    "Average Normal (extensional) Strain",
+    "average_normal_(extensional)_strain"
+  ],
+  [
+    "subsection",
+    "Shear Strain",
+    "shear_strain"
+  ],
+  [
+    "subsubsection",
+    "Average Shear Strain",
+    "average_shear_strain"
+  ],
+  [
+    "subsection",
+    "Strain Tensor",
+    "strain_tensor"
+  ],
+  [
+    "subsection",
+    "Measurement of Strain",
+    "measurement_of_strain"
+  ],
+  [
+    "subsubsection",
+    "Direct Measurement",
+    "direct_measurement"
+  ],
+  [
+    "subsubsection",
+    "Contact Extensometer",
+    "contact_extensometer"
+  ],
+  [
+    "subsubsection",
+    "Electrical Resistance Strain Gauges",
+    "electrical_resistance_strain_gauges"
+  ],
+  [
+    "subsubsection",
+    "Vibrating Wire Strain Gauge",
+    "vibrating_wire_strain_gauge"
+  ],
+  [
+    "subsubsection",
+    "Digital Image Correlation (DIC)",
+    "digital_image_correlation_(dic)"
+  ]
+]
