@@ -581,7 +581,7 @@ import Col from "../../components/Col.astro"
 
         <div slot="solution">
           <p>
-           <DisplayEquation equation="\\dot{\\vec{r}}(t) = \\frac{d}{dt} [ 2t^2\\hat\\imath + 3t\\hat\\jmath ] ; =  4t\\hat\\imath + 2t^2\\frac{d}{dt} \\hat\\imath + 3\\hat\\jmath + 3t\\frac{d}{dt} \\hat\\jmath; = \\vec{f}(t) = 4t\\hat\\imath + 3\\hat\\jmath" />
+           <DisplayEquation equation="\\dot{\\vec{r}}(t) = \\frac{d}{dt} [ 2t^2\\hat\\imath + 3t\\hat\\jmath ]        =  4t\\hat\\imath + 2t^2\\frac{d}{dt} \\hat\\imath + 3\\hat\\jmath + 3t\\frac{d}{dt} \\hat\\jmath          = 4t\\hat\\imath + 3\\hat\\jmath" />
 
 
           </p>
@@ -604,12 +604,12 @@ import Col from "../../components/Col.astro"
 
         <div slot="solution">
           <p>
-           <DisplayEquation equation="\\dot{\\vec{r}}(t) = \\frac{d}{dt} [ 2t^2\\hat{e}_r + 3t\\hat{e}_\\theta ] ; =  4t\\hat{e}_r + 2t^2\\frac{d}{dt} \\hat{e}_r + 3\\hat{e}_\\theta + 3t\\frac{d}{dt} \\hat{e}_\\theta" />
+           <DisplayEquation equation="\\dot{\\vec{r}}(t) = \\frac{d}{dt} [ 2t^2\\hat{e}_r + 3t\\hat{e}_\\theta ]          =  4t\\hat{e}_r + 2t^2\\frac{d}{dt} \\hat{e}_r + 3\\hat{e}_\\theta + 3t\\frac{d}{dt} \\hat{e}_\\theta" />
           </p>
               
       <ul>
          <li>If only \( r \) changes: <InlineEquation equation="\\dot{\\hat{e}}_r = 0" /> and <InlineEquation equation="\\dot{\\hat{e}}_\\theta = 0" /> </li>
-         <li>If only \( \\theta \) changes: <InlineEquation equation="\\dot{\\hat{e}}_r \neq 0" /> and <InlineEquation equation="\\dot{\\hat{e}}_\\theta \neq 0" /> </li>
+         <li>If only <InlineEquation equation="\\theta"> changes: <InlineEquation equation="\\dot{\\hat{e}}_r \neq 0" /> and <InlineEquation equation="\\dot{\\hat{e}}_\\theta \neq 0" /> </li>
       </ul>
         </div>
       </Example>
@@ -649,19 +649,24 @@ import Col from "../../components/Col.astro"
         A vector is defined in terms of an angle \(\theta\) by <InlineEquation equation="\\vec{r}(\\theta) = \\cos\\theta\\,\\hat\\imath + \\sin\\theta\\,\\hat\\jmath" />. If the angle is given by \(\theta(t) = t^3\), what is <InlineEquation equation="\\dot{\\vec{r}}" />?
       </p>
 
-
        <div slot="solution">
             <p>
              We can use the chain rule to compute:
              <p>
-             <DisplayEquation equation="\frac{d}{dt} \vec{r} &= \frac{d}{d\theta} \vec{r} \frac{d}{dt} \theta \\ &= \frac{d}{d\theta}\Big( \cos\theta\,\hat\imath + \sin\theta\,\hat\jmath \Big) \frac{d}{dt} (t^3) \\ &= \Big( -\sin\theta\,\hat\imath + \cos\theta\,\hat\jmath \Big) (3 t^2) \\ &= -3 t^2 \sin(t^3)\,\hat\imath + 3 t^2 \cos(t^3)\,\hat\jmath" />
+             <DisplayEquation equation="
+                    \\begin{aligned}
+                    \\frac{d}{dt} \\vec{r} &= \\frac{d}{d\\theta} \\vec{r} \\cdot \\frac{d}{dt} \\theta \\\\
+                    &= \\left(\\frac{d}{d\\theta}\\Big( \\cos\\theta\\,\\hat\\imath + \\sin\\theta\\,\\hat\\jmath \\Big) \\cdot \\frac{d}{dt} (t^3) \\right) \\\\
+                    &= \\left(\\Big( -\\sin\\theta\\,\\hat\\imath + \\cos\\theta\\,\\hat\\jmath \\Big) \\cdot (3 t^2) \\right) \\\\
+                    &= -3 t^2 \\sin(t^3)\\,\\hat\\imath + 3 t^2 \\cos(t^3)\\,\\hat\\jmath
+                    \\end{aligned}" />
                 <p>
                   Alternatively, we can evaluate <InlineEquation equation="\\vec{r}" /> as a
                   function of \(t\) first and then differentiate it with
                   respect to time, using the scalar chain rule for
                   each component:
                 </p>
-                 <DisplayEquation equation=" \frac{d}{dt} \vec{r} &= \frac{d}{dt} \Big( \cos(t^3)\,\hat\imath + \sin(t^3)\,\hat\jmath \Big) \\ &= -3 t^2 \sin(t^3)\,\hat\imath + 3 t^2 \cos(t^3)\,\hat\jmath" />
+                 <DisplayEquation equation=" \\frac{d}{dt} \\vec{r}      = \\frac{d}{dt} \\Big( \\cos(t^3)\\,\\hat\\imath + \\sin(t^3)\\,\\hat\\jmath \\Big) \\     = -3 t^2 \\sin(t^3)\\,\\hat\\imath + 3 t^2 \\cos(t^3)\,\\hat\\jmath" />
                 
         </div>
     </Example>
@@ -853,12 +858,58 @@ import Col from "../../components/Col.astro"
       <li>Reconstruct vector unknowns</li>
    </ol>
 
+    <Example title="Rotating particle.">
+        <p>
+          A particle is rotating in the /(XY/) plane with a variable angular velocity
+            <InlineEquation equation="\\vec{\\omega}" />. At one instant in time, the particle has: 
 
-    Include examples as shown in Figs \ref fig:SolvingEqns, \ref fig:SolvingEqns2 
+          <DisplayEquation equation="\\vec{r} = 2\\hat\\imath - \\jmath m" /> and <DisplayEquation equation="\\vec{a} = -4\\hat\\imath - 3\\jmath m/s^2" />
 
-    <Image src="/Dynamics/VectorCalculusFigures/SolvingEqns.png" width="7"></Image>
+          <ol>
+             <li> How many scalar variables? </li>
+             <li> How many vector equations?? </li>
+             <li> How many scalar equations? </li>
+          </ol>
+        </p>
+
+        <div slot="solution">
+          <ol>
+             <li> 2 (<InlineEquation equation="\\vec{\\omega}_z , \\vec{\\alpha}_z" />) </li>
+             <li> 1 (<InlineEquation equation="\\vec{a} = \\alpha_z \\vec{r} - \\omega_z \\vec{r} " />)  </li>
+             <li> 2 (one for each <InlineEquation equation= \\hat\\imath , \\hat\\jmath" />) </li>
+          </ol>
+            
+        </div>
+      </Example>
 
     <Image src="/Dynamics/VectorCalculusFigures/SolvingEqns2.png" width="7"></Image>
+
+    <Example title="Follow up question.">
+        <p>
+          Do we need to have the same number of vector equations and vector unknowns?
+        </p>
+
+        <div slot="solution">
+          <p>
+                No
+          </p>
+            
+        </div>
+      </Example>
+
+    <Example title="Follow up question.">
+        <p>
+          Do we need to have the same number of scalar equations and scalar unknowns?
+        </p>
+
+        <div slot="solution">
+          <p>
+                Yes
+          </p>
+            
+        </div>
+      </Example>
+
 </SubSection>
 </Layout>
 
