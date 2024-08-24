@@ -1,4 +1,5 @@
 ---
+import Center from "../../components/Center.astro" 
 import Layout from "../../layouts/Layout.astro" 
 import Image from "../../components/Image.astro" 
 import Section from "../../components/Section.astro" 
@@ -74,11 +75,11 @@ A <em>rigid body</em> is an extended area of material that
           includes all the points inside it, and which moves so that
           the distances and angles between all its points remain
           constant. The location of a rigid body can be described by
-          the position of one point $P$ inside it, together with the
+          the position of one point \(P\) inside it, together with the
           rotation angle of the body (one angle in 2D, three angles in
           3D).
     <Center>
-        <table>
+        <table class="table table-responsive table-sm">
             <tr>
             <th></th>
             <th>location description</th>
@@ -94,7 +95,7 @@ A <em>rigid body</em> is an extended area of material that
             <td>
                 position vector <InlineEquation equation="\\vec{r}_P" />
                 <br />
-                angle $\theta$
+                angle <InlineEquation equation="\\theta" />
             </td>
             <td>
                 velocity vector <InlineEquation equation="\\vec{v}_P"/>
