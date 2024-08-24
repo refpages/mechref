@@ -8,18 +8,23 @@ import SubSubSection from "../../components/SubSubSection.astro"
 import BlueText from "../../components/BlueText.astro" 
 import InlineEquation from "../../components/InlineEquation.astro" 
 import DisplayEquation from "../../components/DisplayEquation.astro" 
+import PrairieDrawCanvas from "../../components/PrairieDrawCanvas.astro"
 ---
 <Layout title="Introduction">
 <Section title="Introduction to Statics"></Section>
 
 <SubSection title="Newton's Laws">
 
-<BlueText>From TAM212 Reference Pages (Kinetics of Point Masses - Newton's Equations):</BlueText>
+
+<p>
+    Newton's equations relate the acceleration <InlineEquation equation='\\vec{a}' /> of a point mass with mass <InlineEquation equation='m' /> to the total applied force <InlineEquation equation='\\vec{F}' /> on the mass (sum of all applied forces).
+</p>
+
+<p>
+    There is no derivation for Newton's equations, because they are an assumed model for dynamics. We can only verify them by comparing with experimental evidence, which confirms that Newtonian dynamics are accurate for non-relativistic and non-quantum systems.
+</p>
 
 
-Newton's equations relate the acceleration <InlineEquation equation='\\vec{a}' /> of a point mass with mass <InlineEquation equation='m' /> to the total applied force <InlineEquation equation='\\vec{F}' /> on the mass (sum of all applied forces). There is no derivation for Newton's equations, because they are an assumed model for dynamics. We can only verify them by comparing with experimental evidence, which confirms that Newtonian dynamics are accurate for non-relativistic and non-quantum systems.
-
-They are:
 
 </SubSection>
 
@@ -31,7 +36,7 @@ A particle at rest stays that way unless acted on by unbalanced forces.
 
 <SubSubSection title="Newton's Second Law">
 
-<DisplayEquation equation='\\vec{F} = m \\vec{a}\\' />
+    <DisplayEquation equation="\\vec{F} = m\\vec{a}" background="True" title="Newton's second law: "/>
 
 </SubSubSection>
 
@@ -44,7 +49,9 @@ The mutual forces of action and reaction between two particles are equal, opposi
 <SubSubSection title="Example">
 
 
-<Image src='/Statics/IntroductionFigures/NewtonsLaws.png' width='5'><BlueText>Taken from TAM212 Reference Pages (Kinetics of Point Masses - Newton's Equations)</BlueText></Image>
+    <PrairieDrawCanvas id="rep-ff-c" width="600" height="600">
+        <small><em>Click and drag to impart a force on the particle and observe its velocity and position changes.</em></small>
+    </PrairieDrawCanvas>
 
 </SubSubSection>
 
@@ -129,3 +136,5 @@ A <em>rigid body</em> is an extended area of material that
 </SubSubSection>
 
 </Layout>
+
+<script src="/sta/introduction/canvases.js" is:inline></script>

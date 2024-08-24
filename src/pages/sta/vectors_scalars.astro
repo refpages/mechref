@@ -4,10 +4,15 @@ import Image from "../../components/Image.astro"
 import Section from "../../components/Section.astro" 
 import SubSection from "../../components/SubSection.astro" 
 import SubSubSection from "../../components/SubSubSection.astro" 
+import SubSubSubSection from "../../components/SubSubSubSection.astro" 
 import BlueText from "../../components/BlueText.astro" 
 import RedText from "../../components/RedText.astro" 
 import DisplayEquation from "../../components/DisplayEquation.astro" 
+import DisplayEquationCustom from "../../components/DisplayEquationCustom.astro" 
 import InlineEquation from "../../components/InlineEquation.astro" 
+import Center from "../../components/Center.astro"
+import PrairieDrawCanvas from "../../components/PrairieDrawCanvas.astro"
+import Warning from "../../components/Warning.astro"
 ---
 <Layout title="Vectors Scalars">
 <Section title="Vectors and Scalars"></Section>
@@ -19,8 +24,29 @@ import InlineEquation from "../../components/InlineEquation.astro"
 <SubSection title="Scalars vs. Vectors"></SubSection>
 
 <SubSubSection title="Vectors">
+  <p>
+    A <em>vector</em> is an arrow with a length and a direction. Just like positions, vectors exist before we measure or describe them. Unlike positions, vectors can mean many different things, such as position vectors, velocities, etc. Vectors are not anchored to particular positions in space, so we can slide a vector around and locate it at any position.
+    </p>
+    
+    <Center>
+      <PrairieDrawCanvas id="rvv-fc-c" width="600" height="500">
+          <p class="controls">
+              <button class="anim-toggle:rvv-fc-c" onclick="rvv_fc_c.toggleAnim()">animate</button>
+              <button class="reset:rvv-fc-c" onclick="rvv_fc_c.reset()">reset</button>
+              Change:
+              <button class="option-toggle:rvv-fc-c:otherLength"onclick="rvv_fc_c.toggleOption('otherLength')">length</button>
+              <button class="option-toggle:rvv-fc-c:otherDir" onclick="rvv_fc_c.toggleOption('otherDir')">direction</button>
+          </p>
+          <p>
+              Two vectors, which may or may not be the same
+              vector. Moving a vector around does not change it: it is
+              still the same vector.
+          </p>
+      </PrairieDrawCanvas>
+  </Center>
+</SubSubSection>
 
-<SubSection title="Notation">
+<SubSubSubSection title="Notation">
 
     <p>
         Some textbooks differentiate between <em>free
@@ -35,15 +61,8 @@ import InlineEquation from "../../components/InlineEquation.astro"
         <InlineEquation equation="\\boldsymbol{a}" /> and under-bars <InlineEquation equation="\\underline{a}" />. For unit
         (length one) vectors we will use an over-hat <InlineEquation equation="\\hat{a}" />.
       </p>
-</SubSection>
+</SubSubSubSection>
 
-<p>
-A <em>vector</em> is an arrow with a length and a direction. Just like positions, vectors exist before we measure or describe them. Unlike positions, vectors can mean many different things, such as position vectors, velocities, etc. Vectors are not anchored to particular positions in space, so we can slide a vector around and locate it at any position.
-</p>
-
-<Image src='/Statics/VectorsScalarsFigures/VectorDef.png' width='4'></Image>
-
-</SubSubSection>
 
 <SubSubSection title="Scalars">
 
@@ -61,26 +80,66 @@ While a vector represents magnitude and direction, a <em>scalar</em> is a number
 Vectors can be multiplied by a scalar number, which multiplies their length. 
 </p>
 
-<Image src='/Statics/VectorsScalarsFigures/VecScaling.png' width='4'><BlueText>Taken from TAM212 Reference Pages (Vectors and Bases). Don't include the a+b vector - only keep one a and one b vector with their scaled counterparts.</BlueText></Image>
+<Center>
+  <PrairieDrawCanvas id="rvv-fp2-c" width="600" height="500" />
+</Center>
 
 </SubSubSection>
 
 <SubSubSection title="Vector Addition and Subtraction">
 
-<BlueText>From TAM212 Reference Pages (Vectors and Bases):</BlueText>
-
 <p>
 Vectors can be added or subtracted together, using the parallelogram law of addition or the head-to-tail rule.
 </p>
 
-<Image src='/Statics/VectorsScalarsFigures/VecAddition.png' width='2'><BlueText>Taken from TAM212 Reference Pages (Vectors and Bases). Only include the left part of the figure, and add another part on the right that shows a-b.</BlueText></Image>
+<Center>
+  <PrairieDrawCanvas id="rvv-fp1-c" width="600" height="500" />
+</Center>
+
 
 </SubSubSection>
 
 <SubSection title="Unit Vectors">
 
-<BlueText>Use the same content here as from the TAM212 Reference Pages (Vectors and Bases - Unit Vectors)</BlueText>
+  <p>
+    A <em>unit vector</em> is any vector with a length of
+    one. We use the special over-hat notation <InlineEquation equation="\\hat{a}" /> to
+    indicate when a vector is a unit vector. Any non-zero vector
+    <InlineEquation equation="\\vec{a}" /> gives a unit vector <InlineEquation equation="\\hat{a}" /> that specifies the
+    direction of <InlineEquation equation="\\vec{a}" />.
+  </p>
 
+  <DisplayEquation title="Normalization to unit vector." id="rvv-eu" background="True" equation="\\begin{aligned} \\hat{a} =\\frac{\\vec{a}}{a}\\end{aligned}" derivation="True">
+    <p>
+      If we compute the length of <InlineEquation equation="\\hat{a}" /> then we find:
+      
+      <DisplayEquation equation="        \\| \\hat{a} \\| = \\left\\| \\frac{\\vec{a}}{a} \\right\\|        = \\frac{\\|\\vec{a}\\|}{a} = \\frac{a}{a} = 1," />
+
+      so <InlineEquation equation="\\hat{a}" /> is really a unit vector, and it is in the
+      same direction as <InlineEquation equation="\\vec{a}" /> as they differ only by a
+      scalar factor.
+    </p>
+  </DisplayEquation>
+
+  <p>
+    Any vector can be written as the product of its length and
+    direction:
+  </p>
+
+  <DisplayEquation title="Vector decomposition into length and direction." id="rvv-ei" background="True" equation=" \\begin{aligned} \\vec{a} = a\\hat{a}\\end{aligned}" derivation="True">
+    <p>
+      This follows from rearranging <a
+      href="#rvv-eu">#rvv-eu</a>.
+    </p>
+  </DisplayEquation>
+
+  <Center>
+    <PrairieDrawCanvas id="rvv-fu-c" width="500" height="350">
+    <p>
+      Three vectors and their decompositions into lengths and directional unit vectors.
+    </p>
+    </PrairieDrawCanvas>
+  </Center>
 </SubSection>
 
 <SubSection title="Vector Magnitude and Direction">
@@ -91,19 +150,87 @@ Vectors can be written as a magnitude (length) multiplied by the unit vector in 
 
 <DisplayEquation equation='\\vec{A} = \\|\\vec{A}\\|  \\hat{u_A}\\' />
 
-<BlueText>Insert the same content here as from the TAM212 Reference Pages (Vectors and Bases - Length of Vectors) for vector magnitude.</BlueText>
+<p>
+  The length of a vector <InlineEquation equation="\\vec{a}" /> is written
+  either <InlineEquation equation="\\| \\vec{a} \\|" /> or just plain \(a\). The
+  length can be computed using <em>Pythagorus’
+  theorem</em>:
+</p>
+
+<DisplayEquation id="rvv-ey" title="Pythagorus' length formula." background=True derivation=True equation="a = \\|\\vec{a}\\|            = \\sqrt{a_1^2 + a_2^2 + a_3^2}">
+  <p>
+    First we prove Pythagorus' theorem for right-angle
+    triangles. For side lengths \(a\) and \(b\) and hypotenuse
+    \(c\), the fact that \(a^2 + b^2 = c^2\) can be seen
+    graphically below, where the gray area is the same before
+    and after the triangles are rotated in the animation:
+  </p>
+
+  <Center>
+    <PrairieDrawCanvas id="rvv-fy-c" width="300" height="300" show_border=False>
+    <p>
+      <button class="anim-toggle:rvv-fy-c" onclick="rvv_fy_c.toggleAnim();">animate</button>
+      <button class="reset:rvv-fy-c" onclick="rvv_fy_c.reset();">reset</button>
+    </p>
+    </PrairieDrawCanvas>
+  </Center>
+
+  <p>
+    Pythagorus' theorem immediately gives us vector lengths
+    in 2D.  To find the length of a vector in 3D we can use
+    Pythagorus' theorem twice, as shown below. This gives
+    the two right-triangle calculations:
+
+    <DisplayEquation equation="\\begin{aligned}      \\ell^2 &amp;= a_1^2 + a_2^2 \\\\      a^2 &amp;= \\ell^2 + a_3^2 = a_1^2 + a_2^2 + a_3^2.      \\end{aligned}" />
+  </p>
+
+  <Center>
+    <PrairieDrawCanvas id="rvv-fr-c" width="300" height="300">
+      Click and drag to rotate.
+    </PrairieDrawCanvas>
+  </Center>
+</DisplayEquation>
+
+<Warning id="rvv-wl" title="Length must be computed in a single basis.">
+    The Pythagorean length formula can only be used if all
+    the components are written in a single orthonormal
+    basis.
+</Warning>
+
+<Center>
+  <PrairieDrawCanvas id="rvv-fl-c" width="400" height="400">
+    <p>
+      Computing the length of a vector using Pythagorus'
+      theorem.
+    </p>
+  </PrairieDrawCanvas>
+</Center>
+
+<p>
+  Some common integer vector lengths are <InlineEquation equation="\\vec{a} = 4\\hat\\imath + 3\\hat\\jmath" /> (length \(a = 5\)) and <InlineEquation equation="\\vec{b} = 12\\hat\\imath + 5\\hat\\jmath"/> (length \(b = 13\)).
+</p>
+
+<Warning id="rvv-wa" title="Adding vectors does not add lengths.">
+  <p>
+    If <InlineEquation equation="\\vec{c} = \\vec{a} + \\vec{b}" />, then <InlineEquation equation="\\|\\vec{c}\\| \\ne \\|\\vec{a}\\| + \\|\\vec{b}\\|" /> unless <InlineEquation equation="\\vec{a}" /> and
+    <InlineEquation equation="\\vec{b}" /> are parallel and in the same direction.
+  </p>
+  <p>
+    It will always be true, however, that <InlineEquation equation="\\|\\vec{c}\\| \\le \\|\\vec{a}\\| + \\|\\vec{b}\\|" />. This fact is known as the
+    <em>triangle inequality</em>, for reasons that should be
+    obvious.
+  </p>
+</Warning>
 
 <p>
 The direction of a vector can be written as a unit vector by dividing the vector components by the vector magnitude. 
 </p>
 
-<Image src='/Statics/VectorsScalarsFigures/UnitVec.jpg' width='4'><BlueText>Taken from TAM210 Lecture 03 Notes - Slide 3</BlueText></Image>
+<Image src='/Statics/VectorsScalarsFigures/UnitVec.jpg' width='4'></Image>
 
 <p>
 Alternatively, the vector components can be determined geometrically via the angles of each component with respect to the Cartesian coordinates. 
 </p>
-
-<BlueText>Can probably make some sort of interactive figure here based on the image from TAM 210 lecture notes - slide 4</BlueText>
 
 </SubSection>
 
@@ -111,25 +238,343 @@ Alternatively, the vector components can be determined geometrically via the ang
 
 <SubSubSection title="Dot Product">
 
-<BlueText>Insert the same content here as from the TAM212 Reference Pages (Vectors and Bases - Dot Product).</BlueText>
+  <p>
+    The <em>dot product</em> (also called the <em>inner
+    product</em> or <em>scalar product</em>) is defined by
+  </p>
 
+<DisplayEquation equation="\\vec{a} \\cdot \\vec{b}= a_1 b_1 + a_2 b_2 + a_3 b_3" title="Dot product from components." background="True"/>
+
+<p>
+    An alternative expression for the dot product can be
+    given in terms of the lengths of the vectors and the
+    angle between them:
+  </p>
+
+<DisplayEquation id="rvv-ed" title="Dot product from length/angle." background="True" equation="\\vec{a} \\cdot \\vec{b}= a b \\cos\\theta" derivation="True">
+
+    <p>
+        We will present a simple 2D proof here. A more complete proof in 3D uses the law of cosines.
+      </p>
+      <p>
+        Start with two vectors <InlineEquation equation="\\vec{a}" /> and <InlineEquation equation="\\vec{b}" /> with an
+        angle <InlineEquation equation="\\theta" /> between them, as shown below.
+      </p>
+      <PrairieDrawCanvas id="rvv-ed-c" width="400" height="400" />
+      <p>
+        Observe that the angle <InlineEquation equation="\\theta" /> between vectors
+        <InlineEquation equation="\\vec{a}" /> and <InlineEquation equation="\\vec{b}" /> is the difference between the
+        <button onclick="rvv_ed_c.toggleOption('angles');">angles</button>
+        <InlineEquation equation="\\theta_a" /> and <InlineEquation equation="\\theta_b" /> from horizontal.
+      </p>
+      <p>
+        If we use the angle sum formula for cosine, we have
+      </p>
+      
+        <DisplayEquation equation="\\begin{aligned} a b \\cos\\theta &amp;= a b            \\cos(\\theta_b - \\theta_a) \\\\ &amp;= a b (\\cos\\theta_b            \\cos\\theta_a + \\sin\\theta_b \\sin\\theta_a)            \\end{aligned}" />
+      
+      <p>
+        We now want to express the sine and cosine of <InlineEquation equation="\\theta_a" />
+        and <InlineEquation equation="\\theta_b" /> in terms of the <button
+        onclick="rvv_ed_c.toggleOption('components');">components</button>
+        of <InlineEquation equation="\\vec{a}" /> and <InlineEquation equation="\\vec{b}" />.
+      </p>
+      <p>
+        We re-arrange the expression so that we can use the fact
+        that <InlineEquation equation="a_1 = a \\cos\\theta_a" /> and <InlineEquation equation="a_2 = a \\sin\\theta_a" />,
+        and similarly for <InlineEquation equation="\\vec{b}" />. This gives:
+      </p>
+      
+        <DisplayEquation equation="\\begin{aligned} a b \\cos\\theta &amp;= (a \\cos\\theta_a)            (b \\cos\\theta_b) + (a \\sin\\theta_a) (b \\sin\\theta_b) \\\\            &amp;= a_1 b_1 + a_2 b_2 \\\\ &amp;= \\vec{a} \\cdot \\vec{b}            \\end{aligned}" />
+      
+</DisplayEquation>
+
+<p>
+  The fact that we can write the dot product <a
+  href="#rvv-es">in terms of components</a> as well as <a
+  href="#rvv-ed">in terms of lengths and angle</a> is very
+  helpful for calculating the length and angles of vectors
+  from the component representations.
+</p>
+
+<DisplayEquation id="rvv-el" title="Length and angle from dot product." background="True" equation="\\begin{aligned} a &amp;= \\sqrt{\\vec{a} \\cdot\\vec{a}} \\\\ \\cos\\theta &amp;= \\frac{\\vec{b}\\cdot \\vec{a}}{b a}\\end{aligned}" derivation="True">
+  <p>
+    The angle between <InlineEquation equation="\\vec{a}" /> and itself is $\theta = 0$,
+    so <InlineEquation equation="\\vec{a} \\cdot \\vec{a} = a^2 \\cos 0 = a^2" />, which
+    gives the first equation for the length in terms of the
+    dot product.
+  </p>
+  <p>
+    The second equation is a rearrangement of <a
+    href="#rvv-ed">#rvv-ed</a>.
+  </p>
+</DisplayEquation>
+
+<p>
+  If two vectors have zero dot product <InlineEquation equation="\\vec{a} \\cdot \\vec{b} = 0" /> then they have an angle of <InlineEquation equation="\\theta = 90^\\circ = \\frac{\\pi}{2}\\rm\\ rad" /> between them and we say that the
+  vectors are <em>perpendicular</em>, <em>orthogonal</em>, or
+  <em>normal</em> to each other.
+</p>
+<p>
+  In 2D we can easily find a perpendicular vector by rotating <InlineEquation equation="\\vec{a}" /> counterclockwise with the following equation.
+</p>
+
+<DisplayEquation id="rvv-en" title="Counterclockwise perpendicular vector in 2D." background="True" equation="\\vec{a}^\\perp = -a_2\\,\\hat\\imath + a_1\\hat\\jmath" derivation="True">
+  <p>
+    It is easy to check that <InlineEquation equation="\\vec{a}^\\perp" /> is always
+    perpendicular to <InlineEquation equation="\\vec{a}" />:
+
+    <DisplayEquation equation="\\vec{a} \\cdot \\vec{a}^\\perp        = (a_1\\,\\hat\\imath + a_2\\,\\hat\\jmath) \\cdot        (-a_2\\,\\hat\\imath + a_1\\hat\\jmath)        = -a_1 a_2 + a_2 a_1 = 0." />
+
+    The fact that <InlineEquation equation="\\vec{a}^\\perp" /> is a <InlineEquation equation="+90^\\circ" /> rotation
+    of <InlineEquation equation="\\vec{a}" /> is apparent from Figure <a
+    href="#rvv-fn">#rvv-fn</a>.
+  </p>
+</DisplayEquation>
+
+<p>
+  In 2D there are two perpendicular directions to a given
+  vector <InlineEquation equation="\\vec{a}" />, given by <InlineEquation equation="\\vec{a}^\\perp" /> and
+  <InlineEquation equation="-\\vec{a}^\\perp" />. In 3D there is are many perpendicular
+  vectors, and there is no simple formula like <a
+  href="#rvv-en">#rvv-en</a> for 3D.
+</p>
+
+<Center>
+  <PrairieDrawCanvas id="rvv-fn-c" width="400" height="300" class="figureImage">
+    <p class="controls">
+      <button class="anim-toggle:rvv-fn-c" onclick="rvv_fn_c.toggleAnim()">animate</button>
+      <button class="reset:rvv-fn-c" onclick="rvv_fn_c.reset()">reset</button>
+      <button class="option-toggle:rvv-fn-c:showComponents" onclick="rvv_fn_c.toggleOption('showComponents')">show components</button>
+    </p>
+    <p class="figureCaption">
+      The perpendicular vector <InlineEquation equation="\\vec{a}^\\perp" /> is always a
+      <InlineEquation equation="+90^\\circ" /> rotation of <InlineEquation equation="\\vec{a}" />.
+    </p>
+  </PrairieDrawCanvas>
+</Center>
 </SubSubSection>
+
+<SubSubSubSection title="Dot product identities">
+<DisplayEquation id="rvi-ed" title="Dot product symmetry." equation="\\vec{a} \\cdot \\vec{b} = \\vec{b} \\cdot \\vec{a}" background="true" derivation="true">
+<p>
+  Using the coordinate expression <a
+  href="rvv.html#rvv-es">#rvv-es</a> gives:
+
+  <DisplayEquation equation="      \\vec{a} \\cdot \\vec{b}      = a_1 b_1 + a_2 b_2 + a_3 b_3      = b_1 a_1 + b_2 a_2 + b_3 a_3      = \\vec{b} \\cdot \\vec{a}." />
+</p>
+</DisplayEquation>
+
+<DisplayEquation id="rvi-eg" title="Dot product vector length." equation="\\vec{a} \\cdot \\vec{a} = \\|a\\|^2" background="true" derivation="true">
+<p>
+  Using the coordinate expression <a
+  href="rvv.html#rvv-es">#rvv-es</a> gives:
+
+  <DisplayEquation equation="      \\vec{a} \\cdot \\vec{a}      = a_1 a_1 + a_2 a_2 + a_3 a_3 = \\|a\\|^2." />
+</p>
+</DisplayEquation>
+
+<DisplayEquation id="rvi-ei" title="Dot product bi-linearity." equation="\\begin{aligned} \\vec{a} \\cdot(\\vec{b} + \\vec{c}) &amp;=\\vec{a} \\cdot \\vec{b} + \\vec{a}\\cdot \\vec{c} \\\\ (\\vec{a} +\\vec{b}) \\cdot \\vec{c} &amp;=\\vec{a} \\cdot \\vec{c} + \\vec{b}\\cdot \\vec{c} \\\\ \\vec{a} \\cdot (\\beta\\vec{b}) &amp;= \\beta (\\vec{a} \\cdot\\vec{b}) = (\\beta \\vec{a}) \\cdot\\vec{b}\\end{aligned}" background="true" derivation="true">
+<p>
+  Using the coordinate expression <a
+  href="rvv.html#rvv-es">#rvv-es</a> gives:
+
+  <DisplayEquation equation="\\begin{aligned}      \\vec{a} \\cdot (\\vec{b} + \\vec{c})      &amp;= a_1 (b_1 + c_1) + a_2 (b_2 + c_2) + a_3 (b_3 + c_3) \\\\      &amp;= (a_1 b_1 + a_2 b_2 + a_3 b_3) + (a_1 c_1 + a_2 c_2 + a_3 c_3) \\\\      &amp;= \\vec{a} \\cdot \\vec{b} + \\vec{a} \\cdot \\vec{c} \\\\      (\\vec{a} + \\vec{b}) \\cdot \\vec{c}      &amp;= (a_1 + b_1) c_1 + (a_2 + b_2) c_2 + (a_3 + b_3) c_3 \\\\      &amp;= (a_1 c_1 + a_2 c_2 + a_3 c_3) + (b_1 c_1 + a_2 c_2 + a_3 c_3) \\\\      &amp;= \\vec{a} \\cdot \\vec{c} + \\vec{b} \\cdot \\vec{c} \\\\      \\vec{a} \\cdot (\\beta \\vec{b})      &amp;= a_1 (\\beta b_1) + a_2 (\\beta b_2) + a_3 (\\beta b_3) \\\\      &amp;= \\beta (a_1 b_1 + a_2 b_2 + a_3 b_3) \\\\      &amp;= \\beta (\\vec{a} \\cdot \\vec{b}) \\\\      &amp;= (\\beta a_1) b_1 + (\\beta a_2) b_2 + (\\beta a_3) b_3 \\\\      &amp;= (\\beta \\vec{a}) \\cdot \\vec{b}.      \\end{aligned}" />
+</p>
+</DisplayEquation>
+</SubSubSubSection>
+
 
 <SubSubSection title="Cross Product">
 
-<p>Formula for a cross product:</p>
-<Image src='/Statics/VectorsScalarsFigures/UnitVecAngles.jpg' width='8'><BlueText>Taken from TAM210 Lecture 03 Notes - Slide 4</BlueText></Image>
+  <p>
+    The cross product can be defined in terms of components by:
+  </p>
 
-<Image src='/Statics/VectorsScalarsFigures/CrossProduct.jpg' width='8' /> 
+  <DisplayEquation id="rvv-ex" title="Cross product in components." equation="\\vec{a} \\times \\vec{b}            = (a_2 b_3 - a_3 b_2) \\,\\hat{\\imath}            + (a_3 b_1 - a_1 b_3) \\,\\hat{\\jmath}            + (a_1 b_2 - a_2 b_1) \\,\\hat{k}" background="true" />
 
-<BlueText>Insert the same content here as from the TAM212 Reference Pages (Vectors and Bases - Cross Product).</BlueText>
+  <p>
+    It is sometimes more convenient to work with cross products
+    of individual basis vectors, which are related as follows.
+  </p>
 
+  <DisplayEquationCustom id="rvv-eo" title="Cross products of basis vectors." background="True" derivation=True>
+    <Center>
+      <PrairieDrawCanvas id="rvv-eo-c" width="500" height="200" show_border="False" />
+    </Center>
+
+    <DisplayEquation equation="\\begin{aligned}\\hat\\imath \\times \\hat\\jmath &amp;= \\hat{k}&amp; \\hat\\jmath \\times \\hat{k} &amp;= \\hat\\imath&amp; \\hat{k} \\times \\hat\\imath &amp;= \\hat\\jmath \\\\\\hat\\jmath \\times \\hat\\imath &amp;= -\\hat{k}&amp; \\hat{k} \\times \\hat\\jmath &amp;= -\\hat\\imath&amp; \\hat\\imath \\times \\hat{k} &amp;= -\\hat\\jmath \\\\\\end{aligned}" />
+
+    <div slot="derivation">
+      <p>
+        Writing the basis vectors in terms of themselves gives the
+        components:
+
+        <DisplayEquation equation="\\begin{aligned}          i_1 &amp;= 1 &amp; i_2 &amp;= 0 &amp; i_3 &amp;= 0 \\\\          j_1 &amp;= 0 &amp; j_2 &amp;= 1 &amp; j_3 &amp;= 0 \\\\          k_1 &amp;= 0 &amp; k_2 &amp;= 0 &amp; k_3 &amp;= 1.          \\end{aligned}" />
+
+        These values can now be substituted into the definition <a
+        href="#rvv-ex">#rvv-ex</a>. For example,
+
+        <DisplayEquation equation="\\begin{aligned}          \\hat\\imath \\times \\hat\\jmath          &amp;= (i_2 j_3 - i_3 j_2) \\,\\hat{\\imath}          + (i_3 j_1 - i_1 j_3) \\,\\hat{\\jmath}          + (i_1 j_2 - i_2 j_1) \\,\\hat{k} \\\\          &amp;= (0 \\times 0 - 0 \\times 1) \\,\\hat{\\imath}          + (0 \\times 0 - 1 \\times 0) \\,\\hat{\\jmath}          + (1 \\times 1 - 0 \\times 0) \\,\\hat{k} \\\\          &amp;= \\hat{k}          \\end{aligned}" />
+
+        The other combinations can be computed similarly.
+      </p>
+    </div>
+  </DisplayEquationCustom>
+  
+  <Warning title="The cross product is not associative." id="rvv-wc">
+    <p>
+      The cross product is not <a
+      href="http://en.wikipedia.org/wiki/Associative_property">associative</a>,
+      meaning that in general
+
+      <DisplayEquation equation="\\vec{a} \\times (\\vec{b} \\times \\vec{c})        \\ne (\\vec{a} \\times \\vec{b}) \\times \\vec{c}." />
+
+      For example,
+
+      <DisplayEquation equation="\\begin{aligned}        \\hat{\\imath} \\times (\\hat{\\imath} \\times \\hat{\\jmath})        &amp;= \\hat{\\imath} \\times \\hat{k} = - \\hat{\\jmath} \\\\        (\\hat{\\imath} \\times \\hat{\\imath}) \\times \\hat{\\jmath}        &amp;= \\vec{0} \\times \\hat{\\jmath} = \\vec{0}.        \\end{aligned}" />
+
+      This means that we should never write an expression like
+
+      <DisplayEquation equation="\\vec{a} \\times \\vec{b} \\times \\vec{c}" />
+
+      because it is not clear in which order we should perform
+      the cross products. Instead, if we have more than one
+      cross product, we should always use parentheses to
+      indicate the order.
+    </p>
+  </Warning>
+
+  <p>
+    Rather than using components, the cross product can be
+    defined by specifying the length and direction of the
+    resulting vector. The direction of <InlineEquation equation="\\vec{a} \\times \\vec{b}" />
+    is orthogonal to both <InlineEquation equation="\\vec{a}" /> and <InlineEquation equation="\\vec{b}" />, with the
+    direction given by the right-hand rule. The magnitude of the
+    cross product is given by:
+  </p>
+
+  <DisplayEquation id="rvv-el2" title="Cross product length." equation="\\| \\vec{a} \\times \\vec{b} \\| = a b \\sin\\theta" background="true" derivation="true">
+    <p>
+      Using <a href="rvi.html#rvi-el">Lagrange's identity</a> we can calculate:
+
+      <DisplayEquation equation="\\begin{aligned}        \\| \\vec{a} \\times \\vec{b} \\|^2        &amp;= \\|\\vec{a}\\|^2 \\|\\vec{b}\\|^2        - (\\vec{a} \\cdot \\vec{b})^2 \\\\        &amp;= a^2 b^2 - (a b \\cos\\theta)^2 \\\\        &amp;= a^2 b^2 (1 - \\cos^2\\theta) \\\\        &amp;= a^2 b^2 \\sin^2\\theta.        \\end{aligned}" />
+
+      Taking the square root of this expression gives the
+      desired cross-product length formula.
+    </p>
+  </DisplayEquation>
+
+  <p>
+    This second form of the cross product definition can also be
+    related to the area of a parallelogram.
+  </p>
+  <Center>
+    <PrairieDrawCanvas id="rvv-fx-c" width="500" height="300">
+      <p>
+        The area of a parallelogram is the length of the base
+        multiplied by the perpendicular height, which is also the
+        magnitude of the cross product of the side vectors.
+      </p>
+    </PrairieDrawCanvas>
+  </Center>
+  <p>
+    A useful special case of the cross product occurs when
+    vector <InlineEquation equation="\\vec{a}" /> is in the 2D <InlineEquation equation="\\hat\\imath,\\hat\\jmath" /> plane
+    and the other vector is in the orthogonal <InlineEquation equation="\\hat{k}" />
+    direction. In this case the cross product rotates <InlineEquation equation="\\vec{a}" />
+    by <InlineEquation equation="90^\\circ" /> counterclockwise to give the perpendicular
+    vector <InlineEquation equation="\\vec{a}^\\perp" />, as follows.
+  </p>
+
+  <DisplayEquation id="rvv-e9" title="Cross product of out-of-plane vector \\( \\hat{k} \\) with 2D vector \\( \\vec{a} = a_1\\,\\hat\\imath + a_2\\,\\hat\\jmath \\)." equation="\\hat{k} \\times \\vec{a} = \\vec{a}^\\perp" background="true" derivation="true">
+    <p>
+      Using <a href="#rvv-eo">#rvv-eo</a> we can compute:
+
+      <DisplayEquation equation="\\begin{aligned}        \\hat{k} \\times \\vec{a}        &amp;= \\hat{k} \\times (a_1\\,\\hat\\imath + a_2\\,\\hat\\jmath) \\\\        &amp; a_1 (\\hat{k} \\times \\hat\\imath) + a_2 (\\hat{k} \\times \\hat\\jmath) \\\\        &amp;= a_1\\,\\hat\\jmath - a_2\\,\\hat\\imath \\\\        &amp;= \\vec{a}^\\perp.        \\end{aligned}" />
+    </p>
+  </DisplayEquation>
 </SubSubSection>
+
+<SubSubSubSection title="Cross product identities">
+<DisplayEquation id="rvi-ea" title="Cross product anti-symmetry." equation="\\begin{aligned} \\vec{a} \\times\\vec{b} = - \\vec{b} \\times\\vec{a}\\end{aligned}" background="true" derivation="true">
+  <p>
+    Writing the component expression <a
+    href="rvv.html#rvv-ex">#rvv-ex</a> gives:
+
+    <DisplayEquation equation="\\begin{aligned}      \\vec{a} \\times \\vec{b}      &amp;= (a_2 b_3 - a_3 b_2) \\,\\hat{\\imath}      + (a_3 b_1 - a_1 b_3) \\,\\hat{\\jmath}      + (a_1 b_2 - a_2 b_1) \\,\\hat{k} \\\\      &amp;= -(a_3 b_2 - a_2 b_3) \\,\\hat{\\imath}      - (a_1 b_3 - a_3 b_1) \\,\\hat{\\jmath}      - (a_2 b_1 - a_1 b_2) \\,\\hat{k} \\\\      &amp;= -\\vec{b} \\times \\vec{a}.      \\end{aligned}" />
+  </p>
+</DisplayEquation>
+
+<DisplayEquation id="rvi-ez" title="Cross product self-annihilation." equation="\\begin{aligned}\\vec{a} \\times \\vec{a} = 0\\end{aligned}" background="true" derivation="true">
+  <p>
+    From anti-symmetry <a href="#rvi-ea">#rvi-ea</a> we
+    have:
+
+    <DisplayEquation equation="\\begin{aligned}      \\vec{a} \\times \\vec{a} &amp;= - \\vec{a} \\times \\vec{a} \\\\      2 \\vec{a} \\times \\vec{a} &amp;= 0 \\\\      \\vec{a} \\times \\vec{a} &amp;= 0.      \\end{aligned}" />
+  </p>
+</DisplayEquation>
+
+<DisplayEquation id="rvi-eb2" title="Cross product bi-linearity." equation="\\begin{aligned}\\vec{a} \\times (\\vec{b} + \\vec{c})&amp;= \\vec{a} \\times \\vec{b} + \\vec{a} \\times \\vec{c} \\\\(\\vec{a} + \\vec{b}) \\times \\vec{c}&amp;= \\vec{a} \\times \\vec{c} + \\vec{b} \\times \\vec{c} \\\\\\vec{a} \\times (\\beta \\vec{b})&amp;= \\beta (\\vec{a} \\times \\vec{b})= (\\beta \\vec{a}) \\times \\vec{b}\\end{aligned}" background="true" derivation="true">
+  <p>
+    Writing the component expression <a
+    href="rvv.html#rvv-ex">#rvv-ex</a> for the first
+    equation gives:
+
+    <DisplayEquation equation="\\begin{aligned}      \\vec{a} \\times (\\vec{b} + \\vec{c})      &amp;= (a_2 (b_3 + c_3) - a_3 (b_2 + c_2)) \\,\\hat{\\imath} \\\\      &amp;\\quad + (a_3 (b_1 + c_1) - a_1 (b_3 + c_3)) \\,\\hat{\\jmath} \\\\      &amp;\\quad + (a_1 (b_2 + c_2) - a_2 (b_1 + c_1)) \\,\\hat{k} \\\\      &amp;= \\Big((a_2 b_3 - a_3 b_2) \\,\\hat{\\imath}      + (a_3 b_1 - a_1 b_3) \\,\\hat{\\jmath}      + (a_1 b_2 - a_2 b_1) \\,\\hat{k} \\Big) \\\\      &amp;\\quad + \\Big((a_2 c_3 - a_3 c_2) \\,\\hat{\\imath}      + (a_3 c_1 - a_1 c_3) \\,\\hat{\\jmath}      + (a_1 c_2 - a_2 c_1) \\,\\hat{k} \\Big) \\\\      &amp;= \\vec{a} \\times \\vec{b} + \\vec{a} \\times \\vec{c}. \\\\      \\end{aligned}" />
+
+    The second equation follows similarly, and for the third
+    equation we have:
+
+    <DisplayEquation equation="\\begin{aligned}      \\vec{a} \\times (\\beta \\vec{b})      &amp;= (a_2 (\\beta b_3) - a_3 (\\beta b_2)) \\,\\hat{\\imath}      + (a_3 (\\beta b_1) - a_1 (\\beta b_3)) \\,\\hat{\\jmath}      + (a_1 (\\beta b_2) - a_2 (\\beta b_1)) \\,\\hat{k} \\\\      &amp;= \\beta \\Big( (a_2 b_3 - a_3 b_2) \\,\\hat{\\imath}      + (a_3 b_1 - a_1 b_3) \\,\\hat{\\jmath}      + (a_1 b_2 - a_2 b_1) \\,\\hat{k} \\Big) \\\\      &amp;= \\beta (\\vec{a} \\times \\vec{b}).      \\end{aligned}" />
+
+    The last part of the third equation can be seen with a
+    similar derivation.
+  </p>
+</DisplayEquation>
+</SubSubSubSection>
 
 <SubSubSection title="Vector Projection">
 
-<BlueText>Insert the same content here as from the TAM212 Reference Pages (Vectors and Bases - Projection and Complementary Projection).</BlueText>
+  <p>
+    The projection and complementary projection are:
+  </p>
 
+  <DisplayEquation background=True id="rvv-ep" title="Projection of \\(\\vec{a}\\) onto \\(\\vec{b}\\)." equation="\\operatorname{Proj}(\\vec{a},\\vec{b})= (\\vec{a} \\cdot \\hat{b}) \\hat{b}= (a \\cos\\theta) \\, \\hat{b}" />
+
+  <DisplayEquation background=True id="rvv-em" title="Complementary projection of \\(\\vec{a}\\) with respect to \\(\\vec{b}\\)." equation="\\begin{aligned}\\operatorname{Comp}(\\vec{a}, \\vec{b})&amp;= \\vec{a} -\\operatorname{Proj}(\\vec{a}, \\vec{b}) =\\vec{a} - (\\vec{a} \\cdot \\hat{b}) \\hat{b} \\\\\\left\\|\\operatorname{Comp}(\\vec{a}, \\vec{b}) \\right\\|&amp;= a \\sin\\theta\\end{aligned}" />
+
+  <p>
+    Adding the projection and the complementary projection of a
+    vector just give the same vector again, as we can see on the
+    figure below.
+  </p>
+
+  <Center>
+    <PrairieDrawCanvas id="rvv-fm-c" width="500" height="300">
+      <p>
+        Projection of <InlineEquation equation="\\vec{a}"/> onto <InlineEquation equation="\\vec{b}"/> and the
+        complementary projection.
+      </p>
+    </PrairieDrawCanvas>
+  </Center>
+
+  <p>
+    As we see in the diagram above, the complementary projection
+    is orthogonal to the reference vector:
+  </p>
+
+  <DisplayEquation title="Complementary projection is orthogonal to the reference." background="True" id="rvv-er" equation="\\operatorname{Comp}(\\vec{a}, \\vec{b}) \\cdot \\vec{b} = 0" derivation=True>
+    <p>
+      Using the definitions of the complementary projection <a
+      href="#rvv-em">rvv-em</a> and projection <a
+      href="#rvv-ep">rvv-ep</a>, we compute:
+
+      <DisplayEquation equation="\\begin{aligned}        \\operatorname{Comp}(\\vec{a}, \\vec{b}) \\cdot \\vec{b}        &amp;= \\Big(\\vec{a} - (\\vec{a} \\cdot \\hat{b})        \\hat{b}\\Big) \\cdot \\vec{b} \\\\        &amp;= \\vec{a} \\cdot \\vec{b} - (\\vec{a} \\cdot \\hat{b})        (\\hat{b} \\cdot \\vec{b}) \\\\        &amp;= a b \\cos\\theta - (a\\cos\\theta) b \\\\        &amp;= 0.        \\end{aligned}" />
+    </p>
+  </DisplayEquation>
 </SubSubSection>
 
 </Layout>
+
+<script src="/sta/vectors_scalars/canvases.js" is:inline></script>
