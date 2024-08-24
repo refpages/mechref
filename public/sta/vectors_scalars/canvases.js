@@ -321,6 +321,171 @@ rvv_fu_c = new PrairieDraw("rvv-fu-c", function() {
         this.rightAngle(ap, ac);
     });
 
+    rvv_ed_c = new PrairieDraw("rvv-ed-c", function() {
+        this.setUnits(5, 3);
+        this.translate($V([-2, -1]));
+        this.addOption("angles", false);
+        this.addOption("components", false);
+                
+        if (this.getOption("angles")) {
+            this.line($V([-2, 0]), $V([5, 0]));
+            this.line($V([0, -2]), $V([0, 3]));
+        }
+                
+        var O = $V([0, 0]);
+        var A = $V([4, 1]);
+        var B = $V([2, 2]);
+                
+        var Ab = $V([A.e(1), 0]);
+        var Bb = $V([B.e(1), 0]);
+                
+        var aType = "position";
+        var bType = "angMom";
+                
+        this.arrow(O, A, aType);
+        this.labelLine(O, A, $V([0.5, 1]), "TEX:$\\vec{a}$");
+        this.arrow(O, B, "angMom");
+        this.labelLine(O, B, $V([0, 1]), "TEX:$\\vec{b}$");
+                
+        var theta_a = this.angleOf(A);
+        var theta_b = this.angleOf(B);
+                
+        this.circleArrow(O, 2, theta_a, theta_b);
+        this.labelCircleLine(O, 2, theta_a, theta_b, $V([0, 1]), "TEX:$\\theta$");
+        if (this.getOption("angles")) {
+            this.circleArrow(O, 1.5, 0, theta_a, aType);
+            this.labelCircleLine(O, 1.5, 0, theta_a, $V([0, 1]), "TEX:$\\theta_a$");
+            this.circleArrow(O, 1, 0, theta_b, bType);
+            this.labelCircleLine(O, 1, 0, theta_b, $V([0.5, 1]), "TEX:$\\theta_b$");
+        }
+                
+        if (this.getOption("components")) {
+            this.line(O, Ab, aType);
+            this.labelLine(O, Ab, $V([0.5, -1]), "TEX:$a_1$");
+                
+            this.line(Ab, A, aType);
+            this.labelLine(Ab, A, $V([0, -1]), "TEX:$a_2$");
+                
+            this.line(O, $V([B.e(1), 0]), bType);
+            this.labelLine(O, Bb, $V([0, -1]), "TEX:$b_1$");
+                
+            this.line(Bb, B, bType);
+            this.labelLine(Bb, B, $V([0, -1]), "TEX:$b_2$");
+        }
+    });
+
+    rvv_fy_c = new PrairieDrawAnim("rvv-fy-c", function(t) {
+        this.setUnits(6.1, 6.1);
+    
+        var a = 4;
+        var b = 2;
+        var d = (a + b) / 2;
+
+        var states = [{"theta": 0},
+                        {"theta": Math.PI / 2},
+                        {"theta": 0}];
+        var transTimes = [2, 2, 0];
+        var holdTimes = [0, 1, 1];
+        var interps = {};
+        var names = ["c", "ab", "c2"];
+        var state = this.newSequence(name, states, transTimes, holdTimes, interps, names, t);
+        var theta = state.theta;
+
+        var p1 = $V([0, 0]);
+        var p2 = $V([0, b]);
+        var p3 = $V([-a, 0]);
+        var drawTri = function(m) {
+            var tp1 = this.transformPos(m, p1);
+            var tp2 = this.transformPos(m, p2);
+            var tp3 = this.transformPos(m, p3);
+            this.polyLine([tp1, tp2, tp3], true);
+            this.labelLine(tp1, tp2, $V([0, 1]), "TEX:$b$");
+            this.labelLine(tp2, tp3, $V([0, 1]), "TEX:$c$");
+            this.labelLine(tp3, tp1, $V([0, 1]), "TEX:$a$");
+        }.bind(this);
+
+        this.save();
+        this.setProp("shapeInsideColor", "rgb(200, 200, 200)");
+        this.rectangle(2 * d, 2 * d);
+        this.restore();
+
+        var m;
+
+        m = this.identityTransform();
+        m = this.translateTransform(m, $V([d, -d]));
+        m = this.translateTransform(m, $V([-a, 0]));
+        m = this.rotateTransform(m, theta);
+        m = this.translateTransform(m, $V([a, 0]));
+        drawTri(m);
+
+        this.save();
+        m = this.identityTransform();
+        m = this.translateTransform(m, $V([d, d]));
+        m = this.translateTransform(m, $V([-b, 0]));
+        m = this.rotateTransform(m, -theta);
+        m = this.translateTransform(m, $V([b, 0]));
+        m = this.rotateTransform(m, Math.PI / 2);
+        drawTri(m);
+
+        m = this.identityTransform();
+        m = this.translateTransform(m, $V([-d, d]));
+        m = this.rotateTransform(m, Math.PI);
+        drawTri(m);
+
+        m = this.identityTransform();
+        m = this.translateTransform(m, $V([-d, -d]));
+        m = this.rotateTransform(m, -Math.PI / 2);
+        drawTri(m);
+
+        if (!state.inTransition && (state.index === 0 || state.index === 2)) {
+            this.text($V([0, 0]), $V([0, 0]), "TEX:$c^2$", true);
+        }
+        if (!state.inTransition && state.index === 1) {
+            this.line($V([b / 2, b / 2]), $V([d, b / 2]));
+            this.text($V([a / 2, a / 2]), $V([0, 0]), "TEX:$b^2$", true);
+            this.text($V([b / 2, -b / 2]), $V([0, 0]), "TEX:$a^2$", true);
+        }
+    });
+
+    rvv_fr_c = new PrairieDrawAnim("rvv-fr-c", function(t) {
+        this.setUnits(2.4, 2.4);
+    
+        var O = $V([0, 0, 0]);
+        var ei = $V([1, 0, 0]);
+        var ej = $V([0, 1, 0]);
+        var ek = $V([0, 0, 1]);
+
+        var a = $V([0.7, 0.8, 0.9]);
+        var ax = $V([a.e(1), 0, 0]);
+        var axy = $V([a.e(1), a.e(2), 0]);
+
+        this.arrow(O, ei);
+        this.arrow(O, ej);
+        this.arrow(O, ek);
+        this.labelLine(O, ei, $V([1, -1]), "TEX:$\\hat\\imath$");
+        this.labelLine(O, ej, $V([1, -1]), "TEX:$\\hat\\jmath$");
+        this.labelLine(O, ek, $V([1, 1]), "TEX:$\\hat{k}$");
+
+        this.line(O, ax);
+        this.labelLine(O, ax, $V([0, -1]), "TEX:$a_1$");
+
+        this.rightAngle(ax, ej, ei.x(-1));
+        this.line(ax, axy);
+        this.labelLine(ax, axy, $V([0, -1]), "TEX:$a_2$");
+
+        this.line(O, axy);
+        this.labelLine(O, axy, $V([0.2, 1]), "TEX:$\\ell$");
+
+        this.rightAngle(axy, axy.x(-1), ek);
+        this.line(axy, a);
+        this.labelLine(axy, a, $V([0, -1]), "TEX:$a_3$");
+
+        this.arrow(O, a, "position");
+        this.labelLine(O, a, $V([-0.2, 1]), "TEX:$a$");
+    });
+
+    rvv_fr_c.activate3DControl();
+
     $( window ).on( "resize", function() {
         rvv_fc_c.redraw();
         rvv_fp1_c.redraw();
@@ -331,5 +496,8 @@ rvv_fu_c = new PrairieDraw("rvv-fu-c", function() {
         rvv_eo_c.redraw();
         rvv_fx_c.redraw();
         rvv_fm_c.redraw();
+        rvv_ed_c.redraw();
+        rvv_fy_c.redraw();
+        rvv_fr_c.redraw();
     });
 });
