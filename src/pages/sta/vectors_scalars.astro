@@ -7,6 +7,7 @@ import SubSubSection from "../../components/SubSubSection.astro"
 import BlueText from "../../components/BlueText.astro" 
 import RedText from "../../components/RedText.astro" 
 import DisplayEquation from "../../components/DisplayEquation.astro" 
+import InlineEquation from "../../components/InlineEquation.astro" 
 ---
 <Layout title="Vectors Scalars">
 <Section title="Vectors and Scalars"></Section>
@@ -19,13 +20,28 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
 
 <SubSubSection title="Vectors">
 
-<BlueText>From TAM212 Reference Pages (Vectors and Bases):</BlueText>
+<SubSection title="Notation">
+
+    <p>
+        Some textbooks differentiate between <em>free
+        vectors</em>, which are free to slide around, and
+        <em>bound vectors</em>, which are anchored in space. We
+        will only use free vectors.
+      </p>
+
+      <p>
+        We will use the over-arrow notation <InlineEquation equation="\\vec{a}" /> for vector
+        quantities. Other common notations include bold
+        <InlineEquation equation="\\boldsymbol{a}" /> and under-bars <InlineEquation equation="\\underline{a}" />. For unit
+        (length one) vectors we will use an over-hat <InlineEquation equation="\\hat{a}" />.
+      </p>
+</SubSection>
 
 <p>
 A <em>vector</em> is an arrow with a length and a direction. Just like positions, vectors exist before we measure or describe them. Unlike positions, vectors can mean many different things, such as position vectors, velocities, etc. Vectors are not anchored to particular positions in space, so we can slide a vector around and locate it at any position.
 </p>
 
-<Image src='/Statics/VectorsScalarsFigures/VectorDef.png' width='4'><BlueText>Taken from TAM212 Reference Pages (Vectors and Bases)</BlueText></Image>
+<Image src='/Statics/VectorsScalarsFigures/VectorDef.png' width='4'></Image>
 
 </SubSubSection>
 
@@ -40,8 +56,6 @@ While a vector represents magnitude and direction, a <em>scalar</em> is a number
 <SubSection title="Vector Operations"></SubSection>
 
 <SubSubSection title="Scaling Vectors">
-
-<BlueText>Taken from TAM212 Reference Pages (Vectors and Bases)</BlueText>
 
 <p>
 Vectors can be multiplied by a scalar number, which multiplies their length. 
