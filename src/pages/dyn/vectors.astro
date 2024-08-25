@@ -90,8 +90,7 @@ import DisplayTable from "../../components/DisplayTable.astro"
         coordinates) are the regular \(x,y\) or \(x,y,z\) coordinates in
         2D and 3D, with perpendicular straight-line axes.
       </p>
-      <Center>
-        <table id="rvp-tc" class="mb-3 table table-responsive">
+        <DisplayTable id="rvp-tc" class_="mb-3">
           <tr>
           <th>coordinate</th>
           <th>name</th>
@@ -110,8 +109,7 @@ import DisplayTable from "../../components/DisplayTable.astro"
           <td>\(-\infty \lt y \lt \infty\)</td>
           <td>vertical distance from the \(x\)-axis</td>
         </tr>
-      </table>
-    </Center>
+      </DisplayTable>
       <p>
         In 3D the \(x\),\(y\),\(z\) axes are oriented in <em>right-handed
         order</em>, so that fingers curling from \(x\) to \(y\) means
@@ -168,8 +166,8 @@ import DisplayTable from "../../components/DisplayTable.astro"
         Polar coordinates are an alternative 2D coordinate system
         that are useful for rotating or circular motion.
       </p>
-    <Center>
-      <table id="rvp-tp" class="mb-3 table table-responsive">
+
+      <DisplayTable id="rvp-tp" class_="mb-3">
             <tr>
             <th>coordinate</th>
             <th>name</th>
@@ -188,7 +186,7 @@ import DisplayTable from "../../components/DisplayTable.astro"
             <td>\(-\pi \lt \theta \le \pi\)</td>
             <td>angle from the \(x\)-axis in the \(x\)–\(y\) plane</td>
             </tr>
-        </DisplayTable>
+          </DisplayTable>
 
     <p>
         The two common extensions of polar coordinates to 3D are

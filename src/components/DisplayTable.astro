@@ -3,7 +3,7 @@ const { id, class_="" } = Astro.props;
 ---
 
 <div id={id + '_container'} class="overflow-auto">
-    <table id={id} class={class_ + ' w-100'} >
+    <table id={id} class={class_ + ' table table-responsive w-100'} >
         <slot/>
     </table>
 </div>
