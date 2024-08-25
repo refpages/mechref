@@ -1,10 +1,10 @@
 ---
-const {title} = Astro.props;
+const {title, id=""} = Astro.props;
 ---
 
 <div class="callout-grid mt-3">
     <div class="w-100 px-0 pe-lg-2">
-        <h2 class="fw-bold text-center" set:html={title}></h2>
+        <h2 class="fw-bold text-center" set:html={title} id={id}></h2>
 
         <slot />
     </div>
