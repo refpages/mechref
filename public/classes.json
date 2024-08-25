@@ -61,6 +61,49 @@
     ]
   ],
   [
+    "Dynamics",
+    [
+      {
+        "id": "vectors",
+        "name": "Vectors"
+      },
+      {
+        "id": "vector_calculus",
+        "name": "Vector Calculus"
+      },
+      {
+        "id": "particle_kinematics",
+        "name": "Particle Kinematics"
+      },
+      {
+        "id": "particle_kinetics",
+        "name": "Particle Kinetics"
+      },
+      
+      {
+        "id": "rigid_body_kinematics",
+        "name": "Rigid Body Kinematics"
+      },
+      {
+        "id": "rigid_body_kinetics",
+        "name": "Rigid Body Kinetics"
+      },
+      
+      {
+        "id": "contact_and_rolling",
+        "name": "Contact And Rolling"
+      },
+      {
+        "id": "work_and_energy",
+        "name": "Work And Energy"
+      },
+      {
+        "id": "questions_to_ask_instructor",
+        "name": "Questions To Ask Instructor"
+      }
+    ]
+  ],
+  [
     "Solid Mechanics",
     [
       {
@@ -118,49 +161,6 @@
       {
         "id": "buckling",
         "name": "Buckling"
-      }
-    ]
-  ],
-  [
-    "Dynamics",
-    [
-      {
-        "id": "vectors",
-        "name": "Vectors"
-      },
-      {
-        "id": "vector_calculus",
-        "name": "Vector Calculus"
-      },
-      {
-        "id": "particle_kinematics",
-        "name": "Particle Kinematics"
-      },
-      {
-        "id": "particle_kinetics",
-        "name": "Particle Kinetics"
-      },
-      
-      {
-        "id": "rigid_body_kinematics",
-        "name": "Rigid Body Kinematics"
-      },
-      {
-        "id": "rigid_body_kinetics",
-        "name": "Rigid Body Kinetics"
-      },
-      
-      {
-        "id": "contact_and_rolling",
-        "name": "Contact And Rolling"
-      },
-      {
-        "id": "work_and_energy",
-        "name": "Work And Energy"
-      },
-      {
-        "id": "questions_to_ask_instructor",
-        "name": "Questions To Ask Instructor"
       }
     ]
   ]

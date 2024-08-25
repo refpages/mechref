@@ -11,6 +11,16 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
 import CalloutCard from "../../components/CalloutCard.astro"
 import CalloutContainer from "../../components/CalloutContainer.astro"
 ---
+<style>
+    th {
+        text-align: center;
+    }
+
+    td{
+        text-align: center;
+    }
+</style>
+
 <Layout title="Stress">
 <Section title="Stress">
 The internal forces and moments generally vary from point to point. Obtaining this distribution is of primary importance in mechanics of materials. The total force in a cross-section, divided by the cross-sectional area, is the <strong>stress</strong>. We use stress to <strong>normalize forces</strong> with respect to the size of the geometry.
@@ -22,11 +32,51 @@ The internal forces and moments generally vary from point to point. Obtaining th
 <SubSection title="Units">
 The units of stress can be found in the table below.
 
-<Image src="/Solid_Mechanics/Stress-Figures/Units.png" width="6"> Table screenshot from ref pages</Image>
+<table class="table table-responsive table-bordered table-sm">
+    <thead>
+        <tr>
+            <th>Measure</th>
+            <th>SI system</th>
+            <th>US system</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Force</td>
+            <td>[\(N\)]</td>
+            <td>[\(lb\)]</td>
+        </tr>
+        <tr>
+            <td>Area</td>
+            <td>[\(m^2\)]</td>
+            <td>[\(in^2\)]</td>
+        </tr>
+        <tr>
+            <td>Stress</td>
+            <td>Pascal = [\(Pa\)] = [\(N/m^2\)]</td>
+            <td>pound per square inch = [\(psi\)] = [\(lb/in^2\)]</td>
+        </tr>
+    </tbody>
+</table>
 
  It is also important to recall some of the most common prefixes used to denote quantity.
 
-<Image src="/Solid_Mechanics/Stress-Figures/Prefixes.png" width="4"> Table screenshot from ref pages</Image>
+ <table class="table table-responsive table-bordered table-sm">
+    <tbody>
+        <tr>
+            <td>kiloPascal [\(kPa\)]</td>
+            <td>\(10^3\) [\(Pa\)]</td>
+        </tr>
+        <tr>
+            <td>megaPascal [\(MPa\)]</td>
+            <td>\(10^6\) [\(Pa\)]</td>
+        </tr>
+        <tr>
+            <td>gigaPascal [\(GPa\)]</td>
+            <td>\(10^9\) [\(Pa\)]</td>
+        </tr>
+    </tbody>
+</table>
 
 Typical sign convention for axial (normal) stress:
 <Itemize>
@@ -64,18 +114,6 @@ We consider a homogeneous distribution of the internal force <InlineEquation equ
 </SubSubSection>
 
 <SubSubSection title="Average Shear Stress">
-
-<CalloutContainer slot="cards">
-    <CalloutCard>
-        <p class="m-0"><u>Test content:</u></p>
-        <img src="https://picsum.photos/400" class="w-100 overflow-hidden">
-    </CalloutCard>
-
-    <CalloutCard>
-        <p class="m-0"><u>Test video:</u></p>
-        <iframe src="https://www.youtube.com/embed/aQf6Q8t1FQE?si=cSAplDLVMVYzCZRx" class="w-100" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-    </CalloutCard>
-</CalloutContainer>
 
 <Image src="/Solid_Mechanics/Stress-Figures/Shear Stress.png" width="2"> Shear stress</Image>
 
