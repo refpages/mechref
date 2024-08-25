@@ -10,11 +10,15 @@ import PrairieDrawCanvas from "../../components/PrairieDrawCanvas.astro"
 import CalloutContainer from "../../components/CalloutContainer.astro"
 import CalloutCard from "../../components/CalloutCard.astro"
 import DisplayEquation from "../../components/DisplayEquation.astro"
+import DisplayTable from "../../components/DisplayTable.astro"
 ---
 
 <style>
     th {
-        padding: 0 15px;
+        text-align: center
+    }
+
+    td {
         text-align: center
     }
 </style>
@@ -27,28 +31,26 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
         coordinates) are the regular \(x,y\) or \(x,y,z\) coordinates in
         2D and 3D, with perpendicular straight-line axes.
       </p>
-      <Center>
-      <table id="rvp-tc" class="mb-3 table table-responsive">
-        <tr>
-          <th>coordinate</th>
-          <th>name</th>
-          <th>range</th>
-          <th>definition</th>
-        </tr>
-        <tr>
-          <td>\(x\)</td>
-          <td>horizontal</td>
-          <td>\(-\infty \lt x \lt \infty\)</td>
-          <td>horizontal distance from the \(y\)-axis</td>
-        </tr>
-        <tr>
-          <td>\(y\)</td>
-          <td>vertical</td>
-          <td>\(-\infty \lt y \lt \infty\)</td>
-          <td>vertical distance from the \(x\)-axis</td>
-        </tr>
-      </table>
-    </Center>
+        <DisplayTable id="rvp-tc" class="mb-3 table">
+            <tr>
+                <th>coordinate</th>
+                <th>name</th>
+                <th>range</th>
+                <th>definition</th>
+            </tr>
+            <tr>
+                <td>\(x\)</td>
+                <td>horizontal</td>
+                <td>\(-\infty \lt x \lt \infty\)</td>
+                <td>horizontal distance from the \(y\)-axis</td>
+            </tr>
+            <tr>
+                <td>\(y\)</td>
+                <td>vertical</td>
+                <td>\(-\infty \lt y \lt \infty\)</td>
+                <td>vertical distance from the \(x\)-axis</td>
+            </tr>
+        </DisplayTable>
       <p>
         In 3D the \(x\),\(y\),\(z\) axes are oriented in <em>right-handed
         order</em>, so that fingers curling from \(x\) to \(y\) means
