@@ -9,11 +9,19 @@
 
     const {page, course} = Astro.props;
 
-    const json_file = `/public/${course}/trees/${page}.json`
+    let data;
 
-    console.log(json_file)
+    if (page !== undefined){
+        const json_file = `/public/${course}/trees/${page}.json`
 
-    const data = await import(json_file /* @vite-ignore */)
+        console.log(json_file)
+
+        data = await import(json_file /* @vite-ignore */)
+    }else{
+        data = '';
+    }
+
+        
 ---
 
 <style>
@@ -35,24 +43,14 @@
     }
 </style>
 
-<div id="nav-tree-container">
-    <ul id="nav-tree-container_ul" >
-    </ul>
+<div id="nav-tree-container" class="d-flex align-items-left">
+
 </div>
 
 <script is:inline define:vars={{data}}>
     console.log(data)
 
-    nav_tree_container  = document.querySelector('#nav-tree-container_ul')
-    console.log(data.default)
-    data.default.forEach(element => {
-        console.log(element)
-        
-        
-        if (element[0] === 'section'){
-            return;
-        }else{
-            nav_tree_container.innerHTML += `<li id="${element[2]}" class='my-0 ${element[0]}'><p >${element[1]}</p></li>`;
-        }
-    });
+    nav_tree_container  = document.querySelector('#nav-tree-container')
+    
+    nav_tree_container.innerHTML = data.default;
 </script>
