@@ -20,9 +20,6 @@ import Col from "../../components/Col.astro"
 <Section title="Vector Calculus"></Section>
 
 <SubSection title="Dot product">
-    <RedText>*This topic appears in 2 reference pages*</RedText>
-    <BlueText>Complete in reference page "vector and bases"</BlueText>
-    <BlueText>Explained in reference page "vector identities"</BlueText>
 
     <p>
         The <em>dot product</em> (also called the <em>inner
@@ -171,9 +168,6 @@ import Col from "../../components/Col.astro"
 </SubSubSection>
 
 <SubSection title="Cross product">
-    <RedText>*This topic appears in 2 reference pages*</RedText>
-    <BlueText>Complete in reference page "vector and bases"</BlueText>
-    <BlueText>Explained in reference page "vector identities"</BlueText>
 
     <p>
       The cross product can be defined in terms of components by:
@@ -349,7 +343,7 @@ import Col from "../../components/Col.astro"
       <Row>
         <Col values="12">
           <div class="d-flex">
-            <p class="m-0 flex-shrink-1">Increment:<p>
+            <p class="m-0 flex-shrink-1">Increment:</p>
             <div class="flex-grow-1 d-flex align-items-baseline"> 
               <input type="range" min="0" max="4" value="2" step="0.01" class="data-input:rvc-fd-c:dt flex-grow-1 mx-2" onchange="rvc_fd_c.setOption('dt', this.value); document.querySelector('span[class*=deltat]').innerText = this.value; console.log(this.value);" oninput="rvc_fd_c.setOption('dt', this.value); document.querySelector('span[class*=deltat]').innerText = this.value;"/>
             \(\Delta t = \) <span class="data-option:rvc-fd-c:deltat mx-2" >2</span> s
@@ -370,7 +364,7 @@ import Col from "../../components/Col.astro"
 
         <Col values="12">
           <div class="d-flex">
-            <p class="m-0 flex-shrink-1">Time:<p>
+            <p class="m-0 flex-shrink-1">Time:</p>
             <div class="flex-grow-1 d-flex align-items-baseline"> 
               <input type="range" min="0" max="10" value="0" step="0.01" class="data-input:rvc-fd-c:t flex-grow-1 mx-2" onchange="rvc_fd_c.setOption('t', this.value); document.querySelector('span[class*=t_step_fd]').innerText = this.value;" oninput="rvc_fd_c.setOption('t', this.value); document.querySelector('span[class*=t_step_fd]').innerText = this.value;"/>
               \(t = \) <span class="data-option:rvc-fd-c:t_step_fd mx-2">0</span> s
@@ -467,13 +461,6 @@ import Col from "../../components/Col.astro"
     differentiating with respect to.  
   </p>
   <p>
-    Leibniz notation is also very convenient for remembering the chain rule.  
-    Consider the following examples of the chain rule in the two notations:
-  </p>
-  <p>
-    <DisplayEquation equation="\\begin{aligned}&amp;\\text{Newton:}&amp;\\dot{y}=y'(x)\\dot{x} \\\\      &amp;\\text{Leibniz:}&amp;\\frac{dy}{dt}=\\frac{dy}{dx}\\frac{dx}{dt}.\\end{aligned}" />
-  </p>
-  <p>
     Notice how, with Leibniz notation, you can imagine the \(dx\)'s "cancelling 
     out" on the right-hand side, leaving you with \(dy/dt\).
   </p>
@@ -506,11 +493,7 @@ import Col from "../../components/Col.astro"
   </PrairieDrawCanvas>
 </SubSection>
 
-<SubSubSection title="Cartesian">
-    <BlueText>Complete in reference page "vector calculus"</BlueText>
-    <RedText>The example in Fig \ref Fig:CartesianDerivatives  could be added:</RedText>
-
-    <Image src="/Dynamics/VectorCalculusFigures/Cartesian Derivatives.png" width="7"> Taken from L03-Notes, slide 6.</Image>
+<SubSubSection title="Cartesian derivatives">
 
     <p>
       In a fixed basis we differentiate a vector by
@@ -586,39 +569,139 @@ import Col from "../../components/Col.astro"
       </p>
     </div>
     </PrairieDrawCanvas>
-    
+
+     <Example title="Differentiating a vector function." id="vcc-dvf">
+        <p>
+          The vector <InlineEquation equation="\\vec{r}(t)" /> is given by
+
+          <DisplayEquation equation="\\vec{r}(t) = 2t^2 \\,\\hat\\imath + 3t \\,\\hat\\jmath" />
+
+          What is <InlineEquation equation="\\dot{\\vec{r}}(t) = \\frac{d}{dt} \\, \\vec{r}(t)" />?
+        </p>
+
+        <div slot="solution">
+          <p>
+           <DisplayEquation equation="\\dot{\\vec{r}}(t) = \\frac{d}{dt} [ 2t^2\\hat\\imath + 3t\\hat\\jmath ] ; =  4t\\hat\\imath + 2t^2\\frac{d}{dt} \\hat\\imath + 3\\hat\\jmath + 3t\\frac{d}{dt} \\hat\\jmath; = \\vec{f}(t) = 4t\\hat\\imath + 3\\hat\\jmath" />
+
+
+          </p>
+        </div>
+      </Example>
+
 </SubSubSection>
     
 <SubSubSection title="Non-Cartesian: Polar basis">
-    <RedText>An example like in Fig \ref Fig:Non-CartesianPolarBasis  could be added in "vector and bases"</RedText> 
 
-    <Image src="/Dynamics/VectorCalculusFigures/Non-Cartesian Polar Basis.png" width="7"> Taken from L03-Notes, slide 7.</Image>
+
+     <Example title="Differentiating a vector function." id="vcc-dvf2">
+        <p>
+          The vector <InlineEquation equation="\\vec{r}(t)" /> is given by
+
+          <DisplayEquation equation="\\vec{r}(t) = 2t^2 \\,\\hat{e}_r + 3t \\,\\hat{e}_\\theta" />
+
+          What is <InlineEquation equation="\\dot{\\vec{r}}(t) = \\frac{d}{dt} \\, \\vec{r}(t)" />?
+        </p>
+
+        <div slot="solution">
+          <p>
+           <DisplayEquation equation="\\dot{\\vec{r}}(t) = \\frac{d}{dt} [ 2t^2\\hat{e}_r + 3t\\hat{e}_\\theta ] ; =  4t\\hat{e}_r + 2t^2\\frac{d}{dt} \\hat{e}_r + 3\\hat{e}_\\theta + 3t\\frac{d}{dt} \\hat{e}_\\theta" />
+          </p>
+              
+      <ul>
+         <li>If only \( r \) changes: <InlineEquation equation="\\dot{\\hat{e}}_r = 0" /> and <InlineEquation equation="\\dot{\\hat{e}}_\\theta = 0" /> </li>
+         <li>If only \( \\theta \) changes: <InlineEquation equation="\\dot{\\hat{e}}_r \neq 0" /> and <InlineEquation equation="\\dot{\\hat{e}}_\\theta \neq 0" /> </li>
+      </ul>
+        </div>
+      </Example>
+
 </SubSubSection>
 
 <SubSubSection title="Graphical estimation">
-    <RedText>The information in Fig  \ref Fig:GraphicalEstimation  could be included as a new section in "vector and bases"</RedText> 
 
     <Image src="/Dynamics/VectorCalculusFigures/Graphical Estimation of Derivatives.png" width="7"> Taken from L03-Notes, slide 8.</Image>
+
 </SubSubSection>
 
-<SubSection title="Chain rule"></SubSection>
+<SubSection title="Chain rule">
+    
+  <p>
+    Leibniz notation is very convenient for remembering the chain rule.  
+    Consider the following examples of the chain rule in the two notations:
+  </p>
 
-<SubSubSection title="Scalars">
-    <BlueText>Complete in "Vector Calculus"</BlueText>
-</SubSubSection>
+    <DisplayEquation equation="\\begin{aligned}&amp;\\text{Newton:}&amp;\\dot{y}=y'(x)\\dot{x} \\\\      &amp;\\text{Leibniz:}&amp;\\frac{dy}{dt}=\\frac{dy}{dx}\\frac{dx}{dt}.\\end{aligned}" />
 
-<SubSubSection title="Second derivative">
-    <BlueText>Complete in "vector Calculus"</BlueText>
-</SubSubSection>
+  <p>
+    Notice how, with Leibniz notation, you can imagine the \(dx\)'s "cancelling 
+    out" on the right-hand side, leaving you with \(dy/dt\).
+  </p>
+
+    <p>
+      The chain rule also applies to vector functions. This is
+      helpful for parameterizing vectors in terms of arc-length
+          \(s\) or other quantities different than time \(t\).
+    </p>
+       
+    <DisplayEquation title="Chain rule for vectors." background="True" equation="\\frac{d}{dt} \\vec{a} (s(t)) = \\frac{d\\vec{a}}{ds}(s(t)) \\frac{ds}{dt}(t) = \\frac{d\\vec{a}}{ds} \\dot{s}" />
+
+    <Example title="Chain rule." id="vcc-chr">
+      <p>
+        A vector is defined in terms of an angle \(\theta\) by <InlineEquation equation="\\vec{r}(\\theta) = \\cos\\theta\\,\\hat\\imath + \\sin\\theta\\,\\hat\\jmath" />. If the angle is given by \(\theta(t) = t^3\), what is <InlineEquation equation="\\dot{\\vec{r}}" />?
+      </p>
+
+
+       <div slot="solution">
+            <p>
+             We can use the chain rule to compute:
+             <p>
+             <DisplayEquation equation="\frac{d}{dt} \vec{r} &= \frac{d}{d\theta} \vec{r} \frac{d}{dt} \theta \\ &= \frac{d}{d\theta}\Big( \cos\theta\,\hat\imath + \sin\theta\,\hat\jmath \Big) \frac{d}{dt} (t^3) \\ &= \Big( -\sin\theta\,\hat\imath + \cos\theta\,\hat\jmath \Big) (3 t^2) \\ &= -3 t^2 \sin(t^3)\,\hat\imath + 3 t^2 \cos(t^3)\,\hat\jmath" />
+                <p>
+                  Alternatively, we can evaluate <InlineEquation equation="\\vec{r}" /> as a
+                  function of \(t\) first and then differentiate it with
+                  respect to time, using the scalar chain rule for
+                  each component:
+                </p>
+                 <DisplayEquation equation=" \frac{d}{dt} \vec{r} &= \frac{d}{dt} \Big( \cos(t^3)\,\hat\imath + \sin(t^3)\,\hat\jmath \Big) \\ &= -3 t^2 \sin(t^3)\,\hat\imath + 3 t^2 \cos(t^3)\,\hat\jmath" />
+                
+        </div>
+    </Example>
+
+</SubSection>
+
     
 <SubSection title="Integration">
-    <RedText>Include summary of both Polar and Cartesian integration as in Fig  \ref fig:SummaryVecInt</RedText>
 
-    <Image src="/Dynamics/VectorCalculusFigures/SummaryVectorIntegration.png" width="7"></Image>
+<p>
+    Cartesian:
+  </p>
+
+    <DisplayEquation equation= "\\vec{v} = \\dot{x} \\hat\\imath + \\dot{y} \\hat\\jmath"/>
+
+  <ul>
+    <li>Integrate <InlineEquation equation="\\dot{x}" />  and <InlineEquation equation="\\dot{y}" /> to find \(x\) and \(y\). </li>
+  </ul>
+  <p>
+    Polar:
+  </p>
+
+    <DisplayEquation equation= "\\vec{v} = \\dot{r} \\hat{e}_r + \\dot{r} \\dot{\\theta} \\hat{e}_\\theta"/>
+
+
+<ul>
+   <li> Reduce <InlineEquation equation="\\dot{r} , r\\dot{\\theta}" />  to just <InlineEquation equation="\\dot{r}" /> and <InlineEquation equation="\\dot{\\theta}" /> before integrating. </li>
+   <li> Integrate scalars <InlineEquation equation="(\\dot{r} , r\\dot{\\theta})" /> rather than vector <InlineEquation equation="\\vec{v}" />. </li>
+</ul>
+ <p>
+    Basic idea:
+  </p>
+    <ol>
+      <li>Reduce the vector equations to scalae equations.</li>
+      <li>Integrate coordinates</li>
+      <li>Reconstruct position vector</li>
+    </ol>
 </SubSection>
 
 <SubSubSection title="Cartesian basis">
-    <BlueText>Complete in "Vector calculus"</BlueText>
 
     <p>
       The Riemann-sum definition of the vector integral is:
@@ -754,15 +837,21 @@ import Col from "../../components/Col.astro"
 </SubSubSection>
 
 <SubSubSection title="Polar basis">
-    <RedText>Add the information in Fig  \ref fig:PolarIntegration</RedText>
     
     <Image src="/Dynamics/VectorCalculusFigures/PolarIntegration.png" width="7"></Image>
 </SubSubSection>
 
 <SubSection title="Solving equations">
-    <RedText>Include step by step on how to solve vector equations as shown in Fig  \ref fig:SolvingEqnsSteps</RedText>
+     <p>
+        Steps:
+    </p>
 
-    <Image src="/Dynamics/VectorCalculusFigures/SolvingEqnsSteps.png" width="7"></Image>
+    <ol>
+      <li>Write vector unknowns in term of scalar variables</li>
+      <li>Expand vector equations and equate components to get scalar variables</li>
+      <li>Solve scalar equations for scalar unknowns</li>
+      <li>Reconstruct vector unknowns</li>
+   </ol>
 
 
     Include examples as shown in Figs \ref fig:SolvingEqns, \ref fig:SolvingEqns2 
