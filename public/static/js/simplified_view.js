@@ -1,4 +1,4 @@
-function toggle_simplified_view(obj){
+/*function toggle_simplified_view(obj){
 
     if (obj.hasAttribute('checked')){
         simp_view_off();
@@ -9,22 +9,7 @@ function toggle_simplified_view(obj){
     
 }
 
-function simp_view_on(){
-    Array.from(document.querySelectorAll('.simp-btn')).forEach(e =>{
-        e.setAttribute('checked', '');
-        console.log(e)
-    });
 
-    Array.from(document.querySelectorAll('.card-grid-fancy')).forEach(e =>{
-        e.classList.add('d-none');
-    });
-
-    Array.from(document.querySelectorAll('.card-grid-simple')).forEach(e =>{
-        e.classList.remove('d-none');
-    });
-
-    localStorage.setItem('simple', JSON.stringify('true'))
-}
 
 function simp_view_off(){
     Array.from(document.querySelectorAll('.simp-btn')).forEach(e =>{
@@ -53,4 +38,25 @@ function load_view(){
     }else{
         simp_view_off()
     }
+}*/
+
+function simp_view_on(){
+    Array.from(document.querySelectorAll('.simp-btn')).forEach(e =>{
+        e.setAttribute('checked', '');
+        console.log(e)
+    });
+
+    Array.from(document.querySelectorAll('.card-grid-fancy')).forEach(e =>{
+        e.classList.add('d-none');
+    });
+
+    Array.from(document.querySelectorAll('.card-grid-simple')).forEach(e =>{
+        e.classList.remove('d-none');
+    });
+
+    localStorage.setItem('simple', JSON.stringify('true'))
 }
+
+$(document).ready(function(){
+    simp_view_on();
+})
