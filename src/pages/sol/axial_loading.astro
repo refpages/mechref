@@ -19,7 +19,7 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
 <ul>
     <li>   <strong>Displacement of points in space:</strong>  the movement of a point relative to its initial position in space (ex;  <InlineEquation equation='\\delta_B' /> )</li>
      <li><strong>Change in length of a segment:</strong>  the relative displacement of a point with respect to another point (ex;  <InlineEquation equation='\\delta_{B/A} = \\delta_B - \\delta_A = \\delta_1' /> ). This can be written multiple ways:
-     <DisplayEquation equation='\\delta_{AD} \\equiv \\delta_{DA} \\equiv \\delta_{A/D} \\equiv \\delta_{D/A}\\' /></li>
+     <DisplayEquation equation='\\delta_{AD} \\equiv \\delta_{DA} \\equiv \\delta_{A/D} \\equiv \\delta_{D/A}\\' title="Notation" background="True"/></li>
 </ul>
 <strong>Sign Conventions for internal forces in a bar.</strong>
 <ul>
@@ -43,35 +43,37 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
 
 <SubSection title="Force-Deformation Relation">
 
-<DisplayEquation equation='\\delta = \\frac{PL}{EA}\\' />
+<DisplayEquation equation='\\delta = \\frac{PL}{EA}\\' title="Relation" background="True" />
 
- Axial Flexibility: <DisplayEquation equation='\\delta = fP   =>   f = \\frac{L}{EA}\\' />
+<DisplayEquation equation='\\delta = fP   =>   f = \\frac{L}{EA}\\' title=" Axial flexibility" background="True" />
 
- Axial Stiffness: <DisplayEquation equation='P = k\\delta   =>   k = \\frac{EA}{L}\\' />
+<DisplayEquation equation='P = k\\delta   =>   k = \\frac{EA}{L}\\' title=" Axial stiffness" background="True" />
 
  <strong>*Expandable Derivation*</strong>
 
-<DisplayEquation equation='P = \\sigma A\\' />
-<DisplayEquation equation='\\sigma = E\\varepsilon\\' />
-<DisplayEquation equation='\\varepsilon = \\delta / L\\' />
-<DisplayEquation equation='=>   P = E\\frac{\\delta}{L}A\\' />
- <strong>**End Derivation**</strong>
+<DisplayEquation equation='P = \\sigma A\\' title="Text above" id="sts-sss" background="True" derivation="True" >
+
+	<DisplayEquation equation='\\sigma = E\\varepsilon\\' />
+	<DisplayEquation equation='\\varepsilon = \\delta / L\\' />
+	<DisplayEquation equation='=>   P = E\\frac{\\delta}{L}A\\' />
+
+</DisplayEquation>
 
 </SubSection>
 
 <SubSection title="Axially Varying Properties"> 
 For non-uniform load, material property and cross-section area:
 
- <DisplayEquation equation='\\delta = \\int_0^L\\frac{F(x)}{E(x)A(x)}dx\\' />
+ <DisplayEquation equation='\\delta = \\int_0^L\\frac{F(x)}{E(x)A(x)}dx\\' title="Variable properties" id="sts-sss" background="True" derivation="True" >
+
+	 <DisplayEquation equation='\\sigma = E\\varepsilon\\' /> 
+	 <DisplayEquation equation='\\frac{F(x)}{A(x)} = E(x)\\varepsilon(x)\\' /> 
+	 <DisplayEquation equation='\\frac{F(x)}{A(x)} = E(x)\\frac{d\\delta(x)}{dx}\\' /> 
+	 <DisplayEquation equation='d\\delta = \\frac{F(x)}{E(x)A(x)}dx\\' />
+
+</DisplayEquation>
 
  Assume variations with <InlineEquation equation='x' /> are "mild" (on length scale longer than cross-sectional length scales)
-
-<strong>*Expandable Derivation*</strong>
- <DisplayEquation equation='\\sigma = E\\varepsilon\\' /> 
- <DisplayEquation equation='\\frac{F(x)}{A(x)} = E(x)\\varepsilon(x)\\' /> 
- <DisplayEquation equation='\\frac{F(x)}{A(x)} = E(x)\\frac{d\\delta(x)}{dx}\\' /> 
- <DisplayEquation equation='d\\delta = \\frac{F(x)}{E(x)A(x)}dx\\' /> 
-<strong>**End Derivation**</strong>
 
 </SubSection>
 
@@ -79,7 +81,7 @@ For non-uniform load, material property and cross-section area:
 
 Superposition: If the displacements are (1) small and (2) linearly related to the force components acting, the displacements caused by the components can be added up:
 
-<DisplayEquation equation='\\delta = \\sum_i \\delta_i = \\sum_i \\frac{F_i L_i}{E_i A_i}\\' />
+<DisplayEquation equation='\\delta = \\sum_i \\delta_i = \\sum_i \\frac{F_i L_i}{E_i A_i}\\' title="Superposition" background="True" />
 
 </SubSection>
 
@@ -128,19 +130,19 @@ All internal forces can be obtained from equilibrium analysis only
 
 <p>
     <InlineEquation equation='\\delta_T' /> ,  <InlineEquation equation='\\varepsilon_T' />  present in addition to elastic  <InlineEquation equation='\\delta_E' /> ,  <InlineEquation equation='\\varepsilon_E' />  (from internal forces). Superposition (small strains):
- <DisplayEquation equation='\\varepsilon_{tot} = \\varepsilon_{E} + \\varepsilon_{T}\\' /> 
-  <DisplayEquation equation='\\delta_{tot} = \\delta_{E} + \\delta_{T}\\' /> 
+ <DisplayEquation equation='\\varepsilon_{tot} = \\varepsilon_{E} + \\varepsilon_{T}\\' title="Total strain" background="True" /> 
+  <DisplayEquation equation='\\delta_{tot} = \\delta_{E} + \\delta_{T}\\' title="Total displacement" background="True" /> 
 </p>
 
 <Image src='/Solid_Mechanics/Axial Loading-Figures/Temperature_NoLoad.png' width='4'>Temperature changes with no applied loads</Image>
 
  A rod rests freely on a smooth horizontal surface. Temperature of the rod is raised by <InlineEquation equation='\\Delta T' />. Rod elongates by an amount.
 
-<DisplayEquation equation='\\delta_{T} = \\alpha \\Delta T L\\' />
+<DisplayEquation equation='\\delta_{T} = \\alpha \\Delta T L\\' title="Displacement from temperature changes." background="True" />
 
  Linear coefficient of thermal expansion <InlineEquation equation='\\alpha' />,  <InlineEquation equation='[\\alpha] = \\frac{1}{K},\\frac{1}{°C},...' />. This deformation is associated with an average thermal strain:
 
-<DisplayEquation equation='\\varepsilon_{T} = \\frac{\\delta_T}{L} = \\alpha T\\' />
+<DisplayEquation equation='\\varepsilon_{T} = \\frac{\\delta_T}{L} = \\alpha T\\' title="Strain from temperature changes." background="True" />
 
 <Image src='/Solid_Mechanics/Axial Loading-Figures/Temperature_TwoPlates.png' width='1.5'>  
     Temperature changes with statically indeterminate beam
@@ -148,39 +150,44 @@ All internal forces can be obtained from equilibrium analysis only
 
  Initially, rod of length <InlineEquation equation='L' /> is placed between two supports at a distance <InlineEquation equation='L' /> from each other. With no internal forces, there is no stress or strain.
 
-<DisplayEquation equation='R_{A} = R_{B} = 0\\' />
-<DisplayEquation equation='R_{A} = F\\' />
+<DisplayEquation equation='R_{A} = R_{B} = 0\\' title="Force balance" background="True" />
+<DisplayEquation equation='R_{A} = F\\' title="Reaction force" background="True" />
                   
  After raising the temperature, the total elongation of the rod is still zero. The total elongation is given by:
 
-<DisplayEquation equation='\\delta = \\frac{FL}{EA} + \\alpha L \\Delta T = 0\\' />
+<DisplayEquation equation='\\delta = \\frac{FL}{EA} + \\alpha L \\Delta T = 0\\' title="Total elongation" background="True" />
 
  The stress in the rod due to change in temperature is given by:
-<DisplayEquation equation='\\sigma = -\\alpha E \\Delta T\\' />
+<DisplayEquation equation='\\sigma = -\\alpha E \\Delta T\\' title="Stress from temperature changes." background="True"  />
 
 </SubSubSection>
 
 <SubSubSection title="Misfit Problems">
+
+<CalloutContainer slot="cards">
+        <CalloutCard title="Heads  up!">
+            <p>
+               <strong> Stress concentration factors </strong> build on this content in engineering materials and mechanical design.
+              </p>
+		<Image src='/Solid_Mechanics/Axial Loading-Figures/Stress_concentration.png' width='1.5'>  
+		    Stress concentraions
+		</Image>
+              <p>
+                 The stress concentration factor is the highest at lowest cross-sectional area.
+		<DisplayEquation equation='K = \\frac{\\sigma_{max}}{\\sigma_{avg}}\\' title="Stress concentration factor" background="True" />
+		<ul>
+			<li>Found experimentally
+		    </li>
+			<li>Solely based on geometry
+		</li>
+		</ul>
+
+              </p>
+        </CalloutCard>
+ </CalloutContainer>
+
 A misfit problem is one in which there is difference between a design distance and the manufactured length of a material. Some misfits are created intentionally to pre-strain a member. (e.g. spokes in a bicycle wheel or strings in a tennis racket). This type of problem neither modifies the equilibrium equations (1) nor the force-extension relations, (2) but the compatibility equations, (3) need to be modified.
 
 </SubSubSection>
 
-<SubSection title="Stress Concentration">
-    
-<BlueText>BSM: we do not cover this topic in class/hw/exams. It is covered in ME 330 and ME 371.</BlueText>
-
- Highest at lowest cross-sectional area.
-
-Stress concentration factor: <DisplayEquation equation='K = \\frac{\\sigma_{max}}{\\sigma_{avg}}\\' />
-
-<ul>
-	<li>Found experimentally
-    </li>
-	<li>Solely based on geometry
-</li>
-</ul>
-
-
- <strong><RedText>**Reference pages have a broken link image here**</RedText></strong>
-</SubSection>
 </Layout>
