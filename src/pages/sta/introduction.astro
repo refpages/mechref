@@ -7,6 +7,7 @@ import SubSubSection from "../../components/SubSubSection.astro"
 import BlueText from "../../components/BlueText.astro" 
 import InlineEquation from "../../components/InlineEquation.astro" 
 import DisplayEquation from "../../components/DisplayEquation.astro" 
+import PrairieDrawCanvas from "../../components/PrairieDrawCanvas.astro"
 ---
 <Layout title="Introduction">
 <Section title="Introduction to Statics"></Section>
@@ -42,7 +43,9 @@ The mutual forces of action and reaction between two particles are equal, opposi
 
 <SubSubSection title="Example">
 
-<PrairieDrawCanvas id="rep-ff-c" width="600" height="600" />
+<PrairieDrawCanvas id="rep-ff-c" width="600" height="600" >
+	A point mass moving in the plane with an applied force. You can try to made the mass move in a circle and then see what happens when the force is suddenly removed, which will demonstrate Newton's first law (no net force implies motion at constant speed in a constant direction). Also observe which force directions cause the speed to increase or decrease.
+</PrairieDrawCanvas>
 
 </SubSubSection>
 
