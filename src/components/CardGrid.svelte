@@ -20,9 +20,19 @@
         justify-content: center;
     }
 
-    a:hover{
-        font-weight: bold;
+    a {
+        font-size: 1.5rem;
     }
+
+    @media(min-width: 992px){
+        a{
+            font-size: 1.1rem;
+        }
+
+        a:hover{
+            font-weight: bold;
+        }
+    }   
 </style>
 
 
@@ -42,7 +52,7 @@
                     
                 </div>
             
-            <ol class="card-grid-simple d-none">
+            <ol class="card-grid-simple">
                 {#each section[1] as page}
                     <li class="">
                         <a href={`/${coursetags[course[0]]}/${page.id}`} class="text-decoration-none text-black">{page.name}</a>
@@ -51,7 +61,7 @@
                 {/each}
             </ol>
             
-            <div class="card-grid card-grid-fancy w-100">
+            <div class="card-grid card-grid-fancy w-100  d-none">
                 {#each section[1] as page}
                     <Card name={page.name} course={course[0]} id={page.id}/>
                 {/each}
