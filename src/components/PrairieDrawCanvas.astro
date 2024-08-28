@@ -16,18 +16,15 @@ import Center from "./Center.astro";
 </style>
 
 
+<Center>
+<div id={id+'_container'}>
+    <canvas id={id} height={height} width={0} class={show_border=='True' ? "canvas-container" : ''}></canvas>
 
-<div class="d-flex flex-column align-items-center" >
-    <Center>
-    <div id={id+'_container'}>
-        <canvas id={id} height={height} width={0} class={show_border=='True' ? "canvas-container" : ''}></canvas>
-    
-        <div class="w-100"> 
-                <slot />
-        </div>
+    <div class="w-100"> 
+            <slot />
     </div>
-    </Center>
 </div>
+</Center>
 
 <script is:inline define:vars={{id, width}}>
     let body_width;
@@ -35,11 +32,10 @@ import Center from "./Center.astro";
 
     function set_width(id, width){
         body_width = $('body').width();
-        canvas_width = Math.min(body_width - 32, width);
+        canvas_width = Math.min(body_width - 24, width);
 
         $('#'+id+'_container').width(canvas_width);
-        document.querySelector(`canvas#${id}`).width = canvas_width - 2;
-        $('#'+id).width(canvas_width);
+        document.querySelector(`canvas#${id}`).width = canvas_width - 4;
     }
 
     set_width(id, width);
