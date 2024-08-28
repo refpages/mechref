@@ -1,4 +1,5 @@
 ---
+import Center from "../../components/Center.astro" 
 import Layout from "../../layouts/Layout.astro" 
 import Image from "../../components/Image.astro" 
 import Section from "../../components/Section.astro" 
@@ -7,18 +8,16 @@ import SubSubSection from "../../components/SubSubSection.astro"
 import BlueText from "../../components/BlueText.astro" 
 import InlineEquation from "../../components/InlineEquation.astro" 
 import DisplayEquation from "../../components/DisplayEquation.astro" 
+import PrairieDrawCanvas from "../../components/PrairieDrawCanvas.astro"
+import DisplayTable from "../../components/DisplayTable.astro"
 ---
 <Layout title="Introduction">
 <Section title="Introduction to Statics"></Section>
 
 <SubSection title="Newton's Laws">
 
-<BlueText>From TAM212 Reference Pages (Kinetics of Point Masses - Newton's Equations):</BlueText>
-
-
 Newton's equations relate the acceleration <InlineEquation equation='\\vec{a}' /> of a point mass with mass <InlineEquation equation='m' /> to the total applied force <InlineEquation equation='\\vec{F}' /> on the mass (sum of all applied forces). There is no derivation for Newton's equations, because they are an assumed model for dynamics. We can only verify them by comparing with experimental evidence, which confirms that Newtonian dynamics are accurate for non-relativistic and non-quantum systems.
 
-They are:
 
 </SubSection>
 
@@ -30,7 +29,7 @@ A particle at rest stays that way unless acted on by unbalanced forces.
 
 <SubSubSection title="Newton's Second Law">
 
-<DisplayEquation equation='\\vec{F} = m \\vec{a}\\' />
+    <DisplayEquation equation="\\vec{F} = m\\vec{a}" background="True" title="Newton's second law: "/>
 
 </SubSubSection>
 
@@ -42,8 +41,11 @@ The mutual forces of action and reaction between two particles are equal, opposi
 
 <SubSubSection title="Example">
 
+<PrairieDrawCanvas id="rep-ff-c" width="600" height="600" >
+	<p>A point mass moving in the plane with an applied force. You can try to made the mass move in a circle and then see what happens when the force is suddenly removed, which will demonstrate Newton's first law (no net force implies motion at constant speed in a constant direction). Also observe which force directions cause the speed to increase or decrease.</p>
 
-<Image src='/Statics/IntroductionFigures/NewtonsLaws.png' width='5'><BlueText>Taken from TAM212 Reference Pages (Kinetics of Point Masses - Newton's Equations)</BlueText></Image>
+  <small><em>Click and drag to impart a force on the particle.</em></small>
+</PrairieDrawCanvas>
 
 </SubSubSection>
 
@@ -64,13 +66,73 @@ In this course, we assume two things about particles:
 
 </SubSubSection>
 
-<SubSubSection title=">Rigid Bodies">
-
+<SubSubSection title="Rigid Bodies">
+<p>
 For rigid bodies, we assume that the object has both mass (similar to particles) but also take its shape into account. 
+</p>
 
+<p>
 We call these bodies "rigid" because we assume that they do not deform under applied forces or moments. 
+</p>
 
-<BlueText>Insert the same content here as from the TAM212 Reference Pages (Rigid Bodies - introductory section at the top of the page).</BlueText>
+<p>
+A <em>rigid body</em> is an extended area of material that
+          includes all the points inside it, and which moves so that
+          the distances and angles between all its points remain
+          constant. The location of a rigid body can be described by
+          the position of one point \(P\) inside it, together with the
+          rotation angle of the body (one angle in 2D, three angles in
+          3D).
+</p>
+    <DisplayTable id="pos">
+        <thead>
+            <tr>
+                <th></th>
+                <th>location description</th>
+                <th>velocity description</th>
+            <tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th>point mass</th>
+                <td>position vector <InlineEquation equation="\\vec{r}_P" /></td>
+                <td>velocity vector <InlineEquation equation="\\vec{ v}_P" /></td>
+            </tr>
+            <tr>
+                <th>rigid body in 2D</th>
+                <td>
+                    <p class="m-0">position vector <InlineEquation equation="\\vec{r}_P" /></p>
+                    <p class="m-0">angle <InlineEquation equation="\\theta" /></p>
+                </td>
+                <td>
+                    <p class="m-0">velocity vector <InlineEquation equation="\\vec{v}_P"/></p>
+                    <p class="m-0">angular velocity <InlineEquation equation="\\omega" /></p>
+                </td>
+            </tr>
+            <tr>
+                <th>rigid body in 3D</th>
+                <td>
+                    <p class="m-0">position vector <InlineEquation equation="\\vec{r}_P"/></p>
+                    <p class="m-0">angles <InlineEquation equation="\\theta,\\phi,\\psi"/></p>
+                </td>
+                <td>
+                    <p class="m-0">velocity vector <InlineEquation equation="\\vec{v}_P"/></p>
+                    <p class="m-0">angular velocity vector <InlineEquation equation="\\vec{\\omega}" /></p>
+                </td>
+            </tr>
+        </tbody>
+    </DisplayTable>
+
+    <p>
+        Neither point masses nor rigid bodies can physically exist,
+        as no body can really be a single point with no extent, and
+        no extended body can be exactly rigid. Despite this, these
+        are very useful models for mechanics and dynamics.
+      </p>
+
 </SubSubSection>
 
 </Layout>
+
+<script src="/sta/introduction/canvases.js" is:inline></script>
+

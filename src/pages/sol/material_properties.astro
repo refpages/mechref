@@ -13,6 +13,16 @@ import Col from "../../components/Col.astro"
 import CalloutCard from "../../components/CalloutCard.astro"
 import CalloutContainer from "../../components/CalloutContainer.astro"
 ---
+<style>
+    th {
+        text-align: center;
+    }
+    td {
+        text-align: center;
+    }
+</style>
+
+
 <Layout title="Material Properties">
 <Section title="Material Properties"></Section>
 
@@ -39,7 +49,36 @@ Loading in this region results <strong>elastic behavior</strong>, meaning the ma
  Hooke's law is used for small deformations in the elastic region. The Young's modulus is the slope <InlineEquation equation="E" />.
 <DisplayEquation equation="\\sigma = E\\varepsilon\\" title="Hooke's law." background="True" />
 
-<Image src='/Solid_Mechanics/Material Properties-Figures/Modulus Examples.png' width='3'> Table screenshot from ref pages. Approximate elastic modulus values for different material families.</Image>
+<table class="table table-responsive table-bordered table-sm">
+    <thead>
+        <tr>
+            <th>Material</th>
+            <th>Young's modulus [\(GPa\)]</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Mild Steel</td>
+            <td>210</td>
+        </tr>
+        <tr>
+            <td>Copper</td>
+            <td>120</td>
+        </tr>
+        <tr>
+            <td>Bone</td>
+            <td>18</td>
+        </tr>
+        <tr>
+            <td>Plastic</td>
+            <td>2</td>
+        </tr>
+        <tr>
+            <td>Rubber</td>
+            <td>0.02</td>
+        </tr>
+    </tbody>
+</table>
 
 
 <strong>Shear Modulus</strong>
