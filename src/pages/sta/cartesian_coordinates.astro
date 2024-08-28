@@ -5,18 +5,151 @@ import Section from "../../components/Section.astro"
 import SubSection from "../../components/SubSection.astro" 
 import BlueText from "../../components/BlueText.astro" 
 import InlineEquation from "../../components/InlineEquation.astro" 
+import Center from "../../components/Center.astro"
+import PrairieDrawCanvas from "../../components/PrairieDrawCanvas.astro"
+import CalloutContainer from "../../components/CalloutContainer.astro"
+import CalloutCard from "../../components/CalloutCard.astro"
+import DisplayEquation from "../../components/DisplayEquation.astro"
+import DisplayTable from "../../components/DisplayTable.astro"
 ---
+
+<style>
+    th {
+        text-align: center
+    }
+
+    td {
+        text-align: center
+    }
+</style>
+
 <Layout title="Cartesian Coordinates">
 <Section title="Cartesian Coordinates">
 
-<BlueText>Insert the same content here as from the TAM212 Reference Pages (Positions and Coordinates - Cartesian Coordinates)</BlueText>
+    <p>
+        Cartesian coordinates (also known as rectangular
+        coordinates) are the regular \(x,y\) or \(x,y,z\) coordinates in
+        2D and 3D, with perpendicular straight-line axes.
+      </p>
+        <DisplayTable id="rvp-tc" class="mb-3 table">
+            <tr>
+                <th>coordinate</th>
+                <th>name</th>
+                <th>range</th>
+                <th>definition</th>
+            </tr>
+            <tr>
+                <td>\(x\)</td>
+                <td>horizontal</td>
+                <td>\(-\infty \lt x \lt \infty\)</td>
+                <td>horizontal distance from the \(y\)-axis</td>
+            </tr>
+            <tr>
+                <td>\(y\)</td>
+                <td>vertical</td>
+                <td>\(-\infty \lt y \lt \infty\)</td>
+                <td>vertical distance from the \(x\)-axis</td>
+            </tr>
+        </DisplayTable>
+      <p>
+        In 3D the \(x\),\(y\),\(z\) axes are oriented in <em>right-handed
+        order</em>, so that fingers curling from \(x\) to \(y\) means
+        the thumb points in the \(z\) direction.
+      </p>
+    <Center>
+        <PrairieDrawCanvas id="rvp-fc-c" width="450" height="450">
+            <p class="figureCaption">
+                Cartesian coordinate system, showing the origin \(O\) and
+                three positions with their coordinates.
+            </p>
+        </PrairieDrawCanvas>
+    </Center>
 
+    <CalloutContainer slot="cards">
+        <CalloutCard title="Notation note">
+            <p>
+                When writing coordinates we can either list the coordinate
+                values explicitly, like \(x = 2\), \(y = 1\), or we can just
+                write the numbers in an ordered list, like \( (2,
+                1) \).
+              </p>
+              <p>
+                Writing them as a list assumes that we know which
+                coordinate system we are using, and which order the
+                coordinates are in. We will typically write the coordinate
+                values explicitly to avoid confusion. This also applies to
+                <a href="rvv.html#rvv-ic">vector components</a>.
+              </p>
+        </CalloutCard>
+    </CalloutContainer>
 </Section>
 
 <SubSection title="Vector Bases">
 
-<BlueText>Insert the same content here as from the TAM212 Reference Pages (Vectors and Bases - Vector Bases)</BlueText>
-
+    <p>
+        To describe vectors mathematically, we write them as a
+        combination of <em>basis vectors</em>. An <em>orthonormal
+        basis</em> is a set of two (in 2D) or three (in 3D) basis
+        vectors which are <em>orthogonal</em> (have 90°
+        angles between them) and <em>normal</em> (have length equal
+        to one). We will not be using non-orthogonal or non-normal
+        bases.
+      </p>
+      <p>
+        Any other vector can be written as a <em>linear
+        combination</em> of the basis vectors:
+      </p>
+      
+      <DisplayEquation id="rvv-ec" title="Components of a vector." background=True equation="\\vec{a} = a_1 \\,\\hat{\\imath}+ a_2 \\,\\hat{\\jmath} + a_3 \\,\\hat{k}"/>
+  
+      <p>
+        The numbers \(a_1, a_2, a_3\) are called the
+        <em>components</em> of <InlineEquation equation="\\vec{a}" /> in the <InlineEquation equation="\\,\\hat{\\imath}, \\hat{\\jmath}, \\hat{k}" /> basis. If we are in 2D then we will
+        only have two components for a vector.
+      </p>
+  
+      <Center>
+        <PrairieDrawCanvas id="rvv-fb-c" width="400" height="300">
+          
+          <p>Writing a vector as the sum of scaled basis vectors. The
+          scale factors are the components of the vector. Here
+          <InlineEquation equation="\\vec{a} = 3\\hat\\imath + 2\\hat\\jmath" />, so the components
+          of <InlineEquation equation="\\vec{a}" /> are \(a_1 = 3\) and \(a_2 = 2\).</p>
+        </PrairieDrawCanvas>
+      </Center>
+  
+      <p>
+        We draw the symbol \(\odot\) (arrow tip) to indicate a vector
+        coming out of the page, and \(\otimes\) (arrow <a
+        href="http://en.wikipedia.org/wiki/Fletching">fletching</a>)
+        to indicate an arrow going into the page.
+      </p>
+  
+      <Center>
+        <PrairieDrawCanvas id="rvv-f3-c" width="400" height="300">
+        <p>
+          Two standard arrangements of the basis vectors when
+              working in 2D. Either \(\hat\jmath\) is the vertical and
+              <InlineEquation equation="\\hat{k}" /> is out of the page, or <InlineEquation equation="\\hat{k}" />  is the vertical
+              and \(\hat\jmath\) is into the page. In both cases
+              \(\hat\imath\) is horizontal.
+        </p>
+        </PrairieDrawCanvas>
+      </Center>
+  
+    <CalloutContainer slot=cards>
+    <CalloutCard title="Notation note">
+        <p>
+        Just <a href="rvp.html#rvp-ic">as for position
+        coordinates</a>, we can write the vector components
+        \(3\hat\imath + 2\hat\jmath\) as the ordered list \((3, 2)\)
+        if we know which basis we are using. Because we often will
+        be using several bases simultaneously, we will generally
+        write the components explicitly in the \(3\hat\imath +
+        2\hat\jmath\) form.
+        </p>
+    </CalloutCard>
+    </CalloutContainer>
 </SubSection>
 
 <SubSection title="Right Hand Rule">
@@ -24,9 +157,11 @@ import InlineEquation from "../../components/InlineEquation.astro"
 The Cartesian system is a "right-handed" coordinate system, which means that we can use the right-hand rule to determine the direction of the <InlineEquation equation='x, y' /> and <InlineEquation equation='z' /> axes. In 3D the <InlineEquation equation='x, y, z' /> axes are oriented in right-handed order, so that fingers curling from <InlineEquation equation='x' /> to <InlineEquation equation='y' /> means the thumb points in the <InlineEquation equation='z' /> direction.
 
 
-<Image src='/Statics/CartCoordFigures/RightHandRule.png' width='2'><BlueText>Taken from TAM 210 Lecture 3 - Slide 3</BlueText></Image>
+<Image src='/Statics/CartCoordFigures/RightHandRule.png' width='2'></Image>
 
 </SubSection>
 
 
 </Layout>
+
+<script src="/sta/cartesian_coordinates/canvases.js" is:inline></script>
