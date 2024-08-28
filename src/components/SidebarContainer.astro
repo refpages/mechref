@@ -1,11 +1,29 @@
 ---
     import Sidebar from "./Sidebar.svelte";
-    import NavTree from "./NavTreeContainer.astro";
+    import NavTree from "./NavTree.astro";
     
     const {page, course} = Astro.props;
 ---
 
-<div>
+<style>
+
+    #nav_container{
+        align-self: start;
+        position: sticky;
+        top: 0;
+        overflow-y: auto;
+        max-height: 100vh;
+    }
+
+    @media (max-width: 1200px){
+        #nav_container{
+            position: relative;
+        }
+    }
+
+</style>
+
+<div id="nav_container" class="d-flex flex-column">
     <Sidebar />
     <NavTree page={page} course={course}/>
 </div>

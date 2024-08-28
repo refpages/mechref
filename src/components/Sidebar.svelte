@@ -8,7 +8,44 @@
     }
 </script>
 
-<div class="flex-shrink-0 p-3 bg-white sidebar w-100">
+<style>
+    :root{
+        --text-main: black;
+        --text-secondary: rgba(71, 71, 71, 0.75);
+    }
+
+    .sidebar-btn:before{
+        content: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='rgba%280,0,0,.5%29' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M5 14l6-6-6-6'/%3e%3c/svg%3e");
+    }
+
+
+    .course-list{
+        list-style-type: none;
+    }
+
+    .course-group p{
+        font-size: 1.75rem;
+        color: var(--text-main);
+    }
+
+    .course-list li a{
+        text-decoration: none;
+        color: var(--text-secondary);
+    }
+
+    #sidebar_container{
+        display: none;
+    }
+
+    @media (min-width: 1200px){
+        #sidebar_container{
+            display: flex;
+            flex-direction: column;
+        }
+    }
+</style>
+
+<div class="flex-shrink-0 p-3 bg-white sidebar w-100" id="sidebar_container">
     <div class="w-100">
         <p class="fw-bold h3 text-center">
             Navigate
