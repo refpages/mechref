@@ -11,7 +11,7 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
 ---
 
 <Layout title="Strain">
-<Section title="Strain">
+<Section title="Strain" id="strain">
 
 <p>
     When forces are applied to a body, <strong>deformation</strong>, the change in length or shape, occurs. The change in length, divided by the original length, is the <strong>strain</strong>. We use strain to <strong>normalize deformations</strong> with respect to the size of the geometry.
@@ -19,13 +19,13 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
 
 </Section>
 
-<SubSection title="Units">
+<SubSection title="Units" id="units">
 
 Dimensionless [mm/mm, in/in, or %]
 
 </SubSection>
 
-<SubSection title="Normal Strain">
+<SubSection title="Normal Strain" id="normal_strain">
 
 <Image src="/Solid_Mechanics/Strain-Figures/Normal Strain.png" width="3.5"> Normal strain</Image>
 
@@ -39,7 +39,7 @@ Dimensionless [mm/mm, in/in, or %]
 
 </SubSection>
 
-<SubSubSection title="Average Normal (extensional) Strain">
+<SubSubSection title="Average Normal (extensional) Strain" id="average_normal_(extensional)_strain">
 
 <Image src="/Solid_Mechanics/Strain-Figures/Avg Normal Strain.png" width="2"> Average normal strain</Image>
 
@@ -68,7 +68,7 @@ Dimensionless [mm/mm, in/in, or %]
 
 </SubSubSection>
 
-<SubSection title="Shear Strain">
+<SubSection title="Shear Strain" id="shear_strain">
 <p>
     Change in <strong>angle</strong> between line segments oriented in perpendicular directions <InlineEquation equation="n" /> and <InlineEquation equation="t" />:
 </p>
@@ -87,7 +87,7 @@ Dimensionless [mm/mm, in/in, or %]
 
 </SubSection>
 
-<SubSubSection title="Average Shear Strain">
+<SubSubSection title="Average Shear Strain" id="average_shear_strain">
 <Image src="/Solid_Mechanics/Strain-Figures/Avg Shear Strain.png" width="5"> Average shear strain</Image>
 
 
@@ -102,7 +102,7 @@ Dimensionless [mm/mm, in/in, or %]
 </Itemize>
 </SubSubSection>
 
-<SubSection title="Strain Tensor">
+<SubSection title="Strain Tensor" id="strain_tensor">
 <p class="mb-0">
     The components of normal and shear strain can be combined into the strain tensor. This is a symmetric matrix.
 </p>
@@ -122,9 +122,9 @@ Dimensionless [mm/mm, in/in, or %]
 </p>
 </SubSection>
 
-<SubSection title="Measurement of Strain"></SubSection>
+<SubSection title="Measurement of Strain" id="measurement_of_strain"></SubSection>
 
-<SubSubSection title="Direct Measurement">
+<SubSubSection title="Direct Measurement" id="direct_measurement">
 
 <p class="mb-0">
     Initial and final lengths of some section of the specimen are measured, perhaps by some handheld device such as a ruler. Axial strain computed directly by following formula:
@@ -136,7 +136,7 @@ Dimensionless [mm/mm, in/in, or %]
 
 </SubSubSection>
  
-<SubSubSection title="Contact Extensometer">
+<SubSubSection title="Contact Extensometer" id="contact_extensometer">
 
 <p>
     A clip-on device that can measure very small deformations. Two clips attach to a specimen before testing. The clips are attached to a transducer body. The transducer outputs a voltage. Changes in voltage output are converted to strain.
@@ -144,10 +144,11 @@ Dimensionless [mm/mm, in/in, or %]
 
 <Image src="/Solid_Mechanics/Strain-Figures/extensometer.jpg" width="2"> A tensile test in the Materials Testing Instructional Laboratory, Talbot Lab, UIUC</Image>
 
+<Image src="/Solid_Mechanics/Strain-Figures/extensometer.jpg" width="2"> A tensile test in the Materials Testing Instructional Laboratory, Talbot Lab, UIUC</Image>
 
 </SubSubSection>
 
-<SubSubSection title="Electrical Resistance Strain Gauges">
+<SubSubSection title="Electrical Resistance Strain Gauges" id="electrical_resistance_strain_gauges">
 <p>
 Small electrical resistors whose resistance charges with strain. Change in resistance can be converted to strain measurement. Often sold as "rosettes", which can measure normal strain in two or more directions. Can be bonded to test specimen.
 </p>
@@ -155,7 +156,7 @@ Small electrical resistors whose resistance charges with strain. Change in resis
 
 </SubSubSection>
 
-<SubSubSection title="Vibrating Wire Strain Gauge">
+<SubSubSection title="Vibrating Wire Strain Gauge" id="vibrating_wire_strain_gauge">
 <p>
 A calibrated wire is set into vibration and its frequency is measured. Small changes in the length of the wire as a result of strain produce a measurable change in frequency, allowing for accurate strain measurements over relatively long gauge lengths.
 </p>
@@ -164,7 +165,7 @@ A calibrated wire is set into vibration and its frequency is measured. Small cha
 
 </SubSubSection>
 
-<SubSubSection title="Digital Image Correlation (DIC)">
+<SubSubSection title="Digital Image Correlation (DIC)" id="digital_image_correlation_(dic)">
 
 <p>
 Image placed on surface of test specimen. Image may consist of speckles or some regular pattern. Deformation of image tracked by digital camera. Image analysis used to determine multiple strain component.

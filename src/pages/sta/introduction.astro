@@ -12,34 +12,34 @@ import PrairieDrawCanvas from "../../components/PrairieDrawCanvas.astro"
 import DisplayTable from "../../components/DisplayTable.astro"
 ---
 <Layout title="Introduction">
-<Section title="Introduction to Statics"></Section>
+<Section title="Introduction to Statics" id="introduction_to_statics"></Section>
 
-<SubSection title="Newton's Laws">
+<SubSection title="Newton's Laws" id="newtons_laws">
 
 Newton's equations relate the acceleration <InlineEquation equation='\\vec{a}' /> of a point mass with mass <InlineEquation equation='m' /> to the total applied force <InlineEquation equation='\\vec{F}' /> on the mass (sum of all applied forces). There is no derivation for Newton's equations, because they are an assumed model for dynamics. We can only verify them by comparing with experimental evidence, which confirms that Newtonian dynamics are accurate for non-relativistic and non-quantum systems.
 
 
 </SubSection>
 
-<SubSubSection title="Newton's First Law">
+<SubSubSection title="Newton's First Law" id="newtons_first_law">
 
 A particle at rest stays that way unless acted on by unbalanced forces. 
 
 </SubSubSection>
 
-<SubSubSection title="Newton's Second Law">
+<SubSubSection title="Newton's Second Law" id="newtons_second_law">
 
     <DisplayEquation equation="\\vec{F} = m\\vec{a}" background="True" title="Newton's second law: "/>
 
 </SubSubSection>
 
-<SubSubSection title="Newton's Third Law">
+<SubSubSection title="Newton's Third Law" id="newtons_third_law">
 
 The mutual forces of action and reaction between two particles are equal, opposite, and collinear. 
 
 </SubSubSection>
 
-<SubSubSection title="Example">
+<SubSubSection title="Example" id="example">
 
 <PrairieDrawCanvas id="rep-ff-c" width="600" height="600" >
 	<p>A point mass moving in the plane with an applied force. You can try to made the mass move in a circle and then see what happens when the force is suddenly removed, which will demonstrate Newton's first law (no net force implies motion at constant speed in a constant direction). Also observe which force directions cause the speed to increase or decrease.</p>
@@ -49,9 +49,9 @@ The mutual forces of action and reaction between two particles are equal, opposi
 
 </SubSubSection>
 
-<SubSection title="Idealizations"></SubSection>
+<SubSection title="Idealizations" id="idealizations"></SubSection>
 
-<SubSubSection title="Particles">
+<SubSubSection title="Particles" id="particles">
 <!-- Could change this section to "Idealizations" and write about particle idealizations, rigid body assumptions, and concentrated / distributed force assumptions.  -->
 
 In this course, we assume two things about particles: 
@@ -66,8 +66,8 @@ In this course, we assume two things about particles:
 
 </SubSubSection>
 
-<SubSubSection title="Rigid Bodies">
-<p>
+<SubSubSection title="Rigid Bodies" id="rigid_bodies">
+
 For rigid bodies, we assume that the object has both mass (similar to particles) but also take its shape into account. 
 </p>
 

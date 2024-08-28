@@ -78,8 +78,9 @@ console.log(cleaned)
 			rgb(var(--accent-light)) 30%,
 			white 60%
 		);
-
-		
+		--text-main: black;
+        --text-secondary: rgba(71, 71, 71, 0.75);
+		--text-tertiary: rgba(81, 81, 81, .65);
 	}
 
 	mjx-container{
@@ -100,6 +101,18 @@ console.log(cleaned)
 		grid-template-columns: 1fr;
 	}
 
+
+	.subsection{
+        color: var(--text-main);
+    }
+
+    .subsubsection{
+        color:var(--text-secondary);
+    }
+
+	.subsubsubsection{
+        color:var(--text-tertiary);
+    }
 
 	@media (min-width: 1200px){
 		.content{

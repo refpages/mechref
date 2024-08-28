@@ -25,9 +25,9 @@ import Center from "../../components/Center.astro"
 
 
 <Layout title="Material Properties">
-<Section title="Material Properties (Images need updating)"></Section>
+<Section title="Material Properties (Images need updating)" id="material_properties"></Section>
 
-<SubSection title="Stress-Strain Diagram">
+<SubSection title="Stress-Strain Diagram" id="stress-strain_diagram">
 
 A <strong>stress-strain diagram</strong> is the relationship of normal stress as a function of normal strain. One way to collect these measurement is a <strong>uniaxial tension test</strong> in which a specimen at a very slow, constant rate (quasi-static). A load <InlineEquation equation="P" /> and distance <InlineEquation equation="L" /> are measured at frequent intervals.
 
@@ -45,7 +45,7 @@ A <strong>stress-strain diagram</strong> is the relationship of normal stress as
 
 <Image src='/Solid_Mechanics/Material Properties-Figures/Stress Strain Diagram.png' width='3'> Stress-strain diagram showing key properties</Image>
 </SubSection>
-<SubSubSection title="Elastic Behavior">
+<SubSubSection title="Elastic Behavior" id="elastic_behavior">
 Loading in this region results <strong>elastic behavior</strong>, meaning the material returns to its original shape when unloaded. This region of the diagram is mostly a straight line, limited by the proportional limit). This region ends at <InlineEquation equation="\\sigma_Y" /> (yielding). For <InlineEquation equation="\\sigma \\le \\sigma_{pl}" />, the diagram is linear, and the behavior is elastic. For <InlineEquation equation="\\sigma_{pl} < \\sigma < \\sigma_Y" />, the diagram is nonlinear, but the behavior is still elastic.
 
 
@@ -101,7 +101,7 @@ Loading in this region results <strong>elastic behavior</strong>, meaning the ma
 
 </SubSubSection>
 
-<SubSubSection title="Plastic Behavior">
+<SubSubSection title="Plastic Behavior" id="plastic_behavior">
 
 Stresses above the plastic limit (<InlineEquation equation="\\sigma_Y < \\sigma" />) cause the material to permanently deform.
 
@@ -175,9 +175,9 @@ Stresses above the plastic limit (<InlineEquation equation="\\sigma_Y < \\sigma"
 
 </SubSubSection>
 
-<SubSection title="Other Derived Properties"></SubSection>
+<SubSection title="Other Derived Properties" id="other_derived_properties"></SubSection>
 
-<SubSubSection title="Directional Materials">
+<SubSubSection title="Directional Materials" id="directional_materials">
 
 <Itemize>
     <Item><strong>Isotropic:</strong> material properties are independent of the direction</Item>
@@ -186,7 +186,7 @@ Stresses above the plastic limit (<InlineEquation equation="\\sigma_Y < \\sigma"
 
 </SubSubSection>
 
-<SubSubSection title="Poisson's Ratio">
+<SubSubSection title="Poisson's Ratio" id="poissons_ratio">
 
 <Image src="/Solid_Mechanics/Material Properties-Figures/Poisson's Ratio.png" width='4'>Poisson's ratio</Image>
 

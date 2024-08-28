@@ -1,0 +1,32 @@
+[
+  [
+    "section",
+    "Trusses",
+    "trusses"
+  ],
+  [
+    "subsection",
+    "Truss Assumptions",
+    "truss_assumptions"
+  ],
+  [
+    "subsection",
+    "Two Force Member",
+    "two_force_member"
+  ],
+  [
+    "subsection",
+    "Zero Force Member",
+    "zero_force_member"
+  ],
+  [
+    "subsection",
+    "Truss Analysis: Joints",
+    "truss_analysis_joints"
+  ],
+  [
+    "subsection",
+    "Truss Analysis: Sections",
+    "truss_analysis_sections"
+  ]
+]
