@@ -862,7 +862,7 @@ import DisplayTable from "../../components/DisplayTable.astro"
 
           <ol>
              <li> How many scalar variables? </li>
-             <li> How many vector equations?? </li>
+             <li> How many vector equations? </li>
              <li> How many scalar equations? </li>
           </ol>
         </p>
@@ -878,7 +878,28 @@ import DisplayTable from "../../components/DisplayTable.astro"
         </div>
       </Example>
 
-    <Image src="/Dynamics/VectorCalculusFigures/SolvingEqns2.png" width="7"></Image>
+<Example title="Extra pratice." id="vcc-ept">
+        <p>
+          Given:
+
+          <DisplayEquation equation="\\vec{r} = (2, -1) ,    \\vec{a} = (-4, - 3)" />
+
+        Find <InlineEquation equation="\\vec{\\omega} , \\vec{\\alpha}" />
+        </p>
+
+        <div slot="solution">
+        <p>
+        Step by step:
+        </p>
+          <ol>
+             <li> Scalar variables: (<InlineEquation equation="\\vec{\\omega}_z , \\vec{\\alpha}_z" />) </li>
+             <li> Expand vector equations: <DisplayEquation equation=" \\begin{aligned} \\vec{a} = \\vect{\\alpha}_z \\vec{r} - \\vec{\\omega}_z^2 \\vec{r} \\\\  &   (-4, -3) = \\alpha_z (1,2) - \\omega_z^2 (2,-1) \\\\   &   \\hat\\imath : -4 = 1 \\alpha_z -2 \\omega_z^2 \\\\   &   \\left(\\hat\\jmath : -3 = 2 \\alpha_z + \\omega_z^2 \\right) \\\\  \\end{aligned}" /> </li>
+             <li> Solve scalar equations (substitution): <DisplayEquation equation=" \\begin{aligned} \\hat\\jmath : \\omega_z^2 = -3 -2 \\alpha_z \\\\  &   \\hat\\imath : -4 = \\alpha_z - 2(-3-2\\alpha_z) \\\\   &   \\hat\\imath : -4 = 5 \\alpha_z +6 \\\\   &   \\alpha_z = -2 \\\\ & \\omega_z^2 = -3 -2 (-2) = 1 \\\\   &   \\omega_z = \pm 1 \\\\ \\end{aligned}" /> </li>
+             <li> Reconstruct vector variables: <DisplayEquation equation=" \\begin{aligned} \\vec\\omega = \pm \\hat{k}  rad/s  \\\\  &   \\vec\\alpha  = -2 \\hat{k} rad/s^2 \\\\    \\end{aligned}" /> </li>
+          </ol>
+            
+        </div>
+      </Example>
 
     <Example title="Follow up question." id="vcc-fwq">
         <p>
