@@ -1,0 +1,27 @@
+[
+  [
+    "section",
+    "Internal Forces",
+    "internal_forces"
+  ],
+  [
+    "subsection",
+    "Sign Conventions",
+    "sign_conventions"
+  ],
+  [
+    "subsection",
+    "General Procedure",
+    "general_procedure"
+  ],
+  [
+    "subsection",
+    "<RedText>General Rules</RedText>",
+    "<redtext>general_rules</redtext>"
+  ],
+  [
+    "subsection",
+    "<RedText>Bending Moment Diagram</RedText>",
+    "<redtext>bending_moment_diagram</redtext>"
+  ]
+]

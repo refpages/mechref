@@ -18,10 +18,9 @@ import Col from "../../components/Col.astro"
 import DisplayTable from "../../components/DisplayTable.astro"
 ---
 <Layout title="Vector Calculus">
-<Section title="Vector Calculus"></Section>
+<Section title="Vector Calculus" id="vector_calculus"></Section>
 
-<SubSection title="Dot product">
-
+<SubSection title="Dot product" id="dot_product">
     <p>
         The <em>dot product</em> (also called the <em>inner
         product</em> or <em>scalar product</em>) is defined by
@@ -139,7 +138,7 @@ import DisplayTable from "../../components/DisplayTable.astro"
     </Center>
 </SubSection>
 
-<SubSubSection title="Dot product identities">
+<SubSubSection title="Dot product identities" id="dot_product_identities">
   <DisplayEquation id="rvi-ed" title="Dot product symmetry." equation="\\vec{a} \\cdot \\vec{b} = \\vec{b} \\cdot \\vec{a}" background="true" derivation="true">
     <p>
       Using the coordinate expression <a
@@ -168,7 +167,8 @@ import DisplayTable from "../../components/DisplayTable.astro"
   </DisplayEquation>
 </SubSubSection>
 
-<SubSection title="Cross product">
+<SubSection title="Cross product" id="cross_product">
+
 
     <p>
       The cross product can be defined in terms of components by:
@@ -278,7 +278,7 @@ import DisplayTable from "../../components/DisplayTable.astro"
     </DisplayEquation>
 </SubSection>
 
-<SubSubSection title="Cross product identities">
+<SubSubSection title="Cross product identities" id="cross_product_identities">
   <DisplayEquation id="rvi-ea" title="Cross product anti-symmetry." equation="\\begin{aligned} \\vec{a} \\times\\vec{b} = - \\vec{b} \\times\\vec{a}\\end{aligned}" background="true" derivation="true">
     <p>
       Writing the component expression <a
@@ -316,7 +316,7 @@ import DisplayTable from "../../components/DisplayTable.astro"
   </DisplayEquation>
 </SubSubSection>
 
-<SubSection title="Derivatives">
+<SubSection title="Derivatives" id="derivatives">
 
   <p>
     Time-dependent vectors can be differentiated in exactly
@@ -398,7 +398,7 @@ import DisplayTable from "../../components/DisplayTable.astro"
 
 </SubSection>
 
-<SubSubSection title="Newton versus Leibniz Notation">
+<SubSubSection title="Newton versus Leibniz Notation" id="newton_versus_leibniz_notation">
   <p>
     Most people know who Isaac Newton is, but perhaps fewer 
     have heard of Gottfried Leibniz. Leibniz was a prolific 
@@ -467,7 +467,7 @@ import DisplayTable from "../../components/DisplayTable.astro"
   </p>
 </SubSubSection>
 
-<SubSection title="Derivatives and vector &quot;positions&quot;">
+<SubSection title="Derivatives and vector &quot;positions&quot;" id="derivatives_and_vector_positions">
 
   <p>
     When thinking about vector derivatives, it is important to
@@ -494,7 +494,8 @@ import DisplayTable from "../../components/DisplayTable.astro"
   </PrairieDrawCanvas>
 </SubSection>
 
-<SubSubSection title="Cartesian derivatives">
+<SubSubSection title="Cartesian" id="cartesian">
+
 
     <p>
       In a fixed basis we differentiate a vector by
@@ -591,7 +592,8 @@ import DisplayTable from "../../components/DisplayTable.astro"
 
 </SubSubSection>
     
-<SubSubSection title="Non-Cartesian: Polar basis">
+<SubSubSection title="Non-Cartesian: Polar basis" id="non-cartesian_polar_basis">
+
 
 
      <Example title="Differentiating a vector function." id="vcc-dvf2">
@@ -616,14 +618,14 @@ import DisplayTable from "../../components/DisplayTable.astro"
       </Example>
 
 </SubSubSection>
+<SubSubSection title="Graphical estimation" id="graphical_estimation">
 
-<SubSubSection title="Graphical estimation">
 
     <Image src="/Dynamics/VectorCalculusFigures/Graphical Estimation of Derivatives.png" width="7"> Taken from L03-Notes, slide 8.</Image>
 
 </SubSubSection>
 
-<SubSection title="Chain rule">
+<SubSection title="Chain rule" id="chain_rule">
     
   <p>
     Leibniz notation is very convenient for remembering the chain rule.  
@@ -701,7 +703,8 @@ import DisplayTable from "../../components/DisplayTable.astro"
     </ol>
 </SubSection>
 
-<SubSubSection title="Cartesian basis">
+<SubSubSection title="Cartesian basis" id="cartesian_basis">
+
 
     <p>
       The Riemann-sum definition of the vector integral is:
@@ -835,13 +838,13 @@ import DisplayTable from "../../components/DisplayTable.astro"
         </p>
       </Warning>
 </SubSubSection>
+<SubSubSection title="Polar basis" id="polar_basis">
 
-<SubSubSection title="Polar basis">
     
     <Image src="/Dynamics/VectorCalculusFigures/PolarIntegration.png" width="7"></Image>
 </SubSubSection>
 
-<SubSection title="Solving equations">
+<SubSection title="Solving equations" id="solving_equations">
      <p>
         Steps:
     </p>

@@ -1,0 +1,72 @@
+[
+  [
+    "section",
+    "Stress Transformation - Inclined sections from other pages have moved",
+    "stress_transformation_-_inclined_sections_from_other_pages_have_moved"
+  ],
+  [
+    "subsection",
+    "General State of Stress",
+    "general_state_of_stress"
+  ],
+  [
+    "subsubsection",
+    "Sign Convention",
+    "sign_convention"
+  ],
+  [
+    "subsection",
+    "Plane Stress",
+    "plane_stress"
+  ],
+  [
+    "subsection",
+    "Plane Stress Transformation",
+    "plane_stress_transformation"
+  ],
+  [
+    "subsubsection",
+    "Sign Convention",
+    "sign_convention"
+  ],
+  [
+    "subsubsection",
+    "Stresses in Inclined Planes - moved from stresses page",
+    "stresses_in_inclined_planes_-_moved_from_stresses_page"
+  ],
+  [
+    "subsubsection",
+    "Torsion in Inclined Planes - moved from torsion page - should this go under the max shear stress subsection?",
+    "torsion_in_inclined_planes_-_moved_from_torsion_page_-_should_this_go_under_the_max_shear_stress_subsection?"
+  ],
+  [
+    "subsection",
+    "Principal Stresses",
+    "principal_stresses"
+  ],
+  [
+    "subsubsection",
+    "Alternative Approach: Eigenvalues",
+    "alternative_approach_eigenvalues"
+  ],
+  [
+    "subsection",
+    "Maximum Shear Stress",
+    "maximum_shear_stress"
+  ],
+  [
+    "subsection",
+    "Mohr's Circle",
+    "mohr's_circle"
+  ],
+  [
+    "subsection",
+    "Interactive: State of Stress",
+    "interactive_state_of_stress"
+  ],
+  [
+    "subsection",
+    "Interactive: State of Stress in a Beam",
+    "interactive_state_of_stress_in_a_beam"
+  ]
+]

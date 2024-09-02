@@ -15,15 +15,15 @@ import PrairieDrawCanvas from "../../components/PrairieDrawCanvas.astro"
 import Warning from "../../components/Warning.astro"
 ---
 <Layout title="Vectors Scalars">
-<Section title="Vectors and Scalars"></Section>
+<Section title="Vectors and Scalars" id="vectors_and_scalars"></Section>
 
 <!-- \subsection{Force Vectors} -->
 
 <!-- I'm not sure we need a reference page for this - or maybe put it at the end? -->
 
-<SubSection title="Scalars vs. Vectors"></SubSection>
+<SubSection title="Scalars vs. Vectors" id="scalars_vs_vectors"></SubSection>
 
-<SubSubSection title="Vectors">
+<SubSubSection title="Vectors" id="vectors">
   <p>
     A <em>vector</em> is an arrow with a length and a direction. Just like positions, vectors exist before we measure or describe them. Unlike positions, vectors can mean many different things, such as position vectors, velocities, etc. Vectors are not anchored to particular positions in space, so we can slide a vector around and locate it at any position.
     </p>
@@ -46,7 +46,7 @@ import Warning from "../../components/Warning.astro"
   </Center>
 </SubSubSection>
 
-<SubSubSubSection title="Notation">
+<SubSubSubSection title="Notation" id="notation">
 
     <p>
         Some textbooks differentiate between <em>free
@@ -64,7 +64,7 @@ import Warning from "../../components/Warning.astro"
 </SubSubSubSection>
 
 
-<SubSubSection title="Scalars">
+<SubSubSection title="Scalars" id="scalars">
 
 <p>
 While a vector represents magnitude and direction, a <em>scalar</em> is a number that represents a magnitude, but with no directional information. Some examples of scalar quantities can be mass, length, time, speed, or temperature. 
@@ -72,9 +72,9 @@ While a vector represents magnitude and direction, a <em>scalar</em> is a number
 
 </SubSubSection>
 
-<SubSection title="Vector Operations"></SubSection>
+<SubSection title="Vector Operations" id="vector_operations"></SubSection>
 
-<SubSubSection title="Scaling Vectors">
+<SubSubSection title="Scaling Vectors" id="scaling_vectors">
 
 <p>
 Vectors can be multiplied by a scalar number, which multiplies their length. 
@@ -86,7 +86,7 @@ Vectors can be multiplied by a scalar number, which multiplies their length.
 
 </SubSubSection>
 
-<SubSubSection title="Vector Addition and Subtraction">
+<SubSubSection title="Vector Addition and Subtraction" id="vector_addition_and_subtraction">
 
 <p>
 Vectors can be added or subtracted together, using the parallelogram law of addition or the head-to-tail rule.
@@ -99,7 +99,7 @@ Vectors can be added or subtracted together, using the parallelogram law of addi
 
 </SubSubSection>
 
-<SubSection title="Unit Vectors">
+<SubSection title="Unit Vectors" id="unit_vectors">
 
   <p>
     A <em>unit vector</em> is any vector with a length of
@@ -142,7 +142,7 @@ Vectors can be added or subtracted together, using the parallelogram law of addi
   </Center>
 </SubSection>
 
-<SubSection title="Vector Magnitude and Direction">
+<SubSection title="Vector Magnitude and Direction" id="vector_magnitude_and_direction">
 
 <p>
 Vectors can be written as a magnitude (length) multiplied by the unit vector in the same direction as the original vector. 
@@ -238,9 +238,9 @@ Alternatively, the vector components can be determined geometrically via the ang
 
 </SubSection>
 
-<SubSection title="Scalar and Vector Products"></SubSection>
+<SubSection title="Scalar and Vector Products" id="scalar_and_vector_products"></SubSection>
 
-<SubSubSection title="Dot Product">
+<SubSubSection title="Dot Product" id="dot_product">
 
   <p>
     The <em>dot product</em> (also called the <em>inner
@@ -359,7 +359,7 @@ Alternatively, the vector components can be determined geometrically via the ang
 </Center>
 </SubSubSection>
 
-<SubSubSubSection title="Dot product identities">
+<SubSubSubSection title="Dot product identities" id="dot_product_identities">
 <DisplayEquation id="rvi-ed" title="Dot product symmetry." equation="\\vec{a} \\cdot \\vec{b} = \\vec{b} \\cdot \\vec{a}" background="true" derivation="true">
 <p>
   Using the coordinate expression <a
@@ -389,7 +389,7 @@ Alternatively, the vector components can be determined geometrically via the ang
 </SubSubSubSection>
 
 
-<SubSubSection title="Cross Product">
+<SubSubSection title="Cross Product" id="cross_product">
 
   <p>
     The cross product can be defined in terms of components by:
@@ -500,7 +500,7 @@ Alternatively, the vector components can be determined geometrically via the ang
   </DisplayEquation>
 </SubSubSection>
 
-<SubSubSubSection title="Cross product identities">
+<SubSubSubSection title="Cross product identities" id="cross_product_identities">
 <DisplayEquation id="rvi-ea" title="Cross product anti-symmetry." equation="\\begin{aligned} \\vec{a} \\times\\vec{b} = - \\vec{b} \\times\\vec{a}\\end{aligned}" background="true" derivation="true">
   <p>
     Writing the component expression <a
@@ -538,7 +538,7 @@ Alternatively, the vector components can be determined geometrically via the ang
 </DisplayEquation>
 </SubSubSubSection>
 
-<SubSubSubSection title="Calculating the cross product">
+<SubSubSubSection title="Calculating the cross product" id="calculating_the_cross_product">
 
 <p>
     The cross products of 3D vectors can be calculated by taking the determinant of specific components of the two vectors. It's best to start by writing a 3x3 matrix with the <InlineEquation equation="\\hat{\\imath}" />, <InlineEquation equation="\\hat{\\jmath}" />, and <InlineEquation equation="\\hat{k}" /> vectors in the first row and the two vectors you are taking the cross product of in the next two rows. 
@@ -552,7 +552,7 @@ Alternatively, the vector components can be determined geometrically via the ang
 
 </SubSubSubSection>
 
-<SubSubSection title="Vector Projection">
+<SubSubSection title="Vector Projection" id="vector_projection">
 
   <p>
     The projection and complementary projection are:

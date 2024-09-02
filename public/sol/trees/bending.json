@@ -1,0 +1,67 @@
+[
+  [
+    "section",
+    "Pure Bending",
+    "pure_bending"
+  ],
+  [
+    "subsection",
+    "Sign Conventions",
+    "sign_conventions"
+  ],
+  [
+    "subsection",
+    "Boundary Conditions",
+    "boundary_conditions"
+  ],
+  [
+    "subsection",
+    "Relations Among Load, Shear, and Mending Moments - does this go with Shear/Moment Diagrams?",
+    "relations_among_load,_shear,_and_mending_moments_-_does_this_go_with_shear/moment_diagrams?"
+  ],
+  [
+    "subsection",
+    "Pure Bending",
+    "pure_bending"
+  ],
+  [
+    "subsection",
+    "Stress-Strain Variations",
+    "stress-strain_variations"
+  ],
+  [
+    "subsection",
+    "Geometry of Deformation",
+    "geometry_of_deformation"
+  ],
+  [
+    "subsection",
+    "Material Behavior: linear elastic beams",
+    "material_behavior_linear_elastic_beams"
+  ],
+  [
+    "subsubsection",
+    "First Moment of Area: Centroid of an Area",
+    "first_moment_of_area_centroid_of_an_area"
+  ],
+  [
+    "subsubsection",
+    "Second Moment or Area Moment of Inertia",
+    "second_moment_or_area_moment_of_inertia"
+  ],
+  [
+    "subsubsection",
+    "Maximum Normal Stress",
+    "maximum_normal_stress"
+  ],
+  [
+    "subsection",
+    "Composite Beams /!\\\\ BSM: no longer covered in TAM 251, not sure if/when it is covered in ME curriculum.",
+    "composite_beams_/!\\\\_bsm_no_longer_covered_in_tam_251,_not_sure_if/when_it_is_covered_in_me_curriculum."
+  ],
+  [
+    "subsection",
+    "Eccentric Axial Loading in a Plane of Symmetry",
+    "eccentric_axial_loading_in_a_plane_of_symmetry"
+  ]
+]

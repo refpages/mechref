@@ -1,8 +1,17 @@
 ---
 import Navbar from '../components/Navbar.astro';
-import Sidebar from '../components/Sidebar.svelte';
+import SidebarContainer from '../components/SidebarContainer.astro';
 
 const { title } = Astro.props;
+
+const current_path = Astro.url;
+const split_ = current_path.pathname.split('/')
+const cleaned = split_.slice(1, split_.length)
+
+const course = cleaned[0]
+const pagename = cleaned[1]
+
+console.log(cleaned)
 ---
 
 <!doctype html>
@@ -34,21 +43,22 @@ const { title } = Astro.props;
 		
 		<link rel="stylesheet" href="/static/css/main.css">
 		<link rel="stylesheet" href="/static/css/sidebar.css">
-	</head>
-	<!-- Google tag (gtag.js) -->
-	<script async src="https://www.googletagmanager.com/gtag/js?id=G-2YD4TR8K2S"></script>
-	<script>
-		window.dataLayer = window.dataLayer || [];
-		function gtag(){dataLayer.push(arguments);}
-		gtag('js', new Date());
+	
+		<!-- Google tag (gtag.js) -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=G-2YD4TR8K2S"></script>
+		<script>
+			window.dataLayer = window.dataLayer || [];
+			function gtag(){dataLayer.push(arguments);}
+			gtag('js', new Date());
 
-		gtag('config', 'G-2YD4TR8K2S');
-	</script>
-	<body class="pb-5 w-100">
+			gtag('config', 'G-2YD4TR8K2S');
+		</script>
+	</head>
+	<body class="w-100">
 		<Navbar/>
-		<div class="container-xxl content">
-			<Sidebar/>
-			<div class="w-100 pt-3">
+		<div class="container-xxl content mb-5">
+			<SidebarContainer page={pagename} course={course}/>
+			<div class="w-100 pt-0 pt-xl-3">
 				<slot />
 			</div>
 
@@ -68,8 +78,9 @@ const { title } = Astro.props;
 			rgb(var(--accent-light)) 30%,
 			white 60%
 		);
-
-		
+		--text-main: black;
+        --text-secondary: rgba(71, 71, 71, 0.75);
+		--text-tertiary: rgba(81, 81, 81, .65);
 	}
 
 	mjx-container{
@@ -83,6 +94,30 @@ const { title } = Astro.props;
 	.callout-grid{
 		display: grid;
 		grid-template-columns: 1fr;
+	}
+
+	.content{
+		display: grid;
+		grid-template-columns: 1fr;
+	}
+
+
+	.subsection{
+        color: var(--text-main);
+    }
+
+    .subsubsection{
+        color:var(--text-secondary);
+    }
+
+	.subsubsubsection{
+        color:var(--text-tertiary);
+    }
+
+	@media (min-width: 1200px){
+		.content{
+			grid-template-columns: 1fr 5fr;
+		}
 	}
 
 	@media (min-width: 992px){

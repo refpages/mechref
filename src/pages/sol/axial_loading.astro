@@ -12,9 +12,9 @@ import InlineEquation from "../../components/InlineEquation.astro"
 import DisplayEquation from "../../components/DisplayEquation.astro" 
 ---
 <Layout title="Axial Loading">
-<Section title="Axial Loading"></Section>
+<Section title="Axial Loading" id="axial_loading"></Section>
 
-<SubSection title="Notation and Convention">
+<SubSection title="Notation and Convention" id="notation_and_convention">
 
 <Image src='/Solid_Mechanics/Axial Loading-Figures/Notation.png' width='5'>Notation</Image>
 
@@ -34,7 +34,7 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
 
 </SubSection>
 
-<SubSection title="Saint-Venant's Principle: slender beam case">
+<SubSection title="Saint-Venant's Principle: slender beam case" id="saint-venants_principle_slender_beam_case">
 
     <Image src='/Solid_Mechanics/Axial Loading-Figures/Saint-Venants.png' width='5'>Notation</Image>
 
@@ -44,7 +44,7 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
 
 </SubSection>
 
-<SubSection title="Force-Deformation Relation">
+<SubSection title="Force-Deformation Relation" id="force-deformation_relation"> 
 
 <DisplayEquation equation='\\delta = \\frac{PL}{EA}\\' title="Relation." background="True" />
 
@@ -63,7 +63,7 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
 
 </SubSection>
 
-<SubSection title="Axially Varying Properties"> 
+<SubSection title="Axially Varying Properties" id="axially_varying_properties"> 
 For non-uniform load, material property and cross-section area:
 
  <DisplayEquation equation='\\delta = \\int_0^L\\frac{F(x)}{E(x)A(x)}dx\\' title="Variable properties." id="sts-vpr" background="True" derivation="True" >
@@ -79,7 +79,7 @@ For non-uniform load, material property and cross-section area:
 
 </SubSection>
 
-<SubSection title="Principle of Superposition ">
+<SubSection title="Principle of Superposition " id="principle_of_superposition_">
 
 Superposition: If the displacements are (1) small and (2) linearly related to the force components acting, the displacements caused by the components can be added up:
 
@@ -87,7 +87,7 @@ Superposition: If the displacements are (1) small and (2) linearly related to th
 
 </SubSection>
 
-<SubSection title="General Solving Procedure">
+<SubSection title="General Solving Procedure" id="general_solving_procedure">
 <ol>
 	<li>Draw a FBD
     </li>
@@ -102,7 +102,7 @@ Superposition: If the displacements are (1) small and (2) linearly related to th
 
 
 
-<SubSection title="Statically Determinate Problems">
+<SubSection title="Statically Determinate Problems" id="statically_determinate_problems">
 
 <Image src='/Solid_Mechanics/Axial Loading-Figures/StaticallyDeterminate.png' width='4'> 
     Statically determinate
@@ -112,7 +112,7 @@ All internal forces can be obtained from equilibrium analysis only
 
 </SubSection>
 
-<SubSection title="Statically Indeterminate Problems">
+<SubSection title="Statically Indeterminate Problems" id="statically_indeterminate_problems">
 
 <Image src='/Solid_Mechanics/Axial Loading-Figures/StaticallyIndeterminate.png' width='3'>
     Statically indeterminate
@@ -122,7 +122,7 @@ All internal forces can be obtained from equilibrium analysis only
 
 </SubSection>
 
-<SubSubSection title="Thermal Effects: Temperature Changes">
+<SubSubSection title="Thermal Effects: Temperature Changes" id="thermal_effects_temperature_changes">
 
 <strong>Notation</strong>
 <ul> 
@@ -164,10 +164,10 @@ All internal forces can be obtained from equilibrium analysis only
 
 </SubSubSection>
 
-<SubSubSection title="Misfit Problems">
+<SubSubSection title="Misfit Problems" id="misfit_problems">
 
 <CalloutContainer slot="cards">
-        <CalloutCard title="Heads  up!">
+        <CalloutCard title="Heads up!">
             <p>
                <strong> Stress concentration factors </strong> build on this content in engineering materials and mechanical design.
               </p>

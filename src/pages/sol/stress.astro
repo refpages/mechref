@@ -22,14 +22,14 @@ import CalloutContainer from "../../components/CalloutContainer.astro"
 </style>
 
 <Layout title="Stress">
-<Section title="Stress">
+<Section title="Stress" id="stress">
 The internal forces and moments generally vary from point to point. Obtaining this distribution is of primary importance in mechanics of materials. The total force in a cross-section, divided by the cross-sectional area, is the <strong>stress</strong>. We use stress to <strong>normalize forces</strong> with respect to the size of the geometry.
 
 
 
 </Section>
 
-<SubSection title="Units">
+<SubSection title="Units" id="units">
 The units of stress can be found in the table below.
 
 <table class="table table-responsive table-bordered table-sm">
@@ -87,7 +87,7 @@ Typical sign convention for axial (normal) stress:
 </SubSection>
 
 
-<SubSection title="Stress under general loading conditions">
+<SubSection title="Stress under general loading conditions" id="stress_under_general_loading_conditions">
 
 We consider a homogeneous distribution of the internal force <InlineEquation equation="\\Delta F" /> over an infinitesimal area <InlineEquation equation="\\Delta A" />. The stress is defined by the infinitesimal force divided by the infinitesimal area.
 
@@ -97,7 +97,7 @@ We consider a homogeneous distribution of the internal force <InlineEquation equ
 </Itemize> 
 </SubSection>
 
-<SubSubSection title="Average Normal Stress - Axial Loading">
+<SubSubSection title="Average Normal Stress - Axial Loading" id="average_normal_stress_-_axial_loading">
 
 <Image src="/Solid_Mechanics/Stress-Figures/Normal Stress.png" width="5"> Normal stress</Image>
 
@@ -113,7 +113,7 @@ We consider a homogeneous distribution of the internal force <InlineEquation equ
 
 </SubSubSection>
 
-<SubSubSection title="Average Shear Stress">
+<SubSubSection title="Average Shear Stress" id="average_shear_stress">
 
 <CalloutContainer slot="cards">
     <CalloutCard title="Extra!">
@@ -162,7 +162,7 @@ Determine the shear stress in the bolt.
 
 </SubSubSection>
 
-<SubSubSection title="Stress Tensor">
+<SubSubSection title="Stress Tensor" id="stress_tensor">
 
 <Image src="/Solid_Mechanics/Stress-Figures/Stress Element.png" width="8"> Stress element</Image>
 
@@ -181,14 +181,14 @@ Determine the shear stress in the bolt.
 
 </SubSubSection>
 
-<SubSection title="Support Reactions">
+<SubSection title="Support Reactions" id="support_reactions">
 
 
 <Image src="/Solid_Mechanics/Stress-Figures/Support reactions.png" width="8"> Support reactions</Image>
 
 </SubSection>
 
-<SubSection title="Allowable Strength Design">
+<SubSection title="Allowable Strength Design" id="allowable_strength_design">
 
 <strong>Design Requirement:</strong> A structural design is intended to support and/or transmit loads while maintaining safety and utility: <strong><em>don't break</em></strong>. Strength of a structure reflects its ability to resist failure.
 
