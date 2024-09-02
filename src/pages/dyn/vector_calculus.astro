@@ -618,12 +618,7 @@ import DisplayTable from "../../components/DisplayTable.astro"
       </Example>
 
 </SubSubSection>
-<SubSubSection title="Graphical estimation" id="graphical_estimation">
 
-
-    <Image src="/Dynamics/VectorCalculusFigures/Graphical Estimation of Derivatives.png" width="7"> Taken from L03-Notes, slide 8.</Image>
-
-</SubSubSection>
 
 <SubSection title="Chain rule" id="chain_rule">
     
@@ -838,10 +833,38 @@ import DisplayTable from "../../components/DisplayTable.astro"
         </p>
       </Warning>
 </SubSubSection>
+
+
 <SubSubSection title="Polar basis" id="polar_basis">
 
-    
-    <Image src="/Dynamics/VectorCalculusFigures/PolarIntegration.png" width="7"></Image>
+    <table class="table table-responsive table-bordered table-sm">
+    <thead>
+        <tr>
+            <th>Vector</th>
+            <th>Scalar equations</th>
+            <th>Initial conditions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><DisplayEquation equation="\\vec{v} = 2\\hat{e}_r + \\hat{e}_\\theta" /> </td>
+            <td><DisplayEquation equation="\\dot{r} = 2" /></td>
+            <td><DisplayEquation equation="r(0) = 1" /></td>
+        </tr>
+        <tr>
+            <td><DisplayEquation equation="\\vec{v} = \\dot{r}\\hat{e}_r + r \\dot{\\theta}\\hat{e}_\\theta" /></td>
+            <td><DisplayEquation equation="r \\dot{\\theta} = 1" /></td>
+            <td><DisplayEquation equation="\\theta(0) = 0" /></td>
+        </tr>
+
+    </tbody>
+</table>
+
+<DisplayEquation equation="\\begin{aligned} \\dot{r} &amp;= 2 \\\\    r &amp;=\\int\\dot{r} dt \\\\ r &amp;=2t + c \\\\    r(0) &amp;=1\\quad  ,\\quad c=1 \\\\ r(t) &amp;=2t + 1 \\\\  \\end{aligned} " title="Radial:" background="True"/>
+
+<DisplayEquation equation="\\begin{aligned} r\\dot{\\theta} &amp;=1 \\\\    \\dot{\\theta} &amp;=\\frac{1}{2t+1} \\\\ \\theta &amp;=\\int \\dot{\\theta}  dt \\\\    \\theta &amp;=\\frac{1}{2} ln(2t+1) + c \\\\ \\theta(0) &amp;=0 \\quad , \\quad c=0 \\\\   \\theta(t) &amp;= \\frac{1}{2} ln (2t+1) \\\\  \\end{aligned} " title="Angular:" background="True"/>
+
+	
 </SubSubSection>
 
 <SubSection title="Solving equations" id="solving_equations">
@@ -881,7 +904,7 @@ import DisplayTable from "../../components/DisplayTable.astro"
         </div>
       </Example>
 
-<Example title="Extra pratice." id="vcc-ept">
+<Example title="Extra practice." id="vcc-ept">
         <p>
           Given:
 
@@ -896,9 +919,9 @@ import DisplayTable from "../../components/DisplayTable.astro"
         </p>
           <ol>
              <li> Scalar variables: (<InlineEquation equation="\\vec{\\omega}_z , \\vec{\\alpha}_z" />) </li>
-             <li> Expand vector equations: <DisplayEquation equation=" \\begin{aligned} \\vec{a} = \\vec{\\alpha}_z \\vec{r} - \\vec{\\omega}_z^2 \\vec{r} \\\\  &   (-4, -3) = \\alpha_z (1,2) - \\omega_z^2 (2,-1) \\\\   &   \\hat\\imath : -4 = 1 \\alpha_z -2 \\omega_z^2 \\\\   &   \\left(\\hat\\jmath : -3 = 2 \\alpha_z + \\omega_z^2 \\right) \\\\  \\end{aligned}" /> </li>
-             <li> Solve scalar equations (substitution): <DisplayEquation equation=" \\begin{aligned} \\hat\\jmath : \\omega_z^2 = -3 -2 \\alpha_z \\\\  &   \\hat\\imath : -4 = \\alpha_z - 2(-3-2\\alpha_z) \\\\   &   \\hat\\imath : -4 = 5 \\alpha_z +6 \\\\   &   \\alpha_z = -2 \\\\ & \\omega_z^2 = -3 -2 (-2) = 1 \\\\   &   \\omega_z = \\pm 1 \\\\ \\end{aligned}" /> </li>
-             <li> Reconstruct vector variables: <DisplayEquation equation=" \\begin{aligned} \\vec\\omega = \\pm \\hat{k}  rad/s  \\\\  &   \\vec\\alpha  = -2 \\hat{k} rad/s^2 \\\\    \\end{aligned}" /> </li>
+             <li> Expand vector equations: <DisplayEquation equation=" \\begin{aligned} \\vec{a} &amp;=\\vec{\\alpha}_z \\vec{r} - \\vec{\\omega}_z^2 \\vec{r} \\\\  (-4, -3) &amp;=\\alpha_z (1,2) - \\omega_z^2 (2,-1) \\\\  \\hat\\imath : -4 &amp;=1 \\alpha_z -2 \\omega_z^2 \\\\   (\\hat\\jmath : -3 &amp;=2 \\alpha_z + \\omega_z^2) \\\\  \\end{aligned}" /> </li>
+             <li> Solve scalar equations (substitution): <DisplayEquation equation=" \\begin{aligned} \\hat\\jmath : \\omega_z^2 &amp;=-3 -2 \\alpha_z \\\\   \\hat\\imath : -4 &amp;=\\alpha_z - 2(-3-2\\alpha_z) \\\\   \\hat\\imath : -4 &amp;=5 \\alpha_z +6 \\\\   \\alpha_z  &amp;=-2 \\\\  \\omega_z^2 &amp;=-3 -2 (-2) = 1 \\\\    \\omega_z &amp;=\\pm 1 \\\\ \\end{aligned}" /> </li>
+             <li> Reconstruct vector variables: <DisplayEquation equation=" \\begin{aligned} \\vec\\omega &amp;= \\pm \\hat{k} \\rm\\   rad/s  \\\\    \\vec\\alpha  &amp;=-2 \\hat{k} \\rm\\ rad/s^2 \\\\    \\end{aligned}" /> </li>
           </ol>
             
         </div>
