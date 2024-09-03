@@ -12,6 +12,26 @@ import PrairieDrawCanvas from "../../components/PrairieDrawCanvas.astro"
 import DisplayTable from "../../components/DisplayTable.astro"
 ---
 <Layout title="Introduction">
+
+<div slot="navtree">
+    <ul class='list-group list-group-flush py-0'> 
+        <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#newtons_laws'>Newton's laws</a>
+            <ul class='list-group list-group-flush py-0'> 
+                <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#newtons_first_law'>Newton's First Law</a></li> 
+                <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#newtons_second_law'>Newton's Second Law</a></li> 
+                <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#newtons_third_law'>Newton's Third Law</a></li> 
+                <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#example'>Example</a></li> 
+            </ul>
+        </li> 
+        <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#idealizations'>Idealizations</a>
+            <ul class='list-group list-group-flush py-0'> 
+                <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#particles'>Particles</a></li> 
+                <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#rigid_bodies'>Rigid Bodies</a></li> 
+            </ul>
+        </li>
+    </ul>
+</div>
+
 <Section title="Introduction to Statics" id="introduction_to_statics"></Section>
 
 <SubSection title="Newton's Laws" id="newtons_laws">

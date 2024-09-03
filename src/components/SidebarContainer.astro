@@ -1,8 +1,53 @@
 ---
     import Sidebar from "./Sidebar.svelte";
-    import NavTree from "./NavTree.astro";
     
     const {page, course} = Astro.props;
+
+    const pretty_page_names = {
+        'sta': {
+            'introduction': 'Introduction',
+            'cartesian_coordinates': 'Cartesian Coordinates',
+            'vectors_scalars': 'Vectors Scalars',
+            'free_body_diagrams': 'Free Body Diagrams',
+            'moments': 'Moments',
+            'forcesystems': 'Force Systems',
+            'reaction_forces': 'Reaction Forces',
+            'internal_forces': 'Internal Forces',
+            'trusses': 'Trusses',
+            'friction': 'Friction',
+            'centers_of_mass': 'Centers Of Mass',
+            'hydrostatic_fluid_pressure': 'Hydrostatic Fluid Pressure',
+            'moment_of_inertia': 'Moment Of Inertia',
+            'virtual_work': 'Virtual Work'
+        },
+        'dyn': {
+            'vectors': 'Vectors',
+            'vector_calculus': 'Vector Calculus',
+            'particle_kinematics': 'Particle Kinematics',
+            'particle_kinetics': 'Particle Kinetics',
+            'rigid_body_kinematics': 'Rigid Body Kinematics',
+            'rigid_body_kinetics': 'Rigid Body Kinetics',
+            'contact_and_rolling': 'Contact And Rolling',
+            'work_and_energy': 'Work And Energy',
+            'questions_to_ask_instructor': 'Questions To Ask Instructor'
+        },
+        'sol': {
+            'stress': 'Stress',
+            'strain': 'Strain',
+            'material_properties': 'Material Properties',
+            'axial_loading': 'Axial Loading',
+            'torsion': 'Torsion',
+            'shear_moment_diagrams': 'Shear Moment Diagrams',
+            'bending': 'Bending',
+            'transverse_shear': 'Transverse Shear',
+            'pressure_vessels': 'Pressure Vessels',
+            'combined_loading': 'Combined Loading',
+            'stress_transformation': 'Stress Transformation',
+            'failure_theories': 'Failure Theories',
+            'beam_deflection': 'Beam Deflection',
+            'buckling': 'Buckling'
+        }
+    }
 ---
 
 <style>
@@ -21,9 +66,37 @@
         }
     }
 
+    .sidebar-btn:before{
+        content: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='rgba%280,0,0,.5%29' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M5 14l6-6-6-6'/%3e%3c/svg%3e");
+    }
+
+    
+
+    #nav-tree-container_ul{
+        list-style-type: none;
+    }
+
+    #hideable-container{
+        display: flex;
+        flex-direction: column;
+    }
 </style>
 
 <div id="nav_container" class="d-flex flex-column">
     <Sidebar />
-    <NavTree page={page} course={course}/>
+    <div class="d-flex flex-column align-items-left mb-0 mb-xl-4 ps-3 mt-3 mt-xl-0 w-100" id="hideable-container">
+        {(page && course) &&
+        <p class="mb-2 fw-bold text-black h5 text-decoration-underline ">Current page:</p> 
+        <button class="btn d-inline-flex align-items-center rounded collapsed sidebar-btn p-0 mb-1" data-bs-toggle="collapse" data-bs-target="#navtree-collapse">
+            
+            <p class='text-start text-black my-0 h5 fw-bold text-wrap '>{pretty_page_names[course][page]}</p>
+        </button>
+        <div id="navtree-collapse" class="collapse">
+            <ul class='list-group list-group-flush py-0' id="nav-tree-container">
+                <slot />
+            </ul>
+        </div>
+        }
+    </div>
+    
 </div>

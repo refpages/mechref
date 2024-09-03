@@ -10,8 +10,6 @@ const cleaned = split_.slice(1, split_.length)
 
 const course = cleaned[0]
 const pagename = cleaned[1]
-
-console.log(cleaned)
 ---
 
 <!doctype html>
@@ -46,7 +44,7 @@ console.log(cleaned)
 	
 		<!-- Google tag (gtag.js) -->
 		<script async src="https://www.googletagmanager.com/gtag/js?id=G-2YD4TR8K2S"></script>
-		<script>
+		<script is:inline>
 			window.dataLayer = window.dataLayer || [];
 			function gtag(){dataLayer.push(arguments);}
 			gtag('js', new Date());
@@ -57,7 +55,9 @@ console.log(cleaned)
 	<body class="w-100">
 		<Navbar/>
 		<div class="container-xxl content mb-5">
-			<SidebarContainer page={pagename} course={course}/>
+			<SidebarContainer page={pagename} course={course}>
+				<slot name="navtree" />
+			</SidebarContainer>
 			<div class="w-100 pt-0 pt-xl-3">
 				<slot />
 			</div>

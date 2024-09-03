@@ -22,6 +22,23 @@ import CalloutContainer from "../../components/CalloutContainer.astro"
 </style>
 
 <Layout title="Stress">
+
+<div slot="navtree">
+    <ul class='list-group list-group-flush py-0'> 
+        <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#units'>Units</a></li>
+        <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#stress_under_general_loading_conditions'>Stress under general loading conditions</a>
+            <ul class='list-group list-group-flush py-0'> 
+                <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#average_normal_stress_-_axial_loading'>Average Normal Stress - Axial Loading</a></li> 
+                <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#average_shear_stress'>Average Shear Stress</a></li> 
+                <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#stress_tensor'>Stress Tensor</a></li> 
+            </ul>
+        </li> 
+        
+        <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#support_reactions'>Support Reactions</a></li>
+        <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#allowable_strength_design'>Allowable Strength Design</a></li> 
+    </ul>
+</div>
+
 <Section title="Stress" id="stress">
 The internal forces and moments generally vary from point to point. Obtaining this distribution is of primary importance in mechanics of materials. The total force in a cross-section, divided by the cross-sectional area, is the <strong>stress</strong>. We use stress to <strong>normalize forces</strong> with respect to the size of the geometry.
 

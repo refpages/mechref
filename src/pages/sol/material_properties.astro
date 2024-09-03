@@ -24,6 +24,25 @@ import CalloutContainer from "../../components/CalloutContainer.astro"
 
 
 <Layout title="Material Properties">
+
+<div slot="navtree">
+    <ul class='list-group list-group-flush py-0'> 
+        <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#stress-strain_diagram'>Stress-Strain Diagram</a>
+            <ul class='list-group list-group-flush py-0'> 
+                <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#elastic_behavior'>Elastic Behavior</a></li> 
+                <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#plastic_behavior'>Plastic Behavior</a></li> 
+            </ul>
+        </li> 
+        <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#other_derived_properties'>Other Derived Properties</a>
+            <ul class='list-group list-group-flush py-0'> 
+                <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#directional_materials'>Directional Materials</a></li>
+                <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href="#poissons_ratio">Poisson's Ratio</a></li>
+            </ul>
+        </li> 
+    
+    </ul>
+</div>
+
 <Section title="Material Properties" id="material_properties"></Section>
 
 <SubSection title="Stress-Strain Diagram" id="stress-strain_diagram">
