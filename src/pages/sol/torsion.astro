@@ -17,19 +17,44 @@ import CalloutContainer from "../../components/CalloutContainer.astro"
 import Enumerate from "../../components/Enumerate.astro"
 ---
 <Layout title="Torsion">
+
+<div slot="navtree">
+    <ul class='list-group list-group-flush py-0'> 
+        <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#units'>Units</a></li>
+        <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#notation_and_convention'>Notation and Concention</a></li>
+        <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#equilibrium'>Equilibrium</a>
+        <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#assuptions'>Assumptions</a>
+        <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#shear_stress_and_strain'>Shear Stress and Strain</a>
+            <ul class='list-group list-group-flush py-0'> 
+                <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#geometry_of_deformation'>Shear Strain: Geometry of Deformation</a></li> 
+                <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#torsion_formula'>Shear Stress: Torsion Formula</a></li> 
+                <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#polar_moment_of_inertia'>Shear Stress: Polar Moment of Inertia</a></li> 
+                <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#angle_of_twist'>Shear Stress: Angle of Twist</a></li> 
+            </ul>
+        </li> 
+        
+        <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#miscellaneous'>Miscellaneous</a></li>
+            <ul class='list-group list-group-flush py-0'> 
+                <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#types_of_material_failure'>Types of Material Failure</a></li> 
+                <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#gear_systems'>Gear Systems</a></li> 
+            </ul>
+        </li> 
+    </ul>
+</div>
+    
 <Section title="Torsion">
 
 <strong>Torsion</strong> refers to the twisting of a specimen when it is loaded by couples (or <strong>moments</strong>) that produce rotation about the longitudinal axis. Applications include aircraft engines, car transmissions, and bicycles, etc.
 
 </Section>
 
-<SubSection title="Units">
+<SubSection title="Units" id="units">
 
 Force X distance [lb-in or N-m]
 
 </SubSection>
 
-<SubSection title="Notation and Convention">
+<SubSection title="Notation and Convention" id="notation_and_convention">
 
 <Image src="/Solid_Mechanics/Torsion-Figures/Convention.png" width="5">  Sign convention </Image>
 
@@ -47,7 +72,7 @@ Force X distance [lb-in or N-m]
 
 </SubSection>
 
-<SubSection title="Equilibrium">
+<SubSection title="Equilibrium" id="equilibrium">
 
 <Image src="/Solid_Mechanics/Torsion-Figures/Equilibrium.png" width="5">  Single element shear stresses </Image>
 
@@ -59,7 +84,7 @@ The stress distribution in the shaft is not known.
 
 </SubSection>
 
-<SubSection title="Assumptions">
+<SubSection title="Assumptions" id="assuptions">
 
 <Image src="/Solid_Mechanics/Torsion-Figures/TorsionLines.png" width="7"> Torsion lines </Image>
 
@@ -72,9 +97,9 @@ The stress distribution in the shaft is not known.
 
 </SubSection>
 
-<SubSection title="Shear Stress and Strain"></SubSection>
+<SubSection title="Shear Stress and Strain" id="shear_stress_and_strain"></SubSection>
 
-<SubSubSection title="Shear Strain: Geometry of Deformation">
+<SubSubSection title="Shear Strain: Geometry of Deformation" id="geometry_of_deformation">
 
 <Image src="/Solid_Mechanics/Torsion-Figures/GeometryDeformation.png" width="5">  Deformation </Image>
 
@@ -95,7 +120,7 @@ The angle of twist increases as x increases.
 
 </SubSubSection>
 
-<SubSubSection title="Shear Stress: Torsion Formula">
+<SubSubSection title="Shear Stress: Torsion Formula" id="torsion_formula">
 
 <DisplayEquation equation="\\gamma = \\rho \\frac{d\\phi}{dx}\\" title="Geometry" background="True"/>
 
@@ -114,14 +139,14 @@ The shear stress in the elastic range varies linearly with the radial position i
 
 </SubSubSection>
 
-<SubSubSection title="Shear Stress: Polar Moment of Inertia">
+<SubSubSection title="Shear Stress: Polar Moment of Inertia" id="polar_moment_of_inertia">
 
 <DisplayEquation equation="J = \\int_0^R{\\rho^2dA} = \\int_0^R{\\rho^2(2\\pi\\rho d\\rho)dA} =2\\pi \\int_0^R{\\rho^3d\\rho} = \\frac{\\pi R^4}{2} = \\frac{\\pi D^4}{32}\\" title="Solid shaft (radius and diameter)." background="True"/>
 
 <DisplayEquation equation="J = \\frac{\\pi}{2}(R_o^4-R_i^4) = \\frac{\\pi}{32}(D_o^4-D_i^4)\\" title="Hollow shaft (inner and outer radius)." background="True"/>
 </SubSubSection>
 
-<SubSubSection title="Shear Stress: Angle of Twist">
+<SubSubSection title="Shear Stress: Angle of Twist" id="angle_of_twist">
 From observation:
 <Itemize>
 	<Item>The angle of twist of the shaft is proportional to the applied torque </Item>
@@ -138,8 +163,8 @@ From observation:
 
 </SubSubSection>
 
-<SubSection title="Miscellaneous"></SubSection>
-<SubSubSection title="Types of Material Failure">
+<SubSection title="Miscellaneous" id="miscellaneous"></SubSection>
+<SubSubSection title="Types of Material Failure" id="types_of_material_failure">
 
 <CalloutContainer slot="cards">
     <CalloutCard title="Heads  up - Extra!">
@@ -188,7 +213,7 @@ From observation:
 
 </SubSubSection>
 
-<SubSubSection title="Gear Systems">
+<SubSubSection title="Gear Systems" id="gear_systems">
 
 <Image src="/Solid_Mechanics/Torsion-Figures/GearSystemv2.png" width="5">  Gear system </Image>
 
