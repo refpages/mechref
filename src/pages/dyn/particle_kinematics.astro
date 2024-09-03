@@ -46,9 +46,37 @@ import Itemize from "../../components/Itemize.astro"
         (motion) of bodies we need to relate positions and vectors
         to each other.
     </p>
-    <RedText>Add the table summary shown in Fig  \ref fig:PosVelAcce</RedText>
 
-    <Image src="/Dynamics/ParticleKinematicsFigs/PosVelAcce.png" width="6"></Image>
+    <table class="table table-responsive table-bordered table-sm">
+    <thead>
+        <tr>
+            <th>  </th>
+            <th style="text-align: center;">Cartesian </th>
+            <th style="text-align: center;">Polar</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td> Position </td>
+            <td><DisplayEquation equation="\\vec{r} = x\\hat\\imath + y \\hat\\jmath" /></td>
+            <td><DisplayEquation equation="\\vec{r} = r \\hat{e}_r" /></td>
+        </tr>
+        <tr>
+            <td> Velocity </td>
+            <td><DisplayEquation equation="\\vec{v} = \\dot{x}\\hat\\imath + \\dot{y} \\hat\\jmath" /></td>
+            <td><DisplayEquation equation="\\vec{v} = \\dot{r} \\hat{e}_r + r\\dot{\\theta}\\hat{e}_\\theta" /></td>
+        </tr>
+		<tr>
+            <td> Acceleration </td>
+            <td><DisplayEquation equation="\\vec{a} = \\ddot{x}\\hat\\imath + \\ddot{y} \\hat\\jmath" /></td>
+            <td><DisplayEquation equation="\\vec{a} = \\frac{d}{dt} (\\vec{v}) = \\ddot{r} \\hat{e}_r + \\dot{\\hat{e}_r} + \\dot{r}\\dot{\\theta}\\hat{e}_\\theta\\ + r\\ddot{\\theta}\\hat{e}_\\theta + r\\dot{\\theta}\\dot{\\hat{e}_\\theta}" />
+			    <DisplayEquation equation="\\vec{a} = (\\ddot{r} - r\\dot{\\theta}^2 ) \\hat{e}_r +  (2\\dot{r}\\dot{\\theta} + r\\ddot{\\theta}) \\hat{e}_\\theta" /></td>
+        </tr>
+
+    </tbody>
+</table>
+
+
 </SubSection>
 
 <SubSubSection title="Graphical understanding">
