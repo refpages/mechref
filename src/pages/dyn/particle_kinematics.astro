@@ -88,7 +88,6 @@ import Itemize from "../../components/Itemize.astro"
 <SubSection title="Rotating frames"></SubSection>
 
 <SubSubSection title="Angular velocity">
-    <BlueText>Complete in reference page "Rotations and angular velocity"</BlueText>
     
     <p>
         A <em>rotation</em> of a vector is a change which only
@@ -464,7 +463,6 @@ import Itemize from "../../components/Itemize.astro"
 <SubSection title="Tangential"></SubSection>
 
 <SubSubSection title="Normal basis">
-    <BlueText>Complete in reference page "Tangential/normal basis"</BlueText>
 
     <p>
       Consider a particle moving with position vector <InlineEquation equation="\\vec{r}" />
@@ -619,7 +617,6 @@ import Itemize from "../../components/Itemize.astro"
 </SubSubSubSection>
 
 <SubSubSection title="Normal and Tangential acceleration">
-    <BlueText>Complete in reference page "Tangential/normal basis"</BlueText>
 
     <p>
       While the motion of a point \(P\) along a path defines the
@@ -733,7 +730,6 @@ import Itemize from "../../components/Itemize.astro"
 </SubSubSection>
 
 <SubSubSection title="Curvature">
-    <BlueText>Complete in reference page "Tangential/normal basis"</BlueText>
     
     <DisplayEquationCustom title="Curvature and torsion." id="rkt-ek" background="True" derivation="True">
       <p>
@@ -829,25 +825,44 @@ import Itemize from "../../components/Itemize.astro"
 </SubSubSection>
 
 <SubSection title="System comparison: Cartesian/Polar/Tangent-Normal">
-<RedText>Add summary table as in Fig  \ref fig:SystemsComparison</RedText>
 
-<Image src="/Dynamics/ParticleKinematicsFigs/SystemsComparison.png" width="6"></Image>
+    <table class="table table-responsive table-bordered table-sm">
+    <thead>
+        <tr>
+            <th>  </th>
+            <th style="text-align: center;">Cartesian </th>
+            <th style="text-align: center;">Polar</th>
+			<th style="text-align: center;">Tangent-Normal</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td> Position </td>
+            <td><DisplayEquation equation="\\vec{r} = x\\hat\\imath + y \\hat\\jmath" /></td>
+            <td><DisplayEquation equation="\\vec{r} = r \\hat{e}_r" /></td>
+			<td style="text-align: center;">\(s\)</td>
+        </tr>
+        <tr>
+            <td> Velocity </td>
+            <td><DisplayEquation equation="\\vec{v} = \\dot{x}\\hat\\imath + \\dot{y} \\hat\\jmath" /></td>
+            <td><DisplayEquation equation="\\vec{v} = \\dot{r} \\hat{e}_r + r\\dot{\\theta}\\hat{e}_\\theta" /></td>
+			<td style="text-align: center;"><DisplayEquation equation="\\vec{v} =  \\dot{s}\\hat{e}_t" /></td>
+        </tr>
+		<tr>
+            <td> Acceleration </td>
+            <td><DisplayEquation equation="\\vec{a} = \\ddot{x}\\hat\\imath + \\ddot{y} \\hat\\jmath" /></td>
+            <td><DisplayEquation equation="\\vec{a} = (\\ddot{r} - r\\dot{\\theta}^2 ) \\hat{e}_r +  (2\\dot{r}\\dot{\\theta} + r\\ddot{\\theta}) \\hat{e}_\\theta" /></td>
+			<td><DisplayEquation equation="\\vec{a} = \\ddot{s}\\hat{e}_t + \\dot{s}^2 \\kappa \\hat{e}_n" /></td>
+        </tr>
+
+    </tbody>
+</table>
+
 </SubSection>
 
 <SubSection title="Applications"></SubSection>
 
-<SubSubSection title="Train wheels">
-    <RedText>This was mentioned in lecture but it was not expanded. It would be a great idea to include a picture or example.</RedText> Refers to "angular velocity".
-</SubSubSection>
-
-<SubSubSection title="Variable inertia flywheel">
-    <RedText>This is mentioned in L07-Notes, Slide 6. This paper is cited  <a href="https://doi.org/10.1016/j.egyr.2020.01.001">https://doi.org/10.1016/j.egyr.2020.01.001</a>. This picture is included  \ref fig:AppFlywheel .</RedText> Refers to "Angular accelerations".
-    
-    <Image src="/Dynamics/ParticleKinematicsFigs/AppFlywheel.png" width="6"></Image>
-</SubSubSection>  
-
 <SubSubSection title="Celestial velocities">
-    <BlueText>Complete in "Celestial Velocities".</BlueText>
 
     <p>
       We normally think of our classroom or laboratory as being
@@ -1130,8 +1145,17 @@ import Itemize from "../../components/Itemize.astro"
     <BlueText>Complete in "Track transition curves".</BlueText> Refers to "position, velocity, and acceleration" and "Tangential".
 </SubSubSection>
 
+<SubSubSection title="Train wheels">
+    
+</SubSubSection>
+
+<SubSubSection title="Variable inertia flywheel">
+    <RedText>This is mentioned in L07-Notes, Slide 6. This paper is cited  <a href="https://doi.org/10.1016/j.egyr.2020.01.001">https://doi.org/10.1016/j.egyr.2020.01.001</a>.</RedText> Refers to "Angular accelerations".
+    
+</SubSubSection>  
+
 <SubSubSection title="Roller coaster">
-    <RedText>This topic needs to be created, it was mentioned in lecture with no information or figure</RedText>
+   
 </SubSubSection>
 </Layout>
 
