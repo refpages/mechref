@@ -21,7 +21,7 @@ import Enumerate from "../../components/Enumerate.astro"
 <div slot="navtree">
     <ul class='list-group list-group-flush py-0'> 
         <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#units'>Units</a></li>
-        <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#notation_and_convention'>Notation and Concention</a></li>
+        <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#notation_and_convention'>Notation and Convention</a></li>
         <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#equilibrium'>Equilibrium</a>
         <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#assuptions'>Assumptions</a>
         <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#shear_stress_and_strain'>Shear Stress and Strain</a>
@@ -107,6 +107,8 @@ The angle of twist increases as x increases.
 
 <DisplayEquation equation="\\frac{d\\phi}{dx} = \\frac{\\gamma}{\\rho} = \\frac{\\gamma_{max}}{c}\\" title="The twist rate is given by." background="True" />
 
+where <InlineEquation equation="c" /> is the radius and <InlineEquation equation="\\rho" /> is a point between 0 and <InlineEquation equation="c" />.
+
 <DisplayEquation equation="\\gamma = \\rho \\frac{d\\phi}{dx}\\" title="Moving terms." background="True" />
 
 <DisplayEquation equation="\\delta = \\rho d\\phi\\" title="Arc length." background="True" />
@@ -134,8 +136,9 @@ The shear stress in the elastic range varies linearly with the radial position i
 
 <Image src="/Solid_Mechanics/Torsion-Figures/StressDistribution.png" width="4"> Stress distribution </Image>
 
-<em>Note:</em>  shaft under torque T rotating at angular speed w transmits power  
- <DisplayEquation equation="P=T\\omega\\" title="Power." background="True"/>
+<em>Note:</em>  shaft under torque <InlineEquation equation="T" /> rotating at angular speed <InlineEquation equation="\\omega" /> transmits power  <InlineEquation equation="P" />.
+ 
+<DisplayEquation equation="P=T\\omega\\" title="Power." background="True"/>
 
 </SubSubSection>
 
@@ -215,6 +218,17 @@ From observation:
 
 <SubSubSection title="Gear Systems" id="gear_systems">
 
+<CalloutContainer slot="cards">
+    <CalloutCard title="Extra!">
+        <p>
+            <strong> Power transmition </strong> can be used to find shear stress in gear shafts.
+            </p>
+            <p>
+                <DisplayEquation equation="\\tau = \\frac{P c}{\\omega J}\\" title="Maximum shear stress" background="True" />
+            </p>
+    </CalloutCard>
+</CalloutContainer>
+
 <Image src="/Solid_Mechanics/Torsion-Figures/GearSystemv2.png" width="5">  Gear system </Image>
 
 Gear system problems can be solved using the torsion equations. 
@@ -226,18 +240,17 @@ Gear system problems can be solved using the torsion equations.
 	<Item>Gears are perfectly rigid. </Item>
 	<Item>The roation axis is perfectly fixed in space. </Item>
 	<Item>Gear teeth are evenly spaced and perfectly shaped so there is no gap to create lost motion. </Item>
-    <Item>Geer tooth faces are perfectly smooth so there is no slip</Item>
-    <Item>Mated gears twist through the same arc length</Item>
+    <Item>Gear tooth faces are perfectly smooth so there is no slip. </Item>
+    <Item>Mated gears twist through the same arc length. </Item>
 </Itemize>
 
 <p>To solve:</p>
 
 <Enumerate>
-	<Item>Draw a FBD for each shaft  </Item>
-	<Item>Use the torsion equilibrium equations of each shaft to find the recation forces and torques </Item>
+	<Item>Draw a FBD for each shaft.  </Item>
+	<Item>Use the torsion equilibrium equations of each shaft to find the recation forces and torques. </Item>
+    <Item>Use the shear stress equation to find the stresses in the shaft. </Item>
 </Enumerate>
-
-<DisplayEquation equation="\\tau = \\frac{P c}{\\omega J}\\" title="To find shear stress using power transmision." background="True" />
 
 The angle of twist between two mating gears is related through the gear ratio. 
 
