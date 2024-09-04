@@ -147,7 +147,7 @@ $(document).ready(function() {
 
     /********************************************************************************/
 
-    var afp_ft_c = new PrairieDraw("afp-ft-c", function() {
+    afp_ft_c = new PrairieDraw("afp-ft-c", function() {
         this.addOption("v0", 30);
         var v0 = this.getOption("v0");
         this.addOption("v0AngleDeg", 45);
@@ -213,7 +213,7 @@ $(document).ready(function() {
 
         var posTrajVacuum = stateTrajToPosTraj(stateTrajVacuum);
         var posTrajDrag = stateTrajToPosTraj(stateTrajDrag);
-
+        console.log(1)
         var originDw = $V([-4.2, -2.35]);
         var sizeDw = $V([8.8, 5.252]);
         var originData = $V([0, 0]);
@@ -231,7 +231,7 @@ $(document).ready(function() {
             yLabelAnchor: $V([0, -3]),
             yLabelRotate: true,
         };
-        
+        console.log(2)
         this.plot(posTrajVacuum, originDw, sizeDw, originData, sizeData, "TEX:horizontal position $x$ / m", "TEX:vertical position $y$ / m", "blue", true, false, null, null, options);
         this.plot(posTrajDrag, originDw, sizeDw, originData, sizeData, null, null, "red", false);
 
@@ -262,7 +262,7 @@ $(document).ready(function() {
     });
 
     /********************************************************************************/
-    var rep_ff_c = new PrairieDrawAnim("rep-ff-c", function(t) {
+    rep_ff_c = new PrairieDrawAnim("rep-ff-c", function(t) {
 
         var xViewMax = 3;
         var yViewMax = 2;
@@ -349,7 +349,7 @@ $(document).ready(function() {
     rep_ff_c.activateMouseTracking();
     rep_ff_c.activateAnimOnClick();
 
-    new PrairieDrawAnim("ava-fp-c", function(t) {
+    ava_fp_c = new PrairieDrawAnim("ava-fp-c", function(t) {
         this.addOption("components", true);
         
         var stateTogether = {bodyOffset: 0};
@@ -399,4 +399,77 @@ $(document).ready(function() {
             Car.drawForce(this, centerContact, $V([-fDrive, -fg]));
         }
     });
+
+    rep_xl_c = new PrairieDraw("rep-xl-c", function() {
+
+        this.setUnits(6, 4);
+
+        this.addOption("showBases", false);
+
+        var len = 2;
+        var theta = Math.PI / 4;
+        var O = $V([0, 0]);
+        var rP = $V([0, -len]).rotate(theta, O);
+
+        this.translate($V([0, 0.5]));
+
+        this.ground($V([0, 0.5]), $V([0, -1]), 2);
+        this.pivot($V([0, 0.5]), O, 0.4);
+        this.rod(O, rP, 0.2);
+        this.arc(rP, 0.15, undefined, undefined, true);
+        this.point(O);
+        this.point(rP);
+        this.text(rP.add($V([0, -0.15])), $V([0, 1]), "TEX:$m$");
+        this.save();
+        this.setProp("shapeStrokePattern", "dashed");
+        this.line(O.add($V([0, -0.5])), O.add($V([0, -len])));
+        this.restore();
+        this.circleArrow(O, len * 0.6, -Math.PI / 2, -theta - 0.1, "angle", true);
+        this.labelCircleLine(O, len * 0.6, -Math.PI / 2, -theta - 0.1, $V([0, 1]), "TEX:$\\theta$", true);
+        this.arrow($V([-2, -0.4]), $V([-2, -1.4]), "acceleration");
+        this.labelLine($V([-2, -0.4]), $V([-2, -1.4]), $V([0, 1]), "TEX:$g$");
+
+        if (this.getOption("showBases")) {
+            var ei = $V([1, 0]);
+            var ej = $V([0, 1]);
+            var eR = $V([0, -1]).rotate(theta, O);
+            var eTheta = $V([1, 0]).rotate(theta, O);
+
+            this.arrow(O, O.add(ei));
+            this.arrow(O, O.add(ej));
+            this.labelLine(O, O.add(ei), $V([1, 0]), "TEX:$\\hat\\imath$");
+            this.labelLine(O, O.add(ej), $V([1, 0]), "TEX:$\\hat\\jmath$");
+
+            this.arrow(rP, rP.add(eR));
+            this.arrow(rP, rP.add(eTheta));
+            this.labelLine(rP, rP.add(eR), $V([1, 0]), "TEX:$\\hat{e}_r$");
+            this.labelLine(rP, rP.add(eTheta), $V([1, 0]), "TEX:$\\hat{e}_\\theta$");
+        }
+    });
+
+    rep_xl_f = new PrairieDraw("rep-xl-f", function() {
+
+        this.setUnits(6, 4);
+
+        var theta = Math.PI / 4;
+        var O = $V([0, 0]);
+        var eR = $V([0, -1]).rotate(theta, O);
+
+        this.arc(O, 0.15, undefined, undefined, true);
+        this.point(O);
+        this.text(O.add($V([0.15, 0])), $V([-1, 0]), "TEX:$m$");
+        this.arrow(O, O.add($V([0, -1.5])), "force");
+        this.labelLine(O, O.add($V([0, -1.5])), $V([1, 0]), "TEX:$mg$");
+        this.arrow(O, O.add($V([0, 1.5]).rotate(theta, O)), "force");
+        this.labelLine(O, O.add($V([0, 1.5]).rotate(theta, O)), $V([1, 0]), "TEX:$T$");
+    });
+
+    $( window ).on( "resize", function() {
+        rep_ff_c.redraw();
+        rep_xl_c.redraw();
+        rep_xl_f.redraw();
+        ava_fp_c.redraw();
+        afp_ft_c.redraw();
+        afp_ff_c.redraw();
+    } );
 }); // end of document.ready()

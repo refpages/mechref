@@ -131,7 +131,7 @@ import PrairieDrawCanvas from "../../components/PrairieDrawCanvas.astro"
                 <InlineEquation equation="T" /> in the rod?
             </div>
             <div class="w-50">
-                <canvas id="rep-xl-c" width="300" height="200">
+                <PrairieDrawCanvas id="rep-xl-c" width="300" height="200" />
             </div>
         </div>
         
@@ -140,13 +140,12 @@ import PrairieDrawCanvas from "../../components/PrairieDrawCanvas.astro"
         <div slot="solution">
             <p>
                 It is helpful in this problem to use both Cartesian and polar bases:
-                <button class="option-toggle:rep-xl-c:showBases">show bases</button>
+                <button class="option-toggle:rep-xl-c:showBases" onclick="rep_xl_c.toggleOption('showBases')">show bases</button>
               </p>
               <p>
                 <strong>1. FBD:</strong> The free body diagram for the point mass is:
               </p>
-              <canvas id="rep-xl-f" width="300" height="200" class="standaloneImage">
-              </canvas>
+              <PrairieDrawCanvas id="rep-xl-f" width="300" height="200"/>
               <p>
                 The forces on the free body diagram are:
 
@@ -156,7 +155,7 @@ import PrairieDrawCanvas from "../../components/PrairieDrawCanvas.astro"
                 <strong>2. Kinematics:</strong> Using the polar
                 basis acceleration equation <a
                 href="rkv.html#rkv-ep">#rkv-ep</a> gives:
-                <DisplayEquation equation="\\begin{aligned} \\vec{a} &amp;= (\\ddot{r} - r\\dot\\theta^2) \\,\\hat{e}_r + (r\\ddot\\theta + 2\\dot{r}\\dot\\theta) \\,\\hat{e}_\\theta \\\\ &amp;= -\\ell \\dot\\theta^2 \\,\\hat{e}_r + \\ell\\ddot\\theta \\,\\hat{e}_\\theta. \\\\end{aligned}" />
+                <DisplayEquation equation="\\begin{aligned} \\vec{a} &amp;= (\\ddot{r} - r\\dot\\theta^2) \\,\\hat{e}_r + (r\\ddot\\theta + 2\\dot{r}\\dot\\theta) \\,\\hat{e}_\\theta \\\\ &amp;= -\\ell \\dot\\theta^2 \\,\\hat{e}_r + \\ell\\ddot\\theta \\,\\hat{e}_\\theta. \\end{aligned}" />
               </p>
               <p>
                 <strong>3. Newton:</strong> Using <a
@@ -231,10 +230,10 @@ import PrairieDrawCanvas from "../../components/PrairieDrawCanvas.astro"
     <p>
         The simplest model of a car is to treat the entire vehicle
         as a point mass. On a <button
-        class="seq-toggle:ava-fp-c:fbd">free body diagram</button>
+        class="seq-toggle:ava-fp-c:fbd" onclick="ava_fp_c.stepSequence('fbd')">free body diagram</button>
         we have vertical force balance for a stationary car. When
         the car <button
-        class="seq-step:ava-fp-c:motion:stationary">accelerates</button>,
+        class="seq-step:ava-fp-c:motion:stationary" onclick="ava_fp_c.stepSequence('motion', 'stationary')">accelerates</button>,
         there is a horizontal forward force on the car, and a
         corresponding backwards horizontal force on the ground. As
         the car picks up speed, <a
@@ -249,7 +248,7 @@ import PrairieDrawCanvas from "../../components/PrairieDrawCanvas.astro"
         While cruising at a constant speed, there is a balance
         between the horizontal driving force and the drag force due
         to air resistance. When the car <button
-        class="seq-step:ava-fp-c:motion:cruising">brakes</button>,
+        class="seq-step:ava-fp-c:motion:cruising" onclick="ava_fp_c.stepSequence('motion', 'cruising')">brakes</button>,
         there is a backwards force that slows the car down to a
         stop.
       </p>
@@ -259,23 +258,23 @@ import PrairieDrawCanvas from "../../components/PrairieDrawCanvas.astro"
     </Center>
         
       <p>
-        <button class="seq-step:ava-fp-c:motion:stationary">accelerate</button>
-        <button class="seq-step:ava-fp-c:motion:cruising">brake</button>
-        <button class="seq-toggle:ava-fp-c:fbd">free body diagram</button>
-        <button class="option-toggle:ava-fp-c:components">components</button>
-        <button class="anim-toggle:ava-fp-c">animation</button>
+        <button class="seq-step:ava-fp-c:motion:stationary" onclick="ava_fp_c.stepSequence('motion', 'stationary')">accelerate</button>
+        <button class="seq-step:ava-fp-c:motion:cruising" onclick="ava_fp_c.stepSequence('motion', 'cruising')">brake</button>
+        <button class="seq-toggle:ava-fp-c:fbd" onclick="ava_fp_c.stepSequence('fbd')">free body diagram</button>
+        <button class="option-toggle:ava-fp-c:components" onclick="ava_fp_c.toggleOption('components')">components</button>
+        <button class="anim-toggle:ava-fp-c" onclick="ava_fp_c.toggleAnim()">animation</button>
       </p>
       <p>
         We can think of the force vectors (such as the ground force
         on the car) as either in separate horizontal and vertical
         <button
-        class="option-toggle:ava-fp-c:components">components</button>
+        class="option-toggle:ava-fp-c:components" onclick="ava_fp_c.toggleOption('components')">components</button>
         or as unified vectors. It may be helpful to pause the
-        <button class="anim-toggle:ava-fp-c">animation</button>
+        <button class="anim-toggle:ava-fp-c" onclick="ava_fp_c.toggleAnim()">animation</button>
         during <button
-        class="seq-step:ava-fp-c:motion:stationary">acceleration</button>
+        class="seq-step:ava-fp-c:motion:stationary" onclick="ava_fp_c.stepSequence('motion', 'stationary')">acceleration</button>
         and <button
-        class="seq-step:ava-fp-c:motion:cruising">braking</button>
+        class="seq-step:ava-fp-c:motion:cruising" onclick="ava_fp_c.stepSequence('motion', 'cruising')">braking</button>
         to consider the forces at work.
       </p>
 
@@ -478,7 +477,7 @@ import PrairieDrawCanvas from "../../components/PrairieDrawCanvas.astro"
         see their effects on the object’s motion.
       </p>
 
-    <PrairieDrawCanvas id="afp-ft-c" width="600" height="600" class="figureImage noBorder" />
+    <PrairieDrawCanvas id="afp-ft-c" width="600" height="600" />
 
     <CalloutContainer slot="cards">
         <CalloutCard>
@@ -497,4 +496,4 @@ import PrairieDrawCanvas from "../../components/PrairieDrawCanvas.astro"
 </SubSubSubSection>
 </Layout>
 
-<script src="/dyn/particle_kinetics/particle_kinetics.js" is:inline></script>
+<script src="/dyn/particle_kinetics/canvases.js" is:inline></script>

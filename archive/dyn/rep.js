@@ -107,7 +107,7 @@ $(document).ready(function() {
     rep_ff_c.activateMouseTracking();
     rep_ff_c.activateAnimOnClick();
 
-    var rep_xl_c = new PrairieDraw("rep-xl-c", function() {
+    rep_xl_c = new PrairieDraw("rep-xl-c", function() {
 
         this.setUnits(6, 4);
 
@@ -154,7 +154,7 @@ $(document).ready(function() {
         }
     });
 
-    var rep_xl_f = new PrairieDraw("rep-xl-f", function() {
+    rep_xl_f = new PrairieDraw("rep-xl-f", function() {
 
         this.setUnits(6, 4);
 
