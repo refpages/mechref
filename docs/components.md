@@ -1,3 +1,4 @@
+
 <style>
     red-text{
         background-color: red;
@@ -22,18 +23,20 @@
 The aim of using components is to maintain a consistant look and feel throughout the website, as well as being able to make changes without having to go through every page.
 
 When relevant, I've tried to maintain the LateX naming scheme for ease of use by those coming directly from it with little coding experience. For example:
-- \item => `<Item>`
-- \itemize => `<Itemize>`
-- \enumerate => `<Enumerate>`
-
+<ul>
+<li> \item => `Item`</li>
+<li> \itemize => `Itemize`</li>
+<li> \enumerate => `Enumerate`</li>
+</ul>
 "Components" and "elements" will be used interchangeably throughout this document.
 
 I want to:
-- <a href="#basics">Learn how to add elements to my page, and the nuances when using HTML components</a>
-- <a href="#sections">Create a new section inside my page</a>
-- <a href="#latex">Add an equation</a>
-- <a href="#callout">Add a callout card</a>
-
+<ul>
+<li><a href="#basics">Learn how to add elements to my page, and the nuances when using HTML components</a></li>
+<li><a href="#sections">Create a new section inside my page</a></li>
+<li><a href="#latex">Add an equation</a></li>
+<li><a href="#callout">Add a callout card</a></li>
+</ul>
 
 <h2><a id="basics"> How to import components</a></h2>
 
@@ -63,7 +66,7 @@ Depending on that state, the behavior of the component might be different. For e
 ```html
 <DisplayEquation title="Normalization to unit vector." id="rvv-eu" background="True" equation="\\begin{aligned} \\hat{a} =\\frac{\\vec{a}}{a}\\end{aligned}"/>
 ```
-![](./comp_imgs/plain_eq.png)
+<img src="https://files.jcrayb.com/files/mechref/docs/comp_imgs/plain_eq.png" style="width: 100%"/>
 
 But when in regular mode, whatever content we add inside of it will now be displayed inside the derivation menu:
 
@@ -73,7 +76,7 @@ But when in regular mode, whatever content we add inside of it will now be displ
     <DisplayEquation equation="\\vec{v} = \\vec{\\omega} \\times \\vec{r}"/>
 </DisplayEquation>
 ```
-![](./comp_imgs/eq_w_derivation.png)
+<img src="https://files.jcrayb.com/files/mechref/docs/comp_imgs/eq_w_derivation.png" style="width: 100%"/>
 
 This concept is very important, and applies to almost every component. The different behaviors will be discussed when explaining the different uses of each component.
 
@@ -86,9 +89,10 @@ This concept is very important, and applies to almost every component. The diffe
 Type: Regular only
 
 Options:
-- title: Displays title of the section.
-- id: Gives an id to the section so it can be linked to in the navigation tree or other pages.
-
+<ul>
+<li>title: Displays title of the section.</li>
+<li>id: Gives an id to the section so it can be linked to in the navigation tree or other pages.</li>
+</ul>
 Example:
 ```html
 <Section title="Example Page" id="example_page">
@@ -107,8 +111,10 @@ Same as Section, but with smaller title.
 Type: Regular only
 
 Options:
-- title: Displays title of the section.
-- id: Gives an id to the section so it can be linked to in the navigation tree or other pages.
+<ul>
+<li>title: Displays title of the section.</li>
+<li>id: Gives an id to the section so it can be linked to in the navigation tree or other pages.</li>
+</ul>
 
 Example:
 ```html
@@ -127,8 +133,10 @@ Same as SubSection, but with smaller title.
 Type: Regular only
 
 Options:
-- title: Displays title of the section.
-- id: Gives an id to the section so it can be linked to in the navigation tree or other pages.
+<ul>
+<li>title: Displays title of the section.</li>
+<li>id: Gives an id to the section so it can be linked to in the navigation tree or other pages.</li>
+</ul>
 
 Example:
 ```html
@@ -147,8 +155,10 @@ Same as SubSection, but with smaller title.
 Type: Regular only
 
 Options:
-- title: Displays title of the section.
-- id: Gives an id to the section so it can be linked to in the navigation tree or other pages.
+<ul>
+<li>title: Displays title of the section.</li>
+<li>id: Gives an id to the section so it can be linked to in the navigation tree or other pages.</li>
+</ul>
 
 Example:
 ```html
@@ -171,11 +181,13 @@ This will create an element that takes the entire width of the element it's insi
 Type: Self-closing & Regular
 
 Options:
-- equation: Insert your LateX equation here.
-- title: Displays a title above the equation.
-- id: Gives an id to the equation so it can be linked to in within the current page or from other pages. <red-text>Required when derivation is set to "True"</red-text>. Also allows the proper function of the derivation menu.
-- background: Adds the characteristic yellow background and black border around the equation when set to "True".
-- derivation: Adds a "Derivation +" button to expand the derivation menu when set to "True".
+<ul>
+<li>equation: Insert your LateX equation here.</li>
+<li>title: Displays a title above the equation.</li>
+<li>id: Gives an id to the equation so it can be linked to in within the current page or from other pages. <red-text>Required when derivation is set to "True"</red-text>. Also allows the proper function of the derivation menu.</li>
+<li>background: Adds the characteristic yellow background and black border around the equation when set to "True".</li>
+<li>derivation: Adds a "Derivation +" button to expand the derivation menu when set to "True".</li>
+</ul>
 
 <u>Self-Closing:</u>
 
@@ -232,9 +244,11 @@ Same as DisplayEquation, but provides a lot more freedom with how everything loo
 Type: Regular only
 
 Options:
-- title: Displays a title above the equation.
-- id: Gives an id to the equation so it can be linked to in within the current page or from other pages. <red-text>Required</red-text>. Also allows the proper function of the derivation menu.
-- background: Adds the characteristic yellow background and black border around the equation when set to "True".
+<ul>
+<li>title: Displays a title above the equation.</li>
+<li>id: Gives an id to the equation so it can be linked to in within the current page or from other pages. <red-text>Required</red-text>. Also allows the proper function of the derivation menu.</li>
+<li>background: Adds the characteristic yellow background and black border around the equation when set to "True".</li>
+</ul>
 
 ```html
 <DisplayEquationCustom title="Moment of inertia of prism." id="rvv-eu" background="True" equation="Equation here" derivation="True">
@@ -260,10 +274,10 @@ Result:
 <div style="margin-left: 1rem;">Moment of inertia of prism. <small>rvv-eu</small></div>
 <div style="width: 100%; display: flex; justify-content: center; align-items: center; margin-bottom: 1rem; margin-top: 1rem;">
     <div style="width: 50%; text-align: center;">
-        Random equation here
+        Random equation here,
     </div>
     <div style="width: 50%; display: flex; justify-content: center; align-items: center;">
-        <img src="./comp_imgs/dec.png">
+        <img src="https://files.jcrayb.com/files/mechref/docs/comp_imgs/dec.png" style="width: 100%">
     </div>
 </div>
 <button style="background-color: #6c757d; color: white;">Derivation -</button>
@@ -282,7 +296,9 @@ This will create an element that goes along with the text it's included with, an
 Type: Self-closing only
 
 Options:
-- equation: Insert your LateX equation here.
+<ul>
+<li>equation: Insert your LateX equation here.</li>
+</ul>
 
 Example:
 
@@ -293,7 +309,7 @@ Example:
 ```
 Result:
 
-$\vec{F} = m\vec{a}$ is a very important equation you guys need to remember.
+\\( \vec{F} = m\vec{a} \\) is a very important equation you guys need to remember.
 
 <h3><a id="callout" class="title">Callout card elements:</a></h3>
 
@@ -323,8 +339,9 @@ Must be within CalloutContainer.
 Type: Regular only
 
 Options:
-
-- title: If left blank, defaults to "Did you know?". Otherwise the title will be whatever you declare here.
+<ul>
+<li>title: If left blank, defaults to "Did you know?". Otherwise the title will be whatever you declare here.</li>
+</ul>
 
 Example:
 
@@ -366,5 +383,4 @@ Pellentesque gravida rhoncus turpis vitae tempor. Vivamus aliquam ipsum libero, 
         </div>
     </div>
 </div>
-
 
