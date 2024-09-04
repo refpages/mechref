@@ -8,11 +8,17 @@ import BlueText from "../../components/BlueText.astro"
 <Layout title="Reaction Forces">
 <Section title="Reaction Forces"></Section>
 
+Because of Newton's Third Law we know that every action has an equal and opposite reaction. We can solve for these reaction forces to understand the loading of a structure.  
+
 <SubSection title="Types of Connections">
 
-<Image src='/Statics/ReactionForcesFigures/ReactionForces.jpg' width='5'><BlueText>Taken from Mariana Kersh's TAM 251 Lecture notes</BlueText></Image>
+Different supports and different connections have different types of reaction forces depending on what they are constraining. For example, a pin connection restricts movement in the x-and y-directions but doesn't restrict rotation. This means that each pin connection has two reaction forces: one in the x-direciton, and one in the y-direction corresponding to the degrees of freedom that are fixed. 
 
-<BlueText>Should we make a table for here? Some good examples of rigid constraints in real life in lecture 15.</BlueText>
+A roller support only constrains movement in the y-direction, and thus only has one reaction force (oriented in the y-direction). 
+
+<Image src='/Statics/ReactionForcesFigures/ReactionForces.jpg' width='8'><BlueText>Taken from Mariana Kersh's TAM 251 Lecture notes</BlueText></Image>
+
+<!-- Should we make a table for here? Some good examples of rigid constraints in real life in lecture 15. -- >
 
 <!-- From lecture 13 -->
 
@@ -24,7 +30,7 @@ import BlueText from "../../components/BlueText.astro"
 
 If a body has more supports than it needs to hold it in equilibrium, it is overly constrained. This will result in more unknown reaction forces than equations we can write, and the problem will not be solvable using statics alone. This type of system is a "statically indeterminate" system. 
 
-%From lecture 15
+
 
 </SubSection>
 </Layout>
