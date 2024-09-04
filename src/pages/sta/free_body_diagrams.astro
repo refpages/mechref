@@ -6,11 +6,61 @@ import SubSection from "../../components/SubSection.astro"
 import BlueText from "../../components/BlueText.astro" 
 import InlineEquation from "../../components/InlineEquation.astro" 
 import DisplayEquation from "../../components/DisplayEquation.astro" 
+import Center from "../../components/Center.astro"
+import PrairieDrawCanvas from "../../components/PrairieDrawCanvas.astro"
+import CalloutContainer from "../../components/CalloutContainer.astro"
+import CalloutCard from "../../components/CalloutCard.astro"
+import DisplayTable from "../../components/DisplayTable.astro"
 ---
 <Layout title="Free Body Diagrams">
+
 <Section title="Free Body Diagrams">
 
-<BlueText>Insert the same content here as from the TAM212 Reference Pages (Free Body Diagrams - the top introduction section). Note that if you try to click on the link to "Free Body Diagrams" from the TAM 210 reference page it doesn't work. You have to go into the TAM 212 reference page to access Free Body Diagrams. </BlueText>
+  <p>
+     A free-body diagram (abbreviated as FBD, also called force diagram) is a diagram used to show the magnitude and direction of all applied forces, moments, and reaction and constraint forces acting on a body. They are important and necessary in solving complex problems in mechanics.
+  </p>
+  <p>
+     What is and is not included in a free-body diagram is important. Every free-body diagram should have the following:
+  </p>
+
+	<ul>
+		<li> The body represented as a dot if it is a point mass, and the body itself if it is a rigid body. </li>
+		<li> The external forces/moments. The force vector should indicate: relative magnitude, point of application, and the direction. </li>
+		<li> A properly defined coordinate system </li>
+	</ul>
+
+	<p>
+		A free-body diagram should not include the following:
+	</p>
+
+	<ul>
+		<li> Bodies other than the body we are interested in. </li>
+		<li> Forces applied <i>by</i> the body </li>
+		<li> Internal forces depending on the chosen system. For example, a free-body diagram on a truss should not include the forces between individual truss members. </li>
+		<li> Kinematic quantities (velocity and acceleration). </li>
+	</ul>
+
+<CalloutContainer slot="cards">
+        <CalloutCard title="Warning!">
+            <p>
+                Always assume the direction of forces/moments to be positive according to the appropriate coordinate system. The calculations from Newton/Euler equations will provide you with the correct direction of those forces/moments. Things that should not follow this are:
+              </p>
+              <ul>
+                <li> Gravity </li>
+				<li> Tension </li>
+				<li> Friction if the velocity <InlineEquation equation="\\vec{v}" /> is provided </li>
+              </ul>
+        </CalloutCard>
+    </CalloutContainer>
+	
+	<CalloutContainer slot="cards">
+        <CalloutCard title="Warning!">
+            <p>
+                If forces/moments are present, always begin with a free-body diagram. Do not write down equations before drawing the FBD as those are often simple kinematic equations, or Newton/Euler equations.
+              </p>
+        </CalloutCard>
+    </CalloutContainer>
+
 
 </Section>
 
