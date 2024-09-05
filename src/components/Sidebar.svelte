@@ -23,12 +23,7 @@
         list-style-type: none;
     }
 
-    .course-group p{
-        font-size: 1.75rem;
-        color: var(--text-main);
-    }
-
-    .course-list li a{
+    a.text-secondary{
         text-decoration: none;
         color: var(--text-secondary);
     }
@@ -66,7 +61,7 @@
                     
                       <ul class="course-list">
                             {#each course[1] as page}
-                                  <li class="mb-1"><a href="/{course_tags[course[0]]}/{page.id}">{page.name}</a></li>
+                                  <li class="mb-1"><a class="text-secondary" href="/{course_tags[course[0]]}/{page.id}" >{page.name}</a></li>
                             {/each}
                       </ul>
                     </div>
