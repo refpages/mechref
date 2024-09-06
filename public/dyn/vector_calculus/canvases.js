@@ -288,7 +288,6 @@ $(document).ready(function(){
         this.setUnits(12, 4);
         
         this.addOption("t", 0);
-
         
         this.addOption("showLabels", true);
         this.addOption("showIncrement", false);
@@ -360,10 +359,10 @@ $(document).ready(function(){
 
     rvc_fp_c = new PrairieDrawAnim("rvc-fp-c", function(t) {
         this.setUnits(12, 8);
-
+        
         this.addOption("showVelocity0", false);
         this.addOption("showVelocity", false);
-        this.addOption("showFixedBase", true);
+        this.addOption("showFixedBase", false);
         this.addOption("movement", "bounce");
 
         var O = $V([0, 0]);
