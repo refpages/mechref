@@ -18,9 +18,31 @@ import Item from "../../components/Item.astro"
 import PrairieDrawCanvas from "../../components/PrairieDrawCanvas.astro"
 ---
 <Layout title="Particle Kinetics">
-<Section title="Particle Kinetics"></Section>
 
-<SubSection title="Classical mechanics">
+<div slot="navtree">
+  <ul class='list-group list-group-flush py-0'> 
+    <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#classical_mechanics'>Classical mechanics</a>
+    </li> 
+    <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#methods_assumed'>Methods of assumed forces and motion</a>
+    </li> 
+    <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#solution_steps'>Solution steps</a>
+    </li>
+    <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#numerical_integration'>Numerical integration</a>
+    </li>
+	<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#applications_pkinetics'>Applications</a>
+	        <ul class='list-group list-group-flush py-0'> 
+            <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#accelerating_braking'>Accelerating and braking</a></li>
+			<li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#banked_turns'>Banked turns</a></li>
+			<li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#projectiles_air_resistance'>Projectiles with air resistance</a></li>
+        </ul>
+    </li>
+</ul>
+</div>
+
+
+<Section title="Particle Kinetics" id="particle_kinetics"></Section>
+
+<SubSection title="Classical mechanics" id=classical_mechanics">
 
     <CalloutContainer slot="cards">
         <CalloutCard>
@@ -77,7 +99,7 @@ import PrairieDrawCanvas from "../../components/PrairieDrawCanvas.astro"
 
 </SubSection>
 
-<SubSubSection title="Method of assumed forces and method of assumed motion">
+<SubSubSection title="Method of assumed forces and method of assumed motion" id="methods_assumed">
     Newton's equations can be used in two main ways. Either we
           know the forces and we use this to compute the acceleration
           of a mass, or we know the acceleration and use this to
@@ -117,7 +139,7 @@ import PrairieDrawCanvas from "../../components/PrairieDrawCanvas.astro"
     </Example>
 </SubSubSection>
 
-<SubSubSection title="Solution steps">
+<SubSubSection title="Solution steps" =id"solution_steps">
     The steps involved in analyzing a mechanical system with Newton's equations are as follows.
 
     <DisplayEquation equation="\\begin{aligned} &amp;\\text{1. FBD: draw a Free Body Diagram.} \\\\ &amp;\\text{2. Kinematics: determine $\\vec{a}$.} \\\\ &amp;\\text{3. Newton: use $\\vec{F} = m\\vec{a}$.} \\\\ &amp;\\text{4. Algebra: rearrange and solve as needed.} \\end{aligned}" background="True"/>
@@ -182,22 +204,62 @@ import PrairieDrawCanvas from "../../components/PrairieDrawCanvas.astro"
         </div>
     </Example>
 
-    <BlueText>More information about Free body diagrams included in "Free boy diagrams"</BlueText>
+<p>
+     A free-body diagram (abbreviated as FBD, also called force diagram) is a diagram used to show the magnitude and direction of all applied forces, moments, and reaction and constraint forces acting on a body. They are important and necessary in solving complex problems in mechanics.
+  </p>
+  <p>
+     What is and is not included in a free-body diagram is important. Every free-body diagram should have the following:
+  </p>
+
+	<ul>
+		<li> The body represented as a dot if it is a point mass, and the body itself if it is a rigid body. </li>
+		<li> The external forces/moments. The force vector should indicate: relative magnitude, point of application, and the direction. </li>
+		<li> A properly defined coordinate system </li>
+	</ul>
+
+	<p>
+		A free-body diagram should not include the following:
+	</p>
+
+	<ul>
+		<li> Bodies other than the body we are interested in. </li>
+		<li> Forces applied <i>by</i> the body </li>
+		<li> Internal forces depending on the chosen system. For example, a free-body diagram on a truss should not include the forces between individual truss members. </li>
+		<li> Kinematic quantities (velocity and acceleration). </li>
+	</ul>
+	
+	<CalloutContainer slot="cards">
+        <CalloutCard title="Warning!">
+            <p>
+                Always assume the direction of forces/moments to be positive according to the appropriate coordinate system. The calculations from Newton/Euler equations will provide you with the correct direction of those forces/moments. Things that should not follow this are:
+              </p>
+              <ul>
+                <li> Gravity </li>
+				<li> Tension </li>
+				<li> Friction if the velocity <InlineEquation equation="\\vec{v}" /> is provided </li>
+              </ul>
+        </CalloutCard>
+    </CalloutContainer>
+	
+	<CalloutContainer slot="cards">
+        <CalloutCard title="Warning!">
+            <p>
+                If forces/moments are present, always begin with a free-body diagram. Do not write down equations before drawing the FBD as those are often simple kinematic equations, or Newton/Euler equations.
+              </p>
+        </CalloutCard>
+    </CalloutContainer>
+
 </SubSubSection>
 
-<SubSection title="Numerical integration">
-    <RedText>Add information shown in Fig  \ref fig:NumericalIntegration</RedText>
+<SubSection title="Numerical integration"   id="numerical_integration">
+
     <Image src="/Dynamics/ParticleKinetics/NumericalIntegration.png" width="5"></Image>
 </SubSection>
 
-<SubSection title="Applications"></SubSection>
-<SubSubSection title="Kiiking">
-    <RedText>This topic is in L13-Notes, slides 9-10. Include information in Fig  \ref   and this YouTube link  <a href="https://www.youtube.com/shorts/qvW0sz4kBLQ">https://www.youtube.com/shorts/qvW0sz4kBLQ</a></RedText>. Application for "Particle kinetics".
+<SubSection title="Applications" id="applications_pkinetics"></SubSection>
 
-    <Image src="/Dynamics/ParticleKinetics/AppKiiking.png" width="5"></Image>
-</SubSubSection>
 
-<SubSubSection title="Accelerating and braking">
+<SubSubSection title="Accelerating and braking" id="accelerating_braking">
     <p>
         What happens when we step on the gas or brake in a car? The
         car pushes against the road to either accelerate (gas pedal)
@@ -207,8 +269,7 @@ import PrairieDrawCanvas from "../../components/PrairieDrawCanvas.astro"
     </p>
 
     <p>
-        To study this problem we <a href="rom">need a
-        model</a>. Let's start with the simplest model and then
+        To study this problem we need a model. Let's start with the simplest model and then
         gradually consider more complex models.
     </p>
     <Image src="/dyn/particle_kinetics/red_car.jpg" width="8">The classic American <a
@@ -294,7 +355,7 @@ import PrairieDrawCanvas from "../../components/PrairieDrawCanvas.astro"
                 <Item><a
                     href="http://www.youtube.com/watch?v=_07GEGeLR5c">Video of
                     a wheelie</a>, where the front wheels lose contact.</Item>
-                <Item><a href="http://www.youtube.com/watch?v=_07GEGeLR5c">V<a
+                <Item><a href="http://www.youtube.com/watch?v=_07GEGeLR5c"><a
                     href="http://www.youtube.com/watch?v=HnVkeZXsXjo">Video of
                     braking</a> in which the rear wheels lose contact.</Item>
                 <Item><a
@@ -306,13 +367,48 @@ import PrairieDrawCanvas from "../../components/PrairieDrawCanvas.astro"
 
 </SubSubSection>
 
-<SubSubSection title="Banked turns">
-    \label sub:PartKin_turns
-    <BlueText>Complete in "Banked turns". Just the introduction and the information under "Track geometry" and "Point mass model".</BlueText> 
+<SubSubSection title="Banked turns" id="banked_turns">
+
+	<p>
+	    Turning in a circle requires a vehicle to have a centripetal acceleration inwards on the turn, and so there must be some centripetal force that produces this acceleration. For a vehicle driving on flat ground, this force must be produced by a sideways friction force on the tires. This introduces two problems:
+     </p>
+	 
+	 <ol>
+		<li> If the coefficient of friction is not high enough (say the road is wet or icy), then the friction force will be insufficient and the vehicle will slide off the road. </li>
+		<li> Even if the friction force is high enough, because it acts at the bottom of the tires, it produces a net moment about the center of mass, which can cause the vehicle to roll over. </li>
+	  </ol>
+	
+	<p> 
+	   To avoid both of these problems, the road can be banked inwards, so that the outer edge of the road is higher than the inner edge. This is called superelevation and means that some of the centripetal force can be provided by the normal force with the road, reducing the friction force and minimizing the risk of slip or roll.
+	  </p>
+	  
+	<p>
+	  The figure below shows a bus driving around a sharp corner at high speed on a heavily banked road. To understand the dynamics of this vehicle and the design tradeoffs for cornering on banked turns, we need a model. We will start below with a simple point mass model, which will be enough to understand friction and sliding, and then move on to a 2D rigid-body body to understand roll behavior.
+	   </p>
+	   
+     <BlueText> Include first figure #avb-fc from <a href="https://mechref.engr.illinois.edu/dyn/avb.html">here</a>.
+	 
+	  <CalloutContainer slot="cards">
+        <CalloutCard title="Reference material">
+            <Itemize>
+                <Item><a href="">Kinetics of point masses</a></Item>
+                <Item><a href="">Kinetics of rigid bodies</a></Item>
+            </Itemize>
+        </CalloutCard>
+		
+        <CalloutCard title="Extra links">
+            <Itemize>
+                <Item><a href="https://www.youtube.com/watch?v=yukC-zdj2Y8#t=05m20s">Video of a Dodge Challenger </a> on the Untertürkheim track curve.</Item>
+                <Item><a href="https://www.youtube.com/watch?v=TK59zTPlL4g">Video of the bus </a> shown in Figure #avb-fc.</Item>
+                <Item><a href="http://www.youtube.com/watch?v=_07GEGeLR5c"><a href="http://www.youtube.com/watch?v=MXtfsxhAHfs">Video taken from inside a car </a> driving around the Untertürkheim track.</Item>
+            </Itemize>
+        </CalloutCard>
+    
+	</CalloutContainer>
+
 </SubSubSection>
 
-<SubSubSection title="Projectiles with air resistance">
-    <BlueText>Complete in "Projectiles with air resistance".</BlueText>
+<SubSubSection title="Projectiles with air resistance"  id="projectiles_air_resistance">
 
     <p>
         Consider a spherical object, such as a baseball, moving
@@ -392,7 +488,7 @@ import PrairieDrawCanvas from "../../components/PrairieDrawCanvas.astro"
       
 </SubSubSubSection>
 
-<SubSubSubSection title="Drag coefficients as a function of Reynolds number">
+<SubSubSubSection title="Drag coefficients as a function of Reynolds number"  id="drag_coefficients">
     
     <p>
         A dimensionless parameter that is very useful in fluid
@@ -495,6 +591,12 @@ import PrairieDrawCanvas from "../../components/PrairieDrawCanvas.astro"
         </CalloutCard>
     </CalloutContainer>
 </SubSubSubSection>
-</Layout>
+
+<SubSubSection title="Kiiking">
+    <RedText>This topic is in L13-Notes, slides 9-10. Include information in Fig  \ref   and this YouTube link  <a href="https://www.youtube.com/shorts/qvW0sz4kBLQ">https://www.youtube.com/shorts/qvW0sz4kBLQ</a></RedText>. Application for "Particle kinetics".
+
+    <Image src="/Dynamics/ParticleKinetics/AppKiiking.png" width="5"></Image>
+</SubSubSection>
+
 
 <script src="/dyn/particle_kinetics/particle_kinetics.js" is:inline></script>
