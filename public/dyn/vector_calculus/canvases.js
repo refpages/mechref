@@ -286,8 +286,10 @@ $(document).ready(function(){
 
     rvc_fd_c = new PrairieDraw("rvc-fd-c", function() {
         this.setUnits(12, 4);
-
+        
         this.addOption("t", 0);
+
+        
         this.addOption("showLabels", true);
         this.addOption("showIncrement", false);
         this.addOption("showExactDeriv", false);
@@ -301,8 +303,9 @@ $(document).ready(function(){
             return $V([1, - Math.sin(t)]);
         };
 
-        var t = this.getOption("t");
-        var dt = this.getOption("dt");
+        var t = Number(this.getOption("t"));
+    
+        var dt = Number(this.getOption("dt"));
         if (dt === 0) {
             dt = 0.001;
         }
@@ -310,6 +313,7 @@ $(document).ready(function(){
         var O = $V([0, 0]);
         var v = v_f(t);
         var v_next = v_f(t + dt);
+
         var dv_exact = dv_f(t);
         var dv_approx;
         dv_approx = v_next.subtract(v).x(1 / dt);
@@ -324,6 +328,7 @@ $(document).ready(function(){
         this.polyLine(path);
 
         var side = (this.vec2To3(v_next).cross(this.vec2To3(v)).dot(Vector.k) > 0) ? 1 : -1;
+        this.save();
 
         this.arrow(O, v, "position");
         this.arrow(O, v_next, "position");
@@ -349,7 +354,8 @@ $(document).ready(function(){
             this.labelLine(v, v.add(dv_approx), $V([0, 1.2 * side]), "TEX:$\\Delta \\vec{a} / \\Delta t$");
             }
         }
-        
+
+        this.restore();
     });
 
     rvc_fp_c = new PrairieDrawAnim("rvc-fp-c", function(t) {
