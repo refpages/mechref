@@ -12,9 +12,13 @@ do
     echo "TAM $c"
     scp -r "$HOME/mechref/dist" "$HOME/Documents/GitHub/pl-tam$c/clientFilesCourse/"
     cd "$HOME/Documents/GitHub/pl-tam$c"
+    rm -rf "clientFilesCourse/mechref"
     mv "clientFilesCourse/dist" "clientFilesCourse/mechref" 
-    git branch master
+    git switch master
+    git pull --rebase
     git add -A
     git commit -m "Updated reference pages"
+    git push
 done
 
+cd "$HOME/mechref"
