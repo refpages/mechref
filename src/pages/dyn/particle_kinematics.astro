@@ -33,34 +33,170 @@ import Itemize from "../../components/Itemize.astro"
     padding-bottom: .25rem;
   }
 </style>
-<Layout title="Particle Kinematics">
-<Section title="Particle Kinematics"></Section>
 
-<SubSection title="Position, velocity, acceleration">
+
+<Layout title="Particle Kinematics">
+
+<div slot="navtree">
+  <ul class='list-group list-group-flush py-0'> 
+    <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#position_vectors'>Position vectors</a>
+		<ul class='list-group list-group-flush py-0'> 
+            <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#transformation_position_vectors'>Transformation</a></li>  
+        </ul>
+    </li> 
+	<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#velocity_acceleration_vectors'>Velocity and Acceleration vectors</a>
+		<ul class='list-group list-group-flush py-0'> 
+            <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#cartesian_basis'>Cartesian</a></li>  
+			<li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#polar_basis'>Polar</a></li> 
+			<li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#summary_table'>Summary</a></li>
+        </ul>
+    </li> 
+	<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#rotating_frames'>Rotating frames</a>
+		<ul class='list-group list-group-flush py-0'> 
+            <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#angular_velocity'>Angular velocity</a></li>  
+			<li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#derivatives_rotations'>Derivatives and rotations</a></li> 
+			<li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#rotations_2D'>Rotations in 2D</a></li>
+			<li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#rotations_positions'>Rotations and vector positions</a></li>
+			<li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#rotations_properties'>Properties of rotations</a></li>
+			<li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#rodrigues_formula'>Rodrigues' rotations formula</a></li>
+			<li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#angular_acceleration'>Angular acceleration</a></li>
+        </ul>
+    </li> 
+		<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#tangential_normal_basis'>Tangential and normal basis</a>
+		<ul class='list-group list-group-flush py-0'> 
+            <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#normal_basis'>Normal basis</a></li>  
+			<li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#derivatives_angular_velocity'>Derivatives and angular velocity</a></li> 
+			<li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#normal_tangential_acceleration'>Normal and tangential acceleration</a></li>
+			<li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#curvature'>Curvature</a></li>
+			<li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#system_comparison'>Systems comparison</a></li>
+        </ul>
+    </li> 
+	<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#applications_pk'>Applications</a>
+		<ul class='list-group list-group-flush py-0'> 
+            <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#celestial_velocities'>Celestial velocities</a></li>  
+			<li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#track_transition_curves'>Track transition curves</a></li> 
+        </ul>
+    </li> 
+  </ul>
+</div>
+
+
+<Section title="Particle Kinematics" id="particle_kinematics"></Section>
+
     <p>
-        The two basic geometric objects we are using are <a
-        href="rvp.html">positions</a> and <a
-        href="rvv.html">vectors</a>. Positions describe locations
+        The two basic geometric objects we are using are
+        positions and vectors. Positions describe locations
         in space, while vectors describe length and direction (no
         position information). To describe the <em>kinematics</em>
         (motion) of bodies we need to relate positions and vectors
         to each other.
     </p>
-    <RedText>Add the table summary shown in Fig  \ref fig:PosVelAcce</RedText>
 
-    <Image src="/Dynamics/ParticleKinematicsFigs/PosVelAcce.png" width="6"></Image>
-</SubSection>
+  <SubSection title="Position vectors" id="position_vectors">
+        <p>
+          Two positions <b>P</b> and <b>Q</b> can be used to define a vector <InlineEquation equation="\\vec{r}_{PQ} = \\vec{PQ}"/> from <b>P</b> to <b>Q</b>. We call this the <em>relative position</em> of
+          <b>Q</b> from <b>P</b>. If we start from the origin <b>O</b>, so we have <InlineEquation equation="\\vec{r}_{OP} = \\vec{OP}"/>, then we call this the <em>position vector</em> of
+          position <b>P</b>. When it is clear, we will write <InlineEquation equation="\\vec{r}_P"/> for this position vector, or
+          sometimes even just <InlineEquation equation="\\vec{r}"/>.
+		</p>
+		<BlueText> Insert corresponding animation from <a href="https://mechref.engr.illinois.edu/dyn/rkv.html"> here </a> <BlueText/>
+  <SubSection/>
+  
+    <SubSubSection title="Transformation of position vectors" id="Transformation_position_vectors">
+        <p>
+          The position vector <InlineEquation equation="\\vec{r}_{OP}"/> a point <b>P</b> depends on which origin we are using. Using a different origin will result in a different position vector for the same point. The position vectors of a point from two different origins differ by the offset vector between the origins:
+		</p>
+		
+		<DisplayEquation title="Change of origin for position vectors." id="rkv-eo" background="True" equation="\\begin{aligned} \\overrightarrow{O_1 P} &amp;= \\overrightarrow{O_1 O_2} + \\overrightarrow{O_2 P} \\\\ \\vec{r}_{O_1 P} &amp;= \\vec{r}_{O_1 O_2} + \\vec{r}_{O_2 P} \\end{aligned}" />
+		
+        <p>
+			Position vectors are defined by the origin and the point, but not by any choice of basis. We can write any position vector in any basis and it is still the same vector.
+		</p>
+		
+		<BlueText> Insert corresponding animation from <a href="https://mechref.engr.illinois.edu/dyn/rkv.html"> here </a> <BlueText/>
+    <SubSubSection/>
 
-<SubSubSection title="Graphical understanding">
-    <BlueText>Complete in reference page "Position, velocity, and acceleration"</BlueText> 
+   <SubSection title="Velocity and acceleration vectors" id="velocity_acceleration_vectors">
+		<p>
+			The velocity <InlineEquation equation="\\vec{v}"/> and acceleration <InlineEquation equation="\\vec{a}"/> are the first and second derivatives of the position vector <InlineEquation equation="\\vec{r}"/>. Technically, this is the velocity and acceleration relative to the given origin, as discussed in detail in the sections on relative motion and frames.
+		</p>
+		 
+		 <DisplayEquation title="Definition of velocity and acceleration." id="rkv-ev" background="True" equation="\\begin{aligned} \\vec{v} &amp;= \\dot{\\vec{r}}\\\\ \\vec{a} &amp;= \\dot{\\vec{v}} \\end{aligned}" />
+   
+        <p>
+		 The velocity can be decomposed into components parallel and perpendicular to the position vector, reflecting changes in the length and direction of <InlineEquation equation="\\vec{r}"/>.
+         </p>
+		 
+		 
+		 <DisplayEquation title="Decomposition of velocity and acceleration vectors." id="rkv-ec" background="True" equation="\\begin{aligned} \\vec{v}_{proj} &amp;= Proj(\\vec{v}, \\vec{r}) = \\dot{r}\\hat{r}  \\\\  \\vec{v}_{comp} &amp;= Comp(\\vec{v}, \\vec{r}) = r\\dot{\\hat{r}}  \\\\ \\vec{a}_{proj} &amp;= Proj(\\vec{a}, \\vec{v}) = \\dot{v}\\hat{v} \\\\ \\vec{a}_{comp} &amp;= Comp(\\vec{a}, \\vec{v}) = v\\dot{\\hat{v}} \\end{aligned}" />
+		 
+		 <BlueText> Insert corresponding animation from <a href="https://mechref.engr.illinois.edu/dyn/rkv.html"> here </a> <BlueText/>
+		 
+   <SubSection/>
 
-    
+<SubSubSection title="Velocity and acceleration in Cartesian basis" id="cartesian_basis">
+
+         <p>
+          Differentiating in a fixed Cartesian basis can be done by differentiating each component.
+        </p>
+
+         <DisplayEquation title="Velocity and acceleration in cartesian basis." id="rkv-er" background="True" equation=" \\begin{aligned} \\vec{r} &amp;= r_1 \\hat\\imath + r_2 \\hat\\jmath + r_3 \\hat{k} \\\\  \\vec{v} &amp;= \\dot{r}_1 \\hat\\imath + \\dot{r}_2 \\hat\\jmath + \\dot{r}_3 \\hat{k} \\\\   \\vec{a} &amp;= \\ddot{r}_1 \\hat\\imath + \\ddot{r}_2 \\hat\\jmath + \\ddot{r}_3 \\hat{k} \\end{aligned}" />
+
+<SubSubSection/>
+
+
+<SubSubSection title="Velocity and acceleration in Polar basis"  id="polar_basis">
+
+        <p>
+          Computing velocity and acceleration in a polar basis must take account of the fact that the basis vectors are not constant.
+        </p>
+
+         <DisplayEquation title="Velocity and acceleration in polar basis." id="rkv-ep" background="True" equation=" \\begin{aligned} \\vec{r} &amp;=r\\hat{e}_{r} \\\\   \\vec{v} &amp;=\\dot{r}\\hat{e}_{r} + r\\dot{\\theta}\\hat{e}_{\\theta} \\\\  \\vec{a} &amp;=(\\ddot{r} - r\\dot{\\theta}^2)\\hat{e}_{r} + (r\\ddot{\\theta} + 2 \\dot{r}\\dot{\\theta})\\hat{e}_{\\theta}  \\end{aligned}" />
+
+		<p>
+			The acceleration term <InlineEquation equation=" -r \\dot{\\theta}^2 \\hat{e}_r " /> is called the <em> centripetal (center-seeking) </em> acceleration, while the <InlineEquation equation=" 2\\dot{r} \\dot{\\theta} \\hat{e}_{\\theta}" /> term is called the <em>Coriolis</em> acceleration.
+			</p>
+		 
+		 <BlueText> Insert corresponding animation from <a href="https://mechref.engr.illinois.edu/dyn/rkv.html"> here </a> <BlueText/>
+		 
+<SubSubSection/>
+
+
+<SubSubSection title="Summary table"  id="summary_table">
+    <table class="table table-responsive table-bordered table-sm">
+    <thead>
+        <tr>
+            <th>  </th>
+            <th style="text-align: center;">Cartesian </th>
+            <th style="text-align: center;">Polar</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td> Position </td>
+            <td><DisplayEquation equation="\\vec{r} = x\\hat\\imath + y \\hat\\jmath" /></td>
+            <td><DisplayEquation equation="\\vec{r} = r \\hat{e}_r" /></td>
+        </tr>
+        <tr>
+            <td> Velocity </td>
+            <td><DisplayEquation equation="\\vec{v} = \\dot{x}\\hat\\imath + \\dot{y} \\hat\\jmath" /></td>
+            <td><DisplayEquation equation="\\vec{v} = \\dot{r} \\hat{e}_r + r\\dot{\\theta}\\hat{e}_\\theta" /></td>
+        </tr>
+		<tr>
+            <td> Acceleration </td>
+            <td><DisplayEquation equation="\\vec{a} = \\ddot{x}\\hat\\imath + \\ddot{y} \\hat\\jmath" /></td>
+            <td><DisplayEquation equation="\\vec{a} = \\frac{d}{dt} (\\vec{v}) = \\ddot{r} \\hat{e}_r + \\dot{\\hat{e}_r} + \\dot{r}\\dot{\\theta}\\hat{e}_\\theta\\ + r\\ddot{\\theta}\\hat{e}_\\theta + r\\dot{\\theta}\\dot{\\hat{e}_\\theta}" />
+			    <DisplayEquation equation="\\vec{a} = (\\ddot{r} - r\\dot{\\theta}^2 ) \\hat{e}_r +  (2\\dot{r}\\dot{\\theta} + r\\ddot{\\theta}) \\hat{e}_\\theta" /></td>
+        </tr>
+
+    </tbody>
+</table>
 </SubSubSection>
 
-<SubSection title="Rotating frames"></SubSection>
 
-<SubSubSection title="Angular velocity">
-    <BlueText>Complete in reference page "Rotations and angular velocity"</BlueText>
+<SubSection title="Rotating frames" id="rotating_frames"></SubSection>
+
+<SubSubSection title="Angular velocity" id="angular_velocity">
     
     <p>
         A <em>rotation</em> of a vector is a change which only
@@ -178,10 +314,16 @@ import Itemize from "../../components/Itemize.astro"
         </CalloutCard>
       </CalloutContainer>
 
-      
+
+	<p> 
+	If an object is rotating with angular velocity <InlineEquation equation="\\omega"/> about a fixed origin, then the velocity and acceleration are given by the following relations:
+    </p>
+	
+	<DisplayEquation id="rkv-ef" title="Velocity and acceleration about a fixed origin." background="True" equation=" \\begin{aligned}  \\vec{v} &amp;= \\vec{\\omega} \\times \\vec{r} \\\\ \\vec{a} &amp;= \\vec{\\alpha} \\times \\vec{r} + \\vec{\\omega} \\times (\\vec{\\omega} \\times \\vec{r}) \\end{aligned}" />
+	
 </SubSubSection>
 
-<SubSubSubSection title="Vector derivatives and rotations">
+<SubSubSection title="Vector derivatives and rotations" id="derivatives_rotations">
     <p>
         If a unit vector <InlineEquation equation="\\hat{a}" /> is rotating, then the angular
         velocity vector <InlineEquation equation="\\vec{\\omega}" /> is defined so that:
@@ -211,9 +353,9 @@ import Itemize from "../../components/Itemize.astro"
           </p>
     </DisplayEquation>
     
-</SubSubSubSection>
+</SubSubSection>
 
-<SubSubSubSection title="Rotations in 2D">
+<SubSubSection title="Rotations in 2D" id="rotations_2D">
       <p>
         In 2D the angular velocity can be thought of as a scalar
         (positive for counter-clockwise, negative for clockwise).
@@ -309,14 +451,12 @@ import Itemize from "../../components/Itemize.astro"
               </div>
         </CalloutCard>
     </CalloutContainer>
-</SubSubSubSection>
+</SubSubSection>
 
-<SubSubSubSection title="Rotations and vector “positions”">
+<SubSubSection title="Rotations and vector “positions”" id="rotations_positions">
     <p>
-        The fact that vectors <a href="rvv.html#rvv-fc">don't have
-        positions</a> means that vector rotations are independent of
-        where vectors are drawn, just like <a
-        href="rvc.html#rvc-sp">for derivatives</a>.
+        The fact that vectors don't have positions means that vector rotations are independent of
+        where vectors are drawn, just like for derivatives.
       </p>
 
     <PrairieDrawCanvas id="rkr-fg-c" width="600" height="400">
@@ -339,9 +479,9 @@ import Itemize from "../../components/Itemize.astro"
           </p>
         </div>
     </PrairieDrawCanvas>
-</SubSubSubSection>
+</SubSubSection>
 
-<SubSubSubSection title="Properties of rotations">
+<SubSubSection title="Properties of rotations" id="rotations_properties">
     <p>
         Rotations are <em>rigid transformations</em>, meaning that
         they keep constant all vector lengths and all relative
@@ -386,9 +526,9 @@ import Itemize from "../../components/Itemize.astro"
             this the derivative is zero.
           </p>
       </DisplayEquation>
-</SubSubSubSection>
+</SubSubSection>
 
-<SubSubSubSection title="Rodrigues’ rotation formula">
+<SubSubSection title="Rodrigues’ rotation formula"  id="rodrigues_formula">
     <p>
         Rodrigues’ rotation formula gives an explicit formula for a
         vector rotated by an angle about a given axis.
@@ -424,19 +564,28 @@ import Itemize from "../../components/Itemize.astro"
             <DisplayEquation equation="\\begin{aligned}\\operatorname{Rot}(\\vec{a};\\theta,\\hat{b}) &amp;= a\\cos\\theta \\sin\\phi \\, \\left( \\frac{1}{a \\sin\\phi}\\vec{a} - \\frac{\\hat{b} \\cdot \\vec{a}}{a\\sin\\phi} \\hat{b} \\right) \\\\&amp; \\qquad + a \\sin\\theta \\sin\\phi \\, \\left(\\frac{\\hat{b} \\times \\vec{a}}{a \\sin\\phi} \\right)+ a \\cos\\phi \\,\\hat{b} \\\\ &amp;= \\cos\\theta\\,\\vec{a} - \\cos\\theta \\,(\\hat{b} \\cdot\\vec{a}) \\,\\hat{b} + \\sin\\theta \\,(\\hat{b} \\times\\vec{a}) + a\\cos\\theta \\,\\hat{b} \\\\ &amp;=\\cos\\theta \\,\\vec{a} + (1 - \\cos\\theta) (\\hat{b}\\cdot \\vec{a}) \\,\\hat{b} + \\sin\\theta \\,(\\hat{b}\\times \\vec{a}).\\end{aligned}" />
           </p>
     </DisplayEquation>
-</SubSubSubSection>
-
-<SubSubSection title="Angular acceleration">
-    <BlueText>Complete in reference page "Position, velocity, and acceleration"</BlueText>
-    <RedText>This equation is displayed under the title "Velocity and acceleration in polar basis". Add the description of each term as shown in Fig  \ref fig:AngularAccelerationEq</RedText>
-
-    <Image src="/Dynamics/ParticleKinematicsFigs/AngularAcceleration.png" width="6"></Image>
 </SubSubSection>
 
-<SubSection title="Tangential"></SubSection>
+<SubSubSection title="Angular acceleration" id="angular_acceleration">
+	 
+	 <p>
+	  In polar coordinates, acceleration consists of both radial and tangential components. The tangential component is directly related to changes in the angular velocity, which introduces the concept of angular acceleration.
+	  </p>
+	  
+	 <p>
+		Angular acceleration, denoted as <InlineEquation equation=" \\ddot{\\theta}" /> represents the rate of change of angular velocity <InlineEquation equation=" \\dot{\\theta}" /> with respect to time. It appears as part of the total acceleration in the tangential direction, described by the unit vector <InlineEquation equation=" \\hat{e}_{\\theta}" />. The full expression for the acceleration in polar coordinates is:
+	  </p>
+			<DisplayEquation equation=" \\vec{a} = (\\ddot{r} - r\\dot{\\theta}^2) \\hat{e}_r + (r\\ddot{\\theta} + 2\\dot{r}\\dot{\\theta}) \\hat{e}_\\theta" />
+	
+		<p>
+			Here, the first term of the equation represents the <u> radial component</u>, described by the unit <InlineEquation equation="\\hat{e}_r" />, and the second term is the <u>angular component</u>, described by the vector unit <InlineEquation equation="\\hat{e}_{\\theta}" />. In the radial component, there is a <b>radial</b> (<InlineEquation equation="\\ddot{r}" />) and a <b>centripetal</b> (<InlineEquation equation="r\\dot{\\theta}^2" />) term. In the angular component, there is an <b>angular</b> (<InlineEquation equation="r\\ddot{\\theta}" />) and a <b>coriolis</b> (<InlineEquation equation="2\\dot{r}\\dot{\\theta}" />) term.
+			
+			
+</SubSubSection>
 
-<SubSubSection title="Normal basis">
-    <BlueText>Complete in reference page "Tangential/normal basis"</BlueText>
+<SubSection title="Tangential and Normal basis" id="tangential_normal_basis"></SubSection>
+
+<SubSubSection title="Normal basis" id="normal_basis">
 
     <p>
       Consider a particle moving with position vector <InlineEquation equation="\\vec{r}" />
@@ -505,7 +654,7 @@ import Itemize from "../../components/Itemize.astro"
     </PrairieDrawCanvas>
 </SubSubSection>
 
-<SubSubSubSection title="Basis derivatives and angular velocity">
+<SubSubSection title="Basis derivatives and angular velocity" id="derivatives_angular_velocity">
   <p>
     As the point \(P\) moves along its path, the associated
     tangential/normal basis rotates with an angular velocity
@@ -588,10 +737,9 @@ import Itemize from "../../components/Itemize.astro"
     </CalloutCard>
   </CalloutContainer>
   
-</SubSubSubSection>
+</SubSubSection>
 
-<SubSubSection title="Normal and Tangential acceleration">
-    <BlueText>Complete in reference page "Tangential/normal basis"</BlueText>
+<SubSubSection title="Normal and Tangential acceleration" id="normal_tangential_acceleration">
 
     <p>
       While the motion of a point \(P\) along a path defines the
@@ -704,8 +852,7 @@ import Itemize from "../../components/Itemize.astro"
     </PrairieDrawCanvas>
 </SubSubSection>
 
-<SubSubSection title="Curvature">
-    <BlueText>Complete in reference page "Tangential/normal basis"</BlueText>
+<SubSubSection title="Curvature" id="curvature">
     
     <DisplayEquationCustom title="Curvature and torsion." id="rkt-ek" background="True" derivation="True">
       <p>
@@ -800,26 +947,45 @@ import Itemize from "../../components/Itemize.astro"
     </DisplayEquation>
 </SubSubSection>
 
-<SubSection title="System comparison: Cartesian/Polar/Tangent-Normal">
-<RedText>Add summary table as in Fig  \ref fig:SystemsComparison</RedText>
+<SubSubSection title="System comparison: Cartesian/Polar/Tangent-Normal" id="system_comparison">
 
-<Image src="/Dynamics/ParticleKinematicsFigs/SystemsComparison.png" width="6"></Image>
-</SubSection>
+    <table class="table table-responsive table-bordered table-sm">
+    <thead>
+        <tr>
+            <th>  </th>
+            <th style="text-align: center;">Cartesian </th>
+            <th style="text-align: center;">Polar</th>
+			<th style="text-align: center;">Tangent-Normal</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td> Position </td>
+            <td><DisplayEquation equation="\\vec{r} = x\\hat\\imath + y \\hat\\jmath" /></td>
+            <td><DisplayEquation equation="\\vec{r} = r \\hat{e}_r" /></td>
+			<td style="text-align: center;">\(s\)</td>
+        </tr>
+        <tr>
+            <td> Velocity </td>
+            <td><DisplayEquation equation="\\vec{v} = \\dot{x}\\hat\\imath + \\dot{y} \\hat\\jmath" /></td>
+            <td><DisplayEquation equation="\\vec{v} = \\dot{r} \\hat{e}_r + r\\dot{\\theta}\\hat{e}_\\theta" /></td>
+			<td style="text-align: center;"><DisplayEquation equation="\\vec{v} =  \\dot{s}\\hat{e}_t" /></td>
+        </tr>
+		<tr>
+            <td> Acceleration </td>
+            <td><DisplayEquation equation="\\vec{a} = \\ddot{x}\\hat\\imath + \\ddot{y} \\hat\\jmath" /></td>
+            <td><DisplayEquation equation="\\vec{a} = (\\ddot{r} - r\\dot{\\theta}^2 ) \\hat{e}_r +  (2\\dot{r}\\dot{\\theta} + r\\ddot{\\theta}) \\hat{e}_\\theta" /></td>
+			<td><DisplayEquation equation="\\vec{a} = \\ddot{s}\\hat{e}_t + \\dot{s}^2 \\kappa \\hat{e}_n" /></td>
+        </tr>
 
-<SubSection title="Applications"></SubSection>
+    </tbody>
+</table>
 
-<SubSubSection title="Train wheels">
-    <RedText>This was mentioned in lecture but it was not expanded. It would be a great idea to include a picture or example.</RedText> Refers to "angular velocity".
 </SubSubSection>
 
-<SubSubSection title="Variable inertia flywheel">
-    <RedText>This is mentioned in L07-Notes, Slide 6. This paper is cited  <a href="https://doi.org/10.1016/j.egyr.2020.01.001">https://doi.org/10.1016/j.egyr.2020.01.001</a>. This picture is included  \ref fig:AppFlywheel .</RedText> Refers to "Angular accelerations".
-    
-    <Image src="/Dynamics/ParticleKinematicsFigs/AppFlywheel.png" width="6"></Image>
-</SubSubSection>  
+<SubSection title="Applications" id="applications_pk"></SubSection>
 
-<SubSubSection title="Celestial velocities">
-    <BlueText>Complete in "Celestial Velocities".</BlueText>
+<SubSubSection title="Celestial velocities" id="celestial_velocities">
 
     <p>
       We normally think of our classroom or laboratory as being
@@ -1098,12 +1264,20 @@ import Itemize from "../../components/Itemize.astro"
   </CalloutContainer>
 </SubSubSubSection>
     
-<SubSubSection title="Track transition curves">
-    <BlueText>Complete in "Track transition curves".</BlueText> Refers to "position, velocity, and acceleration" and "Tangential".
+<SubSubSection title="Track transition curves" id="track_transition_curves">
+    <BlueText> Insert <a href=" https://mechref.engr.illinois.edu/dyn/avt.html "> this hole section </a> here.</BlueText> 
 </SubSubSection>
 
+<SubSubSection title="Train wheels">
+    
+</SubSubSection>
+
+<SubSubSection title="Variable inertia flywheel">
+    
+</SubSubSection>  
+
 <SubSubSection title="Roller coaster">
-    <RedText>This topic needs to be created, it was mentioned in lecture with no information or figure</RedText>
+   
 </SubSubSection>
 </Layout>
 

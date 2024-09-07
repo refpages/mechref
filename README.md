@@ -2,13 +2,19 @@
 
 Currently, the website is hosted at <a href="https://mechref.org">https://mechref.org</a>. 
 
-To run the pages locally, refer to the guide for your specific Operating System:
-
+Index:
 <ul>
-    <li><a href="#windows">Windows</a></li>
-    <li><a href="#linux">Linux</a></li>
-    <li><a href="#osx">MacOS</a></li>
+    <li><a href="https://files.jcrayb.com/pretty/files/mechref/docs/components.md">Guide on custom components and their options</a></li>
+    <li>
+        To run the pages locally, refer to the guide for your specific Operating System:
+        <ul>
+            <li><a href="#windows">Windows</a></li>
+            <li><a href="#linux">Linux</a></li>
+            <li><a href="#osx">MacOS</a></li>
+        </ul>
+    </li>
 </ul>
+
 
 # Running the pages locally
 
@@ -100,7 +106,7 @@ sudo apt install npm
 ``` 
 to also install Node Package Manager/NPM.
 
-#### Before running the pages for the first time
+### Before running the pages for the first time
 
 Open your terminal and go to the correct directory with 
 ```
@@ -128,7 +134,7 @@ Now, everytime you launch the terminal, you should be able to access the correct
 cd mechref
 ```
 
-#### Running the server
+### Running the server
 
 Make sure you are in the correct location. If not, refer to the previous section.
 
@@ -148,7 +154,7 @@ Download <a href="https://github.com/apps/desktop">GitHub Desktop</a>. Once inst
 
 Download <a href="https://nodejs.org/en/download/prebuilt-installer">NodeJS</a>. By default, the installer should also install Node Package Manager/NPM, but double check that is the case.
 
-#### Before running the pages for the first time
+### Before running the pages for the first time
 
 Open your terminal and go to the correct directory with 
 ```
@@ -176,7 +182,7 @@ Now, everytime you launch the terminal, you should be able to access the correct
 cd mechref
 ```
 
-#### Running the server
+### Running the server
 
 Make sure you are in the correct location. If not, refer to the previous section.
 

@@ -23,20 +23,22 @@ const pagename = cleaned[1]
 		
 		<title>{title}</title>
 
-		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+		<link href="/bootstrap.min.css" rel="stylesheet">
 
 
-		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+		<script src="/bootstrap.min.js" is:inline></script>
 
-		<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+		<script id="MathJax-script" src="/mathjax/tex-chtml.js" is:inline></script>
 
 
 		
 		<script src="/jquery-2.1.4.min.js" is:inline></script>
-		<script src="/PrairieDraw.js" is:inline></script>
-		<script src="/PrairieGeom.js" is:inline></script>
 		<script src="/sha1.js" is:inline></script>
 		<script src="/sylvester.js" is:inline></script>
+		<script src="/PrairieGeom.js" is:inline></script>
+		<script src="/PrairieDraw.js" is:inline></script>
+		
+		
 		<script src="/static/js/simplified_view.js" is:inline></script>
 		
 		<link rel="stylesheet" href="/static/css/main.css">
@@ -79,8 +81,8 @@ const pagename = cleaned[1]
 			white 60%
 		);
 		--text-main: black;
-        --text-secondary: rgba(71, 71, 71, 0.75);
-		--text-tertiary: rgba(81, 81, 81, .65);
+        --text-secondary: #4a4a4a;
+		--text-tertiary: #666;
 	}
 
 	mjx-container{
