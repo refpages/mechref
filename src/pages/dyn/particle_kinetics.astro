@@ -253,7 +253,20 @@ import PrairieDrawCanvas from "../../components/PrairieDrawCanvas.astro"
 
 <SubSection title="Numerical integration"   id="numerical_integration">
 
-    <Image src="/Dynamics/ParticleKinetics/NumericalIntegration.png" width="5"></Image>
+<ol>
+	<li> Independent variable (time). </li>
+	<li> State variables come in pairs (position, velocity)(<InlineEquation equation=" \\theta , \\omega" />).  </li>
+	<li> Initial conditions are the state variables at <InlineEquation equation=" t=0" />. 
+			<DisplayEquation equation=" \\theta_0 = \\theta(0) , \\omega_0 = \\omega(0)" />
+		</li>
+	<li> Time step <InlineEquation equation=" \\Delta t "/> is how we jump forward in time.  </li>
+	<li> Update rule.
+	      <DisplayEquation equation=" \\theta_{n+1} = \\theta_n + \\Delta t \\dot{\\theta_n} = \\theta_n  + \\Delta t \\omega_n" />
+		  <DisplayEquation equation=" \\omega_{n+1} = \\omega_n + \\Delta t \\ddot{\\theta_n} = \\omega_n  + \\Delta t \\alpha_n" />
+		</li>
+	<li> Need to compute second derivatives (<InlineEquation equation=" \\ddot{\\theta}=\\alpha" /> ) at each timestep. </li>
+</ol>
+
 </SubSection>
 
 <SubSection title="Applications" id="applications_pkinetics"></SubSection>
@@ -388,23 +401,16 @@ import PrairieDrawCanvas from "../../components/PrairieDrawCanvas.astro"
 	   
      <BlueText> Include first figure #avb-fc from <a href="https://mechref.engr.illinois.edu/dyn/avb.html">here</a>.
 	 
-	  <CalloutContainer slot="cards">
-        <CalloutCard title="Reference material">
-            <Itemize>
-                <Item><a href="">Kinetics of point masses</a></Item>
-                <Item><a href="">Kinetics of rigid bodies</a></Item>
-            </Itemize>
-        </CalloutCard>
-		
-        <CalloutCard title="Extra links">
-            <Itemize>
-                <Item><a href="https://www.youtube.com/watch?v=yukC-zdj2Y8#t=05m20s">Video of a Dodge Challenger </a> on the Untertürkheim track curve.</Item>
-                <Item><a href="https://www.youtube.com/watch?v=TK59zTPlL4g">Video of the bus </a> shown in Figure #avb-fc.</Item>
-                <Item><a href="http://www.youtube.com/watch?v=_07GEGeLR5c"><a href="http://www.youtube.com/watch?v=MXtfsxhAHfs">Video taken from inside a car </a> driving around the Untertürkheim track.</Item>
-            </Itemize>
-        </CalloutCard>
-    
-	</CalloutContainer>
+<CalloutContainer slot="cards">	
+	<CalloutCard title="Extra links">
+		<ul>
+			<li><a href="https://www.youtube.com/watch?v=yukC-zdj2Y8#t=05m20s">Video of a Dodge Challenger</a> on the Untertürkheim track curve.</li>
+			<li><a href="https://www.youtube.com/watch?v=TK59zTPlL4g">Video of the bus</a> shown in Figure #avb-fc.</li>
+			<li><a href="http://www.youtube.com/watch?v=MXtfsxhAHfs">Video taken from inside a car</a> driving around the Untertürkheim track.</li>
+		</ul>
+	</CalloutCard>
+</CalloutContainer>
+
 
 </SubSubSection>
 
@@ -593,9 +599,8 @@ import PrairieDrawCanvas from "../../components/PrairieDrawCanvas.astro"
 </SubSubSubSection>
 
 <SubSubSection title="Kiiking">
-    <RedText>This topic is in L13-Notes, slides 9-10. Include information in Fig  \ref   and this YouTube link  <a href="https://www.youtube.com/shorts/qvW0sz4kBLQ">https://www.youtube.com/shorts/qvW0sz4kBLQ</a></RedText>. Application for "Particle kinetics".
+    <RedText>This topic is in L13-Notes, slides 9-10. YouTube link  <a href="https://www.youtube.com/shorts/qvW0sz4kBLQ">https://www.youtube.com/shorts/qvW0sz4kBLQ</a></RedText>. 
 
-    <Image src="/Dynamics/ParticleKinetics/AppKiiking.png" width="5"></Image>
 </SubSubSection>
 
 
