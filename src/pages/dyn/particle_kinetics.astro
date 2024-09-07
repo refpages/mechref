@@ -382,13 +382,10 @@ import DisplayTable from "../../components/DisplayTable.astro"
 
 </SubSubSection>
 
-<SubSubSection title="Banked turns">
-    \label sub:PartKin_turns
-    <BlueText>Complete in "Banked turns". Just the introduction and the information under "Track geometry" and "Point mass model".</BlueText> 
+<SubSubSection title="Banked turns" id="banked_turns">
 
     <p>
-        Turning in a circle requires a vehicle to have a <a
-        href="rvt.html#rvt.sc">centripetal acceleration</a> inwards
+        Turning in a circle requires a vehicle to have a centripetal acceleration inwards
         on the turn, and so there must be some centripetal force
         that produces this acceleration. For a vehicle driving on
         flat ground, this force must be produced by a sideways
@@ -458,8 +455,7 @@ import DisplayTable from "../../components/DisplayTable.astro"
                     curve.</li>
                     <li><a
                     href="http://www.youtube.com/watch?v=TK59zTPlL4g">Video of
-                    the bus</a> shown in Figure <a
-                    href="#avb‑fc">#avb‑fc</a>.</li>
+                    the bus</a> shown in coach figure.</li>
                     <li><a
                     href="http://www.youtube.com/watch?v=MXtfsxhAHfs">Video
                     taken from inside a car</a> driving around the
@@ -469,7 +465,7 @@ import DisplayTable from "../../components/DisplayTable.astro"
         </CalloutContainer>
 </SubSubSection>
 
-<SubSubSubSection title="Track geometry">
+<SubSubSubSection title="Track geometry" id="track_geometry">
     <p>
         To understand the dynamics of the bus
         above, we first need a simple model of the geometry of
@@ -501,10 +497,10 @@ import DisplayTable from "../../components/DisplayTable.astro"
         class="option-toggle:avb-fg-c:vectors" onclick="avb_fg_c.toggleOption('vectors')">vectors</button> for
         velocity, acceleration, and force as the bus drives around
         the track. We assume constant speed, so there is only an
-        acceleration <a href="rvc.html#rvc-em">when the velocity
-        changes direction</a> around the corners. This model assumes
-        semi-circular track ends, but <a href="avt.html">this is
-        not a good idea</a> in practice.
+        acceleration when the velocity
+        changes direction around the corners. This model assumes
+        semi-circular track ends, but this is
+        not a good idea in practice.
       </p>
         <PrairieDrawCanvas id="avb-fg-c" width="600" height="600">
             <p>
@@ -568,8 +564,7 @@ import DisplayTable from "../../components/DisplayTable.astro"
         angle \(\theta\) below, then we see that a friction force
         \(F\) tangential to the road is needed to keep the bus from
         sliding. In practice, this force will be limited by \(F \le
-        \mu N\), where \(\mu\) is the <a
-        href="rff.html#rff.sc">coefficient of friction</a>. If we
+        \mu N\), where \(\mu\) is the coefficient of friction. If we
         incline the track until it is nearly vertical, we see that
         there a huge friction force would be required but only a
         tiny normal force is available. As this would not be
