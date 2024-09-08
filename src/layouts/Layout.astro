@@ -1,6 +1,7 @@
 ---
 import Navbar from '../components/Navbar.astro';
 import SidebarContainer from '../components/SidebarContainer.astro';
+import Searchbar from '../components/Searchbar.astro';
 
 const { title } = Astro.props;
 
@@ -61,6 +62,9 @@ const pagename = cleaned[1]
 				<slot name="navtree" />
 			</SidebarContainer>
 			<div class="w-100 pt-0 pt-xl-3">
+				<div class="w-100 mb-3">
+					<Searchbar/>
+				</div>
 				<slot />
 			</div>
 
@@ -87,6 +91,10 @@ const pagename = cleaned[1]
 
 	mjx-container{
 		max-width: 90vw;
+	}
+
+	.highlighter{
+		background-color: coral;
 	}
 
 	body {

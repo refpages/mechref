@@ -4,7 +4,7 @@ const {title} = Astro.props;
 
 <div class="callout-grid mt-0 mt-xl-3">
     <div class="w-100 px-0 pe-lg-2">
-        <h1 class="fw-bold text-center" set:html={title}></h1>
+        <h1 class="fw-bold text-center" id="page_title" set:html={title}></h1>
 
         <slot />
     </div>

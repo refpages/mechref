@@ -80,7 +80,8 @@ links_to_replace = {
     "src=\"/dyn/": "src=\"../dyn/",
     "src=\"/Statics/": "src=\"../Statics/",
     "src=\"/Solid_Mechanics/": "src=\"../Solid_Mechanics/",
-    "src=\"/Dynamics/": "src=\"../Dynamics/"
+    "src=\"/Dynamics/": "src=\"../Dynamics/",
+    "href=\"${e['item']['link']}\"": "href=\"..${e['item']['link']}\""
 }
 
 all_content_pages = os.listdir(os.path.join(home, 'sta')) + os.listdir(os.path.join(home, 'sol')) + os.listdir(os.path.join(home, 'dyn'))
@@ -133,7 +134,8 @@ links_to_replace = {
     "href=\"/dyn/": "href=\"./dyn/",
     "src=\"/Statics/": "src=\"./Statics/",
     "src=\"/Solid_Mechanics/": "src=\"./Solid_Mechanics/",
-    "src=\"/Dynamics/": "src=\"./Dynamics/"
+    "src=\"/Dynamics/": "src=\"./Dynamics/",
+    "href=\"${e['item']['link']}\"": "href=\".${e['item']['link']}\""
 }
 
 all_content_pages = os.listdir(os.path.join(home, 'sta')) + os.listdir(os.path.join(home, 'sol')) + os.listdir(os.path.join(home, 'dyn'))
@@ -155,5 +157,7 @@ for page in ['index.html', 'dyn.html', 'sta.html', 'sol.html']:
     
     with open(os.path.join(home, page), 'w') as file:
         file.write(data)
+
+
         
         
