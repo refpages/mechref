@@ -1,19 +1,114 @@
----
-function search(origin, destination){
-    let a = 1;
-}
----
+<style>
+    #searchresults{
+        background-color: white; 
+        list-style: none; 
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
 
-<div id="search-menu" class="position-relative dropdown sticky">
-    <div class="input-group input-group-lg " data-bs-toggle="dropdown">
-        <input type="text" class="form-control w-75" type="search" placeholder="Search for keyword" oninput="search('searchbox', 'searchresults')" onchange="search('searchbox', 'searchresults')" id="searchbox">
+    #searchresults:empty{
+        border: 0px solid #ccc;
+    }
+</style>
 
-        <select class="form-select w-25" id="searchtype" onchange="search('searchbox', 'searchresults')">
-            <option value="all" selected>All courses</option>
-            <option value="210">Statics</option>
-            <option value="212">Dynamics</option>
-            <option value="251">Solid Mechanics</option>
-        </select>
+<div id="search-menu" class="position-relative w-100 sticky">
+    <div class="input-group input-group-lg ">
+        <input type="text" class="form-control w-100 " type="search" placeholder="Search for keyword" id="searchbox" autocomplete="off">
+        
     </div>
-    <ul id="searchresults" class="position-absolute z-3 w-100 dropdown-menu p-0"></ul>
+    <ul id="searchresults" class="position-absolute z-3 w-100 p-0 d-none">
+
+    </ul>
 </div>
+
+<script>
+    import Fuse from 'fuse.js'
+    import search_contents from "../../public/search.json"
+
+    const index = Fuse.createIndex(['title', 'text'], search_contents)
+
+    const options = {
+        keys: ['text'],
+        includeMatches: true,
+        shouldSort: true,
+        includeScore: true,
+        threshold: 1,
+        minMatchCharLength: 1,
+        ignoreLocation: true,
+        fieldNormWeight: .25
+    }
+
+    const fuse = new Fuse(search_contents, options, index)
+    
+    let query;
+    let results;
+
+    const searchbox = document.querySelector('#searchbox');
+    const searchresults = document.querySelector('#searchresults');
+    
+    function search_and_display(){
+        query = searchbox.value;
+        results = fuse.search(query);
+
+        searchresults.innerHTML = "";
+        results = results.slice(0, Math.min(5, results.length))
+        Array.from(results).forEach(e => {
+            
+            let text =  e['item']['text'];
+            
+            let first_str_index = text.indexOf(query);
+            
+
+            if (first_str_index == -1){
+                return
+            }
+
+
+            let s_i = Math.max(first_str_index - 40, 0);
+            let f_i = Math.min(first_str_index + 40, text.length);
+            
+
+            let slice = text.slice(s_i, f_i);
+            let highlit = slice.replace(query, `<span class="highlighter">${query}</span>`)
+
+
+            searchresults.innerHTML += `<li class="px-2 py-1 border-bottom">
+                    <a href="${e['item']['link']}" class="text-black text-decoration-none" >
+                        <p class="mb-0">${e['item']['title']}:</p>
+                            ...${highlit}...
+                    </a>
+                </li>
+                `;
+        })
+    }
+
+    function checkIfFocused(){
+        //console.log(document.activeElement.matches(':focus'))
+        if (document.activeElement.id == "searchbox"){
+            searchresults.classList.remove("d-none")
+        }else{
+            setTimeout(function(){searchresults.classList.add("d-none")}, 200)
+        }
+    }
+
+    document.addEventListener(
+        "mouseup",
+        function(){
+            checkIfFocused()
+        }
+    )
+
+    searchbox.addEventListener(
+        "change", 
+        function(){
+            search_and_display();
+        }
+    )
+
+    searchbox.addEventListener(
+        "input", 
+        function(){
+            search_and_display();
+        }
+    )
+</script>
