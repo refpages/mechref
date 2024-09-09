@@ -1,7 +1,18 @@
+---
+const {course} = Astro.props;
+
+const coursetags = {
+    'sta': 'Statics',
+    'dyn': 'Dynamics',
+    'sol': 'Solid Mechanics'
+}
+
+---
+
 <div class="w-100 py-3 bg-blue" id="title_bar">
     <div class="container">
         <a href="/" class="text-decoration-none">
-            <h1 class="title-orange fw-bold m-0" style="font-size: 4rem">Mechanics Reference</h1>
+            <h1 class="title-orange fw-bold m-0" style="font-size: 4rem">{course ? coursetags[course]  : "Mechanics"} Reference</h1>
         </a>
     </div>
 </div>
