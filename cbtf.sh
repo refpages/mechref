@@ -15,7 +15,9 @@ do
     rm -rf "clientFilesCourse/mechref"
     mv "clientFilesCourse/dist" "clientFilesCourse/mechref" 
     git switch master
+    git stash
     git pull --rebase
+    git stash apply
     git add -A
     git commit -m "Updated reference pages"
     git push

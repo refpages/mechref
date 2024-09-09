@@ -2047,7 +2047,6 @@ import search_contents from "../search.json"
 
 }));
 
-    
 
     const index = Fuse.createIndex(['title', 'text'], search_contents)
 
@@ -2084,7 +2083,7 @@ import search_contents from "../search.json"
             
             let text =  e['item']['text'];
             
-            let first_str_index = text.indexOf(query);
+            let first_str_index = text.toLowerCase().indexOf(query.toLowerCase());
             
 
             if (first_str_index == -1){
@@ -2095,9 +2094,9 @@ import search_contents from "../search.json"
             let s_i = Math.max(first_str_index - 40, 0);
             let f_i = Math.min(first_str_index + 40, text.length);
             
-
+            let text_to_highlight = text.slice(first_str_index, first_str_index + query.length);
             let slice = text.slice(s_i, f_i);
-            let highlit = slice.replace(query, `<span class="highlighter">${query}</span>`)
+            let highlit = slice.replace(text_to_highlight, `<span class="highlighter">${text_to_highlight}</span>`)
 
 
             searchresults.innerHTML += `<a href="${e['item']['link']}" class="text-black text-decoration-none">
