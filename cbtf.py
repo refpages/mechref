@@ -158,6 +158,34 @@ for page in ['index.html', 'dyn.html', 'sta.html', 'sol.html']:
     with open(os.path.join(home, page), 'w') as file:
         file.write(data)
 
+special_rewrites = {
+    'vectors.html_scalars.html': 'vectors_scalars.html',
+    "vectors.html_scalars.js": "vectors_scalars.js"
+}
+
+for dir in ['dyn', 'sta', 'sol']:
+    pages = [p for p in os.listdir(os.path.join(home, dir)) if p[-5:] == '.html']
+    for page in pages:
+        print(page)
+        with open(os.path.join(home, os.path.join(dir, page)), 'r') as file:
+            data = file.read()
+
+        for wrong, correct in special_rewrites.items():
+            data = data.replace(wrong, correct)
+
+        with open(os.path.join(home, os.path.join(dir, page)), 'w') as file:
+            file.write(data)
+
+for page in ['index.html', 'dyn.html', 'sta.html', 'sol.html']:
+    print(page)
+    with open(os.path.join(home, page), 'r') as file:
+        data = file.read()
+
+    for wrong, correct in special_rewrites.items():
+        data = data.replace(wrong, correct)
+    
+    with open(os.path.join(home, page), 'w') as file:
+        file.write(data)
 
         
         
