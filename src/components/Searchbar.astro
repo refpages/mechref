@@ -1,5 +1,4 @@
 ---
-import Fuse from 'fuse.js'
 import search_contents from "../search.json"
 ---
 <style>
@@ -2072,9 +2071,6 @@ import search_contents from "../search.json"
 
     const fuse = new Fuse(search_contents, options, index)
     
-
-    
-    
     let query;
     let results;
 
@@ -2107,12 +2103,23 @@ import search_contents from "../search.json"
             let slice = text.slice(s_i, f_i);
             let highlit = slice.replace(text_to_highlight, `<span class="highlighter">${text_to_highlight}</span>`)
 
+            let display_text;
 
+            if (s_i == 0){
+              display_text = `${highlit}...`;
+            }else if (f_i == text.length){
+              display_text = `...${highlit}`;
+            }else{
+              display_text = `...${highlit}...`;
+            }
+
+            console.log(display_text)
+            
             searchresults.innerHTML += `<a href="${e['item']['link']}" class="text-black text-decoration-none">
                     <li class="px-2 py-1 border-bottom" >
                     
                         <p class="mb-0 fw-bold">${e['item']['title']}:</p>
-                            ...${highlit}...
+                        ${display_text}
                     
                     </li>
                 </a>
