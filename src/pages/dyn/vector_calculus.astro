@@ -36,18 +36,13 @@ import DisplayTable from "../../components/DisplayTable.astro"
             <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#newton_versus_leibniz_notation'>Newton versus Leibniz Notation</a></li>
         </ul>
     </li>
-    <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#derivatives_and_vector_positions'>Derivatives and vector \"positions\"</a>
+    <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#derivatives_and_vector_positions'>Derivatives and vector "positions"</a>
         <ul class='list-group list-group-flush py-0'> 
             <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#cartesian'>Cartesian</a></li>
             <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#non-cartesian_polar_basis'>Non-Cartesian: Polar basis</a></li>
-            <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#graphical_estimation'>Graphical estimation</a></li>
         </ul>
     </li>
     <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#chain_rule'>Chain rule</a>
-        <ul class='list-group list-group-flush py-0'> 
-            <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#scalars'>Scalars</a></li>
-            <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#second_derivative'>Second derivative</a></li>
-        </ul>
     </li>
     <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#integration'>Integration</a>
         <ul class='list-group list-group-flush py-0'> 
@@ -114,9 +109,7 @@ import DisplayTable from "../../components/DisplayTable.astro"
     </DisplayEquation>
 
     <p>
-      The fact that we can write the dot product <a
-      href="#rvv-es">in terms of components</a> as well as <a
-      href="#rvv-ed">in terms of lengths and angle</a> is very
+      The fact that we can write the dot product in terms of components as well as in terms of lengths and angle is very
       helpful for calculating the length and angles of vectors
       from the component representations.
     </p>
@@ -512,8 +505,7 @@ import DisplayTable from "../../components/DisplayTable.astro"
 
   <p>
     When thinking about vector derivatives, it is important to
-    remember that vectors <a href="rvv.html#rvv-fc">don't have
-    positions</a>. Even if a vector is drawn moving about, this
+    remember that vectors don't have positions. Even if a vector is drawn moving about, this
     is irrelevant for the derivative.  Only changes to length
     and direction are important.
   </p>
@@ -528,10 +520,33 @@ import DisplayTable from "../../components/DisplayTable.astro"
       <p class="controls">
         Show:
         <button class="option-toggle:rvc-fp-c:showVelocity0" onclick="rvc_fp_c.toggleOption('showVelocity0')">derivative at \(t = 0\)</button>
-        <button class="option-toggle:rvc-fp-c:showFixedBase"><InlineEquation equation="\\vec{a}(t)" onclick="rvc_fp_c.toggleOption('showFixedBase'); "/> with fixed base</button>
+        <button class="option-toggle:rvc-fp-c:showFixedBase"  onclick="rvc_fp_c.toggleOption('showFixedBase'); "><InlineEquation equation="\\vec{a}(t)"/> with fixed base</button>
         <button class="option-toggle:rvc-fp-c:showVelocity" onclick="rvc_fp_c.toggleOption('showVelocity'); rvc_fp_c.redraw();">derivative at current \(t\)</button>
       </p>
     </div>
+    <p class="controls">
+      Movement:
+      <input type="radio" name="rvc-fp-c-movement" value="bounce" class="data-input:rvc-fp-c:movement" onclick="rvc_fp_c.setOption('movement', this.value)" checked/>
+      bounce
+      <input type="radio" name="rvc-fp-c-movement" value="stretch" class="data-input:rvc-fp-c:movement" onclick="rvc_fp_c.setOption('movement', this.value)"/>
+      stretch
+      <input type="radio" name="rvc-fp-c-movement" value="circle" class="data-input:rvc-fp-c:movement" onclick="rvc_fp_c.setOption('movement', this.value)"/>
+      circle
+      <input type="radio" name="rvc-fp-c-movement" value="twist" class="data-input:rvc-fp-c:movement" onclick="rvc_fp_c.setOption('movement', this.value)"/>
+      twist
+      <input type="radio" name="rvc-fp-c-movement" value="slider" class="data-input:rvc-fp-c:movement" onclick="rvc_fp_c.setOption('movement', this.value)"/>
+      slider
+      <input type="radio" name="rvc-fp-c-movement" value="rotate" class="data-input:rvc-fp-c:movement" onclick="rvc_fp_c.setOption('movement', this.value)"/>
+      rotate
+      <input type="radio" name="rvc-fp-c-movement" value="vertical" class="data-input:rvc-fp-c:movement" onclick="rvc_fp_c.setOption('movement', this.value)"/>
+      vertical
+      <input type="radio" name="rvc-fp-c-movement" value="fly" class="data-input:rvc-fp-c:movement" onclick="rvc_fp_c.setOption('movement', this.value)"/>
+      fly
+    </p>
+    <p class="figureCaption">
+      <em>Vector derivatives for moving vectors. Vector movement is
+      irrelevant when computing vector derivatives.</em>
+    </p>
   </PrairieDrawCanvas>
 </SubSection>
 
@@ -710,7 +725,7 @@ import DisplayTable from "../../components/DisplayTable.astro"
 <SubSection title="Integration">
 
 <p>
-    Cartesian:
+    <b>Cartesian:</b>
   </p>
 
     <DisplayEquation equation= "\\vec{v} = \\dot{x} \\hat\\imath + \\dot{y} \\hat\\jmath"/>
@@ -719,7 +734,7 @@ import DisplayTable from "../../components/DisplayTable.astro"
     <li>Integrate <InlineEquation equation="\\dot{x}" />  and <InlineEquation equation="\\dot{y}" /> to find \(x\) and \(y\). </li>
   </ul>
   <p>
-    Polar:
+    <b>Polar:</b>
   </p>
 
     <DisplayEquation equation= "\\vec{v} = \\dot{r} \\hat{e}_r + \\dot{r} \\dot{\\theta} \\hat{e}_\\theta"/>

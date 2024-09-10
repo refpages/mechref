@@ -1,5 +1,5 @@
 ---
-const { src, width="5", alt=''} = Astro.props;
+const { src, width="5", alt='', id=""} = Astro.props;
 
 const img_path_split = src.split('/')
 
@@ -34,12 +34,11 @@ const filename = 'Fig: ' + img_path_split.pop().replace('.png', '')
     }
 </style>
 
-<div class="img-container w-100 d-flex flex-column align-items-center my-3">
+<div class="img-container w-100 d-flex flex-column align-items-center my-3" id={id}>
     <div class="d-flex flex-column align-items-center image-block">
         <img src={src} class="w-100" alt={alt}>
     </div>
-    <figcaption class="filename">{filename}</figcaption>
     <div class="d-flex flex-row justify-content-center align-items-baseline flex-wrap" style="gap: 5px;">
-        <u><slot /></u>
+        <small><em><slot /></em></small>
     </div>
 </div>

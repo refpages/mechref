@@ -12,6 +12,8 @@
   "dependencies": {
     "@astrojs/svelte": "^5.7.0",
     "astro": "^4.12.3",
+    "fuse.js": "^7.0.0",
+    "mathjax": "^3.2.2",
     "svelte": "^4.2.18",
     "typescript": "^5.5.4"
   }

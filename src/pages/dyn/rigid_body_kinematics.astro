@@ -12,6 +12,7 @@ import CalloutCard from "../../components/CalloutCard.astro"
 import CalloutContainer from "../../components/CalloutContainer.astro"
 import Enumerate from "../../components/Enumerate.astro"
 import Item from "../../components/Item.astro"
+import Warning from "../../components/Warning.astro"
 ---
 <style>
     table { border-collapse: collapse; }
@@ -32,10 +33,10 @@ import Item from "../../components/Item.astro"
 </style>
 
 <Layout title="Rigid Body Kinematics">
-<Section title="Rigid Body Kinematics"></Section>
+
+<Section title="Rigid Body Kinematics" id="rigid_body_kinematics"></Section>
 
 <SubSection title="Rigid bodies">
-    <BlueText>Complete in "Rigid bodies"</BlueText>
 
     A <em>rigid body</em> is an extended area of material that
           includes all the points inside it, and which moves so that
@@ -93,8 +94,7 @@ import Item from "../../components/Item.astro"
       </p>
 </SubSection>
 
-<SubSection title="Rotating rigid bodies">
-    <BlueText>Complete in "Rigid bodies"</BlueText>
+<SubSection title="Rotating rigid bodies" id="rotating_rigid_bodies">
 
     <p>
         All points on a rigid body have the same angular rotation
@@ -114,6 +114,21 @@ import Item from "../../components/Item.astro"
         and <InlineEquation equation="\\vec\\alpha = \\alpha\\,\\hat{k}" />, where <InlineEquation equation="\\hat{k}" /> is the
         out-of-plane direction.
       </p>
+	  
+	  <BlueText> Add animation from <a href="https://mechref.engr.illinois.edu/dyn/rkg.html"> here </a>.
+	  
+	  
+	  <Warning title="Labeling angular quantities on rigid bodies." id="rkg-ww">
+      <p>
+         Angular quantities (<InlineEquation equation="\\theta , \\omega , \\alpha"/>)for rigid bodies should not be labeled with points. If <b>P</b> and <b>Q</b> are points on a rigid body, we do not write <InlineEquation equation="\\omega_P"/> or <InlineEquation equation="\\omega_Q"/> for the angular velocity about these points.
+      </p>
+	  <p>
+		Instead, we label angular quantities according to the body. If we have two rigid bodies <InlineEquation equation="B_1"/> and <InlineEquation equation="B_2"/>, then <InlineEquation equation="\\omega_1"/>  is the angular velocity of the first body (and all points on it) and <InlineEquation equation="\\omega_2"/> is the angular velocity of the second body.
+	  </p>
+     </Warning>
+	
+	
+	
       <CalloutContainer slot="cards">
           <CalloutCard>
             <p>
@@ -146,60 +161,58 @@ import Item from "../../components/Item.astro"
       </CalloutContainer>
 </SubSection>
 
-<SubSection title="Rigid body velocity">
-    <BlueText>Complete in "Rigid bodies"</BlueText>
+<SubSection title="Points on rigid bodies">
+    <BlueText>Copy content from <a href="https://mechref.engr.illinois.edu/dyn/rkg.html"> here </a> </BlueText>
+</SubSection>
+
+<SubSection title="Rigid bodies in 2D">
+    <BlueText>Copy content from <a href="https://mechref.engr.illinois.edu/dyn/rkg.html"> here </a> </BlueText>
 </SubSection>
 
 <SubSection title="Constrained motion">
-    <BlueText>Complete in "Constraints and constrained motions"</BlueText>
-</SubSection>
-
-<SubSection title="Rigid body acceleration">
-    <BlueText>Complete in "Rigid bodies"</BlueText>
+    <BlueText>Copy content from <a href="https://mechref.engr.illinois.edu/dyn/rkc.html"> here </a> </BlueText>
 </SubSection>
 
 <SubSection title="Gears">
-    <RedText>Include the information in Fig  \ref fig:GearsRecap as a broad introduction to the topic</RedText>
 
     <Image src="/Dynamics/RigidBodyKinematics/GearsRecap.png" width="7"></Image>
 </SubSection>
 
 <SubSubSection title="Standard sign convention">
-    <RedText>Add information shown in Fig  \ref fig:gears</RedText>
     
     <Image src="/Dynamics/RigidBodyKinematics/Gears.png" width="7"></Image>
-
-    <RedText>Include animation of examples as the ones in Fig  \ref fig:GearsExamples</RedText>
     <Image src="/Dynamics/RigidBodyKinematics/GearsExamples.png" width="7"></Image>
+	
 </SubSubSection>
 
 <SubSubSection title="Accelerations in contact (no slip)">
-    <RedText>Add the information included in Fig  \ref fig:GearsAcceleration</RedText>
 
     <Image src="/Dynamics/RigidBodyKinematics/GearsAcceContact.png" width="7"></Image>
 </SubSubSection>
 
 <SubSection title="Applications"></SubSection>
 
+<SubSubSection title="Steering geometry">
+    <BlueText>Complete in <a href="https://mechref.engr.illinois.edu/dyn/avs.html">"Steering geometry"</a>.</BlueText> This refers to "Rigid Bodies".
+</SubSubSection>
+
+<SubSubSection title="Knee Joint">
+    <BlueText>Complete in <a href="https://mechref.engr.illinois.edu/dyn/aml.html"> "Four-Bar Linkages" </a> under the subtitle "Example: Knee joint (constrained motion)".</BlueText> This refers to "Constrained motion".
+</SubSubSection>
+
+<SubSubSection title="Suspensions with Watt's linkage">
+    <BlueText>Complete in <a href="https://mechref.engr.illinois.edu/dyn/aml.html"> "Four-Bar Linkages" </a> under the subtitle "Example: Suspensions with Watt's linkage (constrained motion)".</BlueText> This refers to "Constrained motion".
+</SubSubSection>
+
+
 <SubSubSection title="Train passenger comfort">
-    <RedText>This topics need to be clearly organized and expanded. Refer to Fig  \ref fig:AppTrainPassenger</RedText>. Application for "Rigid body acceleration".
+    <RedText>This topics need to be clearly organized and expanded.</RedText> Application for "Rigid body acceleration".
 
     <Image src="/Dynamics/RigidBodyKinematics/AppTrainPassenger.png" width="8"></Image>
 </SubSubSection>
 
-<SubSubSection title="Steering geometry">
-    <BlueText>Complete in "Steering geometry".</BlueText> This refers to "Rigid Bodies".
-</SubSubSection>
-
-<SubSubSection title="Knee Joint">
-    <BlueText>Complete in "Four-Bar Linkages" under the subtitle "Example: Knee joint (constrained motion)".</BlueText> This refers to "Constrained motion".
-</SubSubSection>
-
-<SubSubSection title="Suspensions with Watt's linkage">
-    <BlueText>Complete in "Four-Bar Linkages" under the subtitle "Example: Suspensions with Watt's linkage (constrained motion)".</BlueText> This refers to "Constrained motion".
-</SubSubSection>
-
 <SubSubSection title="Aerobie Orbiter">
-    <RedText>This topic was mentioned in lecture but it was not expanded.</RedText> Application for "Rigid body rotation".
+    
+	Application for "Rigid body rotation".
 </SubSubSection>
 </Layout>

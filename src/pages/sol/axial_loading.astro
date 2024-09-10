@@ -77,6 +77,15 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
 
 <DisplayEquation equation='P = k\\delta   =>   k = \\frac{EA}{L}\\' title=" Axial stiffness." background="True" />
 
+
+<DisplayEquation equation='P = \\sigma A\\' title="Text above." id="sts-sss" background="True" derivation="True" >
+
+	<DisplayEquation equation='\\sigma = E\\varepsilon\\' />
+	<DisplayEquation equation='\\varepsilon = \\delta / L\\' />
+	<DisplayEquation equation='=>   P = E\\frac{\\delta}{L}A\\' />
+
+</DisplayEquation>
+
 </SubSection>
 
 <SubSection title="Axially Varying Properties" id="axially_varying_properties"> 
