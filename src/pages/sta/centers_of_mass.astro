@@ -9,8 +9,16 @@ import Item from "../../components/Item.astro"
 import InlineEquation from "../../components/InlineEquation.astro"
 import DisplayEquation from "../../components/DisplayEquation.astro"
 ---
-<Layout title="Centers of Mass">
-<Section title="Center of Mass">
+<Layout title="Center of Mass">
+
+    <div slot="navtree">
+        <ul class='list-group list-group-flush py-0'> 
+          <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#basic_shapes'>Basic Shapes</a></li> 
+          <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#centroid'>Centroid</a></li>
+      </ul>
+      </div>
+
+<Section title="Center of Mass" id="center_of_mass">
 
 <BlueText>Take from the TAM 212 reference page - Centers of Mass - Introduction section</BlueText>
 
@@ -18,7 +26,7 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
 </Section>
 <!-- Lectures 28, 29  -->
 
-<SubSection title="Basis Shapes">
+<SubSection title="Basis Shapes" id="basic_shapes">
 
 <BlueText>Take from the TAM 212 reference page - Centers of Mass - Simplified Shapes</BlueText>
 
@@ -30,7 +38,7 @@ Centroids of simple shapes can be combined to solve for the centroid of more com
 
 </SubSection>
 
-<SubSection title="Centroid">
+<SubSection title="Centroid" id="centroid">
 
 <p>
     The centroid denotes the <em>geometric</em> center of an object. When an object is made of a homogeneous material, the centroid and the center of mass are at the same point. If the object has an axis of symmetry, the centroid is on the axis of symmetry. In some cases, the centroid may not be on the object. 
@@ -54,7 +62,7 @@ with similar equations for <InlineEquation equation="\\bar{y}" />.
 
 <p>Example problem: Centroid of a curved area</p>
 
-<Image src='/Statics/COMFigures/CentroidEx.jpg' width='5'> <BlueText>Adapted from TAM 210 Lecture 28 Notes</BlueText></Image>
+<Image src='/Statics/COMFigures/CentroidEx.jpg' width='5'> </Image>
 
 </SubSection>
 </Layout>

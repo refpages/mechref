@@ -8,14 +8,21 @@ import InlineEquation from "../../components/InlineEquation.astro"
 import DisplayEquation from "../../components/DisplayEquation.astro" 
 ---
 <Layout title="Hydrostatic Fluid Pressure">
-<Section title="Hydrostatic Fluid Pressure">
+
+    <div slot="navtree">
+        <ul class='list-group list-group-flush py-0'> 
+          <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#fluid_pressure'>Fluid Pressure</a></li> 
+          <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#buoyancy'>Buoyancy</a></li>
+      </ul>
+      </div>
+<Section title="Hydrostatic Fluid Pressure" id="hydrostatic_fluid_pressure">
 
 <!-- Lecture 30, 31, 32 -->
 <strong>Pascal's Law:</strong> A fluid at rest creates a pressure point <em>p</em> at a point that is the same in all directions. 
 
 </Section>
 
-<SubSection title="Fluid Pressure">
+<SubSection title="Fluid Pressure" id="fluid_pressure">
 
 For an incompressible fluid (density <InlineEquation equation='\\rho' />) at rest, the pressure <InlineEquation equation='p' /> varies linearly with fluid depth <InlineEquation equation='z' />. This means that the pressure along a horizontal plane (at a certain depth <InlineEquation equation='z' /> is constant.
 
@@ -31,13 +38,13 @@ The fluid pressure <InlineEquation equation='P(z)' /> can be written as:
 
 </SubSection>
 
-<SubSection title="Buoyancy">
+<SubSection title="Buoyancy" id="buoyancy">
 
 <strong>Archimedes' Principle:</strong> Any object that is either partially or totally immersed in a fluid has a buoyancy force equal to the weight of the fluid displaced by the object. 
 
 
-<BlueText>Do we need to include anything else for buoyancy?</BlueText>
-%Lecture 32
+<!--Do we need to include anything else for buoyancy?
+%Lecture 32-->
 
 </SubSection>
 

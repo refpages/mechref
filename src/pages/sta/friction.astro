@@ -7,7 +7,15 @@ import BlueText from "../../components/BlueText.astro"
 import RedText from "../../components/RedText.astro" 
 ---
 <Layout title="Friction">
-<Section title="Friction">
+
+    <div slot="navtree">
+        <ul class='list-group list-group-flush py-0'> 
+          <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#static_friction'>Static Friction</a></li> 
+          <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#tip_slip'>Tipping vs. Slipping</a></li>
+      </ul>
+      </div>
+
+<Section title="Friction" id="friction">
 
 Friction is a force that resists the movement of two contacting surfaces sliding relative to each other. Frictional forces act tangential to the surface at the point of contact and act in opposition to the possible or existing motion between the surfaces. 
 
@@ -15,23 +23,23 @@ Friction is a force that resists the movement of two contacting surfaces sliding
 
 </Section>
 
-<SubSection title="<RedText>Static Friction</RedText>">
+<SubSection title="Static Friction" id="static_friction">
 
 Examples of coefficients of static friction: 
 
 
 <Image src='/Statics/FrictionFigures/ExampleCoeff.png' width='3 '><BlueText>Taken from TAM 210 Lecture 26</BlueText></Image>
 
-<BlueText>This might be a good place to add practical examples - maybe how engine brakes use friction? And another thing about how cartilage in your joints has very little friction (like ice on ice!) which allows for joint movement.</BlueText>
+<!--This might be a good place to add practical examples - maybe how engine brakes use friction? And another thing about how cartilage in your joints has very little friction (like ice on ice!) which allows for joint movement.-->
 
 In TAM 210/211, we will focus on dry friction. Dry friction occurs between two surfaces with <strong>no</strong> lubricating fluid between them. 
 
-Static friction is the friction between two bodies when there is no movement between them. 
+Static friction is the friction between two bodies when there is no movement between them.
 </SubSection>
 
-<SubSection title="Tipping vs. Slipping">
+<SubSection title="Tipping vs. Slipping" id="tip_slip">
 
-<Image src='/Statics/FrictionFigures/TipSlip.jpg' width='5'><BlueText>Adapted from TAM 210 Lecture 27</BlueText></Image>
+<Image src='/Statics/FrictionFigures/TipSlip.jpg' width='5'>tipping vs. slipping</Image>
 
 <p>
 To solve for X (the location of the normal force), one can write the equations of equilibrium.
@@ -42,7 +50,7 @@ To solve for X (the location of the normal force), one can write the equations o
 </p>
 <!-- From Lecture 27 -->
 
-<Image src='/Statics/FrictionFigures/NLocation.jpg' width='4'><BlueText>Adapted from TAM 210 Lecture 26</BlueText></Image>
+<Image src='/Statics/FrictionFigures/NLocation.jpg' width='4'>Note explanation</Image>
 </SubSection>
 
 </Layout>
