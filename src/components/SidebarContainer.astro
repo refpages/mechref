@@ -83,7 +83,7 @@
 </style>
 
 <div id="nav_container" class="d-flex flex-column">
-    <Sidebar />
+    <Sidebar current_course={course} current_page={page}/>
     <div class="d-flex flex-column align-items-left mb-0 mb-xl-4 ps-3 mt-3 mt-xl-0 w-100" id="hideable-container">
         {(page && course) &&
         <p class="mb-2 fw-bold text-black h5 text-decoration-underline ">Current page:</p> 
