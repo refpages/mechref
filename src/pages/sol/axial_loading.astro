@@ -65,20 +65,17 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
 
 <SubSection title="Force-Deformation Relation" id="force-deformation_relation"> 
 
-<DisplayEquation equation='\\delta = \\frac{PL}{EA}\\' title="Force-Deformation relation." background="True" />
+<DisplayEquation equation='\\delta = \\frac{PL}{EA}\\' title="Relation." background="True" derivation="True" id="axl-fdr">
+    
+    <DisplayEquation equation='P = \\sigma A\\' />
+    <DisplayEquation equation='P = E \\varepsilon A\\' />
+    <DisplayEquation equation='P = E\\frac{\\delta}{L}A\\' />
+
+</DisplayEquation>
 
 <DisplayEquation equation='\\delta = fP   =>   f = \\frac{L}{EA}\\' title=" Axial flexibility." background="True" />
 
 <DisplayEquation equation='P = k\\delta   =>   k = \\frac{EA}{L}\\' title=" Axial stiffness." background="True" />
-
-
-<DisplayEquation equation='P = \\sigma A\\' title="Force-Stress relation." id="sts-sss" background="True" derivation="True" >
-
-	<DisplayEquation equation='\\sigma = E\\varepsilon\\' />
-	<DisplayEquation equation='\\varepsilon = \\delta / L\\' />
-	<DisplayEquation equation='=>   P = E\\frac{\\delta}{L}A\\' />
-
-</DisplayEquation>
 
 </SubSection>
 
