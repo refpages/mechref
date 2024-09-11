@@ -152,7 +152,7 @@
           },
           {
             "id": "centers_of_mass",
-            "name": "Centers Of Mass"
+            "name": "Center of Mass"
           },
           {
             "id": "hydrostatic_fluid_pressure",
