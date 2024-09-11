@@ -160,7 +160,8 @@ for page in ['index.html', 'dyn.html', 'sta.html', 'sol.html']:
 
 special_rewrites = {
     'vectors.html_scalars.html': 'vectors_scalars.html',
-    "vectors.html_scalars.js": "vectors_scalars.js"
+    "vectors.html_scalars.js": "vectors_scalars.js",
+    "stress.html_transformation": "stress_transformation.html"
 }
 
 for dir in ['dyn', 'sta', 'sol']:
