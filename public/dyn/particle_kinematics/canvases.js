@@ -1468,6 +1468,7 @@ $(document).ready(function() {
         rkv_fo_c.redraw();
         rkv_fa_c.redraw();
         rkv_fr_c.redraw();
+        
     } );
 
 }); // end of document.ready()
