@@ -48,7 +48,7 @@ if (title){
     
     {derivation && <button class="btn btn-secondary py-0" id={'derivation_btn_'+id}>Derivation +</button>}
     {derivation && 
-        <div id={'derivation_menu_'+id}>
+        <div id={'derivation_menu_'+id} style="overflow-y: hidden; overflow-x: auto;">
             <div class={'p-2 ' + menu_class}>
                 <slot />
             </div>

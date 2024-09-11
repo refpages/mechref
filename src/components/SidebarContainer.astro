@@ -82,7 +82,7 @@
     }
 </style>
 
-<div id="nav_container" class="d-flex flex-column">
+<div id="nav_container" class="d-flex flex-column w-100">
     <Sidebar />
     <div class="d-flex flex-column align-items-left mb-0 mb-xl-4 ps-3 mt-3 mt-xl-0 w-100" id="hideable-container">
         {(page && course) &&
@@ -91,8 +91,8 @@
             
             <p class='text-start text-black my-0 h5 fw-bold text-wrap '>{pretty_page_names[course][page]}</p>
         </button>
-        <div id="navtree-collapse" class="collapse">
-            <ul class='list-group list-group-flush py-0' id="nav-tree-container">
+        <div id="navtree-collapse" class="collapse w-100">
+            <ul class='list-group list-group-flush py-0 w-100' id="nav-tree-container">
                 <slot />
             </ul>
         </div>
