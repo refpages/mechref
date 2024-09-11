@@ -5,7 +5,15 @@ import Section from "../../components/Section.astro"
 import SubSection from "../../components/SubSection.astro" 
 import BlueText from "../../components/BlueText.astro" 
 import RedText from "../../components/RedText.astro" 
+import DisplayEquation from "../../components/DisplayEquation.astro"
+import DisplayTable from "../../components/DisplayTable.astro"
 ---
+
+<style>
+    tbody.center-text > tr > td{
+        text-align: center;
+    }
+</style>
 <Layout title="Friction">
 
     <div slot="navtree">
@@ -27,6 +35,37 @@ Friction is a force that resists the movement of two contacting surfaces sliding
 
 Examples of coefficients of static friction: 
 
+
+<DisplayTable id="friction_table" class_="table-bordered">
+    <thead>
+        <tr>
+            <th class="text-center">System</th>
+            <th class="text-center">Static friction \(\mu_s\)</th>
+        </tr>
+    </thead>
+    <tbody class="center-text">
+        <tr>
+            <td>Rubber on dry concrete</td>
+            <td>1.0</td>
+        </tr>
+        <tr>
+            <td>Wood on wood</td>
+            <td>0.5</td>
+        </tr>
+        <tr>
+            <td>Steel on steel</td>
+            <td>0.6</td>
+        </tr>
+        <tr>
+            <td>Shoes on wood</td>
+            <td>0.9</td>
+        </tr>
+        <tr>
+            <td>Shoes on ice</td>
+            <td>0.1</td>
+        </tr>
+    </tbody>
+</DisplayTable>
 
 <Image src='/Statics/FrictionFigures/ExampleCoeff.png' width='3 '><BlueText>Taken from TAM 210 Lecture 26</BlueText></Image>
 
