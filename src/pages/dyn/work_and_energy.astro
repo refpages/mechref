@@ -6,96 +6,139 @@ import SubSection from "../../components/SubSection.astro"
 import SubSubSection from "../../components/SubSubSection.astro" 
 import BlueText from "../../components/BlueText.astro" 
 import RedText from "../../components/RedText.astro" 
+import Itemize from "../../components/Itemize.astro" 
+import Item from "../../components/Item.astro" 
+import DisplayEquation from "../../components/DisplayEquation.astro"
+import DisplayEquationCustom from "../../components/DisplayEquationCustom.astro"
+import PrairieDrawCanvas from "../../components/PrairieDrawCanvas.astro"
+import InlineEquation from "../../components/InlineEquation.astro"
+import Example from "../../components/Example.astro"
+import Center from "../../components/Center.astro"
+import SubSubSubSection from "../../components/SubSubSubSection.astro"
+import Warning from "../../components/Warning.astro"
+import CalloutCard from "../../components/CalloutCard.astro"
+import CalloutContainer from "../../components/CalloutContainer.astro"
+import DisplayTable from "../../components/DisplayTable.astro"
 ---
 <Layout title="Work and Energy">
+
+<div slot="navtree">
+  <ul class='list-group list-group-flush py-0'> 
+    <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#energy'>Energy</a></li>
+        <ul class='list-group list-group-flush py-0'> 
+            <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#potential_energy'>Potential energy</a></li>  
+			<li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#kinetic_energy'>Kinetic energy</a></li>  
+			<li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#energy_summary'>Summary</a></li>  
+        </ul>	
+	<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#work'>Work</a></li>
+        <ul class='list-group list-group-flush py-0'> 
+            <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#work_energy'>Work and Energy</a></li>  
+			<li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#work_force'>Work done by a force</a></li>  
+			<li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#conserv_nonconserv_forces'>Conservative vs Non-conservative forces</a></li>  
+			<li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#work_friction'>Work done by friction</a></li> 
+			<li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#work_moment'>Work done by a moment</a></li> 
+        </ul>
+	<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#friction'>Friction</a></li>
+        <ul class='list-group list-group-flush py-0'> 
+            <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#stick_transition_slip'>Stick, transition, slip</a></li>  
+			<li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#solution_procedure'>Solution procedure</a></li>  
+        </ul>
+	<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#momentum'>Momentum</a></li>
+	<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#impulse'>Impulse</a></li>
+	<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#collisions'>Collisions</a></li>
+	<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#app_work_energy'>Applications</a></li>
+		<ul class='list-group list-group-flush py-0'> 
+            <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#app_wind_turbine'>Wind turbine</a></li>  
+			<li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#app_race_cars'>Race cars</a></li>
+        </ul>
+  </ul>
+</div>
+
+
 <Section title="Work and Energy"></Section>
 
-<SubSection title="Energy">
-    <BlueText>Mostly complete in "Energy and work".</BlueText>
+<SubSection title="Energy"  id="energy">
 
-    <RedText>Add information as shown in Fig  \ref fig:Energy . Equations of potential gravitational and elastic are already included in reference page</RedText>
-    <Image src="/Dynamics/WorkEnergyFigs/Energy.png" width="7"></Image>
-</SubSection>
-
-<SubSection title="Work"></SubSection>
-
-<SubSubSection title="Work-Energy">
-    <RedText>Include equation and description shown in Fig  \ref fig:WorkEnergy</RedText>
-
-    <Image src="/Dynamics/WorkEnergyFigs/WorkEnergy.png" width="7"></Image>
+<SubSubSection title="Potential Energy" id="potential_energy" >
+<BlueText> Copy <a href="https://mechref.engr.illinois.edu/dyn/ren.html"> Potential energy </a> subsection here. </BlueText>
 </SubSubSection>
 
-<SubSubSection title="Work done by a Force">
-    <BlueText>Complete in "Energy and work"</BlueText>
+<SubSubSection title="Kinetic Energy" id="kinetic_energy" >
+<BlueText> Copy <a href="https://mechref.engr.illinois.edu/dyn/ren.html"> Kinetic energy </a> subsection here. </BlueText>
+</SubSubSection>
 
-    <RedText>Include example shown in Fig  \ref fig:WorkExample</RedText>
+<SubSubSection title="Summary" id="energy_summary">
+    <Image src="/Dynamics/WorkEnergyFigs/Energy.png" width="7"></Image>
+</SubSubSection>
 
+</SubSection>
+
+<SubSection title="Work" id="work" >
+
+<SubSubSection title="Work and Energy"  id="work_energy">
+    <DisplayEquation equation=" W = \\Delta{E} = E_f  -   E_0" background="True"  title="Work-Energy Principal" id="wan-we">
+</SubSubSection>
+
+<SubSubSection title="Work done by a Force"  id="work_force">
+	<BlueText> Copy <a href="https://mechref.engr.illinois.edu/dyn/ren.html"> Work, Forces and Moments </a> subsection here. </BlueText>
     <Image src="/Dynamics/WorkEnergyFigs/WorkExample.png" width="7"></Image>
 </SubSubSection>
 
-<SubSubSection title="Conservative vs Non-conservative forces">
-    <BlueText>Complete in "Energy and work"</BlueText>
+<SubSubSection title="Conservative vs Non-conservative forces"  id="conserv_nonconserv_forces">
+	<BlueText> Copy <a href="https://mechref.engr.illinois.edu/dyn/ren.html"> Conservative vs non-conservative forces </a> subsection here. </BlueText>
 </SubSubSection>
 
-    <SubSubSection title="Work done by Friction">
-    <RedText>Add information and example shown in Fig  \ref fig:WorkFriction</RedText>
-
+<SubSubSection title="Work done by Friction"  id="work_friction">
     <Image src="/Dynamics/WorkEnergyFigs/WorkFriction.png" width="7"></Image>
 </SubSubSection>
     
-<SubSubSection title="Work done by a Moment">
-    <RedText>Add information and example shown in Fig  \ref fig:WorkMoment</RedText>
-
-    <Image src="/Dynamics/WorkEnergyFigs/WorkMoment.png" width="7"></Image>
+<SubSubSection title="Work done by a Moment"  id="work_moment">
+	<Image src="/Dynamics/WorkEnergyFigs/WorkMoment.png" width="7"></Image>
 </SubSubSection>
 
-<SubSection title="Friction"></SubSection>
+</SubSection>
+
+
+<SubSection title="Friction"  id="friction">
     
-<SubSubSection title="Stick, Transition, Slip">
-    <RedText>Add information shown in Fig  \ref fig:Friction</RedText>
-    
+<SubSubSection title="Stick, Transition, Slip"  id="stick_transition_slip">
     <Image src="/Dynamics/WorkEnergyFigs/Friction.png" width="7"></Image>
 </SubSubSection>
     
-<SubSubSection title="Solution procedure">
-    <RedText>Add information shown in Fig  \ref fig:FrictionSolutionProcedure</RedText>
-
+<SubSubSection title="Solution procedure"  id="solution_procedure">
     <Image src="/Dynamics/WorkEnergyFigs/FrictionSolutionProcedure.png" width="7"></Image>
 </SubSubSection>
 
-<SubSection title="Momentum">
-    <RedText>Add short summary like in Fig  \ref fig:Momentum  at the end of the section</RedText>
-
-    <Image src="/Dynamics/WorkEnergyFigs/Momentum.png" width="7"></Image>
-</SubSection>
-    
-<SubSubSection title="of a point mass">
-    <BlueText>Complete in "Momentum, impulse and collisions"</BlueText>
-</SubSubSection>
-
-<SubSubSection title="of a rigid body">
-    <BlueText>Complete in "Momentum, impulse and collisions"</BlueText>
-</SubSubSection>
-
-<SubSubSection title="of a system of rigid bodies">
-    <BlueText>Complete in "Momentum, impulse and collisions"</BlueText>
-</SubSubSection>
-
-<SubSection title="Impulse">
-    <BlueText>Complete in "Momentum, impulse and collisions"</BlueText>
 </SubSection>
 
-<SubSection title="Applications"></SubSection>
 
-<SubSubSection title="Wind Turbine">
-    <RedText>This is included in L29-Notes, slides 11-12. Include the information in Fig  \ref fig:AppWindTurbine .</RedText> Application for "Energy".
-    
+<SubSection title="Momentum"  id="momentum">
+    <BlueText> Copy <a href="https://mechref.engr.illinois.edu/dyn/rec.html"> Momentum </a> subsection here  (first subsection). </BlueText>
+</SubSection>
+
+
+
+<SubSection title="Impulse" id="impulse">
+    <BlueText> Copy <a href="https://mechref.engr.illinois.edu/dyn/rec.html"> Impulse </a> subsection here. </BlueText>
+</SubSection>
+
+<SubSection title="Collisions" id="collisions">
+    <BlueText> Copy <a href="https://mechref.engr.illinois.edu/dyn/rec.html"> Collisions </a> subsection here. </BlueText>
+</SubSection>
+
+<SubSection title="Applications"  id="app_work_energy">
+
+<SubSubSection title="Wind Turbine"  id="app_wind_turbine">
+	Application for "Energy".
     <Image src="/Dynamics/WorkEnergyFigs/AppWindTurbine.png" width="7"></Image>
 </SubSubSection>
     
-<SubSubSection title="Race Cars">
-    <RedText>This is included in L33-Notes, slides 11-12. Include the information in Fig  \ref fig:AppRaceCars .</RedText> Application for "Friction".
-
-    <Image src="/Dynamics/WorkEnergyFigs/AppRaceCars.png" width="7"></Image>
+<SubSubSection title="Race Cars"  id="app_race_cars">
+	Application for "Friction".
+	<Image src="/Dynamics/WorkEnergyFigs/AppRaceCars.png" width="7"></Image>
 </SubSubSection>
+
+</SubSection>
+
+
 </Layout>
