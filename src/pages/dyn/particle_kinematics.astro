@@ -16,6 +16,9 @@ import DisplayEquationCustom from "../../components/DisplayEquationCustom.astro"
 import Enumerate from "../../components/Enumerate.astro" 
 import Item from "../../components/Item.astro" 
 import Itemize from "../../components/Itemize.astro"
+import Col from "../../components/Col.astro"
+import Row from "../../components/Row.astro"
+import DisplayTable from "../../components/DisplayTable.astro"
 ---
 
 <style>
@@ -81,7 +84,7 @@ import Itemize from "../../components/Itemize.astro"
 </div>
 
 
-<Section title="Particle Kinematics" id="particle_kinematics"></Section>
+<Section title="Particle Kinematics" id="particle_kinematics">
 
     <p>
         The two basic geometric objects we are using are
@@ -91,6 +94,7 @@ import Itemize from "../../components/Itemize.astro"
         (motion) of bodies we need to relate positions and vectors
         to each other.
     </p>
+  </Section>
 
   <SubSection title="Position vectors" id="position_vectors">
         <p>
@@ -98,9 +102,20 @@ import Itemize from "../../components/Itemize.astro"
           <b>Q</b> from <b>P</b>. If we start from the origin <b>O</b>, so we have <InlineEquation equation="\\vec{r}_{OP} = \\vec{OP}"/>, then we call this the <em>position vector</em> of
           position <b>P</b>. When it is clear, we will write <InlineEquation equation="\\vec{r}_P"/> for this position vector, or
           sometimes even just <InlineEquation equation="\\vec{r}"/>.
-		</p>
-		<BlueText> Insert corresponding animation from <a href="https://mechref.engr.illinois.edu/dyn/rkv.html"> here </a> <BlueText/>
-  <SubSection/>
+		    </p>
+		<PrairieDrawCanvas height="600" width="600" id="rkv-fp-c">
+      <p class="controls">
+        <button class="anim-toggle:rkv-fp-c" onclick="rkv_fp_c.toggleAnim()">animate</button>
+        <button class="reset:rkv-fp-c" onclick="rkv_fp_c.reset()">reset</button>
+      </p>
+      <p class="figureCaption">
+        Points \(P\) and \(Q\) and their relative and absolute
+        position vectors. Note that we can write the position
+        vectors with respect to different origins and in different
+        bases.
+      </p>
+    </PrairieDrawCanvas>
+  </SubSection>
   
     <SubSubSection title="Transformation of position vectors" id="Transformation_position_vectors">
         <p>
@@ -113,8 +128,33 @@ import Itemize from "../../components/Itemize.astro"
 			Position vectors are defined by the origin and the point, but not by any choice of basis. We can write any position vector in any basis and it is still the same vector.
 		</p>
 		
-		<BlueText> Insert corresponding animation from <a href="https://mechref.engr.illinois.edu/dyn/rkv.html"> here </a> <BlueText/>
-    <SubSubSection/>
+		<PrairieDrawCanvas height="600" width="600" id="rkv-fo-c">
+      <p class="controls">
+        <button class="anim-toggle:rkv-fo-c" onclick="rkv_fo_c.toggleAnim()">animate</button>
+        <button class="reset:rkv-fo-c" onclick="rkv_fo_c.reset()">reset</button>
+        <button class="option-toggle:rkv-fo-c:showLabels" onclick="rkv_fo_c.toggleOption('showLabels')">show labels</button>
+      </p>
+
+      <Row> 
+        <Col values="12">
+          <div class="d-flex  align-items-baseline">
+            <p class="me-1">Basis for <InlineEquation equation="\\vec{r}_{O_1P}" />:</p>
+            <input type="radio" name="rkv-fo-c-r1Basis" value="none" class="data-input:rkv-fo-c:r1Basis ms-2 me-1" checked onchange="rkv_fo_c.setOption('r1Basis', this.value)"/> none
+            <input type="radio" name="rkv-fo-c-r1Basis" value="ij" class="data-input:rkv-fo-c:r1Basis ms-2 me-1" /onchange="rkv_fo_c.setOption('r1Basis', this.value)"> <InlineEquation equation="\\hat\\imath,\\hat\\jmath" />
+            <input type="radio" name="rkv-fo-c-r1Basis" value="uv" class="data-input:rkv-fo-c:r1Basis ms-2 me-1" /onchange="rkv_fo_c.setOption('r1Basis', this.value)"> <InlineEquation equation="\\hat{u},\\hat{v}" />
+          </div>
+        </Col>
+        <Col values="12">
+          <div class="d-flex align-items-baseline">
+            <p class="me-1">Basis for <InlineEquation equation="\\vec{r}_{O_1P}" />:</p>
+            <input type="radio" name="rkv-fo-c-r2Basis" value="none" class="data-input:rkv-fo-c:r2Basis ms-2 me-1" checked onchange="rkv_fo_c.setOption('r2Basis', this.value)"/> none
+            <input type="radio" name="rkv-fo-c-r2Basis" value="ij" class="data-input:rkv-fo-c:r2Basis ms-2 me-1" /onchange="rkv_fo_c.setOption('r2Basis', this.value)"> <InlineEquation equation="\\hat\\imath,\\hat\\jmath" />
+            <input type="radio" name="rkv-fo-c-r2Basis" value="uv" class="data-input:rkv-fo-c:r2Basis ms-2 me-1" /onchange="rkv_fo_c.setOption('r2Basis', this.value)"> <InlineEquation equation="\\hat{u},\\hat{v}" />
+          </div>
+        </Col>
+      </Row>        
+    </PrairieDrawCanvas>
+    </SubSubSection>
 
    <SubSection title="Velocity and acceleration vectors" id="velocity_acceleration_vectors">
 		<p>
@@ -130,9 +170,57 @@ import Itemize from "../../components/Itemize.astro"
 		 
 		 <DisplayEquation title="Decomposition of velocity and acceleration vectors." id="rkv-ec" background="True" equation="\\begin{aligned} \\vec{v}_{proj} &amp;= Proj(\\vec{v}, \\vec{r}) = \\dot{r}\\hat{r}  \\\\  \\vec{v}_{comp} &amp;= Comp(\\vec{v}, \\vec{r}) = r\\dot{\\hat{r}}  \\\\ \\vec{a}_{proj} &amp;= Proj(\\vec{a}, \\vec{v}) = \\dot{v}\\hat{v} \\\\ \\vec{a}_{comp} &amp;= Comp(\\vec{a}, \\vec{v}) = v\\dot{\\hat{v}} \\end{aligned}" />
 		 
-		 <BlueText> Insert corresponding animation from <a href="https://mechref.engr.illinois.edu/dyn/rkv.html"> here </a> <BlueText/>
+		 <PrairieDrawCanvas id="rkv-fa-c" width="600" height="400">
+      <p class="controls">
+        <button class="anim-toggle:rkv-fa-c" onclick="rkv_fa_c.toggleAnim()">animate</button>
+        <button class="reset:rkv-fa-c" onclick="rkv_fa_c.reset()">reset</button>
+        <button class="option-toggle:rkv-fa-c:showLabels" onclick="rkv_fa_c.toggleOption('showLabels')">show labels</button>
+      </p>
+      <table class="alignTop">
+        <tr>
+          <td>Show:</td>
+          <td colspan="4">
+            <button class="option-toggle:rkv-fa-c:showZeroTime" onclick="rkv_fa_c.toggleOption('showZeroTime')">\(t = 0\) quantities</button>
+          </td>
+        </tr>
+        <tr>
+          <td>Movement:</td>
+          <td><input type="radio" name="rkv-fa-c-movement" value="circle" class="data-input:rkv-fa-c:movement" onclick="rkv_fa_c.setOption('movement', this.value)" checked/> circle</td>
+          <td><input type="radio" name="rkv-fa-c-movement" value="varCircle" class="data-input:rkv-fa-c:movement" onclick="rkv_fa_c.setOption('movement', this.value)"/> var-circle</td>
+          <td><input type="radio" name="rkv-fa-c-movement" value="ellipse" class="data-input:rkv-fa-c:movement" onclick="rkv_fa_c.setOption('movement', this.value)"/> ellipse</td>
+          <td><input type="radio" name="rkv-fa-c-movement" value="arc" class="data-input:rkv-fa-c:movement" /> arc</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td><input type="radio" name="rkv-fa-c-movement" value="trefoil" class="data-input:rkv-fa-c:movement" onclick="rkv_fa_c.setOption('movement', this.value)"/> trefoil</td>
+          <td><input type="radio" name="rkv-fa-c-movement" value="eight" class="data-input:rkv-fa-c:movement" onclick="rkv_fa_c.setOption('movement', this.value)"/> eight</td>
+          <td><input type="radio" name="rkv-fa-c-movement" value="comet" class="data-input:rkv-fa-c:movement" onclick="rkv_fa_c.setOption('movement', this.value)"/> comet</td>
+          <td><input type="radio" name="rkv-fa-c-movement" value="pendulum" class="data-input:rkv-fa-c:movement" onclick="rkv_fa_c.setOption('movement', this.value)"/> pendulum</td>
+        </tr>
+        <tr>
+          <td>Show:</td>
+          <td colspan="4">
+            <button class="option-toggle:rkv-fa-c:showVelocity" onclick="rkv_fa_c.toggleOption('showVelocity')">velocity</button>
+            <button class="option-toggle:rkv-fa-c:showAcceleration" onclick="rkv_fa_c.toggleOption('showAcceleration')">acceleration</button>
+            <button class="option-toggle:rkv-fa-c:showAnchoredVelocity" onclick="rkv_fa_c.toggleOption('showAnchoredVelocity')">anchored velocity</button>
+            <button class="option-toggle:rkv-fa-c:showPath" onclick="rkv_fa_c.toggleOption('showPath')">path</button>
+          </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td colspan="4">
+            <button class="option-toggle:rkv-fa-c:showVelDecomp" onclick="rkv_fa_c.toggleOption('showVelDecomp')">velocity decomposition</button>
+            <button class="option-toggle:rkv-fa-c:showAccDecomp" onclick="rkv_fa_c.toggleOption('showAccDecomp')">acceleration decomposition</button>
+          </td>
+        </tr>
+      </table>
+      <p class="figureCaption mt-2">
+        Velocity and acceleration of various movements. Compare to
+        Figure <a href="rvc.html#rvc-fp">#rvc-fp</a>.
+      </p>
+     </PrairieDrawCanvas>
 		 
-   <SubSection/>
+   </SubSection>
 
 <SubSubSection title="Velocity and acceleration in Cartesian basis" id="cartesian_basis">
 
@@ -142,7 +230,7 @@ import Itemize from "../../components/Itemize.astro"
 
          <DisplayEquation title="Velocity and acceleration in cartesian basis." id="rkv-er" background="True" equation=" \\begin{aligned} \\vec{r} &amp;= r_1 \\hat\\imath + r_2 \\hat\\jmath + r_3 \\hat{k} \\\\  \\vec{v} &amp;= \\dot{r}_1 \\hat\\imath + \\dot{r}_2 \\hat\\jmath + \\dot{r}_3 \\hat{k} \\\\   \\vec{a} &amp;= \\ddot{r}_1 \\hat\\imath + \\ddot{r}_2 \\hat\\jmath + \\ddot{r}_3 \\hat{k} \\end{aligned}" />
 
-<SubSubSection/>
+</SubSubSection>
 
 
 <SubSubSection title="Velocity and acceleration in Polar basis"  id="polar_basis">
@@ -157,13 +245,65 @@ import Itemize from "../../components/Itemize.astro"
 			The acceleration term <InlineEquation equation=" -r \\dot{\\theta}^2 \\hat{e}_r " /> is called the <em> centripetal (center-seeking) </em> acceleration, while the <InlineEquation equation=" 2\\dot{r} \\dot{\\theta} \\hat{e}_{\\theta}" /> term is called the <em>Coriolis</em> acceleration.
 			</p>
 		 
-		 <BlueText> Insert corresponding animation from <a href="https://mechref.engr.illinois.edu/dyn/rkv.html"> here </a> <BlueText/>
+      <PrairieDrawCanvas id="rkv-fr-c" width="600" height="400">
+      <p class="controls">
+        <button class="anim-toggle:rkv-fr-c" onclick="rkv_fr_c.toggleAnim()">animate</button>
+        <button class="reset:rkv-fr-c" onclick="rkv_fr_c.reset()">reset</button>
+        <button class="option-toggle:rkv-fr-c:showLabels" onclick="rkv_fr_c.toggleOption('showLabels')">show labels</button>
+      </p>
+      <table class="alignTop">
+        <tr>
+          <td>Movement:</td>
+          <td><input type="radio" name="rkv-fr-c-movement" value="circle" class="data-input:rkv-fr-c:movement" checked onchange="rkv_fr_c.setOption('movement', this.value)"/> circle</td>
+          <td><input type="radio" name="rkv-fr-c-movement" value="varCircle" class="data-input:rkv-fr-c:movement" onchange="rkv_fr_c.setOption('movement', this.value)"/> var-circle</td>
+          <td><input type="radio" name="rkv-fr-c-movement" value="ellipse" class="data-input:rkv-fr-c:movement" onchange="rkv_fr_c.setOption('movement', this.value)"/> ellipse</td>
+          <td><input type="radio" name="rkv-fr-c-movement" value="arc" class="data-input:rkv-fr-c:movement" onchange="rkv_fr_c.setOption('movement', this.value)"/> arc</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td><input type="radio" name="rkv-fr-c-movement" value="trefoil" class="data-input:rkv-fr-c:movement" onchange="rkv_fr_c.setOption('movement', this.value)"/> trefoil</td>
+          <td><input type="radio" name="rkv-fr-c-movement" value="eight" class="data-input:rkv-fr-c:movement" onchange="rkv_fr_c.setOption('movement', this.value)"/> eight</td>
+          <td><input type="radio" name="rkv-fr-c-movement" value="comet" class="data-input:rkv-fr-c:movement" onchange="rkv_fr_c.setOption('movement', this.value)"/> comet</td>
+          <td><input type="radio" name="rkv-fr-c-movement" value="pendulum" class="data-input:rkv-fr-c:movement" onchange="rkv_fr_c.setOption('movement', this.value)"/> pendulum</td>
+        </tr>
+        <tr>
+          <td>Show:</td>
+          <td colspan="4">
+            <button class="option-toggle:rkv-fr-c:showVelocity" onclick="rkv_fr_c.toggleOption('showVelocity')">velocity</button>
+            <button class="option-toggle:rkv-fr-c:showAcceleration" onclick="rkv_fr_c.toggleOption('showAcceleration')">acceleration</button>
+            <button class="option-toggle:rkv-fr-c:showPath" onclick="rkv_fr_c.toggleOption('showPath')">path</button>
+          </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td colspan="4">
+            <button class="option-toggle:rkv-fr-c:showVelDecomp" onclick="rkv_fr_c.toggleOption('showVelDecomp')">velocity decomposition</button>
+            <button class="option-toggle:rkv-fr-c:showAccDecomp" onclick="rkv_fr_c.toggleOption('showAccDecomp')">acceleration decomposition</button>
+          </td>
+        </tr>
+        <tr>
+          <td>Origin:</td>
+          <td><input type="radio" name="rkv-fr-c-origin" value="O1" class="data-input:rkv-fr-c:origin" onchange="rkv_fr_c.setOption('origin', this.value)" checked/> \(O_1\)</td>
+          <td><input type="radio" name="rkv-fr-c-origin" value="O2" class="data-input:rkv-fr-c:origin" onchange="rkv_fr_c.setOption('origin', this.value)"/> \(O_2\)</td>
+          <td></td>
+          <td></td>
+        </tr>
+      </table>
+      <p class="figureCaption mt-2">
+        Velocity and acceleration in the polar basis. Compare to
+        Figure <a href="#rkv-fa">#rkv-fa</a>. Observe that
+        <InlineEquation equation="\\hat{e}_r,\\hat{e}_\\theta" /> are not related to the path
+        (not tangent, not in the direction of movement), but
+        rather are defined only by the position vector. Note also
+        that the polar basis depends on the choice of origin.
+      </p>
+    </PrairieDrawCanvas>
 		 
-<SubSubSection/>
+</SubSubSection>
 
 
 <SubSubSection title="Summary table"  id="summary_table">
-    <table class="table table-responsive table-bordered table-sm">
+    <DisplayTable id="summary_table_table" class_ = "table-sm table-bordered">
     <thead>
         <tr>
             <th>  </th>
@@ -190,7 +330,7 @@ import Itemize from "../../components/Itemize.astro"
         </tr>
 
     </tbody>
-</table>
+</DisplayTable>
 </SubSubSection>
 
 
@@ -237,21 +377,16 @@ import Itemize from "../../components/Itemize.astro"
       <CalloutContainer slot="cards">
         <CalloutCard>
             <p>
-                The Greek letter ω (lowercase <a
-                href="http://en.wikipedia.org/wiki/Omega">omega</a>) is
-                the last letter of the <a
-                href="http://en.wikipedia.org/wiki/Greek_alphabet">Greek
+                The Greek letter ω (lowercase <a href="http://en.wikipedia.org/wiki/Omega">omega</a>) is
+                the last letter of the <a href="http://en.wikipedia.org/wiki/Greek_alphabet">Greek
                 alphabet</a>, leading to expressions such as “from alpha
                 to omega” meaning “from start to end”. Omega literally
                 means O-mega, meaning O-large, as capital Omega (written
-                Ω) developed from capital <a
-                href="http://en.wikipedia.org/wiki/Omicron">Omicron</a>
+                Ω) developed from capital <a href="http://en.wikipedia.org/wiki/Omicron">Omicron</a>
                 (written Ο) by breaking the circle and turning up the
                 edges. Omicron is literally O-micron, meaning O-small, and
-                it is the ancestor of the <a
-                href="http://en.wikipedia.org/wiki/Latin_alphabet">Latin</a>
-                letter O that we use today in <a
-                href="http://en.wikipedia.org/wiki/English_language">English</a>.
+                it is the ancestor of the <a href="http://en.wikipedia.org/wiki/Latin_alphabet">Latin</a>
+                letter O that we use today in <a href="http://en.wikipedia.org/wiki/English_language">English</a>.
               </p>
               <table id="greek">
                 <tr>
@@ -579,6 +714,7 @@ import Itemize from "../../components/Itemize.astro"
 	
 		<p>
 			Here, the first term of the equation represents the <u> radial component</u>, described by the unit <InlineEquation equation="\\hat{e}_r" />, and the second term is the <u>angular component</u>, described by the vector unit <InlineEquation equation="\\hat{e}_{\\theta}" />. In the radial component, there is a <b>radial</b> (<InlineEquation equation="\\ddot{r}" />) and a <b>centripetal</b> (<InlineEquation equation="r\\dot{\\theta}^2" />) term. In the angular component, there is an <b>angular</b> (<InlineEquation equation="r\\ddot{\\theta}" />) and a <b>coriolis</b> (<InlineEquation equation="2\\dot{r}\\dot{\\theta}" />) term.
+    </p>
 			
 			
 </SubSubSection>
@@ -949,7 +1085,7 @@ import Itemize from "../../components/Itemize.astro"
 
 <SubSubSection title="System comparison: Cartesian/Polar/Tangent-Normal" id="system_comparison">
 
-    <table class="table table-responsive table-bordered table-sm">
+    <DisplayTable id="systemcomp_table" class_ = "table-sm table-bordered">
     <thead>
         <tr>
             <th>  </th>
@@ -979,7 +1115,7 @@ import Itemize from "../../components/Itemize.astro"
         </tr>
 
     </tbody>
-</table>
+    </DisplayTable>
 
 </SubSubSection>
 
@@ -1031,8 +1167,8 @@ import Itemize from "../../components/Itemize.astro"
     or even orthogonal directions.
   </p>
 
-  <table id="aov-tv" class="table-collapse text-center w-100" style="font-size: 1rem;">
-    <thead>
+  <DisplayTable id="periods_of_rotation_table" class_ = "table-sm table-bordered table-collapse text-center w-100">
+    <thead style="font-size: 1rem;">
       <tr class="border-below">
         <th></th>
         <th>Earth spin</th>
@@ -1041,7 +1177,7 @@ import Itemize from "../../components/Itemize.astro"
         <th>Through <a href="http://en.wikipedia.org/wiki/Cosmic_microwave_background">CMB</a></th>
       </tr>
     </thead>
-    <tbody class='row-spacing'>
+    <tbody class='row-spacing' style="font-size: 1rem;">
     <tr>
       <td>period \(T\)</td>
       <td>\(24\rm\ h\)</td>
@@ -1113,7 +1249,7 @@ import Itemize from "../../components/Itemize.astro"
       <td></td>
     </tr>
     </tbody>
-  </table>
+  </DisplayTable>
 
   <CalloutContainer slot="cards">
     <CalloutCard>

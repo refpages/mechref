@@ -10,7 +10,16 @@ import Enumerate from "../../components/Enumerate.astro"
 import Item from "../../components/Item.astro"
 ---
 <Layout title="Virtual Work">
-<Section title="Virtual Work">
+
+    <div slot="navtree">
+        <ul class='list-group list-group-flush py-0'> 
+          <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#virtual_displacements'>Virtual displacements</a></li> 
+          <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#principle_virtual_work'>Principle of Virtual Work</a></li>
+          <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#virtual_work_analysis'>Virtual work analysis</a></li>
+      </ul>
+      </div>
+
+<Section title="Virtual Work" id="virtual_work">
 
 <!-- Lectures 34 and 35 -->
 A force does work when it produces a displacement along its line of action. 
@@ -23,18 +32,18 @@ Virtual work of a couple moment:
 
 <DisplayEquation equation='dU = \\vec{M}\\cdot d\\theta \\vec{k}\\' />
 
-<Image src='/Statics/VWorkFigures/VWorkCoupleMoment.png' width='5 '> Virtual work  <InlineEquation equation='dU' />  completed by a couple moment,  <InlineEquation equation='M' /> .  <BlueText>Need to add a coordinate system to this picture. Taken from lecture 34. Maybe also add a picture of the virtual work of a force?</BlueText></Image>
+<Image src='/Statics/VWorkFigures/VWorkCoupleMoment.png' width='5 '> Virtual work  <InlineEquation equation='dU' />  completed by a couple moment,  <InlineEquation equation='M' /> .</Image>
 
 We can use virtual work to solve for the forces in a system without needing to solve for all of the support reactions. For example, if a truss is completely pinned on one end, it doesn't move, which means there is no virtual work completed on that pin because there are no virtual displacements!
 
 </Section>
 
-<SubSection title="Virtual displacements">
+<SubSection title="Virtual displacements" id="virtual_displacements">
 A virtual displacement is an infinitesimally small displacement (or rotation) that is possible in the system, denoted usually as <InlineEquation equation='dx' /> or <InlineEquation equation='d\\theta' />. It's important to note that virtual displacements are assumed to be possible but don't actually exist. 
 
 </SubSection>
 
-<SubSection title="Principle of Virtual Work">
+<SubSection title="Principle of Virtual Work" id="principle_virtual_work">
 
 If a body is in equilibrium, the sum of the virtual work done by all the forces and couple moments acting on the body is zero. 
 
@@ -42,7 +51,7 @@ If a body is in equilibrium, the sum of the virtual work done by all the forces 
 
 </SubSection>
 
-<SubSection title="Virtual work analysis">
+<SubSection title="Virtual work analysis" id="virtual_work_analysis">
 
 <p>Steps for completing an analysis of a system using virtual work: </p>
 
@@ -56,7 +65,7 @@ If a body is in equilibrium, the sum of the virtual work done by all the forces 
     <Item>Factor out the common virtual displacement term and solve</Item>
 </Enumerate>
 
-<BlueText>It might be good to put an example problem here eventually</BlueText>
+<!--It might be good to put an example problem here eventually-->
 
 </SubSection>
 </Layout>

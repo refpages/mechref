@@ -28,9 +28,9 @@ Download <a href="https://nodejs.org/en/download/prebuilt-installer">NodeJS</a>.
 
 ### Before running the pages for the first time
 
-Open the Windows command prompt (Windows key + R and type in `cmd`, or type in `cmd` in the search menu.) Make sure it is not ran as administrator, such that the first line reads `C:\<user>`, where `<user>` is the username of the current Windows user.
+Open the Windows command prompt (Windows key + R and type in `cmd`, or type in `cmd` in the search menu.) Make sure it is not ran as administrator, such that the first line reads `C:\Users\<user>`, where `<user>` is the username of the current Windows user.
 
-By default, the repository should be at `C:\<user>\Documents\GitHub\mechref`. Run the command 
+By default, the repository should be at `C:\Users\<user>\Documents\GitHub\mechref`. Run the command 
 ```
 cd Documents\GitHub\mechref
 ```
@@ -110,7 +110,7 @@ to also install Node Package Manager/NPM.
 
 Open your terminal and go to the correct directory with 
 ```
-cd ~Documents/GitHub/mechref
+cd ~/Documents/GitHub/mechref
 ``` 
 or 
 ```
@@ -124,7 +124,7 @@ npm install
 ```
 
 <u>Optional</u>:
-For easy access, consider creating a symbolic link in your root directory by running:
+For easy access, consider creating a symbolic link in your home directory by running:
 ```
 ln -s $HOME/Documents/GitHub/mechref ./mechref
 ```
@@ -158,7 +158,7 @@ Download <a href="https://nodejs.org/en/download/prebuilt-installer">NodeJS</a>.
 
 Open your terminal and go to the correct directory with 
 ```
-cd ~Documents/GitHub/mechref
+cd ~/Documents/GitHub/mechref
 ``` 
 or 
 ```
@@ -172,7 +172,7 @@ npm install
 ```
 
 <u>Optional</u>:
-For easy access, consider creating a symbolic link in your root directory by running:
+For easy access, consider creating a symbolic link in your home directory by running:
 ```
 ln -s $HOME/Documents/GitHub/mechref ./mechref
 ```

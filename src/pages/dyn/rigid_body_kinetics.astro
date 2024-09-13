@@ -18,12 +18,42 @@ import SubSubSubSection from "../../components/SubSubSubSection.astro"
 import Warning from "../../components/Warning.astro"
 import CalloutCard from "../../components/CalloutCard.astro"
 import CalloutContainer from "../../components/CalloutContainer.astro"
+import DisplayTable from "../../components/DisplayTable.astro"
 ---
 <Layout title="Rigid Body Kinetics">
+
+<div slot="navtree">
+  <ul class='list-group list-group-flush py-0'> 
+    <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#center_of_mass'>Center of mass</a></li>
+        <ul class='list-group list-group-flush py-0'> 
+            <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#recap_com'>Recap</a></li>  
+			<li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#basic_shapes_com'>Basic shapes</a></li>  
+			<li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#simple_shapes_com'>Simplified shapes</a></li>  
+        </ul>	
+    <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#moment_of_inertia'>Moment of inertia</a></li>
+        <ul class='list-group list-group-flush py-0'> 
+            <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#parallel_axis_theorem'>Parallel axis theorem</a></li>  
+            <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#additive_theorem'>Additive theorem</a></li>  
+            <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#basic_shapes_moi'>Basic shapes</a></li>  
+            <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#simple_shapes_moi'>Simplified shapes</a></li>  
+        </ul>
+    </li> 
+    <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#instant_center_center'>Instantaneous center</a></li>
+        <ul class='list-group list-group-flush py-0'> 
+            <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#graphical_rules_ic'>Graphical rules for finding M</a></li>  
+        </ul>
+	<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#app_rg_kinetics'>Applications</a></li>
+        <ul class='list-group list-group-flush py-0'> 
+            <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#accelerating_braking'>Accelerating and braking</a></li>  
+            <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#banked_turns'>Banked turns</a></li>
+        </ul>
+  </ul>
+</div>
+
+
 <Section title="Rigid Body Kinetics"></Section>
 
-<SubSection title="Center of mass (COM)">
-    <BlueText>Complete in "Center of mass"</BlueText> 
+<SubSection title="Center of mass (COM)" id="center_of_mass">
 
     <p>
         The total mass of a rigid body is as follows:
@@ -233,12 +263,32 @@ import CalloutContainer from "../../components/CalloutContainer.astro"
         </div>
     </Example>
 
-    <RedText>Add to this section the information shown in Fig fig:COM</RedText>
-
-    <Image src="/Dynamics/RigidBodyKineticsFigs/CenterofMass.png" width="8" id="COM"></Image>
 </SubSection>
 
-<SubSubSection title="Basic Shapes">
+<SubSubSection title="Recap"  id="recap_com" >
+
+<DisplayTable id="rvp-tc" class_="mb-3">
+          <tr>
+          <th>Type of shape</th>
+          <th>Operation</th>
+        </tr>
+        <tr>
+          <td>Simple shapes</td>
+		  <td> Symmetry tables </td>
+        </tr>
+        <tr>
+          <td>Combination of simple shapes</td>
+          <td>Find each c.o.m and then combine</td>
+        </tr>
+		<tr>
+		  <td>Complex shapes</td>
+		  <td>Integrate</td>
+		</tr>
+      </DisplayTable>
+
+</SubSubSection>
+
+<SubSubSection title="Basic Shapes" id="basic_shapes_com">
     <p>
         The centers of mass listed below are all computed directly from the integral <a href="#rcm-cm">#rcm-cm</a>. Note
         the center of mass provided is the vector from point \(O\) (the reference origin).
@@ -344,7 +394,7 @@ import CalloutContainer from "../../components/CalloutContainer.astro"
     </DisplayEquationCustom>
 </SubSubSection>
 
-<SubSubSection title="Simplified shapes">
+<SubSubSection title="Simplified shapes" id="simple_shapes_com">
     <p>
         The centers of mass listed below are all special cases of the basic shapes given in Section <a href="#rcm-bs">#rcm-bs</a>. Other
         special cases can be easily obtained by similar methods, or directly computing the integral.
@@ -457,8 +507,7 @@ import CalloutContainer from "../../components/CalloutContainer.astro"
     </DisplayEquationCustom>
 </SubSubSection>
 
-<SubSection title="Mass moment of Inertia">
-    <BlueText>Complete in "Moments of Inertia"</BlueText> 
+<SubSection title="Moment of Inertia"  id="moment_of_inertia">
 
     <p>
         The moment of inertia of a body, written <InlineEquation equation="I_{P,\\hat{a}}" />, is
@@ -674,8 +723,7 @@ import CalloutContainer from "../../components/CalloutContainer.astro"
       </CalloutContainer>
 </SubSection>
 
-<SubSubSection title="Parallel axis theorem">
-    <BlueText>Complete in "Moments of Inertia"</BlueText> 
+<SubSubSection title="Parallel axis theorem"  id="parallel_axis_theorem">
 
     <DisplayEquationCustom title="Parallel axis theorem." id="rem-el" background="True" derivation="True">
         <DisplayEquation equation="I_{P,\\hat{a}} = I_{C,\\hat{a}} + m \\, d^2"/>
@@ -836,8 +884,7 @@ import CalloutContainer from "../../components/CalloutContainer.astro"
       </p>
 </SubSubSection>
  
-<SubSubSection title="Additive theorem">
-    <BlueText>Complete in "Moments of Inertia"</BlueText>
+<SubSubSection title="Additive theorem"  id="additive_theorem">
     
     <DisplayEquationCustom title="Adding moments of inertia." id="rem-ea" background="True" derivation="True">
         <div class="w-100 d-flex flex-row align-items-center">
@@ -958,7 +1005,7 @@ import CalloutContainer from "../../components/CalloutContainer.astro"
     </Example>
 </SubSubSection>
 
-<SubSubSection title="Basic shapes">
+<SubSubSection title="Basic shapes"  id="basic_shapes_moi">
     <p>
         The moments of inertia listed below are all computed
         directly from the integrals <a href="#rem-ec">#rem-ec</a>.
@@ -1101,7 +1148,7 @@ import CalloutContainer from "../../components/CalloutContainer.astro"
 
 </SubSubSection>
 
-<SubSubSection title="Simplified shapes">
+<SubSubSection title="Simplified shapes"  id="simple_shapes_moi">
     <p>
         The moments of inertia listed below are all special cases of
         the basic shapes given in Section <a
@@ -1266,41 +1313,53 @@ import CalloutContainer from "../../components/CalloutContainer.astro"
 
 
 </SubSubSection>
-<SubSection title="Instantaneous centers">
-    <RedText>Add this information:</RedText>
-    <Itemize>
-        <Item><RedText>For a rigid body moving in 2D (rotating and possibly translating)</RedText></Item>
-        <Item><RedText>Instantaneous Center “M” is the point on or off the rigid body that has zero
-    velocity at that instant (i.e. no translation at this point)</RedText></Item>
-        <Item><RedText>Point that the body rotates about (at that instant in time)</RedText></Item>
-    </Itemize>
+<SubSection title="Instantaneous center (M)"  id="instant_center">
 
-    <RedText>Add some examples as shown in Figs  \ref fig:ICexamples1 ,  \ref fig:ICexamples2</RedText>
+    <Itemize>
+        <Item>For a rigid body moving in 2D (rotating and possibly translating)</Item>
+        <Item>Instantaneous center “M” is the point on or off the rigid body that has zero velocity at that instant (i.e. no translation at this point)</Item>
+        <Item>Point that the body rotates about (at that instant in time)</Item>
+    </Itemize>
 
     <Image src="/Dynamics/RigidBodyKineticsFigs/ICexamples1.png" width="5"></Image>
 
     <Image src="/Dynamics/RigidBodyKineticsFigs/ICexamples2.png" width="5"></Image>
 
-    <RedText>Add: Graphical rules for finding (M) (Instantaneous Center) as shown in Fig \ref fig:ICgraphRules</RedText>
+<SubSubSection title=" Graphical rules for finding M" id="graphical_rules_ic">
 
-    <Image src="/Dynamics/RigidBodyKineticsFigs/ICgraphicalRules.png" width="5"></Image>
+	<p>
+		(Assuming that figure is drawn to scale, including velocity vectors)
+		</p>
+		
+	<ol>
+		<li> Draw lines perpendicular to velocities </li>
+				<ul>
+					<li> If the lines intersect at a single point, that point is M </li>
+					<li> If the lines are colinear:
+							<ul>
+								<li> Draw 2 lines that connect the tips of velocity vectors </li>
+								<li> If the lines intersect at a single point, that point is M </li>
+							</ul>
+				</ul>
+	</ol>
+
+<Warning title="Pay attention to:"  id="icm-wa">
+	<Itemize>
+		<Item> Consistent direction of rotation. </Item>
+		<Item> Consistent speeds <InlineEquation equation=" v = \\omega \\, r" />. </Item>
+		<Item> Body may not be rotating (pure translation). </Item>
+	</Itemize>
+
+</Warning>
+
+</SubSubSection>
+
 </SubSection>
 
-<SubSection title="Applications"></SubSection>
-<SubSubSection title="Cargo Ships">
-    <RedText>This topic is in L22-Notes, slides 3-4, refer to Fig  \ref fig:AppCargoShip</RedText>. Application for "Center of mass".
+<SubSection title="Applications"  id="app_rg_kinetics" ></SubSection>
 
-    <Image src="/Dynamics/RigidBodyKineticsFigs/AppCargoShip.png" width="5"></Image>
-</SubSubSection>
-
-<SubSubSection title="Tuned Mass Damper">
-    <RedText>This topic is in L24-Notes, slide 9, include the information in Fig  \ref fig:AppCargoShip , and this link to a YouTube video  <a href="https://www.youtube.com/watch?v=GzMuF-LMGaM ">https://www.youtube.com/watch?v=GzMuF-LMGaM</a></RedText>. Application for "Rigid body kinetics".
-
-    <Image src="/Dynamics/RigidBodyKineticsFigs/AppCargoShip.png" width="5"></Image>
-</SubSubSection>
-
-<SubSubSection title="Accelerating and braking">
-    <BlueText>Complete in "Accelerating and braking". Include all the information starting at "2D rigid body model".</BlueText> Refer back to  \ref sub:PartKin_acce
+<SubSubSection title="Accelerating and braking"  id="accelerating_braking">
+ 
 </SubSubSection>
 <SubSubSubSection title="2D rigid body model" >
         <p>
@@ -1374,6 +1433,7 @@ import CalloutContainer from "../../components/CalloutContainer.astro"
         more weight during braking.
         </p>
 </SubSubSubSection>
+
 <SubSubSubSection title="Traction, acceleration, and braking" >
         <p>
         The maximum force with which the car can push against the
@@ -1677,7 +1737,7 @@ import CalloutContainer from "../../components/CalloutContainer.astro"
         </p>
 </SubSubSubSection>
 
-<SubSubSection title="Banked turns">
+<SubSubSection title="Banked turns"  id="banked_turns">
     <BlueText>Complete in "Banked turns". Include all the information starting at "2D rigid body model".</BlueText> Refer back to  \ref sub:PartKin_turns
 
 </SubSubSection>
@@ -1910,6 +1970,16 @@ import CalloutContainer from "../../components/CalloutContainer.astro"
             </tr>
           </table>
 </SubSubSection>
+
+<SubSubSection title="Cargo Ships">
+    <RedText>This topic is in L22-Notes, slides 3-4.</RedText> Application for "Center of mass".
+</SubSubSection>
+
+<SubSubSection title="Tuned Mass Damper">
+    <RedText>This topic is in L24-Notes, slide 9. YouTube video  <a href="https://www.youtube.com/watch?v=GzMuF-LMGaM ">link</a></RedText>Application for "Rigid body kinetics".
+
+</SubSubSection>
+
 </Layout>
 
 <script src="/dyn/rigid_body_kinetics/canvases.js" is:inline></script>

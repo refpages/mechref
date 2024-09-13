@@ -6,27 +6,34 @@ import SubSection from "../../components/SubSection.astro"
 import BlueText from "../../components/BlueText.astro" 
 ---
 <Layout title="Reaction Forces">
-<Section title="Reaction Forces"></Section>
+
+    <div slot="navtree">
+        <ul class='list-group list-group-flush py-0'> 
+          <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#types_of_connections'>Types of Connections</a></li> 
+          <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#redundant_constraints'>Redundant Constraints</a></li>
+      </ul>
+      </div>
+<Section title="Reaction Forces" id="reaction_forces"></Section>
 
 Because of Newton's Third Law we know that every action has an equal and opposite reaction. We can solve for these reaction forces to understand the loading of a structure.  
 
-<SubSection title="Types of Connections">
+<SubSection title="Types of Connections" id="types_of_connections">
 
 Different supports and different connections have different types of reaction forces depending on what they are constraining. For example, a pin connection restricts movement in the x-and y-directions but doesn't restrict rotation. This means that each pin connection has two reaction forces: one in the x-direciton, and one in the y-direction corresponding to the degrees of freedom that are fixed. 
 
 A roller support only constrains movement in the y-direction, and thus only has one reaction force (oriented in the y-direction). 
 
-<Image src='/Statics/ReactionForcesFigures/ReactionForces.jpg' width='8'><BlueText>Taken from Mariana Kersh's TAM 251 Lecture notes</BlueText></Image>
+<Image src='/Statics/ReactionForcesFigures/ReactionForces.jpg' width='8'>Common beam connections and subsequent reaction forces</Image>
 
 <!-- Should we make a table for here? Some good examples of rigid constraints in real life in lecture 15. -- >
 
 <!-- From lecture 13 -->
 
-<BlueText>L13, Slide 3 had some good examples of support reactions if we want to make a pop up on the side eventually.</BlueText>
+<!-- L13, Slide 3 had some good examples of support reactions if we want to make a pop up on the side eventually.-->
 
 </SubSection>
 
-<SubSection title="Redundant Constraints">
+<SubSection title="Redundant Constraints" id="redundant_constraints">
 
 If a body has more supports than it needs to hold it in equilibrium, it is overly constrained. This will result in more unknown reaction forces than equations we can write, and the problem will not be solvable using statics alone. This type of system is a "statically indeterminate" system. 
 
