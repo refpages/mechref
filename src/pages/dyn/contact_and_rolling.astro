@@ -12,13 +12,27 @@ import Enumerate from "../../components/Enumerate.astro"
 import Item from "../../components/Item.astro"
 ---
 <Layout title="Contact and Rolling">
+
+<div slot="navtree">
+  <ul class='list-group list-group-flush py-0'> 
+    <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#rolling_motion'>Rolling motion</a></li>
+        <ul class='list-group list-group-flush py-0'> 
+            <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#rolling_flat_surface'>Flat surfaces</a></li>  
+			<li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#rolling_curved_surface'>Curved surfaces</a></li>   
+        </ul>	
+    <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#app_contact_rolling'>Applications</a></li>
+        <ul class='list-group list-group-flush py-0'> 
+            <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#app_bearings'>Bearings</a></li>   
+        </ul>
+    </li> 
+  </ul>
+</div>
+
+
 <Section title="Contact and Rolling"></Section>
 
-<SubSection title="Rigid bodies in contact">
-    <BlueText>Complete in "Rolling motion"</BlueText>
-</SubSection>
 
-<SubSection title="Rolling motion">
+<SubSection title="Rolling motion"  id="rolling_motion">
     <p>
         A special case of rigid body motion is <em>rolling without
         slipping</em> on a stationary ground surface. This is
@@ -61,7 +75,14 @@ import Item from "../../components/Item.astro"
     <RedText>INSERT INTERACTIVE BLOCK HERE</RedText>
 </SubSection>
 
-<SubSection title="Rolling on curved surfaces">
+<SubSubSection title="Rolling on a flat surface" id="rolling_flat_surface"  id="rolling_flat_surface" >
+
+<BlueText> Insert <a href="https://mechref.engr.illinois.edu/dyn/rko.html"> Rolling on a 2D flat surface </a> subsection here. </BlueText>
+
+</SubSubSection>
+
+
+<SubSubSection title="Rolling on curved surfaces"  id="rolling_curved_surface">
     <p>
         When a circular rigid body rolls without slipping on a
         surface which is itself curved, the radius of curvature of
@@ -90,10 +111,14 @@ import Item from "../../components/Item.astro"
         two variables will only be constant if the surface is in
         fact perfectly circular.
       </p>
-</SubSection>
-<SubSection title="Applications"></SubSection>
-<SubSubSection title="Bearings">
-    <RedText>This topic is in L27, slides 13-14, include information in Fig  \\ref fig:AppBearings . Pictures are from this book  <a href="https://i-share-uiu.primo.exlibrisgroup.com/permalink/01CARLI_UIU/gpjosq/alma99955068260305899">https://i-share-uiu.primo.exlibrisgroup.com/permalink/01CARLI_UIU/gpjosq/alma99955068260305899</a></RedText>. Application for "Rolling on curved surfaces".
+</SubSubSection>
+
+
+<SubSection title="Applications" id="app_contact_rolling"></SubSection>
+
+<SubSubSection title="Bearings"  id="app_bearings">
+    <RedText>This topic is in L27, slides 13-14. Pictures are from this book  <a href="https://i-share-uiu.primo.exlibrisgroup.com/permalink/01CARLI_UIU/gpjosq/alma99955068260305899">https://i-share-uiu.primo.exlibrisgroup.com/permalink/01CARLI_UIU/gpjosq/alma99955068260305899</a></RedText>
+	Application for "Rolling on curved surfaces".
 
     <Image src="/Dynamics/ContactRollingFigs/AppBearings.png" width="5"></Image>
 </SubSubSection>
