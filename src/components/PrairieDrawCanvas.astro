@@ -13,12 +13,18 @@ import Center from "./Center.astro";
     .figureCaption{
         margin-top: 1rem;
     }
+
+    canvas{
+        background-color: white;
+        border: solid 1px black;
+        border-radius: 10px;
+    }
 </style>
 
 
 <Center>
 <div id={id+'_container'}>
-    <canvas id={id} height={height} width={0} class={show_border=='True' ? "canvas-container" : ''}></canvas>
+    <canvas id={id} height={height} width={0} class={show_border=='True' ? "canvas-container" : ''} data-bs-theme="light"></canvas>
 
     <div class="w-100"> 
             <slot />

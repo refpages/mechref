@@ -43,9 +43,17 @@ const pagename = cleaned[1]
 		
 		
 		<script src="/static/js/simplified_view.js" is:inline></script>
+
+		<link rel="stylesheet" href="/static/css/lightTheme.css" id="lightTheme">
+		<link rel="stylesheet" href="/static/css/darkTheme.css" id="darkTheme" disabled>
+
+		<script src="/static/js/themes.js" is:inline></script>
+		<link rel="stylesheet" href="/static/css/themes.css">
 		
 		<link rel="stylesheet" href="/static/css/main.css">
 		<link rel="stylesheet" href="/static/css/sidebar.css">
+
+		
 	
 		<!-- Google tag (gtag.js) -->
 		<script async src="https://www.googletagmanager.com/gtag/js?id=G-2YD4TR8K2S"></script>
@@ -66,6 +74,7 @@ const pagename = cleaned[1]
 			<div class="w-100 pt-0 pt-xl-3">
 				<div class="w-100 mb-3">
 					<Searchbar/>
+					<button onclick="toggle_theme();">Toggle theme</button>
 				</div>
 				<slot />
 			</div>
