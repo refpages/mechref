@@ -3,7 +3,7 @@ import search_contents from "../search.json"
 ---
 <style>
     #searchresults{
-        background-color: white; 
+        background-color: var(--bs-body-bg);
         list-style: none; 
         border: 1px solid #ccc;
         border-radius: 5px;
@@ -43,13 +43,15 @@ import search_contents from "../search.json"
     i#clear {
         position: absolute;
         right: 0px;
-        margin-top: auto;
-        margin-bottom: auto;
         cursor: pointer;
         transform: scale(0);
         transition: all .2s ease-in-out;
         color: #888;
     }
+
+    .highlighter{
+		  background-color: var(--text-highlight-color);
+	  } 
     
 
     p#tooltip {
@@ -57,15 +59,16 @@ import search_contents from "../search.json"
         right:0px;
         transition: opacity .1s ease-out; 
         opacity: 0%;
-        background-color: white;
+        background-color: var(--bs-body-bg);
         border: solid 1px #333;
         border-radius: 10px;
     }
+
+    
 </style>
 
 <div id="search-menu" class="position-relative w-100 sticky">
-  <p id="tooltip" class="m-0 px-1"><small><em>Click me to close menu!</em></small></p>
-    
+    <p id="tooltip" class="m-0 px-1"><small><em>Click me to close menu!</em></small></p>
     <i class="bi bi-x" id="clear" onclick="searchbox.blur();"></i>
     <input type="text" class="form-control w-100" placeholder="Search for keyword" id="searchbox" autocomplete="off" />
     <ul id="searchresults" class="position-absolute z-3 w-100 p-0">
@@ -2132,7 +2135,7 @@ import search_contents from "../search.json"
             
             let text_to_highlight = text.slice(first_str_index, first_str_index + query.length);
             let slice = text.slice(s_i, f_i);
-            let highlit = slice.replace(text_to_highlight, `<span class="highlighter">${text_to_highlight}</span>`)
+            let highlit = slice.replace(text_to_highlight, `<span style="background-color: var(--text-highlight-color); color: var(--bs-emphasis-color);">${text_to_highlight}</span>`)
 
             let display_text;
 
@@ -2146,7 +2149,7 @@ import search_contents from "../search.json"
 
             console.log(display_text)
             
-            searchresults.innerHTML += `<a href="${e['item']['link']}" class="text-black text-decoration-none">
+            searchresults.innerHTML += `<a href="${e['item']['link']}" class="themed-text text-decoration-none">
                     <li class="px-2 py-1 border-bottom" >
                     
                         <p class="mb-0 fw-bold">${e['item']['title']}:</p>
@@ -2195,7 +2198,7 @@ import search_contents from "../search.json"
     const clear_icon_tooltip = document.querySelector("#tooltip");
 
     function resize_icon(){
-      clear_icon.style = `font-size: ${searchbox.clientHeight}px; top: -${searchbox.clientHeight/4+2}px;`;
+      clear_icon.style = `font-size: ${searchbox.clientHeight}px; top: -${searchbox.clientHeight/4-2}px;`;
       tooltip.style = `top: ${searchbox.clientHeight+2}px;`;
       console.log(`${searchbox.clientHeight}px`)
     }
