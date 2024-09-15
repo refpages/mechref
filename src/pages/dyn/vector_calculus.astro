@@ -16,6 +16,7 @@ import Example from "../../components/Example.astro"
 import Row from "../../components/Row.astro"
 import Col from "../../components/Col.astro"
 import DisplayTable from "../../components/DisplayTable.astro"
+import InlineCanvas from "../../components/InlineCanvas.astro"
 ---
 <Layout title="Vector Calculus">
 
@@ -217,7 +218,7 @@ import DisplayTable from "../../components/DisplayTable.astro"
 
     <DisplayEquationCustom id="rvv-eo" title="Cross products of basis vectors." background="True" derivation=True>
       <Center>
-        <PrairieDrawCanvas id="rvv-eo-c" width="450" height="200" show_border="False" />
+        <InlineCanvas id="rvv-eo-c" width="450" height="200" show_border="False" />
       </Center>
       <DisplayEquation equation="\\begin{aligned}\\hat\\imath \\times \\hat\\jmath &amp;= \\hat{k}&amp; \\hat\\jmath \\times \\hat{k} &amp;= \\hat\\imath&amp; \\hat{k} \\times \\hat\\imath &amp;= \\hat\\jmath \\\\\\hat\\jmath \\times \\hat\\imath &amp;= -\\hat{k}&amp; \\hat{k} \\times \\hat\\jmath &amp;= -\\hat\\imath&amp; \\hat\\imath \\times \\hat{k} &amp;= -\\hat\\jmath \\\\\\end{aligned}" />
 

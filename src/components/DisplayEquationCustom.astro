@@ -18,7 +18,7 @@ const { id="", title="", derivation="", background=""} = Astro.props;
 
 
 
-<div id={id} class={background ? 'background-yellow overflow-hidden my-2' : 'mb-2'}>
+<div id={id} class={background ? 'background-yellow overflow-hidden my-2 text-black' : 'mb-2'}>
     { title &&
         <div class="mb-2 px-2">
             {title && title}{id && <small>{` #${id}`}</small>}
