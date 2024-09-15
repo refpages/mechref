@@ -1,3 +1,9 @@
+:root{
+    --text-main: black;
+    --text-secondary: #4a4a4a;
+    --text-tertiary: #666;
+}
+
 .themed-text{
     color: black;
 }

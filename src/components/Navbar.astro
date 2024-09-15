@@ -39,7 +39,28 @@ const coursetags = {
                     <a class="nav-link active text-white py-1" href="/sol">Solid Mechanics</a>
                 </li>
                 <div class="vr d-none d-sm-block" style="color: white;"></div>
+                
+                    
+                
+                
             </ul>
+            
+            <span class="navbar-text p-0 d-flex flex-row align-items-center">
+                <div class="vr d-none d-sm-block" style="color: white;"></div>
+                    <i class="bi ps-1 pe-2" style="color: white;" id="theme-icon"></i>
+                    <a class="nav-link active text-white py-1 pe-1" onclick="toggle_theme();" style="cursor: pointer;">Toggle theme</a>
+                    <div class="vr d-none d-sm-block" style="color: white;"></div>
+                
+                <script>
+                    const theme_icon = document.querySelector("#theme-icon");
+                    //bi-moon
+                    if (theme == "dark"){
+                        theme_icon.classList.add("bi-moon-stars-fill");
+                    }else{
+                        theme_icon.classList.add("bi-sun-fill");
+                    }
+                </script>
+            </span>
         <!-- </div> -->
     </div>
 </nav>

@@ -19,6 +19,7 @@ import Row from "../../components/Row.astro"
 import Col from "../../components/Col.astro"
 import SubSubSubSection from "../../components/SubSubSubSection.astro"
 import DisplayTable from "../../components/DisplayTable.astro"
+import InlineCanvas from "../../components/InlineCanvas.astro"
 ---
 <style>
     table{
@@ -669,7 +670,7 @@ import DisplayTable from "../../components/DisplayTable.astro"
 
     <DisplayEquationCustom title="Change of basis formula in 2D." id="rvv-e2" background=True derivation="True">
       <Center>
-        <PrairieDrawCanvas id="rvv-e2-c" width="200" height="200" show_border="False" />
+        <InlineCanvas id="rvv-e2-c" width="200" height="200" show_border="False" />
       </Center>
 
       <DisplayEquation equation="\\begin{aligned}        \\vec{a} &amp;=        a_i \\, \\hat\\imath + a_j \\, \\hat\\jmath        &amp; \\vec{a} &amp;=        a_u \\, \\hat{u} + a_v \\, \\hat{v} \\\\[1em]        a_i &amp;= \\cos\\theta \\, a_u - \\sin\\theta \\, a_v        &amp; a_u &amp;= \\cos\\theta \\, a_i + \\sin\\theta \\, a_j \\\\        a_j &amp;= \\sin\\theta \\, a_u + \\cos\\theta \\, a_v        &amp; a_v &amp;= -\\sin\\theta \\, a_i + \\cos\\theta \\, a_j        \\end{aligned}" />
