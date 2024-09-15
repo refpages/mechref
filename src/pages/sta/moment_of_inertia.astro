@@ -29,7 +29,17 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
 </style>
 
 <Layout title="Moment of Inertia">
-<Section title="Moment of Inertia">
+
+    <div slot="navtree">
+        <ul class='list-group list-group-flush py-0'> 
+          <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#second_moment'>Moment of Inertia (Second Moment of Area)</a></li> 
+          <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#parallel_axis_theorem'>Parallel axis theorem</a></li>
+          <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#combining_moments'>Combining moments of inertia</a></li>
+          <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#typical_shapes'>Moment of inertia for typical shapes</a></li>
+
+        </ul>
+      </div>
+<Section title="Moment of Inertia" id="moments">
 
 <!-- Lecture 33 -->
 <em>Note that in statics we are using the second moment of area as our moment of inertia. In dynamics a different moment of inertia is used (the mass moment of inertia). The differences between these two quantities are summarized in the table below: </em>
@@ -122,7 +132,7 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
 
 </Section>
 
-<SubSection title="Moment of Inertia (Second Moment of Area)">
+<SubSection title="Moment of Inertia (Second Moment of Area)" id="second_moment">
 
 The moment of inertia used in statics is the "second moment of area", which is a mass property that determines the amount of torque that is needed to create an angular acceleration about a specific axis of rotation. The dimension of the area moment of inertia is <InlineEquation equation='length^4' />.\\
 
@@ -135,7 +145,7 @@ Polar moment of inertia: <DisplayEquation equation='J_O = \\int_{A}^{} r^2 \\,dA
 
 </SubSection>
 
-<SubSection title="Parallel axis theorem">
+<SubSection title="Parallel axis theorem" id="parallel_axis_theorem">
 <p>
     The parallel axis theorem is used to calculate the moment of inertia for an object around axes other than through the centroid. The parallel axis theorum states: 
 </p>
@@ -147,20 +157,20 @@ Polar moment of inertia: <DisplayEquation equation='J_O = \\int_{A}^{} r^2 \\,dA
 
 </SubSection>
 
-<SubSection title="Combining moments of inertia">
+<SubSection title="Combining moments of inertia" id="combining_moments">
 <p>
 Moments of inertia of simple shapes can be combined to calculate the moments of inertia of more complex shapes using the parallel axis theorum. 
 </p>
 
 <p>Example problem: what is the \(I_x\) of the composite shape? </p>
 
-<Image src='/Statics/MOIFigures/MOIComposite.jpg' width='5'><BlueText>Adapted from TAM 210 Lecture 33</BlueText></Image>
+<Image src='/Statics/MOIFigures/MOIComposite.jpg' width='5'></Image>
 
 </SubSection>
 
-<SubSection title="Moment of inertia for typical shapes">
+<SubSection title="Moment of inertia for typical shapes" id="typical_shapes">
 
-<Image src='/Statics/MOIFigures/TypicalMOI.png' width='5'><BlueText>Taken from TAM 210 Lecture 33</BlueText></Image>
+<Image src='/Statics/MOIFigures/TypicalMOI.png' width='5'></Image>
 
 </SubSection>
 

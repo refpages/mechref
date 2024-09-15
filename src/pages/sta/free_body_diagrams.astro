@@ -14,7 +14,15 @@ import DisplayTable from "../../components/DisplayTable.astro"
 ---
 <Layout title="Free Body Diagrams">
 
-<Section title="Free Body Diagrams">
+  <div slot="navtree">
+    <ul class='list-group list-group-flush py-0'> 
+      <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#pulley_idealizations'>Pulley Idealizations</a></li> 
+      <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#spring_idealizations'>Spring Idealizations</a></li>
+      <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#smooth_surface_idealizations'>Smooth Surface Idealizations</a></li>
+  </ul>
+  </div>
+
+<Section title="Free Body Diagrams" id="free_body_diagrams">
 
   <p>
      A free-body diagram (abbreviated as FBD, also called force diagram) is a diagram used to show the magnitude and direction of all applied forces, moments, and reaction and constraint forces acting on a body. They are important and necessary in solving complex problems in mechanics.
@@ -64,7 +72,7 @@ import DisplayTable from "../../components/DisplayTable.astro"
 
 </Section>
 
-<SubSection title="Pulley Idealizations">
+<SubSection title="Pulley Idealizations" id="pulley_idealizations">
 
 In this course we assume that a pulley is frictionless, meaning that the magnitude of the tensile force of the rope on either side of a pulley will be the same. 
 
@@ -74,7 +82,7 @@ In this course we assume that a pulley is frictionless, meaning that the magnitu
 
 </SubSection>
 
-<SubSection title="Spring Idealizations">
+<SubSection title="Spring Idealizations" id="spring_idealizations">
 
 In this course, we assume springs are linearly elastic, which means that the force (tension) in the spring is linearly proportional to the extension of the spring (<InlineEquation equation='s' />) through the spring constant, <InlineEquation equation='k' />.
 
@@ -86,7 +94,7 @@ In this course, we assume springs are linearly elastic, which means that the for
 
 </SubSection>
 
-<SubSection title="Smooth Surface Idealizations">
+<SubSection title="Smooth Surface Idealizations" id="smooth_surface_idealizations">
 
 If a surface is described as "smooth", we assume that there is no frictional force on the surface. Therefore, any force applied by the surface is normal to the surface. 
 

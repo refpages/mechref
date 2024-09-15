@@ -9,7 +9,15 @@ import InlineEquation from "../../components/InlineEquation.astro"
 import DisplayEquation from "../../components/DisplayEquation.astro" 
 ---
 <Layout title="Moments">
-<Section title="Moments">
+
+    <div slot="navtree">
+        <ul class='list-group list-group-flush py-0'> 
+          <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#moments_as_scalars'>Moments as scalars</a></li> 
+          <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#moments_as_vectors'>Moments as vectors</a></li>
+          <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#couple_moment'>Couple moment</a></li>
+      </ul>
+      </div>
+<Section title="Moments" id="moments">
 
 <!-- Lectures 7, 8, 9, 10 -->
 
@@ -27,7 +35,7 @@ The only force that produces a rotation about a point is a force perpendicular t
 
 </Section>
 
-<SubSection title="Moments as scalars">
+<SubSection title="Moments as scalars" id="moments_as_scalars">
 
 Moments can be written as scalar quantities, where 
 
@@ -49,7 +57,7 @@ Moments are assumed to be positive when they point in the <InlineEquation equati
 
 <!-- lectures 7 and 8 -->
 
-<SubSection title="Moments as vectors">
+<SubSection title="Moments as vectors" id="moments_as_vectors">
 
 Moments can also be written as vector quantities, where the moment about point A is the cross product of the moment arm, <InlineEquation equation='r' /> and the force <InlineEquation equation='F' />. 
 
@@ -65,7 +73,7 @@ The magnitude of the moment can be written as
 
 <!-- lectures 7 and 8 -->
 
-<SubSection title="<RedText>Couple Moment</RedText>">
+<SubSection title="Couple Moment" id="couple_moment">
 
 A couple moment is a set of two equal and opposite forces with parallel lines of action that produce a moment. 
 

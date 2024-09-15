@@ -5,33 +5,87 @@ import Section from "../../components/Section.astro"
 import SubSection from "../../components/SubSection.astro" 
 import BlueText from "../../components/BlueText.astro" 
 import RedText from "../../components/RedText.astro" 
+import DisplayEquation from "../../components/DisplayEquation.astro"
+import DisplayTable from "../../components/DisplayTable.astro"
+import InlineEquation from "../../components/InlineEquation.astro"
 ---
+
+<style>
+    tbody.center-text > tr > td{
+        text-align: center;
+    }
+</style>
 <Layout title="Friction">
-<Section title="Friction">
 
+    <div slot="navtree">
+        <ul class='list-group list-group-flush py-0'> 
+          <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#static_friction'>Static Friction</a></li> 
+          <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#tip_slip'>Tipping vs. Slipping</a></li>
+      </ul>
+      </div>
+
+<Section title="Friction" id="friction">
+
+<p>
 Friction is a force that resists the movement of two contacting surfaces sliding relative to each other. Frictional forces act tangential to the surface at the point of contact and act in opposition to the possible or existing motion between the surfaces. 
+</p>
 
-<BlueText>Insert content from the TAM 212 page Friction and Damping - Introductory equation box</BlueText>
+
+<DisplayEquation equation="F \\le  \\mu F" background="True"  title="Limit on friction force magnitude." />
+
+<p>
+	Variables <b> <InlineEquation equation=" F "/> </b> and <b> <InlineEquation equation=" N "/> </b> are the magnitude of the friction for <b> <InlineEquation equation=" \\vec{F} "/> </b> and the normal force <b> <InlineEquation equation=" \\vec{N} "/> </b>, and <b> <InlineEquation equation=" \\mu "/> </b> is the coefficient of friction.
 
 </Section>
 
-<SubSection title="<RedText>Static Friction</RedText>">
+<SubSection title="Static Friction" id="static_friction">
 
 Examples of coefficients of static friction: 
 
 
-<Image src='/Statics/FrictionFigures/ExampleCoeff.png' width='3 '><BlueText>Taken from TAM 210 Lecture 26</BlueText></Image>
+<DisplayTable id="friction_table" class_="table-bordered table-striped">
+    <thead>
+        <tr>
+            <th class="text-center">System</th>
+            <th class="text-center">Static friction \(\mu_s\)</th>
+        </tr>
+    </thead>
+    <tbody class="center-text">
+        <tr>
+            <td>Rubber on dry concrete</td>
+            <td>1.0</td>
+        </tr>
+        <tr>
+            <td>Wood on wood</td>
+            <td>0.5</td>
+        </tr>
+        <tr>
+            <td>Steel on steel</td>
+            <td>0.6</td>
+        </tr>
+        <tr>
+            <td>Shoes on wood</td>
+            <td>0.9</td>
+        </tr>
+        <tr>
+            <td>Shoes on ice</td>
+            <td>0.1</td>
+        </tr>
+    </tbody>
+</DisplayTable>
 
-<BlueText>This might be a good place to add practical examples - maybe how engine brakes use friction? And another thing about how cartilage in your joints has very little friction (like ice on ice!) which allows for joint movement.</BlueText>
+
+
+<!--This might be a good place to add practical examples - maybe how engine brakes use friction? And another thing about how cartilage in your joints has very little friction (like ice on ice!) which allows for joint movement.-->
 
 In TAM 210/211, we will focus on dry friction. Dry friction occurs between two surfaces with <strong>no</strong> lubricating fluid between them. 
 
-Static friction is the friction between two bodies when there is no movement between them. 
+Static friction is the friction between two bodies when there is no movement between them.
 </SubSection>
 
-<SubSection title="Tipping vs. Slipping">
+<SubSection title="Tipping vs. Slipping" id="tip_slip">
 
-<Image src='/Statics/FrictionFigures/TipSlip.jpg' width='5'><BlueText>Adapted from TAM 210 Lecture 27</BlueText></Image>
+<Image src='/Statics/FrictionFigures/TipSlip.jpg' width='5'>tipping vs. slipping</Image>
 
 <p>
 To solve for X (the location of the normal force), one can write the equations of equilibrium.
@@ -42,7 +96,7 @@ To solve for X (the location of the normal force), one can write the equations o
 </p>
 <!-- From Lecture 27 -->
 
-<Image src='/Statics/FrictionFigures/NLocation.jpg' width='4'><BlueText>Adapted from TAM 210 Lecture 26</BlueText></Image>
+<Image src='/Statics/FrictionFigures/NLocation.jpg' width='4'>Note explanation</Image>
 </SubSection>
 
 </Layout>

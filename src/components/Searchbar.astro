@@ -1,5 +1,4 @@
 ---
-import Fuse from 'fuse.js'
 import search_contents from "../search.json"
 ---
 <style>
@@ -18,6 +17,16 @@ import search_contents from "../search.json"
         display: block;
     }
 
+    i#clear:has(+ input:hover){
+        transition: all .2s ease-in-out;
+        transform: scale(1);
+    }
+
+    i#clear:hover{
+      color: #333;
+      transform: scale(1);
+    }
+
     #search-menu > ul{
         display: none;
     }
@@ -26,13 +35,43 @@ import search_contents from "../search.json"
         display: block;
     }
 
+    p#tooltip:has(+i#clear:hover){
+      transition: opacity .5s ease-in;
+      opacity: 100%;
+    }
+
+    i#clear {
+        position: absolute;
+        right: 0px;
+        margin-top: auto;
+        margin-bottom: auto;
+        cursor: pointer;
+        transform: scale(0);
+        transition: all .2s ease-in-out;
+        color: #888;
+    }
+    
+
+    p#tooltip {
+        position: absolute;
+        right:0px;
+        transition: opacity .1s ease-out; 
+        opacity: 0%;
+        background-color: white;
+        border: solid 1px #333;
+        border-radius: 10px;
+    }
 </style>
 
 <div id="search-menu" class="position-relative w-100 sticky">
-    <input type="text" class="form-control w-100 input-group input-group-lg " type="search" placeholder="Search for keyword" id="searchbox" autocomplete="off" />
+  <p id="tooltip" class="m-0 px-1"><small><em>Click me to close menu!</em></small></p>
+    
+    <i class="bi bi-x" id="clear" onclick="searchbox.blur();"></i>
+    <input type="text" class="form-control w-100" placeholder="Search for keyword" id="searchbox" autocomplete="off" />
     <ul id="searchresults" class="position-absolute z-3 w-100 p-0">
 
     </ul>
+    
 </div>
 
 <script define:vars={{search_contents}}>
@@ -43,7 +82,7 @@ import search_contents from "../search.json"
  * All Rights Reserved. Apache Software License 2.0
  *
  * http://www.apache.org/licenses/LICENSE-2.0
- */
+*/
 
 (function (global, factory) {
   typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
@@ -2063,9 +2102,6 @@ import search_contents from "../search.json"
 
     const fuse = new Fuse(search_contents, options, index)
     
-
-    
-    
     let query;
     let results;
 
@@ -2098,12 +2134,23 @@ import search_contents from "../search.json"
             let slice = text.slice(s_i, f_i);
             let highlit = slice.replace(text_to_highlight, `<span class="highlighter">${text_to_highlight}</span>`)
 
+            let display_text;
 
+            if (s_i == 0){
+              display_text = `${highlit}...`;
+            }else if (f_i == text.length){
+              display_text = `...${highlit}`;
+            }else{
+              display_text = `...${highlit}...`;
+            }
+
+            console.log(display_text)
+            
             searchresults.innerHTML += `<a href="${e['item']['link']}" class="text-black text-decoration-none">
                     <li class="px-2 py-1 border-bottom" >
                     
                         <p class="mb-0 fw-bold">${e['item']['title']}:</p>
-                            ...${highlit}...
+                        ${display_text}
                     
                     </li>
                 </a>
@@ -2115,7 +2162,7 @@ import search_contents from "../search.json"
         searchbox.focus();
     });
 
-    searchresults.addEventListener('mouseover', function() {
+    searchbox.addEventListener('mouseout', function() {
         searchbox.blur();
     });
 
@@ -2130,6 +2177,36 @@ import search_contents from "../search.json"
         "input", 
         function(){
             search_and_display();
+        }
+    )
+
+    function resize_searchbar(){
+      console.log(document.querySelector('body').clientWidth)
+      if (document.querySelector('body').clientWidth <= 768){
+        searchbox.classList.add('form-control-lg')
+      }else{
+        searchbox.classList.remove('form-control-lg')
+      }
+    }
+
+    resize_searchbar();
+
+    const clear_icon = document.querySelector("#clear");
+    const clear_icon_tooltip = document.querySelector("#tooltip");
+
+    function resize_icon(){
+      clear_icon.style = `font-size: ${searchbox.clientHeight}px; top: -${searchbox.clientHeight/4+2}px;`;
+      tooltip.style = `top: ${searchbox.clientHeight+2}px;`;
+      console.log(`${searchbox.clientHeight}px`)
+    }
+
+    resize_icon();
+
+    window.addEventListener(
+        "resize", 
+        function(){
+          resize_searchbar();
+          resize_icon();
         }
     )
 </script>

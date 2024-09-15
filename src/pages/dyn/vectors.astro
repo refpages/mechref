@@ -55,6 +55,7 @@ import DisplayTable from "../../components/DisplayTable.astro"
     <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#projection_and_complementary_projection'>Projection and complementary projection</a></li>
     <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#change_in_length_and_direction'>Change in length and direction</a></li>
     <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#spherical_coordinates'>Spherical Coordinates</a></li>
+	<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#cylindrical_coordinates'>Cylindrical Coordinates</a></li>
     <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#applications'>Applications</a>
         <ul class='list-group list-group-flush py-0'> 
             <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#haystack_antenna'>Haystack antenna</a></li>
@@ -998,12 +999,11 @@ import DisplayTable from "../../components/DisplayTable.astro"
       coordinate line in the direction <InlineEquation equation="\\hat{e}_\\theta" />, and
       similarly for the other coordinates.
     </p>
-    <Center>
     <Row>
       <Col values="12 md-6" class:list={['overflow-hidden']}>
-        <div class="d-flex justify-content-center justify-content-md-start">
+        <!-- <div class="d-flex justify-content-center justify-content-md-start"> -->
           <PrairieDrawCanvas id="rvs-fd-c" width="400" height="400" />
-        </div>
+        <!-- </div> -->
         
       </Col>
       <Col values="12 md-6">
@@ -1058,7 +1058,6 @@ import DisplayTable from "../../components/DisplayTable.astro"
       </div>
       </Col>  
     </Row>
-  </Center>
 
   <p>
     Spherical coordinates are defined with respect to a set of
@@ -1209,6 +1208,223 @@ import DisplayTable from "../../components/DisplayTable.astro"
     </p>
   </DisplayEquation>
 </SubSection>
+
+<SubSection title="Cylindrical Coordinates" id="cylindrical_coordinates">
+
+    <p>
+      The cylindrical coordinate system extends polar coordinates into 3D by using the standard vertical coordinate \(z\) for the third.
+	  This gives coordinates \((r, \theta, z)\)
+      consisting of:
+    </p>
+  <DisplayTable id="cylcoords_table" class_="mb-3">
+    <tr class="border-below">
+      <th>coordinate</th>
+      <th>name</th>
+      <th>range</th>
+      <th>definition</th>
+    </tr>
+    <tr>
+      <td>\(r\)</td>
+      <td>radius</td>
+      <td>\(0 \le r \lt \infty\)</td>
+      <td>distance from the origin</td>
+    </tr>
+    <tr>
+      <td>\(\theta\)</td>
+      <td>azimuth</td>
+      <td>\(-\pi \lt \theta \le \pi\)</td>
+      <td>angle from the \(x\)-axis in the \(x\)–\(y\) plane</td>
+    </tr>
+    <tr>
+      <td>\(z\)</td>
+      <td>height</td>
+      <td>\(-\infty \le z \le \infty\)</td>
+      <td>vertical height</td>
+    </tr>
+  </DisplayTable>
+
+<CalloutContainer slot="cards">
+        <CalloutCard title="Warning!">
+            <p>
+               We normally write <InlineEquation equation=" \\vec{r}" /> 
+				for the position vector of a point, but if we are using cylindrical coordinates \( r,\theta ,z \)
+				then this is dangerous. This is because \( r \)
+				might mean the magnitude of <InlineEquation equation="\\vec{r}" />
+				or the radial coordinate, which are different. To avoid this confusion we use <InlineEquation equation="\\vec{\\rho} " /> 
+				for the position vector and \( r \)
+				for the radial coordinate.
+              </p>
+        </CalloutCard>
+	  </CalloutContainer>
+
+    <p>
+      The diagram below shows the spherical coordinates of a point
+      \(P\). By changing the display options, we can see that the
+      basis vectors are tangent to the corresponding coordinate
+      lines. Changing \(\theta\) moves \(P\) along the \(\theta\)
+      coordinate line in the direction <InlineEquation equation="\\hat{e}_\\theta" />, and
+      similarly for the other coordinates.
+    </p>
+
+  <Row>
+    <Col values="12 md-6">
+      <PrairieDrawCanvas id="rvy-fd-c" width="400" height="400" />
+    </Col>
+    <Col values="12 md-6">
+      <button class="reset:rvy-fd-c" onclick="rvy_fd_c.reset()">reset</button>
+      <table class="alignTop">
+        <tr>
+          <td>Show:</td>
+          <td>
+            <button class="option-toggle:rvy-fd-c:showLabels" onclick="rvy_fd_c.toggleOption('showLabels')">labels</button>
+            <button class="option-toggle:rvy-fd-c:showCoords" onclick="rvy_fd_c.toggleOption('showCoords')">coordinates</button>
+          </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>
+            <button class="option-toggle:rvy-fd-c:showBasis" onclick="rvy_fd_c.toggleOption('showBasis')">basis vectors</button>
+          </td>
+        </tr>
+      </table>
+      <table>
+        <tr>
+          <td>Coordinate lines:</td>
+          <td>
+            <button class="option-toggle:rvy-fd-c:showCoordLineR" onclick="rvy_fd_c.toggleOption('showCoordLineR')">\(r\)</button>
+            <button class="option-toggle:rvy-fd-c:showCoordLineTheta" onclick="rvy_fd_c.toggleOption('showCoordLineTheta')">\(\theta\)</button>
+            <button class="option-toggle:rvy-fd-c:showCoordLineZ" onclick="rvy_fd_c.toggleOption('showCoordLineZ')">\(z\)</button>
+          </td>
+        </tr>
+      </table>
+
+        <Row> 
+          <Col values="12">
+            <div class="d-flex  align-items-baseline">
+                <p class="m-0 flex-shrink-1">Radius:</p>
+                <div class="flex-grow-1 d-flex align-items-baseline">
+                    <input min="1" max="6" value="4" step="0.1" type="range" class="data-input:rvy-fd-c:r flex-grow-1 mx-2" onchange="rvy_fd_c.setOption('r', this.value); document.querySelector('span[class*=rCyl1]').innerText = this.value; console.log(this.value);" oninput="rvy_fd_c.setOption('r', this.value); document.querySelector('span[class*=rCyl1]').innerText = this.value;"/>
+                        \(r = \; \) <span class="data-option:avb-fp-c:rCyl1">4</span>
+                </div>
+            </div>
+        </Col>
+          <Col values="12">
+              <div class="d-flex  align-items-baseline">
+                  <p class="m-0 flex-shrink-1">Azimuth:</p>
+                  <div class="flex-grow-1 d-flex align-items-baseline">
+                      <input type="range" min="-180" max="180" value="45" step="5" class="data-input:rvy-fd-c:thetaDeg flex-grow-1 mx-2" onchange="rvy_fd_c.setOption('thetaDeg', this.value); document.querySelector('span[class*=thetaDegCyl1]').innerText = this.value; console.log(this.value);" oninput="rvy_fd_c.setOption('thetaDeg', this.value); document.querySelector('span[class*=thetaDegCyl1]').innerText = this.value;"/>
+                          \(\theta = \; \) <span class="data-option:avb-fp-c:thetaDegCyl1">45</span>\(^\circ\)
+                  </div>
+              </div>
+          </Col>
+          <Col values="12">
+            <div class="d-flex  align-items-baseline">
+                <p class="m-0 flex-shrink-1">Elevation:</p>
+                <div class="flex-grow-1 d-flex align-items-baseline">
+                    <input type="range" min="-180" max="180" value="45" step="5" class="data-input:rvy-fd-c:z flex-grow-1 mx-2" onchange="rvy_fd_c.setOption('z', this.value); document.querySelector('span[class*=zCyl1]').innerText = this.value; console.log(this.value);" oninput="rvy_fd_c.setOption('z', this.value); document.querySelector('span[class*=zCyl1]').innerText = this.value;"/>
+                        \(z = \; \) <span class="data-option:avb-fp-c:zCyl1">4</span>
+                </div>
+            </div>
+        </Col>
+      </Row>
+    </Col>
+  </Row>  
+  <p>
+    Spherical coordinates are defined with respect to a set of
+    Cartesian coordinates, and can be converted to and from
+    these coordinates using the atan2 function, as described in the previos section of Spherical coordinates.
+  </p>
+
+
+  <p>
+    The basis vectors are tangent to the coordinate lines and
+    form an orthonormal basis <InlineEquation equation="\\hat{e}_r,    \\hat{e}_\\theta, \\hat{e}_z" /> that depends on the current
+    position <InlineEquation equation="\\vec{P}"/>  as follows. We can write either <InlineEquation equation="\\hat{e}_z"/> or <InlineEquation equation="\\hat{k}_z"/> for the vertical basis vector.
+  </p>
+
+  <DisplayEquation title="Cylindrical basis vectors." background="True" id="rvy-eb" equation="\\begin{aligned}\\hat{e}_r &amp;= \\cos\\theta \\, \\hat{\\imath} + \\sin\\theta \\,\\hat{\\jmath}  \\\\\\hat{e}_{\\theta} &amp;= - \\sin\\theta \\,\\hat{\\imath}+ \\cos\\theta \\,\\hat{\\jmath} \\\\\\hat{e}_{z} &amp;= \\\hat{k} \\\\[1em]\\hat{\\imath} &amp;= \\cos\\theta  \\, \\hat{e}_r- \\sin\\theta \\, \\hat{e}_\\theta \\\\\\hat{\\jmath} &amp;= \\sin\\theta \\, \\hat{e}_r+ \\cos\\theta \\, \\hat{e}_\\theta  \\\\\\hat{k} &amp;= \\hat{e}_z \\end{aligned}" derivation=True>
+    <p>
+      We write the position vector <InlineEquation equation="\\vec{\\rho} = r \\cos\\theta  \\, \\hat{\\imath} + r \\sin\\theta \\,  +   z \\, \\hat{k}" /> and then use the
+      definition of coordinate basis vectors to find the
+      non-normalized spherical basis vectors:
+    </p>
+    <p>
+      <DisplayEquation equation="\\begin{aligned}      \\vec{e}_r &amp;= \\frac{\\partial\\vec{\\rho}}{\\partial r}      = \\cos\\theta \\, \\hat{\\imath}      + \\sin\\theta  \\, \\hat{\\jmath}    \\\\      \\vec{e}_\\theta &amp;= \\frac{\\partial\\vec{\\rho}}{\\partial\\theta}      = -r \\sin\\theta  \\, \\hat{\\imath}      + r \\cos\\theta  \\, \\hat{\\jmath} \\\\      \\vec{e}_z &amp;= \\frac{\\partial\\vec{\\rho}}{\\partial\\phi}      = \\hat{k}      \\end{aligned}" />
+    </p>
+    <p>
+      Both <InlineEquation equation="\\vec{e}_r" /> and <InlineEquation equation="\\vec{e}_z" /> are already normalized, and the length <InlineEquation equation="\\vec{e}_{\\theta}" /> is r, so we can divide by this to obtain the final normalized basis vector.
+    </p>
+	
+	<p>
+	To invert the basis change we can solve for <InlineEquation equation="\\hat{\\imath}" /> and <InlineEquation equation="\\hat{\\jmath}" />.
+	</p>
+    
+  </DisplayEquation>
+
+  <p>
+    If the cylindrical coordinates change with time then this
+    causes the spherical basis vectors to rotate with the
+    following angular velocity.
+  </p>
+
+  <DisplayEquation title="Angular velocity of the cylindrical basis." background="True" id="rvy-ew" equation="\\vec{\\omega} = \\dot\\theta \\, \\hat{e}_z " derivation=True>
+    <p>
+      Changing \(r\) or \(z\) does not cause a rotation of the basis,
+      while changing \(\theta\) rotates about the vertical axis
+      <InlineEquation equation=" \\hat{e}_z" />.
+    </p>
+  </DisplayEquation>
+
+  <p>
+    The rotation of the basis vectors caused by changing
+    coordinates gives the time
+    derivatives below.
+  </p>
+
+  <DisplayEquation title="Time derivatives of cylindrical basis vectors." background="True" id="rvy-et" equation="\\begin{aligned}\\dot{\\hat{e}}_r &amp;= \\dot\\theta \\,\\hat{e}_{\\theta} \\\\\\dot{\\hat{e}}_{\\theta} &amp;= - \\dot\\theta  \\,\\hat{e}_r\\\\\\dot{\\hat{e}}_z &amp;= 0\\end{aligned}" derivation=True>
+    <p>
+      We can either directly differentiate the <a
+      href="#rvs-eb">basis vector expressions</a>, or we can
+      recall that <InlineEquation equation="\\dot{\\hat{e}} = \\vec{\\omega}      \\times \\hat{e}" /> for any basis vector <InlineEquation equation="\\hat{e}" />. This
+      gives:
+    </p>
+    <p>
+      <DisplayEquation equation="\\begin{aligned}      \\dot{\\hat{e}}_r &amp;= \\vec{\\omega} \\times \\hat{e}_r      = \\dot\\theta \\, \\hat{e}_z \\times \\hat{e}_r            = \\dot\\theta \\, \\hat{e}_{\\theta}  \\\\      \\dot{\\hat{e}}_{\\theta} &amp;= \\vec{\\omega} \\times \\hat{e}_{\\theta}     = \\dot\\theta \\, \\hat{e}_z \\times \\hat{e}_{\\theta}            = -\\dot\\theta \\, \\hat{e}_r \\\\      \\dot{\\hat{e}}_{\\phi} &amp;= \\vec{\\omega} \\times \\hat{e}_{\\phi}      = \\dot\\theta \\, \\hat{e}_z \\times \\hat{e}_z = 0     \\end{aligned}" />
+    </p>
+    <p>
+      where we used the fact that <InlineEquation equation="\\hat{e}_r , \\hat{e}_{\\theta} , \\hat{e}_z "/>  form a right-handed orthonormal basis to evaluate the cross products.
+    </p>
+  </DisplayEquation>
+
+  <p>
+    A point \(P\) at a time-varying position \((r,\theta, z)\) has
+    position vector <InlineEquation equation="\\vec{\\rho}" />, velocity <InlineEquation equation="\\vec{v} =    \\dot{\\vec{\\rho}}" />, and acceleration <InlineEquation equation="\\vec{a} = \\ddot{\\vec{\\rho}}" />
+    given by the following expressions in cylindrical components.
+  </p>
+
+  <DisplayEquation title="Position, velocity, and acceleration in cylindrical components." background="True" id="rvy-ep" equation="\\begin{aligned}\\vec{\\rho} &amp;= r \\,\\hat{e}_r +z \\, \\hat{e}_z \\\\\\vec{v} &amp;= \\dot{r} \\,\\hat{e}_r+ r \\dot\\theta  \\,\\hat{e}_{\\theta}+  \\dot{z} \\,\\hat{e}_{z} \\\\\\vec{a} &amp;= (\\ddot{r} - r \\dot{\\theta}^2) \\, \\hat{e}_r   +   (r \\ddot{\\theta} + 2 \\dot{r} \\dot{\\theta}) \\, \\hat{e}_{\\theta}   +   \\ddot{z} \\, \\hat{e}_z \\end{aligned}" derivation=True>
+    <p>
+      From the coordinate expressions we see that the 
+      the position vector <InlineEquation equation="\\vec{\\rho}" />, we know that <InlineEquation equation="\\vec{\\rho} = r      \\, \\hat{e}_r  + z \\, \\hat{e}_Z" />. Differentiating this then gives:
+      
+    </p>
+    <p>
+      <DisplayEquation equation="\\begin{aligned}      \\vec{v} &amp;= \\dot{\\vec{\\rho}} = \\frac{d}{dt}\\Big(r \\, \\hat{e}_r + z \\, \\hat{e}_z\\Big)      = \\dot{r} \\, \\hat{e}_r + r \\, \\dot{\\hat{e}}_r  + \\dot{z} \\, \\hat{e}_z + z \\, \\dot{\\hat{e}}_z    \\end{aligned}" />
+    </p>
+    <p>
+      and we substitute in the expression for
+      <InlineEquation equation="\\dot{\\hat{e}_r}" /> and <InlineEquation equation="\\dot{\\hat{e}_z}" /> from above. Taking another derivative gives:
+    </p>
+    <p>
+      <DisplayEquation equation="\\begin{aligned}      \\vec{a} = \\dot{\\vec{v}} &amp;= \\frac{d}{dt}\\Big(      \\dot{r} \\,\\hat{e}_r      + r \\dot\\theta \\,\\hat{e}_{\\theta}      + \\dot{z} \\,\\hat{e}_{z} \\Big) \\\\      &amp;= \\ddot{r} \\, \\hat{e}_r + \\dot{r} \\, \\dot{\\hat{e}}_r      + (\\dot{r} \\dot\\theta  + r \\ddot\\theta) \\, \\hat{e}_\\theta  + r \\dot{\\theta} \\dot{\\hat{e}_{\\theta}} + \\ddot{z} \\hat{e}_z  +  \\dot{z} \\dot{\\hat{e}_z}   \\\\         \\end{aligned}" />
+    </p>
+    <p>
+      and again we can substitute the <a href="#rvs-et">basis
+      vector derivatives</a>.
+    </p>
+  </DisplayEquation>
+</SubSection>
+
 
 <SubSection title="Applications" id="applications"></SubSection>
 

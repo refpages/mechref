@@ -9,9 +9,23 @@ import InlineEquation from "../../components/InlineEquation.astro"
 import DisplayEquation from "../../components/DisplayEquation.astro" 
 ---
 <Layout title="ForceSystems">
-<Section title="Force Systems"></Section>
 
-<SubSection title="Equivalent systems">
+    <div slot="navtree">
+        <ul class='list-group list-group-flush py-0'> 
+          <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#equivalent_systems'>Equivalent systems</a></li> 
+          <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#concentrated_forces'>Concentrated forces</a></li>
+          <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#distributed_loads'>Distributed loads</a></li>
+          <ul class='list-group list-group-flush py-0'> 
+            <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#rectangular_loading'>Rectangular loading</a></li>
+            <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#triangular_loading'>Triangular loading</a></li>
+            <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#nonuniform_distributed_loads'>Nonuniform distributed loads</a></li>
+        </ul>
+      </ul>
+      </div>
+
+<Section title="Force Systems" id="force_systems"></Section>
+
+<SubSection title="Equivalent systems" id="equivalent_systems">
 
 It can be helpful at times to reduce the forces on a body and combine resultant moments and simplify the analysis. For example, you can replace a force couple with their equivalent couple moment in a system. 
 
@@ -19,7 +33,7 @@ These forces and moments will have the same external effect on the body, but the
 
 </SubSection>
 
-<SubSection title="Concentrated forces">
+<SubSection title="Concentrated forces" id="concentrated_forces">
 
 Concentrated forces are forces acting at a specific point on a body. 
 
@@ -27,7 +41,7 @@ Concentrated forces are forces acting at a specific point on a body.
 
 </SubSection>
 
-<SubSection title="Distributed loads">
+<SubSection title="Distributed loads" id="distributed_loads">
 <!-- from lecture 11 and 12 -->
 
 Distributed loads (usually written as <InlineEquation equation='w(x)' />) are forces applied over a length, volume, or area. The SI units for distributed loads are N/m. These loads, written as a function of length <InlineEquation equation='x' /> can be simplified into an equivalent force, <InlineEquation equation='F_R' />, which results in the same external loading on the rigid body. 
@@ -38,7 +52,7 @@ The magnitude of the equivalent force <InlineEquation equation='F_R' /> is the a
 
 </SubSection>
 
-<SubSubSection title="Rectangular loading">
+<SubSubSection title="Rectangular loading" id="rectangular_loading">
 
 For a constant distributed load of magnitude c applied to a bar over a length l, the resultant force magnitude is 
 
@@ -50,7 +64,7 @@ the resultant force location is at <InlineEquation equation='l/2' />.
 
 </SubSubSection>
 
-<SubSubSection title="Triangular loading">
+<SubSubSection title="Triangular loading" id="triangular_loading">
 
 For a triangular distributed load (a uniformly varying load), the magnitude of the load is equivalent to the area of the triangle. 
 
@@ -64,7 +78,7 @@ The location of <InlineEquation equation='F_R' /> is 1/3 from the base of the tr
 
 <!-- from lecture 11 and 12 -->
 
-<SubSubSection title="Nonuniform distributed loads">
+<SubSubSection title="Nonuniform distributed loads" id="nonuniform_distributed_loads">
 
 More complex distributed loads can be reduced to two distributed loads of uniform shape, or the integral of the distributed load function can be taken to obtain the area under <InlineEquation equation='w(x)' />, which is <InlineEquation equation='F_R' />. 
 

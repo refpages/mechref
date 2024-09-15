@@ -11,7 +11,17 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
 import InlineEquation from "../../components/InlineEquation.astro"
 ---
 <Layout title="Trusses">
-<Section title="Trusses">
+
+    <div slot="navtree">
+        <ul class='list-group list-group-flush py-0'> 
+          <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#assumptions'>Truss Assumptions</a></li> 
+          <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#two_force_member'>Two Force Member</a></li>
+          <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#zero_force_member'>Zero Force Member</a></li>
+		  <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#joints'>Truss Analysis: Joints</a></li>
+		  <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#sections'>Truss Analysis: Sections</a></li>
+      </ul>
+      </div>
+<Section title="Trusses" id="trusses">
 
 <p>Trusses are support members that are joined together at the ends. The function of a truss is to transmit loads to a support joint. In this section, we will analyze a simplified version of planar trusses called simple trusses, which consist of two-force members connected by frictionless joints/pins.
 </p>
@@ -21,7 +31,7 @@ import InlineEquation from "../../components/InlineEquation.astro"
 
 <!-- Definition of a truss -->
 
-<SubSection title="Truss Assumptions">
+<SubSection title="Truss Assumptions" id="assumptions">
 
 The main assumptions for trusses and truss structures are:
 <Enumerate>
@@ -35,13 +45,14 @@ Because of these assumptions, all trusses are <em>two force members</em>, with t
 
 <!-- good summary in lecture 17, slide 5 -->
 
-<SubSection title="Two Force Member">
+<SubSection title="Two Force Member" id="two_force_member">
 <p>
-A two force member is a rigid body that has two forces (no moments) acting on it in two locations, say \(A\) and \(B\). <RedText> Nikhil's Comment: Equilibrium of the two-force member implies</RedText></p>
+A two force member is a rigid body that has two forces (no moments) acting on it in two locations, say \(A\) and \(B\). Equilibrium of the two-force member implies</p>
 	
 <DisplayEquation equation="\\vec{F_A} + \\vec{F_B} = \\vec 0," />
 
-<RedText>resulting in</RedText>
+resulting in
+
 <Enumerate>
 	<Item>\(|F_A| = |F_B|\)</Item>
 	<Item><InlineEquation equation="\\vec{F_A}" /> and <InlineEquation equation="\\vec{F_B}" /> act along the same line of action.</Item>
@@ -52,7 +63,7 @@ A two force member is a rigid body that has two forces (no moments) acting on it
 </SubSection>
 
 <!-- Lecture 16 -->
-<SubSection title="Zero Force Member">
+<SubSection title="Zero Force Member" id="zero_force_member">
 
 Zero force members are members in a truss structure that experience no force. They act as support trusses to add stability, but are not load bearing. There are 2 cases where zero force members occur: 
 <Enumerate>
@@ -64,13 +75,21 @@ Zero force members are members in a truss structure that experience no force. Th
 
 <Image src='/Statics/TrussFigures/0ForceMembers.jpg' width='5'> Examples of different zero force members, highlighted in red.</Image>
 
-<BlueText>Insert content here from TAM 212 reference page - Free Body Diagrams - Rigid Bodies - Trusses section. This has a really good analysis of eliminating zero force members to simplify the structure</BlueText>
+<p>
+   These rules will help us simplify trusses and solve for the internal forces in the desired members.
+	</p>
+
+<p>
+   Drawing free-body diagrams on trusses is simple. As mentioned in the beginning, we will choose the entire truss as our system and draw the free-body diagram to determine the reaction forces on pinned/roller joints. Note we will need more equations and free-body diagrams on individual truss members to fully determine the reaction forces. See statics reference pages on how that is done. The following is a diagram showcasing eliminating zero-force members as well as the free-body diagram on the truss.
+	</p>
+
+<BlueText> Insert animation animation here, it in the trusses subsection <a href="https://mechref.engr.illinois.edu/dyn/rfb.html#rfb-zf"> here </a> </BlueText>
 
 </SubSection>
 
 <!-- lecture 18 -->
 
-<SubSection title="Truss Analysis: Joints">
+<SubSection title="Truss Analysis: Joints" id="joints">
 
 Method of joints for truss analysis: 
 <Enumerate>
@@ -85,9 +104,9 @@ Method of joints for truss analysis:
 
 </SubSection>
 
-<SubSection title="Truss Analysis: Sections">
+<SubSection title="Truss Analysis: Sections" id="sections">
 
-<Image src='/Statics/TrussFigures/MethodofSections.jpg' width='5'><BlueText>Adapted from TAM 210 Lecture 19 notes</BlueText></Image>
+<Image src='/Statics/TrussFigures/MethodofSections.jpg' width='5'>Example of methods of sections for joint analysis</Image>
 
 <!-- lecture 19  -->
 
