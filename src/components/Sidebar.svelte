@@ -6,6 +6,15 @@
         'Solid Mechanics': 'sol',
         'Statics': 'sta'
     }
+
+    const course_tags_reversed = {
+        'sta': 'Statics',
+        'dyn': 'Dynamics',
+        'sol': 'Solid Mechanics'
+    }
+
+    export let current_course;
+    export let current_page;
 </script>
 
 <style>
@@ -49,17 +58,32 @@
             </li>
             {#each classes as course}            
                 <li class="list-group-item course-group p-0 my-2">
-                    <button class="btn d-inline-flex align-items-center rounded collapsed sidebar-btn p-0 mb-1" data-bs-toggle="collapse" data-bs-target="#{course[0].replace(' ', '_')}-collapse">
+                    <button class="btn d-inline-flex align-items-center rounded sidebar-btn p-0 mb-1" data-bs-toggle="collapse" data-bs-target="#{course[0].replace(' ', '_')}-collapse">
                         <strong class="m-0 fw-semibold h5">{course[0]}</strong>
                     </button>
-                    <div class="collapse" id="{course[0].replace(' ', '_')}-collapse">
                     
+                    {#if course[0] == course_tags_reversed[current_course]} 
+                    <div class="collapse show" id="{course[0].replace(' ', '_')}-collapse">
                       <ul class="course-list">
                             {#each course[1] as page}
-                                  <li class="mb-1"><a class="course-link" href="/{course_tags[course[0]]}/{page.id}" >{page.name}</a></li>
+                                {#if page.name.replaceAll(" ", "_").toLowerCase() == current_page}
+                                    <li class="mb-1"><a class="course-link fw-bold" href="/{course_tags[course[0]]}/{page.id}" >{page.name}</a></li>
+                                {:else}
+                                    <li class="mb-1"><a class="course-link" href="/{course_tags[course[0]]}/{page.id}" >{page.name}</a></li>
+                                {/if} 
                             {/each}
                       </ul>
                     </div>
+                    {:else}
+                    <div class="collapse" id="{course[0].replace(' ', '_')}-collapse">
+                    
+                        <ul class="course-list">
+                              {#each course[1] as page}
+                                    <li class="mb-1"><a class="course-link" href="/{course_tags[course[0]]}/{page.id}" >{page.name}</a></li>
+                              {/each}
+                        </ul>
+                      </div>
+                    {/if}
                 </li>
             {/each}
         </ul>
