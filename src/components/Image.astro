@@ -17,19 +17,19 @@ const filename = 'Fig: ' + img_path_split.pop().replace('.png', '')
 
     @media (min-width: 768px){
         .image-block{
-            width: min(calc(var(--width) / 6 * 100%), 100%);
+            width: min(calc(var(--width) / 5 * 100%), 100%);
         }
     }
 
     @media (min-width: 992px){
         .image-block{
-            width: min(calc(var(--width) / 7 * 100%), 100%);
+            width: min(calc(var(--width) / 6 * 100%), 100%);
         }
     }
 
     @media (min-width: 1200px){
         .image-block{
-            width: calc(var(--width) / 8 * 100%);
+            width: min(calc(var(--width) / 7 * 100%), 100%);
         }
     }
 </style>
