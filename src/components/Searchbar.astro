@@ -5,10 +5,10 @@ import search_contents from "../search.json"
     #searchresults{
         background-color: var(--bs-body-bg);
         list-style: none; 
-        border: 1px solid #ccc;
         border-radius: 5px;
+        border: 1px solid var(--bs-border-color);
     }
-
+  
     #searchresults:empty{
         border: 0px solid #ccc;
     }
@@ -71,7 +71,7 @@ import search_contents from "../search.json"
       <input type="text" class="form-control" placeholder="Search for keyword" id="searchbox" autocomplete="off" />
       
     </div>
-    <ul id="searchresults" class="position-absolute z-3 w-100 p-0">
+    <ul id="searchresults" class="position-absolute themed-border z-3 w-100 p-0">
 
     </ul> 
     
@@ -2163,7 +2163,7 @@ import search_contents from "../search.json"
 
             console.log(display_text)
             
-            searchresults.innerHTML += `<a href="${e['item']['link']}" class="themed-text text-decoration-none">
+            searchresults.innerHTML += `<a href="${e['item']['link']}?searched=true&query=${query}" class="themed-text text-decoration-none">
                     <li class="px-2 py-1 border-bottom" >
                     
                         <p class="mb-0 fw-bold">${course_tags[e['item']['course']]} - ${e['item']['title']}</p>
@@ -2218,11 +2218,9 @@ import search_contents from "../search.json"
     resize_searchbar();
 
     const clear_icon = document.querySelector("#clear");
-    const clear_icon_tooltip = document.querySelector("#tooltip");
 
     function resize_icon(){
       clear_icon.style = `font-size: ${searchbox.clientHeight}px; top: -${searchbox.clientHeight/4-2}px;`;
-      tooltip.style = `top: ${searchbox.clientHeight+2}px;`;
       console.log(`${searchbox.clientHeight}px`)
     }
 
