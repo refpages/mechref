@@ -17,13 +17,13 @@ import search_contents from "../search.json"
         display: block;
     }
 
-    i#clear:has(+ input:hover){
+    i#clear:has(+ input:focus){
         transition: all .2s ease-in-out;
         transform: scale(1);
     }
 
     i#clear:hover{
-      color: #333;
+      color: #444;
       transform: scale(1);
     }
 
@@ -31,13 +31,12 @@ import search_contents from "../search.json"
         display: none;
     }
 
-    #search-menu > input:hover + ul{
+    #search-menu > div:has(input:hover) + ul{
         display: block;
     }
 
-    p#tooltip:has(+i#clear:hover){
-      transition: opacity .5s ease-in;
-      opacity: 100%;
+    input:hover{
+      z-index: 0;
     }
 
     i#clear {
@@ -47,6 +46,7 @@ import search_contents from "../search.json"
         transform: scale(0);
         transition: all .2s ease-in-out;
         color: #888;
+        z-index: 1000;
     }
 
     .highlighter{
@@ -54,26 +54,26 @@ import search_contents from "../search.json"
 	  } 
     
 
-    p#tooltip {
-        position: absolute;
-        right:0px;
-        transition: opacity .1s ease-out; 
-        opacity: 0%;
-        background-color: var(--bs-body-bg);
-        border: solid 1px #333;
-        border-radius: 10px;
-    }
-
     
 </style>
 
-<div id="search-menu" class="position-relative w-100 sticky">
-    <p id="tooltip" class="m-0 px-1"><small><em>Click me to close menu!</em></small></p>
-    <i class="bi bi-x" id="clear" onclick="searchbox.blur();"></i>
-    <input type="text" class="form-control w-100" placeholder="Search for keyword" id="searchbox" autocomplete="off" />
+<div id="search-menu" class="position-relative w-100 sticky">    
+    <div class="input-group z-1">
+      <div class="input-group-prepend">
+        <select name="course-selector" id="course-selector" class="form-select">
+          <option value="all">All courses</option>
+          <option value="sta">Statics</option>
+          <option value="dyn">Dynamics</option>
+          <option value="sol">Solid Mechanics</option>
+        </select>
+      </div>
+      <i class="bi bi-x" id="clear" onclick="searchbox.blur();"></i>
+      <input type="text" class="form-control" placeholder="Search for keyword" id="searchbox" autocomplete="off" />
+      
+    </div>
     <ul id="searchresults" class="position-absolute z-3 w-100 p-0">
 
-    </ul>
+    </ul> 
     
 </div>
 
@@ -2089,6 +2089,11 @@ import search_contents from "../search.json"
 
 }));
 
+    const course_tags = {
+      "sta": 'Statics',
+      'dyn': 'Dynamics',
+      'sol': 'Solid Mechanics'
+    };
 
     const index = Fuse.createIndex(['title', 'text'], search_contents)
 
@@ -2107,19 +2112,28 @@ import search_contents from "../search.json"
     
     let query;
     let results;
+    let course;
 
     const searchbox = document.querySelector('#searchbox');
     const searchresults = document.querySelector('#searchresults');
+    const course_selector = document.querySelector('#course-selector');
     
     function search_and_display(){
         query = searchbox.value;
         results = fuse.search(query);
+        course = course_selector.value;
 
         searchresults.innerHTML = "";
         results = results.slice(0, Math.min(5, results.length))
 
+
+
         Array.from(results).forEach(e => {
-            
+            if (course != 'all' && e['item']['course'] != course){
+              return 
+            }
+
+
             let text =  e['item']['text'];
             
             let first_str_index = text.toLowerCase().indexOf(query.toLowerCase());
@@ -2152,7 +2166,7 @@ import search_contents from "../search.json"
             searchresults.innerHTML += `<a href="${e['item']['link']}" class="themed-text text-decoration-none">
                     <li class="px-2 py-1 border-bottom" >
                     
-                        <p class="mb-0 fw-bold">${e['item']['title']}:</p>
+                        <p class="mb-0 fw-bold">${course_tags[e['item']['course']]} - ${e['item']['title']}</p>
                         ${display_text}
                     
                     </li>
@@ -2178,6 +2192,13 @@ import search_contents from "../search.json"
 
     searchbox.addEventListener(
         "input", 
+        function(){
+            search_and_display();
+        }
+    )
+
+    course_selector.addEventListener(
+        "change",
         function(){
             search_and_display();
         }
