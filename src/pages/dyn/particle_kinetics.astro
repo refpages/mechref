@@ -98,7 +98,13 @@ import DisplayTable from "../../components/DisplayTable.astro"
 
     There is no derivation for Newton's equations, because they are an assumed model for dynamics. We can only verify them by comparing with experimental evidence, which confirms that Newtonian dynamics are accurate for non-relativistic and non-quantum systems.
 
-    <PrairieDrawCanvas id="rep-ff-c" width="600" height="600" />
+    <PrairieDrawCanvas id="rep-ff-c" width="600" height="600">
+      <button onclick="rep_ff_c.toggleAnim()">animate</button>
+      <button onclick="rep_ff_c.reset()">reset</button>
+      <p>A point mass moving in the plane with an applied force. You can try to made the mass move in a circle and then see what happens when the force is suddenly removed, which will demonstrate Newton's first law (no net force implies motion at constant speed in a constant direction). Also observe which force directions cause the speed to increase or decrease.</p>
+    
+      <small><em>Click and drag to impart a force on the particle.</em></small>
+    </PrairieDrawCanvas>
 
 </SubSection>
 
