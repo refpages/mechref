@@ -2208,8 +2208,10 @@ import search_contents from "../search.json"
       console.log(document.querySelector('body').clientWidth)
       if (document.querySelector('body').clientWidth <= 768){
         searchbox.classList.add('form-control-lg')
+        course_selector.classList.add('form-select-lg')
       }else{
         searchbox.classList.remove('form-control-lg')
+        course_selector.classList.remove('form-select-lg')
       }
     }
 
