@@ -10,7 +10,12 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
 import InlineEquation from "../../components/InlineEquation.astro"
 import Enumerate from "../../components/Enumerate.astro"
 import Item from "../../components/Item.astro"
+import PrairieDrawCanvas from "../../components/PrairieDrawCanvas.astro"
+import Row from "../../components/Row.astro"
+import Col from "../../components/Col.astro"
 ---
+
+
 <Layout title="Contact and Rolling">
 
 <div slot="navtree">
@@ -72,7 +77,113 @@ import Item from "../../components/Item.astro"
         figure below.
     </p>
 
-    <RedText>INSERT INTERACTIVE BLOCK HERE</RedText>
+    <PrairieDrawCanvas id="rko-fr-c" width="600" height="600">
+        <p class="controls">
+            <button class="anim-toggle:rko-fr-c" onclick="rko_fr_c.toggleAnim()">animation</button>
+            <button class="reset:rko-fr-c" onclick="rko_fr_c.reset()">reset</button>
+            <button class="option-toggle:rko-fr-c:showLabels" onclick="rko_fr_c.toggleOption('showLabels')">show labels</button>
+          </p>
+          <div class="d-flex flex-row flex-wrap radio-container" style="gap: 10px;">
+              <p class="mb-0">Movement:</p>
+              <p class="mb-0"><input type="radio" name="rko-fr-c-movement" value="smallFlat" class="data-input:rko-fr-c:movement" onchange="rko_fr_c.setOption('movement', this.value)" checked/> flat</p>
+              <p class="mb-0"><input type="radio" name="rko-fr-c-movement" value="bigFlat" class="data-input:rko-fr-c:movement" onchange="rko_fr_c.setOption('movement', this.value)"/> big flat</p>
+              <p class="mb-0"><input type="radio" name="rko-fr-c-movement" value="rock" class="data-input:rko-fr-c:movement" onchange="rko_fr_c.setOption('movement', this.value)"/> rock</p>
+              <p class="mb-0"><input type="radio" name="rko-fr-c-movement" value="in-2-circle" class="data-input:rko-fr-c:movement" onchange="rko_fr_c.setOption('movement', this.value)"/> inside 2-circle</p>
+              <p class="mb-0"><input type="radio" name="rko-fr-c-movement" value="in-3-circle" class="data-input:rko-fr-c:movement" onchange="rko_fr_c.setOption('movement', this.value)"/> inside 3-circle</p>
+              <p class="mb-0"><input type="radio" name="rko-fr-c-movement" value="in-rock" class="data-input:rko-fr-c:movement" onchange="rko_fr_c.setOption('movement', this.value)"/> inside rock</p>
+              <p class="mb-0"><input type="radio" name="rko-fr-c-movement" value="out-1-circle" class="data-input:rko-fr-c:movement" onchange="rko_fr_c.setOption('movement', this.value)"/> outside 1-circle</p>
+              <p class="mb-0"><input type="radio" name="rko-fr-c-movement" value="out-2-circle" class="data-input:rko-fr-c:movement" onchange="rko_fr_c.setOption('movement', this.value)"/> outside 2-circle</p>
+              <p class="mb-0"><input type="radio" name="rko-fr-c-movement" value="out-rock" class="data-input:rko-fr-c:movement" onchange="rko_fr_c.setOption('movement', this.value)"/> outside rock</p>
+        </div>
+          
+          <Row>
+            <Col values="12 sm-6 md-3">
+                <div class="d-flex flex-column">
+                    <p class="mb-1" style="border-bottom: solid 1px;">Center \(C\)</p>
+                    <p class="mb-1"><button class="option-toggle:rko-fr-c:showCVel" onclick="rko_fr_c.toggleOption('showCVel')">\(C\) velocity</button></p>
+                    <p class="mb-1"><button class="option-toggle:rko-fr-c:showCAcc"onclick="rko_fr_c.toggleOption('showCAcc')">\(C\) acceleration</button></p>
+                    <p class="mb-1"><button class="option-toggle:rko-fr-c:showCPath" onclick="rko_fr_c.toggleOption('showCPath')">\(C\) path</button></p>
+                </div>
+            </Col>
+            <Col values="12 sm-6 md-3">
+                <div class="d-flex flex-column">
+                    <p class="mb-1">Body</p>
+                    <p class="mb-1"><button class="option-toggle:rko-fr-c:showAngVel" onclick="rko_fr_c.toggleOption('showAngVel')">ang. vel.</button></p>
+                    <p class="mb-1"><button class="option-toggle:rko-fr-c:showAngAcc" onclick="rko_fr_c.toggleOption('showAngAcc')">ang. acc.</button></p>
+                    <p class="mb-1"><button class="option-toggle:rko-fr-c:showPPath" onclick="rko_fr_c.toggleOption('showPPath')">\(P\) path</button></p>
+                    <p class="mb-1"><button class="option-toggle:rko-fr-c:showInstRot" onclick="rko_fr_c.toggleOption('showInstRot')">inst. cent. \(M\)</button></p>
+                </div>
+            </Col>
+            <Col values="12 sm-6 md-3">
+                <div class="d-flex flex-column">
+                    <p class="mb-1 table-heading">\(P\) velocity</p>
+                    <p class="mb-1"><input type="radio" name="rko-fr-c-velField" value="none" class="data-input:rko-fr-c:velField" onchange="rko_fr_c.setOption('velField', this.value)" checked/> none</p>
+                    <p class="mb-1"><input type="radio" name="rko-fr-c-velField" value="base" class="data-input:rko-fr-c:velField" onchange="rko_fr_c.setOption('velField', this.value)"/> <InlineEquation equation="\\vec{v}_C" /> (trans.)</p>
+                    <p class="mb-1"><input type="radio" name="rko-fr-c-velField" value="omega" class="data-input:rko-fr-c:velField" /> <InlineEquation equation="\\vec{\\omega} \\times \\vec{r}_{CP}" onchange="rko_fr_c.setOption('velField', this.value)"/> (rot.)</p>
+                    <p class="mb-1"><input type="radio" name="rko-fr-c-velField" value="total" class="data-input:rko-fr-c:velField" onchange="rko_fr_c.setOption('velField', this.value)"/> <InlineEquation equation="\\vec{v}_P" /> (total)</p>
+                    <p class="mb-1"><button class="option-toggle:rko-fr-c:showVelField" onclick="rko_fr_c.toggleOption('showVelField')">all points</button></p>
+                </div>
+            </Col>
+            <Col values="12 sm-6 md-3">
+                <div class="d-flex flex-column">
+                    <p class="mb-1">\(P\) acceleration</p>
+                    <p class="mb-1"><input type="radio" name="rko-fr-c-accField" value="none" class="data-input:rko-fr-c:accField" onchange="rko_fr_c.setOption('accField', this.value)" checked/> none</p>
+                    <p class="mb-1"><input type="radio" name="rko-fr-c-accField" value="base" class="data-input:rko-fr-c:accField" onchange="rko_fr_c.setOption('accField', this.value)"/> <InlineEquation equation="\\vec{a}_C" /> (trans.)</p>
+                    <p class="mb-1"><input type="radio" name="rko-fr-c-accField" value="alpha" class="data-input:rko-fr-c:accField" /> <InlineEquation equation="\\vec{\\alpha} \\times \\vec{r}_{CP}" onchange="rko_fr_c.setOption('accField', this.value)"/> (ang.)</p>
+                    <p class="mb-1"><input type="radio" name="rko-fr-c-accField" value="cent" class="data-input:rko-fr-c:accField" onchange="rko_fr_c.setOption('accField', this.value)"/> <InlineEquation equation="\\vec{\\omega} \\times (\\vec{\\omega} \\times \\vec{r}_{CP})" /> (cent.)</p>
+                    <p class="mb-1"><input type="radio" name="rko-fr-c-accField" value="total" class="data-input:rko-fr-c:accField" onchange="rko_fr_c.setOption('accField', this.value)"/> <InlineEquation equation="\\vec{a}_P" /> (total)</p>
+                    <p class="mb-1"><button class="option-toggle:rko-fr-c:showAccField" onclick="rko_fr_c.toggleOption('showAccField')">all points</button></p>
+                </div>
+            </Col>
+          </Row>
+            <tr>
+              
+            
+            
+            
+            </tr>
+            <tr>
+              
+              
+              
+              
+            </tr>
+            <tr>
+              
+             
+              
+              
+            </tr>
+            <tr>
+              
+             
+              
+              
+            </tr>
+            <tr>
+              <p class="mb-1"></p>
+              
+              <p class="mb-1"></p>
+              
+            </tr>
+            <tr>
+              <p class="mb-1"></p>
+              <p class="mb-1"></p>
+              
+              
+            </tr>
+            <tr>
+              <p class="mb-1"></p>
+              <p class="mb-1"></p>
+             
+              
+            </tr>
+          </table>
+          <p class="figureCaption">
+            Velocity and acceleration of points on a rigid body
+            undergoing different rolling motions.
+          </p>
+    </PrairieDrawCanvas>
 </SubSection>
 
 <SubSubSection title="Rolling on a flat surface" id="rolling_flat_surface"  id="rolling_flat_surface" >
@@ -123,3 +234,5 @@ import Item from "../../components/Item.astro"
     <Image src="/Dynamics/ContactRollingFigs/AppBearings.png" width="5"></Image>
 </SubSubSection>
 </Layout>
+
+<script src="/dyn/contact_and_rolling/canvases.js" is:inline></script>
