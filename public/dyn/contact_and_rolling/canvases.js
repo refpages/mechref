@@ -398,7 +398,7 @@ $(document).ready(function() {
         }, this);
     });
 
-    var rko_ff_c = new PrairieDrawAnim("rko-ff-c", function(t) {
+    rko_ff_c = new PrairieDrawAnim("rko-ff-c", function(t) {
 
         this.setUnits(6, 4);
 

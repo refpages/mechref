@@ -16,7 +16,14 @@ import Col from "../../components/Col.astro"
 ---
 
 
+
+
 <Layout title="Contact and Rolling">
+    <style>
+        .caption-heading{
+            border-bottom: solid 1px;
+        }
+    </style>
 
 <div slot="navtree">
   <ul class='list-group list-group-flush py-0'> 
@@ -99,7 +106,7 @@ import Col from "../../components/Col.astro"
           <Row>
             <Col values="12 sm-6 md-3">
                 <div class="d-flex flex-column">
-                    <p class="mb-1" style="border-bottom: solid 1px;">Center \(C\)</p>
+                    <p class="mb-1" >Center \(C\)</p>
                     <p class="mb-1"><button class="option-toggle:rko-fr-c:showCVel" onclick="rko_fr_c.toggleOption('showCVel')">\(C\) velocity</button></p>
                     <p class="mb-1"><button class="option-toggle:rko-fr-c:showCAcc"onclick="rko_fr_c.toggleOption('showCAcc')">\(C\) acceleration</button></p>
                     <p class="mb-1"><button class="option-toggle:rko-fr-c:showCPath" onclick="rko_fr_c.toggleOption('showCPath')">\(C\) path</button></p>
@@ -107,7 +114,7 @@ import Col from "../../components/Col.astro"
             </Col>
             <Col values="12 sm-6 md-3">
                 <div class="d-flex flex-column">
-                    <p class="mb-1">Body</p>
+                    <p class="mb-1 caption-heading">Body</p>
                     <p class="mb-1"><button class="option-toggle:rko-fr-c:showAngVel" onclick="rko_fr_c.toggleOption('showAngVel')">ang. vel.</button></p>
                     <p class="mb-1"><button class="option-toggle:rko-fr-c:showAngAcc" onclick="rko_fr_c.toggleOption('showAngAcc')">ang. acc.</button></p>
                     <p class="mb-1"><button class="option-toggle:rko-fr-c:showPPath" onclick="rko_fr_c.toggleOption('showPPath')">\(P\) path</button></p>
@@ -116,7 +123,7 @@ import Col from "../../components/Col.astro"
             </Col>
             <Col values="12 sm-6 md-3">
                 <div class="d-flex flex-column">
-                    <p class="mb-1 table-heading">\(P\) velocity</p>
+                    <p class="mb-1 caption-heading">\(P\) velocity</p>
                     <p class="mb-1"><input type="radio" name="rko-fr-c-velField" value="none" class="data-input:rko-fr-c:velField" onchange="rko_fr_c.setOption('velField', this.value)" checked/> none</p>
                     <p class="mb-1"><input type="radio" name="rko-fr-c-velField" value="base" class="data-input:rko-fr-c:velField" onchange="rko_fr_c.setOption('velField', this.value)"/> <InlineEquation equation="\\vec{v}_C" /> (trans.)</p>
                     <p class="mb-1"><input type="radio" name="rko-fr-c-velField" value="omega" class="data-input:rko-fr-c:velField" /> <InlineEquation equation="\\vec{\\omega} \\times \\vec{r}_{CP}" onchange="rko_fr_c.setOption('velField', this.value)"/> (rot.)</p>
@@ -126,59 +133,17 @@ import Col from "../../components/Col.astro"
             </Col>
             <Col values="12 sm-6 md-3">
                 <div class="d-flex flex-column">
-                    <p class="mb-1">\(P\) acceleration</p>
+                    <p class="mb-1 caption-heading">\(P\) acceleration</p>
                     <p class="mb-1"><input type="radio" name="rko-fr-c-accField" value="none" class="data-input:rko-fr-c:accField" onchange="rko_fr_c.setOption('accField', this.value)" checked/> none</p>
                     <p class="mb-1"><input type="radio" name="rko-fr-c-accField" value="base" class="data-input:rko-fr-c:accField" onchange="rko_fr_c.setOption('accField', this.value)"/> <InlineEquation equation="\\vec{a}_C" /> (trans.)</p>
-                    <p class="mb-1"><input type="radio" name="rko-fr-c-accField" value="alpha" class="data-input:rko-fr-c:accField" /> <InlineEquation equation="\\vec{\\alpha} \\times \\vec{r}_{CP}" onchange="rko_fr_c.setOption('accField', this.value)"/> (ang.)</p>
+                    <p class="mb-1"><input type="radio" name="rko-fr-c-accField" value="alpha" class="data-input:rko-fr-c:accField" onchange="rko_fr_c.setOption('accField', this.value)"/> <InlineEquation equation="\\vec{\\alpha} \\times \\vec{r}_{CP}" /> (ang.)</p>
                     <p class="mb-1"><input type="radio" name="rko-fr-c-accField" value="cent" class="data-input:rko-fr-c:accField" onchange="rko_fr_c.setOption('accField', this.value)"/> <InlineEquation equation="\\vec{\\omega} \\times (\\vec{\\omega} \\times \\vec{r}_{CP})" /> (cent.)</p>
                     <p class="mb-1"><input type="radio" name="rko-fr-c-accField" value="total" class="data-input:rko-fr-c:accField" onchange="rko_fr_c.setOption('accField', this.value)"/> <InlineEquation equation="\\vec{a}_P" /> (total)</p>
                     <p class="mb-1"><button class="option-toggle:rko-fr-c:showAccField" onclick="rko_fr_c.toggleOption('showAccField')">all points</button></p>
                 </div>
             </Col>
           </Row>
-            <tr>
-              
             
-            
-            
-            </tr>
-            <tr>
-              
-              
-              
-              
-            </tr>
-            <tr>
-              
-             
-              
-              
-            </tr>
-            <tr>
-              
-             
-              
-              
-            </tr>
-            <tr>
-              <p class="mb-1"></p>
-              
-              <p class="mb-1"></p>
-              
-            </tr>
-            <tr>
-              <p class="mb-1"></p>
-              <p class="mb-1"></p>
-              
-              
-            </tr>
-            <tr>
-              <p class="mb-1"></p>
-              <p class="mb-1"></p>
-             
-              
-            </tr>
-          </table>
           <p class="figureCaption">
             Velocity and acceleration of points on a rigid body
             undergoing different rolling motions.
@@ -186,9 +151,96 @@ import Col from "../../components/Col.astro"
     </PrairieDrawCanvas>
 </SubSection>
 
-<SubSubSection title="Rolling on a flat surface" id="rolling_flat_surface"  id="rolling_flat_surface" >
+<SubSubSection title="Rolling on a flat surface" id="rolling_flat_surface" >
 
-<BlueText> Insert <a href="https://mechref.engr.illinois.edu/dyn/rko.html"> Rolling on a 2D flat surface </a> subsection here. </BlueText>
+    <p>
+        The most common and also the simplest form of rolling occurs
+        on a flat surface.
+      </p>
+      <PrairieDrawCanvas width="600" height="600" id="rko-ff-c">
+        <p class="controls">
+          <button class="anim-toggle:rko-ff-c" onclick="rko_ff_c.toggleAnim()">animation</button>
+          <button class="reset:rko-ff-c" onclick="rko_ff_c.reset()">reset</button>
+        </p>
+        <p class="controls">
+          <button class="option-toggle:rko-ff-c:showPaths"onclick="rko_ff_c.toggleOption('showPaths')">show paths</button>
+          <button class="option-toggle:rko-ff-c:reversed" onclick="rko_ff_c.toggleOption('reversed')">reverse direction</button>
+        </p>
+        <p class="figureCaption">
+          Geometry and variables for rolling without slipping on a
+          flat surface.
+        </p>
+      </PrairieDrawCanvas>
+      <p>
+        While rolling, the velocity and acceleration are directly
+        connected to the angular velocity and angular acceleration,
+        as shown by the next equations.
+      </p>
+    <DisplayEquation equation="\\begin{aligned}            \\vec{v}_C &amp;= r \\omega \\,\\hat{e}_t \\\\            \\vec{a}_C &amp;= r \\alpha \\,\\hat{e}_t            \\end{aligned}" background="True" title="Center velocity and acceleration while rolling on a flat surface (Tangential-Normal Basis)." id="rko-ef" derivation="True">
+        <p>
+            We begin by observing that the sign conventions in
+            Figure <a href="#rko-ff">#rko-ff</a> mean that
+            <InlineEquation equation="\\vec\\omega = -\\omega\\,\\hat{e}_b" />. Now rolling without
+            slipping means the contact point \(A\) must
+            instantaneously have zero velocity, so using <a
+            href="rkg.html#rkg-er">#rkg-er</a> gives:
+
+            <DisplayEquation equation="\\begin{aligned}            \\vec{v}_C &amp;= \\vec{v}_A + \\vec{\\omega} \\times \\vec{r}_{AC} \\\\            &amp;= (-\\omega \\,\\hat{e}_b) \\times r \\,\\hat{e}_n \\\\            &amp;= r \\omega \\,\\hat{e}_t.            \\end{aligned}" />
+
+            Because the surface is flat, the tangential basis vector
+            <InlineEquation equation="\\hat{e}_t" /> is constant, and the radius \(r\) is also
+            constant. Differentiating the velocity expression thus
+            results in:
+
+            <DisplayEquation equation="\\begin{aligned}            \\vec{v}_C &amp;= r \\omega \\,\\hat{e}_t \\\\            \\dot{\\vec{v}}_C &amp;= r \\dot\\omega \\,\\hat{e}_t \\\\            \\vec{a}_C &amp;= r \\alpha \\,\\hat{e}_t.            \\end{aligned}"/>
+          </p>
+    </DisplayEquation>
+
+
+    <DisplayEquation equation="\\begin{aligned}            \\vec{v}_C &amp;= -r \\omega_z \\,\\hat\\imath \\\\            \\vec{a}_C &amp;= -r \\alpha_z \\,\\hat\\imath            \\end{aligned}" background="True" id="rko-ef2" title="Center velocity and acceleration while rolling on a flat surface (Standard Basis)." derivation="True">
+        <p>
+            Since the body is rolling without slipping, the contact point \(A\)'s
+            velocity is instantaneously zero. Using rigid body equations:
+
+            <DisplayEquation equation="\\begin{aligned}            \\vec{v}_C &amp;= \\vec{v}_A + \\vec{\\omega} \\times \\vec{r}_{AC} \\\\            &amp;= \\omega_z r_{AC}^\\perp \\\\            &amp;= -r \\omega_z \\,\\hat\\imath.            \\end{aligned}"/>
+
+            Differentiating to obtain acceleration results in:
+
+            <DisplayEquation equation="\\begin{aligned}            \\vec{v}_C &amp;= -r \\omega_z \\,\\hat\\imath \\\\            \\dot{\\vec{v}}_C &amp;= -r \\dot\\omega_z \\,\\hat\\imath \\\\            \\vec{a}_C &amp;= -r \\alpha_z \\,\\hat\\imath.            \\end{aligned}"/>
+          </p>
+    </DisplayEquation>
+
+      <p>
+        Another way to express the connection between angular and
+        linear velocity and acceleration is via the distance \(s\)
+        traveled by the rolling body:
+      </p>
+
+    <DisplayEquation equation="\\begin{aligned}            s &amp;= r \\theta \\\\            \\dot{s} &amp;= r \\omega \\\\            \\ddot{s} &amp;= r \\alpha            \\end{aligned}" background="True" id="rko-eh" title="Distance-angular relationships for rolling on a flat surface." derivation="True">
+        <p>
+            The contact point \(P\) and center \(C\) are offset by the
+            constant vector <InlineEquation equation="r\\,\\hat{e}_n" /> so <InlineEquation equation="\\dot{s} = v_P = v_C            = r\\omega" />, from <a href="#rko-ef">#rko-ef</a>. Because
+            \(r\) is constant, differentiating the velocity expression
+            gives <InlineEquation equation="\\ddot{s} = r \\dot\\omega = r \\alpha" />, while
+            integrating with zero initial displacement gives <InlineEquation equation=" s = r            \\theta" />.
+          </p>
+    </DisplayEquation>
+      <p>
+        While rolling, the contact point will have zero velocity but
+        will have a centripetal acceleration towards the rolling
+        center:
+      </p>
+
+        <DisplayEquation equation="\\begin{aligned}            \\vec{v}_P &amp;= 0 \\\\            \\vec{a}_P &amp;= \\omega^2 \\,\\vec{r}_{PC}            \\end{aligned}" background="True" title="Contact point \\(P\\) velocity and acceleration while rolling on a flat surface." id="rko-eo" derivation="True">
+            <p>
+                By definition of non-slip rolling contact, the point of
+                contact \(P\) has zero velocity. The acceleration can be
+                computed from the center \(C\) with <a
+                href="#rkg-e2">#rkg-e2</a>:
+    
+                <DisplayEquation equation="\\begin{aligned}            \\vec{a}_P &amp;= \\vec{a}_C + \\vec{\\alpha} \\times \\vec{r}_{CP}            + \\vec{\\omega} \\times (\\vec{\\omega} \\times \\vec{r}_{CP}) \\\\            &amp;= \\alpha r \\,\\hat{e}_t + (-\\alpha\\,\\hat{e}_b) \\times (-r\\,\\hat{e}_n)            + (-\\omega\\,\\hat{e}_b) \\times \\Big((-\\omega\\,\\hat{e}_b) \\times (-r\\,\\hat{e}_n)\\Big) \\\\            &amp;= \\alpha r \\,\\hat{e}_t - \\alpha r \\,\\hat{e}_t            + \\omega^2 r \\,\\hat{e}_n \\\\            &amp;= \\omega^2 \\,\\vec{r}_{PC}.            \\end{aligned}"/>
+              </p>
+        </DisplayEquation>
 
 </SubSubSection>
 
@@ -201,7 +253,7 @@ import Col from "../../components/Col.astro"
         points on the rolling body.
     </p>
 
-    <RedText>INSERT INTERACTIVE BLOCK HERE</RedText>
+    <PrairieDrawCanvas id="rko-fc-c" width="600" height="600"></PrairieDrawCanvas>
 
     <DisplayEquation id="rko-eg" derivation='True' background="True" title="Geometric quantities for rolling on a curved surface." equation="\\begin{aligned} \\left.\\begin{aligned} R &amp;= \\rho - r \\\\ \\vec{\\omega} &amp;= -\\omega \\,\\hat{e}_b \\\\ \\vec{\\alpha} &amp;= -\\alpha \\,\\hat{e}_b \\end{aligned}\\right\\} &amp; \\text{ when rolling on the inside of a curved surface} \\\\[1em] \\left.\\begin{aligned} R &amp;= \\rho + r \\\\ \\vec{\\omega} &amp;= \\omega \\,\\hat{e}_b \\\\ \\vec{\\alpha} &amp;= \\alpha \\,\\hat{e}_b \\end{aligned}\\right\\} &amp; \\text{ when rolling on the outside of a curved surface} \\end{aligned}"> 
             These formulas are all choices of sign conventions for
