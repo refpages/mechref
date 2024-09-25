@@ -27,9 +27,31 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
 
 <SubSection title="Equivalent systems" id="equivalent_systems">
 
-It can be helpful at times to reduce the forces on a body and combine resultant moments and simplify the analysis. For example, you can replace a force couple with their equivalent couple moment in a system. 
+It can be helpful at times to reduce the forces on a body and combine resultant moments and simplify the analysis. 
 
-These forces and moments will have the same external effect on the body, but the internal forces on the rigid body may be different. 
+Note: These forces and moments will have the same \textbf{external} effect on the body, but the internal forces on the rigid body may be different. 
+
+For example, the four systems below are statically equivalent, which means that the sum of external forces and sum of extrenal moments are the same for both systems.
+
+<Image src='/Statics/ForceSystemsFigures/EquivSystems.PNG' width='5 '> All four of these systems are statically equivalent. </Image>
+
+It can be helpful to know what are equivalent transformations for both forces and moments. These are described below: 
+
+<SubSubSection title="Allowable Force Transformations" id="allowable force transformations">
+
+Replacing two forces with their vector sum: 
+<Image src='/Statics/ForceSystemsFigures/Equivalent_VectorSum.PNG' width='5 '> </Image>
+
+Moving a force ALONG its line of action: 
+<Image src='/Statics/ForceSystemsFigures/Equivalent_Force_LOA.PNG' width='5 '> </Image>
+
+<SubSubSection title="Allowable Moment Transformations" id="allowable moment transformations">
+
+Replacing a force couple with a couple moment: 
+<Image src='/Statics/ForceSystemsFigures/Equivalent_CoupleReplace.PNG' width='5 '> </Image>
+
+Moving a couple moment to another spot on a rigid body: 
+<Image src='/Statics/ForceSystemsFigures/Equivalent_CoupleMove.PNG' width='5 '> </Image>
 
 </SubSection>
 
