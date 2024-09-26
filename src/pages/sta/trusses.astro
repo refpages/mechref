@@ -9,6 +9,9 @@ import Item from "../../components/Item.astro"
 import RedText from "../../components/RedText.astro"
 import DisplayEquation from "../../components/DisplayEquation.astro"
 import InlineEquation from "../../components/InlineEquation.astro"
+import PrairieDrawCanvas from "../../components/PrairieDrawCanvas.astro"
+import Row from "../../components/Row.astro"
+import Col from "../../components/Col.astro"
 ---
 <Layout title="Trusses">
 
@@ -83,8 +86,20 @@ Zero force members are members in a truss structure that experience no force. Th
    Drawing free-body diagrams on trusses is simple. As mentioned in the beginning, we will choose the entire truss as our system and draw the free-body diagram to determine the reaction forces on pinned/roller joints. Note we will need more equations and free-body diagrams on individual truss members to fully determine the reaction forces. See statics reference pages on how that is done. The following is a diagram showcasing eliminating zero-force members as well as the free-body diagram on the truss.
 	</p>
 
-<BlueText> Insert animation animation here, it in the trusses subsection <a target="_blank" rel="noopener noreferrer" target="_blank" rel="noopener noreferrer" href="https://mechref.engr.illinois.edu/dyn/rfb.html#rfb-zf"> here </a> </BlueText>
-
+<PrairieDrawCanvas id="rfb-xzf-f" height="600" width="600">
+	<p class="controls">
+		<button class="option-toggle:rfb-xzf-f:FBD" onclick="rfb_xzf_f.toggleOption('FBD')">free-body diagram</button>
+	</p>
+	<Row>
+		<Col values="12">
+			<div class="flex-grow-1 d-flex align-items-baseline">
+				<span class="data-option:rfb-xzf-f:trussStage">Stage: 0</span>
+				<input type="range" min="0" max="6" value="0" step="1" class="data-input:rfb-xzf-f:stage flex-grow-1 mx-2" onchange="rfb_xzf_f.setOption('stage', this.value); document.querySelector('span[class*=trussStage]').innerText = `Stage: ${this.value}`; console.log(this.value);" oninput="rfb_xzf_f.setOption('stage', this.value); document.querySelector('span[class*=trussStage]').innerText = `Stage: ${this.value}`;"/>
+			</div>
+			
+		</Col>
+	</Row>
+</PrairieDrawCanvas>
 </SubSection>
 
 <!-- lecture 18 -->
@@ -115,3 +130,5 @@ Method of joints for truss analysis:
 
 
 </Layout>
+
+<script src="/sta/trusses/canvases.js" is:inline></script>
