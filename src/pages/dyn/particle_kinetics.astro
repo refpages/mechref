@@ -151,7 +151,7 @@ import DisplayTable from "../../components/DisplayTable.astro"
 <SubSubSection title="Solution steps" =id"solution_steps">
     The steps involved in analyzing a mechanical system with Newton's equations are as follows.
 
-    <DisplayEquation equation="\\begin{aligned} &amp;\\text{1. FBD: draw a Free Body Diagram.} \\\\ &amp;\\text{2. Kinematics: determine $\\vec{a}$.} \\\\ &amp;\\text{3. Newton: use $\\vec{F} = m\\vec{a}$.} \\\\ &amp;\\text{4. Algebra: rearrange and solve as needed.} \\end{aligned}" background="True"/>
+    <DisplayEquation equation="\\begin{aligned} &amp;\\text{1. FBD: draw a Free Body Diagram.} \\\\ &amp;\\text{2. Kinematics: determine $\\vec{a}$.} \\\\ &amp;\\text{3. Newton: use $\\vec{F} = m\\vec{a}$.} \\\\ &amp;\\text{4. Algebra: rear and solve as needed.} \\end{aligned}" background="True"/>
 
     <Example title="Pendulum with Newton's equations" id="rep‑xl">
         <div class="d-flex flex-row">
@@ -1044,14 +1044,17 @@ import DisplayTable from "../../components/DisplayTable.astro"
         on the Reynolds number.
       </p>
 
-      <Image src="/Dynamics/ParticleKinetics/drag_coefficient.png" width="8">
-        <p>
-            Experimental dependence of drag coefficient on Reynolds
-            number for a sphere. Image
-            credit: <a target="_blank" rel="noopener noreferrer" href="http://www.grc.nasa.gov/WWW/k-12/airplane/dragsphere.html">NASA</a>
-            via <a target="_blank" rel="noopener noreferrer" target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Stokes_number#/media/File:Drag_sphere_nasa.svg">Wikipedia</a>.
-          </p>
-      </Image>
+      <div style="background-color: white;">
+        <Image src="/Dynamics/ParticleKinetics/drag_coefficient.png" width="8" />
+      </div>
+      
+      <em><small><p>
+        Experimental dependence of drag coefficient on Reynolds
+        number for a sphere. Image
+        credit: <a target="_blank" rel="noopener noreferrer" href="http://www.grc.nasa.gov/WWW/k-12/airplane/dragsphere.html">NASA</a>
+        via <a target="_blank" rel="noopener noreferrer" target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Stokes_number#/media/File:Drag_sphere_nasa.svg">Wikipedia</a>.
+      </p></small></em>
+      
 
 </SubSubSubSection>
 
@@ -1098,7 +1101,46 @@ import DisplayTable from "../../components/DisplayTable.astro"
         see their effects on the object’s motion.
       </p>
 
-    <PrairieDrawCanvas id="afp-ft-c" width="600" height="600" />
+    <PrairieDrawCanvas id="afp-ft-c" width="600" height="600">
+      <Row>
+        <Col values="12">
+          <div class="d-flex align-items-baseline">
+            <p class="m-0 flex-shrink-1">Initial speed:</p>
+            <div class="flex-grow-1 d-flex align-items-baseline">
+              <input type="range" min="0" max="55" value="30" step="1" class="data-input:afp-ft-c:v0 flex-grow-1 mx-2" onchange="afp_ft_c.setOption('v0', this.value); document.querySelector('span[class*=v0baseball]').innerText = this.value;" oninput="afp_ft_c.setOption('v0', this.value); document.querySelector('span[class*=v0baseball]').innerText = this.value;"/>
+              \(v_0 = \;\) <span class="data-option:afp-ft-c:v0baseball">30</span> m/s
+            </div>
+          </div>
+        </Col>
+      </Row>
+      <Col values="12">
+        <div class="d-flex align-items-baseline">
+          <p class="m-0 flex-shrink-1">Initial angle:</p>
+          <div class="flex-grow-1 d-flex align-items-baseline">
+            <input type="range" min="0" max="90" value="45" step="1" class="data-input:afp-ft-c:v0AngleDeg flex-grow-1 mx-2" onchange="afp_ft_c.setOption('v0AngleDeg', this.value); document.querySelector('span[class*=v0AngleDegbaseball]').innerText = this.value;" oninput="afp_ft_c.setOption('v0AngleDeg', this.value); document.querySelector('span[class*=v0AngleDegbaseball]').innerText = this.value;"/>
+            \(\theta_0 = \;\) <span class="data-option:afp-ft-c:v0AngleDegbaseball">45</span>°
+          </div>
+        </div>
+      </Col>
+      <Col values="12">
+        <div class="d-flex align-items-baseline">
+          <p class="m-0 flex-shrink-1">Mass:</p>
+          <div class="flex-grow-1 d-flex align-items-baseline">
+            <input type="range" min="5" max="300" value="135" step="5" class="data-input:afp-ft-c:m_g flex-grow-1 mx-2" onchange="afp_ft_c.setOption('m_g', this.value); document.querySelector('span[class*=m_gbaseball]').innerText = this.value;" oninput="afp_ft_c.setOption('m_g', this.value); document.querySelector('span[class*=m_gbaseball]').innerText = this.value;"/>
+            \(m = \;\) <span class="data-option:afp-ft-c:m_gbaseball">135</span> g
+          </div>
+        </div>
+      </Col>
+      <Col values="12">
+        <div class="d-flex align-items-baseline">
+          <p class="m-0 flex-shrink-1">Diameter:</p>
+          <div class="flex-grow-1 d-flex align-items-baseline">
+            <input type="range" min="1" max="20" value="7.5" step="0.1" class="data-input:afp-ft-c:D_cm flex-grow-1 mx-2" onchange="afp_ft_c.setOption('D_cm', this.value); document.querySelector('span[class*=D_cmbaseball]').innerText = this.value;" oninput="afp_ft_c.setOption('D_cm', this.value); document.querySelector('span[class*=D_cmbaseball]').innerText = this.value;"/>
+            \(D = \;\) <span class="data-option:afp-ft-c:D_cmbaseball">7.5</span> cm
+          </div>
+        </div>
+      </Col>
+    </PrairieDrawCanvas>
 
     <CalloutContainer slot="cards">
         <CalloutCard>

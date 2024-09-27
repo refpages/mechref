@@ -3052,11 +3052,12 @@ PrairieDraw.prototype.rightAngleImproved = function(p0Dw, p1Dw, p2Dw) {
     @param {string} text The text to draw. If text begins with "TEX:" then it is interpreted as LaTeX.
     @param {bool} boxed (Optional) Whether to draw a white box behind the text (default: false).
 */
-PrairieDraw.prototype.text = function(posDw, anchor, text, boxed) {
+PrairieDraw.prototype.text = function(posDw, anchor, text, boxed, angle) {
     if (text === undefined) {
         return;
     }
     boxed = (boxed === undefined) ? false : boxed;
+    angle = (angle === undefined) ? 0 : angle;
     var posPx = this.pos2Px(this.pos3To2(posDw));
     if (text.slice(0,4) === "TEX:") {
         var tex_text = text.slice(4);
@@ -3071,6 +3072,7 @@ PrairieDraw.prototype.text = function(posDw, anchor, text, boxed) {
             var textBorderPx = 5;
             this._ctx.save();
             this._ctx.translate(posPx.e(1), posPx.e(2));
+            this._ctx.rotate(angle);
             if (boxed) {
                 this._ctx.save();
                 this._ctx.fillStyle = "white";
@@ -4225,66 +4227,121 @@ PrairieDraw.prototype.solveFourBar = function(g, f, a, b, alpha, flipped) {
                     horizAxisPos: "bottom", "top", or a numerical value in data coordinates (default: "bottom")
                     vertAxisPos: "left", "right", or a numerical value in data coordinates (default: "left")
 */
-PrairieDraw.prototype.plot = function(data, originDw, sizeDw, originData, sizeData, xLabel, yLabel, type, drawAxes, drawPoint, pointLabel, pointAnchor, options) {
-    drawAxes = (drawAxes === undefined) ? true : drawAxes;
-    drawPoint = (drawPoint === undefined) ? true : drawPoint;
-    options = (options === undefined) ? {} : options;
-    var horizAxisPos = (options.horizAxisPos === undefined) ? "bottom" : options.horizAxisPos;
-    var vertAxisPos = (options.vertAxisPos === undefined) ? "left" : options.vertAxisPos;
-    this.save();
-    this.translate(originDw);
-    var axisX, axisY;
-    if (vertAxisPos === "left") {
-        axisX = 0;
-    } else if (vertAxisPos === "right") {
-        axisX = sizeDw.e(1);
-    } else {
-        axisX = this.linearMap(originData.e(1), originData.e(1) + sizeData.e(1), 0, sizeDw.e(1), vertAxisPos);
-    }
-    if (horizAxisPos === "bottom") {
-        axisY = 0;
-    } else if (horizAxisPos === "top") {
-        axisY = sizeDw.e(2);
-    } else {
-        axisY = this.linearMap(originData.e(2), originData.e(2) + sizeData.e(2), 0, sizeDw.e(2), horizAxisPos);
-    }
-    if (drawAxes) {
+ PrairieDraw.prototype.plot = function(data, originDw, sizeDw, originData, sizeData, xLabel, yLabel, type, drawAxes, drawPoint, pointLabel, pointAnchor, options) {
+        drawAxes = (drawAxes === undefined) ? true : drawAxes;
+        drawPoint = (drawPoint === undefined) ? true : drawPoint;
+        options = (options === undefined) ? {} : options;
+        var horizAxisPos = (options.horizAxisPos === undefined) ? "bottom" : options.horizAxisPos;
+        var vertAxisPos = (options.vertAxisPos === undefined) ? "left" : options.vertAxisPos;
+        var drawXGrid = (options.drawXGrid === undefined) ? false : options.drawXGrid;
+        var drawYGrid = (options.drawYGrid === undefined) ? false : options.drawYGrid;
+        var dXGrid = (options.dXGrid === undefined) ? 1 : options.dXGrid;
+        var dYGrid = (options.dYGrid === undefined) ? 1 : options.dYGrid;
+        var drawXTickLabels = (options.drawXTickLabels === undefined) ? false : options.drawXTickLabels;
+        var drawYTickLabels = (options.drawYTickLabels === undefined) ? false : options.drawYTickLabels;
+        var xLabelPos = (options.xLabelPos === undefined) ? 1 : options.xLabelPos;
+        var yLabelPos = (options.yLabelPos === undefined) ? 1 : options.yLabelPos;
+        var xLabelAnchor = (options.xLabelAnchor === undefined) ? $V([1, 1.5]) : options.xLabelAnchor;
+        var yLabelAnchor = (options.yLabelAnchor === undefined) ? $V([1.5, 1]) : options.yLabelAnchor;
+        var yLabelRotate = (options.yLabelRotate === undefined) ? false : options.yLabelRotate;
         this.save();
-        this.setProp("arrowLineWidthPx", 1);
-        this.setProp("arrowheadLengthRatio", 11);
-        this.arrow($V([0, axisY]), $V([sizeDw.e(1), axisY]));
-        this.arrow($V([axisX, 0]), $V([axisX, sizeDw.e(2)]));
-        this.text($V([sizeDw.e(1), axisY]), $V([1, 1.5]), xLabel);
-        this.text($V([axisX, sizeDw.e(2)]), $V([1.5, 1]), yLabel);
-        this.restore();
-    }
-    var col = this._getColorProp(type);
-    this.setProp("shapeOutlineColor", col);
-    this.setProp("pointRadiusPx", "4");
-    var bottomLeftPx = this.pos2Px($V([0, 0]));
-    var topRightPx = this.pos2Px(sizeDw);
-    var offsetPx = topRightPx.subtract(bottomLeftPx);
-    this.save();
-    this.scale(sizeDw);
-    this.scale($V([1 / sizeData.e(1), 1 / sizeData.e(2)]));
-    this.translate(originData.x(-1));
-    this.save();
-    this._ctx.beginPath();
-    this._ctx.rect(bottomLeftPx.e(1), 0, offsetPx.e(1), this._height);
-    this._ctx.clip();
-    this.polyLine(data, false);
-    this.restore();
-    if (drawPoint) {
-        this.point(data[data.length - 1]);
-        if (pointLabel !== undefined) {
-            if (pointAnchor === undefined) {
-                pointAnchor = $V([0, -1]);
+        this.translate(originDw);
+
+        // grid
+        var ix0 = Math.ceil(originData.e(1) / dXGrid);
+        var ix1 = Math.floor((originData.e(1) + sizeData.e(1)) / dXGrid);
+        var x0 = 0;
+        var x1 = PrairieGeom.linearMap(originData.e(1), originData.e(1) + sizeData.e(1), 0, sizeDw.e(1), ix1 * dXGrid);
+        var iy0 = Math.ceil(originData.e(2) / dYGrid);
+        var iy1 = Math.floor((originData.e(2) + sizeData.e(2)) / dYGrid);
+        var y0 = 0;
+        var y1 = PrairieGeom.linearMap(originData.e(2), originData.e(2) + sizeData.e(2), 0, sizeDw.e(2), iy1 * dYGrid);
+        var i, x, y;
+        if (drawXGrid) {
+            for (i = ix0; i <= ix1; i++) {
+                x = PrairieGeom.linearMap(originData.e(1), originData.e(1) + sizeData.e(1), 0, sizeDw.e(1), i * dXGrid);
+                this.line($V([x, y0]), $V([x, y1]), "grid");
             }
-            this.text(data[data.length - 1], pointAnchor, pointLabel);
         }
-    }
-    this.restore();
-    this.restore();
-};
+        if (drawYGrid) {
+            for (i = iy0; i <= iy1; i++) {
+                y = PrairieGeom.linearMap(originData.e(2), originData.e(2) + sizeData.e(2), 0, sizeDw.e(2), i * dYGrid);
+                this.line($V([x0, y]), $V([x1, y]), "grid");
+            }
+        }
+        var label;
+        if (drawXTickLabels) {
+            for (i = ix0; i <= ix1; i++) {
+                x = PrairieGeom.linearMap(originData.e(1), originData.e(1) + sizeData.e(1), 0, sizeDw.e(1), i * dXGrid);
+                label = String(i * dXGrid);
+                this.text($V([x, y0]), $V([0, 1]), label);
+            }
+        }
+        if (drawYTickLabels) {
+            for (i = iy0; i <= iy1; i++) {
+                y = PrairieGeom.linearMap(originData.e(2), originData.e(2) + sizeData.e(2), 0, sizeDw.e(2), i * dYGrid);
+                label = String(i * dYGrid);
+                this.text($V([x0, y]), $V([1, 0]), label);
+            }
+        }
+
+        // axes
+        var axisX, axisY;
+        if (vertAxisPos === "left") {
+            axisX = 0;
+        } else if (vertAxisPos === "right") {
+            axisX = sizeDw.e(1);
+        } else {
+            axisX = PrairieGeom.linearMap(originData.e(1), originData.e(1) + sizeData.e(1), 0, sizeDw.e(1), vertAxisPos);
+        }
+        if (horizAxisPos === "bottom") {
+            axisY = 0;
+        } else if (horizAxisPos === "top") {
+            axisY = sizeDw.e(2);
+        } else {
+            axisY = PrairieGeom.linearMap(originData.e(2), originData.e(2) + sizeData.e(2), 0, sizeDw.e(2), horizAxisPos);
+        }
+        if (drawAxes) {
+            this.save();
+            this.setProp("arrowLineWidthPx", 1);
+            this.setProp("arrowheadLengthRatio", 11);
+            this.arrow($V([0, axisY]), $V([sizeDw.e(1), axisY]));
+            this.arrow($V([axisX, 0]), $V([axisX, sizeDw.e(2)]));
+            x = xLabelPos * sizeDw.e(1);
+            y = yLabelPos * sizeDw.e(2);
+            this.text($V([x, axisY]), xLabelAnchor, xLabel);
+            var angle = (yLabelRotate ? -Math.PI / 2 : 0);
+            this.text($V([axisX, y]), yLabelAnchor, yLabel, undefined, angle);
+            this.restore();
+        }
+
+        var col = this._getColorProp(type);
+        this.setProp("shapeOutlineColor", col);
+        this.setProp("pointRadiusPx", "4");
+        var bottomLeftPx = this.pos2Px($V([0, 0]));
+        var topRightPx = this.pos2Px(sizeDw);
+        var offsetPx = topRightPx.subtract(bottomLeftPx);
+        this.save();
+        this.scale(sizeDw);
+        this.scale($V([1 / sizeData.e(1), 1 / sizeData.e(2)]));
+        this.translate(originData.x(-1));
+        this.save();
+        this._ctx.beginPath();
+        this._ctx.rect(bottomLeftPx.e(1), bottomLeftPx.e(2), offsetPx.e(1), offsetPx.e(2));
+        this._ctx.clip();
+        this.polyLine(data, false);
+        this.restore();
+        if (drawPoint) {
+            this.point(data[data.length - 1]);
+            if (pointLabel !== undefined) {
+                if (pointAnchor === undefined) {
+                    pointAnchor = $V([0, -1]);
+                }
+                this.text(data[data.length - 1], pointAnchor, pointLabel);
+            }
+        }
+        this.restore();
+        this.restore();
+    };
 
 /*****************************************************************************/
