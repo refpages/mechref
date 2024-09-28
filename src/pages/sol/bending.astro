@@ -10,228 +10,248 @@ import InlineEquation from "../../components/InlineEquation.astro"
 import DisplayEquation from "../../components/DisplayEquation.astro" 
 import Item from "../../components/Item.astro"
 import Itemize from "../../components/Itemize.astro"
+import CalloutContainer from "../../components/CalloutContainer.astro"
+import CalloutCard from "../../components/CalloutCard.astro"
 ---
 <Layout title="Bending">
-<Section title="Pure Bending">
+
+    <div slot="navtree">
+        <ul class='list-group list-group-flush py-0'> 
+            <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#sign-conventions'>Sign Conventions</a></li>
+            <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#boundary-conditions'>Boundary Conditions</a></li> 
+            <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#pure-bending'>Pure Bending</a></li> 
+            <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#geom-deform'>Geometry of Deformation</a></li> 
+            <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#linear-elastic-beams'>Material Behavior: linear elastic beams</a>
+                <ul class='list-group list-group-flush py-0'> 
+                    <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#first-moi'>First Moment of Area: Centroid of an Area</a></li> 
+                    <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#second-moi'>Second Moment or Area Moment of Inertia</a></li>
+                    <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#summary-moi'>Moment of Inertia Summary</a></li>
+                    <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#max-normal-stress'>Maximum Normal Stress</a></li>
+                    <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#eccentric-loading'>Eccentric Axial Loading in a Plane of Symmetry</a></li>  
+                </ul>
+            </li>  
+        </ul>
+    </div>
+
+<Section title="Pure Bending" id="bending">
 
 Transverse loads applied to a beam causes deflections, primarily up or down is referred to as <strong>bending</strong>. Bending stresses depend on the beams cross-section, length, and material properties.
 
 </Section>
 
-<SubSection title="Sign Conventions">
+<SubSection title="Sign Conventions" id="sign-conventions">
 
 <strong>Internal</strong>
 
-<Image src='/Solid_Mechanics/Bending-Figures/internalSignConvention.png' width='4'> from reference pages</Image>
+<Image src='/Solid_Mechanics/Bending-Figures/internalSignConvention.png' width='4'> </Image>
 
  <strong>External</strong>
 
-<Image src='/Solid_Mechanics/Bending-Figures/externalSignConvention.png' width='3.5'> from reference pages</Image>
+<Image src='/Solid_Mechanics/Bending-Figures/externalSignConvention.png' width='3.5'> </Image>
 
 </SubSection>
 
-<SubSection title="Boundary Conditions">
+<SubSection title="Boundary Conditions" id="boundary-conditions">
 
 <strong>Statically Determinate Beams</strong>
 
-<Image src='/Solid_Mechanics/Bending-Figures/determinateBeams.png' width='6'> from reference pages</Image>
+<Image src='/Solid_Mechanics/Bending-Figures/determinateBeams.png' width='7'> </Image>
 
 
  <strong>Statically Indeterminate Beams</strong>
 
-<Image src='/Solid_Mechanics/Bending-Figures/indeterminateBeams.png' width='6'> from reference pages</Image>
+<Image src='/Solid_Mechanics/Bending-Figures/indeterminateBeams.png' width='7'> </Image>
 
  <strong>Loadings</strong>
-<Image src='/Solid_Mechanics/Bending-Figures/loadings1.png' width='6'> from reference pages</Image>
+<Image src='/Solid_Mechanics/Bending-Figures/loadings1.png' width='7'> </Image>
 
 </SubSection>
 
-<SubSection title="Relations Among Load, Shear, and Mending Moments - does this go with Shear/Moment Diagrams?"></SubSection>
+<SubSection title="Pure Bending" id="pure-bending">
 
-
-<SubSection title="Pure Bending">
-
-<Image src='/Solid_Mechanics/Bending-Figures/PureBending.png' width='2'>  <BlueText>Taken from TAM251 Lecture Notes - L6S11</BlueText></Image>
+<Image src='/Solid_Mechanics/Bending-Figures/PureBending.png' width='2'></Image>
 
 Take a flexible strip, such as a thin ruler, and apply equal forces with your fingers as shown. Each hand applies a couple or moment (equal and opposite forces a distance apart). The couples of the two hands must be equal and opposite. Between the thumbs, the strip has deformed into a circular arc. For the loading shown here, just as the deformation is uniform, so the internal bending <strong>moment is uniform</strong>, equal to the moment applied by each hand.
 
 </SubSection>
 
-<SubSection title="Stress-Strain Variations">
+<!--
+<SubSection title="Stress-Strain Variations" id="stress-strain-variations">
 
-<strong><RedText>**Reference pages have a broken link image here and no text**</RedText></strong>
+**Reference pages have a broken link image here and no text**
 
-</SubSection>
+</SubSection> 
+-->
 
-<SubSection title="Geometry of Deformation">
+<SubSection title="Geometry of Deformation" id="geom-deform">
 
-<Image src='/Solid_Mechanics/Bending-Figures/Geometry.png' width='3'><BlueText>Taken from TAM251 Lecture Notes - L6S12</BlueText></Image>
+<Image src='/Solid_Mechanics/Bending-Figures/Geometry.png' width='4'>Bending diagram</Image>
 
  Assumptions:
 <Itemize>
     <Item> 
         Plane sections remain plane <InlineEquation equation='\\rightarrow' /> <strong>no shear</strong> stress/strains.
-        <DisplayEquation equation='\\gamma_{xy} = \\gamma_{xz} = 0\\' />
-        Therefore: <DisplayEquation equation='\\tau_{xy} = \\tau_{xz} = 0\\' />
-        Also, traction free boundary conditions yields... <DisplayEquation equation="\\sigma_y = \\sigma_z = \\tau_{yz} = 0\\" />
+        <DisplayEquation equation='\\gamma_{xy} = \\gamma_{xz} = 0\\' background="True"/>
+        Therefore: <DisplayEquation equation='\\tau_{xy} = \\tau_{xz} = 0\\' background="True"/>
+        Also, traction free boundary conditions yields... <DisplayEquation equation="\\sigma_y = \\sigma_z = \\tau_{yz} = 0\\" background="True"/>
     </Item>
     <Item> 
-        There is a <strong>Neutral axis</strong> between the top and the bottom where the length does not change. <DisplayEquation equation='\\sigma_x = 0 \\rm\\ and \\rm\\ \\epsilon_x = 0\\' />
+        There is a <strong>Neutral axis</strong> between the top and the bottom where the length does not change. <DisplayEquation equation='\\sigma_x = 0 \\rm\\ and \\rm\\ \\epsilon_x = 0\\' background="True"/>
     </Item>
     
     <Item> 
-        The beam deforms into a <strong>circular arc</strong> where the top surface (<InlineEquation equation='AB' />) is in compression (<InlineEquation equation='\\sigma_x, \\varepsilon_x <0' />), and the bottom surface (<InlineEquation equation='A'B'' />) is in tension(<InlineEquation equation='\\sigma_x, \\varepsilon_x >0' />).
+        The beam deforms into a <strong>circular arc</strong> where the top surface (<InlineEquation equation='AB'/>) is in compression <DisplayEquation equation='\\sigma_x, \\varepsilon_x <0' background="True"/>, and the bottom surface (<InlineEquation equation='AB ^\\prime' />) is in tension <DisplayEquation equation='\\sigma_x, \\varepsilon_x >0' background="True"/>.
     </Item>
     <Item> Any point in the beam is in a state of <strong>uniaxial normal stress.</strong></Item>
     <Item> Finding stresses is a <strong>statically indeterminate</strong> problem.</Item>
 </Itemize>
 </SubSection>
 
-<SubSection title="Material Behavior: linear elastic beams">
-<strong>Elastic range:</strong> bending moment is such that the normal stresses remain below the yield strength. Hooke’s law combined with equilibrium gives:
+<SubSection title="Material Behavior: linear elastic beams" id="linear-elastic-beams">
+<strong>Elastic range:</strong> bending moment is such that the normal stresses remain below the yield strength.
 
- Defines longitudinal and neutral axes: <DisplayEquation equation='\\int_A y dA =0\\' /> 
- Moment-curvature equation: <DisplayEquation equation='M(x) = \\frac{E(x)I_z(x)}{\\rho(x)}\\' /> 
+<DisplayEquation equation='\\int_A y dA =0\\' title="Hooke’s law combined with equilibrium." background="True"/> 
+<DisplayEquation equation='M(x) = \\frac{E(x)I_z(x)}{\\rho(x)}\\' title=" Moment-curvature equation." background="True" derivation="True" id="mmt-crv"> 
 
- <BlueText><strong>Expandable Derivation</strong></BlueText>
-
- <BlueText>Constitutive Relationship:
+Constitutive Relationship:
 <DisplayEquation equation='L_{y_i} = L_{NAi} = L_{NAf} = \\rho\\theta\\' />
 <DisplayEquation equation='L_{y_f} = (\\rho - y)\\theta\\' />
 <DisplayEquation equation='\\varepsilon_x = \\frac{(\\rho-y)\\theta - \\rho\\theta}{\\rho\\theta}\\' />
 <DisplayEquation equation='\\varepsilon_x = \\frac{-y\\theta}{\\rho\\theta} = \\frac{-y}{\\rho}\\' />
-<DisplayEquation equation='\\sigma_x = E\\varepsilon_x = -\\frac{Ey}{\\rho}\\' /></BlueText>
+<DisplayEquation equation='\\sigma_x = E\\varepsilon_x = -\\frac{Ey}{\\rho}\\' />
 
- <BlueText>Force Equilibrium: 
+Force Equilibrium: 
 <DisplayEquation equation='\\Sigma F_x = 0\\' />
 <DisplayEquation equation='\\Sigma F_x = \\int dF\\' />
 <DisplayEquation equation='\\Sigma F_x = \\int \\sigma_x dA\\' />
 <DisplayEquation equation='\\Sigma F_x = \\int\\frac{-Ey}{\\rho}dA\\' />
-<DisplayEquation equation='\\Sigma F_x = \\frac{-E}{\\rho}\\int y dA = 0\\' /></BlueText>
+<DisplayEquation equation='\\Sigma F_x = \\frac{-E}{\\rho}\\int y dA = 0\\' />
 
- <BlueText>Moment Equilibrium:
+Moment Equilibrium:
 <DisplayEquation equation='\\Sigma M_z = -M - \\int y dF = 0\\' />
 <DisplayEquation equation='\\Sigma M_z = -M - \\int y\\sigma_x dA\\' />
 <DisplayEquation equation='\\Sigma M_z = -M - \\int y (\\frac{-Ey}{\\rho}) dA\\' />
-<DisplayEquation equation='\\Sigma M_z = -M - + \\frac{E}{\\rho} \\int y^2 dA = 0\\' /></BlueText>
+<DisplayEquation equation='\\Sigma M_z = -M - + \\frac{E}{\\rho} \\int y^2 dA = 0\\' />
 
- <BlueText><strong>**End Derivation**</strong></BlueText>
+ </DisplayEquation>
  </SubSection>
 
-<SubSubSection title="First Moment of Area: Centroid of an Area">
-The first moment of the area A with respect to the z-axis is given by <InlineEquation equation='Q_z = \\int_A y dA = \\Sigma yA' /> .
+<SubSubSection title="First Moment of Area: Centroid of an Area" id="first-moi">
+The first moment of the area A with respect to the z-axis is given by <InlineEquation equation='Q_x = \\int_A y dA = \\Sigma yA' /> .
 
- The first moment of the area A with respect to the y-axis is given by <InlineEquation equation='Q_y = \\int_A z dA  = \\Sigma zA' />.
-
-
-
- <BlueText>The centroid of an area is at the coordinates <InlineEquation equation='(\\overline{x}, \\overline{y})' />.</BlueText>
-
-<Image src='/Solid_Mechanics/Bending-Figures/Centroid.png' width='1'>  <BlueText> Taken from TAM251 Lecture Notes - L6S19</BlueText></Image>
-
-<DisplayEquation equation='\\bar{y} = \\frac{1}{A}\\int_A y dA\\' /> 
-<DisplayEquation equation='\\bar{z} = \\frac{1}{A}\\int_A z dA\\' />
-
- <BlueText>Complex (or composite) areas can be divided into smaller, easier parts.</BlueText>
-
-<Image src='/Solid_Mechanics/Bending-Figures/CompositeCentroid.png' width='3.5'>  <BlueText>Taken from TAM251 Lecture Notes - L6S19</BlueText></Image>
-
-<DisplayEquation equation='\\bar{Y} = \\frac{1}{A_{tot}}\\sum_i (A_i\\bar{y}_i)\\] \\[\\bar{z} = \\frac{1}{A_{tot}}\\sum_i (A_i\\bar{z}_i)\\' />
-
-</SubSubSection>
-
-<SubSubSection title="Second Moment or Area Moment of Inertia">\
-The moment of inertia of the area A with respect to the z-axis is given by <InlineEquation equation='I_z = \\int_A y^2 dA' />.
+ The first moment of the area A with respect to the y-axis is given by <InlineEquation equation='Q_y = \\int_A x dA  = \\Sigma zA' />.
 
 
 
- The moment of inertia of the area A with respect to the y-axis is given by <InlineEquation equation='I_y = \\int_A z^2 dA' />.
+ <InlineEquation equation='(\\overline{x}, \\overline{y})' title="The centroid of an area." background="True"/>
+
+<Image src='/Solid_Mechanics/Bending-Figures/Centroid.png' width='2'> Centroid of a body </Image>
+
+<DisplayEquation equation='\\bar{x} = \\frac{1}{A}\\int_A x dA\\' title="x coordinate." background="True"/>
+<DisplayEquation equation='\\bar{y} = \\frac{1}{A}\\int_A y dA\\' title="y coordinate." background="True"/> 
+
+Complex (or composite) areas can be divided into smaller, easier parts.
+
+<Image src='/Solid_Mechanics/Bending-Figures/CompositeCentroid.png' width='6'>  Centroid of a composite body</Image>
+
+<DisplayEquation equation="\\bar{X} = \\frac{1}{A_{tot}}\\sum_i (A_i\\bar{y}_i)\\" title="Composite x coordinate" background="True"/>
+<DisplayEquation equation='\\bar{Y} = \\frac{1}{A_{tot}} \\sum_i (A_i\\bar{y}_i)' title="Composite y coordinate" background="True"/>
 
 
 
- <em>Note:</em>  polar moment of inertia in this plane <DisplayEquation equation='J = \\int_A \\rho^2 dA = \\int_A (y^2 + z^2)dA = I_y + I_z\\' />
-
-<Image src='/Solid_Mechanics/Bending-Figures/CommonShapes.png' width='3.5'>  <BlueText>From the formula sheet</BlueText></Image>
-
- <strong>Parallel-axis theorem:</strong> the moment of inertia about an axis through C parallel to the axis through the centroid C is related to <InlineEquation equation='I_C' /> by <DisplayEquation equation="I_C = I_{C'} +A'd_{CC'}^2\\" />
 
 </SubSubSection>
 
-<SubSubSection title="Maximum Normal Stress">
+<SubSubSection title="Second Moment or Area Moment of Inertia" id="second-moi">
+The moment of inertia of the area <InlineEquation equation='A' /> with respect to the z-axis is given by <InlineEquation equation='I_x = \\int_A y^2 dA' />.
+
+
+
+The moment of inertia of the area <InlineEquation equation='A' /> with respect to the y-axis is given by <InlineEquation equation='I_y = \\int_A x^2 dA' />.
+
+<br>
+<em>Note:</em>  polar moment of inertia in this plane 
+
+<DisplayEquation equation='J = \\int_A \\rho^2 dA = \\int_A (y^2 + x^2)dA = I_y + I_x\\' title="Polar moment of Inertia." background="True"/>
+
+ <strong>Parallel-axis theorem:</strong> the moment of inertia about an axis through C parallel to the axis through the centroid C is related to <InlineEquation equation='I_C' />. 
+ <DisplayEquation equation="I_C = I_{C'} +A'd_{CC'}^2\\" title="Parallel axis theorem." background="True"/>
+
+</SubSubSection >
+
+
+<SubSubSection title="Moment of Inertia Summary" id="summary-moi">
+    <Image src='/Solid_Mechanics/Bending-Figures/CommonShapes.png' width='5'>  Common shapes</Image>
+</SubSubSection>
+
+
+<SubSubSection title="Maximum Normal Stress" id="max-normal-stress">
+
+<CalloutContainer slot="cards">
+    <CalloutCard title="Heads  up! - Extra">
+        <p>
+            <strong> Composite beams </strong> builds on this content.
+            </p>
+            <p>
+                Recall that <InlineEquation equation='\\epsilon_x = -\\frac{y}{\\rho}' /> does not depend on the material properties of the beam, and is based only on the assumptions of geometry done so far.
+
+
+
+                <!--**Reference pages have a broken link image here and no text** -->
+
+
+
+                In non-homogeneous beams, we can no longer assume that the neutral axis passes through the centroid of the composite section. We should now determine that location…
+                
+                <br>
+                After obtaining the TRANSFORMED CROSS SECTION, we get
+                <DisplayEquation equation='\\int_{A_t}y d A_t = 0\\' />
+
+                Therefore, the neutral axis passes through the centroid of the transformed cross section.
+                <br>
+                <em>Note:</em> the widening (<InlineEquation equation='n > 1' />) or narrowing (<InlineEquation equation='n < 1' />) must be done in a direction parallel to the neutral axis of the section, since we want y-distances to be the same in the original and transformed section, so that the distance y in the flexural formula is unaltered.
+
+                <DisplayEquation equation='\\sigma_1 = -\\frac{My}{I_t}\\' />
+                <DisplayEquation equation='\\sigma_2 = -\\frac{nMy}{I_t}\\' />
+            </p>
+    </CalloutCard>
+</CalloutContainer>
 From equilibrium: the centroid is located at <InlineEquation equation='\\bar{y}=0' />, i.e., <em>the neutral axis passes through the centroid of the section</em>.
 
- Elastic Flextural Formula <DisplayEquation equation='\\sigma_x (x,y) = - \\frac{M(x)y}{I_z(x)}\\' />
+<DisplayEquation equation='\\sigma_x (x,y) = - \\frac{M(x)y}{I_z(x)}\\' title="Elastic flextural formula." background="True" derivation="True" id="ela-flx">
 
- <BlueText><strong>**Expandable Derivation**</strong></BlueText>
-
-<BlueText>
 <DisplayEquation equation='M_z = \\frac{EI_z}{\\rho}\\' />
 <DisplayEquation equation='M_z = \\frac{-\\sigma_x}{y}I_z\\' />
-</BlueText>
- <BlueText><strong>**End Derivation**</strong></BlueText>
+</DisplayEquation>
 
  To evaluate the maximum absolute normal stress, denoting “c” the largest distance from the neutral surface, we use:
 
-<Image src='/Solid_Mechanics/Bending-Figures/MaxStress.png' width='2'>  <BlueText>Taken from TAM251 Lecture Notes - L6S17</BlueText></Image>
+<Image src='/Solid_Mechanics/Bending-Figures/MaxStress.png' width='4'></Image>
 
-<DisplayEquation equation='\\sigma_{max} = \\frac{|M|c}{I_z}\\' />
+<DisplayEquation equation='\\sigma_{max} = \\frac{|M|c}{I_z}\\' title="Absolute maximum stress." background="True"/>
 
- Note that the ratio I/c depends only upon the geometry of the cross section. This ratio is called the ELASTIC SECTION MODULUS and is denoted by S:
+ <em>Note:</em> the ratio I/c depends only upon the geometry of the cross section. This ratio is called the <strong>elastic section modulus</strong> and is denoted by S.
 
-<DisplayEquation equation='\\sigma_{max} = \\frac{|M|}{S}\\' />
-Where <DisplayEquation equation='S = \\frac{I}{c}\\' />
-
+<DisplayEquation equation='\\sigma_{max} = \\frac{|M|}{S}\\' title="Absolute maximum stress." background="True" />
+<DisplayEquation equation='S = \\frac{I}{c}\\' title="Elastic section modulus." background="True"/>
 
 </SubSubSection>
 
-<SubSection title="Composite Beams /!\\ BSM: no longer covered in TAM 251, not sure if/when it is covered in ME curriculum.">
 
-Recall that <InlineEquation equation='\\epsilon_x = -\\frac{y}{\\rho}' /> does not depend on the material properties of the beam, and is based only on the assumptions of geometry done so far.
+<SubSection title="Eccentric Axial Loading in a Plane of Symmetry" id="eccentric-loading">
 
+<DisplayEquation equation="F=P \\ \\ \\text{and} \\ \\ M=Pd\\" title="Equilibrium." background="True"/>
 
-
- <strong><RedText>**Reference pages have a broken link image here**</RedText></strong>
-
-
-
- In non-homogeneous beams, we can no longer assume that the neutral axis passes through the centroid of the composite section. We should now determine that location…
-
-
-
- After obtaining the TRANSFORMED CROSS SECTION, we get
-<DisplayEquation equation='\\int_{A_t}y d A_t = 0\\' />
-
- Therefore, the neutral axis passes through the centroid of the transformed cross section.
-
- Note that the widening (<InlineEquation equation='n > 1' />) or narrowing (<InlineEquation equation='n < 1' />) must be done in a direction parallel to the neutral axis of the section, since we want y-distances to be the same in the original and transformed section, so that the distance y in the flexural formula is unaltered.
-
-<DisplayEquation equation='\\sigma_1 = -\\frac{My}{I_t}\\' />
-<DisplayEquation equation='\\sigma_2 = -\\frac{nMy}{I_t}\\' />
-
-</SubSection>
-
-<SubSection title="Eccentric Axial Loading in a Plane of Symmetry">
-
-Equilibrium gives:
-
-<DisplayEquation equation="F=P \\ \\ \\text{and} \\ \\ M=Pd\\" />
-
-<strong><RedText>**Reference pages have a broken link image here**</RedText></strong>
-
-
+<!--**Reference pages have a broken link image here and no text** -->
 
  Stress due to eccentric loading found by superposing the uniform stress due to a centric load and linear stress distribution due to a pure bending moment.
 
 
- <strong><RedText>**Reference pages have a broken link image here**</RedText></strong>
-
-
+ <!--**Reference pages have a broken link image here and no text** -->
 
  Validity requires stresses below proportional limit (elastic region), deformations have negligible effect on geometry, and stresses not evaluated near points of load application.
 
 
 </SubSection>
-
-
 
 </Layout>
