@@ -55,7 +55,7 @@
             <ol class="card-grid-simple">
                 {#each section[1] as page}
                     <li class="">
-                        <a href={`/${coursetags[course[0]]}/${page.id}`} class="text-decoration-none themed-text">{page.name}</a>
+                        <a href={`/${coursetags[course[0]]}/${page.id}?origin=coursemenu`} class="text-decoration-none themed-text">{page.name}</a>
                         
                     </li>
                 {/each}

@@ -61,9 +61,9 @@
                       <ul class="course-list">
                             {#each course[1] as page}
                                 {#if page.name.replaceAll(" ", "_").toLowerCase() == current_page}
-                                    <li class="mb-1"><a class="course-link fw-bold" style="color: var(--bs-emphasis-color)" href="/{course_tags[course[0]]}/{page.id}" >{page.name}</a></li>
+                                    <li class="mb-1"><a class="course-link fw-bold" style="color: var(--bs-emphasis-color)" href="/{course_tags[course[0]]}/{page.id}?origin=sidebar" >{page.name}</a></li>
                                 {:else}
-                                    <li class="mb-1"><a class="course-link themed-text" href="/{course_tags[course[0]]}/{page.id}" >{page.name}</a></li>
+                                    <li class="mb-1"><a class="course-link themed-text" href="/{course_tags[course[0]]}/{page.id}?origin=sidebar" >{page.name}</a></li>
                                 {/if} 
                             {/each}
                       </ul>

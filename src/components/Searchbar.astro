@@ -2163,7 +2163,7 @@ import search_contents from "../search.json"
 
             console.log(display_text)
             
-            searchresults.innerHTML += `<a href="${e['item']['link']}?searched=true&query=${query}" class="themed-text text-decoration-none">
+            searchresults.innerHTML += `<a href="${e['item']['link']}?searched=true&query=${query}&origin=search" class="themed-text text-decoration-none">
                     <li class="px-2 py-1 border-bottom" >
                     
                         <p class="mb-0 fw-bold">${course_tags[e['item']['course']]} - ${e['item']['title']}</p>
