@@ -6,6 +6,7 @@ import SubSection from "../../components/SubSection.astro"
 import BlueText from "../../components/BlueText.astro" 
 import InlineEquation from "../../components/InlineEquation.astro" 
 import DisplayEquation from "../../components/DisplayEquation.astro" 
+import DisplayTable from "../../components/DisplayTable.astro"
 ---
 <style>
     table { border-collapse: collapse; }
@@ -44,7 +45,7 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
 <!-- Lecture 33 -->
 <em>Note that in statics we are using the second moment of area as our moment of inertia. In dynamics a different moment of inertia is used (the mass moment of inertia). The differences between these two quantities are summarized in the table below: </em>
 
-<table>
+<DisplayTable>
     <thead>
         <tr>
             <th>
@@ -91,7 +92,7 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
             <td>
                 <DisplayEquation equation='I_x = \\int_{A}^{} y^2 \\,dA \\' />
                 <DisplayEquation equation='I_y = \\int_{A}^{} x^2 \\,dA \\' />
-                <DisplayEquation equation='J_O = \\int_{A}^{} r^2 \\,dA = \\int_{A}^{} (x^2+y^2) \\,dA\\' />
+                <DisplayEquation equation='\\begin{aligned} J_O &= \\int_{A}^{} r^2 \\,dA \\\\ &= \\int_{A}^{} (x^2+y^2) \\,dA\\ \\end{aligned}' />
             </td>
         </tr>
         <tr>
@@ -128,7 +129,7 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
             </td>
         </tr>
     </tbody>
-</table>
+</DisplayTable>
 
 </Section>
 

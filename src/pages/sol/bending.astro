@@ -12,6 +12,7 @@ import Item from "../../components/Item.astro"
 import Itemize from "../../components/Itemize.astro"
 import CalloutContainer from "../../components/CalloutContainer.astro"
 import CalloutCard from "../../components/CalloutCard.astro"
+import DisplayTable from "../../components/DisplayTable.astro"
 ---
 <Layout title="Bending">
 
@@ -182,6 +183,92 @@ The moment of inertia of the area <InlineEquation equation='A' /> with respect t
 
 <SubSubSection title="Moment of Inertia Summary" id="summary-moi">
     <Image src='/Solid_Mechanics/Bending-Figures/CommonShapes.png' width='5'>  Common shapes</Image>
+
+    <DisplayTable>
+        <thead>
+            <tr>
+                <th>
+                    
+                </th>
+                <th>
+                    <strong>Mass moment of inertia</strong>
+                </th>
+                <th>
+                    <strong>Area moment of inertia</strong>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <strong>Other names</strong>
+                </td>
+                <td>
+    
+                </td>
+                <td>
+                    Second moment of area
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <strong>Description</strong>
+                </td>
+                <td>
+                    Determines the torque needed to produce a desired angular rotation about an axis of rotation (resistance to rotation)
+                </td>
+                <td>
+                    Determines the moment needed to produce a desired curvature about an axis(resistance to bending)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <strong>Equations</strong>
+                </td>
+                <td>
+                    <DisplayEquation equation='I_{P,\\hat{a}} = \\iiint_\\mathcal{B} \\rho r^2 \\,dV\\' /> 
+                </td>
+                <td>
+                    <DisplayEquation equation='I_x = \\int_{A}^{} y^2 \\,dA \\' />
+                    <DisplayEquation equation='I_y = \\int_{A}^{} x^2 \\,dA \\' />
+                    <DisplayEquation equation='\\begin{aligned} J_O &= \\int_{A}^{} r^2 \\,dA \\\\ &= \\int_{A}^{} (x^2+y^2) \\,dA\\ \\end{aligned}' />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <strong>Units</strong> 
+                </td>
+                <td>
+                    <InlineEquation equation="length*mass^2"/>
+                </td>
+                <td>
+                    <InlineEquation equation="length^4"/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <strong>Typical Equations</strong>
+                </td>
+                <td>
+                    <DisplayEquation equation='\\tau = I\\alpha' /> 
+                </td>
+                <td>
+                    <DisplayEquation equation='\\sigma = (My)/I \\' />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <strong>Courses</strong>
+                </td>
+                <td>
+                    TAM 212
+                </td>
+                <td>
+                    TAM 210, TAM 251
+                </td>
+            </tr>
+        </tbody>
+    </DisplayTable>
 </SubSubSection>
 
 
