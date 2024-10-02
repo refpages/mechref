@@ -11,6 +11,7 @@ import Item from "../../components/Item.astro"
 import DisplayEquation from "../../components/DisplayEquation.astro"
 import DisplayEquationCustom from "../../components/DisplayEquationCustom.astro"
 import PrairieDrawCanvas from "../../components/PrairieDrawCanvas.astro"
+import InlineCanvas from "../../components/InlineCanvas.astro"
 import InlineEquation from "../../components/InlineEquation.astro"
 import Example from "../../components/Example.astro"
 import Center from "../../components/Center.astro"
@@ -79,7 +80,7 @@ import DisplayTable from "../../components/DisplayTable.astro"
                 <DisplayEquation equation="\\begin{gathered} \\vec{r}_C = \\frac{1}{m}\\iiint_{\\mathcal{B}} \\rho \\vec{r} \\, dV \\\\ \\end{gathered}" />
             </div>
             <div class="w-50">
-                <PrairieDrawCanvas id="rcm-cm-c" width="300" height="300" show_border="False">
+                <InlineCanvas id="rcm-cm-c" width="300" height="300" show_border="False">
             </div>
         </div>
         
@@ -116,7 +117,7 @@ import DisplayTable from "../../components/DisplayTable.astro"
                 </p>
             </div>
             <div class="w-50">
-                <PrairieDrawCanvas id="rcm-xc-c" width="300" height="200"/>
+                <InlineCanvas id="rcm-xc-c" width="300" height="200"/>
             </div>
         </div>
 
@@ -127,7 +128,7 @@ import DisplayTable from "../../components/DisplayTable.astro"
                 to calculate the vector shown below (i.e we are calculating <InlineEquation equation="\\vec{r}_{OC}" />).
             </p>
             <Center>
-                <PrairieDrawCanvas id="rcm-xc-s1" width="300" height="200"/>
+                <InlineCanvas id="rcm-xc-s1" width="300" height="200"/>
             </Center>
             <p>
                 Using the formula <a href="#rcm-cm">#rcm-cm</a>:
@@ -144,7 +145,7 @@ import DisplayTable from "../../components/DisplayTable.astro"
                 for the body. 
             </p>
             <Center>
-                <PrairieDrawCanvas id="rcm-xc-s2" width="300" height="200" />
+                <InlineCanvas id="rcm-xc-s2" width="300" height="200" />
             </Center>
             <p>
                 Examining the figure above, we can see that the <InlineEquation equation="x" />-coordinate range is <InlineEquation equation="0" /> to <InlineEquation equation="w" />. Our <InlineEquation equation="y" />-coordinate range
@@ -186,7 +187,7 @@ import DisplayTable from "../../components/DisplayTable.astro"
                 <DisplayEquation equation="\\vec{r}_C = \\frac{m_1 \\vec{r}_1 + m_2 \\vec{r}_2}{m_1 + m_2}" />
             </div>
             <div class="w-50">
-                <PrairieDrawCanvas id="rcm-cm-cb" width="300" height="300" show_border="False">
+                <InlineCanvas id="rcm-cm-cb" width="300" height="300" show_border="False">
             </div>
         </div>
         
@@ -209,7 +210,7 @@ import DisplayTable from "../../components/DisplayTable.astro"
     <Example title="Center of mass of an L-shaped plate." id="rcm-xl">
         <div class="w-100 d-flex flex-row ">
             <div class="w-50 p-2">
-                <PrairieDrawCanvas id="rcm-xl-c" width="300" height="200"/>
+                <InlineCanvas id="rcm-xl-c" width="300" height="200"/>
             </div>
             <div class="w-50 p-2">
                 <p>
@@ -222,7 +223,7 @@ import DisplayTable from "../../components/DisplayTable.astro"
         <div slot="solution">
             <div class="w-100 d-flex flex-row ">
                 <Center>
-                    <PrairieDrawCanvas id="rcm-xl-cd" width="300" height="200" show_border="False" />
+                    <InlineCanvas id="rcm-xl-cd" width="300" height="200" show_border="False" />
                 </Center>
                 <div>
                     <p>
@@ -258,7 +259,7 @@ import DisplayTable from "../../components/DisplayTable.astro"
                 And its location on the plate is shown below.
             </p>
             <Center>
-                <PrairieDrawCanvas id="rcm-xl-cf" width="300" height="200">
+                <InlineCanvas id="rcm-xl-cf" width="300" height="200">
             </Center>
         </div>
     </Example>
@@ -297,7 +298,7 @@ import DisplayTable from "../../components/DisplayTable.astro"
     <DisplayEquationCustom id="rcm-er" title="Rectangular plate: center of mass" background="True" derivation=True>
         <div class="w-100 d-flex flex-row align-items-center">
             <div class="w-50">
-                <PrairieDrawCanvas id="rcm-er-c" width="300" height="300" show_border=False>
+                <InlineCanvas id="rcm-er-c" width="300" height="300" show_border=False>
             </div>
 
             <div class="w-50">
@@ -319,7 +320,7 @@ import DisplayTable from "../../components/DisplayTable.astro"
     <DisplayEquationCustom id="rcm-et" title="Triangular plate: center of mass" background="True" derivation=True>
         <div class="w-100 d-flex flex-row align-items-center">
             <div class="w-50">
-                <PrairieDrawCanvas id="rcm-et-c" width="300" height="300" show_border=False>
+                <InlineCanvas id="rcm-et-c" width="300" height="300" show_border=False>
             </div>
 
             <div class="w-50">
@@ -362,7 +363,7 @@ import DisplayTable from "../../components/DisplayTable.astro"
     <DisplayEquationCustom id="rcm-ee" title="Elliptical plate: center of mass" background="True" derivation=True>
         <div class="w-100 d-flex flex-row align-items-center">
             <div class="w-50">
-                <PrairieDrawCanvas id="rcm-ee-c" width="300" height="300" show_border=False>
+                <InlineCanvas id="rcm-ee-c" width="300" height="300" show_border=False>
             </div>
 
             <div class="w-50">
@@ -403,7 +404,7 @@ import DisplayTable from "../../components/DisplayTable.astro"
     <DisplayEquationCustom title="Right triangular plate: center of mass" background="True" derivation="True" id="rcm-eg">
         <div class="w-100 d-flex flex-row align-items-center">
             <div class="w-50">
-                <PrairieDrawCanvas id="rcm-eg-c" width="300" height="300" show_border=False>
+                <InlineCanvas id="rcm-eg-c" width="300" height="300" show_border=False>
             </div>
 
             <div class="w-50">
@@ -426,7 +427,7 @@ import DisplayTable from "../../components/DisplayTable.astro"
     <DisplayEquationCustom title="Isosceles triangular plate: center of mass" background="True" derivation="True" id="rcm-ei">
         <div class="w-100 d-flex flex-row align-items-center">
             <div class="w-50">
-                <PrairieDrawCanvas id="rcm-ei-c" width="300" height="300" show_border=False>
+                <InlineCanvas id="rcm-ei-c" width="300" height="300" show_border=False>
             </div>
 
             <div class="w-50">
@@ -449,7 +450,7 @@ import DisplayTable from "../../components/DisplayTable.astro"
     <DisplayEquationCustom title="Circular sector: center of mass" background="True" derivation="True" id="rcm-ec">
         <div class="w-100 d-flex flex-row align-items-center">
             <div class="w-50">
-                <PrairieDrawCanvas id="rcm-ec-c" width="300" height="300" show_border=False>
+                <InlineCanvas id="rcm-ec-c" width="300" height="300" show_border=False>
             </div>
 
             <div class="w-50">
@@ -490,7 +491,7 @@ import DisplayTable from "../../components/DisplayTable.astro"
     <DisplayEquationCustom title="Semi-circular sector: center of mass" background="True" derivation="True" id="rcm-es">
         <div class="w-100 d-flex flex-row align-items-center">
             <div class="w-50">
-                <PrairieDrawCanvas id="rcm-es-c" width="300" height="300" show_border=False>
+                <InlineCanvas id="rcm-es-c" width="300" height="300" show_border=False>
             </div>
 
             <div class="w-50">
@@ -533,7 +534,7 @@ import DisplayTable from "../../components/DisplayTable.astro"
             </div>
 
             <div class="w-50">
-                <PrairieDrawCanvas id="rem-ei-c" width="300" height="300" show_border=False>
+                <InlineCanvas id="rem-ei-c" width="300" height="300" show_border=False>
             </div>            
         </div>
         <p>
@@ -618,7 +619,7 @@ import DisplayTable from "../../components/DisplayTable.astro"
                         </p>
                 </div>
                 <div class="w-50">
-                    <PrairieDrawCanvas id="rem-ec-c" width="300" height="200" />
+                    <InlineCanvas id="rem-ec-c" width="300" height="200" />
                 </div>
             </div>
             <p>
@@ -644,7 +645,7 @@ import DisplayTable from "../../components/DisplayTable.astro"
                 </p>
             </div>
             <div class="w-50">
-                <PrairieDrawCanvas id="rem-xs-c" width="300" height="200" />
+                <InlineCanvas id="rem-xs-c" width="300" height="200" />
             </div>
         </div>
 
@@ -665,7 +666,7 @@ import DisplayTable from "../../components/DisplayTable.astro"
                       </p>
                 </div>
                 <div class="w-50">
-                    <PrairieDrawCanvas id="rem-xs-c3" width="300" height="200" />
+                    <InlineCanvas id="rem-xs-c3" width="300" height="200" />
                 </div>
             </div>
             
@@ -748,7 +749,7 @@ import DisplayTable from "../../components/DisplayTable.astro"
                       
                 </div>
                 <div class="w-50">
-                    <PrairieDrawCanvas id="rem-el-c" width="300" height="200" />
+                    <InlineCanvas id="rem-el-c" width="300" height="200" />
                 </div>
                 </div>
                 <p>
@@ -820,7 +821,7 @@ import DisplayTable from "../../components/DisplayTable.astro"
                   </p>
             </div>
             <div class="w-50">
-                <PrairieDrawCanvas id="rem-xc-c" width="300" height="200" />
+                <InlineCanvas id="rem-xc-c" width="300" height="200" />
             </div>
         </div>
 
@@ -847,7 +848,7 @@ import DisplayTable from "../../components/DisplayTable.astro"
                       </p>
                 </div>
                 <div class="w-50">
-                    <PrairieDrawCanvas id="rem-xc-c3" width="300" height="200" />
+                    <InlineCanvas id="rem-xc-c3" width="300" height="200" />
                 </div>
               </div>
                 
@@ -894,7 +895,7 @@ import DisplayTable from "../../components/DisplayTable.astro"
                 </p>
             </div>
             <div class="w-50">
-                <PrairieDrawCanvas id="rem-ea-c" width="300" height="300" show_border="False"/>
+                <InlineCanvas id="rem-ea-c" width="300" height="300" show_border="False"/>
             </div>
         </div>
         <p>
@@ -946,7 +947,7 @@ import DisplayTable from "../../components/DisplayTable.astro"
                   </p>
             </div>
             <div class="w-50">
-                <PrairieDrawCanvas id="rem-xl-c" width="300" height="200"/>
+                <InlineCanvas id="rem-xl-c" width="300" height="200"/>
             </div>
         </div>
 
@@ -961,7 +962,7 @@ import DisplayTable from "../../components/DisplayTable.astro"
                       </p>
                 </div>
                 <div class="w-50">
-                    <PrairieDrawCanvas id="rem-xl-cd" width="300" height="200" />
+                    <InlineCanvas id="rem-xl-cd" width="300" height="200" />
                 </div>
             </div>
             
@@ -1014,7 +1015,7 @@ import DisplayTable from "../../components/DisplayTable.astro"
     <DisplayEquationCustom title="Point mass: moments of inertia" id="rem-ep" background=True>
         <div class="w-100 d-flex flex-row align-items-center">
             <div class="w-50">
-                <PrairieDrawCanvas id="rem-ep-c" width="300" height="300" />
+                <InlineCanvas id="rem-ep-c" width="300" height="300" />
             </div>
             <div class="w-50">
                 <DisplayEquation equation="I_{P,z} = m r^2" />
@@ -1025,7 +1026,7 @@ import DisplayTable from "../../components/DisplayTable.astro"
     <DisplayEquationCustom id="rem-er" title="Rectangular prism: moments of inertia" background=True derivation=True>
         <div class="w-100 d-flex flex-row align-items-center">
             <div class="w-50">
-                <PrairieDrawCanvas id="rem-er-c" width="300" height="300" />
+                <InlineCanvas id="rem-er-c" width="300" height="300" />
             </div>
             <div class="w-50">
                 <DisplayEquation equation="\\begin{aligned}I_{C,x}&=\\frac{1}{12}m({\\ell_y}^2+{\\ell_z}^2)\\\\I_{C,y}&=\\frac{1}{12}m({\\ell_z}^2+{\\ell_x}^2)\\\\I_{C,z}&=\\frac{1}{12}m({\\ell_x}^2+{\\ell_y}^2)\\end{aligned}" />
@@ -1058,7 +1059,7 @@ import DisplayTable from "../../components/DisplayTable.astro"
     <DisplayEquationCustom id="rem-ey" title="Cylindrical thick shell: moments of inertia" background=True derivation=True>
         <div class="w-100 d-flex flex-row align-items-center">
             <div class="w-50">
-                <PrairieDrawCanvas id="rem-ey-c" width="300" height="300" />
+                <InlineCanvas id="rem-ey-c" width="300" height="300" />
             </div>
             <div class="w-50">
                 <DisplayEquation equation="\\begin{aligned}I_{C,x}&=I_{C,y}=\\frac{1}{12}m(3({r_1}^2+{r_2}^2)+\\ell^2)\\\\I_{C,z}&=\\frac{1}{2}m({r_1}^2+{r_2}^2)\\end{aligned}" />
@@ -1112,7 +1113,7 @@ import DisplayTable from "../../components/DisplayTable.astro"
 <DisplayEquationCustom id="rem-es" title="Spherical thick shell: moments of inertia" background=True derivation=True>
     <div class="w-100 d-flex flex-row align-items-center">
         <div class="w-50">
-            <PrairieDrawCanvas id="rem-es-c" width="300" height="300" />
+            <InlineCanvas id="rem-es-c" width="300" height="300" />
         </div>
         <div class="w-50">
             <DisplayEquation equation="\\begin{aligned}I_C&=\\frac{2}{5}m\\left(\\frac{{r_2}^5-{r_1}^5}{{r_2}^3-{r_1}^3}\\right)\\end{aligned}" />
@@ -1160,7 +1161,7 @@ import DisplayTable from "../../components/DisplayTable.astro"
 <DisplayEquationCustom id="rem-eo" title="Rod: moments of inertia" background=True derivation=True>
     <div class="w-100 d-flex flex-row align-items-center">
         <div class="w-50">
-            <PrairieDrawCanvas id="rem-eo-c" width="300" height="300" />
+            <InlineCanvas id="rem-eo-c" width="300" height="300" />
         </div>
         <div class="w-50">
             <DisplayEquation equation="\\begin{aligned}I_{C,z}&=\\frac{1}{12}m\\ell^2\\\\I_{P,z}&=\\frac{1}{3}m\\ell^2\\\\I_{C,x}&=I_{P,x}=0\\end{aligned}" />
@@ -1207,7 +1208,7 @@ import DisplayTable from "../../components/DisplayTable.astro"
 <DisplayEquationCustom id="rem-ek" title="Solid cylinder or disk: moments of inertia" background=True derivation=True>
     <div class="w-100 d-flex flex-row align-items-center">
         <div class="w-50">
-            <PrairieDrawCanvas id="rem-ek-c" width="300" height="300" />
+            <InlineCanvas id="rem-ek-c" width="300" height="300" />
         </div>
         <div class="w-50">
             <DisplayEquation equation="\\begin{aligned}I_{C,x}&=I_{C,y}=\\frac{1}{12}m(3r^2+\\ell^2)\\\\I_{C,z}&=\\frac{1}{2}mr^2\\end{aligned}" />
@@ -1231,7 +1232,7 @@ import DisplayTable from "../../components/DisplayTable.astro"
 <DisplayEquationCustom id="rem-eh" title="Hollow cylinder or hoop: moments of inertia" background=True derivation=True>
     <div class="w-100 d-flex flex-row align-items-center">
         <div class="w-50">
-            <PrairieDrawCanvas id="rem-eh-c" width="300" height="300" />
+            <InlineCanvas id="rem-eh-c" width="300" height="300" />
         </div>
         <div class="w-50">
             <DisplayEquation equation="\\begin{aligned}I_{C,x}&=I_{C,y}=\\frac{1}{12}m(6r^2+\\ell^2)\\\\I_{C,z}&=mr^2\\end{aligned}" />
@@ -1255,7 +1256,7 @@ import DisplayTable from "../../components/DisplayTable.astro"
 <DisplayEquationCustom id="rem-eb" title="Solid ball: moments of inertia" background=True derivation=True>
     <div class="w-100 d-flex flex-row align-items-center">
         <div class="w-50">
-            <PrairieDrawCanvas id="rem-eb-c" width="300" height="300" />
+            <InlineCanvas id="rem-eb-c" width="300" height="300" />
         </div>
         <div class="w-50">
             <DisplayEquation equation="\\begin{aligned}I_C&=\\frac{2}{5}mr^2\\end{aligned}" />
@@ -1283,7 +1284,7 @@ import DisplayTable from "../../components/DisplayTable.astro"
 <DisplayEquationCustom id="rem-ew" title="Hollow sphere: moments of inertia" background=True derivation=True>
     <div class="w-100 d-flex flex-row align-items-center">
         <div class="w-50">
-            <PrairieDrawCanvas id="rem-ew-c" width="300" height="300" />
+            <InlineCanvas id="rem-ew-c" width="300" height="300" />
         </div>
         <div class="w-50">
             <DisplayEquation equation="\\begin{aligned}I_C&=\\frac{2}{3}mr^2\\end{aligned}" />

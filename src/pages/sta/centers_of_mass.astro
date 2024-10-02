@@ -1,13 +1,6 @@
----
-import Layout from "../../layouts/Layout.astro" 
-import Image from "../../components/Image.astro" 
-import Section from "../../components/Section.astro" 
-import SubSection from "../../components/SubSection.astro" 
-import BlueText from "../../components/BlueText.astro" 
+--- 
 import Enumerate from "../../components/Enumerate.astro"
-import Item from "../../components/Item.astro"
 import InlineEquation from "../../components/InlineEquation.astro"
-import DisplayEquation from "../../components/DisplayEquation.astro"
 import Layout from "../../layouts/Layout.astro" 
 import Image from "../../components/Image.astro" 
 import Section from "../../components/Section.astro" 
@@ -19,8 +12,6 @@ import Itemize from "../../components/Itemize.astro"
 import Item from "../../components/Item.astro" 
 import DisplayEquation from "../../components/DisplayEquation.astro"
 import DisplayEquationCustom from "../../components/DisplayEquationCustom.astro"
-import PrairieDrawCanvas from "../../components/PrairieDrawCanvas.astro"
-import InlineEquation from "../../components/InlineEquation.astro"
 import Example from "../../components/Example.astro"
 import Center from "../../components/Center.astro"
 import SubSubSubSection from "../../components/SubSubSubSection.astro"
@@ -28,6 +19,7 @@ import Warning from "../../components/Warning.astro"
 import CalloutCard from "../../components/CalloutCard.astro"
 import CalloutContainer from "../../components/CalloutContainer.astro"
 import DisplayTable from "../../components/DisplayTable.astro"
+import InlineCanvas from "../../components/InlineCanvas.astro"
 ---
 <Layout title="Center of Mass">
 
@@ -65,7 +57,7 @@ import DisplayTable from "../../components/DisplayTable.astro"
                 <DisplayEquation equation="\\begin{gathered} \\vec{r}_C = \\frac{1}{m}\\iiint_{\\mathcal{B}} \\rho \\vec{r} \\, dV \\\\ \\end{gathered}" />
             </div>
             <div class="w-50">
-                <PrairieDrawCanvas id="rcm-cm-c" width="300" height="300" show_border="False">
+                <InlineCanvas id="rcm-cm-c" width="300" height="300" >
             </div>
         </div>
         
@@ -102,7 +94,7 @@ import DisplayTable from "../../components/DisplayTable.astro"
                 </p>
             </div>
             <div class="w-50">
-                <PrairieDrawCanvas id="rcm-xc-c" width="300" height="200"/>
+                <InlineCanvas id="rcm-xc-c" width="300" height="200"/>
             </div>
         </div>
 
@@ -113,7 +105,7 @@ import DisplayTable from "../../components/DisplayTable.astro"
                 to calculate the vector shown below (i.e we are calculating <InlineEquation equation="\\vec{r}_{OC}" />).
             </p>
             <Center>
-                <PrairieDrawCanvas id="rcm-xc-s1" width="300" height="200"/>
+                <InlineCanvas id="rcm-xc-s1" width="300" height="200"/>
             </Center>
             <p>
                 Using the formula <a href="#rcm-cm">#rcm-cm</a>:
@@ -130,7 +122,7 @@ import DisplayTable from "../../components/DisplayTable.astro"
                 for the body. 
             </p>
             <Center>
-                <PrairieDrawCanvas id="rcm-xc-s2" width="300" height="200" />
+                <InlineCanvas id="rcm-xc-s2" width="300" height="200" />
             </Center>
             <p>
                 Examining the figure above, we can see that the <InlineEquation equation="x" />-coordinate range is <InlineEquation equation="0" /> to <InlineEquation equation="w" />. Our <InlineEquation equation="y" />-coordinate range
@@ -172,7 +164,7 @@ import DisplayTable from "../../components/DisplayTable.astro"
                 <DisplayEquation equation="\\vec{r}_C = \\frac{m_1 \\vec{r}_1 + m_2 \\vec{r}_2}{m_1 + m_2}" />
             </div>
             <div class="w-50">
-                <PrairieDrawCanvas id="rcm-cm-cb" width="300" height="300" show_border="False">
+                <InlineCanvas id="rcm-cm-cb" width="300" height="300">
             </div>
         </div>
         
@@ -195,7 +187,7 @@ import DisplayTable from "../../components/DisplayTable.astro"
     <Example title="Center of mass of an L-shaped plate." id="rcm-xl">
         <div class="w-100 d-flex flex-row ">
             <div class="w-50 p-2">
-                <PrairieDrawCanvas id="rcm-xl-c" width="300" height="200"/>
+                <InlineCanvas id="rcm-xl-c" width="300" height="200"/>
             </div>
             <div class="w-50 p-2">
                 <p>
@@ -208,7 +200,7 @@ import DisplayTable from "../../components/DisplayTable.astro"
         <div slot="solution">
             <div class="w-100 d-flex flex-row ">
                 <Center>
-                    <PrairieDrawCanvas id="rcm-xl-cd" width="300" height="200" show_border="False" />
+                    <InlineCanvas id="rcm-xl-cd" width="300" height="200"  />
                 </Center>
                 <div>
                     <p>
@@ -244,7 +236,7 @@ import DisplayTable from "../../components/DisplayTable.astro"
                 And its location on the plate is shown below.
             </p>
             <Center>
-                <PrairieDrawCanvas id="rcm-xl-cf" width="300" height="200">
+                <InlineCanvas id="rcm-xl-cf" width="300" height="200">
             </Center>
         </div>
     </Example>
@@ -263,7 +255,7 @@ import DisplayTable from "../../components/DisplayTable.astro"
     <DisplayEquationCustom id="rcm-er" title="Rectangular plate: center of mass" background="True" derivation=True>
         <div class="w-100 d-flex flex-row align-items-center">
             <div class="w-50">
-                <PrairieDrawCanvas id="rcm-er-c" width="300" height="300" show_border=False>
+                <InlineCanvas id="rcm-er-c" width="300" height="300" show_border=False>
             </div>
 
             <div class="w-50">
@@ -285,7 +277,7 @@ import DisplayTable from "../../components/DisplayTable.astro"
     <DisplayEquationCustom id="rcm-et" title="Triangular plate: center of mass" background="True" derivation=True>
         <div class="w-100 d-flex flex-row align-items-center">
             <div class="w-50">
-                <PrairieDrawCanvas id="rcm-et-c" width="300" height="300" show_border=False>
+                <InlineCanvas id="rcm-et-c" width="300" height="300" show_border=False>
             </div>
 
             <div class="w-50">
@@ -328,7 +320,7 @@ import DisplayTable from "../../components/DisplayTable.astro"
     <DisplayEquationCustom id="rcm-ee" title="Elliptical plate: center of mass" background="True" derivation=True>
         <div class="w-100 d-flex flex-row align-items-center">
             <div class="w-50">
-                <PrairieDrawCanvas id="rcm-ee-c" width="300" height="300" show_border=False>
+                <InlineCanvas id="rcm-ee-c" width="300" height="300" show_border=False>
             </div>
 
             <div class="w-50">
@@ -371,7 +363,7 @@ import DisplayTable from "../../components/DisplayTable.astro"
     <DisplayEquationCustom title="Right triangular plate: center of mass" background="True" derivation="True" id="rcm-eg">
         <div class="w-100 d-flex flex-row align-items-center">
             <div class="w-50">
-                <PrairieDrawCanvas id="rcm-eg-c" width="300" height="300" show_border=False>
+                <InlineCanvas id="rcm-eg-c" width="300" height="300" show_border=False>
             </div>
 
             <div class="w-50">
@@ -394,7 +386,7 @@ import DisplayTable from "../../components/DisplayTable.astro"
     <DisplayEquationCustom title="Isosceles triangular plate: center of mass" background="True" derivation="True" id="rcm-ei">
         <div class="w-100 d-flex flex-row align-items-center">
             <div class="w-50">
-                <PrairieDrawCanvas id="rcm-ei-c" width="300" height="300" show_border=False>
+                <InlineCanvas id="rcm-ei-c" width="300" height="300" show_border=False>
             </div>
 
             <div class="w-50">
@@ -417,7 +409,7 @@ import DisplayTable from "../../components/DisplayTable.astro"
     <DisplayEquationCustom title="Circular sector: center of mass" background="True" derivation="True" id="rcm-ec">
         <div class="w-100 d-flex flex-row align-items-center">
             <div class="w-50">
-                <PrairieDrawCanvas id="rcm-ec-c" width="300" height="300" show_border=False>
+                <InlineCanvas id="rcm-ec-c" width="300" height="300" show_border=False>
             </div>
 
             <div class="w-50">
@@ -458,7 +450,7 @@ import DisplayTable from "../../components/DisplayTable.astro"
     <DisplayEquationCustom title="Semi-circular sector: center of mass" background="True" derivation="True" id="rcm-es">
         <div class="w-100 d-flex flex-row align-items-center">
             <div class="w-50">
-                <PrairieDrawCanvas id="rcm-es-c" width="300" height="300" show_border=False>
+                <InlineCanvas id="rcm-es-c" width="300" height="300" show_border=False>
             </div>
 
             <div class="w-50">
@@ -473,98 +465,6 @@ import DisplayTable from "../../components/DisplayTable.astro"
             </p>
         </div>
     </DisplayEquationCustom>
-
-<p>
-Centroids of simple shapes can be combined to solve for the centroid of more complex parts. 
-</p>
-
- <p>
-        To find the center of mass of a body made up of composite shapes, we simply do the weighted average of each body by
-        using the fact above.
-    </p>
-
-    <DisplayEquationCustom title="Center of mass \(C\) of composite bodies." id="rcm-cb" background="True" derivation="True">
-        <div class="w-100 d-flex flex-row align-items-center">
-            <div class="w-50">
-                <DisplayEquation equation="\\vec{r}_C = \\frac{m_1 \\vec{r}_1 + m_2 \\vec{r}_2}{m_1 + m_2}" />
-            </div>
-            <div class="w-50">
-                <PrairieDrawCanvas id="rcm-cm-cb" width="300" height="300" show_border="False">
-            </div>
-        </div>
-        
-        <p>            
-            <InlineEquation equation="\\vec{r}_i" /> is the center of mass of the \(i\)th body. 
-                The whole body <InlineEquation equation="\\mathcal{B}" /> is composed of sub-bodies <InlineEquation equation="\\mathcal{B}_1" /> and <InlineEquation equation="\\mathcal{B}_2" />
-            
-        </p>
-
-        <div class="w-100" slot="derivation">
-            <p>
-                Finding the center of mass of the whole body follows directly from the fact that the integral
-                over the whole body is the sum of the integrals over the sub-bodies. That is, for <InlineEquation equation="\\mathcal{B} = \\mathcal{B}_1 \\cup \\mathcal{B}_2" />
-                (and <InlineEquation equation="\\mathcal{B}_1" />not overlapping with <InlineEquation equation="\\mathcal{B}_2$" />, we have:
-                <DisplayEquation equation="\\begin{aligned} \\vec{r}_C &amp;= \\frac{1}{M}\\iiint_\\mathcal{B} \\rho \\vec{r} \\, dV \\\\ &amp;= \\frac{1}{M}\\iiint_{\\mathcal{B}_1 \\cup \\mathcal{B}_2} \\rho \\vec{r} \\, dV \\\\ &amp;= \\frac{1}{M}\\left[\\iiint_{\\mathcal{B}_1} \\rho_1 \\vec{r}_1 \\, dV + \\iiint_{\\mathcal{B}_2} \\rho_2 \\vec{r}_2 \\, dV \\right] \\\\ &amp;= \\frac{m_1 \\vec{r}_1 + m_2 \\vec{r}_2}{M} \\\\ &amp;= \\frac{m_1 \\vec{r}_1 + m_2 \\vec{r}_2}{m_1 + m_2} \\end{aligned}" />
-            </p>
-        </div>
-    </DisplayEquationCustom>
-
-    <Example title="Center of mass of an L-shaped plate." id="rcm-xl">
-        <div class="w-100 d-flex flex-row ">
-            <div class="w-50 p-2">
-                <PrairieDrawCanvas id="rcm-xl-c" width="300" height="200"/>
-            </div>
-            <div class="w-50 p-2">
-                <p>
-                    A solid uniform L-shaped plate has mass \(m\) and dimensions as shown. What
-                is the location of the center of mass?
-                </p>
-            </div>
-        </div>
-
-        <div slot="solution">
-            <div class="w-100 d-flex flex-row ">
-                <Center>
-                    <PrairieDrawCanvas id="rcm-xl-cd" width="300" height="200" show_border="False" />
-                </Center>
-                <div>
-                    <p>
-                        In order to figure out where the center of mass is located, we will need to choose an origin. The origin chosen
-                        here is the corner shown.
-                    </p>
-                    <p>
-                        Then we must realize that the L-shape can be decomposed into four square plates, as shown.
-                        Each square plate has the same mass, so:
-                        <DisplayEquation equation="m_i = \\frac{1}{4}m" />
-                    </p>
-                </div>
-                
-            </div>
-            
-            <p>
-                Using the addition formula <a href="#rcm-cb">#rcm-cb</a>:
-                <DisplayEquation equation="\\vec{r}_C = \\frac{1}{m} \\sum_{i=1}^{4} m_i \\vec{r}_i" />
-            </p>
-            <p>
-                where:
-                <DisplayEquation equation="\\begin{aligned} \\vec{r}_1 &amp;= d\\hat{\\imath} + 3d\\hat{\\jmath} \\\\ \\vec{r}_2 &amp;= d\\hat{\\imath} + d\\hat{\\jmath} \\\\ \\vec{r}_3 &amp;= 3d\\hat{\\imath} + d\\hat{\\jmath} \\\\ \\vec{r}_4 &amp;= 5d\\hat{\\imath} + d\\hat{\\jmath} \\end{aligned}" />
-            </p>
-            <p>
-                Substituting in:
-                <DisplayEquation equation="\\begin{aligned} x_C = \\frac{\\frac{1}{4}md + \\frac{1}{4}md + \\frac{3}{4}md + \\frac{5}{4}md}{m} = \\frac{5}{2}d \\\\ y_C = \\frac{\\frac{3}{4}md + \\frac{1}{4}md + \\frac{1}{4}md + \\frac{1}{4}md}{m} = \\frac{3}{2}d \\end{aligned}" />
-            </p>
-            <p>
-                Thus, the center of mass of the L-shape plate:
-                <DisplayEquation equation="\\vec{r}_C = \\frac{5}{2}d \\hat{\\imath} + \\frac{3}{2}d \\hat{\\jmath}" />
-            </p>
-            <p>
-                And its location on the plate is shown below.
-            </p>
-            <Center>
-                <PrairieDrawCanvas id="rcm-xl-cf" width="300" height="200">
-            </Center>
-        </div>
-    </Example>
 	
 </SubSection>
 
@@ -596,3 +496,5 @@ with similar equations for <InlineEquation equation="\\bar{y}" />.
 
 </SubSection>
 </Layout>
+
+<script src="/sta/centers_of_mass/canvases.js" is:inline></script>

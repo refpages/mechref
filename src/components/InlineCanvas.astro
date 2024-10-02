@@ -1,15 +1,10 @@
 ---
-const {id, height, width, show_border="True"} = Astro.props;
+const {id, height, width} = Astro.props;
 
 import Center from "./Center.astro";
 ---
 
 <style>
-    .canvas-container{
-        border: solid 1px;
-        border-color:  black;
-    }
-
     .figureCaption{
         margin-top: 1rem;
     }
@@ -18,7 +13,7 @@ import Center from "./Center.astro";
 
 <Center>
 <div id={id+'_container'}>
-    <canvas id={id} height={height} width={0} class={show_border=='True' ? "canvas-container" : ''} data-bs-theme="light"></canvas>
+    <canvas id={id} height={height} width={0}></canvas>
 
     <div class="w-100"> 
             <slot />
