@@ -37,7 +37,7 @@ const filename = 'Fig: ' + img_path_split.pop().replace('.png', '')
 
 <div class="img-container w-100 d-flex flex-column align-items-center my-3" id={id}>
     <div class="d-flex flex-column align-items-center image-block p-1">
-        <img src={src} class="w-100" alt={alt}>
+        <img src={src} class="w-100" alt={alt} id={`${id}-image`}>
     </div>
     <div class="d-flex flex-row justify-content-center align-items-baseline flex-wrap" style="gap: 5px;">
         <small><em><slot /></em></small>
