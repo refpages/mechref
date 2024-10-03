@@ -22,6 +22,7 @@ import DisplayTable from "../../components/DisplayTable.astro"
             <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#boundary-conditions'>Boundary Conditions</a></li> 
             <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#pure-bending'>Pure Bending</a></li> 
             <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#geom-deform'>Geometry of Deformation</a></li> 
+            <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#stress-strain-variations'>Stress-Strain Variations</a></li> 
             <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#linear-elastic-beams'>Material Behavior: linear elastic beams</a>
                 <ul class='list-group list-group-flush py-0'> 
                     <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#first-moi'>First Moment of Area: Centroid of an Area</a></li> 
@@ -44,11 +45,11 @@ Transverse loads applied to a beam causes deflections, primarily up or down is r
 
 <strong>Internal</strong>
 
-<Image src='/Solid_Mechanics/Bending-Figures/internalSignConvention.png' width='4'> </Image>
+<Image src='/Solid_Mechanics/Bending-Figures/internalSignConvention.png' width='5'> </Image>
 
  <strong>External</strong>
 
-<Image src='/Solid_Mechanics/Bending-Figures/externalSignConvention.png' width='3.5'> </Image>
+<Image src='/Solid_Mechanics/Bending-Figures/externalSignConvention.png' width='4.5'> </Image>
 
 </SubSection>
 
@@ -70,19 +71,11 @@ Transverse loads applied to a beam causes deflections, primarily up or down is r
 
 <SubSection title="Pure Bending" id="pure-bending">
 
-<Image src='/Solid_Mechanics/Bending-Figures/PureBending.png' width='2'></Image>
+<Image src='/Solid_Mechanics/Bending-Figures/PureBending.png' width='3'></Image>
 
 Take a flexible strip, such as a thin ruler, and apply equal forces with your fingers as shown. Each hand applies a couple or moment (equal and opposite forces a distance apart). The couples of the two hands must be equal and opposite. Between the thumbs, the strip has deformed into a circular arc. For the loading shown here, just as the deformation is uniform, so the internal bending <strong>moment is uniform</strong>, equal to the moment applied by each hand.
 
 </SubSection>
-
-<!--
-<SubSection title="Stress-Strain Variations" id="stress-strain-variations">
-
-**Reference pages have a broken link image here and no text**
-
-</SubSection> 
--->
 
 <SubSection title="Geometry of Deformation" id="geom-deform">
 
@@ -107,6 +100,19 @@ Take a flexible strip, such as a thin ruler, and apply equal forces with your fi
     <Item> Finding stresses is a <strong>statically indeterminate</strong> problem.</Item>
 </Itemize>
 </SubSection>
+
+<SubSection title="Stress-Strain Variations" id="stress-strain-variations">
+
+<Image src='/Solid_Mechanics/Bending-Figures/StressStrainVar.png' width='4'></Image>
+
+The magnitudes of stress and strain vary along the cross section. The magnitudes increase as the point of intrest moves away from the neutral axis. The maximum is at the point farthest away from the neutral axis. 
+    
+
+<Image src='/Solid_Mechanics/Bending-Figures/Superposition.png' width='5'> </Image>
+
+This variation also changes as more moads are added. 
+
+</SubSection> 
 
 <SubSection title="Material Behavior: linear elastic beams" id="linear-elastic-beams">
 <strong>Elastic range:</strong> bending moment is such that the normal stresses remain below the yield strength.
@@ -284,7 +290,7 @@ The moment of inertia of the area <InlineEquation equation='A' /> with respect t
 
 
 
-                <!--**Reference pages have a broken link image here and no text** -->
+                <Image src='/Solid_Mechanics/Bending-Figures/CompositeBeam.png' width='9'></Image>
 
 
 
@@ -327,14 +333,12 @@ From equilibrium: the centroid is located at <InlineEquation equation='\\bar{y}=
 
 <SubSection title="Eccentric Axial Loading in a Plane of Symmetry" id="eccentric-loading">
 
+<Image src='/Solid_Mechanics/Bending-Figures/EccentricLoading.png' width='4'> </Image>
+
 <DisplayEquation equation="F=P \\ \\ \\text{and} \\ \\ M=Pd\\" title="Equilibrium." background="True"/>
 
-<!--**Reference pages have a broken link image here and no text** -->
 
  Stress due to eccentric loading found by superposing the uniform stress due to a centric load and linear stress distribution due to a pure bending moment.
-
-
- <!--**Reference pages have a broken link image here and no text** -->
 
  Validity requires stresses below proportional limit (elastic region), deformations have negligible effect on geometry, and stresses not evaluated near points of load application.
 
