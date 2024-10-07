@@ -14,6 +14,22 @@ import CalloutContainer from "../../components/CalloutContainer.astro"
 import CalloutCard from "../../components/CalloutCard.astro"
 import DisplayTable from "../../components/DisplayTable.astro"
 ---
+
+<style>
+    td, th{
+        border-left: 1px solid var(--bs-border-color);
+        border-right: 1px solid var(--bs-border-color);
+    }
+    
+
+    .nosideborderleft{
+        border-left: 0px solid var(--bs-border-color);
+    }
+
+    .nosideborderright{
+        border-right: 0px solid var(--bs-border-color);
+    }
+</style>
 <Layout title="Bending">
 
     <div slot="navtree">
@@ -190,87 +206,122 @@ The moment of inertia of the area <InlineEquation equation='A' /> with respect t
 <SubSubSection title="Moment of Inertia Summary" id="summary-moi">
     <Image src='/Solid_Mechanics/Bending-Figures/CommonShapes.png' width='5'>  Common shapes</Image>
 
-    <DisplayTable>
+    <DisplayTable class_="text-center" id="inertia-table">
         <thead>
             <tr>
-                <th>
+                <th class="nosideborderleft">
                     
                 </th>
-                <th>
+                <th >
                     <strong>Mass moment of inertia</strong>
                 </th>
-                <th>
+                <th colspan="3">
                     <strong>Area moment of inertia</strong>
                 </th>
             </tr>
         </thead>
         <tbody>
             <tr>
-                <td>
+
+                <td class="nosideborderleft">
                     <strong>Other names</strong>
                 </td>
+                    
                 <td>
-    
+                    
                 </td>
-                <td>
-                    Second moment of area
-                </td>
+
+                <td>First moment of area</td>
+                <td>Second moment of area</td>
+                <td>Polar moment of area</td>
+
+
             </tr>
             <tr>
-                <td>
+                <td class="nosideborderleft">
                     <strong>Description</strong>
                 </td>
                 <td>
                     Determines the torque needed to produce a desired angular rotation about an axis of rotation (resistance to rotation)
                 </td>
+                <td>Determines the centroid of an area </td>
                 <td>
                     Determines the moment needed to produce a desired curvature about an axis(resistance to bending)
                 </td>
+                <td>Determines the torque needed to produce a desired twist a shaft or beam(resistance to torsion) </td>
+                
             </tr>
             <tr>
-                <td>
+                <td class="nosideborderleft">
                     <strong>Equations</strong>
                 </td>
                 <td>
                     <DisplayEquation equation='I_{P,\\hat{a}} = \\iiint_\\mathcal{B} \\rho r^2 \\,dV\\' /> 
                 </td>
+                <td >
+                    <DisplayEquation equation="Q_z = \\int_A y dA = \\Sigma yA" />
+                    <DisplayEquation equation="Q_y = \\int_A z dA  = \\Sigma zA" />
+                    <DisplayEquation equation="\\bar{y} = \\frac{1}{A}\\int_A y dA" />
+                    <DisplayEquation equation="\\bar{z} = \\frac{1}{A}\\int_A z dA" />
+                </td>
                 <td>
                     <DisplayEquation equation='I_x = \\int_{A}^{} y^2 \\,dA \\' />
                     <DisplayEquation equation='I_y = \\int_{A}^{} x^2 \\,dA \\' />
+                </td>
+                <td>
                     <DisplayEquation equation='\\begin{aligned} J_O &= \\int_{A}^{} r^2 \\,dA \\\\ &= \\int_{A}^{} (x^2+y^2) \\,dA\\ \\end{aligned}' />
                 </td>
             </tr>
             <tr>
-                <td>
+                <td class="nosideborderleft">
                     <strong>Units</strong> 
                 </td>
                 <td>
                     <InlineEquation equation="length*mass^2"/>
                 </td>
                 <td>
+                    <InlineEquation equation="length^3"/>
+                </td>
+                <td>
+                    <InlineEquation equation="length^4"/>
+                </td>
+                <td>
                     <InlineEquation equation="length^4"/>
                 </td>
             </tr>
             <tr>
-                <td>
+                <td class="nosideborderleft">
                     <strong>Typical Equations</strong>
                 </td>
                 <td>
                     <DisplayEquation equation='\\tau = I\\alpha' /> 
                 </td>
                 <td>
-                    <DisplayEquation equation='\\sigma = (My)/I \\' />
+                    <DisplayEquation equation='\\tau = \\frac{VQ}{It}' /> 
+                </td>
+                <td>
+                    <DisplayEquation equation='\\sigma = (My)/I' />
+                    <DisplayEquation equation='\\tau = \\frac{VQ}{It}' /> 
+                </td>
+                <td>
+                    <DisplayEquation equation='\\tau = \\frac{T\\rho}{J}' />
                 </td>
             </tr>
             <tr>
-                <td>
+                <td class="nosideborderleft">
                     <strong>Courses</strong>
                 </td>
                 <td>
                     TAM 212
                 </td>
                 <td>
+                    TAM 251
+                </td>
+                <td>
                     TAM 210, TAM 251
+                </td>
+                <td>
+                    TAM 251
                 </td>
             </tr>
         </tbody>
