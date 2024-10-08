@@ -10,36 +10,33 @@ import InlineEquation from "../../components/InlineEquation.astro"
 import DisplayEquation from "../../components/DisplayEquation.astro" 
 import Itemize from "../../components/Itemize.astro" 
 import Item from "../../components/Item.astro" 
+import CalloutContainer from "../../components/CalloutContainer.astro"
+import CalloutCard from "../../components/CalloutCard.astro"
 ---
 <Layout title="Transverse Shear">
 <Section title="Transverse Shear">
 
-Transverse loading creates corresponding <strong>longitudinal shear stresses</strong> which will act along longitudinal planes of the beam
+<Image src="/Solid_Mechanics/TransverseShear-Figures/TransToLong.png" width="4"></Image>
 
-<Image src="/Solid_Mechanics/TransverseShear-Figures/TransToLong.png" width="2"><BlueText>Taken from the web</BlueText></Image>
+Transverse loading creates corresponding <strong>longitudinal shear stresses</strong> which will act along longitudinal planes of the beam
 
 </Section>
 
 <SubSection title="Shear Stress in Beams">
 
 
-<Image src="/Solid_Mechanics/TransverseShear-Figures/TransverseShear.png" width="2.5"><BlueText>Taken from TAM251 Lecture Notes - L7S3</BlueText></Image>
+<Image src="/Solid_Mechanics/TransverseShear-Figures/TransverseShear.png" width="5.5"></Image>
 
- When a shear force is applied, it tends to cause warping of the cross section. Therefore, when a beam is subject to moments and shear forces, the <strong>cross section will not remain plane</strong> as assumed in the derivation of the flexural formula. However, we can assume that the warping due to shear is small enough to be neglected, which is particularly true for slender beams.
+ When a shear force is applied, it tends to cause warping of the cross section. Therefore, when a beam is subject to moments and shear forces, the <strong>cross section will not remain plane</strong> as assumed in the derivation of the flexural formula. However, we can assume that the warping due to shear is small enough to be neglected, which is particularly true for slender beams. 
 
+<Image src="/Solid_Mechanics/TransverseShear-Figures/EquilibriumEqtn.png" width="5.5"></Image>
 
-
- <strong><RedText>**Reference pages have a broken link image here**</RedText></strong> 
-
-<Image src="/Solid_Mechanics/TransverseShear-Figures/EquilibriumEqtn.png" width="3"><BlueText>Taken from the web</BlueText></Image>
-
- Transverse loading applied to a beam results in normal and shearing stresses in transverse sections<BlueText>, as well as a bending moment. </BlueText>
-
+ Transverse loading applied to a beam results in normal and shearing stresses in transverse sections, as well as a bending moment.
 
 
  The distribution of normal and shearing stresses satisfies:
 
-<DisplayEquation equation="\\begin{align*} &F_x = \\int\\sigma_x dA = 0 		 &M_x &= \\int(y\\tau_{xz} - z\\tau_{xy})dA=0 \\\\ &F_y = \\int\\tau_{xy} dA = -V 	 &M_y &= \\int z\\sigma_{x} dA = 0 \\\\ &F_z = \\int\\tau_{xz} dA = 0 	 &M_z &= \\int(-y\\sigma_{x})dA = M \\\\ \\end{align*}" />
+<DisplayEquation equation="\\begin{align*} &F_x = \\int\\sigma_x dA = 0 		 &M_x &= \\int(y\\tau_{xz} - z\\tau_{xy})dA=0 \\\\ &F_y = \\int\\tau_{xy} dA = -V 	 &M_y &= \\int z\\sigma_{x} dA = 0 \\\\ &F_z = \\int\\tau_{xz} dA = 0 	 &M_z &= \\int(-y\\sigma_{x})dA = M \\\\ \\end{align*}" title="Equilibrium." background="True"/>
 
  When shearing stresses are exerted on the vertical faces of an element, equal stresses must be exerted on the horizontal faces.
 
@@ -49,127 +46,118 @@ Transverse loading creates corresponding <strong>longitudinal shear stresses</st
 
 
 
- Symmetry of stress: transverse xy stress implies longitudinal yx stress
+<p> Symmetry of stress: transverse xy stress implies longitudinal yx stress </p>
 
-<DisplayEquation equation="\\tau_{xy} = \\tau_{yx}\\" />
+<DisplayEquation equation="\\tau_{xy} = \\tau_{yx}\\" title="Symmetry." background="True"/>
 
-
-
- <strong><RedText>**Reference pages have a broken link image here**</RedText></strong> 
-
-<Image src="/Solid_Mechanics/TransverseShear-Figures/Symmetry.png" width="2"><BlueText>Guessed based on context clues and lecture slides</BlueText></Image>
+<Image src="/Solid_Mechanics/TransverseShear-Figures/Symmetry.png" width="2"></Image>
  
 </SubSection>
 
 <SubSection title="Average Shear Stress">
 
-<Image src="/Solid_Mechanics/TransverseShear-Figures/AvgShear.png" width=""><BlueText>Taken from TAM251 Lecture Notes - L7S6-7</BlueText></Image>
+<Image src="/Solid_Mechanics/TransverseShear-Figures/AvgShear.png" width="5.5"></Image>
 
- <BlueText>Average shear stress is given by  <DisplayEquation equation="\\tau = \\frac{V}{A}\\" /></BlueText>
+Average shear stress is given by  
+<DisplayEquation equation="\\tau = \\frac{V}{A}\\" title="Avg. shear stress." background="True" />
 
- <BlueText>Shear stress at a specific point is given by  <DisplayEquation equation="\\tau = \\frac{VQ}{It}\\" /></BlueText>
+Shear stress at a specific point is given by  
+<DisplayEquation equation="\\tau = \\frac{VQ}{It}\\" title="shear stress at a point." background="True" derivation="True" id="shr-pts">
 
-<BlueText>
- <Itemize>
-     <Item><InlineEquation equation="V" /> : shear force</Item>
-     <Item><InlineEquation equation="Q" /> : First area moment of inertia of cut section ( <InlineEquation equation="Q = \\Sigma yA" /> )</Item>
-     <Item><InlineEquation equation="I" /> : Second area moment of inertia of whole section</Item>
-     <Item><InlineEquation equation="t" /> : beam thickness</Item>
- </Itemize>
-</BlueText>
+  <Image src="/Solid_Mechanics/TransverseShear-Figures/ElementFBD.png" width="8"></Image>
 
+  <strong>(A)</strong> An element of width <InlineEquation equation="dx" /> in a bending beam has a FBD of the bending moment stress distribution.
+  <p>
+  <strong>(B)</strong> An element distance <InlineEquation equation="y" /> away from the neutral axis has a FBD of the bending moment stress distribution For this element to be in equilibrium, <InlineEquation equation="\\tau_{xy}" /> must be present.
+ </p>
+  <DisplayEquation equation="\\sigma_{x_1} \\neq \\sigma_{x_2}\\" />
+ 
+  <strong>(C)</strong> Simplified FBD. The width of this element is <InlineEquation equation="t(y)" />
+ 
+  <DisplayEquation equation="F_x = \\int\\sigma_x dA = 0\\" />
+  <DisplayEquation equation="\\Sigma F_x = F_{x_1} - F_{x_2} + \\Delta H\\" />
+  <DisplayEquation equation="\\int_{y}^{y_{top}} \\sigma_{x_1} t(y) dy - \\int_{y}^{y_{top}} \\sigma_{x_2} t(y) dy + \\tau_{xy} t(y) dx = 0\\" />
+  <DisplayEquation equation="\\int_{y}^{y_{top}} \\frac{M(x)y}{I} t(y) dy - \\int_{y}^{y_{top}} \\frac{(M(x)+dM(x))y}{I} t(y) dy + \\tau_{xy} t(y) dx = 0\\" />
+  <DisplayEquation equation="\\tau_{xy} = \\frac{dM(x)}{dx}\\frac{1}{I t(y)} \\int_{y}^{y_{top}} y t(y) dy\\" />
+  <DisplayEquation equation="V(x) = \\frac{dM(x)}{dx}\\" />
+  <DisplayEquation equation="\\tau_{xy} = \\frac{V(x)}{I t(y)} \\int_{y}^{y_{top}} y t(y) dy\\" />
+  <DisplayEquation equation="\\tau_{xy} = \\frac{V(x) Q(y)}{I t(y)}\\" />
 
- <BlueText><strong>**Expandable Derivation**</strong></BlueText>
+</DisplayEquation>
 
-
-<Image src="/Solid_Mechanics/TransverseShear-Figures/ElementFBD.png" width=""><BlueText>Taken from the web</BlueText></Image>
-
- <BlueText><strong>(A)</strong> An element of width <InlineEquation equation="dx" /> in a bending beam has a FBD of the bending moment stress distribution.</BlueText>
-
-
-
- <BlueText><strong>(B)</strong> An element distance <InlineEquation equation="y" /> away from the neutral axis has a FBD of the bending moment stress distribution For this element to be in equilibrium, <InlineEquation equation="\\tau_{xy}" /> must be present. </BlueText>
-
-<BlueText><DisplayEquation equation="\\sigma_{x_1} \\neq \\sigma_{x_2}\\" /></BlueText>
-
- <BlueText><strong>(C)</strong> Simplified FBD. The width of this element is <InlineEquation equation="t(y)" />.</BlueText>
-
-<BlueText>
-<DisplayEquation equation="F_x = \\int\\sigma_x dA = 0\\" />
-<DisplayEquation equation="\\Sigma F_x = F_{x_1} - F_{x_2} + \\Delta H\\" />
-<DisplayEquation equation="\\int_{y}^{y_{top}} \\sigma_{x_1} t(y) dy - \\int_{y}^{y_{top}} \\sigma_{x_2} t(y) dy + \\tau_{xy} t(y) dx = 0\\" />
-<DisplayEquation equation="\\int_{y}^{y_{top}} \\frac{M(x)y}{I} t(y) dy - \\int_{y}^{y_{top}} \\frac{(M(x)+dM(x))y}{I} t(y) dy + \\tau_{xy} t(y) dx = 0\\" />
-<DisplayEquation equation="\\tau_{xy} = \\frac{dM(x)}{dx}\\frac{1}{I t(y)} \\int_{y}^{y_{top}} y t(y) dy\\" />
-<DisplayEquation equation="V(x) = \\frac{dM(x)}{dx}\\" />
-<DisplayEquation equation="\\tau_{xy} = \\frac{V(x)}{I t(y)} \\int_{y}^{y_{top}} y t(y) dy\\" />
-<DisplayEquation equation="\\tau_{xy} = \\frac{V(x) Q(y)}{I t(y)}\\" />
-</BlueText>
-
- <BlueText><strong>**End Derivation**</strong></BlueText>
+<Itemize>
+  <Item><InlineEquation equation="V" /> : shear force</Item>
+  <Item><InlineEquation equation="Q" /> : First area moment of inertia of cut section ( <InlineEquation equation="Q = \\Sigma yA" /> )</Item>
+  <Item><InlineEquation equation="I" /> : Second area moment of inertia of whole section</Item>
+  <Item><InlineEquation equation="t" /> : beam thickness</Item>
+</Itemize>
 
 </SubSection>
 
 <SubSubSection title="Rectangular Beam Cross-Section">
 
-<Image src="/Solid_Mechanics/TransverseShear-Figures/RectCrossSect.png" width="5"><BlueText>Taken from TAM251 Lecture Notes - L7S8</BlueText></Image>
+<Image src="/Solid_Mechanics/TransverseShear-Figures/RectCrossSect.png" width="5"></Image>
 
-<BlueText>
- <DisplayEquation equation="\\tau = \\frac{3}{2} \\frac{V}{bh}(1-\\frac{y^2}{c^2})\\" /> 
-where  <DisplayEquation equation="c = \\frac{1}{2}h\\" /> 
-</BlueText>
+ 
+<DisplayEquation equation="\\begin{align*} &\\tau = \\frac{3}{2} \\frac{V}{bh}(1-\\frac{y^2}{c^2})	\\\\ \\text{where}	 \\\\ &c = \\frac{1}{2}h \\\\ \\text{or} \\\\ &\\tau = \\frac{6V}{bh^3}(\\frac{h^2}{4}-y^2) \\end{align*}" title="Shear stress in a rectangular beam." background="True" derivation="True" id="shr-rct"> 
 
- <BlueText>or
-<DisplayEquation equation="\\tau = \\frac{6V}{bh^3}(\\frac{h^2}{4}-y^2)\\" />
-</BlueText>
-
- <BlueText><strong>**Expandable Derivation**</strong></BlueText>
-<BlueText>
  <DisplayEquation equation="I_z = \\frac{1}{12} bh^3\\" /> 
  <DisplayEquation equation="t=b\\" /> 
  <DisplayEquation equation="Q = A\\bar{y}\\" /> 
  <DisplayEquation equation="Q = b(\\frac{1}{2}h-y)[y+\\frac{1}{2}(\\frac{1}{2}h-y)]\\" /> 
  <DisplayEquation equation="Q = \\frac{1}{2}b(\\frac{1}{4}h^2-y^2)\\" /> 
-</BlueText>
- <BlueText><strong>**End Derivation**</strong></BlueText>
 
-
+</DisplayEquation>
  
- <BlueText>Maximum shear stress occurs at the Neutral axis
-<DisplayEquation equation="\\tau_{max} = 1.5 \\frac{V}{A}\\" />
-</BlueText>
-
-
-
- Anisotropic material: wood fails at locations of maximum longitudinal stress
-
-
-
- <strong><RedText>**Reference pages have a broken link image here**</RedText></strong> 
+Maximum shear stress occurs at the Neutral axis
+<DisplayEquation equation="\\tau_{max} = 1.5 \\frac{V}{A}\\" title="Max. shear stress in rectangular beam." background="True"/>
 
 </SubSubSection>
 
 <SubSubSection title="I-Shaped Beam Cross-Section">
 
-<Image src="/Solid_Mechanics/TransverseShear-Figures/IbeamCrossSect.png" width=""><BlueText>Taken from TAM251 Lecture Notes - L7S10</BlueText></Image>
+<Image src="/Solid_Mechanics/TransverseShear-Figures/IbeamCrossSect.png" width="5"></Image>
 
- <BlueText>The neutral axis of an I-beam is the center. To find the I, use the parallel axis theorem. When determining the stress distribution, break the beam up into sub-sections of constant thickness for easier calculations. The stress distribution is a discontinuous parabola. 
-</BlueText>
+The neutral axis of an I-beam is the center. To find the I, use the parallel axis theorem. When determining the stress distribution, break the beam up into sub-sections of constant thickness for easier calculations. The stress distribution is a discontinuous parabola. 
+
 </SubSubSection>
 
 <SubSection title="Built-up Members/Beams: Shear Flow">
 
+  <CalloutContainer slot="cards">
+    <CalloutCard title="Heads  up!">
+        <p>
+           <strong> shear stresses in thin-walled members </strong> builds on this content.
+          </p>
+          <p>
+            <Image src="/Solid_Mechanics/TransverseShear-Figures/ThinWalledMembers.png" width=""></Image>  
+ 
+            The variation of shear flow across the section depends only on the variation of the first moment.
+           <DisplayEquation equation="q = \\tau t = \\frac{VQ}{I}\\" />
+           
+           <Image src="/Solid_Mechanics/TransverseShear-Figures/rectThinWallShearFlow.png" width=""></Image> 
+            For a box beam, q grows symmetrically. From the edge to where the beam becomes hollow, the flow increases linearly and from where it becomes hollow to the neutral axis, the flow increases parabolically.
+           
+            <Image src="/Solid_Mechanics/TransverseShear-Figures/IbeamShearFlow.png" width=""></Image> 
+             For a wide-flange beam, the shear flow increases symmetrically on top from the end to the neutral axis in the y direction, and on the side increases from the flanges to the neutral axes.
+           
+             <Image src="/Solid_Mechanics/TransverseShear-Figures/UchannelShearFlow.png" width=""></Image> 
+             For a u-channel beam, the shear flow increases linearly on the sides from the edge to the base, and on the base it increases from the sides to the neutral axis.
+
+          </p>
+    </CalloutCard>
+</CalloutContainer>
+
 <BlueText>BSM: section feels a little light as is, could benefit from a few extra figures, equations, and/or commentary on how to do shear flow calculations.</BlueText>
 
-<Image src="/Solid_Mechanics/TransverseShear-Figures/ShearFlow.png" width="2"><BlueText>Taken from the web</BlueText></Image>
+<Image src="/Solid_Mechanics/TransverseShear-Figures/ShearFlow.png" width="2"></Image>
 
- <BlueText>Built-up beams are beams that have been put together with either an adhesive (glue, epoxy, etc) or fasteners (nails, bolts, etc). Calculating  <strong>Shear flow</strong>  allows for determining how much adhesive or how often a fastener is needed.</BlueText> 
+Built-up beams are beams that have been put together with either an adhesive (glue, epoxy, etc) or fasteners (nails, bolts, etc). Calculating  <strong>Shear flow</strong>  allows for determining how much adhesive or how often a fastener is needed.
 
-<DisplayEquation equation="dF = \\frac{VQ}{I}dx\\" />
 
- Where shear flow is: <DisplayEquation equation="q = \\frac{dF}{dx} = \\frac{VQ}{I}\\" />
 
- <BlueText><strong>**Expandable Derivation**</strong></BlueText>
-<BlueText>
+<DisplayEquation equation="\\begin{align*} &dF = \\frac{VQ}{I}dx	\\\\ \\text{where}	 \\\\ &q = \\frac{dF}{dx} = \\frac{VQ}{I} \\\\ \\end{align*}" title="Shear flow (q)." background="True" derivation="True" id="shr-flw">
+
 <DisplayEquation equation="F_x = \\int\\sigma_x dA = 0\\" />
 <DisplayEquation equation="\\Sigma F_x = F_{x_1} - F_{x_2} + \\Delta H\\" />
 <DisplayEquation equation="\\Delta H + \\int \\frac{M_{x_1} y}{I}dA - \\int \\frac{M_{x_2} y}{I}dA = 0\\" />
@@ -178,48 +166,18 @@ where  <DisplayEquation equation="c = \\frac{1}{2}h\\" />
 <DisplayEquation equation="\\frac{\\Delta H}{\\Delta x} = \\frac{\\Delta M}{\\Delta x} \\frac{Q}{I} = 0\\" />
 <DisplayEquation equation="\\lim_{x\\to 0} \\frac{\\Delta H}{\\Delta x} = \\frac{dH}{dx} = q\\" />
 <DisplayEquation equation="q = \\frac{dM}{dx} \\frac{Q}{I}\\" />
-</BlueText>
- <BlueText><strong>**End Derivation**</strong></BlueText>
 
-<Image src="/Solid_Mechanics/TransverseShear-Figures/BuiltUpBeams.png" width="4"><BlueText>Taken from TAM251 Lecture Notes - L7S13</BlueText></Image>
+</DisplayEquation>
 
-</SubSection>
+<Image src="/Solid_Mechanics/TransverseShear-Figures/BuiltUpBeams.png" width="4.5"></Image>
 
-<SubSubSection title="Adhesives">
+<p>
+<strong>Adhesives</strong> supply resistance along the length of the contacting parts. Determine the minimum shear strength at these contacting/weak points using the shear stress equation.
+</p>
 
-<BlueText>Adhesives supply resistance along the length of the contacting parts. Determine the minimum shear strength at these contacting/weak points using the shear stress equation.</BlueText>
-
+<p>
+<strong>Fasteners</strong> supply resistance at fixed intervals. Use the shear flow formula to analyze the beam.
+</p>
 </SubSubSection>
 
-<SubSubSection title="Fasteners">
-
-<BlueText>Fasteners supply resistance at fixed intervals. Use the shear flow formula to analyze the beam.</BlueText>
-
-</SubSubSection>
-
-<SubSection title="Shear Stresses in Thin-Walled Members /!\\ BSM: not covered in TAM251, not sure if/when it is covered in ME curriculum.">
-
- <strong><RedText>**Reference pages have a broken link image here  x2**</RedText></strong> 
- 
-
-
- The variation of shear flow across the section depends only on the variation of the first moment.
-<DisplayEquation equation="q = \\tau t = \\frac{VQ}{I}\\" />
-
-
-
- For a box beam, q grows smoothly from zero at A to a maximum at C and C’ and then decreases back to zero at E.
-
-
-
- <strong><RedText>**Reference pages have a broken link image here**</RedText></strong>
- 
-
-
-  For a wide-flange beam, the shear flow increases symmetrically from zero at A and A’, reaches a maximum at C and then decreases to zero at E and E’.
-
-
-
-  <strong><RedText>**Reference pages have a broken link image here**</RedText></strong>
-</SubSection>
 </Layout>
