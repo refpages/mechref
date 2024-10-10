@@ -1456,6 +1456,212 @@ $(document).ready(function() {
         rkv_fr_c.resetOptionValue("showAccDecomp");
     });
 
+    rkt_fo_c = new PrairieDrawAnim("rkt-fo-c", function(t) {
+        this.setUnits(12, 8);
+
+        this.addOption("showLabels", true);
+        this.addOption("showPath", true);
+        this.addOption("showLine", false);
+        this.addOption("showCircle", false);
+        this.addOption("showPosition", true);
+        this.addOption("showVelocity", false);
+        this.addOption("showAcceleration", false);
+        this.addOption("showAccDecomp", false);
+        this.addOption("matchPhasePercent", 0);
+
+        var label = this.getOption("showLabels") ? true : undefined;
+
+        var f = function(t) {
+            var T = 2 * Math.PI / 0.7;
+            var theta = 0.7 * t - 0.4 * Math.sin(0.7 * t);
+            return {
+                "period": T,
+                "P": $V([3 * Math.cos(theta), 2.5 * Math.sin(theta)])
+            };
+        };
+
+        var O = $V([0, 0]);
+
+        var val = this.numDiff(f, t);
+        var period = val.period;
+        var r = val.P;
+        var v = val.diff.P;
+        var a = val.ddiff.P;
+
+        var ei = $V([1, 0]);
+        var ej = $V([0, 1]);
+
+        var et = v.toUnitVector();
+        var en = this.orthComp(a, v).toUnitVector();
+
+        var vt = this.orthProj(v, et);
+        var vn = this.orthProj(v, en);
+        var at = this.orthProj(a, et);
+        var an = this.orthProj(a, en);
+
+        var tMatch = this.getOption("matchPhasePercent") / 100 * period;
+        var valMatch = this.numDiff(f, tMatch);
+        var rM = valMatch.P;
+        var vM = valMatch.diff.P;
+        var aM = valMatch.ddiff.P;
+
+        var etM = vM.toUnitVector();
+        var enM = this.orthComp(aM, vM).toUnitVector();
+
+        var vtM = this.orthProj(vM, etM);
+        var vnM = this.orthProj(vM, enM);
+        var atM = this.orthProj(aM, etM);
+        var anM = this.orthProj(aM, enM);
+
+        var rhoM = Math.pow(vM.modulus(), 2) / anM.modulus();
+        var CM = rM.add(enM.x(rhoM));
+
+        // interpolate [0,1] -> [0,1] with first derivative d1 and second derivative d2 at {0,1}
+        var zoInterp = function(u, d1, d2) {
+            var u2 = u * u;
+            var u3 = u * u2;
+            var u4 = u * u3;
+            return u * (20 * u2 - 30 * u3 + 12 * u4) / 2
+                + d1 * u * (2 - 20 * u2 + 30 * u3 - 12 * u4) / 2
+                + d2 * u * (u - 2 * u2 + u3) / 2;
+        };
+
+        var fCircle = function(t) {
+            var d1 = vtM.dot(etM) * period / (2 * Math.PI * rhoM);
+            var d2 = atM.dot(etM) * period * period / (2 * Math.PI * rhoM);
+            var theta = 2 * Math.PI * zoInterp(this.fixedMod(t - tMatch, period) / period, d1, d2);
+            var theta0 = this.angleOf(enM.x(-1));
+            return {P: CM.add(this.vector2DAtAngle(theta0 + theta).x(rhoM))};
+        }.bind(this);
+
+        var valCircle = this.numDiff(fCircle, t);
+        var rQ = valCircle.P;
+        var vQ = valCircle.diff.P;
+        var aQ = valCircle.ddiff.P;
+
+        var etQ = vQ.toUnitVector();
+        var enQ = this.orthComp(aQ, vQ).toUnitVector();
+
+        var vtQ = this.orthProj(vQ, etQ);
+        var vnQ = this.orthProj(vQ, enQ);
+        var atQ = this.orthProj(aQ, etQ);
+        var anQ = this.orthProj(aQ, enQ);
+
+        var fLine = function(t) {
+            var tL = this.fixedMod(this.fixedMod(t - tMatch, period) + period / 2, period) - period / 2;
+            var dL = tL * vtM.dot(etM);
+            return {P: rM.add(etM.x(dL))};
+        }.bind(this);
+
+        var valLine = this.numDiff(fLine, t);
+        var rR = valLine.P;
+        var vR = valLine.diff.P;
+        var aR = valLine.ddiff.P;
+
+        var etR = vR.toUnitVector();
+        var enR = etR.rotate(Math.PI / 2, $V([0, 0]));
+
+        var vtR = this.orthProj(vR, etR);
+        var vnR = this.orthProj(vR, enR);
+        var atR = this.orthProj(aR, etR);
+        var anR = this.orthProj(aR, enR);
+
+
+        if (this.getOption("showPath")) {
+            var n = 200;
+            var path = [], s;
+            for (var i = 0; i < n; i++) {
+                s = i / n * period;
+                path.push(f(s).P);
+            }
+            this.polyLine(path, true, false);
+        }
+        this.point(O);
+        this.text(O, $V([1, 1]), label && "TEX:$O$");
+        this.point(r);
+        this.labelIntersection(r, [O, r.add(et), r.add(et.x(-1)), r.add(en)], label && "TEX:$P$");
+        if (this.getOption("showLine")) {
+            this.save();
+            this.setProp("shapeOutlineColor", "rgb(0, 100, 0)");
+            this.line(rM.add(etM.x(-20)), rM.add(etM.x(20)));
+            this.restore();
+            this.arrow(rR, rR.add(etR));
+            this.arrow(rR, rR.add(enR));
+            this.labelIntersection(rR.add(etR), [rR.add(etR.x(2)), rR.add(etR).add(enR), rR], label && "TEX:$\\hat{e}_{R,t}$");
+            this.labelLine(rR, rR.add(enR), $V([1, 1]), label && "TEX:$\\hat{e}_{R,n}$");
+            if (!this.getOption("showCircle")) {
+                this.point(rM);
+                this.labelIntersection(rM, [rM.add(etM), rM.subtract(enM), rM.subtract(etM)], label && "TEX:$M$");
+            }
+            this.point(rR);
+            this.labelIntersection(rR, [rR.add(etR), rR.add(enR), rR.subtract(etR)], label && "TEX:$R$");
+            if (this.getOption("showVelocity")) {
+                this.arrow(rR, rR.add(vR), "velocity");
+                this.labelLine(rR, rR.add(vR), $V([0, -1]), label && "TEX:$\\vec{v}_R$");
+            }
+        }
+        if (this.getOption("showCircle")) {
+            this.save();
+            this.setProp("shapeOutlineColor", this.getProp("rotationColor"));
+            this.arc(CM, rhoM);
+            this.restore();
+            this.point(CM);
+            this.text(CM, $V([1, 1]), label && "TEX:$C$");
+            this.point(rM);
+            this.labelIntersection(rM, [rM.add(etM), rM.subtract(enM), rM.subtract(etM)], label && "TEX:$M$");
+            this.point(rQ);
+            this.labelIntersection(rQ, [rQ.add(etQ), rQ.add(enQ), rQ.subtract(etQ)], label && "TEX:$Q$");
+            this.arrow(rQ, rQ.add(etQ));
+            this.arrow(rQ, rQ.add(enQ));
+            this.labelLine(rQ, rQ.add(etQ), $V([1, -1]), label && "TEX:$\\hat{e}_{Q,t}$");
+            this.labelLine(rQ, rQ.add(enQ), $V([1, 1]), label && "TEX:$\\hat{e}_{Q,n}$");
+            if (this.getOption("showPosition")) {
+                this.arrow(CM, rQ, "position");
+                this.labelLine(CM, rQ, $V([0, 1]), label && "TEX:$\\vec{r}_{CQ}$");
+            }
+            if (this.getOption("showVelocity")) {
+                this.arrow(rQ, rQ.add(vQ), "velocity");
+                this.labelLine(rQ, rQ.add(vQ), $V([0, -1]), label && "TEX:$\\vec{v}_Q$");
+            }
+            if (this.getOption("showAcceleration")) {
+                this.arrow(rQ, rQ.add(aQ), "acceleration");
+                this.labelLine(rQ, rQ.add(aQ), $V([1, 0]), label && "TEX:$\\vec{a}_Q$");
+            }
+            if (this.getOption("showAccDecomp") && at.modulus() > 1e-3) {
+                this.arrow(rQ, rQ.add(atQ), "acceleration");
+                this.labelLine(rQ, rQ.add(atQ), $V([1, 1]), label && "TEX:$\\vec{a}_{Q,\\theta}$");
+            }
+            if (this.getOption("showAccDecomp") && an.modulus() > 1e-3) {
+                this.arrow(rQ, rQ.add(anQ), "acceleration");
+                this.labelLine(rQ, rQ.add(anQ), $V([1, 1]), label && "TEX:$\\vec{a}_{Q,r}$");
+            }
+        }
+        if (this.getOption("showPosition")) {
+            this.arrow(O, r, "position");
+            this.labelLine(O, r, $V([0, 1]), label && "TEX:$\\vec{r}_P$");
+        }
+        this.arrow(r, r.add(et));
+        this.arrow(r, r.add(en));
+        this.labelLine(r, r.add(et), $V([1, -1]), label && "TEX:$\\hat{e}_{P,t}$");
+        this.labelLine(r, r.add(en), $V([1, 1]), label && "TEX:$\\hat{e}_{P,n}$");
+        if (this.getOption("showVelocity")) {
+            this.arrow(r, r.add(v), "velocity");
+            this.labelLine(r, r.add(v), $V([0, -1]), label && "TEX:$\\vec{v}_P$");
+        }
+        if (this.getOption("showAcceleration")) {
+            this.arrow(r, r.add(a), "acceleration");
+            this.labelLine(r, r.add(a), $V([1, 0]), label && "TEX:$\\vec{a}_P$");
+        }
+        if (this.getOption("showAccDecomp") && at.modulus() > 1e-3) {
+            this.arrow(r, r.add(at), "acceleration");
+            this.labelLine(r, r.add(at), $V([1, 1]), label && "TEX:$\\vec{a}_{P,t}$");
+        }
+        if (this.getOption("showAccDecomp") && an.modulus() > 1e-3) {
+            this.arrow(r, r.add(an), "acceleration");
+            this.labelLine(r, r.add(an), $V([1, 1]), label && "TEX:$\\vec{a}_{P,n}$");
+        }
+    });
+
     avt_fc_c = new PrairieDrawAnim("avt-fc-c", function(t) {
         this.setUnits(11, 11 / this.goldenRatio);
             this.translate($V([0, 1]));
@@ -1700,6 +1906,7 @@ $(document).ready(function() {
         rkr_fe_c.redraw();
         rkr_fc_c.redraw();
         rkt_ft_c.redraw();
+        rkt_fo_c.redraw();
         aov_fe_c.redraw();
         aov_fd_c.redraw();
         rkv_fp_c.redraw();

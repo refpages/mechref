@@ -791,6 +791,37 @@ import InlineCanvas from "../../components/InlineCanvas.astro"
     </PrairieDrawCanvas>
 </SubSubSection>
 
+<SubSubSection title="Curvature and torsion" id="curvature">
+    
+  <DisplayEquationCustom title="Curvature and torsion." id="rkt-ek" background="True" derivation="True">
+    <p>
+      To better understand the geometry of the tangential/normal
+      basis, we can use the <em>curvature</em> \(\kappa\) to
+      describe the curving of the path, and the <em>torsion</em>
+      \(\tau\) to describe the rotation of the basis about the
+      path. These quantities are defined by:
+    </p>
+
+    <DisplayEquation equation="\\begin{aligned}\\kappa &amp;= \\frac{d\\hat{e}_t}{ds} \\cdot \\hat{e}_n= \\frac{1}{v} \\dot{\\hat{e}}_t \\cdot \\hat{e}_n &amp; &amp;\\text{curvature} \\\\\\rho &amp;= \\frac{1}{\\kappa}  &amp; &amp;\\text{radius of curvature} \\\\\\tau &amp;= -\\frac{d\\hat{e}_b}{ds} \\cdot \\hat{e}_n= -\\frac{1}{v} \\dot{\\hat{e}}_b \\cdot \\hat{e}_n  &amp; &amp;\\text{torsion} \\\\\\sigma &amp;= \\frac{1}{\\tau}  &amp; &amp;\\text{radius of torsion}\\end{aligned}" />
+    <div slot="derivation">
+      <p>
+        These equations are definitions, so we need only check
+        that the two expressions for each of \(\kappa\) and \(\tau\)
+        are equivalent. This follows immediately, however, from
+        the chain-rule conversions <a href="#rkt-ea">#rkt-ea</a>
+        between \(d/ds\) and \(d/dt\).
+      </p>
+    </div>
+  </DisplayEquationCustom>
+
+  <p>
+    The <em>radius of curvature</em> \(\rho\) is the radius of
+    equivalent circular motion, and the <em>torsion</em>
+    determines the rate of rotation of the osculating plane, as
+    described below in a section <a href="#tangent_lines_osc_circle">below</a>.
+  </p>
+</SubSubSection>
+
 <SubSubSection title="Basis derivatives and angular velocity" id="derivatives_angular_velocity">
   <p>
     As the point \(P\) moves along its path, the associated
@@ -876,7 +907,7 @@ import InlineCanvas from "../../components/InlineCanvas.astro"
   
 </SubSubSection>
 
-<SubSubSection title="Normal and Tangential acceleration" id="normal_tangential_acceleration">
+<SubSubSection title="Normal and Tangential kinematics" id="normal_tangential_acceleration">
 
     <p>
       While the motion of a point \(P\) along a path defines the
@@ -988,37 +1019,143 @@ import InlineCanvas from "../../components/InlineCanvas.astro"
       </p>
     </PrairieDrawCanvas>
 </SubSubSection>
+<SubSubSection id="tangent_lines_osc_circle" title="Tangent lines and osculating circles">
 
-<SubSubSection title="Curvature" id="curvature">
-    
-    <DisplayEquationCustom title="Curvature and torsion." id="rkt-ek" background="True" derivation="True">
-      <p>
-        To better understand the geometry of the tangential/normal
-        basis, we can use the <em>curvature</em> \(\kappa\) to
-        describe the curving of the path, and the <em>torsion</em>
-        \(\tau\) to describe the rotation of the basis about the
-        path. These quantities are defined by:
-      </p>
+<p>
+  Given a point \(P\) moving along a complex path, at a given
+  instant of time we can match different components of the
+  point's motion with successively more complex geometric
+  shapes:
+</p>
+<DisplayTable class="basic" id="rkt-tm">
+  <tr><th>match</th><th>geometric object</th><th>name</th></tr>
+  <tr><td><InlineEquation equation="\\vec{r}" /></td><td>point</td><td>position</td></tr>
+  <tr><td><InlineEquation equation="\\vec{r},\\vec{v}" /></td><td>line</td><td>tangent line</td></tr>
+  <tr><td><InlineEquation equation="\\vec{r},\\vec{v},\\vec{a}" /></td><td>circle</td><td>osculating circle</td></tr>
+</DisplayTable>
 
-      <DisplayEquation equation="\\begin{aligned}\\kappa &amp;= \\frac{d\\hat{e}_t}{ds} \\cdot \\hat{e}_n= \\frac{1}{v} \\dot{\\hat{e}}_t \\cdot \\hat{e}_n &amp; &amp;\\text{curvature} \\\\\\rho &amp;= \\frac{1}{\\kappa}  &amp; &amp;\\text{radius of curvature} \\\\\\tau &amp;= -\\frac{d\\hat{e}_b}{ds} \\cdot \\hat{e}_n= -\\frac{1}{v} \\dot{\\hat{e}}_b \\cdot \\hat{e}_n  &amp; &amp;\\text{torsion} \\\\\\sigma &amp;= \\frac{1}{\\tau}  &amp; &amp;\\text{radius of torsion}\\end{aligned}" />
-      <div slot="derivation">
-        <p>
-          These equations are definitions, so we need only check
-          that the two expressions for each of \(\kappa\) and \(\tau\)
-          are equivalent. This follows immediately, however, from
-          the chain-rule conversions <a href="#rkt-ea">#rkt-ea</a>
-          between \(d/ds\) and \(d/dt\).
-        </p>
+<p>
+  The <em>osculating circle</em> is the instantaneous
+  equivalent circular path. That is, a particle traveling on
+  the osculating circle with the same location \(P\), speed
+  <InlineEquation equation="\\dot{s}" />, and tangential acceleration <InlineEquation equation="\\ddot{s}" /> as our
+  particle would have matching velocity and acceleration
+  vectors.
+</p>
+
+<DisplayEquation title="Osculating circle" id="rkt-eo" equation="\\text{center C} = \\vec{r} + \\rho \\hat{e}_n,\\qquad \\text{radius} \\; \\rho,\\qquad \\text{normal} \\; \\hat{e}_b" background="True" derivation="True">
+  <p>
+  Consider a particle \(P\) with position vector <InlineEquation equation="\\vec{r}_P" />
+  moving with velocity <InlineEquation equation="\\vec{v}_P" />
+  and acceleration
+  <InlineEquation equation="\\vec{a}_P" />
+, and let <InlineEquation equation="\\hat{e}_t,\\hat{e}_n,\\hat{e}_b" />be
+  the associated tangential/normal basis and <InlineEquation equation="\\rho_P " />
+  be the radius of curvature. Set <InlineEquation equation="\\dot{s}_P = v_P" />and
+  <InlineEquation equation="\\ddot{s}_P = \\vec{a}_P \\cdot \\hat{e}_t" />
+ to be the speed
+  and tangential acceleration of \(P\).
+</p>
+<p>
+  Next define the osculating circle as above with center
+  <InlineEquation equation="C = \\vec{r}_P + \\rho_P" /> , radius <InlineEquation equation="\\rho_P " />, and normal
+  vector <InlineEquation equation="\\hat{e}_b" />.
+</p>
+<p>
+  Now take a second particle \(Q\) moving on the osculating
+  circle so that its instantaneous position matches \(P\)
+  and it has the same speed <InlineEquation equation="\\dot{s}_Q = \\dot{s}_P" /> and
+  tangential acceleration <InlineEquation equation="\\ddot{s}_Q = \\ddot{s}_P" />. This
+  means that the radius of the circle <InlineEquation equation="r_Q" />  for \(Q\) is
+  matches the osculating circle radius <InlineEquation equation="\\rho_P" />, so <InlineEquation equation="r_Q = \\rho_P" />.
+</p>
+<p>
+  We want to prove that <InlineEquation equation="\\vec{v}_Q = \\vec{v}_P" /> and
+  <InlineEquation equation="\\vec{a}_Q = \\vec{a}_P" />.
+</p>
+<p>
+  We will use a polar coordinate system for \(Q\), centered
+  at \(C\) and in the plane with normal vector
+  <InlineEquation equation="\\hat{e}_b" />. At the current instant when the particles
+  are at the same position, this means that <InlineEquation equation="\\hat{e}_r =  -\\hat{e}_n" /> and <InlineEquation equation="\\hat{e}_\\theta = \\hat{e}_t" />. Using the
+  circular motion expressions <a
+  href="rke.html#rke-ep">#rke-ec</a> we have that the
+  velocity of \(Q\) is:
+
+  <DisplayEquation equation="\\begin{aligned}  \\vec{v}_Q &amp;= v_Q \\,\\hat{e}_\\theta \\\\  &amp;= \\dot{s}_Q \\,\\hat{e}_\\theta \\\\  &amp;= \\dot{s}_P \\,\\hat{e}_t = \\vec{v}_P. \\\\  \\end{aligned}" />
+
+
+  For a particle moving in a circle like \(Q\), the speed is
+  given by <InlineEquation equation="\\dot{s}_Q = v_Q = r_Q \\omega_Q" />, and
+  differentiating this gives <InlineEquation equation="\\ddot{s}_Q = r_Q  \\dot{\\omega}_Q = r_Q \\alpha_Q" />. Using this, the
+  acceleration of \(Q\) is:
+
+  <DisplayEquation equation="\\begin{aligned}  \\vec{a}_Q &amp;= -\\frac{v_Q^2}{\\rho_Q} \\,\\hat{e}_r  + \\rho_Q \\alpha_Q \\,\\hat{e}_\\theta \\\\  &amp;= -\\frac{\\dot{s}_Q^2}{\\rho_Q} \\,\\hat{e}_r  + \\ddot{s}_Q \\,\\hat{e}_\\theta \\\\  &amp;= \\frac{\\dot{s}_P^2}{\\rho_P} \\,\\hat{e}_n  + \\ddot{s}_Q \\,\\hat{e}_t \\\\  &amp;= \\vec{a}_Q.  \\end{aligned}" />
+
+
+  We thus see that points \(P\) and \(Q\) have the same
+  instantaneous velocity and acceleration. This also means
+  that the tangential/normal basis computed at this
+  instant for \(Q\) will match that of \(P\).
+</p>
+</DisplayEquation>
+
+<p>
+  The osculating circle lies in the <InlineEquation equation="\\hat{e}_t,\\hat{e}_n" />
+  plane, which is thus called the <em>osculating
+  plane</em>. This plane has normal vector <InlineEquation equation="\\hat{e}_b" />, and
+  rotates about <InlineEquation equation="\\hat{e}_t" /> with a rotation rate determined by
+  the torsion \(\tau\), as we see from the expression <a
+  href="#rkt-ed">#rkt-ed</a> for the derivative of <InlineEquation equation="  \\hat{e}_b." />
+</p>
+
+<PrairieDrawCanvas id="rkt-fo-c" height="600" width="600">
+  <p class="controls">
+    <button class="anim-toggle:rkt-fo-c" onclick="rkt_fo_c.toggleAnim()">animate</button>
+    <button class="reset:rkt-fo-c" onclick="rkt_fo_c.reset()">reset</button>
+    <button class="option-toggle:rkt-fo-c:showLabels" onclick="rkt_fo_c.toggleOption('showLabels')">show labels</button>
+  </p>
+  <table class="alignTop">
+    <tr>
+      <td>Show:</td>
+      <td colspan="4">
+        <button class="option-toggle:rkt-fo-c:showPosition" onclick="rkt_fo_c.toggleOption('showPosition')">position vector</button>
+        <button class="option-toggle:rkt-fo-c:showVelocity" onclick="rkt_fo_c.toggleOption('showVelocity')">velocity</button>
+        <button class="option-toggle:rkt-fo-c:showAcceleration" onclick="rkt_fo_c.toggleOption('showAcceleration')">acceleration</button>
+        <button class="option-toggle:rkt-fo-c:showAccDecomp" onclick="rkt_fo_c.toggleOption('showAccDecomp')">acceleration decomposition</button>
+      </td>
+    </tr>
+    <tr>
+      <td></td>
+      <td colspan="4">
+        <button class="option-toggle:rkt-fo-c:showLine" onclick="rkt_fo_c.toggleOption('showLine')">tangent line</button>
+        <button class="option-toggle:rkt-fo-c:showCircle" onclick="rkt_fo_c.toggleOption('showCircle')">osculating circle</button>
+      </td>
+    </tr>
+    <tr>
+      <td colspan=2>
+        <div class="d-flex  align-items-baseline">
+          <p class="m-0 flex-shrink-1">Match phase:</p>
+          <div class="flex-grow-1 d-flex align-items-baseline">
+
+          
+              <input type="range" min="0" max="100" value="0" step="1" class="data-input:rkt-fo-c:matchPhasePercent flex-grow-1 mx-2" onchange="rkt_fo_c.setOption('matchPhasePercent', this.value); document.querySelector('span[class*=matchPhasePercent]').innerText = this.value; console.log(this.value);" oninput="rkt_fo_c.setOption('matchPhasePercent', this.value); document.querySelector('span[class*=matchPhasePercent]').innerText = this.value;"/>
+              <span class="data-option:rkt-fo-c:matchPhasePercent">0</span>%
+          </div>
       </div>
-    </DisplayEquationCustom>
+      </td>
+    </tr>
+  </table>
+  <p class="figureCaption mt-2">
+    Tangent lines and osculating circles, showing matching of
+    velocity or velocity and acceleration, respectively.
+  </p>
+</PrairieDrawCanvas>
 
-    <p>
-      The <em>radius of curvature</em> \(\rho\) is the radius of
-      equivalent circular motion, and the <em>torsion</em>
-      determines the rate of rotation of the osculating plane, as
-      described below in Section <a href="#rkt-so">#rkt-so</a>.
-    </p>
+</SubSubSection>
 
+
+<SubSection title="Curvature on curves">
     <p>
       Given a parametric curve, its curvature can be directly
       evaluated with:
