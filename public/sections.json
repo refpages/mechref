@@ -139,12 +139,12 @@
             "name": "Reaction Forces"
           },
           {
-            "id": "internal_forces",
-            "name": "Internal Forces"
-          },
-          {
             "id": "trusses",
             "name": "Trusses"
+          },
+          {
+            "id": "internal_forces",
+            "name": "Internal Forces"
           },
           {
             "id": "frames_and_machines",
