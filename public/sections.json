@@ -120,7 +120,7 @@
           },
           {
             "id": "vectors_scalars",
-            "name": "Vectors Scalars"
+            "name": "Vectors and Scalars"
           },
           {
             "id": "free_body_diagrams",
@@ -143,12 +143,12 @@
             "name": "Trusses"
           },
           {
-            "id": "internal_forces",
-            "name": "Internal Forces"
-          },
-          {
             "id": "frames_and_machines",
             "name": "Frames and Machines"
+          },
+         {
+            "id": "internal_forces",
+            "name": "Internal Forces"
           },
           {
             "id": "friction",
