@@ -147,6 +147,10 @@
             "name": "Trusses"
           },
           {
+            "id": "frames_and_machines",
+            "name": "Frames and Machines"
+          },
+          {
             "id": "friction",
             "name": "Friction"
           },
