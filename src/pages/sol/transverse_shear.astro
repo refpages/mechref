@@ -14,7 +14,24 @@ import CalloutContainer from "../../components/CalloutContainer.astro"
 import CalloutCard from "../../components/CalloutCard.astro"
 ---
 <Layout title="Transverse Shear">
-<Section title="Transverse Shear">
+
+  <div slot="navtree">
+    <ul class='list-group list-group-flush py-0'> 
+        <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#shear_in_beams'>Shear Stress in Beams</a></li>
+        <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#avg_shear_stress'>Average Shear Stress</a>
+            <ul class='list-group list-group-flush py-0'> 
+                <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#rect_beam'>Rectangular Beam Cross-Section</a></li> 
+                <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#i_beam'>I-Shaped Beam Cross-Section</a></li>  
+            </ul>
+        <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#shear_flow'>Built-up Members/Beams: Shear Flow</a>
+          <ul class='list-group list-group-flush py-0'> 
+            <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#adhesives'>Adhesives</a></li> 
+            <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#fasteners'>Fasteners</a></li>  
+        </ul>
+        </li> 
+    </ul>
+</div>
+<Section title="Transverse Shear" id="transverse_shear">
 
 <Image src="/Solid_Mechanics/TransverseShear-Figures/TransToLong.png" width="4"></Image>
 
@@ -22,19 +39,19 @@ Transverse loading creates corresponding <strong>longitudinal shear stresses</st
 
 </Section>
 
-<SubSection title="Shear Stress in Beams">
+<SubSection title="Shear Stress in Beams" id="shear_in_beams">
 
 
 <Image src="/Solid_Mechanics/TransverseShear-Figures/TransverseShear.png" width="5.5"></Image>
 
- When a shear force is applied, it tends to cause warping of the cross section. Therefore, when a beam is subject to moments and shear forces, the <strong>cross section will not remain plane</strong> as assumed in the derivation of the flexural formula. However, we can assume that the warping due to shear is small enough to be neglected, which is particularly true for slender beams. 
+ When a shear force is applied, it tends to cause warping of the cross section. Therefore, when a beam is subject to moments and shear forces, the <strong>cross section will not remain plane</strong> as assumed in the derivation of the flexural formula. However, we can assume that the warping due to shear is small enough to be neglected, which is particularly true for slender beams (<InlineEquation equation="L>5d"/>). 
 
 <Image src="/Solid_Mechanics/TransverseShear-Figures/EquilibriumEqtn.png" width="5.5"></Image>
 
  Transverse loading applied to a beam results in normal and shearing stresses in transverse sections, as well as a bending moment.
 
 
- The distribution of normal and shearing stresses satisfies:
+ The distribution of normal and shearing stresses satisfies the following where <InlineEquation equation="dA" /> is the cross sectional area. 
 
 <DisplayEquation equation="\\begin{align*} &F_x = \\int\\sigma_x dA = 0 		 &M_x &= \\int(y\\tau_{xz} - z\\tau_{xy})dA=0 \\\\ &F_y = \\int\\tau_{xy} dA = -V 	 &M_y &= \\int z\\sigma_{x} dA = 0 \\\\ &F_z = \\int\\tau_{xz} dA = 0 	 &M_z &= \\int(-y\\sigma_{x})dA = M \\\\ \\end{align*}" title="Equilibrium." background="True"/>
 
@@ -54,14 +71,18 @@ Transverse loading creates corresponding <strong>longitudinal shear stresses</st
  
 </SubSection>
 
-<SubSection title="Average Shear Stress">
+<SubSection title="Average Shear Stress" id="avg_shear_stress">
 
-<Image src="/Solid_Mechanics/TransverseShear-Figures/AvgShear.png" width="5.5"></Image>
+<Image src="/Solid_Mechanics/TransverseShear-Figures/AvgShear.png" width="1.5"></Image>
 
-Average shear stress is given by  
+Shear stress varies throughout the cross-section of the beam where the maximum shear stress is at the neutral axis and is zero at the edges. Shear stress can be represented as an average across the beam. 
+
 <DisplayEquation equation="\\tau = \\frac{V}{A}\\" title="Avg. shear stress." background="True" />
 
-Shear stress at a specific point is given by  
+<Image src="/Solid_Mechanics/TransverseShear-Figures/ShearAtPoint.png" width="4.5"></Image>
+
+Shear stress can also be evaluated at any given point. 
+
 <DisplayEquation equation="\\tau = \\frac{VQ}{It}\\" title="shear stress at a point." background="True" derivation="True" id="shr-pts">
 
   <Image src="/Solid_Mechanics/TransverseShear-Figures/ElementFBD.png" width="8"></Image>
@@ -87,14 +108,14 @@ Shear stress at a specific point is given by
 
 <Itemize>
   <Item><InlineEquation equation="V" /> : shear force</Item>
-  <Item><InlineEquation equation="Q" /> : First area moment of inertia of cut section ( <InlineEquation equation="Q = \\Sigma yA" /> )</Item>
+  <Item><InlineEquation equation="Q" /> : First area moment of inertia of cut section ( <InlineEquation equation="Q = \\Sigma \\bar{y}'A'" /> )</Item>
   <Item><InlineEquation equation="I" /> : Second area moment of inertia of whole section</Item>
   <Item><InlineEquation equation="t" /> : beam thickness</Item>
 </Itemize>
 
 </SubSection>
 
-<SubSubSection title="Rectangular Beam Cross-Section">
+<SubSubSection title="Rectangular Beam Cross-Section" id="rect_beam">
 
 <Image src="/Solid_Mechanics/TransverseShear-Figures/RectCrossSect.png" width="5"></Image>
 
@@ -114,7 +135,7 @@ Maximum shear stress occurs at the Neutral axis
 
 </SubSubSection>
 
-<SubSubSection title="I-Shaped Beam Cross-Section">
+<SubSubSection title="I-Shaped Beam Cross-Section" id="i_beam">
 
 <Image src="/Solid_Mechanics/TransverseShear-Figures/IbeamCrossSect.png" width="5"></Image>
 
@@ -122,7 +143,7 @@ The neutral axis of an I-beam is the center. To find the I, use the parallel axi
 
 </SubSubSection>
 
-<SubSection title="Built-up Members/Beams: Shear Flow">
+<SubSection title="Built-up Members/Beams: Shear Flow" id="shear_flow">
 
   <CalloutContainer slot="cards">
     <CalloutCard title="Heads  up!">
@@ -135,7 +156,7 @@ The neutral axis of an I-beam is the center. To find the I, use the parallel axi
             The variation of shear flow across the section depends only on the variation of the first moment.
            <DisplayEquation equation="q = \\tau t = \\frac{VQ}{I}\\" />
            
-           <Image src="/Solid_Mechanics/TransverseShear-Figures/rectThinWallShearFlow.png" width=""></Image> 
+           <Image src="/Solid_Mechanics/TransverseShear-Figures/RectThinWallShearFlow.png" width=""></Image> 
             For a box beam, q grows symmetrically. From the edge to where the beam becomes hollow, the flow increases linearly and from where it becomes hollow to the neutral axis, the flow increases parabolically.
            
             <Image src="/Solid_Mechanics/TransverseShear-Figures/IbeamShearFlow.png" width=""></Image> 
@@ -148,13 +169,9 @@ The neutral axis of an I-beam is the center. To find the I, use the parallel axi
     </CalloutCard>
 </CalloutContainer>
 
-<BlueText>BSM: section feels a little light as is, could benefit from a few extra figures, equations, and/or commentary on how to do shear flow calculations.</BlueText>
-
 <Image src="/Solid_Mechanics/TransverseShear-Figures/ShearFlow.png" width="2"></Image>
 
-Built-up beams are beams that have been put together with either an adhesive (glue, epoxy, etc) or fasteners (nails, bolts, etc). Calculating  <strong>Shear flow</strong>  allows for determining how much adhesive or how often a fastener is needed.
-
-
+In some cases, it can be more useful to look at shear flow (<InlineEquation equation="q" />) through a structure than internal shear stress. It is most applicable in design situations such as built-up beams.
 
 <DisplayEquation equation="\\begin{align*} &dF = \\frac{VQ}{I}dx	\\\\ \\text{where}	 \\\\ &q = \\frac{dF}{dx} = \\frac{VQ}{I} \\\\ \\end{align*}" title="Shear flow (q)." background="True" derivation="True" id="shr-flw">
 
@@ -169,15 +186,25 @@ Built-up beams are beams that have been put together with either an adhesive (gl
 
 </DisplayEquation>
 
-<Image src="/Solid_Mechanics/TransverseShear-Figures/BuiltUpBeams.png" width="4.5"></Image>
+Built-up beams are beams that have been put together with either an adhesive (glue, epoxy, etc) or fasteners (nails, bolts, etc). Calculating shear flow allows for determining how much adhesive or how often a fastener is needed.
 
+<Image src="/Solid_Mechanics/TransverseShear-Figures/BuiltUpBeams.png" width="4.5"></Image>
+</SubSection>
+
+<SubSubSection title="Adhesives" id="adhesives">
 <p>
 <strong>Adhesives</strong> supply resistance along the length of the contacting parts. Determine the minimum shear strength at these contacting/weak points using the shear stress equation.
 </p>
 
+<strong>Example:</strong>
+</SubSubSection>
+
+<SubSubSection title="Fasteners" id="fasteners">
 <p>
 <strong>Fasteners</strong> supply resistance at fixed intervals. Use the shear flow formula to analyze the beam.
 </p>
-</SubSubSection>
 
+<strong>Example:</strong> 
+
+</SubSubSection>
 </Layout>
