@@ -1,0 +1,56 @@
+---
+import Layout from "../../layouts/Layout.astro" 
+import Image from "../../components/Image.astro" 
+import Section from "../../components/Section.astro" 
+import SubSection from "../../components/SubSection.astro" 
+import BlueText from "../../components/BlueText.astro" 
+import Enumerate from "../../components/Enumerate.astro"
+import Item from "../../components/Item.astro"
+import RedText from "../../components/RedText.astro"
+import DisplayEquation from "../../components/DisplayEquation.astro"
+import InlineEquation from "../../components/InlineEquation.astro"
+import PrairieDrawCanvas from "../../components/PrairieDrawCanvas.astro"
+import Row from "../../components/Row.astro"
+import Col from "../../components/Col.astro"
+---
+<Layout title="Frames and Machines">
+
+    <div slot="navtree">
+        <ul class='list-group list-group-flush py-0'> 
+          <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#assumptions'>Truss Assumptions</a></li> 
+          <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#two_force_member'>Two Force Member</a></li>
+          <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#zero_force_member'>Zero Force Member</a></li>
+		  <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#joints'>Truss Analysis: Joints</a></li>
+		  <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#sections'>Truss Analysis: Sections</a></li>
+      </ul>
+      </div>
+<Section title="Frames" id="frames">
+
+<p>Frames are ...
+
+</p>
+</Section>
+
+<Section title="Machines" id="machines">
+
+<p>Machines are... 
+
+</p>
+</Section>
+
+<Section title="Frame and Machine Analysis" id="framemachineanalysis">
+
+<p>
+Because frames and machines carry not only axial loads but also shear loads and bending moments, we can't use the method of joints or the method of sections to get internal forces. 
+
+Instead, we need to "break apart" the pieces of the frame or machine and draw free body diagrams of each piece individually. 
+
+</p>
+</Section>
+
+
+
+
+</Layout>
+
+<script src="/sta/framesandmachines/canvases.js" is:inline></script>

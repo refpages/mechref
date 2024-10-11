@@ -27,6 +27,7 @@ import Col from "../../components/Col.astro"
 <Section title="Trusses" id="trusses">
 
 <p>Trusses are support members that are joined together at the ends. The function of a truss is to transmit loads to a support joint. In this section, we will analyze a simplified version of planar trusses called simple trusses, which consist of two-force members connected by frictionless joints/pins.
+
 </p>
 </Section>
 
@@ -42,7 +43,16 @@ The main assumptions for trusses and truss structures are:
 	<Item>The weight of the truss is negligible.</Item>
 </Enumerate>
 <p>
-Because of these assumptions, all trusses are <em>two force members</em>, with the forces on the truss acting along the axis of the member. 
+Because of these assumptions, all truss members are <em>two force members</em>, with the forces on the truss acting along the axis of the member. 
+
+If the forces on the truss member "stretch" it, the member is in tension. 
+
+If the forces on the truss member "squish" it, the member is in compression. 
+
+<Image src='/Statics/TrussFigures/TensionCompression.jpg' width='5'> Truss member in tension (left) and compression (right)</Image>
+
+
+
 </p>
 </SubSection>
 
@@ -61,7 +71,11 @@ resulting in
 	<Item><InlineEquation equation="\\vec{F_A}" /> and <InlineEquation equation="\\vec{F_B}" /> act along the same line of action.</Item>
 </Enumerate>
 
-<Image src='/Statics/TrussFigures/2ForceMembers.jpg' width='5'> Examples of different two force members.</Image>
+<Image src='/Statics/TrussFigures/2ForceMembers.jpg' width='6'> Examples of different two force members.</Image>
+
+<p>
+Specifically, the two forces act along the line between the two points where they are applied. 
+</p>
 
 </SubSection>
 
@@ -83,12 +97,12 @@ Zero force members are members in a truss structure that experience no force. Th
 	</p>
 
 <p>
-   Drawing free-body diagrams on trusses is simple. As mentioned in the beginning, we will choose the entire truss as our system and draw the free-body diagram to determine the reaction forces on pinned/roller joints. Note we will need more equations and free-body diagrams on individual truss members to fully determine the reaction forces. See statics reference pages on how that is done. The following is a diagram showcasing eliminating zero-force members as well as the free-body diagram on the truss.
+   Drawing free-body diagrams on trusses is simple. As mentioned in the beginning, we will choose the entire truss as our system and draw the free-body diagram to determine the reaction forces on pinned/roller joints. Note we will need more equations and free-body diagrams on individual truss members to fully determine the reaction forces. The following is a diagram showcasing eliminating zero-force members as well as the free-body diagram on the truss.
 	</p>
 
 <PrairieDrawCanvas id="rfb-xzf-f" height="600" width="600">
 	<p class="controls">
-		<button class="option-toggle:rfb-xzf-f:FBD" onclick="rfb_xzf_f.toggleOption('FBD')">free-body diagram</button>
+		<!--<button class="option-toggle:rfb-xzf-f:FBD" onclick="rfb_xzf_f.toggleOption('FBD')">free-body diagram</button> -->
 	</p>
 	<Row>
 		<Col values="12">
@@ -104,7 +118,7 @@ Zero force members are members in a truss structure that experience no force. Th
 
 <!-- lecture 18 -->
 
-<SubSection title="Truss Analysis: Joints" id="joints">
+<SubSection title="Truss Analysis: Method of Joints" id="joints">
 
 Method of joints for truss analysis: 
 <Enumerate>
@@ -117,11 +131,19 @@ Method of joints for truss analysis:
 <p><em>Note:</em> Remember that truss members that are in compression "push back" on the pin joints, and truss members that are in tension "pull" on the pin joints. 
 </p>
 
+<Image src='/Statics/TrussFigures/ExplodedTruss.jpg' width='6'></Image>
+
 </SubSection>
 
-<SubSection title="Truss Analysis: Sections" id="sections">
+<SubSection title="Truss Analysis: Method of Sections" id="sections">
 
-<Image src='/Statics/TrussFigures/MethodofSections.jpg' width='5'>Example of methods of sections for joint analysis</Image>
+<p> 
+The method of sections is helpful for determining the internal forces inside a truss member. The first step for the method of sections is the same as the firts step for the method of joints: Draw a FBD for the entire truss and solve for the external forces at the supports. 
+
+Then, you "cut" the truss so that the internal force you want is "exposed" from the cut and analyze the two parts of the truss system to solve for the internal forces of the truss members. 
+</p>
+
+<Image src='/Statics/TrussFigures/MethodofSections.jpg' width='6'>Example of methods of sections for joint analysis</Image>
 
 <!-- lecture 19  -->
 
