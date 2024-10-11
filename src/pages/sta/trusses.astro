@@ -26,7 +26,7 @@ import Col from "../../components/Col.astro"
       </div>
 <Section title="Trusses" id="trusses">
 
-<p>Trusses are support members that are joined together at the ends. The function of a truss is to transmit loads to a support joint. In this section, we will analyze a simplified version of planar trusses called simple trusses, which consist of two-force members connected by frictionless joints/pins.
+<p>Trusses composed of long, slender support members that are joined together at the ends with pins. The function of a truss is to transmit loads to a support joint. In this section, we will analyze a simplified version of planar trusses called simple trusses, which consist of two-force members connected by frictionless joints/pins.
 
 </p>
 </Section>
@@ -40,10 +40,11 @@ import Col from "../../components/Col.astro"
 The main assumptions for trusses and truss structures are:
 <Enumerate>
 	<Item>All loading is applied at the joints.</Item>
+	<Item>The joints are frictionless.</Item>
 	<Item>The weight of the truss is negligible.</Item>
 </Enumerate>
 <p>
-Because of these assumptions, all truss members are <em>two force members</em>, with the forces on the truss acting along the axis of the member. 
+Because of these assumptions, all truss members are <em>two force members</em>, with the forces on the truss acting <strong>along the axis of the member</strong>. 
 
 If the forces on the truss member "stretch" it, the member is in tension. 
 
@@ -74,7 +75,7 @@ resulting in
 <Image src='/Statics/TrussFigures/2ForceMembers.jpg' width='6'> Examples of different two force members.</Image>
 
 <p>
-Specifically, the two forces act along the line between the two points where they are applied. 
+Specifically, the two forces act <strong>along the line between the two points where they are applied</strong>. 
 </p>
 
 </SubSection>
