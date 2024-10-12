@@ -77,6 +77,13 @@ import Searchbar from "./Searchbar.astro";
         font-size: 16px;
         font-weight: 600;
         line-height: initial;
+        border-bottom: 0px solid #ccc;
+    }
+
+    @media (width <= 992px){
+        header {
+            border-bottom: 1px solid #ccc;
+        }
     }
 
     header .site_identification {
@@ -203,7 +210,7 @@ import Searchbar from "./Searchbar.astro";
     }
 </style>
 
-<header>
+<header >
     <div class="container-fluid campus px-0">
         <div class="row mx-auto align-items-center">
             <div id="campus_wordmark" class="campus-wordmark col p-0">
@@ -245,9 +252,9 @@ import Searchbar from "./Searchbar.astro";
                 <div class="d-block w-100 pe-2">
                     <Searchbar/>
                 </div>
-                <div id="mainnav-toggler-container" class="d-block d-lg-none ps-2">
+                <div id="mainnav-toggler-container" class="d-block d-lg-none ps-1 ps-sm-2">
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainnav" aria-controls="mainnav" aria-expanded="false" aria-label="Toggle navigation" data-bs-toggle="collapse" data-bs-target="#mainnav">
-                        <i class="bi bi-list" style="font-size: 1.25rem; font-weight: bold;"></i> <span class="label">Menu</span>
+                        <i class="bi bi-list" style="font-size: 1.25rem; font-weight: bold;"></i> <span class="label d-none d-sm-block">Menu</span>
                     </button>
                 </div>
             </div>
