@@ -27,9 +27,9 @@ Different supports and different connections have different types of reaction fo
 
 A roller support only constrains movement in the y-direction, and thus only has one reaction force (oriented in the y-direction). 
 
-<Image src='/Statics/ReactionForcesFigures/SingleForceRxns.PNG' width='8'>Constraints that produce one unknown reaction force.</Image>
+<Image src='/Statics/ReactionForcesFigures/SingleForceRxns.PNG' width='7'>Constraints that produce one unknown reaction force.</Image>
 
-<Image src='/Statics/ReactionForcesFigures/MultiForceRxns.PNG' width='8'>Constraints that produce multiple unknown reaction forces or moments.</Image>
+<Image src='/Statics/ReactionForcesFigures/MultiForceRxns.PNG' width='7'>Constraints that produce multiple unknown reaction forces or moments.</Image>
 
 <!-- Should we make a table for here? Some good examples of rigid constraints in real life in lecture 15. -- >
 
@@ -57,16 +57,30 @@ If a 2D system has 3 or less unknown reaction forces, it is considered determina
 
 <SubSubSection title="Proper and Improper Constraints" id="proper_constraints">
 
+A system can be properly or improperly constrained under different loading conditions. 
+
+A system is considered <strong>properly constrained</strong> when there is one single solution to the problem.
+
+If there are multiple solutions to the problem, then the system is considered <strong>properly constrained with redundancy</strong>. 
+
+If there is no solution, the system is considered to be <strong>improperly constrained</strong> for those specific loading conditions. 
+
+</SubSubSection>
+
 <SubSubSection title="Stability and Instability" id="stability">
 
-If a system is stable in statics, it means that it cannot rotate or translate in any direction under any loading conditions.
+If a system is stable in statics, it means that it cannot rotate or translate in any direction <strong>under any loading conditions</strong>.
 
 There are three ways we can analyze a 2D system to determine if it is stable or unstable: 
 
 <Enumerate>
 	<Item>If there are less than three reaction forces, the system is unstable and considered "underconstrained". </Item>
 	<Item>If all of the reaction forces have lines of action that are parallel to each other, the system is unstable for translation. Nothing is preventing the system from moving perpendicular to those lines.</Item>
+
+	<Image src='/Statics/ReactionForcesFigures/UnstableTranslation.jpg' width='5'>Stable system (left) and unstable system (right).</Image>
+
 	<Item>If all of the reaction forces have lines of action that meet in a single point, the system is unstable for rotation at that point. Nothing is preventing the system from rotating about that point. </Item>
+	<Image src='/Statics/ReactionForcesFigures/UnstableRotation.jpg' width='5'>Stable system (left) and unstable system (right).</Image>
 </Enumerate>
 
 </SubSubSection>
