@@ -1,3 +1,7 @@
-<div class="w-100 row">
+---
+const {gap = ""} = Astro.props;
+---
+
+<div class={"w-100 row " + gap}>
     <slot />
 </div>

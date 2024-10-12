@@ -11,6 +11,31 @@ banned_dirs = [
     '_astro'
 ]
 
+## NAVBAR
+
+_astro = os.listdir('./dist/_astro')
+
+css = [c for c in _astro if c[-4:] == '.css']
+js = [j for j in _astro if j[-3:] == '.js']
+
+links_to_replace = {
+    "url(/fonts/source-sans-pro/SourceSansPro-Regular.otf": "url(../fonts/source-sans-pro/SourceSansPro-Regular.otf",
+    "url(/fonts/source-sans-pro/SourceSansPro-Bold.otf": "url(../fonts/source-sans-pro/SourceSansPro-Bold.otf",
+    "url(/fonts/Montserrat-Bold.ttf": "url(../fonts/Montserrat-Bold.ttf"
+}
+
+for file in css:
+    name = os.path.join('./dist/_astro', file)
+
+    with open(name, 'r') as f:
+        data = f.read()
+
+    for wrong, correct in links_to_replace.items():
+        data = data.replace(wrong, correct)
+    
+    with open(name, 'w') as f:
+        f.write(data)
+
 home = os.path.join(os.getcwd(), 'dist')
 
 def explore_dir_and_move(home, dir):
@@ -56,6 +81,7 @@ explore_dir_and_move(home, '')
 ## PAGES WITH CONTENT
 
 links_to_replace = {
+    f"href=\"/_astro/{css[0]}\"": f"href=\"../_astro/{css[0]}\"",
     "href=\"/favicon2.png\"":"href=\"../favicon2.png\"",
     "href=\"/bootstrap.min.css\"": "href=\"../bootstrap.min.css\"",
     "src=\"/bootstrap.min.js\"": "src=\"../bootstrap.min.js\"",
@@ -118,6 +144,7 @@ for dir in ['dyn', 'sta', 'sol']:
 ## COURSE HOME PAGES
 
 links_to_replace = {
+    f"href=\"/_astro/{css[0]}\"": f"href=\"./_astro/{css[0]}\"",
     "href=\"/favicon2.png\"":"href=\"./favicon2.png\"",
     "href=\"/bootstrap.min.css\"": "href=\"./bootstrap.min.css\"",
     "src=\"/bootstrap.min.js\"": "src=\"./bootstrap.min.js\"",
@@ -145,7 +172,10 @@ links_to_replace = {
     "src=\"/Statics/": "src=\"./Statics/",
     "src=\"/Solid_Mechanics/": "src=\"./Solid_Mechanics/",
     "src=\"/Dynamics/": "src=\"./Dynamics/",
-    "href=\"${e['item']['link']}\"": "href=\".${e['item']['link']}\""
+    "href=\"${e['item']['link']}\"": "href=\".${e['item']['link']}\"",
+    "src=\"/light-menu.png\"": "src=\"./light-menu.png\"",
+    "src=\"/dark-menu.png\"": "src=\"./dark-menu.png\""
+    
 }
 
 all_content_pages = os.listdir(os.path.join(home, 'sta')) + os.listdir(os.path.join(home, 'sol')) + os.listdir(os.path.join(home, 'dyn'))
@@ -171,7 +201,8 @@ for page in ['index.html', 'dyn.html', 'sta.html', 'sol.html']:
 special_rewrites = {
     'vectors.html_scalars.html': 'vectors_scalars.html',
     "vectors.html_scalars.js": "vectors_scalars.js",
-    "stress.html_transformation": "stress_transformation.html"
+    "stress.html_transformation": "stress_transformation.html",
+    "<script src=\./static/js/themes.js\">": "<script src=\"./static/js/themes.js\">"
 }
 
 for dir in ['dyn', 'sta', 'sol']:

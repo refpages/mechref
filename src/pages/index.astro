@@ -8,9 +8,10 @@ import CalloutCard from '../components/CalloutCard.astro';
 import Image from '../components/Image.astro';
 import Row from '../components/Row.astro';
 import Col from '../components/Col.astro';
+import Layout from '../layouts/Layout.astro';
 ---
 
-<Layout_index title="Mechanics Reference">
+<Layout title="Mechanics Reference">
     <Section title="Welcome to Mechref!">
 
         <p class="mb-5 d-none d-xl-block">
@@ -20,7 +21,7 @@ import Col from '../components/Col.astro';
         <Searchbar />
 
         <p class="my-3">
-            Use the searchbar to lookup a particular keyword (I'm usually at the top of the page)! You can filter between the courses, or search across all of them at once.
+            Use the searchbar that looks exactly like the one above to lookup a particular keyword (I'm in the navbar at the top)! You can filter between the courses, or search across all of them at once.
         </p>
        
 
@@ -34,6 +35,12 @@ import Col from '../components/Col.astro';
     <SubSection title="In-page features">
         <p>Pages contain blue boxes, meant to give you helpful tips, extra information, or show applications of the material being discussed!</p>
         <Row>
+            
+            <Col values="6 md-8 lg-9">
+                <p>
+                    You can also find a in-page navigation menu, showing you all the sections and subsections in the page, and allow you to navigate to them in one click. On phones and tablets, this is located at the top of the page, and on desktops and laptops it is below the sidebar menu.
+                </p>
+            </Col>
             <Col values="6 md-4 lg-3">
                 <img src="/light-menu.png" class="w-100" id="menu-demo"/>
 
@@ -43,15 +50,10 @@ import Col from '../components/Col.astro';
                     }
                 </script>
             </Col>
-            <Col values="6 md-8 lg-9">
-                <p>
-                    You can also find a in-page navigation menu, showing you all the sections and subsections in the page, and allow you to navigate to them in one click. On phones and tablets, this is located at the top of the page, and on desktops and laptops it is below the sidebar menu.
-                </p>
-            </Col>
         </Row>
         
 
         
     </SubSection>
      
-</Layout_index>
+</Layout>

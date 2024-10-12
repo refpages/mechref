@@ -1,66 +1,435 @@
 ---
-const {course} = Astro.props;
-
-const coursetags = {
-    'sta': 'Statics',
-    'dyn': 'Dynamics',
-    'sol': 'Solid Mechanics'
-}
-
+import Searchbar from "./Searchbar.astro";
 ---
 
-<div class="w-100 py-3 bg-blue" id="title_bar">
-    <div class="container">
-        <a href="/" class="text-decoration-none">
-            <h1 class="title-orange fw-bold m-0" style="font-size: 4rem">{course ? coursetags[course]  : "Mechanics"} Reference</h1>
-        </a>
-    </div>
-</div>
+<style>
+    :root{
+        --nav-bg: #e8e9eb;
+    }
 
-<nav class="w-100 py-0 navbar navbar-expand" style="background-color: black;">
+    .illini-blue{
+        color: var(--illini-blue);
+    }
+
+    .block-i-container{
+        background-color: var(--illini-blue);
+        padding: 8px 10px;
+    }
+
+    .block-i__fill{
+        fill: var(--illini-orange);
+    }
+
+    .block-i__outline{
+        fill: white;
+    }
+
+    .col{
+        flex-basis: 0;
+        flex-grow: 1;
+        max-width: 100%;
+    }
+
+    .wordmark-container{
+        font-family: "Montserrat", sans-serif;
+        font-weight: 700;
+        letter-spacing: 0.91px;
+        font-size: 14px;
+        padding-bottom: 8px;
+        display: block;
+        text-transform: uppercase;
+    }
+
+    header a{
+        color: var(--illini-blue);
+        text-decoration: none;
+        padding: 0;
+    }
+
+    header a:hover{
+        color: #c84113;
+    }
+
+    header .campus .row {
+        max-width: 1160px;
+        padding: 0 0 0 10px;
+    }
+
+    .campus-wordmark__link{
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
     
-    <!-- <div class="collapse navbar-collapse"> -->
-        <div class="container overflow-auto">
-            <ul class="navbar-nav me-auto mb-0 ">
-                <div class="vr d-none d-sm-block" style="color: white;"></div>
-                <li class="nav-item">
-                    <a class="nav-link active text-white py-1" href="/">Home page</a>
-                </li>
-                <div class="vr d-none d-sm-block" style="color: white;"></div>
-                <li class="nav-item">
-                    <a class="nav-link active text-white py-1" href="/sta">Statics</a>
-                </li>
-                <div class="vr d-none d-sm-block" style="color: white;"></div>
-                <li class="nav-item">
-                    <a class="nav-link active text-white py-1" href="/dyn">Dynamics</a>
-                </li>
-                <div class="vr d-none d-sm-block" style="color: white;"></div>
-                <li class="nav-item">
-                    <a class="nav-link active text-white py-1" href="/sol">Solid Mechanics</a>
-                </li>
-                <div class="vr d-none d-sm-block" style="color: white;"></div>
-                
-                    
-                
-                
-            </ul>
-            
-            <span class="navbar-text p-0 d-flex flex-row align-items-center" onclick="toggle_theme();" style="cursor: pointer;">
-                <div class="vr d-none d-sm-block" style="color: white;"></div>
-                <i class="bi ps-1 pe-2 m-0" style="color: white;" id="theme-icon"></i>
-                <p class="nav-link active text-white py-1 pe-1 m-0">Toggle theme</p>
-                <div class="vr d-none d-sm-block" style="color: white;"></div>
-                
-                <script is:inline>
-                    const theme_icon = document.querySelector("#theme-icon");
-                    //bi-moon
-                    if (theme == "dark"){
-                        theme_icon.classList.add("bi-moon-stars-fill");
-                    }else{
-                        theme_icon.classList.add("bi-sun-fill");
-                    }
-                </script>
-            </span>
-        <!-- </div> -->
+    .flex-fill {
+        -ms-flex: 1 1 auto !important;
+        flex: 1 1 auto !important;
+    }
+
+    header {
+        position: relative;
+        width: 100%;
+        z-index: 1001;
+        background-color: white;
+        color: var(--illini-blue);
+        border-top: 8px solid var(--illini-orange);
+        font-size: 16px;
+        font-weight: 600;
+        line-height: initial;
+    }
+
+    header .site_identification {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    header .parent_name {
+        font-weight: 500;
+        font-size: 19px;
+        line-height: 25px;
+        font-family: 'SourceSansPro', sans-serif;
+        -webkit-font-smoothing: antialiased;
+    }
+
+    header .site_name{
+        width: 100%;
+        font-size: 24px;
+        line-height: 29px;
+        font-weight: 700;
+        font-family: 'SourceSansPro', sans-serif;
+        -webkit-font-smoothing: antialiased;
+    }
+
+    header .site .row {
+        position: relative;
+        margin: 0 auto;
+        max-width: 1140px;
+        padding: 16px 10px;
+        z-index: 2;
+    }
+
+    nav{
+        background-color: var(--nav-bg);
+    }
+
+    navbar-nav{
+        gap: 16px;
+    }
+
+    header .navbar #mainnav {
+        max-width: 1140px;
+        margin: 0 auto;
+        position: relative;
+    }
+
+    header .navbar .nav-item > a.nav-link {
+        text-align: center;
+        font-weight: bold;
+        padding: 8px 10px 10px 10px;
+    }
+
+
+    #mainnav-toggler-container button {
+        display: flex;
+        padding: 8px 12px;
+        gap: 15px;
+        background-color: #1e3877;
+        color: white;
+        border: none;
+        border-radius: 0.25rem;
+        line-height: 30px;
+        text-transform: uppercase;
+        font-weight: 700;
+    }
+
+    #mainnav-toggler-container button[aria-expanded=false] .icon::before {
+        content: '\f0c9';
+    }
+
+    #mainnav-toggler-container button[aria-expanded=true] .icon::before {
+        content: '\f00d';
+    }
+
+    header .navbar .nav-item.dropdown.show {
+        background-color: white;
+    }
+
+    .statics-menu{
+        columns: 3;
+    }
+    
+
+    @media (width <= 768px){
+        .statics-menu{
+            columns: 2;
+        }
+    }
+
+    .dynamics-menu{
+        columns: 2;
+    }
+
+    .solids-menu{
+        columns: 2;
+    }
+
+    @media (width <= 578px){
+        .course-menu{
+            columns: 1;
+        }
+    }
+
+    ol li::marker {
+        color: var(--illini-blue);
+    }
+
+    .tile-list{
+        background-color: white;
+    }
+
+    .theme-toggler{
+        cursor: pointer;
+        color: var(--illini-blue);
+    }
+
+    .theme-toggler:hover{
+        color: #c84113;
+    }
+
+    #theme-icon{
+        transition: all .2s ease-in;
+    }
+</style>
+
+<header>
+    <div class="container-fluid campus px-0">
+        <div class="row mx-auto align-items-center">
+            <div id="campus_wordmark" class="campus-wordmark col p-0">
+                <a class="campus-wordmark__link d-flex" href="https://illinois.edu" aria-label="University of Illinois Urbana-Champaign; Link opens in new tab" target="_blank">
+                    <div class="block-i-container" style="margin-top: -8px;">
+                        <svg class="block-i" viewBox="0 0 55 79" xmlns="http://www.w3.org/2000/svg" tabindex="-1" style="display: block; width: 24px; ">
+                            <title>Block I logo</title>
+                            <path class="block-i__outline" tabindex="-1" d="M54.2 21.1V0H0v21.1h12v36.1H0v21.1h54.2V57.2h-12V21.1z"></path>
+                            <path class="block-i__fill" tabindex="-1" d="M42.1 18.1h9V3H3v15h9c1.7 0 3 1.3 3 3v36.1c0 1.7-1.3 3-3 3H3v15h48.1v-15h-9c-1.7 0-3-1.3-3-3v-36c0-1.7 1.4-3 3-3z"></path>
+                        </svg>
+                    </div>
+
+                    <div class="wordmark-container d-none d-sm-block">
+                        University of Illinois Urbana-Champaign
+                    </div>
+                </a>
+            </div>
+        </div>
     </div>
-</nav>
+
+    <div class="container-fluid site px-0">
+        <div class="row wordmark flex-nowrap align-items-center d-flex flex-wrap flex-lg-row flex-column">
+            <div class="col d-flex flex-fill px-0">
+                <div class="site_identification">
+                    <div class="parent_name hide-empty d-none d-sm-block" data-value="35">
+                        <a href="https://mechses.illinois.edu" target="_blank" aria-label="The Grainger College of Engineering; Link opens in new tab">
+                            <span>Mechanical Science &amp; Engineering</span>
+                        </a>
+                    </div>
+                    <div class="site_name">
+                        <a href="/" aria-label="Mechanical Science &amp; Engineering" class="site_name">
+                            <span>MechSE Reference Pages</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col d-flex justify-content-end px-0 flex-fill align-items-center mt-2 mt-lg-0">
+                <div class="d-block w-100 pe-2">
+                    <Searchbar/>
+                </div>
+                <div id="mainnav-toggler-container" class="d-block d-lg-none ps-2">
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainnav" aria-controls="mainnav" aria-expanded="false" aria-label="Toggle navigation" data-bs-toggle="collapse" data-bs-target="#mainnav">
+                        <i class="bi bi-list" style="font-size: 1.25rem; font-weight: bold;"></i> <span class="label">Menu</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <nav class="navbar navbar-expand-lg py-0" aria-label="Main Menu">
+            <div class="navbar-collapse collapse pt-2 pb-2 pb-lg-0" id="mainnav">
+                <ul class="navbar-nav w-100">
+                    <li class="dropdown mega nav-item">
+                        <a class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false" aria-label="About">
+                            <span>Statics</span>
+                        </a>
+                        <div class="dropdown-menu tile-list px-2" id="mainnav-statics">
+                            <section class="tile menu white-box col">
+                            <h2><a href="/sta" aria-label="About">Statics</a></h2>
+                                <ol style="column-fill: balance;" class="course-menu statics-menu">
+                                    <li class="px-2 pb-1"><a href="/sta/introduction">Introduction</a></li>
+                                    <li class="px-2 pb-1"><a href="/sta/cartesian_coordinates">Cartesian Coordinates</a></li>
+                                    <li class="px-2 pb-1"><a href="/sta/vectors_scalars">Vectors and Scalars</a></li>
+                                    <li class="px-2 pb-1"><a href="/sta/free_body_diagrams">Free Body Diagrams</a></li>
+                                    <li class="px-2 pb-1"><a href="/sta/moments">Moments</a></li>
+                                    <li class="px-2 pb-1"><a href="/sta/force_systems">Force Systems</a></li>
+                                    <li class="px-2 pb-1"><a href="/sta/reaction_forces">Reaction Forces</a></li>
+                                    <li class="px-2 pb-1"><a href="/sta/trusses">Trusses</a></li>
+                                    <li class="px-2 pb-1"><a href="/sta/frames_and_machines">Frames and Machines</a></li>
+                                    <li class="px-2 pb-1"><a href="/sta/internal_forces">Internal Forces</a></li>
+                                    <li class="px-2 pb-1"><a href="/sta/friction">Friction</a></li>
+                                    <li class="px-2 pb-1"><a href="/sta/centers_of_mass">Center of Mass</a></li>
+                                    <li class="px-2 pb-1"><a href="/sta/hydrostatic_fluid_pressure">Hydrostatic Fluid Pressure</a></li>
+                                    <li class="px-2 pb-1"><a href="/sta/moment_of_inertia">Moment Of Inertia</a></li>
+                                    <li class="px-2 pb-1"><a href="/sta/virtual_work">Virtual Work</a></li>
+                                </ol>
+                            </section>
+                        </div>
+                    </li>
+                    <li class="dropdown mega nav-item ">
+                        <a class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false" aria-label="About" >
+                            <span>Dynamics</span>
+                        </a>
+                        <div class="dropdown-menu tile-list px-2" id="mainnav-dynamics">
+                            <div class="d-flex">
+                                <section class="tile menu white-box col">
+                                    <h2><a href="/dyn" aria-label="About">Dynamics</a></h2>
+                                        <ol style="column-fill: balance;" class="course-menu dynamics-menu">
+                                            <li class="px-2 pb-1"><a href="/dyn/vectors">Vectors</a></li>
+                                            <li class="px-2 pb-1"><a href="/dyn/vector_calculus">Vector Calculus</a></li>
+                                            <li class="px-2 pb-1"><a href="/dyn/particle_kinematics">Particle Kinematics</a></li>
+                                            <li class="px-2 pb-1"><a href="/dyn/particle_kinetics">Particle Kinetics</a></li>
+                                            <li class="px-2 pb-1"><a href="/dyn/rigid_body_kinematics">Rigid Body Kinematics</a></li>
+                                            <li class="px-2 pb-1"><a href="/dyn/rigid_body_kinetics">Rigid Body Kinetics</a></li>
+                                            <li class="px-2 pb-1"><a href="/dyn/contact_and_rolling">Contact And Rolling</a></li>
+                                            <li class="px-2 pb-1"><a href="/dyn/work_and_energy">Work And Energy</a></li>
+                                        </ol>
+                                </section>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="dropdown mega nav-item ">
+                        <a class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false" aria-label="About">
+                            <span>Solid Mechanics</span>
+                        </a>
+                        <div class="dropdown-menu tile-list px-2" id="mainnav-solids"> 
+                            <div class="d-flex" >
+                                <section class="tile menu white-box col">
+                                    <h2><a href="/sol" aria-label="About">Solid Mechanics</a></h2>
+                                        <ol style="column-fill: balance;" class="course-menu solids-menu">
+                                            <li class="px-2 pb-1"><a href="/sol/stress">Stress</a></li>
+                                            <li class="px-2 pb-1"><a href="/sol/strain">Strain</a></li>
+                                            <li class="px-2 pb-1"><a href="/sol/material_properties">Material Properties</a></li>
+                                            <li class="px-2 pb-1"><a href="/sol/axial_loading">Axial Loading</a></li>
+                                            <li class="px-2 pb-1"><a href="/sol/torsion">Torsion</a></li>
+                                            <li class="px-2 pb-1"><a href="/sol/shear_moment_diagrams">Shear Moment Diagrams</a></li>
+                                            <li class="px-2 pb-1"><a href="/sol/bending">Bending</a></li>
+                                            <li class="px-2 pb-1"><a href="/sol/transverse_shear">Transverse Shear</a></li>
+                                            <li class="px-2 pb-1"><a href="/sol/pressure_vessels">Pressure Vessels</a></li>
+                                            <li class="px-2 pb-1"><a href="/sol/combined_loading">Combined Loading</a></li>
+                                            <li class="px-2 pb-1"><a href="/sol/stress_transformation">Stress Transformation</a></li>
+                                            <li class="px-2 pb-1"><a href="/sol/failure_theories">Failure Theories</a></li>
+                                            <li class="px-2 pb-1"><a href="/sol/beam_deflection">Beam Deflection</a></li>
+                                            <li class="px-2 pb-1"><a href="/sol/buckling">Buckling</a></li>
+                                        </ol>
+                                </section>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+                <span class="navbar-text p-0 d-flex flex-row justify-content-center align-items-center theme-toggler" onclick="toggle_theme();" >
+                    <i class="bi ps-1 pe-2 m-0" id="theme-icon"></i>
+                    <p class="nav-link active py-1 pe-1 m-0" style="text-wrap: nowrap;">Toggle theme</p>
+                 
+                    <script is:inline>
+                        const theme_icon = document.querySelector("#theme-icon");
+                        //bi-moon
+                        if (theme == "dark"){
+                            theme_icon.classList.add("bi-moon-stars-fill");
+                        }else{
+                            theme_icon.classList.add("bi-sun-fill");
+                        }
+                    </script>
+                </span>
+            </div>
+        </nav>
+
+    </div>
+</header>
+
+<script is:inline>
+    //experiment for on hover menu activation
+
+//activate dropdown menus on mouse hover
+$("#mainnav .nav-item").on("mouseenter", 
+    function (e) {
+        if (window.innerWidth >= 992) {
+            $("#mainnav .show").removeClass("show");
+            $("#mainnav [aria-expanded=true]").attr("aria-expanded", "false");
+            $(this).addClass("show");
+            $(this).find(".dropdown-menu").addClass("show");
+            $(this).find(".dropdown-toggle").attr("aria-expanded", "true");
+        }
+    }).on("mouseleave", function (e) {
+        if (window.innerWidth >= 992) {
+            $(this).removeClass("show");
+            $(this).find(".dropdown-menu").removeClass("show");
+            $(this).find(".dropdown-toggle").attr("aria-expanded", "false");
+        }
+    }
+);
+
+$("#mainnav .nav-link").on("click", function (e) {
+    if (window.innerWidth < 992) {
+        if ($(this).hasClass("dropdown-toggle")) {
+            e.preventDefault();
+
+            if (!$(this).parent().hasClass("show")) {
+                $(this).attr("aria-expanded", "true");
+                var origPos = $(this).offset().top;
+                var windowPos = $(document).scrollTop();
+                $("#mainnav .show").removeClass("show");
+                $(this).parent().addClass("show");
+                $(this).parent().find(".dropdown-menu").addClass("show");
+                var newPos = $(this).offset().top;
+                if (windowPos > newPos) {
+                    var newWindowPos = newPos - origPos + windowPos;
+                    if (newWindowPos < 0) {
+                        newWindowPos = 0;
+                    }
+                    $(document).scrollTop(newWindowPos);
+                }
+            }
+            else {
+                $(this).attr("aria-expanded", "false");
+                $(this).parent().removeClass("show");
+                $(this).parent().find(".dropdown-menu").removeClass("show");
+            }
+        }
+    }
+});
+
+$("#mainnav-toggler-container button").click(function (e) {
+    if (window.innerWidth < 992) {
+        $("#mainnav .show").removeClass("show");
+    }
+});
+
+
+// show dropdown menu when mainnav nav-link gets focus; hide other dropdowns
+$("#mainnav .nav-link").focus(function (e) {
+    if (window.innerWidth >= 992) {
+        $("#mainnav [aria-expanded=true]").attr("aria-expanded", "false");
+        $("#mainnav .show").removeClass("show");
+        $(this).attr("aria-expanded", "true");
+        $(this).parent().addClass("show");
+        $(this).parent().find(".dropdown-menu").addClass("show");
+    }
+});
+
+
+
+$("*").focus(function (e) {
+    if ($(this).closest(".navbar").length == 0) {
+        if (window.innerWidth >= 992) {
+            $("#mainnav .show").removeClass("show");
+        }
+    }
+});
+</script>

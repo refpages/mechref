@@ -1,0 +1,55 @@
+---  
+    const {course, page} = Astro.props;
+
+    let name;
+
+    if (page != undefined){
+        const underscore_to_spaces = page.replaceAll("_", " ").toLowerCase()
+
+        name = underscore_to_spaces.charAt(0).toUpperCase() + underscore_to_spaces.slice(1)
+    } 
+---
+
+<style>
+
+    #nav_container{
+        align-self: start;
+        position: sticky;
+        top: 0;
+        overflow-y: auto;
+        max-height: 100vh;
+    }
+
+    @media (max-width: 1200px){
+        #nav_container{
+            position: relative;
+        }
+    }
+
+    #nav-tree-container_ul{
+        list-style-type: none;
+    }
+
+    #hideable-container{
+        display: flex;
+        flex-direction: column;
+    }
+</style>
+
+<div id="nav_container" class="d-flex flex-column ">
+    <div class="d-flex flex-column align-items-left mb-0 mb-xl-4 ps-3 mt-3 w-100" id="hideable-container">
+        {(page && course) &&
+        <p class="mb-2 fw-bold h5 text-decoration-underline themed-text">Current page:</p> 
+        <button class="btn d-inline-flex align-items-center rounded collapsed sidebar-btn p-0 mb-1" data-bs-toggle="collapse" data-bs-target="#navtree-collapse">
+            
+            <p class='text-start themed-text my-0 h5 fw-bold text-wrap '>{name}</p>
+        </button>
+        <div id="navtree-collapse" class="collapse">
+            <ul class='list-group list-group-flush py-0 mb-3' id="nav-tree-container">
+                <slot />
+            </ul>
+        </div>
+        }
+    </div>
+    
+</div>

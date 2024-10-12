@@ -2,6 +2,7 @@
 import Navbar from '../components/Navbar.astro';
 import SidebarContainer from '../components/SidebarContainer.astro';
 import Searchbar from '../components/Searchbar.astro';
+import NavtreeContainer from '../components/NavtreeContainer.astro';
 
 const { title } = Astro.props;
 
@@ -52,8 +53,7 @@ const pagename = cleaned[1]
 		<link rel="stylesheet" href="/static/css/main.css">
 		<link rel="stylesheet" href="/static/css/sidebar.css">
 
-		
-	
+
 		<!-- Google tag (gtag.js) -->
 		<script async src="https://www.googletagmanager.com/gtag/js?id=G-2YD4TR8K2S"></script>
 		<script is:inline>
@@ -65,15 +65,12 @@ const pagename = cleaned[1]
 		</script>
 	</head>
 	<body class="w-100">
-		<Navbar course={course}/>
+		<Navbar />
 		<div class="container-xxl content mb-5">
-			<SidebarContainer page={pagename} course={course}>
+			<NavtreeContainer page={pagename} course={course}>
 				<slot name="navtree" />
-			</SidebarContainer>
-			<div class="w-100 pt-0 pt-xl-3">
-				<div class={pagename ? " callout-grid w-100 mb-3": "w-100 mb-3"}>
-					<Searchbar/>
-				</div>
+			</NavtreeContainer>
+			<div class="w-100 pt-0 pt-xl-3"> 
 				<slot />
 			</div>
 
@@ -81,8 +78,29 @@ const pagename = cleaned[1]
 	</body>
 </html>
 <style is:global>
+	@font-face {
+		font-family: 'SourceSansPro';
+		font-style: normal;
+  		font-weight: 400;
+		src: url('/fonts/source-sans-pro/SourceSansPro-Regular.otf');
+	}
+
+	@font-face {
+		font-family: 'SourceSansPro';
+		font-style: bold;
+		font-weight: 700;
+		src: url('/fonts/source-sans-pro/SourceSansPro-Bold.otf');
+	}
+	
+	@font-face {
+		font-family: 'Montserrat';
+		font-style: bold;
+		font-weight: 700;
+		src: url('/fonts/Montserrat-Bold.ttf');
+	}
+
 	:root {
-		--illini-orange: #E84A27;
+		--illini-orange: #ff5f05;
 		--illini-blue: #13294B;
 		--accent: 136, 58, 234;
 		--accent-light: 224, 204, 250;

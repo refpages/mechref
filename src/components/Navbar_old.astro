@@ -1,0 +1,66 @@
+---
+const {course} = Astro.props;
+
+const coursetags = {
+    'sta': 'Statics',
+    'dyn': 'Dynamics',
+    'sol': 'Solid Mechanics'
+}
+
+---
+
+<div class="w-100 py-3 bg-blue" id="title_bar">
+    <div class="container">
+        <a href="/" class="text-decoration-none">
+            <h1 class="title-orange fw-bold m-0" style="font-size: 4rem">{course ? coursetags[course]  : "Mechanics"} Reference</h1>
+        </a>
+    </div>
+</div>
+
+<nav class="w-100 py-0 navbar navbar-expand" style="background-color: black;">
+    
+    <!-- <div class="collapse navbar-collapse"> -->
+        <div class="container overflow-auto">
+            <ul class="navbar-nav me-auto mb-0 ">
+                <div class="vr d-none d-sm-block" style="color: white;"></div>
+                <li class="nav-item">
+                    <a class="nav-link active text-white py-1" href="/">Home page</a>
+                </li>
+                <div class="vr d-none d-sm-block" style="color: white;"></div>
+                <li class="nav-item">
+                    <a class="nav-link active text-white py-1" href="/sta">Statics</a>
+                </li>
+                <div class="vr d-none d-sm-block" style="color: white;"></div>
+                <li class="nav-item">
+                    <a class="nav-link active text-white py-1" href="/dyn">Dynamics</a>
+                </li>
+                <div class="vr d-none d-sm-block" style="color: white;"></div>
+                <li class="nav-item">
+                    <a class="nav-link active text-white py-1" href="/sol">Solid Mechanics</a>
+                </li>
+                <div class="vr d-none d-sm-block" style="color: white;"></div>
+                
+                    
+                
+                
+            </ul>
+            
+            <span class="navbar-text p-0 d-flex flex-row align-items-center" onclick="toggle_theme();" style="cursor: pointer;">
+                <div class="vr d-none d-sm-block" style="color: white;"></div>
+                <i class="bi ps-1 pe-2 m-0" style="color: white;" id="theme-icon"></i>
+                <p class="nav-link active text-white py-1 pe-1 m-0">Toggle theme</p>
+                <div class="vr d-none d-sm-block" style="color: white;"></div>
+                
+                <script is:inline>
+                    const theme_icon = document.querySelector("#theme-icon");
+                    //bi-moon
+                    if (theme == "dark"){
+                        theme_icon.classList.add("bi-moon-stars-fill");
+                    }else{
+                        theme_icon.classList.add("bi-sun-fill");
+                    }
+                </script>
+            </span>
+        <!-- </div> -->
+    </div>
+</nav>
