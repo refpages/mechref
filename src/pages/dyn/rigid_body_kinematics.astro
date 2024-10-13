@@ -13,6 +13,13 @@ import CalloutContainer from "../../components/CalloutContainer.astro"
 import Enumerate from "../../components/Enumerate.astro"
 import Item from "../../components/Item.astro"
 import Warning from "../../components/Warning.astro"
+import PrairieDrawCanvas from "../../components/PrairieDrawCanvas.astro"
+import DisplayEquation from "../../components/DisplayEquation.astro"
+import DisplayEquationCustom from "../../components/DisplayEquationCustom.astro"
+import Example from "../../components/Example.astro"
+import InlineCanvas from "../../components/InlineCanvas.astro"
+import Row from "../../components/Row.astro"
+import Col from "../../components/Col.astro"
 ---
 <style>
     table { border-collapse: collapse; }
@@ -62,7 +69,7 @@ import Warning from "../../components/Warning.astro"
             <td>
                 position vector <InlineEquation equation="\\vec{r}_P" />
                 <br />
-                angle $\theta$
+                angle \(\theta\)
             </td>
             <td>
                 velocity vector <InlineEquation equation="\\vec{v}_P"/>
@@ -115,7 +122,21 @@ import Warning from "../../components/Warning.astro"
         out-of-plane direction.
       </p>
 	  
-	  <BlueText> Add animation from <a target="_blank" rel="noopener noreferrer" target="_blank" rel="noopener noreferrer" href="https://mechref.engr.illinois.edu/dyn/rkg.html"> here </a>.
+	  <PrairieDrawCanvas id="rkg-fw-c" height="600" width="600">
+        <p class="controls">
+            <button class="anim-toggle:rkg-fw-c" onclick="rkg_fw_c.toggleAnim()">animation</button>
+            <button class="reset:rkg-fw-c" onclick="rkg_fw_c.reset()">reset</button>
+            Show:
+            <button class="option-toggle:rkg-fw-c:showAngles" onclick="rkg_fw_c.toggleOption('showAngles')">angles</button>
+            <button class="option-toggle:rkg-fw-c:showAngVels" onclick="rkg_fw_c.toggleOption('showAngVels')">angular velocities</button>
+          </p>
+          <p class="figureCaption">
+            All points on a rigid body rotate at the same rate. Body
+            <InlineEquation equation="\\mathcal{B}_1" /> is rotated by angle \(\theta_1\), so its
+            angular velocity is <InlineEquation equation="\\omega_1 = \\dot{\\theta}_1" />, and
+            similarly for the second body.
+          </p>
+      </PrairieDrawCanvas>
 	  
 	  
 	  <Warning title="Labeling angular quantities on rigid bodies." id="rkg-ww">
@@ -163,10 +184,387 @@ import Warning from "../../components/Warning.astro"
 
 <SubSection title="Points on rigid bodies">
     <BlueText>Copy content from <a target="_blank" rel="noopener noreferrer" target="_blank" rel="noopener noreferrer" href="https://mechref.engr.illinois.edu/dyn/rkg.html"> here </a> </BlueText>
+
+    <p>
+        If we know how one point $P$ on a rigid body is moving and
+        we also know how the body is rotating, then we can calculate
+        the movement of any other point $Q$ on the same body. The
+        formulas for this are given below.
+    </p>
+
+    <DisplayEquationCustom background="True" derivation="True" title="Rigid body point relations." id='rkg-er'>
+        <DisplayEquation equation="\\begin{aligned}\\vec{r}_Q &amp;= \\vec{r}_P + \\vec{r}_{PQ} \\\\\\vec{v}_Q &amp;= \\vec{v}_P+ \\vec{\\omega} \\times \\vec{r}_{PQ} \\\\\\vec{a}_Q &amp;= \\vec{a}_P+ \\vec{\\alpha} \\times \\vec{r}_{PQ}+ \\vec{\\omega} \\times (\\vec{\\omega} \\times \\vec{r}_{PQ})\\end{aligned}" />
+        <p class="m-0">
+            Points $P$ and $Q$ are two locations on a rigid
+            body. Vectors <InlineEquation equation="\\vec{\\omega}" /> and <InlineEquation equation="\\vec{\\alpha}" /> are the
+            angular velocity and angular acceleration of the rigid
+            body.
+        </p>
+
+        <div slot="derivation">
+            <p>
+                The first equation is simply the definition of the
+                offset vector <InlineEquation equation="\\vec{r}_{PQ}" />. Differentiating the first
+                equation gives
+  
+                <DisplayEquation equation="\\begin{aligned}  \\vec{r}_Q &amp;= \\vec{r}_P + \\vec{r}_{PQ} \\\\  \\dot{\\vec{r}}_Q &amp;= \\dot{\\vec{r}}_P  + \\dot{\\vec{r}}_{PQ} \\\\  \\vec{v}_Q &amp;= \\vec{v}_P  + \\vec{\\omega} \\times \\vec{r}_{PQ},  \\end{aligned}" />
+  
+                where the derivative of <InlineEquation equation="\\vec{r}_{PQ}" /> comes from the <a
+                href="rkr.html#rkr-ew">rotation formula</a>, given that
+                this offset vector is simply rotating with the rigid
+                body.
+              </p>
+              <p>
+                If we differentiate again then we obtain
+  
+                <DisplayEquation equation="\\begin{aligned}  \\vec{v}_Q &amp;= \\vec{v}_P  + \\vec{\\omega} \\times \\vec{r}_{PQ} \\\\  \\dot{\\vec{v}}_Q &amp;= \\dot{\\vec{v}}_P  + \\dot{\\vec{\\omega}} \\times \\vec{r}_{PQ}  + \\vec{\\omega} \\times \\dot{\\vec{r}}_{PQ} \\\\  \\vec{a}_Q &amp;= \\vec{a}_P  + \\vec{\\alpha} \\times \\vec{r}_{PQ}  + \\vec{\\omega} \\times (\\vec{\\omega} \\times \\vec{r}_{PQ}),  \\end{aligned}" />
+  
+                where we use the fact that <InlineEquation equation="\\vec{\\alpha} = \\dot{\\vec{\\omega}}" />.
+              </p>
+        </div>
+    </DisplayEquationCustom>
+
+    <Warning id="rkg-wc" title="Cross product order">
+        <p>
+            Because cross products are <a
+            href="/dyn/vector_calculus#rvv-wc">not associative</a>, it is very
+            important to compute the centripetal acceleration term
+            with the parentheses as shown. That is, we must not
+            compute <InlineEquation equation="(\\vec{\\omega} \\times \\vec{\\omega}) \\times \\vec{r}_{PQ}" />, as this is always zero.
+          </p>
+    </Warning>
+
+    <p>
+        The term <InlineEquation equation="\\vec{\\omega} \\times (\\vec{\\omega} \\times \\vec{r}_{PQ})" /> in the acceleration equation above is called
+        the <em>centripetal</em> (center-seeking) term, as it is
+        always in the direction <InlineEquation equation="-\\vec{r}_{PQ}" /> and so acts from $Q$
+        towards the “center” $P$.
+      </p>
+
+    <PrairieDrawCanvas id="rkg-fr-c" height="600" width="600">
+        <p class="controls">
+            Show:
+            <input type="radio" name="rkg-fr-c-showType" value="none" class="data-input:rkg-fr-c:showType" onchange="rkg_fr_c.setOption('showType', this.value);" checked/>
+            none
+            <input type="radio" name="rkg-fr-c-showType" value="position" class="data-input:rkg-fr-c:showType" onchange="rkg_fr_c.setOption('showType', this.value);"/>
+            position
+            <input type="radio" name="rkg-fr-c-showType" value="velocity" class="data-input:rkg-fr-c:showType" onchange="rkg_fr_c.setOption('showType', this.value);"/>
+            velocity
+            <input type="radio" name="rkg-fr-c-showType" value="acceleration" class="data-input:rkg-fr-c:showType" onchange="rkg_fr_c.setOption('showType', this.value);"/>
+            acceleration
+          </p>
+          <p class="figureCaption">
+            Two points $P$ and $Q$ on a moving and accelerating rigid body.
+          </p>
+    </PrairieDrawCanvas>
+
+    <Example id="rkg-xp" title="Points on a rigid body" solution="True">
+        <div class="d-flex">
+            <p>
+                A rectangular block is sliding along the ground so
+                that the contact point $P$ is moving at a constant
+                speed of \(3\rm\ m/s\) to the left. The block is
+                rotating clockwise and just before point $Q$ hits the
+                ground the angular velocity is \(2\rm\ rad/s\) clockwise
+                and the angular acceleration is \(3\rm\ rad/s^2\)
+                clockwise. What is the velocity and acceleration of
+                $Q$ just before impact?
+              </p>
+            <InlineCanvas id="rkg-xp-c" width="300" height="200"/>
+        </div>
+        <div slot="solution">
+            <p>
+                Using the regular <InlineEquation equation="\\hat\\imath,\\hat\\jmath" /> basis, the
+                known information just before impact is
+
+                <DisplayEquation equation="    \\vec{r}_{PQ} = 2\\,\\hat\\imath \\qquad    \\vec{v}_P = -3\\,\\hat\\imath \\qquad    \\vec{a}_P = 0 \\qquad    \\vec\\omega = -2\\,\\hat{k} \\qquad    \\vec\\alpha = -3\\,\\hat{k}.    " />
+
+
+
+                The velocity and acceleration of $Q$ are given by
+                
+                <DisplayEquation equation="\\begin{aligned}  \\vec{v}_Q &amp;= \\vec{v}_P  + \\vec{\\omega} \\times \\vec{r}_{PQ} \\\\  &amp;= -3\\,\\hat\\imath  - 2\\,\\hat{k} \\times 2\\,\\hat\\imath \\\\  &amp;= -3\\,\\hat\\imath  - 4\\,\\hat\\jmath \\\\  \\vec{a}_Q &amp;= \\vec{a}_P  + \\vec{\\alpha} \\times \\vec{r}_{PQ}  + \\vec{\\omega} \\times (\\vec{\\omega} \\times \\vec{r}_{PQ}) \\\\  &amp;= 0 - 3\\,\\hat{k} \\times 2\\,\\hat\\imath  - 2\\,\\hat{k} \\times (-2\\,\\hat{k} \\times 2\\,\\hat\\imath) \\\\  &amp;= -6\\,\\hat\\jmath - 2\\,\\hat{k} \\times (-4\\,\\hat\\jmath) \\\\  &amp;= -8\\,\\hat\\imath - 6\\,\\hat\\jmath.  \\end{aligned}" />
+
+              </p>
+        </div>
+    </Example>
+
+    <Example title="Coupled rigid bodies" id="rkg-xc" solution="True" >
+        <div class="d-flex">
+            <div>
+                <p>
+                    Three rigid bodies (two rods and a block) are coupled
+                    by pins at $O$, $P$, and $Q$ as shown. Body
+                    <InlineEquation equation="\\mathcal{B}_3" /> cannot rotate and must slide
+                    horizontally along the ground. The rod lengths are <InlineEquation equation="OP      = 3\\sqrt{2}\\rm\\ m" />
+                    and <InlineEquation equation="PQ = 5\\rm\\ m" />, and points $O$
+                    and $Q$ are the same height above the ground.
+                  </p>
+                  <p>
+                    At the instant shown, <InlineEquation equation="\\theta_1 = 45^\\circ" />, <InlineEquation equation="\\omega_1      = 4\\rm\\ rad/s" />
+                    . What are <InlineEquation equation="\\omega_2" /> and <InlineEquation equation="\\vec{v}_Q" /> at
+                    this instant?
+                  </p>
+            </div>
+            <InlineCanvas id="rkg-xc-c" width="300" height="200" />
+        </div>
+
+        <div slot="solution">
+            <p>
+                Taking a regular <InlineEquation equation="\\hat\\imath,\\hat\\jmath" /> basis at
+                $O$, we can use the rod lengths and angles to find
+                the relative position vectors:
+
+                <DisplayEquation equation="\\begin{aligned}  \\vec{r}_{OP} &amp;= 3\\hat\\imath + 3\\hat\\jmath\\rm\\ m \\\\  \\vec{r}_{PQ} &amp;= 4\\hat\\imath - 3\\hat\\jmath\\rm\\ m.  \\end{aligned}" />
+
+
+                Using the vector angular velocities <InlineEquation equation="\\vec{\\omega}_1  = \\omega_1\\,\\hat{k}" /> and <InlineEquation equation="\\vec{\\omega}_2 =  \\omega_2\\,\\hat{k}" />, we can now use <a
+                href="#rkg-er">#rkg-er</a> to find first <InlineEquation equation="\\vec{v}_P" />
+                and then <InlineEquation equation="\\vec{v}_Q" /> in terms of the unknown angular
+                velocity $\omega_2$:
+
+                <DisplayEquation equation="\\begin{aligned}  \\vec{v}_{P} &amp;= \\vec{v}_O + \\vec{\\omega}_1 \\times \\vec{r}_{OP} \\\\  &amp;= 4\\hat{k} \\times (3\\hat\\imath + 3\\hat\\jmath) \\\\  &amp;= -12\\hat\\imath + 12\\hat\\jmath{\\rm\\ m/s} \\\\  \\vec{v}_{Q} &amp;= \\vec{v}_P + \\vec{\\omega}_2 \\times \\vec{r}_{PQ} \\\\  &amp;= (-12\\hat\\imath + 12\\hat\\jmath{\\rm\\ m/s})  + \\omega_2\\,\\hat{k} \\times (4\\hat\\imath - 3\\hat\\jmath) \\\\  &amp;= (-12 + 3\\omega_2)\\,\\hat\\imath  + (12 + 4\\omega_2)\\,\\hat\\jmath{\\rm\\ m/s}.  \\end{aligned}" />
+
+
+                The last piece of information that we need to use is
+                the constraint on the motion of <InlineEquation equation="\\mathcal{B}_3" />,
+                namely that it can only slide horizontally. This can
+                be expressed by saying that the vertical component
+                of <InlineEquation equation="\\vec{v}_Q" /> is zero, or more generally that the
+                component in the normal direction <InlineEquation equation="\\hat{e}_n =  \\hat\\jmath" /> is zero. That is:
+
+                <DisplayEquation equation="\\begin{aligned}  0 &amp;= \\vec{v}_Q \\cdot \\hat{e}_n \\\\  &amp;= \\Big((-12 + 3\\omega_2)\\,\\hat\\imath  + (12 + 4\\omega_2)\\,\\hat\\jmath\\Big) \\cdot \\hat\\jmath \\\\  &amp;= 12 + 4\\omega_2 \\\\  \\omega_2 &amp;= -3{\\rm\\ rad/s}.  \\end{aligned}" />
+
+
+                Substituting this back into the expression above for
+                <InlineEquation equation="\\vec{v}_Q" /> gives:
+
+                <DisplayEquation equation="\\vec{v}_Q = -21\\hat\\imath{\\rm\\ m/s}," />
+
+
+                which does indeed have no vertical component, as
+                expected.
+              </p>
+        </div>
+    </Example>
+
+    <Warning title="Rigid body points may be accelerating even if \\(\\vec{a}_P = 0\\) and \\(\\alpha = 0\\)." id="rkg-wa">
+        <p>
+            If <InlineEquation equation="\\vec{\\alpha} = 0" /> and <InlineEquation equation="\\vec{a}_P = 0" /> for a rigid
+            body then we would normally say that the body itself is
+            not accelerating. This does not mean, however, that the
+            points on the bodies are not accelerating. If the body
+            is rotating (so <InlineEquation equation=" \\vec{\\omega} \\ne 0" />) then the
+            centripetal acceleration means that in fact most points
+            on the body are accelerating at any time.
+          </p>
+    </Warning>
 </SubSection>
 
 <SubSection title="Rigid bodies in 2D">
     <BlueText>Copy content from <a target="_blank" rel="noopener noreferrer" target="_blank" rel="noopener noreferrer" href="https://mechref.engr.illinois.edu/dyn/rkg.html"> here </a> </BlueText>
+    
+    <p>
+        The <a href="#rkg-er">#rkg-er</a> equations above are valid
+        in both 2D and 3D. If we know that we are in the 2D
+        <InlineEquation equation="\\hat\\imath,\\hat\\jmath" /> plane then the angular velocity
+        vector is orthogonal to the plane in the <InlineEquation equation="\\hat{k}" /> direction
+        and the equations can be written in a simpler form with the
+        perpendicular vector notation <a
+        href="/dyn/vector_calculus#rvv-en">#rvv-en</a>, as shown below.
+    </p>
+    
+    <DisplayEquationCustom background="True" id="rkg-e2" title="Rigid body point relations in 2D." derivation="True">
+        <DisplayEquation equation="\\begin{aligned}\\vec{r}_Q &amp;= \\vec{r}_P + \\vec{r}_{PQ} \\\\\\vec{v}_Q &amp;= \\vec{v}_P+ \\omega_z \\, \\vec{r}_{PQ}^\\perp \\\\\\vec{a}_Q &amp;= \\vec{a}_P+ \\alpha_z \\, \\vec{r}_{PQ}^\\perp- \\omega^2 \\, \\vec{r}_{PQ}\\end{aligned}" />
+
+        <p>
+            Points $P$ and $Q$ are two locations on a rigid
+            body. Scalars <InlineEquation equation="\\omega_z" /> and <InlineEquation equation="\\alpha_z" /> are the scalar
+            angular velocity and angular acceleration of the rigid
+            body (positive counter-clockwise).
+        </p>
+
+        <div slot="derivation">
+            <p>
+                The position vectors <InlineEquation equation="\\vec{r}_P" /> and <InlineEquation equation="\\vec{r}_Q" /> lie in
+                the <InlineEquation equation="\\hat\\imath,\\hat\\jmath" /> plane, so <InlineEquation equation="\\vec{v}_P" />,
+                <InlineEquation equation="\\vec{v}_Q" />, and <InlineEquation equation="\\vec{r}_{PQ}" /> are also in this
+                plane. The angular velocity and angular acceleration
+                vectors are orthogonal and thus can be written:
+  
+                <DisplayEquation equation="\\begin{aligned}  \\vec{\\omega} &amp;= \\omega\\,\\hat{k} \\\\  \\vec{\\alpha} &amp;= \\alpha\\,\\hat{k}.  \\end{aligned}" />
+
+  
+                Evaluating <a href="#rkg-er">#rkg-er</a> and using the
+                cross-product expression <a
+                href="rvv.html#rvv-e9">#rvv-e9</a> now gives the
+                velocity expression:
+  
+                <DisplayEquation equation="\\begin{aligned}  \\vec{v}_Q &amp;= \\vec{v}_P  + \\vec{\\omega} \\times \\vec{r}_{PQ} \\\\  &amp;= \\vec{v}_P  + \\omega\\,\\hat{k} \\times \\vec{r}_{PQ} \\\\  &amp;= \\vec{v}_P  + \\omega \\,\\vec{r}_{PQ}^\\perp,  \\end{aligned}" />
+
+  
+                and the acceleration equation:
+  
+                <DisplayEquation equation="\\begin{aligned}  \\vec{a}_Q &amp;= \\vec{a}_P  + \\vec{\\alpha} \\times \\vec{r}_{PQ}  + \\vec{\\omega} \\times (\\vec{\\omega} \\times \\vec{r}_{PQ}) \\\\  &amp;= \\vec{a}_P  + \\alpha\\,\\hat{k} \\times \\vec{r}_{PQ}  + \\omega\\,\\hat{k} \\times (\\omega\\,\\hat{k} \\times \\vec{r}_{PQ}) \\\\  &amp;= \\vec{a}_P  + \\alpha\\,\\vec{r}_{PQ}^\\perp  + \\omega\\,\\hat{k} \\times (\\omega\\,\\vec{r}_{PQ}^\\perp) \\\\  &amp;= \\vec{a}_P  + \\alpha\\,\\vec{r}_{PQ}^\\perp  + \\omega^2 (\\vec{r}_{PQ}^\\perp)^\\perp \\\\  &amp;= \\vec{a}_P  + \\alpha\\,\\vec{r}_{PQ}^\\perp  - \\omega^2 \\vec{r}_{PQ},  \\end{aligned}" />
+
+  
+                where we used the fact that <InlineEquation equation="\\vec{r}^{\\perp\\perp} =  -\\vec{r}" />
+                (two <InlineEquation equation="90^\\circ" /> rotations make a <InlineEquation equation="180^\\circ" />
+                rotation).
+              </p>
+        </div>
+    </DisplayEquationCustom>
+
+    <p>
+        If a point \(M\) on a rigid body has zero velocity then it is
+        called the <em>instantaneous center of rotation</em>,
+        because the velocity of all points on the body will be given
+        by simple rotation about \(M\) with the angular velocity
+        <InlineEquation equation="\\vec{\\omega}" /> of the body. In 2D we can always find the
+        instantaneous center with the following equation, although
+        it might be outside of the physical body.
+      </p>
+
+      <DisplayEquationCustom background="True" id="rkg-ei" title="Instantaneous center of rotation \\(M\\) in 2D." derivation="True">
+            <DisplayEquation equation="            \\vec{r}_{PM} =            \\frac{1}{\\omega^2} \\vec{\\omega} \\times \\vec{v}_P            = \\frac{1}{\\omega} \\vec{v}_P^\\perp            " />
+          <p>
+            Point $P$ has velocity <InlineEquation equation="\\vec{v}_P" /> and is attached to a
+            rigid body rotating with angular velocity
+            <InlineEquation equation="\\vec{\\omega}" />.
+          </p>
+
+          <div slot="derivation">
+            <p>
+                The instantaneous center $M$ has the property that the
+                point on the rigid body at $M$ has zero velocity. We
+                thus want:
+  
+                <DisplayEquation equation="  0 = \\vec{v}_M =  \\vec{v}_P + \\vec{\\omega} \\times \\vec{r}_{PM}.  " />
+
+  
+                Taking another cross product by <InlineEquation equation="\\vec{\\omega}" /> gives:
+  
+                <DisplayEquation equation="\\begin{aligned}  0 &amp;=  \\vec{\\omega} \\times \\Big(  \\vec{v}_P + \\vec{\\omega} \\times \\vec{r}_{PM} \\Big) \\\\  &amp;= \\vec{\\omega} \\times \\vec{v}_P  + \\vec{\\omega} \\times (\\vec{\\omega} \\times \\vec{r}_{PM}) \\\\  &amp;= \\vec{\\omega} \\times \\vec{v}_P  - \\omega^2 \\, \\vec{r}_{PM} \\text{ (because \\vec\\omega \\perp \\vec{r}_{PM})} \\\\  \\vec{r}_{PM} &amp;= \\frac{1}{\\omega^2}  \\vec{\\omega} \\times \\vec{v}_P.  \\end{aligned}" />
+
+                
+                Here we used the fact that if <InlineEquation equation="\\vec{r}_{PM}" />. lies in the
+                <InlineEquation equation="\\hat\\imath,\\hat\\jmath " /> plane and <InlineEquation equation="\\vec{\\omega}" /> is in
+                the <InlineEquation equation="\\hat{k}" /> direction, then from <a
+                href="rvv.html#rvv-e9">#rvv-e9</a> we have
+                <InlineEquation equation="\\vec{\\omega} \\times (\\vec{\\omega} \\times \\vec{r}_{PM})  = \\omega^2 \\,\\vec{r}_{PM}^{\\perp\\perp} =  -\\omega^2\\,\\vec{r}_{PM}" />, as in the derivation of <a
+                href="#rkg-e2">#rkg-e2</a>.
+              </p>
+          </div>
+      </DisplayEquationCustom>
+
+      <p>
+        In 3D there will only be an instantaneous center if
+        <InlineEquation equation="\\vec{v}_P" /> is orthogonal to <InlineEquation equation="\\vec{\\omega}" />, in which case
+        there will many choices for the instantaneous center, all
+        lying on a line in the <InlineEquation equation="\\vec{\\omega}" /> direction.
+      </p>
+      <p>
+        If $M$ is an instantaneous center, so it has zero velocity,
+        then the velocity of any other point on the rigid body is
+        given by the following equation.
+      </p>
+
+      <DisplayEquationCustom background="True" id="rkg-ev" title="Velocity from the instantaneous center \\(M\\)." derivation="True">
+            <DisplayEquation equation="            \\vec{v}_{Q} = \\vec{\\omega} \\times \\vec{r}_{MQ}            " />
+          <p>
+            Point $M$ is the instantaneous center of rotation for a
+            rigid body rotating with angular velocity
+            <InlineEquation equation="\\vec{\\omega}" />, and $Q$ is any point on the body.
+          </p>
+
+          <div slot="derivation">
+            <p>
+                By definition the instantaneous center has <InlineEquation equation="\\vec{v}_M =  0" />
+                , so the velocity formula <a
+                href="#rkg-er">#rkg-er</a> gives:
+  
+                <DisplayEquation equation="\\begin{aligned}  \\vec{v}_Q &amp;= \\vec{v}_M + \\vec{\\omega} \\times \\vec{r}_{MQ} \\\\  &amp;= \\vec{\\omega} \\times \\vec{r}_{MQ}.  \\end{aligned}" />
+              </p>
+          </div>
+      </DisplayEquationCustom>
+
+      <PrairieDrawCanvas id="rkg-fd-c" width="600" height="600">
+        <p class="controls">
+            <button class="anim-toggle:rkg-fd-c" onclick="rkg_fd_c.toggleAnim()">animation</button>
+            <button class="reset:rkg-fd-c" onclick="rkg_fd_c.reset()">reset</button>
+            <button class="option-toggle:rkg-fd-c:showLabels" onclick="rkg_fd_c.toggleOption('showLabels')">show labels</button>
+          </p>
+          <table class="controls mb-3">
+            <tr>
+              <td>Movement:</td>
+              <td><input type="radio" name="rkg-fd-c-movement" value="translate" class="data-input:rkg-fd-c:movement" checked onchange="rkg_fd_c.setOption('movement', this.value);"/> translation</td>
+              <td><input type="radio" name="rkg-fd-c-movement" value="varTranslate" class="data-input:rkg-fd-c:movement" onchange="rkg_fd_c.setOption('movement', this.value);"/> var. translation</td>
+              <td><input type="radio" name="rkg-fd-c-movement" value="rotate" class="data-input:rkg-fd-c:movement" onchange="rkg_fd_c.setOption('movement', this.value);"/> rotation</td>
+              <td><input type="radio" name="rkg-fd-c-movement" value="varRotate" class="data-input:rkg-fd-c:movement" onchange="rkg_fd_c.setOption('movement', this.value);"/> var. rotation</td>
+              <td><input type="radio" name="rkg-fd-c-movement" value="slide" class="data-input:rkg-fd-c:movement" onchange="rkg_fd_c.setOption('movement', this.value);"/> slide</td>
+            </tr>
+            <tr>
+              <td></td>
+              <td><input type="radio" name="rkg-fd-c-movement" value="hinge" class="data-input:rkg-fd-c:movement" onchange="rkg_fd_c.setOption('movement', this.value);"/> hinge</td>
+              <td><input type="radio" name="rkg-fd-c-movement" value="circle" class="data-input:rkg-fd-c:movement" onchange="rkg_fd_c.setOption('movement', this.value);"/> circle</td>
+              <td><input type="radio" name="rkg-fd-c-movement" value="spin" class="data-input:rkg-fd-c:movement" onchange="rkg_fd_c.setOption('movement', this.value);"/> spin</td>
+              <td><input type="radio" name="rkg-fd-c-movement" value="reverse" class="data-input:rkg-fd-c:movement" onchange="rkg_fd_c.setOption('movement', this.value);"/> reverse spin</td>
+              <td><input type="radio" name="rkg-fd-c-movement" value="osc" class="data-input:rkg-fd-c:movement" onchange="rkg_fd_c.setOption('movement', this.value);"/> oscillation</td>
+            </tr>
+          </table>
+          <Row>
+            <Col values="6 md-3">
+                <div class="d-flex flex-column mb-2">
+                    <p class="fw-bold text-center">Point $P$</p>
+                    <button class="option-toggle:rkg-fd-c:showPVel my-1" onclick="rkg_fd_c.toggleOption('showPVel');">$P$ velocity</button>
+                    <button class="option-toggle:rkg-fd-c:showPAcc my-1" onclick="rkg_fd_c.toggleOption('showPAcc');">$P$ acceleration</button>
+                    <button class="option-toggle:rkg-fd-c:showPPath my-1" onclick="rkg_fd_c.toggleOption('showPPath');">$P$ path</button>
+                    <button class="option-toggle:rkg-fd-c:showPAngVel my-1" onclick="rkg_fd_c.toggleOption('showPAngVel');">ang. vel. about $P$</button>
+                    <button class="option-toggle:rkg-fd-c:showPAngAcc my-1" onclick="rkg_fd_c.toggleOption('showPAngAcc');">ang. acc. about $P$</button>
+                    <button class="option-toggle:rkg-fd-c:PAtCorner my-1" onclick="rkg_fd_c.toggleOption('PAtCorner');">$P$ at corner</button>
+                </div>
+                
+            </Col>
+            <Col values="6 md-3">
+                <div class="d-flex flex-column mb-2">
+                    <p class="fw-bold text-center">Body</p>
+                    <button class="option-toggle:rkg-fd-c:showQPath my-1" onclick="rkg_fd_c.toggleOption('showQPath');">$Q$ path</button>
+                    <button class="option-toggle:rkg-fd-c:showAngVel my-1" onclick="rkg_fd_c.toggleOption('showAngVel');">ang. vel.</button>
+                    <button class="option-toggle:rkg-fd-c:showAngAcc my-1" onclick="rkg_fd_c.toggleOption('showAngAcc');">ang. acc.</button>
+                    <button class="option-toggle:rkg-fd-c:showInstRot my-1" onclick="rkg_fd_c.toggleOption('showInstRot');">inst. cent. $M$</button>
+                    
+                </div>
+            </Col>
+            <Col values="6 md-3">
+                <div class="d-flex flex-column mb-2">
+                    <p class="fw-bold text-center">$Q$ Velocity</p>
+                    <p class="m-0"><input type="radio" name="rkg-fd-c-velField" value="none" class="data-input:rkg-fd-c:velField me-2" checked onchange="rkg_fd_c.setOption('velField', this.value);"/> none</p>
+                    <p class="m-0"><input type="radio" name="rkg-fd-c-velField" value="base" class="data-input:rkg-fd-c:velField me-2" onchange="rkg_fd_c.setOption('velField', this.value);"/> <InlineEquation equation="\\vec{v}_P" /> (trans.)</p>
+                    <p class="m-0"><input type="radio" name="rkg-fd-c-velField" value="omega" class="data-input:rkg-fd-c:velField me-2" onchange="rkg_fd_c.setOption('velField', this.value);"/> <InlineEquation equation="\\vec{\\omega} \\times \\vec{r}_{PQ}" /> (rot.)</p>
+                    <p class="m-0"><input type="radio" name="rkg-fd-c-velField" value="total" class="data-input:rkg-fd-c:velField me-2" onchange="rkg_fd_c.setOption('velField', this.value);"/> <InlineEquation equation="\\vec{v}_Q" />  (total)</p>
+                    <button class="option-toggle:rkg-fd-c:showVelField my-1" onclick="rkg_fd_c.toggleOption('showVelField');">all points</button>
+                </div>
+            </Col>
+            <Col values="6 md-3">
+                <div class="d-flex flex-column mb-2">
+                    <p class="fw-bold text-center">$Q$ Acceleration</p>
+                    <p class="m-0"><input type="radio" name="rkg-fd-c-accField" value="none" class="data-input:rkg-fd-c:accField me-2" checked onchange="rkg_fd_c.setOption('accField', this.value);"/> none</p>
+                    <p class="m-0"><input type="radio" name="rkg-fd-c-accField" value="base" class="data-input:rkg-fd-c:accField me-2" onchange="rkg_fd_c.setOption('accField', this.value);"/> <InlineEquation equation="\\vec{a}_P" /> (trans.)</p>
+                    <p class="m-0"><input type="radio" name="rkg-fd-c-accField" value="alpha" class="data-input:rkg-fd-c:accField me-2" onchange="rkg_fd_c.setOption('accField', this.value);"/> <InlineEquation equation="\\vec{\\alpha} \\times \\vec{r}_{PQ}" /> (ang.)</p>
+                    <p class="m-0"><input type="radio" name="rkg-fd-c-accField" value="cent" class="data-input:rkg-fd-c:accField me-2" onchange="rkg_fd_c.setOption('accField', this.value);"/> <InlineEquation equation="\\vec{\\omega} \\times (\\vec{\\omega} \\times \\vec{r}_{PQ})" />
+                        (cent.)</p>
+                    <p class="m-0"><input type="radio" name="rkg-fd-c-accField" value="total" class="data-input:rkg-fd-c:accField me-2" onchange="rkg_fd_c.setOption('accField', this.value);"/> <InlineEquation equation="\\vec{a}_Q" />  (total)</p>
+                    <button class="option-toggle:rkg-fd-c:showAccField my-1" onclick="rkg_fd_c.toggleOption('showAccField');">all points</button>
+                    
+                </div>
+            </Col>
+          </Row>
+        
+          <p class="figureCaption">
+            Velocity and acceleration of points on a rigid body
+            undergoing different motions.
+          </p>
+      </PrairieDrawCanvas>
 </SubSection>
 
 <SubSection title="Constrained motion">
@@ -209,4 +607,6 @@ import Warning from "../../components/Warning.astro"
     
 	Application for "Rigid body rotation".
 </SubSubSection>
+
+<script src="/dyn/rigid_body_kinematics/canvases.js" is:inline></script>
 </Layout>
