@@ -49,7 +49,7 @@ import Col from "../../components/Col.astro"
           includes all the points inside it, and which moves so that
           the distances and angles between all its points remain
           constant. The location of a rigid body can be described by
-          the position of one point $P$ inside it, together with the
+          the position of one point \(P\) inside it, together with the
           rotation angle of the body (one angle in 2D, three angles in
           3D).
     <Center>
@@ -186,16 +186,16 @@ import Col from "../../components/Col.astro"
     <BlueText>Copy content from <a target="_blank" rel="noopener noreferrer" target="_blank" rel="noopener noreferrer" href="https://mechref.engr.illinois.edu/dyn/rkg.html"> here </a> </BlueText>
 
     <p>
-        If we know how one point $P$ on a rigid body is moving and
+        If we know how one point \(P\) on a rigid body is moving and
         we also know how the body is rotating, then we can calculate
-        the movement of any other point $Q$ on the same body. The
+        the movement of any other point \(Q\) on the same body. The
         formulas for this are given below.
     </p>
 
     <DisplayEquationCustom background="True" derivation="True" title="Rigid body point relations." id='rkg-er'>
         <DisplayEquation equation="\\begin{aligned}\\vec{r}_Q &amp;= \\vec{r}_P + \\vec{r}_{PQ} \\\\\\vec{v}_Q &amp;= \\vec{v}_P+ \\vec{\\omega} \\times \\vec{r}_{PQ} \\\\\\vec{a}_Q &amp;= \\vec{a}_P+ \\vec{\\alpha} \\times \\vec{r}_{PQ}+ \\vec{\\omega} \\times (\\vec{\\omega} \\times \\vec{r}_{PQ})\\end{aligned}" />
         <p class="m-0">
-            Points $P$ and $Q$ are two locations on a rigid
+            Points \(P\) and \(Q\) are two locations on a rigid
             body. Vectors <InlineEquation equation="\\vec{\\omega}" /> and <InlineEquation equation="\\vec{\\alpha}" /> are the
             angular velocity and angular acceleration of the rigid
             body.
@@ -237,8 +237,8 @@ import Col from "../../components/Col.astro"
     <p>
         The term <InlineEquation equation="\\vec{\\omega} \\times (\\vec{\\omega} \\times \\vec{r}_{PQ})" /> in the acceleration equation above is called
         the <em>centripetal</em> (center-seeking) term, as it is
-        always in the direction <InlineEquation equation="-\\vec{r}_{PQ}" /> and so acts from $Q$
-        towards the “center” $P$.
+        always in the direction <InlineEquation equation="-\\vec{r}_{PQ}" /> and so acts from \(Q\)
+        towards the “center” \(P\).
       </p>
 
     <PrairieDrawCanvas id="rkg-fr-c" height="600" width="600">
@@ -254,7 +254,7 @@ import Col from "../../components/Col.astro"
             acceleration
           </p>
           <p class="figureCaption">
-            Two points $P$ and $Q$ on a moving and accelerating rigid body.
+            Two points \(P\) and \(Q\) on a moving and accelerating rigid body.
           </p>
     </PrairieDrawCanvas>
 
@@ -262,13 +262,13 @@ import Col from "../../components/Col.astro"
         <div class="d-flex">
             <p>
                 A rectangular block is sliding along the ground so
-                that the contact point $P$ is moving at a constant
+                that the contact point \(P\) is moving at a constant
                 speed of \(3\rm\ m/s\) to the left. The block is
-                rotating clockwise and just before point $Q$ hits the
+                rotating clockwise and just before point \(Q\) hits the
                 ground the angular velocity is \(2\rm\ rad/s\) clockwise
                 and the angular acceleration is \(3\rm\ rad/s^2\)
                 clockwise. What is the velocity and acceleration of
-                $Q$ just before impact?
+                \(Q\) just before impact?
               </p>
             <InlineCanvas id="rkg-xp-c" width="300" height="200"/>
         </div>
@@ -281,7 +281,7 @@ import Col from "../../components/Col.astro"
 
 
 
-                The velocity and acceleration of $Q$ are given by
+                The velocity and acceleration of \(Q\) are given by
                 
                 <DisplayEquation equation="\\begin{aligned}  \\vec{v}_Q &amp;= \\vec{v}_P  + \\vec{\\omega} \\times \\vec{r}_{PQ} \\\\  &amp;= -3\\,\\hat\\imath  - 2\\,\\hat{k} \\times 2\\,\\hat\\imath \\\\  &amp;= -3\\,\\hat\\imath  - 4\\,\\hat\\jmath \\\\  \\vec{a}_Q &amp;= \\vec{a}_P  + \\vec{\\alpha} \\times \\vec{r}_{PQ}  + \\vec{\\omega} \\times (\\vec{\\omega} \\times \\vec{r}_{PQ}) \\\\  &amp;= 0 - 3\\,\\hat{k} \\times 2\\,\\hat\\imath  - 2\\,\\hat{k} \\times (-2\\,\\hat{k} \\times 2\\,\\hat\\imath) \\\\  &amp;= -6\\,\\hat\\jmath - 2\\,\\hat{k} \\times (-4\\,\\hat\\jmath) \\\\  &amp;= -8\\,\\hat\\imath - 6\\,\\hat\\jmath.  \\end{aligned}" />
 
@@ -294,11 +294,11 @@ import Col from "../../components/Col.astro"
             <div>
                 <p>
                     Three rigid bodies (two rods and a block) are coupled
-                    by pins at $O$, $P$, and $Q$ as shown. Body
+                    by pins at $O$, \(P\), and \(Q\) as shown. Body
                     <InlineEquation equation="\\mathcal{B}_3" /> cannot rotate and must slide
                     horizontally along the ground. The rod lengths are <InlineEquation equation="OP      = 3\\sqrt{2}\\rm\\ m" />
                     and <InlineEquation equation="PQ = 5\\rm\\ m" />, and points $O$
-                    and $Q$ are the same height above the ground.
+                    and \(Q\) are the same height above the ground.
                   </p>
                   <p>
                     At the instant shown, <InlineEquation equation="\\theta_1 = 45^\\circ" />, <InlineEquation equation="\\omega_1      = 4\\rm\\ rad/s" />
@@ -378,7 +378,7 @@ import Col from "../../components/Col.astro"
         <DisplayEquation equation="\\begin{aligned}\\vec{r}_Q &amp;= \\vec{r}_P + \\vec{r}_{PQ} \\\\\\vec{v}_Q &amp;= \\vec{v}_P+ \\omega_z \\, \\vec{r}_{PQ}^\\perp \\\\\\vec{a}_Q &amp;= \\vec{a}_P+ \\alpha_z \\, \\vec{r}_{PQ}^\\perp- \\omega^2 \\, \\vec{r}_{PQ}\\end{aligned}" />
 
         <p>
-            Points $P$ and $Q$ are two locations on a rigid
+            Points \(P\) and \(Q\) are two locations on a rigid
             body. Scalars <InlineEquation equation="\\omega_z" /> and <InlineEquation equation="\\alpha_z" /> are the scalar
             angular velocity and angular acceleration of the rigid
             body (positive counter-clockwise).
@@ -428,15 +428,15 @@ import Col from "../../components/Col.astro"
       <DisplayEquationCustom background="True" id="rkg-ei" title="Instantaneous center of rotation \\(M\\) in 2D." derivation="True">
             <DisplayEquation equation="            \\vec{r}_{PM} =            \\frac{1}{\\omega^2} \\vec{\\omega} \\times \\vec{v}_P            = \\frac{1}{\\omega} \\vec{v}_P^\\perp            " />
           <p>
-            Point $P$ has velocity <InlineEquation equation="\\vec{v}_P" /> and is attached to a
+            Point \(P\) has velocity <InlineEquation equation="\\vec{v}_P" /> and is attached to a
             rigid body rotating with angular velocity
             <InlineEquation equation="\\vec{\\omega}" />.
           </p>
 
           <div slot="derivation">
             <p>
-                The instantaneous center $M$ has the property that the
-                point on the rigid body at $M$ has zero velocity. We
+                The instantaneous center \(M\) has the property that the
+                point on the rigid body at \(M\) has zero velocity. We
                 thus want:
   
                 <DisplayEquation equation="  0 = \\vec{v}_M =  \\vec{v}_P + \\vec{\\omega} \\times \\vec{r}_{PM}.  " />
@@ -464,7 +464,7 @@ import Col from "../../components/Col.astro"
         lying on a line in the <InlineEquation equation="\\vec{\\omega}" /> direction.
       </p>
       <p>
-        If $M$ is an instantaneous center, so it has zero velocity,
+        If \(M\) is an instantaneous center, so it has zero velocity,
         then the velocity of any other point on the rigid body is
         given by the following equation.
       </p>
@@ -472,9 +472,9 @@ import Col from "../../components/Col.astro"
       <DisplayEquationCustom background="True" id="rkg-ev" title="Velocity from the instantaneous center \\(M\\)." derivation="True">
             <DisplayEquation equation="            \\vec{v}_{Q} = \\vec{\\omega} \\times \\vec{r}_{MQ}            " />
           <p>
-            Point $M$ is the instantaneous center of rotation for a
+            Point \(M\) is the instantaneous center of rotation for a
             rigid body rotating with angular velocity
-            <InlineEquation equation="\\vec{\\omega}" />, and $Q$ is any point on the body.
+            <InlineEquation equation="\\vec{\\omega}" />, and \(Q\) is any point on the body.
           </p>
 
           <div slot="derivation">
@@ -515,29 +515,29 @@ import Col from "../../components/Col.astro"
           <Row>
             <Col values="6 md-3">
                 <div class="d-flex flex-column mb-2">
-                    <p class="fw-bold text-center">Point $P$</p>
-                    <button class="option-toggle:rkg-fd-c:showPVel my-1" onclick="rkg_fd_c.toggleOption('showPVel');">$P$ velocity</button>
-                    <button class="option-toggle:rkg-fd-c:showPAcc my-1" onclick="rkg_fd_c.toggleOption('showPAcc');">$P$ acceleration</button>
-                    <button class="option-toggle:rkg-fd-c:showPPath my-1" onclick="rkg_fd_c.toggleOption('showPPath');">$P$ path</button>
-                    <button class="option-toggle:rkg-fd-c:showPAngVel my-1" onclick="rkg_fd_c.toggleOption('showPAngVel');">ang. vel. about $P$</button>
-                    <button class="option-toggle:rkg-fd-c:showPAngAcc my-1" onclick="rkg_fd_c.toggleOption('showPAngAcc');">ang. acc. about $P$</button>
-                    <button class="option-toggle:rkg-fd-c:PAtCorner my-1" onclick="rkg_fd_c.toggleOption('PAtCorner');">$P$ at corner</button>
+                    <p class="fw-bold text-center">Point \(P\)</p>
+                    <button class="option-toggle:rkg-fd-c:showPVel my-1" onclick="rkg_fd_c.toggleOption('showPVel');">\(P\) velocity</button>
+                    <button class="option-toggle:rkg-fd-c:showPAcc my-1" onclick="rkg_fd_c.toggleOption('showPAcc');">\(P\) acceleration</button>
+                    <button class="option-toggle:rkg-fd-c:showPPath my-1" onclick="rkg_fd_c.toggleOption('showPPath');">\(P\) path</button>
+                    <button class="option-toggle:rkg-fd-c:showPAngVel my-1" onclick="rkg_fd_c.toggleOption('showPAngVel');">ang. vel. about \(P\)</button>
+                    <button class="option-toggle:rkg-fd-c:showPAngAcc my-1" onclick="rkg_fd_c.toggleOption('showPAngAcc');">ang. acc. about \(P\)</button>
+                    <button class="option-toggle:rkg-fd-c:PAtCorner my-1" onclick="rkg_fd_c.toggleOption('PAtCorner');">\(P\) at corner</button>
                 </div>
                 
             </Col>
             <Col values="6 md-3">
                 <div class="d-flex flex-column mb-2">
                     <p class="fw-bold text-center">Body</p>
-                    <button class="option-toggle:rkg-fd-c:showQPath my-1" onclick="rkg_fd_c.toggleOption('showQPath');">$Q$ path</button>
+                    <button class="option-toggle:rkg-fd-c:showQPath my-1" onclick="rkg_fd_c.toggleOption('showQPath');">\(Q\) path</button>
                     <button class="option-toggle:rkg-fd-c:showAngVel my-1" onclick="rkg_fd_c.toggleOption('showAngVel');">ang. vel.</button>
                     <button class="option-toggle:rkg-fd-c:showAngAcc my-1" onclick="rkg_fd_c.toggleOption('showAngAcc');">ang. acc.</button>
-                    <button class="option-toggle:rkg-fd-c:showInstRot my-1" onclick="rkg_fd_c.toggleOption('showInstRot');">inst. cent. $M$</button>
+                    <button class="option-toggle:rkg-fd-c:showInstRot my-1" onclick="rkg_fd_c.toggleOption('showInstRot');">inst. cent. \(M\)</button>
                     
                 </div>
             </Col>
             <Col values="6 md-3">
                 <div class="d-flex flex-column mb-2">
-                    <p class="fw-bold text-center">$Q$ Velocity</p>
+                    <p class="fw-bold text-center">\(Q\) Velocity</p>
                     <p class="m-0"><input type="radio" name="rkg-fd-c-velField" value="none" class="data-input:rkg-fd-c:velField me-2" checked onchange="rkg_fd_c.setOption('velField', this.value);"/> none</p>
                     <p class="m-0"><input type="radio" name="rkg-fd-c-velField" value="base" class="data-input:rkg-fd-c:velField me-2" onchange="rkg_fd_c.setOption('velField', this.value);"/> <InlineEquation equation="\\vec{v}_P" /> (trans.)</p>
                     <p class="m-0"><input type="radio" name="rkg-fd-c-velField" value="omega" class="data-input:rkg-fd-c:velField me-2" onchange="rkg_fd_c.setOption('velField', this.value);"/> <InlineEquation equation="\\vec{\\omega} \\times \\vec{r}_{PQ}" /> (rot.)</p>
@@ -547,7 +547,7 @@ import Col from "../../components/Col.astro"
             </Col>
             <Col values="6 md-3">
                 <div class="d-flex flex-column mb-2">
-                    <p class="fw-bold text-center">$Q$ Acceleration</p>
+                    <p class="fw-bold text-center">\(Q\) Acceleration</p>
                     <p class="m-0"><input type="radio" name="rkg-fd-c-accField" value="none" class="data-input:rkg-fd-c:accField me-2" checked onchange="rkg_fd_c.setOption('accField', this.value);"/> none</p>
                     <p class="m-0"><input type="radio" name="rkg-fd-c-accField" value="base" class="data-input:rkg-fd-c:accField me-2" onchange="rkg_fd_c.setOption('accField', this.value);"/> <InlineEquation equation="\\vec{a}_P" /> (trans.)</p>
                     <p class="m-0"><input type="radio" name="rkg-fd-c-accField" value="alpha" class="data-input:rkg-fd-c:accField me-2" onchange="rkg_fd_c.setOption('accField', this.value);"/> <InlineEquation equation="\\vec{\\alpha} \\times \\vec{r}_{PQ}" /> (ang.)</p>
@@ -569,6 +569,238 @@ import Col from "../../components/Col.astro"
 
 <SubSection title="Constrained motion">
     <BlueText>Copy content from <a target="_blank" rel="noopener noreferrer" target="_blank" rel="noopener noreferrer" href="https://mechref.engr.illinois.edu/dyn/rkc.html"> here </a> </BlueText>
+
+    <p>
+      One of the most common type of motion is constrained motion, where an object is
+      restricted to move in a certain way.
+  </p>
+  <p>
+      Generally, a point constrained to move in a specific direction obeys the following equation:
+  </p>
+
+  <DisplayEquationCustom id="rkc-pc" background="true" title="Constraint equation for a point \\(P\\).">
+    <p>
+      <DisplayEquation equation="      \\vec{v}_P \\cdot \\hat{n}_P = 0      " />
+
+    </p>
+    <p>
+        where <InlineEquation equation="\\hat{n}_P" /> is the normal vector to the motion of point $P$.
+    </p>
+  </DisplayEquationCustom>
+
+  <p>
+    The above equation is difficult to apply to a system with a collection of points or particles.
+    It is not the only way to derive constraint equations. For example, rigid body kinematics
+    equations (also known as relative motion equations) are derived using the definition of a rigid body. Namely,
+    the distance and angles between all points remain constant. See <a href="#rkg-er">rigid body relations</a>.
+    It is often best to look at examples of constrained motion to see how constraint equations are differentiated to obtain
+    velocity and acceleration.
+</p>
+<p>
+    We can visualize the motion of several constrained systems, shown on the figure below.
+</p>
+
+<PrairieDrawCanvas id="rkc-cm-c" width="600" height="600">
+  <p class="controls">
+    <button class="anim-toggle:rkc-cm-c" onclick="rkc_cm_c.toggleAnim()">animation</button>
+    <button class="reset:rkc-cm-c" onclick="rkc_cm_c.reset()">reset</button>
+    <button class="option-toggle:rkc-cm-c:showLabels" onclick="rkc_cm_c.toggleOption('showLabels')">show labels</button>
+    <button class="option-toggle:rkc-cm-c:showVelocity" onclick="rkc_cm_c.toggleOption('showVelocity')">show velocity</button>
+  </p>
+  <table id="rkc-ts" class="controls">
+      <tr style="border: 0px;">
+          <td style="border: 0px;">System:</td>
+          <td style="border: 0px;"><input type="radio" name="rkc-cm-c-movement" value="rodCircle" class="data-input:rkc-cm-c:movement ms-2 me-1" checked onchange="rkc_cm_c.setOption('movement', this.value);"/>rod-circular</td>
+          <td style="border: 0px;"><input type="radio" name="rkc-cm-c-movement" value="sliderCrank" class="data-input:rkc-cm-c:movement ms-2 me-1" onchange="rkc_cm_c.setOption('movement', this.value);"/>slider-crank</td>
+      </tr>
+  </table>
+  <p>
+  </p>
+
+  <Row>
+    <Col values="6 md-4">
+      <div class="d-flex flex-column">
+        <p class="fw-bold text-center">rod-circular</p>
+        <button class="option-toggle:rkc-cm-c:showQTrace" onclick="rkc_cm_c.toggleOption('showQTrace')">Trace $Q$</button>
+      </div>
+    </Col>
+    <Col values="6 md-4">
+      <div class="d-flex flex-column">
+        <p class="fw-bold text-center">slider-crank</p>
+        <button class="option-toggle:rkc-cm-c:showBTrace mb-1" onclick="rkc_cm_c.toggleOption('showBTrace')">Trace \(B\)</button>
+        <button class="option-toggle:rkc-cm-c:showBPath my-1" onclick="rkc_cm_c.toggleOption('showBPath')">\(B\) path</button>
+        <button class="option-toggle:rkc-cm-c:flipSystem my-1" onclick="rkc_cm_c.toggleOption('flipSystem')"><InlineEquation equation="\\hat{v}_C = \\hat{\\jmath}" />
+        </button>
+      </div>
+    </Col>
+  </Row>
+</PrairieDrawCanvas>
+
+<Example id="rkc-xcl" title="Sliding rod" solution="True">
+  <div class="d-flex">
+    <p>
+      A uniform rod leaning against a wall has a fixed length of \(\ell = 10 \rm\ m\). 
+      The bottom of the rod at point $P$ is \(8 \rm\ m\) from the wall. 
+      Point $P$ is moving away from the wall at a speed of \(6 \rm\ m/s\). 
+      The rod maintains contact with the wall and ground at all times.
+      What is <InlineEquation equation="\\vec{v}_Q" /> of point $Q$, the point at the top of the rod?
+    </p>
+    <InlineCanvas id="rkc-xcl-c" width="300" height="200"/>
+  </div>
+
+  <div slot="solution">
+    <p>
+      To solve this, note the question states that the rod's length is fixed, and is not permitted to
+      lose contact with the wall and ground. Therefore, 
+      the constraint equation is given by the Pythagorean theorem:
+      <DisplayEquation equation="\\begin{aligned}      x_P^2 + y_Q^2 = \\ell^2      \\end{aligned}" />
+
+  </p>
+  <p>
+      This becomes a related rates problem from calculus 1.
+  </p>
+  <p>
+      Differentiating with respect to time, keeping in mind the chain rule:
+      <DisplayEquation equation="\\begin{aligned}      2x_P\\dot{x}_P + 2y_Q\\dot{y}_Q = 0      \\end{aligned}" />
+
+  </p>
+  <p>
+      The quantity we're interested in is <InlineEquation equation="\\dot{y}_Q" />
+      , or <InlineEquation equation="v_Q" />, and <InlineEquation equation="y_Q = \\sqrt{\\ell^2 - x_P^2}" />
+      .
+  </p>
+  <p>
+      Solving yields <InlineEquation equation="\\vec{v}_Q = -8\\hat{\\jmath} \\rm\\ m/s" />
+      .
+  </p>
+  <p>
+      Another way to solve this is using the <a href="#rkg-er">rigid body relations</a>,
+      knowing that the distance and angles from the top to the bottom of the rod remains constant,
+      which is a rigid body by definition. Using rigid body relations:
+      <DisplayEquation equation="\\begin{aligned}      \\vec{v}_Q &amp;= \\vec{v}_P + \\vec\\omega \\times \\vec{r}_{PQ} \\\\      &amp;= \\vec{v}_P + \\omega_z \\vec{r}_{PQ}^{\\perp}      \\end{aligned}" />
+
+
+      where we have two unknowns:<InlineEquation equation=" \\vec{v}_Q" />
+      , and $\vec\omega$, and 
+      <InlineEquation equation="\\vec{r}_{PQ} = -\\ell \\cos\\theta \\hat{\\imath} + \\ell \\sin\\theta \\hat{\\jmath} \\rm\\ m" />,
+      where <InlineEquation equation="\\theta = \\cos^{-1}\\left(\\frac{x_P}{\\ell}\\right)" />.
+   </p>
+   <p>
+      Therefore, <InlineEquation equation="\\vec{r}_{PQ}^{\\perp} = -\\ell \\sin\\theta \\hat{\\imath} - \\ell \\cos\\theta \\hat{\\jmath} \\rm\\ m" />
+      .
+   </p>
+  <p>
+      Expanding the vector equation into its two scalar equations yields:
+      <DisplayEquation equation="\\begin{aligned}      v_{Qx} &amp;= v_{Px} - \\omega_z \\ell \\sin\\theta \\\\      v_{Qy} &amp;= v_{Py} - \\omega_z \\ell \\cos\\theta      \\end{aligned}" />
+
+  </p>
+  <p>
+      Since the top of the rod can only move vertically, <InlineEquation equation="v_{Qx} = 0, and \\omega_z = \\frac{v_{Px}}{\\ell \\sin\\theta} \\rm\\ rad/s" />
+
+  </p>
+  <p>
+      Since the bottom of the rod can only move horizontally, <InlineEquation equation="v_{Py} = 0, and v_{Qy} = -\\omega_z \\ell \\cos\\theta \\rm\\ m/s" />
+
+  </p>
+  <p>
+      Plugging in $\omega_z$ expression:
+      <DisplayEquation equation="      v_{Qy} = -\\frac{v_{Px}}{\\ell \\sin\\theta} \\ell \\cos\\theta = -v_{Px}\\cot\\theta \\rm\\ m/s      " />
+
+  </p>
+  <p>
+      Plugging in the numbers yields the same result of <InlineEquation equation="\\vec{v}_{Q} = -8\\hat{\\jmath} \\rm\\ m/s" />
+      .
+  </p>
+  <p>
+      Note in the rigid body relations method, we implicitly used the constraint equation for a point. Namely,
+      we know that the top of the rod can only move vertically, so <InlineEquation equation="\\vec{v}_Q \\cdot \\hat{n}_Q = 0" />
+      , where <InlineEquation equation="\\hat{n}_Q = \\hat{\\imath}" />
+      and <InlineEquation equation="\\vec{v}_P \\cdot \\hat{n}_P = 0" />
+      , where <InlineEquation equation="\\hat{n}_P = \\hat{\\jmath}" />.
+  </p>
+  </div>
+
+</Example>
+
+<p>
+  In general, the steps involved in analyzing systems with constrained motions are as follows:
+</p>
+
+<DisplayEquationCustom id="rkc-cp" title="Solution procedure for constrained motion." background="True">
+  <DisplayEquation equation="\\begin{aligned}&amp;\\text{1. Write down constraint equation in terms of distances/positions.} \\\\&amp;\\text{2. Differentiate once or twice with respect to time to obtain} \\\\&amp;\\quad\\text{\\vec{v} and \\vec{a} relationships.} \\\\&amp;\\text{3. Solve for the desired quantity.}\\end{aligned}" />
+
+</DisplayEquationCustom>
+
+<Example id="rkc-xcp" title="Compound pulley system" solution="True">
+  <div class="d-flex">
+    <p>
+      Consider the compound pulley system shown, consisting of two massless pulleys \(A, B\). Pulley \(A\) is free to
+      move vertically, and pulley \(B\) is fixed to the top. The two pulleys are connected by an inextensible, massless rope.
+      One block of mass \(m_1\) is connected to pulley \(A\) by a string, and another block of mass \(m_2\) is hanging from the
+      rope connecting the two pulleys. Assume the pulleys' radii are negligbile. 
+      If \(m_2\) moves downwards at a velocity \(v_2 = 6 \rm\ m/s\) and acceleration \(a_2 = 2 \rm\ m/s^2\), what are
+      the velocity and acceleration of \(m_1\)?
+  </p>
+  <InlineCanvas id="rkc-xcp-c" width="300" height="200"/>
+  </div>
+
+  <div slot="solution">
+    <p>
+      We will begin by underlining important information given in the question. Namely:
+      <ol>
+          <li>The rope is inextensible, meaning the total length of the rope remains constant. This is our constraint.</li>
+          <li>The pulleys are massless, meaning we do not need to consider any rotational motion they may exhibit.</li>
+          <li>The pulleys radii' are negligbile, meaning we do not need to consider their radii as a part of the total length of the rope.</li>
+      </ol>
+    </p>
+    <p>
+      Using the solution procedure highlighted in <a href="#rkc-cp">#rkc-cp</a>:
+    </p>
+    <p>
+        <strong>1. Write down constraint equation in terms of distances/positions.</strong>
+        If the rope's length remains constant, we need to choose a reference line to relate the distances of
+        the masses to that reference line and set it equal to the rope's length. The following figure shows
+        the reference line, as well as the masses' distances from that line.
+    </p>
+    <InlineCanvas id="rkc-xcp-cs" width="300" height="200" />
+    <p>
+        Note that \(y_1\) is only extended to pulley \(A\). Since the pulleys are massless, they will not rotate,
+        and therefore \(m_1\) and pulley \(A\) will translate vertically together at the same rate.
+    </p>
+    <p>
+        Now, we can write the total length of the rope in terms of those two distances. The total length of the rope,\(L\) will be:
+        <DisplayEquation equation="        2y_1 + y_2 = L        " />
+    </p>
+    <p>
+        <strong>2. Differentiate once or twice with respect to time to obtain <InlineEquation equation="\\vec{v}" />
+          and <InlineEquation equation="\\vec{a}" />
+          relationships.</strong>
+        Now, we can take two derivatives with respect to time to obtain the relationship between the speeds <InlineEquation equation="v_1, v_2" />
+        , and
+        the accelerations <InlineEquation equation="a_1, a_2" />        .
+        <DisplayEquation equation="\\begin{aligned}        2v_1 + v_2 &amp;= 0 \\\\        2a_1 + a_2 &amp;= 0         \\end{aligned}" />
+
+    </p>
+    <p>
+        Notice that the length of the rope does not matter ultimately. This makes sense,
+        as the length of the rope is constant, and therefore does not change with time.
+    </p>
+    <p>
+        <strong>3. Solve for the desired quantity.</strong>
+        We are interested in both the velocity and acceleration of \(m_1\).
+        <br>
+        Solving for <InlineEquation equation="\\vec{v}_1 = \\frac{-\\vec{v}_2}{2} = 3\\hat{\\jmath}\\rm\\ m/s" />
+        and <InlineEquation equation="\\vec{a}_1 = \\frac{-\\vec{a}_2}{2} = \\hat{\\jmath}\\rm\\ m/s^2" />
+ 
+    </p>
+    <p>
+        Reflecting on the result obtained, it makes sense. The distance \(m_1\) has to travel up the rope is two times
+        more than the length \(m_2\) has to travel. We can also draw a free-body diagram to understand
+        this result further. We will return to this example further down when constraint forces are covered.
+    </p>
+  </div>
+</Example>
+
 </SubSection>
 
 <SubSection title="Gears">
