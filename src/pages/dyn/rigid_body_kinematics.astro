@@ -20,6 +20,8 @@ import Example from "../../components/Example.astro"
 import InlineCanvas from "../../components/InlineCanvas.astro"
 import Row from "../../components/Row.astro"
 import Col from "../../components/Col.astro"
+import SubSubSubSection from "../../components/SubSubSubSection.astro"
+import DisplayTable from "../../components/DisplayTable.astro"
 ---
 <style>
     table { border-collapse: collapse; }
@@ -52,46 +54,49 @@ import Col from "../../components/Col.astro"
           the position of one point \(P\) inside it, together with the
           rotation angle of the body (one angle in 2D, three angles in
           3D).
-    <Center>
-        <table>
-            <tr>
-            <th></th>
-            <th>location description</th>
-            <th>velocity description</th>
-            </tr>
-            <tr>
-            <th>point mass</th>
-            <td>position vector <InlineEquation equation="\\vec{r}_P" /></td>
-            <td>velocity vector <InlineEquation equation="\\vec{v}_P" /></td>
-            </tr>
-            <tr>
-            <th>rigid body in 2D</th>
-            <td>
-                position vector <InlineEquation equation="\\vec{r}_P" />
-                <br />
-                angle \(\theta\)
-            </td>
-            <td>
-                velocity vector <InlineEquation equation="\\vec{v}_P"/>
-                <br />
-                angular velocity <InlineEquation equation="\\omega" />
-            </td>
-            </tr>
-            <tr>
-            <th>rigid body in 3D</th>
-            <td>
-                position vector <InlineEquation equation="\\vec{r}_P"/>
-                <br />
-                angles <InlineEquation equation="\\theta,\\phi,\\psi"/>
-            </td>
-            <td>
-                velocity vector <InlineEquation equation="\\vec{v}_P"/>
-                <br />
-                angular velocity vector <InlineEquation equation="\\vec{\\omega}" />
-            </td>
-            </tr>
-        </table>
-    </Center>
+  <DisplayTable>
+    <thead>
+      <tr>
+        <th></th>
+        <th>location description</th>
+        <th>velocity description</th>
+        </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="fw-bold">point mass</td>
+        <td>position vector <InlineEquation equation="\\vec{r}_P" /></td>
+        <td>velocity vector <InlineEquation equation="\\vec{v}_P" /></td>
+        </tr>
+        <tr>
+        <td class="fw-bold">rigid body in 2D</td>
+        <td>
+            position vector <InlineEquation equation="\\vec{r}_P" />
+            <br />
+            angle \(\theta\)
+        </td>
+        <td>
+            velocity vector <InlineEquation equation="\\vec{v}_P"/>
+            <br />
+            angular velocity <InlineEquation equation="\\omega" />
+        </td>
+        </tr>
+        <tr>
+          <td class="fw-bold">rigid body in 3D</td>
+        <td>
+            position vector <InlineEquation equation="\\vec{r}_P"/>
+            <br />
+            angles <InlineEquation equation="\\theta,\\phi,\\psi"/>
+        </td>
+        <td>
+            velocity vector <InlineEquation equation="\\vec{v}_P"/>
+            <br />
+            angular velocity vector <InlineEquation equation="\\vec{\\omega}" />
+        </td>
+        </tr>
+    </tbody>
+            
+    </DisplayTable>
 
     <p>
         Neither point masses nor rigid bodies can physically exist,
@@ -362,7 +367,6 @@ import Col from "../../components/Col.astro"
 </SubSection>
 
 <SubSection title="Rigid bodies in 2D">
-    <BlueText>Copy content from <a target="_blank" rel="noopener noreferrer" target="_blank" rel="noopener noreferrer" href="https://mechref.engr.illinois.edu/dyn/rkg.html"> here </a> </BlueText>
     
     <p>
         The <a href="#rkg-er">#rkg-er</a> equations above are valid
@@ -494,24 +498,27 @@ import Col from "../../components/Col.astro"
             <button class="reset:rkg-fd-c" onclick="rkg_fd_c.reset()">reset</button>
             <button class="option-toggle:rkg-fd-c:showLabels" onclick="rkg_fd_c.toggleOption('showLabels')">show labels</button>
           </p>
-          <table class="controls mb-3">
-            <tr>
-              <td>Movement:</td>
-              <td><input type="radio" name="rkg-fd-c-movement" value="translate" class="data-input:rkg-fd-c:movement" checked onchange="rkg_fd_c.setOption('movement', this.value);"/> translation</td>
-              <td><input type="radio" name="rkg-fd-c-movement" value="varTranslate" class="data-input:rkg-fd-c:movement" onchange="rkg_fd_c.setOption('movement', this.value);"/> var. translation</td>
-              <td><input type="radio" name="rkg-fd-c-movement" value="rotate" class="data-input:rkg-fd-c:movement" onchange="rkg_fd_c.setOption('movement', this.value);"/> rotation</td>
-              <td><input type="radio" name="rkg-fd-c-movement" value="varRotate" class="data-input:rkg-fd-c:movement" onchange="rkg_fd_c.setOption('movement', this.value);"/> var. rotation</td>
-              <td><input type="radio" name="rkg-fd-c-movement" value="slide" class="data-input:rkg-fd-c:movement" onchange="rkg_fd_c.setOption('movement', this.value);"/> slide</td>
-            </tr>
-            <tr>
-              <td></td>
-              <td><input type="radio" name="rkg-fd-c-movement" value="hinge" class="data-input:rkg-fd-c:movement" onchange="rkg_fd_c.setOption('movement', this.value);"/> hinge</td>
-              <td><input type="radio" name="rkg-fd-c-movement" value="circle" class="data-input:rkg-fd-c:movement" onchange="rkg_fd_c.setOption('movement', this.value);"/> circle</td>
-              <td><input type="radio" name="rkg-fd-c-movement" value="spin" class="data-input:rkg-fd-c:movement" onchange="rkg_fd_c.setOption('movement', this.value);"/> spin</td>
-              <td><input type="radio" name="rkg-fd-c-movement" value="reverse" class="data-input:rkg-fd-c:movement" onchange="rkg_fd_c.setOption('movement', this.value);"/> reverse spin</td>
-              <td><input type="radio" name="rkg-fd-c-movement" value="osc" class="data-input:rkg-fd-c:movement" onchange="rkg_fd_c.setOption('movement', this.value);"/> oscillation</td>
-            </tr>
-          </table>
+          <DisplayTable class="controls mb-3">
+            <tbody>
+              <tr>
+                <td>Movement:</td>
+                <td><input type="radio" name="rkg-fd-c-movement" value="translate" class="data-input:rkg-fd-c:movement" checked onchange="rkg_fd_c.setOption('movement', this.value);"/> translation</td>
+                <td><input type="radio" name="rkg-fd-c-movement" value="varTranslate" class="data-input:rkg-fd-c:movement" onchange="rkg_fd_c.setOption('movement', this.value);"/> var. translation</td>
+                <td><input type="radio" name="rkg-fd-c-movement" value="rotate" class="data-input:rkg-fd-c:movement" onchange="rkg_fd_c.setOption('movement', this.value);"/> rotation</td>
+                <td><input type="radio" name="rkg-fd-c-movement" value="varRotate" class="data-input:rkg-fd-c:movement" onchange="rkg_fd_c.setOption('movement', this.value);"/> var. rotation</td>
+                <td><input type="radio" name="rkg-fd-c-movement" value="slide" class="data-input:rkg-fd-c:movement" onchange="rkg_fd_c.setOption('movement', this.value);"/> slide</td>
+              </tr>
+              <tr>
+                <td></td>
+                <td><input type="radio" name="rkg-fd-c-movement" value="hinge" class="data-input:rkg-fd-c:movement" onchange="rkg_fd_c.setOption('movement', this.value);"/> hinge</td>
+                <td><input type="radio" name="rkg-fd-c-movement" value="circle" class="data-input:rkg-fd-c:movement" onchange="rkg_fd_c.setOption('movement', this.value);"/> circle</td>
+                <td><input type="radio" name="rkg-fd-c-movement" value="spin" class="data-input:rkg-fd-c:movement" onchange="rkg_fd_c.setOption('movement', this.value);"/> spin</td>
+                <td><input type="radio" name="rkg-fd-c-movement" value="reverse" class="data-input:rkg-fd-c:movement" onchange="rkg_fd_c.setOption('movement', this.value);"/> reverse spin</td>
+                <td><input type="radio" name="rkg-fd-c-movement" value="osc" class="data-input:rkg-fd-c:movement" onchange="rkg_fd_c.setOption('movement', this.value);"/> oscillation</td>
+              </tr>
+            </tbody>
+            
+          </DisplayTable>
           <Row>
             <Col values="6 md-3">
                 <div class="d-flex flex-column mb-2">
@@ -568,7 +575,7 @@ import Col from "../../components/Col.astro"
 </SubSection>
 
 <SubSection title="Constrained motion">
-    <BlueText>Copy content from <a target="_blank" rel="noopener noreferrer" target="_blank" rel="noopener noreferrer" href="https://mechref.engr.illinois.edu/dyn/rkc.html"> here </a> </BlueText>
+
 
     <p>
       One of the most common type of motion is constrained motion, where an object is
@@ -801,7 +808,278 @@ import Col from "../../components/Col.astro"
   </div>
 </Example>
 
+<CalloutContainer slot="cards">
+  <CalloutCard title="Reference material">
+    <ul>
+      <li>Calculus and vectors</li>
+      <li>Rigid bodies</li>
+      <li>Kinetics of point masses</li>
+      <li>Kinetics of rigid bodies</li>
+      <li>Free body diagrams</li>
+      <li>Energy and work</li>
+    </ul>
+  </CalloutCard>
+  <CalloutCard title="Applications">
+    <ul>
+      <li>Four-bar linkages</li>
+    </ul>
+  </CalloutCard>
+</CalloutContainer>
+
 </SubSection>
+
+<SubSubSection id="constraint_forces" title="Constraint forces">
+
+  <p>
+    If an object is constrained to move in a specific direction, by Newton's second law, there must be
+    forces or moments preventing the movement of the object in that direction. Those are called <em>constraint forces</em>.
+</p>
+<p>
+    The approach to solving for constraint forces is the same approach to solve for any forces/moments that are not constraint forces. Namely,
+    drawing a free body diagram, and applying Newton's equations. See <a href="/dyn/particle_kinetics">the solution procedure with Newton's equations.</a>
+</p>
+<p>
+    Let's return to our example of the rod leaning against a wall.
+</p>
+
+<Example id="rkc-xcf" title="Constraint forces on a sliding rod." solution="True">
+
+  <div class="d-flex">
+    <p>
+      A uniform rod of mass \(m\) and length \(\ell\) is leaning against a frictionless wall at an angle \(\phi\) as shown.
+      The rod starts sliding along a frictionless ground under the influence of gravity <InlineEquation equation="\\vec{g}" />.
+      What are the expressions of the constraint forces <InlineEquation equation="\\vec{F}_P, \\vec{F}_Q" /> that ensure the rod maintains contact with the wall
+      and ground at all times? 
+  </p>
+    <InlineCanvas id="rkc-xcf-c" width="300" height="200"/>
+  </div>
+
+  <div slot="solution">
+    <p>
+      We will begin by drawing a free body diagram on the rod.
+      <InlineCanvas id="rkc-xcf-s" width="300" height="200" />
+    </p>
+    <p>
+        Note that due to the constraint placed on the rod, point $P$ can only slide along the ground
+        and therefore by <a href="#rkc-pc">#rkc-pc</a>, <InlineEquation equation="\\vec{F}_P" /> acts vertically. Similarly for point $Q$, <InlineEquation equation="\\vec{F}_Q" />
+        acts horizontally.
+    </p>
+    <p>
+        Applying Newton's second law:
+        <DisplayEquation equation="        \\sum \\vec{F}_{ext} = m\\vec{a}_C        " />
+
+    </p>
+    <p>
+        Breaking it up into the scalar equations. Note we will use <InlineEquation equation="\\ddot{x}_C, \\ddot{y}_C" /> to denote
+        the acceleration of the center of mass $C$ in each direction.
+        <DisplayEquation equation="\\begin{aligned}        F_Q &amp;= m\\ddot{x}_C \\\\        F_P - mg &amp;= m\\ddot{y}_C        \\end{aligned}" />
+
+    </p>
+    <p>
+        Now we can apply the solution procedure detailed in <a href="#rkc-cp">#rkc-cp</a> to find
+        the acceleration of point $C$. Due to our constraint, the following applies at all times:
+        <DisplayEquation equation="        x_C = \\frac{\\ell}{2}\\sin\\phi \\qquad \\qquad y_C = \\frac{\\ell}{2}\\cos\\phi        " />
+
+    </p>
+    <p>
+        Differentiating twice, keeping in mind the chain rule:
+        <DisplayEquation equation="\\begin{aligned}        \\ddot{x}_C &amp;= -\\frac{\\ell\\dot\\theta^2}{2}\\sin\\phi + \\frac{\\ell\\ddot\\theta}{2}\\cos\\phi  \\\\        \\ddot{y}_C &amp;= -\\frac{\\ell\\dot\\theta^2}{2}\\cos\\phi - \\frac{\\ell\\ddot\\theta}{2}\\sin\\phi        \\end{aligned}" />
+
+    </p>
+    <p>
+        Plugging into Newton's second law equations and solving for each constraint force yields:
+        <DisplayEquation equation="\\begin{aligned}        F_Q &amp;= -\\frac{m\\ell\\dot\\theta^2}{2}\\sin\\phi + \\frac{m\\ell\\ddot\\theta}{2}\\cos\\phi \\\\        F_P &amp;= -\\frac{m\\ell\\dot\\theta^2}{2}\\cos\\phi - \\frac{m\\ell\\ddot\\theta}{2}\\sin\\phi + mg        \\end{aligned}" />
+    </p>
+  </div>
+</Example>
+
+<Example id="rkc-xlc" title="Instance where rod loses contact with a wall." solution="True">
+
+  <div class="d-flex">
+    <p>
+      A uniform rod of mass \(m\) and length \(\ell\) is leaning against a frictionless wall at rest at an angle \(\phi\) as shown.
+      The rod starts sliding on a frictionless ground under the influence of gravity <InlineEquation equation="\\vec{g}" />.
+      At what angle \(\theta\) does the rod lose contact with the wall?
+    </p>
+    <InlineCanvas id="rkc-xlc-c" width="300" height="200"/>
+  </div>
+
+  <div slot="solution">
+    <p>
+      While there is contact with the wall, our constraint still holds. This means
+      our constraint forces expressions from <a href="#rkc-cf">#rkc-cf</a> still hold.
+      We are only interested in the constraint force from the wall on the rod, <InlineEquation equation="\\vec{F}_Q" />. at <InlineEquation equation="\\theta" />:
+      <DisplayEquation equation="      F_Q = -\\frac{m\\ell\\dot\\theta^2}{2}\\sin\\theta + \\frac{m\\ell\\ddot\\theta}{2}\\cos\\theta      " />
+
+    </p>
+    <p>
+        If the rod loses contact with the wall, then <InlineEquation equation="\\vec{F}_Q = 0" />. We have two unknowns:
+        the angular velocity $\dot\theta$ and the angular acceleration $\ddot\theta$.
+        However, we know that <InlineEquation equation="\\ddot\\theta = \\frac{d\\dot\\theta}{dt}" />
+        , so if we obtain
+        an expression for <InlineEquation equation="\\dot\\theta" />, then finding <InlineEquation equation="\\ddot\\theta" /> is possible.
+        We can use conservation of energy to obtain an expression for <InlineEquation equation="\\dot\\theta" />.  
+    </p>
+    <p>
+        Using <a href="#">the work-energy theorem</a>:
+        <DisplayEquation equation="        W = \\Delta T + \\Delta V        " />
+
+    </p>
+    <p>
+        The rod is sliding along frictionless surfaces, so there are no non-conservative forces present,
+        and constraint forces do no work (See <a href="#">work done by a constraint force</a>)
+    </p>
+    <p>
+        Therefore:
+        <DisplayEquation equation="\\begin{aligned}        T_1 + V_1 &amp;= T_2 + V_2 \\\\        0 + mgh_{C, 1} &amp;= \\frac{1}{2}mv_C^2 + \\frac{1}{2}I_{C, \\hat{k}}\\omega^2 + mgh_{C, 2}        \\end{aligned}" />
+
+    </p>
+    <p>
+        From before:
+        <DisplayEquation equation="\\begin{aligned}        h_{C, 1} = y_{C, 1} = \\ell\\cos\\phi \\qquad h_{C, 2} = y_{C, 2} = \\ell\\cos\\theta        \\end{aligned}" />
+
+    </p>
+    <p>
+        And the velocity of the center of mass at <InlineEquation equation="\\theta" />:
+        <DisplayEquation equation="\\begin{aligned}        \\vec{v}_C &amp;= \\dot{x}_{C,2}\\hat{\\imath} + \\dot{y}_{C, 2}\\hat{\\jmath} \\\\        &amp;= \\ell\\dot\\theta\\cos\\theta \\hat{\\imath} - \\ell\\dot\\theta\\sin\\theta \\hat{\\jmath}        \\end{aligned}" />
+
+    </p>
+    <p>
+        So <InlineEquation equation="v_C" />        is simply <InlineEquation equation="l\\dot\\theta" />.
+    </p>
+    <p>
+        Plugging into our energy conservation, where <InlineEquation equation="I_{C, \\hat{k}} = \\frac{1}{12}m\\ell^2" />:
+        <DisplayEquation equation="\\begin{aligned}        mg\\ell\\cos\\phi &amp;= \\frac{1}{2}m(\\ell\\dot\\theta)^2 + \\frac{1}{2}\\left(\\frac{1}{12}m\\ell^2 \\right) \\dot\\theta^2 + mg\\ell\\cos\\theta \\\\        mg\\ell\\cos\\phi &amp;= \\frac{1}{2}m\\ell^2 \\dot\\theta^2 + \\frac{1}{24}m\\ell^2 \\dot\\theta^2 + mg\\ell\\cos\\theta \\\\        mg\\ell\\cos\\phi &amp;= \\frac{13}{24}m\\ell^2 \\dot\\theta^2 + mg\\ell\\cos\\theta        \\end{aligned}" />
+
+    </p>
+    <p>
+        Solving for <InlineEquation equation="\\dot\\theta^2" />        :
+        <DisplayEquation equation="        \\dot\\theta^2 = \\frac{24g}{13\\ell}\\left(\\cos\\phi - \\cos\\theta\\right)        " />
+
+    </p>
+    <p>
+        Differentiating to obtain <InlineEquation equation="\\ddot\\theta" />
+        :
+        <DisplayEquation equation="\\begin{aligned}        2\\dot\\theta\\ddot\\theta &amp;= \\frac{24g}{13\\ell}\\sin\\theta\\dot\\theta \\\\        \\ddot\\theta &amp; = \\frac{12g}{13\\ell}\\sin\\theta        \\end{aligned}" />
+
+    </p>
+    <p>
+        Plugging our results into <InlineEquation equation="F_Q" />        :
+        <DisplayEquation equation="\\begin{aligned}        F_Q &amp;= -\\frac{m\\ell\\frac{24g}{13\\ell}\\left(\\cos\\phi - \\cos\\theta\\right)}{2}\\sin\\theta + \\frac{m\\ell\\frac{12g}{13\\ell}\\sin\\theta}{2}\\cos\\theta \\\\        &amp;= -\\frac{12}{13}mg\\sin\\theta \\left(\\cos\\phi - \\cos\\theta\\right) + \\frac{6}{13}mg\\cos\\theta\\sin\\theta \\\\        \\end{aligned}" />
+
+    </p>
+    <p>
+        Setting <InlineEquation equation="F_Q=0" />        :
+        <DisplayEquation equation="\\begin{aligned}        \\frac{12}{13}mg\\sin\\theta \\left(\\cos\\phi - \\cos\\theta\\right) &amp;= \\frac{6}{13}mg\\cos\\theta\\sin\\theta \\\\        2\\left(\\cos\\phi - \\cos\\theta\\right) &amp;= \\cos\\theta \\\\        2\\cos\\phi - 2\\cos\\theta - \\cos\\theta &amp;= 0 \\\\        2\\cos\\phi - 3\\cos\\theta &amp;= 0 \\\\        \\end{aligned}" />
+
+    </p>
+    <p>
+        Solving for <InlineEquation equation="\\theta" /> yields <InlineEquation equation="\\theta = \\arccos\\left(\\frac{2}{3}\\cos\\phi\\right)" />
+        , or when the rod has fallen 2/3 of the original height.
+        Note if the rod was unconstrained, the constraint we used still holds until the rod has fallen 2/3 of the original height.
+        We can use rigid body relations to find the velocity of point $Q$ once the rod loses contact with the wall, and it will have
+        both vertical and horizontal components of velocity, as expected. 
+    </p>
+  </div>
+</Example>
+
+<Example id="rkc-xtp" title="Tension in a compound pulley system." solution="True">
+
+  <div class="d-flex">
+    <p>
+      Consider the compound pulley system shown, consisting of two massless pulleys \(A, B\). Pulley \(A\) is free to
+      move vertically, and pulley \(B\) is fixed to the top. The two pulleys are connected by an inextensible, massless rope.
+      One block of mass \(m_1\) is connected to pulley \(A\) by a string, and another block of mass \(m_2\) is hanging from the
+      rope connecting the two pulleys. Assume the pulleys' radii are negligbile, and the rope can only slip. What is the tension
+      \(T\) in the rope?
+  </p>
+    <InlineCanvas id="rkc-xtp-c" width="300" height="200"/>
+  </div>
+
+  <div slot="solution">
+    <p>
+      We added one more assumption to the ones made in <a href="#rkc-xcp">#rkc-xcp</a>. Namely, the rope can only slip.
+      This simply means that the tension is the same at any point in the rope.
+  </p>
+  <p>
+      We will begin by drawing a free body diagram and applying Newton's second law 
+      on three bodies: <InlineEquation equation="m_1" />, <InlineEquation equation="m_2" /> and pulley \(A\). We will
+      neglect pulley \(B\) as it is fixed to the wall, and the results obtained from it are trivial.
+  </p>
+  <p>
+      The free body diagram on pulley \(A\) is as follows:
+      <InlineCanvas id="rkc-xtp-sa" width="300" height="200" class="standaloneImage" />
+  </p>
+  <p>
+      Applying Newton's second law:
+      <DisplayEquation equation="      2T - T_2 = m_A a_A      " />
+
+  </p>
+  <p>
+      Since the pulley is massless, that means <InlineEquation equation="T_2 = 2T" />      .
+  </p>
+  <p>
+      The free body diagram on <InlineEquation equation="m_1" /> is as follows:
+      <InlineCanvas id="rkc-xtp-s1" width="300" height="200" class="standaloneImage"/>
+  </p>
+  <p>
+      Applying Newton's second law:
+      <DisplayEquation equation="      2T - m_1 g = m_1 a_1      " />
+
+  </p>
+  <p>
+      Finally, the free body diagram on <InlineEquation equation="m_2" /> is as follows:
+      <InlineCanvas id="rkc-xtp-s2" width="300" height="200" />
+  </p>
+  <p>
+      Applying Newton's second law:
+      <DisplayEquation equation="            T - m_2 g = m_2 a_2      " />
+  </p>
+  <p>
+      We have 3 unknowns, 2 equations. We apply our constraint equation from <a href="#rkc-xcp">#rkc-xcp</a> to relate
+      the accelerations of <InlineEquation equation="m_1" /> and <InlineEquation equation="m_2" />:
+      <DisplayEquation equation="      2a_1 + a_2 = 0      " />
+
+  </p>
+  <p>
+      Solving for \(T\) from Newton's second law on <InlineEquation equation="m_2" />:
+      <DisplayEquation equation="      T = m_2 a_2 + m_2 g      " />
+
+  </p>
+  <p>
+      Plugging it into Newton's second law on <InlineEquation equation="m_1" />:
+      <DisplayEquation equation="      2m_2 a_2 + 2m_2 g - m_1 g = m_1 a_1      " />
+
+  </p>
+  <p>
+      Since <InlineEquation equation="a_2 = -2a_1" />      :
+      <DisplayEquation equation="\\begin{aligned}      -4m_2 a_1 + 2m_2 g - m_1g &amp;= m_1 a_1 \\\\      g\\left(2m_2 - m_1 \\right) &amp;= a_1\\left(m_1 + 4m_2\\right)      \\end{aligned}" />
+
+  </p>
+  <p>
+      Solving for <InlineEquation equation="a_1" />      :
+      <DisplayEquation equation="      a_1 = \\frac{g\\left(2m_2 - m_1 \\right)}{m_1 + 4m_2}      " />
+
+  </p>
+  <p>
+      Plugging that result into Newton's second law on <InlineEquation equation="m_1" /> and solving for \(T\):
+      <DisplayEquation equation="      T = \\frac{m_1\\frac{g\\left(2m_2 - m_1 \\right)}{m_1 + 4m_2} + m_1g}{2}      " />
+
+  </p>
+  <p>
+      Simplifying a little by multiplying the top and bottom by <InlineEquation equation="m_1 + 4m_2" />      :
+      <DisplayEquation equation="      T = \\frac{m_1g(2m_2 - m_1) + m_1g(m_1 + 4m_2)}{2(m_1 + 4m_2)}      " />
+
+  </p>
+  <p>
+      We obtain our final result for the tension in the rope \(T\):
+      <DisplayEquation equation="      T = \\frac{3m_1m_2g}{m_1 + 4m_2}      " />
+  </p>
+  </div>
+</Example>
+
+
+</SubSubSection>
 
 <SubSection title="Gears">
 
@@ -820,11 +1098,240 @@ import Col from "../../components/Col.astro"
     <Image src="/Dynamics/RigidBodyKinematics/GearsAcceContact.png" width="7"></Image>
 </SubSubSection>
 
-<SubSection title="Applications"></SubSection>
+<SubSection title="Applications" id="applications"></SubSection>
 
-<SubSubSection title="Steering geometry">
+<SubSubSection title="Steering geometry" id="steering_geometry">
     <BlueText>Complete in <a target="_blank" rel="noopener noreferrer" target="_blank" rel="noopener noreferrer" href="https://mechref.engr.illinois.edu/dyn/avs.html">"Steering geometry"</a>.</BlueText> This refers to "Rigid Bodies".
+
+    <p>
+      We are all familiar with the idea that turning the steering
+      wheel in a car rotates the front wheels, causing the car to
+      steer into a turn. But why do we normally steer with the
+      front wheels rather than the rear wheels (or all four
+      wheels, as shown below)? Do both front wheels turn the same
+      amount, or is something more complicated going on?
+    </p>
+
+    <Image src="/Dynamics/RigidBodyKinematics/avs_Mercedes_Kubelwagen_G5_600.jpg" width="6">
+      <p class="figureCaption">
+        A <a
+        href="http://de.wikipedia.org/wiki/Mercedes-Benz_170_VG">Mercedes-Benz
+        Typ G 5 (W 152, 1937–1941)</a> housed in <a
+        href="http://en.wikipedia.org/wiki/Technikmuseum_Speyer">Technik
+        Museum Speyer</a>, showing the use of a four-wheel
+        steering system.  Image source: <a
+        href="http://commons.wikimedia.org/wiki/File:Mercedes_K%C3%BCbelwagen_G5.jpg">Wikimedia
+        Commons</a> (<a
+        href="http://creativecommons.org/licenses/by-sa/3.0/deed.en">CC
+        BY-SA 3.0</a>) (<a
+        href="avs_Mercedes_Kubelwagen_G5.jpg">full-sized
+        image</a>).
+      </p>
+    </Image>
+
+    <CalloutContainer slot="cards">
+      <CalloutCard title="Requirements">
+        <li>Rigid bodies</li>
+      </CalloutCard>
+    </CalloutContainer>
 </SubSubSection>
+
+<SubSubSubSection title="Turning rigid bodies" id="turning_rigid_bodies">
+  <p>
+    When a rigid body turns in a circle, the four corners of the
+    body all move with different velocities and speeds. If we
+    think of a car as a single rigid body with wheels at the
+    corners, this means the four wheels move with different
+    speeds and also different directions. Car designers can
+    choose different steering arrangements, as shown below,
+    where the steering can be with the front two wheels only
+    (conventional cars), with the rear two wheels only
+    (forklifts), or with all four wheels in some
+    high-performance cars.
+  </p>
+
+  <PrairieDrawCanvas id="avs-ft-c" width="600" height="800">
+    <p class="controls">
+      <button class="anim-toggle:avs-ft-c" onclick="avs_ft_c.toggleAnim();">animation</button>
+      <button class="reset:avs-ft-c" onclick="avs_ft_c.reset();">reset</button>
+    </p>
+    <DisplayTable>
+      <tbody>
+        <tr>
+          <td style="border: 0px;">Show:</td>
+          <td style="border: 0px;" colspan="2">
+            <button class="option-toggle:avs-ft-c:showLabels" onclick="avs_ft_c.toggleOption('showLabels', this.value);">labels</button>
+            <button class="option-toggle:avs-ft-c:showCornerVelocities" onclick="avs_ft_c.toggleOption('showCornerVelocities', this.value);">corner velocities</button>
+            <button class="option-toggle:avs-ft-c:showRadialLines" onclick="avs_ft_c.toggleOption('showRadialLines', this.value);">radial lines</button>
+          </td>
+        </tr>
+      </tbody>
+      
+    </DisplayTable>
+
+    <Row> 
+      <Col values="12">
+          <div class="d-flex  align-items-baseline">
+              <p class="m-0 flex-shrink-1">Turn radius:</p>
+              <div class="flex-grow-1 d-flex align-items-baseline">
+                  <input type="range" min="1" max="5" value="5" step="0.1" class="data-input:avs-ft-c:radiusTurning flex-grow-1 mx-2" onchange="avs_ft_c.setOption('radius', this.value); document.querySelector('span[class*=radiusTurning]').innerText = this.value; console.log(this.value);" oninput="avs_ft_c.setOption('radius', this.value); document.querySelector('span[class*=radiusTurning]').innerText = this.value;"/>
+                      \(r = \; \) <span class="data-option:avb-fp-c:radiusTurning">5</span>m
+              </div>
+          </div>
+      </Col>
+      <Col values="12">
+          <div class="d-flex  align-items-baseline">
+            <p class="m-0 flex-shrink-1">Vehicle offset:</p>
+              <div class="flex-grow-1 d-flex align-items-baseline">
+                  <input type="range" min="-4" max="7" value="0" step="1" class="data-input:avs-ft-c:vehicleoffset flex-grow-1 mx-2" onchange="avs_ft_c.setOption('offset', this.value); document.querySelector('span[class*=vehicleoffset]').innerText = this.value; console.log(this.value);" oninput="avs_ft_c.setOption('offset', this.value); document.querySelector('span[class*=vehicleoffset]').innerText = this.value;"/>
+                      \(d = \; \) <span class="data-option:avb-fp-c:vehicleoffset">0</span>%
+              </div>
+          </div>
+      </Col>
+  </Row>
+    <p class="figureCaption mt-2">
+      A car turning in a circle, showing the directions that the
+      wheels must point as the turn radius \(r\) and offset \(d\)
+      change.
+    </p>
+  </PrairieDrawCanvas>
+
+  <CalloutContainer slot="cards">
+    <CalloutCard>
+      <p>
+        <a
+        href="http://en.wikipedia.org/wiki/Forklift_truck">Forklifts</a>
+        typically have fixed front wheels and steer with the rear
+        wheels. This gives them great control over the position of
+        the front lifting forks, but makes steering harder for the
+        operator. Rear-wheel steering is a type of <i>non-minimum
+        phase</i> control system. The <a
+        href="http://en.wikipedia.org/wiki/Minimum_phase">technical
+        definition</a> of minimum phase is somewhat complicated,
+        but for vehicle steering it essentially means that we have
+        to steer the “wrong way”. For example, to turn right in a
+        forklift we have to first swing the back out to the
+        left. This makes it very easy to accidentally run into
+        obstacles, and is also unstable at higher speeds.
+      </p>
+
+      <Image src="/Dynamics/RigidBodyKinematics/avs_8116755483.jpg" alt="Forklift steering." width="8">
+        <p class="caption">
+          A Yale GLP-50VX forklift executing a sharp right-hand
+          turn. Image credit: <a
+          href="http://www.flickr.com/photos/asv_/8116755483/">Flickr
+          image</a> by <a
+          href="http://www.flickr.com/people/asv_/">Anastasia
+          Victor</a> (<a
+          href="http://creativecommons.org/licenses/by/2.0/">CC BY
+          2.0</a>) (<a href="avs_8116755483.jpg">full-sized
+          image</a>).
+        </p>
+      </Image>
+      <p>
+        Sometimes in cars it would be convenient to also steer
+        with the rear or trailing wheels, for example when trying
+        to park in a tight spot. We actually have a mechanism for
+        converting a car to trailing-wheel steering, which is to
+        drive backwards, such as when <a
+        href="http://en.wikipedia.org/wiki/Parallel_parking">parallel
+        parking</a>.
+      </p>
+    </CalloutCard>
+  </CalloutContainer>
+</SubSubSubSection>
+
+<SubSubSubSection title="Ackerman steering geometry">
+  <p>
+    In a conventional car, the rear two wheels are fixed to
+    point straight ahead, while the front two wheels must turn
+    at different but matched angles. To achieve the correct
+    front wheel angles, cars typically use a four-bar linkage as
+    shown below. The pins at \(A\) and \(B\) are called
+    <em>kingpins</em> (normally actually ball joints in modern
+    cars), the \(CD\) rod is called the <em>tie rod</em>, and the
+    \(AD\) and \(BC\) rods are called <em>steering arms</em>. By
+    correctly choosing the lengths of the linkage rods, the car
+    steering will automatically produce nearly correctly matched
+    front wheel angles to make a perfect turn with any radius of
+    curvature.
+  </p>
+
+  <PrairieDrawCanvas id="avs-fr-c" width="600" height="800">
+    <p class="controls">
+      <button class="anim-toggle:avs-fr-c" onclick="avs_fr_c.toggleAnim();">animation</button>
+      <button class="option-toggle:avs-fr-c:showLabels" onclick="avs_fr_c.toggleOption('showLabels');">labels</button>
+      <button class="reset:avs-fr-c" onclick="avs_fr_c.reset();">reset</button>
+    </p>
+    <div class="w-100">
+      <div class="d-flex  align-items-baseline">
+        <p class="m-0 flex-shrink-1">Steering pivot offset angle:</p>
+          <div class="flex-grow-1 d-flex align-items-baseline">
+              <input type="range" min="-4" max="7" value="0" step="0.1" class="data-input:avs-fr-c:pivotAngleDeg flex-grow-1 mx-2" onchange="avs_fr_c.setOption('pivotAngleDeg', this.value); document.querySelector('span[class*=pivotAngleDegsteering]').innerText = this.value; console.log(this.value);" oninput="avs_fr_c.setOption('pivotAngleDeg', this.value); document.querySelector('span[class*=pivotAngleDegsteering]').innerText = this.value;"/>
+                  \(\theta = \; \) <span class="data-option:avb-fp-c:pivotAngleDegsteering">0</span>\(^\circ\)
+          </div>
+      </div>
+    </div>
+    <p class="figureCaption mt-2">
+      Adjustable Ackerman steering geometry. The graph shows the
+      radius of curvature for the two front wheels as a function
+      of the rack offset \(d\).
+    </p>
+  </PrairieDrawCanvas>
+
+  <CalloutContainer slot="cards">
+    <CalloutCard>
+      <p>
+            Three wheeled vehicles with two wheels in back and one in
+            front (a <em>delta</em> or <em>tricycle</em>
+            configuration) avoid the need for complicated steering
+            geometry, leading Karl Benz to use this system in the
+            world's <a
+            href="http://en.wikipedia.org/wiki/Benz_Patent_Motorwagen">first
+            automobile</a>.
+        </p>
+
+      <Image src="/Dynamics/RigidBodyKinematics/avs_Motorwagen_Serienversion_shaved_small.jpg" alt="Benz Patent-Motorwagen Nr. 3." width="8">
+        <p class="caption">
+          Benz Patent-Motorwagen Nr. 3 from 1888. Image credit:
+          <a
+          href="http://commons.wikimedia.org/wiki/File:Motorwagen_Serienversion.jpg">Wikimedia
+          Commons</a> (<a
+          href="http://creativecommons.org/licenses/publicdomain/">public
+          domain</a>) (<a
+          href="avs_Motorwagen_Serienversion.jpg">full-sized
+          image</a>).
+        </p>
+      </Image>
+      <p>
+        <a href="">Episode 4 of Season 9</a> of <a
+        href="http://en.wikipedia.org/wiki/Top_Gear_(2002_TV_series)">Top
+        Gear</a> featured a <a
+        href="http://www.youtube.com/watch?v=_bIn_ZgHJaE">segment</a>
+        on the <a
+        href="http://en.wikipedia.org/wiki/Reliant_Robin">Reliant
+        Robin</a>, a three-wheel car produced in the 1970s in the
+        United Kingdom. This Top Gear episode clearly demonstrates
+        some of the reasons that single-wheel steering systems for
+        cars have not achieved long-lasting commercial success.
+      </p>
+      <p>
+        <a
+        href="http://en.wikipedia.org/wiki/Three_wheeled_car">Three-wheeled
+        cars</a> were rather popular with British manufacturers in
+        the 1960s and 1970s. As well as single-wheel-in-front
+        models like the Reliant Robin, there were also production
+        cars with a single wheel in the back (a <em>tadpole</em>
+        configuration). An example of this is the smallest
+        production car ever made, the <a
+        href="http://en.wikipedia.org/wiki/Peel_P50">Peel 50</a>,
+        shown in another <a
+        href="http://www.youtube.com/watch?v=dJfSS0ZXYdo">Top Gear
+        episode</a> (Series 10, Episode 3).
+      </p>
+    </CalloutCard>
+  </CalloutContainer>
+</SubSubSubSection>
 
 <SubSubSection title="Knee Joint">
     <BlueText>Complete in <a target="_blank" rel="noopener noreferrer" target="_blank" rel="noopener noreferrer" href="https://mechref.engr.illinois.edu/dyn/aml.html"> "Four-Bar Linkages" </a> under the subtitle "Example: Knee joint (constrained motion)".</BlueText> This refers to "Constrained motion".
