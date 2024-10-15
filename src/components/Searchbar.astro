@@ -3,10 +3,11 @@ import search_contents from "../search.json"
 ---
 <style>
     #searchresults{
-        background-color: var(--bs-body-bg);
+        background-color: white;
+        color: black;
         list-style: none; 
         border-radius: 5px;
-        border: 1px solid var(--bs-border-color);
+        border: 1px solid black;
     }
   
     #searchresults:empty{
@@ -71,7 +72,7 @@ import search_contents from "../search.json"
       <input type="text" class="form-control" placeholder="Search for keyword" id="searchbox" autocomplete="off" />
       
     </div>
-    <ul id="searchresults" class="position-absolute themed-border z-3 w-100 p-0">
+    <ul id="searchresults" class="position-absolute z-3 w-100 p-0" style="">
 
     </ul> 
     
@@ -2163,11 +2164,11 @@ import search_contents from "../search.json"
 
             console.log(display_text)
             
-            searchresults.innerHTML += `<a href="${e['item']['link']}?searched=true&query=${query}&origin=search" class="themed-text text-decoration-none" style="font-weight: normal;">
+            searchresults.innerHTML += `<a href="${e['item']['link']}?searched=true&query=${query}&origin=search" class="text-black text-decoration-none" style="font-weight: normal;">
                     <li class="px-2 py-1 border-bottom" >
                     
-                        <p class="mb-0 fw-bold">${course_tags[e['item']['course']]} - ${e['item']['title']}</p>
-                        ${display_text}
+                        <p class="mb-1 fw-bold" style="font-size: 1.2rem;">${course_tags[e['item']['course']]} - ${e['item']['title']}</p>
+                        <p class="m-0" style="font-size: 1.1rem;">${display_text}</p>
                     
                     </li>
                 </a>
