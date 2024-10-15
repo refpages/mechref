@@ -170,10 +170,11 @@ The neutral axis of an I-beam is the center. To find the I, use the parallel axi
 
 In some cases, it is more useful to look at shear flow (<InlineEquation equation="q" />) through a structure than internal shear stress.
 
-<Image src="/Solid_Mechanics/TransverseShear-Figures/IbeamShearFlow.png" width="5"></Image> 
+<Image src="/Solid_Mechanics/TransverseShear-Figures/IbeamShearFlow.png" width="5">L: Shear flow direction. R: Shear flow magnitude</Image> 
 
 For an I-beam, the shear flow increases symmetrically on top from the end to the neutral axis in the y-direction, and on the side increases from the flanges to the neutral axes.
 
+Shear flow is the a measure of force per length.
 
 <DisplayEquation equation="\\begin{align*} &dF = \\frac{VQ}{I}dx	\\\\ \\text{where}	 \\\\ &q = \\frac{dF}{dx} = \\frac{VQ}{I} \\\\ \\end{align*}" title="Shear flow (q)." background="True" derivation="True" id="shr-flw">
 
@@ -188,6 +189,8 @@ For an I-beam, the shear flow increases symmetrically on top from the end to the
 
 </DisplayEquation>
 
+<DisplayEquation equation="\\tau = \\frac{q}{t}" title="Shear stress using shear flow." background="True" />
+
 Shear flow is most applicable in design situations such as built-up beams.
 Built-up beams are beams that have been put together with either an adhesive (glue, epoxy, etc) or fasteners (nails, bolts, etc). Calculating shear flow allows for determining how much adhesive or how often a fastener is needed.
 
@@ -199,7 +202,7 @@ Built-up beams are beams that have been put together with either an adhesive (gl
 <strong>Adhesives</strong> supply resistance along the length of the contacting parts. Determine the minimum shear strength at these contacting/weak points using the shear stress equation.
 </p>
 
-<strong>Example:</strong> The following I-beam is composed of 4 boards glued together. The vertical shear is is <InlineEquation equation="V = 100 N"/>.
+<strong>Example:</strong> The following I-beam is composed of 4 boards glued together. The vertical shear is is <InlineEquation equation="V = 100 \\text{ } N"/>.
 Find the minumum required shear strength for the glue (<InlineEquation equation="\\tau_{glue}" />). 
 <Image src="/Solid_Mechanics/TransverseShear-Figures/AdhesiveExample.png" width="2"></Image>
 
@@ -219,7 +222,7 @@ Find the minumum required shear strength for the glue (<InlineEquation equation=
   <Image src="/Solid_Mechanics/TransverseShear-Figures/IBeamThick.png" width="1"></Image>
 
   <DisplayEquation equation="t_A = 25 \\text{ } mm" />
-  <DisplayEquation equation="t_A = 25 \\text{ } mm" />
+  <DisplayEquation equation="t_D = 25 \\text{ } mm" />
 
   <DisplayEquation equation="\\tau_{AB} = 12.0 \\text{ } kPa" />
   <DisplayEquation equation="\\tau_{BD} = 36.1 \\text{ } kPa" />
@@ -229,9 +232,6 @@ Find the minumum required shear strength for the glue (<InlineEquation equation=
 </DisplayEquation>
 
 
-
-
-
 </SubSubSection>
 
 <SubSubSection title="Fasteners" id="fasteners">
@@ -239,7 +239,37 @@ Find the minumum required shear strength for the glue (<InlineEquation equation=
 <strong>Fasteners</strong> supply resistance at fixed intervals. Use the shear flow formula to analyze the beam.
 </p>
 
-<strong>Example:</strong> 
+<strong>Example:</strong> The followling beams are composed of two boards nailed together with 6 nails (the image is a side view showing half of the nails) at an interval of <InlineEquation equation="\\Delta s = 50 \\text{ } mm"/>. The shear force is <InlineEquation equation="V = 100 \\text{ } kN"/>. 
+Find the shear flow (<InlineEquation equation="q"/>) and the load each fastener carries (<InlineEquation equation="f_n"/>).
+
 <Image src="/Solid_Mechanics/TransverseShear-Figures/FastenerExample.png" width="5.5"></Image>
+
+<DisplayEquation equation="\\begin{align*} &q = \\frac{VQ}{I},\\  &f_n = \\frac{q*s_{total}}{4}\\ \\end{align*}" title="Shear flow in fasteners" background="True" derivation="True" id="fsn-exp">
+
+  <Image src="/Solid_Mechanics/TransverseShear-Figures/BoardsQ.png" width="2"></Image>
+
+  <DisplayEquation equation="Q = (b*h)\\bar{y} = 3.75*10^5 \\text{ } mm^3" />
+
+  <DisplayEquation equation="I = \\frac{1}{12}b h^3 = 2.5*10^7 \\text{ } mm^4" />
+
+  <DisplayEquation equation="q = 1.5 \\text{ } \\frac{kN}{mm}" />
+
+
+  <DisplayEquation equation="\\Sigma F_{total} = \\frac{1}{2}f_n + f_n + \\frac{1}{2}f_n = 2f_n" />
+  
+  Because there are 2 nails in each row, 
+
+  <DisplayEquation equation="\\Sigma F_{total} = 2*F_{total} = 2*2f_n = 4f_n" />
+
+  <DisplayEquation equation="s_{total} = 2\\Delta s = 100 \\text{ } mm^4" />
+
+  <DisplayEquation equation="f_n = 37.5 \\text{ } kN" />
+
+
+
+
+</DisplayEquation>
+
+
 </SubSubSection>
 </Layout>
