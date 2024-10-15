@@ -63,25 +63,27 @@ Transverse loading creates corresponding <strong>longitudinal shear stresses</st
 
 
 
-<p> Symmetry of stress: transverse xy stress implies longitudinal yx stress </p>
+<p> Symmetry of stress: transverse xy stress implies longitudinal yx stress. </p>
+
+<Image src="/Solid_Mechanics/TransverseShear-Figures/Symmetry.png" width="2"></Image>
 
 <DisplayEquation equation="\\tau_{xy} = \\tau_{yx}\\" title="Symmetry." background="True"/>
 
-<Image src="/Solid_Mechanics/TransverseShear-Figures/Symmetry.png" width="2"></Image>
+
  
 </SubSection>
 
 <SubSection title="Average Shear Stress" id="avg_shear_stress">
 
-<Image src="/Solid_Mechanics/TransverseShear-Figures/AvgShear.png" width="1.5"></Image>
+<Image src="/Solid_Mechanics/TransverseShear-Figures/AvgShear.png" width="5"></Image>
 
 Shear stress varies throughout the cross-section of the beam where the maximum shear stress is at the neutral axis and is zero at the edges. Shear stress can be represented as an average across the beam. 
 
 <DisplayEquation equation="\\tau = \\frac{V}{A}\\" title="Avg. shear stress." background="True" />
 
-<Image src="/Solid_Mechanics/TransverseShear-Figures/ShearAtPoint.png" width="4.5"></Image>
+<Image src="/Solid_Mechanics/TransverseShear-Figures/ShearAtPoint.png" width="6"></Image>
 
-Shear stress can also be evaluated at any given point. 
+Shear stress can also be evaluated at any given point (<InlineEquation equation="y_1" />) from the z-axis. 
 
 <DisplayEquation equation="\\tau = \\frac{VQ}{It}\\" title="shear stress at a point." background="True" derivation="True" id="shr-pts">
 
@@ -109,7 +111,7 @@ Shear stress can also be evaluated at any given point.
 <Itemize>
   <Item><InlineEquation equation="V" /> : shear force</Item>
   <Item><InlineEquation equation="Q" /> : First area moment of inertia of cut section ( <InlineEquation equation="Q = \\Sigma \\bar{y}'A'" /> )</Item>
-  <Item><InlineEquation equation="I" /> : Second area moment of inertia of whole section</Item>
+  <Item><InlineEquation equation="I" /> : Second area moment of inertia of whole cross-sectional area</Item>
   <Item><InlineEquation equation="t" /> : beam thickness</Item>
 </Itemize>
 
@@ -120,7 +122,7 @@ Shear stress can also be evaluated at any given point.
 <Image src="/Solid_Mechanics/TransverseShear-Figures/RectCrossSect.png" width="5"></Image>
 
  
-<DisplayEquation equation="\\begin{align*} &\\tau = \\frac{3}{2} \\frac{V}{bh}(1-\\frac{y^2}{c^2})	\\\\ \\text{where}	 \\\\ &c = \\frac{1}{2}h \\\\ \\text{or} \\\\ &\\tau = \\frac{6V}{bh^3}(\\frac{h^2}{4}-y^2) \\end{align*}" title="Shear stress in a rectangular beam." background="True" derivation="True" id="shr-rct"> 
+<DisplayEquation equation="\\begin{align*} &\\tau_{cut} = \\frac{3}{2} \\frac{V}{bh}(1-\\frac{y^2}{c^2})	\\\\ \\text{where}	 \\\\ &c = \\frac{1}{2}h \\\\ \\text{or} \\\\ &\\tau_{cut} = \\frac{6V}{bh^3}(\\frac{h^2}{4}-y^2) \\end{align*}" title="Shear stress at a given point (y) in a rectangular beam." background="True" derivation="True" id="shr-rct"> 
 
  <DisplayEquation equation="I_z = \\frac{1}{12} bh^3\\" /> 
  <DisplayEquation equation="t=b\\" /> 
@@ -130,7 +132,7 @@ Shear stress can also be evaluated at any given point.
 
 </DisplayEquation>
  
-Maximum shear stress occurs at the Neutral axis
+Maximum shear stress occurs at the neutral axis.
 <DisplayEquation equation="\\tau_{max} = 1.5 \\frac{V}{A}\\" title="Max. shear stress in rectangular beam." background="True"/>
 
 </SubSubSection>
@@ -159,9 +161,6 @@ The neutral axis of an I-beam is the center. To find the I, use the parallel axi
            <Image src="/Solid_Mechanics/TransverseShear-Figures/RectThinWallShearFlow.png" width=""></Image> 
             For a box beam, q grows symmetrically. From the edge to where the beam becomes hollow, the flow increases linearly and from where it becomes hollow to the neutral axis, the flow increases parabolically.
            
-            <Image src="/Solid_Mechanics/TransverseShear-Figures/IbeamShearFlow.png" width=""></Image> 
-             For a wide-flange beam, the shear flow increases symmetrically on top from the end to the neutral axis in the y direction, and on the side increases from the flanges to the neutral axes.
-           
              <Image src="/Solid_Mechanics/TransverseShear-Figures/UchannelShearFlow.png" width=""></Image> 
              For a u-channel beam, the shear flow increases linearly on the sides from the edge to the base, and on the base it increases from the sides to the neutral axis.
 
@@ -169,9 +168,12 @@ The neutral axis of an I-beam is the center. To find the I, use the parallel axi
     </CalloutCard>
 </CalloutContainer>
 
-<Image src="/Solid_Mechanics/TransverseShear-Figures/ShearFlow.png" width="2"></Image>
+In some cases, it is more useful to look at shear flow (<InlineEquation equation="q" />) through a structure than internal shear stress.
 
-In some cases, it can be more useful to look at shear flow (<InlineEquation equation="q" />) through a structure than internal shear stress. It is most applicable in design situations such as built-up beams.
+<Image src="/Solid_Mechanics/TransverseShear-Figures/IbeamShearFlow.png" width="5"></Image> 
+
+For an I-beam, the shear flow increases symmetrically on top from the end to the neutral axis in the y-direction, and on the side increases from the flanges to the neutral axes.
+
 
 <DisplayEquation equation="\\begin{align*} &dF = \\frac{VQ}{I}dx	\\\\ \\text{where}	 \\\\ &q = \\frac{dF}{dx} = \\frac{VQ}{I} \\\\ \\end{align*}" title="Shear flow (q)." background="True" derivation="True" id="shr-flw">
 
@@ -186,9 +188,10 @@ In some cases, it can be more useful to look at shear flow (<InlineEquation equa
 
 </DisplayEquation>
 
+Shear flow is most applicable in design situations such as built-up beams.
 Built-up beams are beams that have been put together with either an adhesive (glue, epoxy, etc) or fasteners (nails, bolts, etc). Calculating shear flow allows for determining how much adhesive or how often a fastener is needed.
 
-<Image src="/Solid_Mechanics/TransverseShear-Figures/BuiltUpBeams.png" width="4.5"></Image>
+<Image src="/Solid_Mechanics/TransverseShear-Figures/BuiltUpBeams.png" width="5"></Image>
 </SubSection>
 
 <SubSubSection title="Adhesives" id="adhesives">
@@ -196,7 +199,39 @@ Built-up beams are beams that have been put together with either an adhesive (gl
 <strong>Adhesives</strong> supply resistance along the length of the contacting parts. Determine the minimum shear strength at these contacting/weak points using the shear stress equation.
 </p>
 
-<strong>Example:</strong>
+<strong>Example:</strong> The following I-beam is composed of 4 boards glued together. The vertical shear is is <InlineEquation equation="V = 100 N"/>.
+Find the minumum required shear strength for the glue (<InlineEquation equation="\\tau_{glue}" />). 
+<Image src="/Solid_Mechanics/TransverseShear-Figures/AdhesiveExample.png" width="2"></Image>
+
+<DisplayEquation equation="\\begin{align*} &\\tau_{AB} = \\frac{V Q_A}{I t_A},\\  &\\tau_{BD} = \\frac{V Q_D}{I t_D}\\ \\end{align*}" title="The larger shear stress is the minimum required strength" background="True" derivation="True" id="adh-exp">
+
+  <Image src="/Solid_Mechanics/TransverseShear-Figures/IBeamQ.png" width="1.5"></Image>
+
+  <DisplayEquation equation="Q_A = A \\bar{y_A} = 3.13*10^4 \\text{ } mm^3" />
+  <DisplayEquation equation="Q_D = A \\bar{y_D} = 9.38*10^4 \\text{ } mm^3" />
+
+  <Image src="/Solid_Mechanics/TransverseShear-Figures/IBeamMOI.png" width="1"></Image>
+
+  <DisplayEquation equation="I = I_1 + 2 I_2 = 1.04*10^7 \\text{ } mm^4" />
+  <DisplayEquation equation="I_1 = \\frac{1}{12}b_1 h_1^3 = 8.79*10^5 \\text{ } mm^4" />
+  <DisplayEquation equation="I_2 = \\frac{1}{12}b_2 h_2^3 +A_2d_2^2 = 47.85*10^5 \\text{ } mm^4 " />
+
+  <Image src="/Solid_Mechanics/TransverseShear-Figures/IBeamThick.png" width="1"></Image>
+
+  <DisplayEquation equation="t_A = 25 \\text{ } mm" />
+  <DisplayEquation equation="t_A = 25 \\text{ } mm" />
+
+  <DisplayEquation equation="\\tau_{AB} = 12.0 \\text{ } kPa" />
+  <DisplayEquation equation="\\tau_{BD} = 36.1 \\text{ } kPa" />
+
+  <DisplayEquation equation="\\begin{align*} &\\tau_{AB} < \\tau_{BD} \\  &\\tau_{glue} = 36.1 \\text{ } kPa\\ \\end{align*}" />
+
+</DisplayEquation>
+
+
+
+
+
 </SubSubSection>
 
 <SubSubSection title="Fasteners" id="fasteners">
@@ -205,6 +240,6 @@ Built-up beams are beams that have been put together with either an adhesive (gl
 </p>
 
 <strong>Example:</strong> 
-
+<Image src="/Solid_Mechanics/TransverseShear-Figures/FastenerExample.png" width="5.5"></Image>
 </SubSubSection>
 </Layout>
