@@ -68,6 +68,11 @@ import Searchbar from "./Searchbar.astro";
         flex: 1 1 auto !important;
     }
 
+    .source-pro{
+        font-family: 'SourceSansPro', sans-serif;
+        -webkit-font-smoothing: antialiased;
+    }
+
     header {
         position: relative;
         width: 100%;
@@ -251,6 +256,12 @@ import Searchbar from "./Searchbar.astro";
         color: var(--illini-blue);
         font-weight: bold;
     }
+
+    .prevent-select {
+        -webkit-user-select: none; 
+        -ms-user-select: none;
+        user-select: none;
+    }
 </style>
 
 <header >
@@ -296,8 +307,8 @@ import Searchbar from "./Searchbar.astro";
                     <Searchbar/>
                 </div>
                 <div id="mainnav-toggler-container" class="d-block d-lg-none ps-1 ps-sm-2">
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainnav" aria-controls="mainnav" aria-expanded="false" aria-label="Toggle navigation" data-bs-toggle="collapse" data-bs-target="#mainnav">
-                        <i class="bi bi-list" style="font-size: 1.25rem; font-weight: bold;"></i> <span class="label d-none d-sm-block">Menu</span>
+                    <button class="navbar-toggler d-flex flex-row align-items-center" type="button" data-toggle="collapse" data-target="#mainnav" aria-controls="mainnav" aria-expanded="false" aria-label="Toggle navigation" data-bs-toggle="collapse" data-bs-target="#mainnav">
+                        <i class="bi bi-list source-pro" style="font-size: 2rem; font-style: normal; font-weight: 700;"></i> <span class="label d-none d-sm-block source-pro" style="font-size: 1.25rem; font-weight: 700;">Menu</span>
                     </button>
                 </div>
             </div>
@@ -408,7 +419,7 @@ import Searchbar from "./Searchbar.astro";
 <div id="scrollToTopDiv" class=" d-lg-none flex-column align-items-center position-fixed w-100 z-3" style="bottom: 10px; cursor: pointer;" onclick="scrollToTop()">
     <div class="d-flex flex-row align-items-center justify-content-center px-2 bg-white" style="border-radius: 1000px; border: 2px solid black;">
         <i class="bi bi-arrow-up-short m-0 text-black" style="font-size: 32px;"></i>
-        <p class="m-0 text-black">Scroll back to top</p>
+        <p class="m-0 text-black prevent-select">Scroll back to top</p>
     </div>
 </div>
 
