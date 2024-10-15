@@ -5,6 +5,7 @@ import Searchbar from "./Searchbar.astro";
 <style>
     :root{
         --nav-bg: #e8e9eb;
+        --altgeld-orange: #c84113;
     }
 
     .illini-blue{
@@ -40,17 +41,17 @@ import Searchbar from "./Searchbar.astro";
         text-transform: uppercase;
     }
 
-    header a{
+    a{
         color: var(--illini-blue);
         text-decoration: none;
         padding: 0;
     }
 
-    header a:hover{
-        color: #c84113;
+    a:hover{
+        color: var(--altgeld-orange);
     }
 
-    header .campus .row {
+    .campus .row {
         max-width: 1160px;
         padding: 0 0 0 10px;
     }
@@ -86,13 +87,13 @@ import Searchbar from "./Searchbar.astro";
         }
     }
 
-    header .site_identification {
+    .site_identification {
         display: flex;
         flex-wrap: wrap;
         align-items: center;
     }
 
-    header .parent_name {
+    .parent_name {
         font-weight: 500;
         font-size: 19px;
         line-height: 25px;
@@ -100,7 +101,7 @@ import Searchbar from "./Searchbar.astro";
         -webkit-font-smoothing: antialiased;
     }
 
-    header .site_name{
+    .site_name{
         width: 100%;
         font-size: 24px;
         line-height: 29px;
@@ -109,7 +110,15 @@ import Searchbar from "./Searchbar.astro";
         -webkit-font-smoothing: antialiased;
     }
 
-    header .site .row {
+    .site .row {
+        position: relative;
+        margin: 0 auto;
+        max-width: 1140px;
+        padding: 16px 10px;
+        z-index: 2;
+    }
+
+    .site .row {
         position: relative;
         margin: 0 auto;
         max-width: 1140px;
@@ -125,13 +134,13 @@ import Searchbar from "./Searchbar.astro";
         gap: 16px;
     }
 
-    header .navbar #mainnav {
+    .navbar #mainnav {
         max-width: 1140px;
         margin: 0 auto;
         position: relative;
     }
 
-    header .navbar .nav-item > a.nav-link {
+    .navbar .nav-item > a.nav-link {
         text-align: center;
         font-weight: bold;
         padding: 8px 10px 10px 10px;
@@ -159,7 +168,7 @@ import Searchbar from "./Searchbar.astro";
         content: '\f00d';
     }
 
-    header .navbar .nav-item.dropdown.show {
+    .navbar .nav-item.dropdown.show {
         background-color: white;
     }
 
@@ -175,7 +184,14 @@ import Searchbar from "./Searchbar.astro";
     }
 
     .dynamics-menu{
-        columns: 2;
+        column-count: 2;
+        
+    }
+
+    .menu li{
+        page-break-inside: avoid;
+        margin: 0 1rem .25rem 1rem;
+        padding-left: .5rem;
     }
 
     .solids-menu{
@@ -190,6 +206,14 @@ import Searchbar from "./Searchbar.astro";
 
     ol li::marker {
         color: var(--illini-blue);
+    }
+
+    li:hover > a{
+        color: var(--altgeld-orange);
+    }
+
+    ol li:hover::marker{
+        color: var(--altgeld-orange);
     }
 
     .tile-list{
@@ -207,6 +231,25 @@ import Searchbar from "./Searchbar.astro";
 
     #theme-icon{
         transition: all .2s ease-in;
+    }
+
+    nav{
+        align-self: start;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+    }
+
+    .menu{
+        color: var(--illini-blue);
+        font-weight: bold;
+        background-color: white;
+        font-size: 18px;
+    }
+
+    .dropdown-menu h2{
+        color: var(--illini-blue);
+        font-weight: bold;
     }
 </style>
 
@@ -231,8 +274,8 @@ import Searchbar from "./Searchbar.astro";
         </div>
     </div>
 
-    <div class="container-fluid site px-0">
-        <div class="row wordmark flex-nowrap align-items-center d-flex flex-wrap flex-lg-row flex-column">
+    <div class="container-fluid site px-0 d-flex flex-column">
+        <div class="row wordmark flex-nowrap align-items-center d-flex flex-wrap flex-lg-row flex-column w-100">
             <div class="col d-flex flex-fill px-0">
                 <div class="site_identification">
                     <div class="parent_name hide-empty d-none d-sm-block" data-value="35">
@@ -259,108 +302,138 @@ import Searchbar from "./Searchbar.astro";
                 </div>
             </div>
         </div>
-        <nav class="navbar navbar-expand-lg py-0" aria-label="Main Menu">
-            <div class="navbar-collapse collapse pt-2 pb-2 pb-lg-0" id="mainnav">
-                <ul class="navbar-nav w-100">
-                    <li class="dropdown mega nav-item">
-                        <a class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false" aria-label="About">
-                            <span>Statics</span>
-                        </a>
-                        <div class="dropdown-menu tile-list px-2" id="mainnav-statics">
-                            <section class="tile menu white-box col">
-                            <h2><a href="/sta" aria-label="About">Statics</a></h2>
-                                <ol style="column-fill: balance;" class="course-menu statics-menu">
-                                    <li class="px-2 pb-1"><a href="/sta/introduction">Introduction</a></li>
-                                    <li class="px-2 pb-1"><a href="/sta/cartesian_coordinates">Cartesian Coordinates</a></li>
-                                    <li class="px-2 pb-1"><a href="/sta/vectors_scalars">Vectors and Scalars</a></li>
-                                    <li class="px-2 pb-1"><a href="/sta/free_body_diagrams">Free Body Diagrams</a></li>
-                                    <li class="px-2 pb-1"><a href="/sta/moments">Moments</a></li>
-                                    <li class="px-2 pb-1"><a href="/sta/force_systems">Force Systems</a></li>
-                                    <li class="px-2 pb-1"><a href="/sta/reaction_forces">Reaction Forces</a></li>
-                                    <li class="px-2 pb-1"><a href="/sta/trusses">Trusses</a></li>
-                                    <li class="px-2 pb-1"><a href="/sta/frames_and_machines">Frames and Machines</a></li>
-                                    <li class="px-2 pb-1"><a href="/sta/internal_forces">Internal Forces</a></li>
-                                    <li class="px-2 pb-1"><a href="/sta/friction">Friction</a></li>
-                                    <li class="px-2 pb-1"><a href="/sta/centers_of_mass">Center of Mass</a></li>
-                                    <li class="px-2 pb-1"><a href="/sta/hydrostatic_fluid_pressure">Hydrostatic Fluid Pressure</a></li>
-                                    <li class="px-2 pb-1"><a href="/sta/moment_of_inertia">Moment Of Inertia</a></li>
-                                    <li class="px-2 pb-1"><a href="/sta/virtual_work">Virtual Work</a></li>
-                                </ol>
-                            </section>
-                        </div>
-                    </li>
-                    <li class="dropdown mega nav-item ">
-                        <a class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false" aria-label="About" >
-                            <span>Dynamics</span>
-                        </a>
-                        <div class="dropdown-menu tile-list px-2" id="mainnav-dynamics">
-                            <div class="d-flex">
-                                <section class="tile menu white-box col">
-                                    <h2><a href="/dyn" aria-label="About">Dynamics</a></h2>
-                                        <ol style="column-fill: balance;" class="course-menu dynamics-menu">
-                                            <li class="px-2 pb-1"><a href="/dyn/vectors">Vectors</a></li>
-                                            <li class="px-2 pb-1"><a href="/dyn/vector_calculus">Vector Calculus</a></li>
-                                            <li class="px-2 pb-1"><a href="/dyn/particle_kinematics">Particle Kinematics</a></li>
-                                            <li class="px-2 pb-1"><a href="/dyn/particle_kinetics">Particle Kinetics</a></li>
-                                            <li class="px-2 pb-1"><a href="/dyn/rigid_body_kinematics">Rigid Body Kinematics</a></li>
-                                            <li class="px-2 pb-1"><a href="/dyn/rigid_body_kinetics">Rigid Body Kinetics</a></li>
-                                            <li class="px-2 pb-1"><a href="/dyn/contact_and_rolling">Contact And Rolling</a></li>
-                                            <li class="px-2 pb-1"><a href="/dyn/work_and_energy">Work And Energy</a></li>
-                                        </ol>
-                                </section>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="dropdown mega nav-item ">
-                        <a class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false" aria-label="About">
-                            <span>Solid Mechanics</span>
-                        </a>
-                        <div class="dropdown-menu tile-list px-2" id="mainnav-solids"> 
-                            <div class="d-flex" >
-                                <section class="tile menu white-box col">
-                                    <h2><a href="/sol" aria-label="About">Solid Mechanics</a></h2>
-                                        <ol style="column-fill: balance;" class="course-menu solids-menu">
-                                            <li class="px-2 pb-1"><a href="/sol/stress">Stress</a></li>
-                                            <li class="px-2 pb-1"><a href="/sol/strain">Strain</a></li>
-                                            <li class="px-2 pb-1"><a href="/sol/material_properties">Material Properties</a></li>
-                                            <li class="px-2 pb-1"><a href="/sol/axial_loading">Axial Loading</a></li>
-                                            <li class="px-2 pb-1"><a href="/sol/torsion">Torsion</a></li>
-                                            <li class="px-2 pb-1"><a href="/sol/shear_moment_diagrams">Shear Moment Diagrams</a></li>
-                                            <li class="px-2 pb-1"><a href="/sol/bending">Bending</a></li>
-                                            <li class="px-2 pb-1"><a href="/sol/transverse_shear">Transverse Shear</a></li>
-                                            <li class="px-2 pb-1"><a href="/sol/pressure_vessels">Pressure Vessels</a></li>
-                                            <li class="px-2 pb-1"><a href="/sol/combined_loading">Combined Loading</a></li>
-                                            <li class="px-2 pb-1"><a href="/sol/stress_transformation">Stress Transformation</a></li>
-                                            <li class="px-2 pb-1"><a href="/sol/failure_theories">Failure Theories</a></li>
-                                            <li class="px-2 pb-1"><a href="/sol/beam_deflection">Beam Deflection</a></li>
-                                            <li class="px-2 pb-1"><a href="/sol/buckling">Buckling</a></li>
-                                        </ol>
-                                </section>
-                            </div>
-                        </div>
-                    </li>
-                </ul>
-                <span class="navbar-text p-0 d-flex flex-row justify-content-center align-items-center theme-toggler" onclick="toggle_theme();" >
-                    <i class="bi ps-1 pe-2 m-0" id="theme-icon"></i>
-                    <p class="nav-link active py-1 pe-1 m-0" style="text-wrap: nowrap;">Toggle theme</p>
-                 
-                    <script is:inline>
-                        const theme_icon = document.querySelector("#theme-icon");
-                        //bi-moon
-                        if (theme == "dark"){
-                            theme_icon.classList.add("bi-moon-stars-fill");
-                        }else{
-                            theme_icon.classList.add("bi-sun-fill");
-                        }
-                    </script>
-                </span>
-            </div>
-        </nav>
+        
 
     </div>
 </header>
 
+<nav class="navbar navbar-expand-lg py-0 d-flex w-100" aria-label="Main Menu">
+    <div class="navbar-collapse collapse pt-2 pb-2 pb-lg-0" id="mainnav">
+        <ul class="navbar-nav w-100">
+            <li class="dropdown mega nav-item">
+                <a class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false" aria-label="About">
+                    <span>Statics</span>
+                </a>
+                <div class="dropdown-menu tile-list px-2" id="mainnav-statics">
+                    <section class="tile menu white-box col">
+                    <h2><a href="/sta" aria-label="About">Statics</a></h2>
+                        <ol style="column-fill: balance;" class="course-menu statics-menu">
+                            <li><a href="/sta/introduction">Introduction</a></li>
+                            <li><a href="/sta/cartesian_coordinates">Cartesian Coordinates</a></li>
+                            <li><a href="/sta/vectors_scalars">Vectors and Scalars</a></li>
+                            <li><a href="/sta/free_body_diagrams">Free Body Diagrams</a></li>
+                            <li><a href="/sta/moments">Moments</a></li>
+                            <li><a href="/sta/force_systems">Force Systems</a></li>
+                            <li><a href="/sta/reaction_forces">Reaction Forces</a></li>
+                            <li><a href="/sta/trusses">Trusses</a></li>
+                            <li><a href="/sta/frames_and_machines">Frames and Machines</a></li>
+                            <li><a href="/sta/internal_forces">Internal Forces</a></li>
+                            <li><a href="/sta/friction">Friction</a></li>
+                            <li><a href="/sta/centers_of_mass">Center of Mass</a></li>
+                            <li><a href="/sta/hydrostatic_fluid_pressure">Hydrostatic Fluid Pressure</a></li>
+                            <li><a href="/sta/moment_of_inertia">Moment Of Inertia</a></li>
+                            <li><a href="/sta/virtual_work">Virtual Work</a></li>
+                        </ol>
+                    </section>
+                </div>
+            </li>
+            <li class="dropdown mega nav-item ">
+                <a class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false" aria-label="About" >
+                    <span>Dynamics</span>
+                </a>
+                <div class="dropdown-menu tile-list px-2" id="mainnav-dynamics">
+                    <div class="d-flex">
+                        <section class="tile menu white-box col">
+                            <h2><a href="/dyn" aria-label="About">Dynamics</a></h2>
+                                <ol style="column-fill: balance-all;" class="course-menu dynamics-menu">
+                                    <li><a href="/dyn/vectors">Vectors</a></li>
+                                    <li><a href="/dyn/vector_calculus">Vector Calculus</a></li>
+                                    <li><a href="/dyn/particle_kinematics">Particle Kinematics</a></li>
+                                    <li><a href="/dyn/particle_kinetics">Particle Kinetics</a></li>
+                                    <li><a href="/dyn/rigid_body_kinematics" style="break-inside: avoid;">Rigid Body Kinematics</a></li>
+                                    <li><a href="/dyn/rigid_body_kinetics">Rigid Body Kinetics</a></li>
+                                    <li><a href="/dyn/contact_and_rolling">Contact And Rolling</a></li>
+                                    <li><a href="/dyn/work_and_energy">Work And Energy</a></li>
+                                </ol>
+                        </section>
+                    </div>
+                </div>
+            </li>
+            <li class="dropdown mega nav-item ">
+                <a class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false" aria-label="About">
+                    <span>Solid Mechanics</span>
+                </a>
+                <div class="dropdown-menu tile-list px-2" id="mainnav-solids"> 
+                    <div class="d-flex" >
+                        <section class="tile menu white-box col">
+                            <h2><a href="/sol" aria-label="About">Solid Mechanics</a></h2>
+                                <ol style="column-fill: balance;" class="course-menu solids-menu">
+                                    <li><a href="/sol/stress">Stress</a></li>
+                                    <li><a href="/sol/strain">Strain</a></li>
+                                    <li><a href="/sol/material_properties">Material Properties</a></li>
+                                    <li><a href="/sol/axial_loading">Axial Loading</a></li>
+                                    <li><a href="/sol/torsion">Torsion</a></li>
+                                    <li><a href="/sol/shear_moment_diagrams">Shear Moment Diagrams</a></li>
+                                    <li><a href="/sol/bending">Bending</a></li>
+                                    <li><a href="/sol/transverse_shear">Transverse Shear</a></li>
+                                    <li><a href="/sol/pressure_vessels">Pressure Vessels</a></li>
+                                    <li><a href="/sol/combined_loading">Combined Loading</a></li>
+                                    <li><a href="/sol/stress_transformation">Stress Transformation</a></li>
+                                    <li><a href="/sol/failure_theories">Failure Theories</a></li>
+                                    <li><a href="/sol/beam_deflection">Beam Deflection</a></li>
+                                    <li><a href="/sol/buckling">Buckling</a></li>
+                                </ol>
+                        </section>
+                    </div>
+                </div>
+            </li>
+        </ul>
+        <span class="navbar-text p-0 d-flex flex-row justify-content-center align-items-center theme-toggler" onclick="toggle_theme();" >
+            <i class="bi ps-1 pe-2 m-0" id="theme-icon"></i>
+            <p class="nav-link active py-1 pe-1 m-0 fw-bold" style="text-wrap: nowrap;">Toggle theme</p>
+         
+            <script is:inline>
+                const theme_icon = document.querySelector("#theme-icon");
+                //bi-moon
+                if (theme == "dark"){
+                    theme_icon.classList.add("bi-moon-stars-fill");
+                }else{
+                    theme_icon.classList.add("bi-sun-fill");
+                }
+            </script>
+        </span>
+    </div>
+</nav>
+
+<div id="scrollToTopDiv" class=" d-lg-none flex-column align-items-center position-fixed w-100 z-3" style="bottom: 10px; cursor: pointer;" onclick="scrollToTop()">
+    <div class="d-flex flex-row align-items-center justify-content-center px-2 bg-white" style="border-radius: 1000px; border: 2px solid black;">
+        <i class="bi bi-arrow-up-short m-0 text-black" style="font-size: 32px;"></i>
+        <p class="m-0 text-black">Scroll back to top</p>
+    </div>
+</div>
+
 <script is:inline>
+
+    window.onscroll = function(){showHideScrollDiv()};
+
+function showHideScrollDiv(){
+    minHeight = document.querySelector('header').clientHeight;
+    div = document.querySelector('#scrollToTopDiv');
+
+    if (document.body.scrollTop > minHeight || document.documentElement.scrollTop > minHeight){
+        div.style.display = 'flex'
+    }else{
+        div.style.display = 'none'
+    }
+}
+
+showHideScrollDiv();
+
+    function scrollToTop(){
+        document.body.scrollTop = 0; 
+        document.documentElement.scrollTop = 0;
+    }
+
     //experiment for on hover menu activation
 
 //activate dropdown menus on mouse hover
