@@ -22,16 +22,26 @@ import Col from "../../components/Col.astro"
           <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#zero_force_member'>Frame and Machine Analysis</a></li>
       </ul>
       </div>
+
+<p>
+Frames and machines are systems that contain at least one non two force member. This means that at least one member in a frame or machine has at least 3 loads applied to it. 
+
+Unlike trusses, frames and machines are not necessarily only loaded at the joints, and are not necessarily compsed of long, slender members. 
+
+Multi-force members in both frames and machines have the potential to have not only axially internal loading, but also shear internal forces and internal bending moments. 
+
+</p>
+
 <Section title="Frames" id="frames">
 
-<p>Frames are ...
+<p>Frames are systems with at least one multi-force member that are generally designed to be stationary. SOme examples of frames could be a children's playground or even a table. 
 
 </p>
 </Section>
 
 <Section title="Machines" id="machines">
 
-<p>Machines are... 
+<p>Machines are systems with at least one multi-force member that have the potential to move. For example, an excavator is a machine.  
 
 </p>
 </Section>
@@ -42,6 +52,16 @@ import Col from "../../components/Col.astro"
 Because frames and machines carry not only axial loads but also shear loads and bending moments, we can't use the method of joints or the method of sections to get internal forces. 
 
 Instead, we need to "break apart" the pieces of the frame or machine and draw free body diagrams of each piece individually. 
+
+Frame and machine analysis involves the following steps: 
+<Enumerate>
+	<Item> Identify any two-force members and apply the two force member assumptions (see the Truss reference pages for more details)
+    </Item>
+	<Item> Identify any multi force members and make free body diagrams for each multip force member. Remember that the same forces in two different free body diagrams will be equal and opposite!
+    </Item>
+	<Item> Use equations of equilibrium to solve for the unknown forces in the free body diagrams. 
+    </Item>
+</Enumerate>
 
 </p>
 </Section>
