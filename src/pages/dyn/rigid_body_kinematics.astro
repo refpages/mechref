@@ -43,9 +43,44 @@ import DisplayTable from "../../components/DisplayTable.astro"
 
 <Layout title="Rigid Body Kinematics">
 
-<Section title="Rigid Body Kinematics" id="rigid_body_kinematics"></Section>
 
-<SubSection title="Rigid bodies">
+<div slot="navtree">
+  <ul class='list-group list-group-flush py-0'> 
+    <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#rigid_bodies'>Rigid bodies</a>
+    </li> 
+    <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#rotating_rigid_bodies'>Rotating rigid bodies</a>
+    </li> 
+    <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#points_rigid_bodies'>Points on rigid bodies</a>
+    </li>
+    <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#rigid_bodies_2d'>Rigid bodies in 2D</a>
+    </li>
+	<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#constrained_motion'>Constrained motion</a>
+		        <ul class='list-group list-group-flush py-0'> 
+            <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#constraint forces'>Constraint forces</a></li>
+        </ul>
+    </li>
+	<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#gears'>Gears</a>
+		    <ul class='list-group list-group-flush py-0'> 
+            <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#sign_convention'>Standard sign convention</a></li>
+			<li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#acce_contact_noslip_convention'>Acceleration in contact (no slip)</a></li>
+        </ul>
+    </li>
+		<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#applications_rgkinema'>Applications</a>
+	        <ul class='list-group list-group-flush py-0'> 
+            <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#steering_geometry'>Steering geometry</a></li>
+			<li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#turning_rigid_bodies'>Turning rigid bodies</a></li>
+			<li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#ackerman_steering'>Ackerman steering geometry</a></li>
+			<li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#knee_joint'>Knee joint</a></li>
+			<li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#suspensions_linkage'>Suspensions with Watt's linkage</a></li>
+        </ul>
+    </li>
+</ul>
+</div>
+
+
+
+
+<Section title="Rigid bodies" id="rigid_bodies">
 
     A <em>rigid body</em> is an extended area of material that
           includes all the points inside it, and which moves so that
@@ -104,9 +139,9 @@ import DisplayTable from "../../components/DisplayTable.astro"
         no extended body can be exactly rigid. Despite this, these
         are very useful models for mechanics and dynamics.
       </p>
-</SubSection>
+</Section>
 
-<SubSection title="Rotating rigid bodies" id="rotating_rigid_bodies">
+<Section title="Rotating rigid bodies" id="rotating_rigid_bodies">
 
     <p>
         All points on a rigid body have the same angular rotation
@@ -185,10 +220,9 @@ import DisplayTable from "../../components/DisplayTable.astro"
               </p>
           </CalloutCard>
       </CalloutContainer>
-</SubSection>
+</Section>
 
-<SubSection title="Points on rigid bodies">
-    <BlueText>Copy content from <a target="_blank" rel="noopener noreferrer" target="_blank" rel="noopener noreferrer" href="https://mechref.engr.illinois.edu/dyn/rkg.html"> here </a> </BlueText>
+<Section title="Points on rigid bodies"  id="points_rigid_bodies">
 
     <p>
         If we know how one point \(P\) on a rigid body is moving and
@@ -364,9 +398,9 @@ import DisplayTable from "../../components/DisplayTable.astro"
             on the body are accelerating at any time.
           </p>
     </Warning>
-</SubSection>
+</Section>
 
-<SubSection title="Rigid bodies in 2D">
+<Section title="Rigid bodies in 2D"  id="rigid_bodies_2d">
     
     <p>
         The <a href="#rkg-er">#rkg-er</a> equations above are valid
@@ -572,9 +606,9 @@ import DisplayTable from "../../components/DisplayTable.astro"
             undergoing different motions.
           </p>
       </PrairieDrawCanvas>
-</SubSection>
+</Section>
 
-<SubSection title="Constrained motion">
+<Section title="Constrained motion"  id="constrained_motion">
 
 
     <p>
@@ -826,9 +860,9 @@ import DisplayTable from "../../components/DisplayTable.astro"
   </CalloutCard>
 </CalloutContainer>
 
-</SubSection>
 
-<SubSubSection id="constraint_forces" title="Constraint forces">
+
+<SubSection id="constraint_forces" title="Constraint forces">
 
   <p>
     If an object is constrained to move in a specific direction, by Newton's second law, there must be
@@ -1079,29 +1113,67 @@ import DisplayTable from "../../components/DisplayTable.astro"
 </Example>
 
 
-</SubSubSection>
-
-<SubSection title="Gears">
-
-    <Image src="/Dynamics/RigidBodyKinematics/GearsRecap.png" width="7"></Image>
 </SubSection>
 
-<SubSubSection title="Standard sign convention">
-    
-    <Image src="/Dynamics/RigidBodyKinematics/Gears.png" width="7"></Image>
-    <Image src="/Dynamics/RigidBodyKinematics/GearsExamples.png" width="7"></Image>
+</Section>
+
+<Section title="Gears"  id="gears">
+
+		<Image src="/Dynamics/RigidBodyKinematics/Gears1.png" width="5"></Image>
+		
+	<ul>
+      <li>Larger gear -> slower spin</li>
+      <li>Accelerations -> tangential are equal but centripetal are not</li>
+      <li>Opposite direction</li>
+    </ul>
+
+
+    <Image src="/Dynamics/RigidBodyKinematics/GearsChains.png" width="7"></Image>
 	
-</SubSubSection>
 
-<SubSubSection title="Accelerations in contact (no slip)">
 
-    <Image src="/Dynamics/RigidBodyKinematics/GearsAcceContact.png" width="7"></Image>
-</SubSubSection>
+<SubSection title="Standard sign convention"  id="sign_convention">
 
-<SubSection title="Applications" id="applications"></SubSection>
+    <Image src="/Dynamics/RigidBodyKinematics/GearsSignConvention.png" width="6"></Image>
+	
+	<Image src="/Dynamics/RigidBodyKinematics/GearsSignConvention2.png" width="7"></Image>
+	
+	<ol>
+      <li> <InlineEquation equation="\\omega_{1z}" /> and  <InlineEquation equation="\\omega_{2z}" /> have opposite signs (rotate in opposite direction) </li>
+      <li>Smaller gears rotate faster</li>
+    </ol>
 
-<SubSubSection title="Steering geometry" id="steering_geometry">
-    <BlueText>Complete in <a target="_blank" rel="noopener noreferrer" target="_blank" rel="noopener noreferrer" href="https://mechref.engr.illinois.edu/dyn/avs.html">"Steering geometry"</a>.</BlueText> This refers to "Rigid Bodies".
+<Example id="rkc-gsc" title="Rotating gears." solution="False">
+
+  <div class="d-flex">
+  <Image src="/Dynamics/RigidBodyKinematics/GearsExample1.png" width="5"></Image>
+
+  </div>
+</Example>
+
+
+<Example id="rkc-csc" title="Rotating gears with chain." solution="False">
+
+  <div class="d-flex">
+  <Image src="/Dynamics/RigidBodyKinematics/GearsExample2.png" width="5"></Image>
+
+  </div>
+</Example>
+
+	
+</SubSection>
+
+<SubSection title="Accelerations in contact (no slip)"  id="acce_contact_noslip">
+
+    <Image src="/Dynamics/RigidBodyKinematics/GearsContact.png" width="7"></Image>
+</SubSection>
+
+</Section>
+
+<Section title="Applications" id="applications_rgkinema">
+
+<SubSection title="Steering geometry" id="steering_geometry">
+   
 
     <p>
       We are all familiar with the idea that turning the steering
@@ -1130,13 +1202,13 @@ import DisplayTable from "../../components/DisplayTable.astro"
     </Image>
 
     <CalloutContainer slot="cards">
-      <CalloutCard title="Requirements">
+      <CalloutCard title="Reference material">
         <li>Rigid bodies</li>
       </CalloutCard>
     </CalloutContainer>
-</SubSubSection>
+</SubSection>
 
-<SubSubSubSection title="Turning rigid bodies" id="turning_rigid_bodies">
+<SubSection title="Turning rigid bodies" id="turning_rigid_bodies">
   <p>
     When a rigid body turns in a circle, the four corners of the
     body all move with different velocities and speeds. If we
@@ -1239,9 +1311,9 @@ import DisplayTable from "../../components/DisplayTable.astro"
       </p>
     </CalloutCard>
   </CalloutContainer>
-</SubSubSubSection>
+</SubSection>
 
-<SubSubSubSection title="Ackerman steering geometry">
+<SubSection title="Ackerman steering geometry"  id="ackerman_steering">
   <p>
     In a conventional car, the rear two wheels are fixed to
     point straight ahead, while the front two wheels must turn
@@ -1331,21 +1403,17 @@ import DisplayTable from "../../components/DisplayTable.astro"
       </p>
     </CalloutCard>
   </CalloutContainer>
-</SubSubSubSection>
+</SubSection>
 
-<SubSubSection title="Knee Joint">
+<SubSection title="Knee Joint"  id="knee_joint">
     <BlueText>Complete in <a target="_blank" rel="noopener noreferrer" target="_blank" rel="noopener noreferrer" href="https://mechref.engr.illinois.edu/dyn/aml.html"> "Four-Bar Linkages" </a> under the subtitle "Example: Knee joint (constrained motion)".</BlueText> This refers to "Constrained motion".
-</SubSubSection>
+</SubSection>
 
-<SubSubSection title="Suspensions with Watt's linkage">
+<SubSection title="Suspensions with Watt's linkage"  id="suspensions_linkage">
     <BlueText>Complete in <a target="_blank" rel="noopener noreferrer" target="_blank" rel="noopener noreferrer" href="https://mechref.engr.illinois.edu/dyn/aml.html"> "Four-Bar Linkages" </a> under the subtitle "Example: Suspensions with Watt's linkage (constrained motion)".</BlueText> This refers to "Constrained motion".
-</SubSubSection>
+</SubSection>
 
-
-<SubSubSection title="Aerobie Orbiter">
-    
-	Application for "Rigid body rotation".
-</SubSubSection>
+</Section>
 
 <script src="/dyn/rigid_body_kinematics/canvases.js" is:inline></script>
 </Layout>
