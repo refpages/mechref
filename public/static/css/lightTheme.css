@@ -3,6 +3,7 @@
     --text-secondary: #4a4a4a;
     --text-tertiary: #666;
     --text-highlight-color: coral;
+    --table-bg-subtle: #f8f9fa;
 }
 
 .sidebar-btn:before{
