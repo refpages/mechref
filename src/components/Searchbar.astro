@@ -2241,7 +2241,10 @@ import search_contents from "../search.json"
     const clear_icon = document.querySelector("#clear");
 
     function resize_icon(){
-      clear_icon.style = `font-size: ${searchbox.clientHeight}px; top: -${searchbox.clientHeight/7-2}px;`;
+      const searchbox_height = searchbox.clientHeight;
+      const icon_size = searchbox_height * 0.8;
+      const icon_top = (searchbox_height - icon_size) / 2;
+      clear_icon.style = `font-size: ${icon_size}px; top: ${icon_top-1}px;`;
     }
 
     resize_icon();
