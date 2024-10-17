@@ -9,23 +9,27 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
 import DisplayTable from "../../components/DisplayTable.astro"
 ---
 <style>
-    table { border-collapse: collapse; }
     tr {
-        border: none; 
+        border: solid 0px var(--bs-border-color); 
     }
     td {
-        border-right: solid 1px #000; 
-        border-left: solid 1px #000;
+        border-right: solid 1px var(--bs-border-color); 
+        border-left: solid 1px var(--bs-border-color);
         text-align:center;
         padding-top: .5em;
         padding-bottom: .5em;
     }
 
     th{
-        border-right: solid 1px #000; 
-        border-left: solid 1px #000;
-        border-bottom: solid 1px #000;;
+        border-right: solid 1px var(--bs-border-color); 
+        border-left: solid 1px var(--bs-border-color);
+        border-bottom: solid 1px var(--bs-border-color);
         text-align:center;
+    }
+
+    .table-shaded{
+        background-color: var(--bs-secondary-bg-subtle);
+        border-bottom: solid 1px var(--bs-secondary-text-emphasis);
     }
 </style>
 
@@ -45,86 +49,86 @@ import DisplayTable from "../../components/DisplayTable.astro"
 <!-- Lecture 33 -->
 <em>Note that in statics we are using the second moment of area as our moment of inertia. In dynamics a different moment of inertia is used (the mass moment of inertia). The differences between these two quantities are summarized in the table below: </em>
 
-<DisplayTable>
+<DisplayTable id="moi_table">
     <thead>
         <tr>
-            <th>
+            <th class="nosideborderleft">
                 
             </th>
             <th>
                 <strong>Mass moment of inertia</strong>
             </th>
-            <th>
+            <th class="table-shaded"> 
                 <strong>Area moment of inertia (used in Statics!)</strong>
             </th>
         </tr>
     </thead>
     <tbody>
         <tr>
-            <td>
+            <td class="nosideborderleft">
                 <strong>Other names</strong>
             </td>
             <td>
 
             </td>
-            <td>
+            <td class="table-shaded">
                 Second moment of area
             </td>
         </tr>
         <tr>
-            <td>
+            <td class="nosideborderleft">
                 <strong>Description</strong>
             </td>
             <td>
                 Determines the torque needed to produce a desired angular rotation about an axis of rotation (resistance to rotation)
             </td>
-            <td>
+            <td class="table-shaded">
                 Determines the moment needed to produce a desired curvature about an axis(resistance to bending)
             </td>
         </tr>
         <tr>
-            <td>
+            <td class="nosideborderleft">
                 <strong>Equations</strong>
             </td>
             <td>
                 <DisplayEquation equation='I_{P,\\hat{a}} = \\iiint_\\mathcal{B} \\rho r^2 \\,dV\\' /> 
             </td>
-            <td>
+            <td class="table-shaded">
                 <DisplayEquation equation='I_x = \\int_{A}^{} y^2 \\,dA \\' />
                 <DisplayEquation equation='I_y = \\int_{A}^{} x^2 \\,dA \\' />
                 <DisplayEquation equation='\\begin{aligned} J_O &= \\int_{A}^{} r^2 \\,dA \\\\ &= \\int_{A}^{} (x^2+y^2) \\,dA\\ \\end{aligned}' />
             </td>
         </tr>
         <tr>
-            <td>
+            <td class="nosideborderleft">
                 <strong>Units</strong> 
             </td>
             <td>
                 <InlineEquation equation="length*mass^2"/>
             </td>
-            <td>
+            <td class="table-shaded">
                 <InlineEquation equation="length^4"/>
             </td>
         </tr>
         <tr>
-            <td>
+            <td class="nosideborderleft">
                 <strong>Typical Equations</strong>
             </td>
             <td>
                 <DisplayEquation equation='\\tau = I\\alpha' /> 
             </td>
-            <td>
+            <td class="table-shaded">
                 <DisplayEquation equation='\\sigma = (My)/I \\' />
             </td>
         </tr>
         <tr>
-            <td>
+            <td class="nosideborderleft">
                 <strong>Courses</strong>
             </td>
             <td>
                 TAM 212
             </td>
-            <td>
+            <td class="table-shaded">
                 TAM 210, TAM 251
             </td>
         </tr>

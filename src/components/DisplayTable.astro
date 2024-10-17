@@ -2,30 +2,29 @@
 const { id, class_="" } = Astro.props;
 ---
 
-<div id={id + '_container'} class="overflow-auto" >
-        <table id={id} class={class_ + ' table table-responsive w-100 overflow-auto'} style="table-layout: auto;" >
-            <slot/>
-        </table>
+<div id={id + '_container'}>
+    <table id={id} class={class_ + ' table w-100'} style="table-layout: auto;" >
+        <slot/>
+    </table>
 </div>
+
 
 <script is:inline define:vars={{id}}>
     let body_width;
     let table_width;
 
     function set_width(id){
-        body_width = $('body').width();
-        table_width = body_width - 24;
+    body_width = $('body').width();
+    table_width = body_width - 24;
 
-        if (body_width < 992){
-            document.querySelector(`#${id}`).style = `width: ${table_width}px`;
-            document.querySelector(`#${id}_container`).style = `width: ${table_width}px`;
-        }else{
-            document.querySelector(`#${id}`).style = `width: 100%`;
-            document.querySelector(`#${id}_container`).style = `width: 100%;`;
-        }
-        
-        console.log(body_width)
+    if (body_width < 992){
+        //document.querySelector(`#${id}`).style = `max-width: ${table_width}px`;
+        document.querySelector(`#${id}_container`).style = `max-width: ${table_width}px; overflow-x: auto;`;
+    }else{
+        document.querySelector(`#${id}`).style = `width: 100%`;
+        document.querySelector(`#${id}_container`).style = `width: 100%;`;
     }
+}
 
     set_width(id);
 
