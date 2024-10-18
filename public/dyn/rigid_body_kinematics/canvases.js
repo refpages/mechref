@@ -1285,4 +1285,360 @@ $(document).ready(function(){
         });
     
         avs_fr_c.registerOptionCallback("pivotAngleDeg", function(value) {this.clearAllHistory();});    
+
+        var drawLinkage = function(pd, t, pivots, links, flipped, alphaMax, pivotPosFcn, symmetricOsc) {
+            var pivotA = pivots[0];
+            var pivotB = pivots[1];
+            var pivotC = pivots[2];
+            var pivotD = pivots[3];
+    
+            var alphaMin = pd.angleFrom(pivotB.subtract(pivotA), pivotD.subtract(pivotA));
+            var alpha;
+    
+            if (alphaMax === undefined) {
+                alpha = alphaMin + t;
+            } else {
+                if (symmetricOsc !== undefined && symmetricOsc === true) {
+                    var v = (1 + Math.sin(t)) / 2;
+                    alpha = pd.linearInterp(2 * alphaMin - alphaMax, alphaMax, v);
+                } else {
+                    var v = (1 - Math.cos(t)) / 2;            
+                    alpha = pd.linearInterp(alphaMin, alphaMax, v);
+                }
+            }
+            
+            var a = pivotD.subtract(pivotA).modulus();
+            var b = pivotC.subtract(pivotB).modulus();
+            var g = pivotB.subtract(pivotA).modulus();
+            var f = pivotC.subtract(pivotD).modulus();
+            var beta = pd.solveFourBar(g, f, a, b, alpha, flipped);
+            var newPivotA, newPivotB;
+            if (pivotPosFcn === undefined) {
+                newPivotA = pivotA;
+                newPivotB = pivotB;
+            } else {
+                var newBasePos = pivotPosFcn(pivotA, pivotB, t, alpha, alphaMin, alphaMax, beta);
+                newPivotA = newBasePos[0];
+                newPivotB = newBasePos[1];
+            }
+            var unitAB = newPivotB.subtract(newPivotA).toUnitVector();
+            var newPivotC = newPivotB.add(unitAB.rotate(beta, $V([0, 0])).x(b));
+            var newPivotD = newPivotA.add(unitAB.rotate(alpha, $V([0, 0])).x(a));
+            var newPivots = [newPivotA, newPivotB, newPivotC, newPivotD];
+            
+            // fade out the image
+            pd.save();
+            pd.setProp("shapeInsideColor", "rgba(0, 0, 0, 0.5)");
+            pd.rectangle(700, 600);
+            pd.restore();
+            
+            pd.save();
+            var i, j, base, trans, u, v, coupler, history;
+            for (i = 0; i < links.length; i++) {
+                link = links[i];
+                // shapes
+                pd.save();
+                pd.transformByPoints(pivots[link.startPivot], pivots[link.endPivot],
+                                       newPivots[link.startPivot], newPivots[link.endPivot]);
+                pd.setProp("shapeOutlineColor", link.outlineColor);
+                pd.setProp("shapeInsideColor", link.insideColor);
+                pd.polyLine(link.outlineData, true, true);
+                pd.restore();
+    
+                if (link.forces !== undefined
+                    && pd.getOption("showForces")
+                    && link.forcesActive(t)) {
+                    trans = pd.identityTransform();
+                    trans = pd.transformByPointsTransform(trans,
+                                                          pivots[link.startPivot], pivots[link.endPivot],
+                                                          newPivots[link.startPivot], newPivots[link.endPivot]);
+                    pd.setProp("shapeOutlineColor", link.outlineColor);
+                    for (j = 0; j < link.forces.length; j++) {
+                        base = pd.transformPos(trans, link.forces[j][0]);
+                        pd.arrow(base, base.add(link.forces[j][1]));
+                    }
+                }
+            }
+            for (i = 0; i < links.length; i++) {
+                link = links[i];
+                // linkage rods
+                pd.save();
+                pd.transformByPoints(pivots[link.startPivot], pivots[link.endPivot],
+                                       newPivots[link.startPivot], newPivots[link.endPivot]);
+                pd.setProp("shapeOutlineColor", "rgb(0, 0, 0)");
+                pd.setProp("shapeStrokeWidthPx", 6);
+                pd.line(pivots[link.startPivot], pivots[link.endPivot]);
+                pd.setProp("shapeOutlineColor", link.outlineColor);
+                pd.setProp("shapeStrokeWidthPx", 2);
+                pd.line(pivots[link.startPivot], pivots[link.endPivot]);
+                pd.restore();
+            }
+            for (i = 0; i < links.length; i++) {
+                link = links[i];
+                // link labels
+                if (link.label !== undefined) {
+                    trans = pd.identityTransform();
+                    trans = pd.transformByPointsTransform(trans,
+                                                          pivots[link.startPivot], pivots[link.endPivot],
+                                                          newPivots[link.startPivot], newPivots[link.endPivot]);
+                    pd.text(pd.transformPos(trans, link.labelPos), link.labelAnchor, link.label, true);
+                }
+                // coupler
+                if (link.couplerPosition !== undefined) {
+                    u = newPivots[link.endPivot].subtract(newPivots[link.startPivot]);
+                    v = u.rotate(Math.PI / 2, $V([0, 0]));
+                    coupler = newPivots[link.startPivot].add(u.x((link.couplerPosition + 1) / 2)).add(v.x(link.couplerOffset));
+                    pd.save();
+                    pd.setProp("shapeOutlineColor", link.outlineColor);
+                    pd.setProp("pointRadiusPx", 5);
+                    pd.setProp("shapeStrokeWidthPx", 3);
+                    pd.point(coupler);
+                    if (link.couplerLabel !== undefined) {
+                        pd.text(coupler, link.couplerAnchor, link.couplerLabel, true);
+                    }
+                    if (link.couplerHistory !== undefined && link.couplerHistory === true) {
+                        history = pd.history("coupler" + i, 0.05, Math.PI * 4 + 0.05, t, coupler);
+                        pd.polyLine(pd.historyToTrace(history));
+                    }
+                    pd.restore();
+                }
+            }
+            
+            pd.setProp("shapeOutlineColor", "rgb(0, 0, 0)");
+            pd.setProp("pointRadiusPx", 5);
+            for (i = 0; i < pivots.length; i++) {
+                // linkage pivots
+                pd.point(newPivots[i]);
+            }
+            
+            pd.restore();
+        };
+
+        var kneeLinkCD = [
+            $V([-75, 760]), $V([-101, 296]), $V([-114, 64]), $V([-118, 55]),
+            $V([-99, 7]), $V([-70, -20]), $V([-37, -34]), $V([-5, -26]),
+            $V([1, -25]), $V([32, 0]), $V([53, 28]), $V([54, 46]),
+            $V([63, 61]), $V([58, 91]), $V([45, 106]), $V([27, 160]),
+            $V([19, 220]), $V([10, 296]), $V([-44, 752])
+        ];
+    
+        var kneeLinkAB = [
+            $V([24, -530]), $V([72, -302]), $V([84, -245]), $V([98, -203]),
+            $V([117, -174]), $V([129, -160]), $V([136, -146]), $V([128, -129]),
+            $V([107, -113]), $V([86, -97]), $V([82, -76]), $V([49, -74]),
+            $V([29, -79]), $V([13, -83]), $V([-40, -82]), $V([-54, -84]),
+            $V([-85, -91]), $V([-89, -95]), $V([-97, -182]), $V([-92, -200]),
+            $V([-80, -217]), $V([-71, -253]), $V([-65, -280]), $V([-62, -301]),
+            $V([-32, -511])
+        ];
+    
+        var kneeLinkDA = [
+            $V([-9, -58]), $V([-32, -79]), $V([-32, -84]), $V([-29, -88]),
+            $V([-19, -90]), $V([-8, -90]), $V([4, -90]), $V([13, -86]),
+            $V([19, -82]), $V([23, -71]), $V([41, -50]), $V([60, -30]),
+            $V([68, -14]), $V([77, 20]), $V([82, 44]), $V([75, 66]),
+            $V([65, 71]), $V([61, 66]), $V([55, 57]), $V([55, 42]),
+            $V([54, 31]), $V([44, 15]), $V([34, -1]), $V([17, -27])
+        ];
+    
+        var kneeLinkBC = [
+            $V([16, -2]), $V([4, -12]), $V([8, -27]), $V([21, -27]),
+            $V([37, -27]), $V([57, -21]), $V([79, -36]), $V([84, -48]),
+            $V([88, -93]), $V([93, -105]), $V([100, -116]), $V([112, -124]),
+            $V([121, -130]), $V([138, -130]), $V([130, -103]), $V([118, -75]),
+            $V([105, -43]), $V([86, -15]), $V([65, -3]), $V([42, -1]),
+            $V([28, -1])
+        ];
+    
+        var kneePivotA = $V([-30, -82]);
+        var kneePivotB = $V([110, -80]);
+        var kneePivotC = $V([13, -6]);
+        var kneePivotD = $V([70, 52]);
+    
+        var kneePivots = [kneePivotA, kneePivotB, kneePivotC, kneePivotD];
+        var kneeLinks = [
+            {outlineData: kneeLinkAB,
+             startPivot: 0,
+             endPivot: 1,
+             outlineColor: "rgb(0, 255, 255)",
+             insideColor: "rgba(0, 255, 255, 0.3)",
+             label: "TEX:tibia",
+             labelPos: $V([0, -200]),
+             labelAnchor: $V([0, 0])
+            },
+            {outlineData: kneeLinkBC,
+             startPivot: 1,
+             endPivot: 2,
+             outlineColor: "rgb(255, 0, 255)",
+             insideColor: "rgba(255, 0, 255, 0.3)",
+             label: "TEX:PCL",
+             labelPos: $V([140, -100]),
+             labelAnchor: $V([-1, 0])
+            },
+            {outlineData: kneeLinkCD,
+             startPivot: 2,
+             endPivot: 3,
+             outlineColor: "rgb(0, 255, 0)",
+             insideColor: "rgba(0, 255, 0, 0.3)",
+             label: "TEX:femur",
+             labelPos: $V([-30, 80]),
+             labelAnchor: $V([0, 0])
+            },
+            {outlineData: kneeLinkDA,
+             startPivot: 3,
+             endPivot: 0,
+             outlineColor: "rgb(255, 0, 0)",
+             insideColor: "rgba(255, 0, 0, 0.3)",
+             label: "TEX:ACL",
+             labelPos: $V([90, 60]),
+             labelAnchor: $V([-1, 0])
+            }
+        ];
+    
+        var kneePivotPosFcn = function(pivotA, pivotB, t, alpha, alphaMin, alphaMax, beta) {
+            var theta = -1.3 * (alpha - alphaMin);
+            var mid = pivotA.add(pivotB).x(0.5);
+            var newPivotB = pivotB.rotate(theta, mid);
+            var newPivotA = pivotA.rotate(theta, mid);
+            return [newPivotA, newPivotB];
+        };
+    
+        aml_fk_c = new PrairieDrawAnim("aml-fk-c", function(t) {
+            this.addOption("showLinkage", false);
+    
+        this.setUnits(600, 596);
+            this.drawImage("aml_MRT_ACL_PCL_01_small.jpg", $V([0, 0]), $V([0, 0]));
+    
+            if (this.getOption("showLinkage")) {
+                drawLinkage(this, t, kneePivots, kneeLinks, true, 0.25, kneePivotPosFcn);
+            }
+        });
+    
+        $('button[class~="reset-time:aml-fk-c"]').click(function() {
+            aml_fk_c.stopAnim();
+            aml_fk_c.resetTime();
+        });
+    
+        aml_fk_c.registerOptionCallback("showLinkage", function(value) {
+            if (value) {
+                this.stopAnim();
+                this.resetTime();
+                $('button[class~="anim-toggle:aml-fk-c"]').css("visibility", "visible");
+                $('button[class~="reset-time:aml-fk-c"]').css("visibility", "visible");
+            } else {
+                this.stopAnim();
+                this.resetTime(false);
+                $('button[class~="anim-toggle:aml-fk-c"]').css("visibility", "hidden");
+                $('button[class~="reset-time:aml-fk-c"]').css("visibility", "hidden");
+            }
+        });
+
+        aml_fs_c = new PrairieDraw("aml-fs-c", function() {
+            this.addOption("showPivot", false);
+    
+        this.setUnits(250, 155);
+            this.drawImage("aml_Blaireau_small.jpg", $V([0, 0]), $V([0, 0]));
+    
+            if (this.getOption("showPivot")) {
+                this.setProp("shapeOutlineColor", "rgb(255, 0, 0)");
+                this.setProp("shapeStrokeWidthPx", 5);
+                this.arc($V([26, -28]), 7, 0, 2 * Math.PI);
+            }
+        });
+    
+        var wattLinkAB = [
+            $V([-219, 119]), $V([-166, 67]), $V([-166, 33]), $V([-161, 26]),
+            $V([-151, 24]), $V([-138, 60]), $V([-127, 88]), $V([126, 80]),
+            $V([139, 14]), $V([148, 16]), $V([155, -9]), $V([165, -11]),
+            $V([170, -5]), $V([171, 67]), $V([200, 119]),
+        ];
+    
+        var wattPivotA = $V([-160, 35]);
+        var wattPivotD = $V([12, 16]);
+        var wattPivotC = $V([-9, -19]);
+        var wattPivotB = $V([163, 0]);
+    
+        var linkFromPivots = function(p1, p2, r) {
+            var u = p2.subtract(p1).toUnitVector();
+            var v = u.rotate(Math.PI / 2, $V([0, 0]));
+            return [p1.add(v.x(r)),
+                    p1.add(v.x(0.7 * r)).add(u.x(-0.7 * r)),
+                    p1.add(u.x(-r)),
+                    p1.add(v.x(-0.7 * r)).add(u.x(-0.7 * r)),
+                    p1.add(v.x(-r)),
+                    p2.add(v.x(-r)),
+                    p2.add(v.x(-0.7 * r)).add(u.x(0.7 * r)),
+                    p2.add(u.x(r)),
+                    p2.add(v.x(0.7 * r)).add(u.x(0.7 * r)),
+                    p2.add(v.x(r))];
+        }
+    
+        var wattLinkBC = linkFromPivots(wattPivotB, wattPivotC, 5);
+        var wattLinkCD = linkFromPivots(wattPivotC, wattPivotD, 10);
+        var wattLinkDA = linkFromPivots(wattPivotD, wattPivotA, 5);
+    
+        var wattPivots = [wattPivotA, wattPivotB, wattPivotC, wattPivotD];
+        var wattLinks = [
+            {outlineData: wattLinkAB,
+             startPivot: 0,
+             endPivot: 1,
+             outlineColor: "rgb(0, 255, 255)",
+             insideColor: "rgba(0, 255, 255, 0.3)"
+            },
+            {outlineData: wattLinkBC,
+             startPivot: 1,
+             endPivot: 2,
+             outlineColor: "rgb(255, 0, 255)",
+             insideColor: "rgba(255, 0, 255, 0.3)"
+            },
+            {outlineData: wattLinkCD,
+             startPivot: 2,
+             endPivot: 3,
+             outlineColor: "rgb(0, 255, 0)",
+             insideColor: "rgba(0, 255, 0, 0.3)",
+             couplerPosition: 0,
+             couplerOffset: 0,
+             //couplerLabel: "TEX:$P$",
+             //couplerAnchor: $V([1, 1]),
+             couplerHistory: true
+            },
+            {outlineData: wattLinkDA,
+             startPivot: 3,
+             endPivot: 0,
+             outlineColor: "rgb(255, 0, 0)",
+             insideColor: "rgba(255, 0, 0, 0.3)"
+            }
+        ];
+    
+        aml_fw_c = new PrairieDrawAnim("aml-fw-c", function(t) {
+            this.addOption("showLinkage", false);
+    
+        this.setUnits(600, 288);
+            this.drawImage("aml_GSFRRearViewUnderCropped_small.jpg", $V([0, 0]), $V([0, 0]));
+    
+            if (this.getOption("showLinkage")) {
+                drawLinkage(this, t, wattPivots, wattLinks, true, 0.15, undefined, true);
+            }
+        });
+    
+        $('button[class~="reset-time:aml-fw-c"]').click(function() {
+            aml_fw_c.stopAnim();
+            aml_fw_c.clearAllHistory();
+            aml_fw_c.resetTime();
+        });
+    
+        aml_fw_c.registerOptionCallback("showLinkage", function(value) {
+            if (value) {
+                this.stopAnim();
+                this.clearAllHistory();
+                this.resetTime();
+                $('button[class~="anim-toggle:aml-fw-c"]').css("visibility", "visible");
+                $('button[class~="reset-time:aml-fw-c"]').css("visibility", "visible");
+            } else {
+                this.stopAnim();
+                this.resetTime(false);
+                $('button[class~="anim-toggle:aml-fw-c"]').css("visibility", "hidden");
+                $('button[class~="reset-time:aml-fw-c"]').css("visibility", "hidden");
+            }
+        });
 })

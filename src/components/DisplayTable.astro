@@ -21,8 +21,7 @@ const { id, class_="" } = Astro.props;
         //document.querySelector(`#${id}`).style = `max-width: ${table_width}px`;
         document.querySelector(`#${id}_container`).style = `max-width: ${table_width}px; overflow-x: auto;`;
     }else{
-        document.querySelector(`#${id}`).style = `width: 100%`;
-        document.querySelector(`#${id}_container`).style = `width: 100%;`;
+        document.querySelector(`#${id}_container`).style = `width: 100%; overflow-x: auto;`
     }
 }
 

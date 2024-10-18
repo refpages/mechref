@@ -141,7 +141,7 @@ import DisplayTable from "../../components/DisplayTable.astro"
       </p>
 </Section>
 
-<Section title="Rotating rigid bodies" id="rotating_rigid_bodies">
+<SubSection title="Rotating rigid bodies" id="rotating_rigid_bodies">
 
     <p>
         All points on a rigid body have the same angular rotation
@@ -220,9 +220,9 @@ import DisplayTable from "../../components/DisplayTable.astro"
               </p>
           </CalloutCard>
       </CalloutContainer>
-</Section>
+</SubSection>
 
-<Section title="Points on rigid bodies"  id="points_rigid_bodies">
+<SubSection title="Points on rigid bodies"  id="points_rigid_bodies">
 
     <p>
         If we know how one point \(P\) on a rigid body is moving and
@@ -398,9 +398,9 @@ import DisplayTable from "../../components/DisplayTable.astro"
             on the body are accelerating at any time.
           </p>
     </Warning>
-</Section>
+</SubSection>
 
-<Section title="Rigid bodies in 2D"  id="rigid_bodies_2d">
+<SubSection title="Rigid bodies in 2D"  id="rigid_bodies_2d">
     
     <p>
         The <a href="#rkg-er">#rkg-er</a> equations above are valid
@@ -606,9 +606,9 @@ import DisplayTable from "../../components/DisplayTable.astro"
             undergoing different motions.
           </p>
       </PrairieDrawCanvas>
-</Section>
+</SubSection>
 
-<Section title="Constrained motion"  id="constrained_motion">
+<SubSection title="Constrained motion"  id="constrained_motion">
 
 
     <p>
@@ -859,7 +859,7 @@ import DisplayTable from "../../components/DisplayTable.astro"
     </ul>
   </CalloutCard>
 </CalloutContainer>
-
+</SubSection>
 
 
 <SubSection id="constraint_forces" title="Constraint forces">
@@ -1115,9 +1115,7 @@ import DisplayTable from "../../components/DisplayTable.astro"
 
 </SubSection>
 
-</Section>
-
-<Section title="Gears"  id="gears">
+<SubSection title="Gears"  id="gears">
 
 		<Image src="/Dynamics/RigidBodyKinematics/Gears1.png" width="5"></Image>
 		
@@ -1131,7 +1129,7 @@ import DisplayTable from "../../components/DisplayTable.astro"
     <Image src="/Dynamics/RigidBodyKinematics/GearsChains.png" width="7"></Image>
 	
 
-
+</SubSection> 
 <SubSection title="Standard sign convention"  id="sign_convention">
 
     <Image src="/Dynamics/RigidBodyKinematics/GearsSignConvention.png" width="6"></Image>
@@ -1163,16 +1161,15 @@ import DisplayTable from "../../components/DisplayTable.astro"
 	
 </SubSection>
 
-<SubSection title="Accelerations in contact (no slip)"  id="acce_contact_noslip">
+<SubSubSection title="Acceleration in contact (no slip)"  id="acce_contact_noslip_convention">
 
     <Image src="/Dynamics/RigidBodyKinematics/GearsContact.png" width="7"></Image>
+</SubSubSection>
+
+<SubSection title="Applications" id="applications_rgkinema">
 </SubSection>
 
-</Section>
-
-<Section title="Applications" id="applications_rgkinema">
-
-<SubSection title="Steering geometry" id="steering_geometry">
+<SubSubSection title="Steering geometry" id="steering_geometry">
    
 
     <p>
@@ -1204,11 +1201,12 @@ import DisplayTable from "../../components/DisplayTable.astro"
     <CalloutContainer slot="cards">
       <CalloutCard title="Reference material">
         <li>Rigid bodies</li>
+        <li>Constrained motion</li>
       </CalloutCard>
     </CalloutContainer>
-</SubSection>
+</SubSubSection>
 
-<SubSection title="Turning rigid bodies" id="turning_rigid_bodies">
+<SubSubSection title="Turning rigid bodies" id="turning_rigid_bodies">
   <p>
     When a rigid body turns in a circle, the four corners of the
     body all move with different velocities and speeds. If we
@@ -1311,9 +1309,9 @@ import DisplayTable from "../../components/DisplayTable.astro"
       </p>
     </CalloutCard>
   </CalloutContainer>
-</SubSection>
+</SubSubSection>
 
-<SubSection title="Ackerman steering geometry"  id="ackerman_steering">
+<SubSubSubSection title="Ackerman steering geometry"  id="ackerman_steering">
   <p>
     In a conventional car, the rear two wheels are fixed to
     point straight ahead, while the front two wheels must turn
@@ -1405,15 +1403,144 @@ import DisplayTable from "../../components/DisplayTable.astro"
   </CalloutContainer>
 </SubSection>
 
-<SubSection title="Knee Joint"  id="knee_joint">
-    <BlueText>Complete in <a target="_blank" rel="noopener noreferrer" target="_blank" rel="noopener noreferrer" href="https://mechref.engr.illinois.edu/dyn/aml.html"> "Four-Bar Linkages" </a> under the subtitle "Example: Knee joint (constrained motion)".</BlueText> This refers to "Constrained motion".
-</SubSection>
+<SubSubSection title="Knee Joint"  id="knee_joint">
+    <p>
+      The human knee joint is a type of biological <a
+      href="http://en.wikipedia.org/wiki/Hinge_joint">hinge</a>,
+      which allows movement in only one primary angle. The knee
+      connects the <a
+      href="http://en.wikipedia.org/wiki/Femur">femur</a> (the
+      upper leg bone) to the <a
+      href="http://en.wikipedia.org/wiki/Tibia">tibia</a> (the
+      larger of the two lower leg bones). These two bones sit next
+      to each other and are free to rotate about a single axis. A
+      mechanism is needed to keep the two legs bones attached to
+      each other, while still allowing rotation. In the case of
+      the human knee this is achieved with a four-bar linkage
+      consisting of the two bones together with the <a
+      href="http://en.wikipedia.org/wiki/Anterior_cruciate_ligament">anterior
+      cruciate ligament (ACL)</a> and <a
+      href="http://en.wikipedia.org/wiki/Posterior_cruciate_ligament">posterior
+      cruciate ligament (PCL)</a>, as shown below.
+    </p>
 
-<SubSection title="Suspensions with Watt's linkage"  id="suspensions_linkage">
-    <BlueText>Complete in <a target="_blank" rel="noopener noreferrer" target="_blank" rel="noopener noreferrer" href="https://mechref.engr.illinois.edu/dyn/aml.html"> "Four-Bar Linkages" </a> under the subtitle "Example: Suspensions with Watt's linkage (constrained motion)".</BlueText> This refers to "Constrained motion".
-</SubSection>
+    <PrairieDrawCanvas id="aml-fk-c" width="600" height="596" class="figureImage">
+      <p class="controls">
+        <button class="option-toggle:aml-fk-c:showLinkage" onclick="aml_fk_c.toggleOption('showLinkage')">show linkage</button>
+        <button class="anim-toggle:aml-fk-c" onclick="aml_fk_c.toggleAnim()">animation</button>
+        <button class="reset-time:aml-fk-c" onclick="aml_fk_c.resetTime()">reset</button>
+      </p>
+      <p class="figureCaption">
+        An <a href="">MRI</a> image of a <a
+        href="http://en.wikipedia.org/wiki/Sagittal_plane">sagittal
+        section</a> through a human <a
+        href="http://en.wikipedia.org/wiki/Knee">knee joint</a>,
+        showing the <a
+        href="http://en.wikipedia.org/wiki/Anterior_cruciate_ligament">ACL</a>
+        and <a
+        href="http://en.wikipedia.org/wiki/Posterior_cruciate_ligament">PCL</a>
+        ligaments.  Image credit: <a
+        href="http://en.wikipedia.org/wiki/File:MRT_ACL_PCL_01.jpg">Wikimedia
+        Commons image</a> (<a
+        href="http://creativecommons.org/licenses/by-sa/2.0/deed.en">CC
+        BY-SA 2.0</a>).
+      </p>
+      <p>
+        The four-bar model of the knee is only approximate, and
+        neglects many important mechanical features. In particular,
+        the ACL and PCL are not rigid rods, and can only provide
+        tensile forces (they act as mechanical ropes). The
+        compressive force is actually provided by the <a
+        href="http://en.wikipedia.org/wiki/Meniscus_(anatomy)">meniscus</a>
+        that separates the femur and tibia bones. In the simple
+        four-bar knee model shown here, the rigid rods include the
+        effects of both the ligaments and the meniscus.
+      </p>
+    </PrairieDrawCanvas>
 
-</Section>
+    <div class="references">
+      <h3>References</h3>
+      <ul class="references">
+        <li>
+          A. B. Zavatsky and J. J. O'Connor.
+          A model of human knee ligaments in the sagittal plane: Part 1: Response to passive flexion.
+          <i>Proceedings of the Institution of Mechanical Engineers, Part H: Journal of Engineering in Medicine</i>,
+          206(3):125–134, 1992.
+          DOI: <a href="http://dx.doi.org/10.1243/PIME_PROC_1992_206_280_02">10.1243/PIME_PROC_1992_206_280_02</a>
+        </li>
+      </ul>
+    </div>
+    <CalloutContainer slot="cards">
+      <CalloutCard>
+        <p>
+          No joints in the human body have the rotating bone fully
+          constrained by the enclosing socket bone. Instead, like
+          the knee, they have a partial socket or cylinder and the
+          rotating bone is held in place by ligaments. This type of
+          arrangement is typical for most animals, with one rare
+          exception being the <a
+          href="http://en.wikipedia.org/wiki/European_badger">European
+          Badger (Meles Meles)</a>. In older badgers, the jaw
+          rotates on an entirely enclosed pivot, as shown
+          below. This means that the badger cannot waggle its jaw
+          side-to-side as humans can, and also means that the badger
+          jaw cannot be dislocated or disconnected without breaking
+          the bone.
+        </p>
+        <PrairieDrawCanvas id="aml-fs-c" width="250" height="155" class="figureImage">
+          <p class="controls">
+            <button class="option-toggle:aml-fs-c:showPivot" onclick="aml_fs_c.toggleOption('showPivot')">show jaw pivot</button>
+          </p>
+          <p class="caption">
+            Image credit: <a
+            href="http://commons.wikimedia.org/wiki/File:Blaireau.jpg">Wikimedia
+            Commons</a> (<a
+            href="http://creativecommons.org/licenses/by-sa/3.0/deed.en">CC
+            BY-SA 3.0</a>) (<a href="/Dynamics/RigidBodyKinematics/aml_Blaireau.jpg">full-sized image</a>).
+          </p>
+        </PrairieDrawCanvas>
+      </CalloutCard>
+    </CalloutContainer>
+      
+</SubSubSection>
+
+<SubSubSection title="Suspensions with Watt's linkage"  id="suspensions_linkage">
+    <p>Apart from being one of the inventors of the <a
+      href="http://en.wikipedia.org/wiki/Watt_steam_engine">steam
+      engine</a> and having <a
+      href="http://en.wikipedia.org/wiki/Watt">an SI unit</a> named
+      after him, <a
+      href="http://en.wikipedia.org/wiki/James_Watt">James Watt</a>
+      also developed a linkage to produce approximate straight line
+      motion. <a
+      href="http://en.wikipedia.org/wiki/Watt's_linkage">Watt's
+      linkage</a> consists of two long near-parallel links and a
+      small floating link between them, with the near-linear motion
+      occurring for a coupler point midway along the floating
+      link. This linkage is commonly used in suspension systems, as
+      shown below.
+      </p>
+
+      <PrairieDrawCanvas id="aml-fw-c" width="600" height="288" class="figureImage">
+  
+        <p class="controls">
+          <button class="option-toggle:aml-fw-c:showLinkage" onclick="aml_fw_c.toggleOption('showLinkage')">show linkage</button>
+          <button class="anim-toggle:aml-fw-c" onclick="aml_fw_c.toggleAnim()">animation</button>
+          <button class="reset-time:aml-fw-c" onclick="aml_fw_c.resetTime()">reset</button>
+        </p>
+        <p class="figureCaption">
+          The rear suspension of a 1998 <a
+          href="http://en.wikipedia.org/wiki/Ford_Ranger_EV">Ford
+          Ranger EV</a>.  Image credit: <a
+          href="http://commons.wikimedia.org/wiki/File:GSFRRearViewUnderCropped.jpg">Wikimedia
+          Commons</a> (<a
+          href="http://creativecommons.org/licenses/sa/1.0/">CC SA
+          1.0</a>) (<a
+          href="aml_GSFRRearViewUnderCropped.jpg">full-sized
+          image</a>).
+        </p>
+      </PrairieDrawCanvas>
+</SubSubSection>
 
 <script src="/dyn/rigid_body_kinematics/canvases.js" is:inline></script>
 </Layout>
