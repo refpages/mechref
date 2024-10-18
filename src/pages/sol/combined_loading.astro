@@ -4,6 +4,7 @@ import Image from "../../components/Image.astro"
 import Section from "../../components/Section.astro" 
 import SubSection from "../../components/SubSection.astro" 
 import Itemize from "../../components/Itemize.astro" 
+import Enumerate from "../../components/Enumerate.astro" 
 import Item from "../../components/Item.astro" 
 import BlueText from "../../components/BlueText.astro" 
 ---
@@ -14,7 +15,7 @@ import BlueText from "../../components/BlueText.astro"
 
 If a loading results in more than one type of stress, the total stress in a cross-section can be calculated by adding the individual stresses together (superposition). A review of the stresses covered in this course is below:
 
-<Image src='/Solid_Mechanics/Combined Loading-Figures/LoadTypes.png' width='6'> From reference pages</Image>
+<Image src='/Solid_Mechanics/Combined Loading-Figures/LoadTypes.png' width='6'></Image>
 
 </SubSection>
 
@@ -22,7 +23,14 @@ If a loading results in more than one type of stress, the total stress in a cros
 
 The goal in combined loading is to determine the stresses at a point in a slender structural member subjected to arbitrary loadings. A cross-section is cut through the point of interest and the internal loading/moments are evaluated at the centroid of the section to maintain equilibrium. This internal system of loading will consist of three force components and three couple vectors (moments). To determine the stress distribution at the point, the principle of superposition is applied.
 
-<Image src='/Solid_Mechanics/Combined Loading-Figures/Superposition.png' width='4'><BlueText>Taken from TAM251 Lecture Notes - L8S17-18</BlueText></Image>
+<Image src='/Solid_Mechanics/Combined Loading-Figures/Superposition.png' width='5'></Image>
+
+<strong>Steps:</strong>
+<Enumerate>
+	<Item>Cut the beam to find the find internal forces/moments in a section of interest.</Item>
+	<Item>Calculate all the stresses acting at a specific point within that section.</Item>
+	<Item>Add up like stresses (matching subscripts) to find the total stress state (superposition).</Item>
+</Enumerate>
 
 <strong>Combined Loading Summary:</strong>
 <Itemize>
@@ -31,9 +39,6 @@ The goal in combined loading is to determine the stresses at a point in a slende
 	<Item>Shear forces and the twisting couple vector (moment) contribute to the shear stress distribution in the section.
 	</Item>
 </Itemize>
-
-
-<BlueText>BSM: a summary of steps to solve these problems might be nice to include here. I teach students to tackle these problems by dividing them into 3 steps: 1) find internal forces/moments in a section of interest, 2) calculate all the stresses acting at a specific point within that section, 3) add up like stresses (matching subscripts) to find the total stress state (superposition)</BlueText>
 
 </SubSection>
 </Layout>
