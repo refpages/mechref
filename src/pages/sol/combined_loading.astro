@@ -9,9 +9,17 @@ import Item from "../../components/Item.astro"
 import BlueText from "../../components/BlueText.astro" 
 ---
 <Layout title="Combined Loading">
-<Section title="Combined Loading"></Section>
 
-<SubSection title="Types of Loading Summary">
+	<div slot="navtree">
+		<ul class='list-group list-group-flush py-0'> 
+			<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#load-summary'>Types of Loading Summary</a></li>
+			<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#stress'>Stress Under Combined Loads</a></li>  
+		</ul>
+	</div>
+
+<Section title="Combined Loading" id="combined-loading"></Section>
+
+<SubSection title="Types of Loading Summary" id="load-summary">
 
 If a loading results in more than one type of stress, the total stress in a cross-section can be calculated by adding the individual stresses together (superposition). A review of the stresses covered in this course is below:
 
@@ -19,7 +27,7 @@ If a loading results in more than one type of stress, the total stress in a cros
 
 </SubSection>
 
-<SubSection title="Stress Under Combined Loads">
+<SubSection title="Stress Under Combined Loads"  id="stress">
 
 The goal in combined loading is to determine the stresses at a point in a slender structural member subjected to arbitrary loadings. A cross-section is cut through the point of interest and the internal loading/moments are evaluated at the centroid of the section to maintain equilibrium. This internal system of loading will consist of three force components and three couple vectors (moments). To determine the stress distribution at the point, the principle of superposition is applied.
 
