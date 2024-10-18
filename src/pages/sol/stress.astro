@@ -10,6 +10,8 @@ import InlineEquation from "../../components/InlineEquation.astro"
 import DisplayEquation from "../../components/DisplayEquation.astro" 
 import CalloutCard from "../../components/CalloutCard.astro"
 import CalloutContainer from "../../components/CalloutContainer.astro"
+import Example from "../../components/Example.astro"
+import InlineCanvas from "../../components/InlineCanvas.astro"
 ---
 <style>
     th {
@@ -120,7 +122,7 @@ We consider a homogeneous distribution of the internal force <InlineEquation equ
 
  Here we assume that the<strong> distribution of normal stresses</strong> in an axially loaded member is <strong>uniform</strong>. Stress is calculated away from the points of application of the concentrated loads. Uniform distribution of stress is possible only if the line of action of the concentrated load <InlineEquation equation="P" /> passes through the centroid of the section considered
 
-<DisplayEquation equation="\\sigma_{ave} = \\frac{F}{A}\\" title="Average normal stress." id="sts-ans" background="True"/>
+<DisplayEquation equation="\\sigma_{ave} = \\frac{F}{A}\\" title="Average normal stress." id="avn-sts" background="True"/>
 
  where <InlineEquation equation="F" /> is the internal resultant normal force and <InlineEquation equation="A" /> is the cross-sectional area of the bar where the normal stress <InlineEquation equation="\\sigma_{ave}" /> is calculated.
 
@@ -139,47 +141,65 @@ We consider a homogeneous distribution of the internal force <InlineEquation equ
     </CalloutCard>
 </CalloutContainer>
 
-<Image src="/Solid_Mechanics/Stress-Figures/Shear Stress.png" width="2"> Shear stress</Image>
+<Image src="/Solid_Mechanics/Stress-Figures/Shear Stress.png" width="3"> Shear stress</Image>
 
  Obtained when transverse forces are applied to a member. The distribution of shear stresses cannot be assumed uniform. Common in bolts, pins and rivets used to connect various structural members.
 
-<Image src="/Solid_Mechanics/Stress-Figures/Avg Shear Stress.png" width="4"> Average shear stress</Image>
+<Image src="/Solid_Mechanics/Stress-Figures/Avg Shear Stress.png" width="6"> Average shear stress</Image>
 
-<DisplayEquation equation="\\tau_{ave} = \\frac{V}{A}\\" title="Average shear stress." id="sts-tav" background="True"/>
+<DisplayEquation equation="\\tau_{ave} = \\frac{V}{A}\\" title="Average shear stress." id="avs-sts" background="True"/>
 
  where <InlineEquation equation="V" /> is the internal resultant shear force and <InlineEquation equation="A" /> is the cross-sectional area of the bar where the shear stress <InlineEquation equation="\\tau_{ave}" /> is calculated.
 
-
-
-<p>
- <strong>Example:</strong> Single Shear
-Determine the shear stress in the bolt.
-
-<Image src="/Solid_Mechanics/Stress-Figures/SingleShear.png" width="2.5"> Single shear stress</Image>
-
-<DisplayEquation equation="\\tau_{ave} = \\frac{P}{A}\\" title="Single shear stress." id="sts-sss" background="True" derivation="True">
-
+ <Example id="sgl-shr" title="Single shear: determine the shear stress in the bolt" solution="True">
+    <div class="d-flex">
+        <p>
+            <Image src="/Solid_Mechanics/Stress-Figures/SingleShear.png" width="4"></Image>
+          </p>
+        <InlineCanvas id="rkg-xp-c" width="300" height="200"/>
+    </div>
+    <div slot="solution">
+        <p>
+    Create the equilibrium equation and solve.   
     <DisplayEquation equation="\\Sigma F_y = V-P = 0\\" />
     <DisplayEquation equation="V = P\\" />
+    <DisplayEquation equation="\\tau_{ave} = \\frac{P}{A}\\" />
+          </p>
+    </div>
+</Example>
 
-</DisplayEquation>
 
- <strong>Example:</strong> Double Shear
-
-Determine the shear stress in the bolt.
-
-<Image src="/Solid_Mechanics/Stress-Figures/DoubleShear.png" width="2.5"> Double shear stress</Image>
-
-<DisplayEquation equation="\\tau_{ave} = \\frac{P}{2A}\\" title="Double shear stress." id="sts-dss" background="True" derivation="True">
-
+<Example id="dbl-shr" title="Double shear: determine the shear stress in the bolt" solution="True">
+    <div class="d-flex">
+        <p>
+            <Image src="/Solid_Mechanics/Stress-Figures/DoubleShear.png" width="3"></Image>
+          </p>
+        <InlineCanvas id="rkg-xp-c" width="300" height="200"/>
+    </div>
+    <div slot="solution">
+        <p>
+    Create the equilibrium equation and solve.   
     <DisplayEquation equation="\\Sigma F_y = 2V-P = 0\\" />
     <DisplayEquation equation="V = \\frac{P}{2}\\" />
-
-</DisplayEquation>
+    <DisplayEquation equation="\\tau_{ave} = \\frac{P}{2A}\\" />
+          </p>
+    </div>
+</Example>
 
 </SubSubSection>
 
 <SubSubSection title="Stress Tensor" id="stress_tensor">
+
+<CalloutContainer slot="cards">
+    <CalloutCard title="Heads  up!">
+        <p>
+            <strong> Stress tensor </strong> builds on this content later in the course.
+            </p>
+            <p>
+                Learn more about this topic on the <a href="/sol/stress_transformation">Stress Transformation</a> page.
+            </p>
+    </CalloutCard>
+</CalloutContainer>
 
 <Image src="/Solid_Mechanics/Stress-Figures/Stress Element.png" width="8"> Stress element</Image>
 
@@ -187,7 +207,7 @@ Determine the shear stress in the bolt.
  The components of normal and shear stress can be combined into the stress tensor. This is a symmetric matrix representing the state of stress with respect to three directions.
 </p>
 
-<DisplayEquation equation=" T= \\begin{bmatrix} \\sigma_{x} & \\tau_{xy} & \\tau_{xz} \\\\ \\tau_{yx}& \\sigma_{y} & \\tau_{yz} \\\\ \\tau_{zx}&\\tau_{zy}&\\sigma_{z} \\end{bmatrix} \\" />
+<DisplayEquation equation=" T= \\begin{bmatrix} \\sigma_{x} & \\tau_{xy} & \\tau_{xz} \\\\ \\tau_{yx}& \\sigma_{y} & \\tau_{yz} \\\\ \\tau_{zx}&\\tau_{zy}&\\sigma_{z} \\end{bmatrix} \\" title="Stress tensor." background="True"/>
 
 <!--  <DisplayEquation equation=" T&nbsp;= \\begin{bmatrix} \\sigma_{x} &amp; \\tau_{xy} &amp; \\tau_{xz} \\\\ \\tau_{yx}&nbsp;&amp; \\sigma_{y} &amp; \\tau_{yz} \\\\ \\tau_{zx}&nbsp;&amp; \\tau_{zy}&nbsp;&amp; \\sigma_{z} \\end{bmatrix} \\" /> -->
 
@@ -195,8 +215,6 @@ Determine the shear stress in the bolt.
     <Item>  Three normal stress components: <InlineEquation equation="\\sigma_x, \\sigma_y, \\sigma_z" /></Item>
     <Item> Six shear stress components: <InlineEquation equation="\\tau_{xy} =\\tau_{yx}, \\tau_{xz}=\\tau_{zx}, \\tau_{yz}=\\tau_{zy}" /></Item>
 </Itemize>
-
-<p>Learn more about this topic on the <a href="/sol/stress_transformation">Stress Transformation</a> page.</p>
 
  The first subscript describes the surface <strong>orientation</strong> in the normal direction. The second subscript describes the <strong>direction</strong> of the stress.
 

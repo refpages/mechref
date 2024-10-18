@@ -12,6 +12,7 @@ import Row from "../../components/Row.astro"
 import Col from "../../components/Col.astro"
 import CalloutCard from "../../components/CalloutCard.astro"
 import CalloutContainer from "../../components/CalloutContainer.astro"
+import Warning from "../../components/Warning.astro"
 ---
 <style>
     th {
@@ -53,9 +54,13 @@ A <strong>stress-strain diagram</strong> is the relationship of normal stress as
 
 <DisplayEquation equation="\\sigma = \\frac{P}{A_0}\\" title="Evaluation of average normal stress, or engineering stress (relative to undeformed cross section)." background="True" />
 
-Note that two stress-strain diagrams for a particular material will be similar, but not identical, e.g. because of imperfections, different composition, rate or loading, or temperature.
-
-<Image src='/Solid_Mechanics/Material Properties-Figures/Stress Strain Diagram.png' width='3'> Stress-strain diagram showing key properties</Image>
+<Warning title="Two stress-strain diagrams for a particular material will be similar, but not identical." id="str-stn">
+    <p>
+      Things that effect  the material properties include imperfections, different composition, rate or loading, or temperature.
+    </p>
+   </Warning>
+   
+<Image src='/Solid_Mechanics/Material Properties-Figures/Stress Strain Diagram.png' width='4'> Stress-strain diagram showing key properties</Image>
 </SubSection>
 <SubSubSection title="Elastic Behavior" id="elastic_behavior">
 Loading in this region results <strong>elastic behavior</strong>, meaning the material returns to its original shape when unloaded. This region of the diagram is mostly a straight line, limited by the proportional limit). This region ends at <InlineEquation equation="\\sigma_Y" /> (yielding). For <InlineEquation equation="\\sigma \\le \\sigma_{pl}" />, the diagram is linear, and the behavior is elastic. For <InlineEquation equation="\\sigma_{pl} < \\sigma < \\sigma_Y" />, the diagram is nonlinear, but the behavior is still elastic.
@@ -121,7 +126,7 @@ Stresses above the plastic limit (<InlineEquation equation="\\sigma_Y < \\sigma"
 </p>
 
 <p>
- Perfect plastic or ideal plastic: well-defined <InlineEquation equation="\\sigma_Y" />, stress plateau up to failure. Some materials (e.g. mild steel) have two yield points (stress plateau at <InlineEquation equation="\\sigma_{YL}" />). Most ductile metals do not have a stress plateau; yield strength <InlineEquation equation="\\sigma_{YS}" /> is then defined by the <strong>0.002 (0.2\%) offset method</strong>.
+ Perfect plastic or ideal plastic: well-defined <InlineEquation equation="\\sigma_Y" />, stress plateau up to failure. Some materials (e.g. mild steel) have two yield points (stress plateau at <InlineEquation equation="\\sigma_{YL}" />). Most ductile metals do not have a stress plateau; yield strength <InlineEquation equation="\\sigma_{YS}" /> is then defined by the <strong>0.002 (0.2%) offset method</strong>.
 </p>
 
  <strong>Strain Hardening</strong>
@@ -239,8 +244,11 @@ Stresses above the plastic limit (<InlineEquation equation="\\sigma_Y < \\sigma"
 
 <DisplayEquation equation="\\varepsilon_{z} = \\varepsilon_{y} = -\\nu\\varepsilon_{x}\\" title="Lateral strain." background="True" />
 
- <strong>Negative Poisson's Ratio (auxetics)</strong>
-
- Possible because of non-trivial structure of the material.
+<Warning title="Negative Poisson's Ratio (auxetics)" id="ngt-psn">
+    <p>
+      A negative Poisson's  ratio is possible when the material structure is non-trival.
+    </p>
+   </Warning>
+   
 </SubSubSection>
 </Layout>
