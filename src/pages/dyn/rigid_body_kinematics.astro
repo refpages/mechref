@@ -333,10 +333,10 @@ import DisplayTable from "../../components/DisplayTable.astro"
             <div>
                 <p>
                     Three rigid bodies (two rods and a block) are coupled
-                    by pins at $O$, \(P\), and \(Q\) as shown. Body
+                    by pins at \(O\), \(P\), and \(Q\) as shown. Body
                     <InlineEquation equation="\\mathcal{B}_3" /> cannot rotate and must slide
                     horizontally along the ground. The rod lengths are <InlineEquation equation="OP      = 3\\sqrt{2}\\rm\\ m" />
-                    and <InlineEquation equation="PQ = 5\\rm\\ m" />, and points $O$
+                    and <InlineEquation equation="PQ = 5\\rm\\ m" />, and points \(O\)
                     and \(Q\) are the same height above the ground.
                   </p>
                   <p>
@@ -351,7 +351,7 @@ import DisplayTable from "../../components/DisplayTable.astro"
         <div slot="solution">
             <p>
                 Taking a regular <InlineEquation equation="\\hat\\imath,\\hat\\jmath" /> basis at
-                $O$, we can use the rod lengths and angles to find
+                \(O\), we can use the rod lengths and angles to find
                 the relative position vectors:
 
                 <DisplayEquation equation="\\begin{aligned}  \\vec{r}_{OP} &amp;= 3\\hat\\imath + 3\\hat\\jmath\\rm\\ m \\\\  \\vec{r}_{PQ} &amp;= 4\\hat\\imath - 3\\hat\\jmath\\rm\\ m.  \\end{aligned}" />
@@ -360,7 +360,7 @@ import DisplayTable from "../../components/DisplayTable.astro"
                 Using the vector angular velocities <InlineEquation equation="\\vec{\\omega}_1  = \\omega_1\\,\\hat{k}" /> and <InlineEquation equation="\\vec{\\omega}_2 =  \\omega_2\\,\\hat{k}" />, we can now use <a
                 href="#rkg-er">#rkg-er</a> to find first <InlineEquation equation="\\vec{v}_P" />
                 and then <InlineEquation equation="\\vec{v}_Q" /> in terms of the unknown angular
-                velocity $\omega_2$:
+                velocity \(\omega_2\):
 
                 <DisplayEquation equation="\\begin{aligned}  \\vec{v}_{P} &amp;= \\vec{v}_O + \\vec{\\omega}_1 \\times \\vec{r}_{OP} \\\\  &amp;= 4\\hat{k} \\times (3\\hat\\imath + 3\\hat\\jmath) \\\\  &amp;= -12\\hat\\imath + 12\\hat\\jmath{\\rm\\ m/s} \\\\  \\vec{v}_{Q} &amp;= \\vec{v}_P + \\vec{\\omega}_2 \\times \\vec{r}_{PQ} \\\\  &amp;= (-12\\hat\\imath + 12\\hat\\jmath{\\rm\\ m/s})  + \\omega_2\\,\\hat{k} \\times (4\\hat\\imath - 3\\hat\\jmath) \\\\  &amp;= (-12 + 3\\omega_2)\\,\\hat\\imath  + (12 + 4\\omega_2)\\,\\hat\\jmath{\\rm\\ m/s}.  \\end{aligned}" />
 
@@ -625,7 +625,7 @@ import DisplayTable from "../../components/DisplayTable.astro"
 
     </p>
     <p>
-        where <InlineEquation equation="\\hat{n}_P" /> is the normal vector to the motion of point $P$.
+        where <InlineEquation equation="\\hat{n}_P" /> is the normal vector to the motion of point \(P\).
     </p>
   </DisplayEquationCustom>
 
@@ -662,7 +662,7 @@ import DisplayTable from "../../components/DisplayTable.astro"
     <Col values="6 md-4">
       <div class="d-flex flex-column">
         <p class="fw-bold text-center">rod-circular</p>
-        <button class="option-toggle:rkc-cm-c:showQTrace" onclick="rkc_cm_c.toggleOption('showQTrace')">Trace $Q$</button>
+        <button class="option-toggle:rkc-cm-c:showQTrace" onclick="rkc_cm_c.toggleOption('showQTrace')">Trace \(Q\)</button>
       </div>
     </Col>
     <Col values="6 md-4">
@@ -681,10 +681,10 @@ import DisplayTable from "../../components/DisplayTable.astro"
   <div class="d-flex">
     <p>
       A uniform rod leaning against a wall has a fixed length of \(\ell = 10 \rm\ m\). 
-      The bottom of the rod at point $P$ is \(8 \rm\ m\) from the wall. 
-      Point $P$ is moving away from the wall at a speed of \(6 \rm\ m/s\). 
+      The bottom of the rod at point \(P\) is \(8 \rm\ m\) from the wall. 
+      Point \(P\) is moving away from the wall at a speed of \(6 \rm\ m/s\). 
       The rod maintains contact with the wall and ground at all times.
-      What is <InlineEquation equation="\\vec{v}_Q" /> of point $Q$, the point at the top of the rod?
+      What is <InlineEquation equation="\\vec{v}_Q" /> of point \(Q\), the point at the top of the rod?
     </p>
     <InlineCanvas id="rkc-xcl-c" width="300" height="200"/>
   </div>
@@ -722,7 +722,7 @@ import DisplayTable from "../../components/DisplayTable.astro"
 
 
       where we have two unknowns:<InlineEquation equation=" \\vec{v}_Q" />
-      , and $\vec\omega$, and 
+      , and \(\vec\omega\), and 
       <InlineEquation equation="\\vec{r}_{PQ} = -\\ell \\cos\\theta \\hat{\\imath} + \\ell \\sin\\theta \\hat{\\jmath} \\rm\\ m" />,
       where <InlineEquation equation="\\theta = \\cos^{-1}\\left(\\frac{x_P}{\\ell}\\right)" />.
    </p>
@@ -744,7 +744,7 @@ import DisplayTable from "../../components/DisplayTable.astro"
 
   </p>
   <p>
-      Plugging in $\omega_z$ expression:
+      Plugging in \(\omega_z\) expression:
       <DisplayEquation equation="      v_{Qy} = -\\frac{v_{Px}}{\\ell \\sin\\theta} \\ell \\cos\\theta = -v_{Px}\\cot\\theta \\rm\\ m/s      " />
 
   </p>
@@ -894,8 +894,8 @@ import DisplayTable from "../../components/DisplayTable.astro"
       <InlineCanvas id="rkc-xcf-s" width="300" height="200" />
     </p>
     <p>
-        Note that due to the constraint placed on the rod, point $P$ can only slide along the ground
-        and therefore by <a href="#rkc-pc">#rkc-pc</a>, <InlineEquation equation="\\vec{F}_P" /> acts vertically. Similarly for point $Q$, <InlineEquation equation="\\vec{F}_Q" />
+        Note that due to the constraint placed on the rod, point \(P\) can only slide along the ground
+        and therefore by <a href="#rkc-pc">#rkc-pc</a>, <InlineEquation equation="\\vec{F}_P" /> acts vertically. Similarly for point \(Q\), <InlineEquation equation="\\vec{F}_Q" />
         acts horizontally.
     </p>
     <p>
@@ -905,13 +905,13 @@ import DisplayTable from "../../components/DisplayTable.astro"
     </p>
     <p>
         Breaking it up into the scalar equations. Note we will use <InlineEquation equation="\\ddot{x}_C, \\ddot{y}_C" /> to denote
-        the acceleration of the center of mass $C$ in each direction.
+        the acceleration of the center of mass \(C\) in each direction.
         <DisplayEquation equation="\\begin{aligned}        F_Q &amp;= m\\ddot{x}_C \\\\        F_P - mg &amp;= m\\ddot{y}_C        \\end{aligned}" />
 
     </p>
     <p>
         Now we can apply the solution procedure detailed in <a href="#rkc-cp">#rkc-cp</a> to find
-        the acceleration of point $C$. Due to our constraint, the following applies at all times:
+        the acceleration of point \(C\). Due to our constraint, the following applies at all times:
         <DisplayEquation equation="        x_C = \\frac{\\ell}{2}\\sin\\phi \\qquad \\qquad y_C = \\frac{\\ell}{2}\\cos\\phi        " />
 
     </p>
@@ -948,7 +948,7 @@ import DisplayTable from "../../components/DisplayTable.astro"
     </p>
     <p>
         If the rod loses contact with the wall, then <InlineEquation equation="\\vec{F}_Q = 0" />. We have two unknowns:
-        the angular velocity $\dot\theta$ and the angular acceleration $\ddot\theta$.
+        the angular velocity \(\dot\theta\) and the angular acceleration \(\ddot\theta\).
         However, we know that <InlineEquation equation="\\ddot\\theta = \\frac{d\\dot\\theta}{dt}" />
         , so if we obtain
         an expression for <InlineEquation equation="\\dot\\theta" />, then finding <InlineEquation equation="\\ddot\\theta" /> is possible.
@@ -1011,7 +1011,7 @@ import DisplayTable from "../../components/DisplayTable.astro"
         Solving for <InlineEquation equation="\\theta" /> yields <InlineEquation equation="\\theta = \\arccos\\left(\\frac{2}{3}\\cos\\phi\\right)" />
         , or when the rod has fallen 2/3 of the original height.
         Note if the rod was unconstrained, the constraint we used still holds until the rod has fallen 2/3 of the original height.
-        We can use rigid body relations to find the velocity of point $Q$ once the rod loses contact with the wall, and it will have
+        We can use rigid body relations to find the velocity of point \(Q\) once the rod loses contact with the wall, and it will have
         both vertical and horizontal components of velocity, as expected. 
     </p>
   </div>
@@ -1120,8 +1120,8 @@ import DisplayTable from "../../components/DisplayTable.astro"
 		<Image src="/Dynamics/RigidBodyKinematics/Gears1.png" width="5"></Image>
 		
 	<ul>
-      <li>Larger gear -> slower spin</li>
-      <li>Accelerations -> tangential are equal but centripetal are not</li>
+      <li>Larger gear - &gt; slower spin</li>
+      <li>Accelerations - &gt; tangential are equal but centripetal are not</li>
       <li>Opposite direction</li>
     </ul>
 
