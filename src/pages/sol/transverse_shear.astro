@@ -14,6 +14,8 @@ import CalloutContainer from "../../components/CalloutContainer.astro"
 import CalloutCard from "../../components/CalloutCard.astro"
 import Example from "../../components/Example.astro"
 import InlineCanvas from "../../components/InlineCanvas.astro"
+import Row from "../../components/Row.astro"
+import Col from "../../components/Col.astro"
 ---
 <Layout title="Transverse Shear">
 
@@ -198,14 +200,23 @@ Built-up beams are beams that have been put together with either an adhesive (gl
 </p>
 
 <Example id="blt-adh" title="The following I-beam is composed of 4 boards glued together" solution="True">
-  <div class="d-flex">
-      <p>
-        The vertical shear is is <InlineEquation equation="V = 100 \\text{ } N"/>.
-        Find the minumum required shear strength for the glue (<InlineEquation equation="\\tau_{glue}" />). 
-        <br>
-        </p>
-        <Image src="/Solid_Mechanics/TransverseShear-Figures/AdhesiveExample.png" width="5"></Image>
-      <InlineCanvas id="blt-adh-c" width="300" height="200"/>
+  <div class="d-flex flex-row">
+    <Row>
+      <Col values="4 md-6">
+        <p>
+          The vertical shear is is <InlineEquation equation="V = 100 \\text{ } N"/>.
+          Find the minumum required shear strength for the glue (<InlineEquation equation="\\tau_{glue}" />). 
+          <br>
+          </p>
+      </Col>
+      <Col values="8 md-6">
+          <Image src="/Solid_Mechanics/TransverseShear-Figures/AdhesiveExample.png" width="8"></Image>
+      </Col>
+    </Row>
+      
+    </div>
+      
+      
   </div>
   <div slot="solution">
       <p>
@@ -218,14 +229,14 @@ Built-up beams are beams that have been put together with either an adhesive (gl
         
         <InlineEquation equation="Q" /> : First area moment of inertia of cut section ( <InlineEquation equation="Q = \\Sigma \\bar{y}'A'" /> )
 
-        <Image src="/Solid_Mechanics/TransverseShear-Figures/IBeamQ.png" width="1.5"></Image>
+        <Image src="/Solid_Mechanics/TransverseShear-Figures/IBeamQ.png" width="2"></Image>
 
         <DisplayEquation equation="Q_A = A \\bar{y_A} = 3.13*10^4 \\text{ } mm^3" />
         <DisplayEquation equation="Q_D = A \\bar{y_D} = 9.38*10^4 \\text{ } mm^3" />
 
         <InlineEquation equation="I" /> : Second area moment of inertia of whole cross-sectional area
         
-        <Image src="/Solid_Mechanics/TransverseShear-Figures/IBeamMOI.png" width="1"></Image>
+        <Image src="/Solid_Mechanics/TransverseShear-Figures/IBeamMOI.png" width="2"></Image>
       
         <DisplayEquation equation="I = I_1 + 2 I_2 = 1.04*10^7 \\text{ } mm^4" />
         <DisplayEquation equation="I_1 = \\frac{1}{12}b_1 h_1^3 = 8.79*10^5 \\text{ } mm^4" />
@@ -233,7 +244,7 @@ Built-up beams are beams that have been put together with either an adhesive (gl
         
         <InlineEquation equation="t" /> : length of connected region
 
-        <Image src="/Solid_Mechanics/TransverseShear-Figures/IBeamThick.png" width="1"></Image>
+        <Image src="/Solid_Mechanics/TransverseShear-Figures/IBeamThick.png" width="2"></Image>
       
         <DisplayEquation equation="t_A = 25 \\text{ } mm" />
         <DisplayEquation equation="t_D = 25 \\text{ } mm" />
@@ -255,14 +266,19 @@ Built-up beams are beams that have been put together with either an adhesive (gl
 </p>
 
 <Example id="blt-fst" title="The followling beam is composed of 2 boards connected by 6 nails." solution="True">
-  <div class="d-flex">
-    <p>
-      The nails are at an interval of of <InlineEquation equation="\\Delta s = 50 \\text{ } mm"/>. The shear force is <InlineEquation equation="V = 100 \\text{ } kN"/>. 
-      Find the shear flow (<InlineEquation equation="q"/>) and the load each fastener carries (<InlineEquation equation="f_n"/>).
-    </p>
+  <div class="d-flex flex-row">
+    <Row>
+      <Col values="12 md-4">
+        <p>
+          The nails are at an interval of of <InlineEquation equation="\\Delta s = 50 \\text{ } mm"/>. The shear force is <InlineEquation equation="V = 100 \\text{ } kN"/>. 
+          Find the shear flow (<InlineEquation equation="q"/>) and the load each fastener carries (<InlineEquation equation="f_n"/>).
+        </p>
+      </Col>
+      <Col values="12 md-8">
+        <Image src="/Solid_Mechanics/TransverseShear-Figures/FastenerExample.png" width="8"></Image>
 
-    <Image src="/Solid_Mechanics/TransverseShear-Figures/FastenerExample.png" width="8"></Image>
-      <InlineCanvas id="blt-fst-c" width="300" height="200"/>
+      </Col>
+    </Row>
   </div>
   <div slot="solution">
       <p>
@@ -270,7 +286,7 @@ Built-up beams are beams that have been put together with either an adhesive (gl
 
           Shear flow.
 
-          <Image src="/Solid_Mechanics/TransverseShear-Figures/BoardsQ.png" width="2"></Image>
+          <Image src="/Solid_Mechanics/TransverseShear-Figures/BoardsQ.png" width="3"></Image>
 
           <DisplayEquation equation="Q = (b*h)\\bar{y} = 3.75*10^5 \\text{ } mm^3" />
 
@@ -295,7 +311,6 @@ Built-up beams are beams that have been put together with either an adhesive (gl
   </div>
 </Example>
 
-<Image src="/Solid_Mechanics/TransverseShear-Figures/FastenerExample.png" width="5.5"></Image>
 
 </SubSection>
 </Layout>
