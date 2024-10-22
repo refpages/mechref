@@ -22,7 +22,7 @@ import Col from "../../components/Col.astro"
           <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#zero_force_member'>Frame and Machine Analysis</a></li>
       </ul>
       </div>
-
+<Section title="Frames" id="frames">
 <p>
 Frames and machines are systems that contain at least one non two force member. This means that at least one member in a frame or machine has at least 3 loads applied to it. 
 
@@ -32,21 +32,21 @@ Multi-force members in both frames and machines have the potential to have not o
 
 </p>
 
-<Section title="Frames" id="frames">
+
 
 <p>Frames are systems with at least one multi-force member that are generally designed to be stationary. Some examples of frames could be a children's playground or even a table. 
 
 </p>
 </Section>
 
-<Section title="Machines" id="machines">
+<SubSection title="Machines" id="machines">
 
 <p>Machines are systems with at least one multi-force member that have the potential to move. For example, an excavator is a machine.  
 
 </p>
-</Section>
+</SubSection>
 
-<Section title="Frame and Machine Analysis" id="framemachineanalysis">
+<SubSection title="Frame and Machine Analysis" id="framemachineanalysis">
 
 <p>
 Because frames and machines carry not only axial loads but also shear loads and bending moments, we can't use the method of joints or the method of sections to get internal forces. 
@@ -66,7 +66,7 @@ Frame and machine analysis involves the following steps:
 </p>
 </Section>
 
-<Section title="Example: Machine" id="examplemachine">
+<SubSection title="Example: Machine" id="examplemachine">
 <p>
 
 This example is from <em>Engineering Statics</em> by Daniel Baker and William Haynes. 
@@ -99,7 +99,7 @@ Writing the sum of moments about point C allows us to solve for the force at A, 
 We can also calculate the mechanical advantage of this machine by dividing the cutting force by the applied force of 60 N. In this case, the maching gives a mechanical advantage of 4.478. 
 
 </p>
-</Section>
+</SubSection>
 
 </Layout>
 

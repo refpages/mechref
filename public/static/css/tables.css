@@ -1,0 +1,4 @@
+.table-shaded{
+    background-color: var(--table-bg-subtle) !important;
+    border-bottom: solid 1px var(--bs-secondary-text-emphasis);
+}
