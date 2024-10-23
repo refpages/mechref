@@ -13,6 +13,9 @@ import RedText from "../../components/RedText.astro"
 import Warning from "../../components/Warning.astro"
 import Example from "../../components/Example.astro"
 import InlineCanvas from "../../components/InlineCanvas.astro"
+import PrairieDrawCanvas from "../../components/PrairieDrawCanvas.astro"
+import Row from "../../components/Row.astro"
+import Col from "../../components/Col.astro"
 ---
 <Layout title="Stress Transformation">
 
@@ -48,7 +51,22 @@ import InlineCanvas from "../../components/InlineCanvas.astro"
 
 
 
-<Section title="Stress Transformation" id="stress-transformation"></Section>
+<Section title="Stress Transformation" id="stress-transformation">
+
+  <PrairieDrawCanvas id="stt-cb-c" height="600" width="600">
+    <Row> 
+      <Col values="12">
+          <div class="d-flex  align-items-baseline">
+              <p class="m-0 flex-shrink-1">Turn radius:</p>
+              <div class="flex-grow-1 d-flex align-items-baseline">
+                  <input type="range" min="0" max="90" value="0" step="1" class="data-input:stt-cb-c:theta flex-grow-1 mx-2" onchange="stt_cb_c.setOption('theta', this.value); document.querySelector('span[class*=theta]').innerText = this.value; console.log(this.value);" oninput="stt_cb_c.setOption('theta', this.value); document.querySelector('span[class*=theta]').innerText = this.value;"/>
+                      \(\theta = \; \) <span class="data-option:avb-fp-c:theta">0</span>\(^\circ\)
+              </div>
+          </div>
+      </Col>
+    </Row>
+  </PrairieDrawCanvas>
+</Section>
 
 <SubSection title="General State of Stress" id="general-state">
 
@@ -372,3 +390,52 @@ The principal stresses are where the circle crosses the x-axis, and the maximum 
 
 The principal stresses are where the circle crosses the x-axis, and the maximum shear stress is the highest y-coordinate of the circle. 
 </SubSubSection>
+<script is:inline>
+$(document).ready(function() {
+
+    stt_cb_c = new PrairieDrawAnim("stt-cb-c", function(t) {
+      this.setUnits(6, 4);
+
+      this.addOption("theta", 0)
+
+      var O = $V([0, 0]);
+      var theta = Math.PI/180*this.getOption('theta');
+
+      var width = 2;
+      var height = 2;
+
+      var rC = $V([0, 0]);
+
+      var axis_length = 1.5;
+      
+      var x = $V([Math.cos(theta)*axis_length,Math.sin(theta)*axis_length]);
+      var y = $V([-Math.sin(theta)*axis_length, Math.cos(theta)*axis_length]);
+
+      var angle_label = $V([Math.cos(theta)*width/4, Math.sin(theta)*width/4]);
+
+      //this.arrow(x_xtra, x_xtra*axis_length);
+      if(theta == 0){
+        this.arrow(rC, rC.add(x));
+        this.labelLine(rC, rC.add(x), $V([1, 1]), "TEX:$x$")
+        this.arrow(rC, rC.add(y));
+        this.labelLine(rC, rC.add(y), $V([1, 1]), "TEX:$y$")
+      }else{
+        this.arrow(rC, rC.add(x));
+        this.labelLine(rC, rC.add(x), $V([1, 1]), "TEX:$x$")
+        this.arrow(rC, rC.add(y));
+        this.labelLine(rC, rC.add(y), $V([1, 1]), "TEX:$y$")
+
+        this.arrow(rC, rC.add($V([axis_length, 0])));
+        this.arrow(rC, rC.add($V([0, axis_length])));
+
+        this.text(rC.add($V([width/4, 0])), $V([0, 1]), "TEX:\\theta");
+        this.arc(rC, width/4, 0, theta, false)
+      }
+      
+      this.rectangle(width, height, O, theta, false);
+      
+  })
+});
+</script>
+
+</Layout>
