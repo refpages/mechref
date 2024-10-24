@@ -1321,13 +1321,10 @@ import DisplayTable from "../../components/DisplayTable.astro"
         <Item>Instantaneous center “M” is the point on or off the rigid body that has zero velocity at that instant (i.e. no translation at this point)</Item>
         <Item>Point that the body rotates about (at that instant in time)</Item>
     </Itemize>
-
-    <Image src="/Dynamics/RigidBodyKineticsFigs/ICexamples1.png" width="5"></Image>
-
-    <Image src="/Dynamics/RigidBodyKineticsFigs/ICexamples2.png" width="5"></Image>
+	
 </SubSection>
 
-<SubSubSection title=" Graphical rules for finding M" id="graphical_rules_ic">
+<SubSection title=" Graphical rules for finding M" id="graphical_rules_ic">
 
 	<p>
 		(Assuming that figure is drawn to scale, including velocity vectors)
@@ -1344,6 +1341,73 @@ import DisplayTable from "../../components/DisplayTable.astro"
 							</ul>
 				</ul>
 	</ol>
+	
+	  
+<Example id="rbk-rbe" title="Equal velocity magnitudes in different directions." solution="True">
+
+  <div class="d-flex">
+		<p> Find the instantaneous center (M) and the direction of <InlineEquation equation= "\\vec{v}_B"  /> of the beam. </p>
+	  <Image src="/Dynamics/RigidBodyKineticsFigs/ICex1.png" width="5"></Image>
+  </div>
+  
+  <div slot="solution" >
+		<Image src="/Dynamics/RigidBodyKineticsFigs/ICex1sol.png" width="5"></Image>
+  </div>
+</Example>
+
+<Example id="rbk-rbp" title="Equal velocity magnitudes in opposite parallel directions." solution="True">
+
+  <div class="d-flex">
+		<p> Find the instantaneous center (M) and the direction of <InlineEquation equation= "\\vec{v}_B"  /> of the beam. </p>
+	  <Image src="/Dynamics/RigidBodyKineticsFigs/ICex2.png" width="5"></Image>
+  </div>
+  
+  <div slot="solution" >
+		<Image src="/Dynamics/RigidBodyKineticsFigs/ICex2sol.png" width="5"></Image>
+  </div>
+</Example>
+
+
+<Example id="rbk-rbc" title="Different velocity magnitudes in opposite parallel directions." solution="True">
+
+  <div class="d-flex">
+		<p> Find the instantaneous center (M) and the direction of <InlineEquation equation= "v_A / v_B"  /> of the beam. </p>
+	  <Image src="/Dynamics/RigidBodyKineticsFigs/ICex3.png" width="5"></Image>
+  </div>
+  
+  <div slot="solution" >
+		<Image src="/Dynamics/RigidBodyKineticsFigs/ICex3sol.png" width="5"></Image>
+  </div>
+</Example>
+
+<Example id="rbk-rbm" title="Equal velocity magnitudes in the body." solution="True">
+
+  <div class="d-flex">
+		<p> Find the instantaneous center (M). </p>
+	  <Image src="/Dynamics/RigidBodyKineticsFigs/ICex5.png" width="5"></Image>
+  </div>
+  
+  <div slot="solution" >
+		<Image src="/Dynamics/RigidBodyKineticsFigs/ICex5sol.png" width="5"></Image>
+  </div>
+</Example>
+
+<Example id="rbk-rbn" title="Equal velocity magnitudes in same paralled direction." solution="True">
+
+  <div class="d-flex">
+		<p> Find the instantaneous center (M). </p>
+	  <Image src="/Dynamics/RigidBodyKineticsFigs/ICex6.png" width="5"></Image>
+  </div>
+  
+  <div slot="solution" >
+		<p> The body is not rotating </p>
+  </div>
+</Example>
+
+
+
+	 
+
 
 <Warning title="Pay attention to:"  id="icm-wa">
 	<Itemize>
@@ -1351,10 +1415,12 @@ import DisplayTable from "../../components/DisplayTable.astro"
 		<Item> Consistent speeds <InlineEquation equation=" v = \\omega \\, r" />. </Item>
 		<Item> Body may not be rotating (pure translation). </Item>
 	</Itemize>
-
 </Warning>
 
-</SubSubSection>
+
+
+
+</SubSection>
 
 <SubSection title="Applications"  id="app_rg_kinetics" ></SubSection>
 
@@ -1969,14 +2035,6 @@ import DisplayTable from "../../components/DisplayTable.astro"
           </table>
 </SubSubSection>
 
-<SubSubSection title="Cargo Ships">
-    <RedText>This topic is in L22-Notes, slides 3-4.</RedText> Application for "Center of mass".
-</SubSubSection>
-
-<SubSubSection title="Tuned Mass Damper">
-    <RedText>This topic is in L24-Notes, slide 9. YouTube video  <a target="_blank" rel="noopener noreferrer" target="_blank" rel="noopener noreferrer" href="https://www.youtube.com/watch?v=GzMuF-LMGaM ">link</a></RedText>Application for "Rigid body kinetics".
-
-</SubSubSection>
 
 </Layout>
 
