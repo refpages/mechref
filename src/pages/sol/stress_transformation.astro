@@ -16,6 +16,7 @@ import InlineCanvas from "../../components/InlineCanvas.astro"
 import PrairieDrawCanvas from "../../components/PrairieDrawCanvas.astro"
 import Row from "../../components/Row.astro"
 import Col from "../../components/Col.astro"
+import Center from "../../components/Center.astro"
 ---
 <Layout title="Stress Transformation">
 
@@ -91,7 +92,28 @@ import Col from "../../components/Col.astro"
     </Col>
   </Row>
 
-  <PrairieDrawCanvas id="stt-mc-c" height="600" width="600">
+  <Row>
+    <Col values="0 md-2 lg-3 xl-4"></Col>
+    <Col values="12 md-8 lg-6 xl-4">
+      <div class="w-100 p-2" style="border: 2px solid var(--bs-border-color); border-radius: 10px;">
+        <Row>
+          <Col values="6">
+              <p class="mb-1"><InlineEquation equation="\\sigma_1" />: <span id="sigma_1"></span></p>
+              <p class="mb-1"><InlineEquation equation="\\sigma_2" />: <span id="sigma_2"></span></p>
+              <p class="mb-1"><InlineEquation equation="\\tau_{max}" />: <span id="tau_max"></span></p>
+          </Col>
+          <Col values="6">
+            <p class="mb-1"><InlineEquation equation="\\sigma_{x^{\\prime}}" />: <span id="sigma_xp"></span></p>
+            <p class="mb-1"><InlineEquation equation="\\sigma_{y^{\\prime}}" />: <span id="sigma_yp"></span></p>
+            <p class="mb-1"><InlineEquation equation="\\tau_{x^{\\prime}y^{\\prime}}" />: <span id="tau_xpyp"></span></p>
+          </Col>
+        </Row>
+      </div>
+    </Col>
+    <Col values="0 md-2 lg-3 xl-4"></Col>
+  </Row>
+
+  <PrairieDrawCanvas id="stt-mc-c" height="500" width="500">
     <Row> 
       <Col values="12">
         <div class="d-flex  align-items-baseline">
@@ -152,17 +174,27 @@ import Col from "../../components/Col.astro"
             this.arc(O, radius/4, theta_p+2*theta, theta_p, false);
           }
           
+          document.querySelector("span#sigma_1").innerText = Math.round((savg + R)*100)/100;
+          document.querySelector("span#sigma_2").innerText = Math.round((savg - R)*100)/100;
+          document.querySelector("span#tau_max").innerText = Math.round((R)*100)/100;
+
+          var current_angle = 2*theta;
+
+          var sxp = savg + (sx-sy)/2*Math.cos(current_angle)+tau*Math.sin(current_angle);
+          var syp = savg - (sx-sy)/2*Math.cos(current_angle)-tau*Math.sin(current_angle);
+          var txpyp = -(sx-sy)/2*Math.sin(current_angle)+tau*Math.cos(current_angle);
+          
+          document.querySelector("span#sigma_xp").innerText = Math.round((sxp)*100)/100;
+          document.querySelector("span#sigma_yp").innerText = Math.round((tau)*100)/100;
+          document.querySelector("span#tau_xpyp").innerText = Math.round((txpyp)*100)/100;
 
           var sigma = Math.round((savg+R*Math.cos(theta_p+2*theta))*1000)/1000;
-          var tau = Math.round(-R*Math.sin(theta_p+2*theta)*1000)/1000;
-
-          this.text($V([-3, 3]), $V([-2, 2]), `Sigma' = ${sigma}`);
-          this.text($V([-3, 2.75]), $V([-2, 2]), `Tau' = ${tau}`);
+          
       })
     });
     </script>
 
-<PrairieDrawCanvas id="stt-cb-c" height="400" width="600">
+<PrairieDrawCanvas id="stt-cb-c" height="333" width="500">
   
 </PrairieDrawCanvas>
 
