@@ -38,7 +38,14 @@ import Center from "./Center.astro";
 
     function set_width(id, width){
         body_width = $('body').width();
-        canvas_width = Math.min(body_width - 24, width);
+        if (body_width > 1200){
+            canvas_width = Math.min((body_width - 24)*100/162, width);
+        }else if (body_width > 998){
+            canvas_width = Math.min((body_width - 24)*20/27, width);
+        }else{
+            canvas_width = Math.min((body_width - 24), width);
+        }
+        
 
         $('#'+id+'_container').width(canvas_width);
         document.querySelector(`canvas#${id}`).width = canvas_width - 4;
