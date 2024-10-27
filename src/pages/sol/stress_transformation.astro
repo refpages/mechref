@@ -54,216 +54,6 @@ import CustomCanvas from "../../components/CustomCanvas.astro"
 
 
 <Section title="Stress Transformation" id="stress-transformation">
-  <Row> 
-    <Col values="12">
-      <div class="d-flex align-items-center mb-1">
-        <p class="my-0 flex-shrink-1 me-2"><InlineEquation equation="\\sigma_{x}:" /></p>
-        <div class="input-group">
-          <div class="input-group-prepend">
-            <div class="input-group-text">MPa</div>
-          </div>
-          <input class="form-control" type="text" value="10" onchange="stt_mc_c.setOption('sx', this.value)" oninput="stt_mc_c.setOption('sx', this.value);"/>
-          
-        </div>
-      </div>
-    </Col>
-    <Col values="12">
-      <div class="d-flex align-items-center mb-1">
-        <p class="my-0 flex-shrink-1 me-2"><InlineEquation equation="\\sigma_{y}:" /></p>
-        <div class="input-group">
-          <div class="input-group-prepend">
-            <div class="input-group-text">MPa</div>
-          </div>
-          <input class="form-control" type="text" value="5" onchange="stt_mc_c.setOption('sy', this.value)" oninput="stt_mc_c.setOption('sy', this.value);"/>
-          
-        </div>
-      </div>
-    </Col>
-    <Col values="12">
-      <div class="d-flex align-items-center mb-1">
-        <p class="my-0 flex-shrink-1 me-2"><InlineEquation equation="\\tau_{xy}:" /></p>
-        <div class="input-group">
-          <div class="input-group-prepend">
-            <div class="input-group-text">MPa</div>
-          </div>
-          <input class="form-control" type="text" value="5" onchange="stt_mc_c.setOption('tau', this.value)" oninput="stt_mc_c.setOption('tau', this.value);"/>
-          
-        </div>
-      </div>
-    </Col>
-  </Row>
-
-  <Row>
-    <Col values="0 md-2 lg-3 xl-4"></Col>
-    <Col values="12 md-8 lg-6 xl-4">
-      <div class="w-100 p-2" style="border: 2px solid var(--bs-border-color); border-radius: 10px;">
-        <Row>
-          <Col values="6">
-              <p class="mb-1"><InlineEquation equation="\\sigma_1" />: <span id="sigma_1"></span></p>
-              <p class="mb-1"><InlineEquation equation="\\sigma_2" />: <span id="sigma_2"></span></p>
-              <p class="mb-1"><InlineEquation equation="\\tau_{max}" />: <span id="tau_max"></span></p>
-          </Col>
-          <Col values="6">
-            <p class="mb-1"><InlineEquation equation="\\sigma_{x^{\\prime}}" />: <span id="sigma_xp"></span></p>
-            <p class="mb-1"><InlineEquation equation="\\sigma_{y^{\\prime}}" />: <span id="sigma_yp"></span></p>
-            <p class="mb-1"><InlineEquation equation="\\tau_{x^{\\prime}y^{\\prime}}" />: <span id="tau_xpyp"></span></p>
-          </Col>
-        </Row>
-      </div>
-    </Col>
-    <Col values="0 md-2 lg-3 xl-4"></Col>
-  </Row>
-  <p></p>
-  <div class="w-100" id="anim-container">
-    <canvas id="stt-mc-c" height="500" width="500" style="background: white;"></canvas>
-
-    <canvas id="stt-cb-c" height="500" width="500" style="background: white;"></canvas>
-  </div>
-  
-
-  <Row> 
-    <Col values="12">
-      <div class="d-flex  align-items-baseline">
-          <p class="m-0 flex-shrink-1">Angle:</p>
-          <div class="flex-grow-1 d-flex align-items-baseline">
-              <input type="range" min="-90" max="90" value="0" step="1" class="data-input:stt-cb-c:theta flex-grow-1 mx-2" onchange="stt_cb_c.setOption('theta', this.value); stt_mc_c.setOption('theta', this.value); document.querySelector('span[class*=theta]').innerText = this.value;" oninput="stt_cb_c.setOption('theta', this.value); stt_mc_c.setOption('theta', this.value); document.querySelector('span[class*=theta]').innerText = this.value;"/>
-                  \(\theta = \; \) <span class="data-option:avb-fp-c:theta">0</span>\(^\circ\)
-          </div>
-      </div>
-    </Col>
-  </Row>
-
-  <script is:inline>
-    const container = document.querySelector("#anim-container");
-    const cb = document.querySelector("#stt-cb-c");
-    const mc = document.querySelector("#stt-mc-c");
-
-    function resize_anim_container(){
-      var container_width = container.clientWidth;
-      cb.width = Math.round(container_width/2)-4;
-      cb.height = Math.round(container_width/2)-4;
-      mc.width = Math.round(container_width/2)-4;
-      mc.height = Math.round(container_width/2)-4;
-    }
-
-    resize_anim_container();
-
-    window.addEventListener("resize", function(){
-      resize_anim_container();
-
-      stt_mc_c.redraw();
-      stt_cb_c.redraw();
-    })
-  </script>
-
-  
-  <script is:inline>
-    $(document).ready(function() {
-    
-        stt_mc_c = new PrairieDraw("stt-mc-c", function() {
-          this.setUnits(5, 5);
-          
-          this.addOption("theta", 0)
-          this.addOption('sx', 10);
-          this.addOption('sy', 5);
-          this.addOption('tau', 5);
-
-          var sx = Number(this.getOption('sx'));
-          var sy =  Number(this.getOption('sy'));
-          var tau =  Number(this.getOption('tau'));
-
-          var theta_p = -Math.atan(2*tau/(sx-sy));
-
-          var theta = Math.PI/180*this.getOption('theta');
-
-          var savg = (sx+sy)/2;
-          var R = Math.sqrt((sx-sy)**2/4 + tau**2);
-          var radius = 2;
-          var O = $V([0, 0]);
-          
-          this.circle(O, radius, false)
-          this.line($V([(sx-savg)/R*radius, -tau/R*radius]), $V([(sy-savg)/R*radius, tau/R*radius]));
-          this.text($V([(sx-savg)/R*radius, -tau/R*radius]), $V([-2, 2]), `X (${sx}, ${tau})`);
-          this.text($V([(sy-savg)/R*radius, tau/R*radius]), $V([2, -2]), `Y (${sy}, ${-tau})`);
-          this.text(O, $V([2, -2]), `(${savg}, ${0})`);
-
-          this.line($V([-3, 0]), $V([3, 0]))
-
-          this.line(O, $V([Math.cos(theta_p+2*theta)*radius, Math.sin(theta_p+2*theta)*radius]), 'blue');
-          this.point($V([Math.cos(theta_p+2*theta)*radius, Math.sin(theta_p+2*theta)*radius]), 'blue');
-
-          if (theta > 0){
-            this.arc(O, radius/4, theta_p, theta_p+2*theta, false);
-          }else{
-            this.arc(O, radius/4, theta_p+2*theta, theta_p, false);
-          }
-          
-          document.querySelector("span#sigma_1").innerText = Math.round((savg + R)*100)/100;
-          document.querySelector("span#sigma_2").innerText = Math.round((savg - R)*100)/100;
-          document.querySelector("span#tau_max").innerText = Math.round((R)*100)/100;
-
-          var current_angle = 2*theta;
-
-          var sxp = savg + (sx-sy)/2*Math.cos(current_angle)+tau*Math.sin(current_angle);
-          var syp = savg - (sx-sy)/2*Math.cos(current_angle)-tau*Math.sin(current_angle);
-          var txpyp = -(sx-sy)/2*Math.sin(current_angle)+tau*Math.cos(current_angle);
-          
-          document.querySelector("span#sigma_xp").innerText = Math.round((sxp)*100)/100;
-          document.querySelector("span#sigma_yp").innerText = Math.round((syp)*100)/100;
-          document.querySelector("span#tau_xpyp").innerText = Math.round((txpyp)*100)/100;
-
-          var sigma = Math.round((savg+R*Math.cos(theta_p+2*theta))*1000)/1000;
-          
-      })
-    });
-    </script>
-
-<script is:inline>
-  $(document).ready(function() {
-  
-      stt_cb_c = new PrairieDraw("stt-cb-c", function() {
-        this.setUnits(4, 4);
-  
-        this.addOption("theta", 0)
-  
-        var O = $V([0, 0]);
-        var theta = Math.PI/180*this.getOption('theta');
-  
-        var width = 2;
-        var height = 2;
-  
-        var rC = $V([0, 0]);
-  
-        var axis_length = 1.5;
-        
-        var x = $V([Math.cos(theta)*axis_length,Math.sin(theta)*axis_length]);
-        var y = $V([-Math.sin(theta)*axis_length, Math.cos(theta)*axis_length]);
-  
-        this.arrow(rC, rC.add(x));
-        this.labelLine(rC, rC.add(x), $V([1, 1]), "x'")
-        this.arrow(rC, rC.add(y));
-        this.labelLine(rC, rC.add(y), $V([1, 1]), "y'")
-
-        this.arrow(rC, rC.add($V([axis_length, 0])));
-        this.arrow(rC, rC.add($V([0, axis_length])));
-
-        if(theta > 0){
-          this.text(rC.add($V([width/4, 0])), $V([0, 1]), "theta");
-          this.arc(rC, width/4, 0, theta, false)
-        }else if (theta < 0){
-          this.text(rC.add($V([width/4, 0])), $V([0, -1]), "theta");
-          this.arc(rC, width/4, theta, 0, false)
-        }
-        
-        this.rectangle(width, height, O, theta, false);
-
-        this.translate($V([0, -5.5]))
-
-        this.circle(O, 2.5, false)
-        
-    })
-  });
-  </script>
 </Section>
 
 <SubSection title="General State of Stress" id="general-state">
@@ -575,6 +365,192 @@ Mohr's circle is a graphical representation of stress transformations. The equat
 <DisplayEquation equation="\\begin{align} \\rm\\ Point \\ X&: (\\sigma_x, \\tau_{xy}) \\\\ \\rm\\ Point \\ Y&: (\\sigma_y, -\\tau_{xy}) \\end{align}" title="Two points of the circle." background="True"/>
 
 The principal stresses are where the circle crosses the x-axis, and the maximum shear stress is the highest y-coordinate of the circle. 
+
+<div class="row">
+  <Col values="0 md-1 lg-2"></Col>
+  <Col values="12 md-10 lg-8">
+    <div class="w-100 p-2 m-0" style="border: 2px solid var(--bs-border-color); border-radius: 10px;">
+      <Row>
+        <Col values="4">
+          <p class="mb-1"><InlineEquation equation="\\sigma_x" />: -80</p>
+          <p class="mb-1"><InlineEquation equation="\\sigma_y" />: 50</p>
+          <p class="mb-1"><InlineEquation equation="\\tau_{xy}" />: -25</p>
+      </Col>
+        <Col values="4">
+            <p class="mb-1"><InlineEquation equation="\\sigma_1" />: <span id="sigma_1"></span></p>
+            <p class="mb-1"><InlineEquation equation="\\sigma_2" />: <span id="sigma_2"></span></p>
+            <p class="mb-1"><InlineEquation equation="\\tau_{max}" />: <span id="tau_max"></span></p>
+        </Col>
+        <Col values="4">
+          <p class="mb-1"><InlineEquation equation="\\sigma_{x^{\\prime}}" />: <span id="sigma_xp"></span></p>
+          <p class="mb-1"><InlineEquation equation="\\sigma_{y^{\\prime}}" />: <span id="sigma_yp"></span></p>
+          <p class="mb-1"><InlineEquation equation="\\tau_{x^{\\prime}y^{\\prime}}" />: <span id="tau_xpyp"></span></p>
+        </Col>
+      </Row>
+    </div>
+  </Col>
+  <Col values="0 md-1 lg-2"></Col>
+</div>
+<p></p>
+<div class="w-100" id="anim-container">
+  <canvas id="stt-mc-c" height="300" width="300" style="background: white; border: 1px solid black; border-radius: 10px;"></canvas>
+
+  <canvas id="stt-cb-c" height="300" width="300" style="background: white; border: 1px solid black; border-radius: 10px;"></canvas>
+</div>
+
+
+<Row> 
+  <Col values="12">
+    <div class="d-flex  align-items-baseline">
+        <p class="m-0 flex-shrink-1">Angle:</p>
+        <div class="flex-grow-1 d-flex align-items-baseline">
+            <input type="range" min="-90" max="90" value="0" step="1" class="data-input:stt-cb-c:theta flex-grow-1 mx-2" onchange="stt_cb_c.setOption('theta', this.value); stt_mc_c.setOption('theta', this.value); document.querySelector('span[class*=theta]').innerText = this.value;" oninput="stt_cb_c.setOption('theta', this.value); stt_mc_c.setOption('theta', this.value); document.querySelector('span[class*=theta]').innerText = this.value;"/>
+                \(\theta = \; \) <span class="data-option:avb-fp-c:theta">0</span>\(^\circ\)
+        </div>
+    </div>
+  </Col>
+</Row>
+
+<script is:inline>
+  const container = document.querySelector("#anim-container");
+  const cb = document.querySelector("#stt-cb-c");
+  const mc = document.querySelector("#stt-mc-c");
+
+  function resize_anim_container(){
+    var container_width = container.clientWidth;
+
+    if (container_width < 600){
+      cb.width = Math.round(container_width)-4;
+      cb.height = Math.round(container_width)-4;
+      mc.width = Math.round(container_width)-4;
+      mc.height = Math.round(container_width)-4;
+    }else{
+      cb.width = Math.round(container_width/2)-4;
+      cb.height = Math.round(container_width/2)-4;
+      mc.width = Math.round(container_width/2)-4;
+      mc.height = Math.round(container_width/2)-4;
+    }
+    
+  }
+
+  resize_anim_container();
+
+  window.addEventListener("resize", function(){
+    resize_anim_container();
+
+    stt_mc_c.redraw();
+    stt_cb_c.redraw();
+  })
+</script>
+
+
+<script is:inline>
+  $(document).ready(function() {
+  
+      stt_mc_c = new PrairieDraw("stt-mc-c", function() {
+        this.setUnits(5, 5);
+        
+        this.addOption("theta", 0)
+
+        var sx = -80;
+        var sy =  50;
+        var tau =  -25;
+
+        var theta_p = -Math.atan(2*tau/(sx-sy));
+
+        var theta = Math.PI/180*this.getOption('theta');
+
+        var savg = (sx+sy)/2;
+        var R = Math.sqrt((sx-sy)**2/4 + tau**2);
+        var radius = 2;
+        var O = $V([0, 0]);
+        
+        this.circle(O, radius, false)
+        this.line($V([(sx-savg)/R*radius, -tau/R*radius]), $V([(sy-savg)/R*radius, tau/R*radius]));
+        this.text($V([(sx-savg)/R*radius, -tau/R*radius]), $V([-1,-1]), `  X (${sx}, ${tau})`);
+        this.text($V([(sy-savg)/R*radius, tau/R*radius]), $V([-1,1]), `Y (${sy}, ${-tau})`);
+        this.text(O, $V([-1, -1]), `(${savg}, ${0})`);
+
+        this.line($V([-3, 0]), $V([3, 0]))
+
+        this.text($V([radius, 0]), $V([-1, 1]), `s1`);
+        this.text($V([-radius, 0]), $V([1, 1]), `s2`);
+
+        this.line(O, $V([Math.cos(theta_p+2*theta)*radius, Math.sin(theta_p+2*theta)*radius]), 'blue');
+        this.point($V([Math.cos(theta_p+2*theta)*radius, Math.sin(theta_p+2*theta)*radius]), 'blue');
+
+        if (theta > 0){
+          this.arc(O, radius/4, theta_p, theta_p+2*theta, false);
+        }else{
+          this.arc(O, radius/4, theta_p+2*theta, theta_p, false);
+        }
+        
+        document.querySelector("span#sigma_1").innerText = Math.round((savg + R)*100)/100;
+        document.querySelector("span#sigma_2").innerText = Math.round((savg - R)*100)/100;
+        document.querySelector("span#tau_max").innerText = Math.round((R)*100)/100;
+
+        var current_angle = 2*theta;
+
+        var sxp = savg + (sx-sy)/2*Math.cos(current_angle)+tau*Math.sin(current_angle);
+        var syp = savg - (sx-sy)/2*Math.cos(current_angle)-tau*Math.sin(current_angle);
+        var txpyp = -(sx-sy)/2*Math.sin(current_angle)+tau*Math.cos(current_angle);
+        
+        document.querySelector("span#sigma_xp").innerText = Math.round((sxp)*100)/100;
+        document.querySelector("span#sigma_yp").innerText = Math.round((syp)*100)/100;
+        document.querySelector("span#tau_xpyp").innerText = Math.round((txpyp)*100)/100;
+
+        var sigma = Math.round((savg+R*Math.cos(theta_p+2*theta))*1000)/1000;
+        
+    })
+  });
+  </script>
+
+<script is:inline>
+$(document).ready(function() {
+
+    stt_cb_c = new PrairieDraw("stt-cb-c", function() {
+      this.setUnits(4, 4);
+
+      this.addOption("theta", 0)
+
+      var O = $V([0, 0]);
+      var theta = Math.PI/180*this.getOption('theta');
+
+      var width = 2;
+      var height = 2;
+
+      var rC = $V([0, 0]);
+
+      var axis_length = 1.5;
+      
+      var x = $V([Math.cos(theta)*axis_length,Math.sin(theta)*axis_length]);
+      var y = $V([-Math.sin(theta)*axis_length, Math.cos(theta)*axis_length]);
+
+      this.arrow(rC, rC.add(x));
+      this.labelLine(rC, rC.add(x), $V([1, 1]), "x'")
+      this.arrow(rC, rC.add(y));
+      this.labelLine(rC, rC.add(y), $V([1, 1]), "y'")
+
+      this.arrow(rC, rC.add($V([axis_length, 0])));
+      this.arrow(rC, rC.add($V([0, axis_length])));
+
+      if(theta > 0){
+        this.text(rC.add($V([width/4, 0])), $V([0, 1]), "theta");
+        this.arc(rC, width/4, 0, theta, false)
+      }else if (theta < 0){
+        this.text(rC.add($V([width/4, 0])), $V([0, -1]), "theta");
+        this.arc(rC, width/4, theta, 0, false)
+      }
+      
+      this.rectangle(width, height, O, theta, false);
+
+      this.translate($V([0, -5.5]))
+
+      this.circle(O, 2.5, false)
+      
+  })
+});
+</script>
 </SubSubSection>
 
 <SubSubSection title="3-D Mohr's Circle" id="3d">
