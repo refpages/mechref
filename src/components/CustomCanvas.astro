@@ -1,0 +1,40 @@
+---
+const {id, height, width, show_border="True"} = Astro.props;
+
+import Center from "./Center.astro";
+---
+
+
+<Center>
+<div id={id+'_container'}>
+    <slot/>
+</div>
+</Center>
+
+<script is:inline define:vars={{id, width}}>
+    let body_width;
+    let canvas_width;
+
+    function set_width(id, width){
+        body_width = $('body').width();
+        
+        if (body_width > 1200){
+            canvas_width = Math.min((body_width - 24)*100/162, width);
+        }else if (body_width > 998){
+            canvas_width = Math.min((body_width - 24)*20/27, width);
+        }else{
+            canvas_width = Math.min((body_width - 24), width);
+        }
+        
+
+        $('#'+id+'_container').width(canvas_width);
+        document.querySelector(`canvas#${id}`).width = canvas_width - 4;
+    }
+
+    set_width(id, width);
+
+    $( window ).on( "resize", function() {
+        set_width(id, width)
+
+    } );
+</script>

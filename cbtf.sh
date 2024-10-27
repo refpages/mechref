@@ -10,14 +10,13 @@ declare -a courses=("210" "212" "251")
 for c in "${courses[@]}"
 do
     echo "TAM $c"
-    scp -r "$HOME/mechref/dist" "$HOME/Documents/GitHub/pl-tam$c/clientFilesCourse/"
     cd "$HOME/Documents/GitHub/pl-tam$c"
-    rm -rf "clientFilesCourse/mechref"
-    mv "clientFilesCourse/dist" "clientFilesCourse/mechref" 
     git switch master
     git stash
     git pull --rebase
-    git stash apply
+    scp -r "$HOME/mechref/dist" "$HOME/Documents/GitHub/pl-tam$c/clientFilesCourse/"
+    rm -rf "clientFilesCourse/mechref"
+    mv "clientFilesCourse/dist" "clientFilesCourse/mechref" 
     git add -A
     git commit -m "Updated reference pages"
     git push
