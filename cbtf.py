@@ -20,6 +20,7 @@ js = [j for j in _astro if j[-3:] == '.js']
 
 links_to_replace = {
     "url(/fonts/source-sans-pro/SourceSansPro-Regular.otf": "url(../fonts/source-sans-pro/SourceSansPro-Regular.otf",
+    "url(/fonts/source-sans-pro/SourceSansPro-Semibold.otf": "url(../fonts/source-sans-pro/SourceSansPro-Semibold.otf",
     "url(/fonts/source-sans-pro/SourceSansPro-Bold.otf": "url(../fonts/source-sans-pro/SourceSansPro-Bold.otf",
     "url(/fonts/Montserrat-Bold.ttf": "url(../fonts/Montserrat-Bold.ttf"
 }
@@ -202,6 +203,7 @@ special_rewrites = {
     'vectors.html_scalars.html': 'vectors_scalars.html',
     "vectors.html_scalars.js": "vectors_scalars.js",
     "stress.html_transformation": "stress_transformation.html",
+    "stress_transformation.html.html": "stress_transformation.html",
     "<script src=\./static/js/themes.js\">": "<script src=\"./static/js/themes.js\">"
 }
 
