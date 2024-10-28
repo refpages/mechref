@@ -1,5 +1,6 @@
 ---
 import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
 import SidebarContainer from '../components/SidebarContainer.astro';
 import Searchbar from '../components/Searchbar.astro';
 import NavtreeContainer from '../components/NavtreeContainer.astro';
@@ -74,8 +75,9 @@ const pagename = cleaned[1]
 			<div class="w-100 pt-0 pt-xl-3"> 
 				<slot />
 			</div>
-
+			
 		</div>
+		<Footer />
 	</body>
 </html>
 
@@ -85,6 +87,13 @@ const pagename = cleaned[1]
 		font-style: normal;
   		font-weight: 400;
 		src: url('/fonts/source-sans-pro/SourceSansPro-Regular.otf');
+	}
+
+	@font-face {
+		font-family: 'SourceSansPro';
+		font-style: semibold;
+		font-weight: 600;
+		src: url('/fonts/source-sans-pro/SourceSansPro-Semibold.otf');
 	}
 
 	@font-face {
@@ -99,6 +108,21 @@ const pagename = cleaned[1]
 		font-style: bold;
 		font-weight: 700;
 		src: url('/fonts/Montserrat-Bold.ttf');
+	}
+
+	@font-face {
+		font-family: 'Font Awesome 6';
+		src: url('/fonts/pro-fa-brands-400-1.woff2');
+	}
+
+	.fa-brands{
+		font-family: "Font Awesome 6 Brands";
+		-webkit-font-smoothing: antialiased;
+		display: inline-block;
+		font-style: normal;
+		font-variant: normal;
+		line-height: 1;
+		text-rendering: auto;
 	}
 
 	:root {
