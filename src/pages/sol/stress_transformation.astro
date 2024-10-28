@@ -462,13 +462,13 @@ The principal stresses are where the circle crosses the x-axis, and the maximum 
 
         var savg = (sx+sy)/2;
         var R = Math.sqrt((sx-sy)**2/4 + tau**2);
-        var radius = 2;
+        var radius = 1.7;
         var O = $V([0, 0]);
         
         this.circle(O, radius, false)
         this.line($V([(sx-savg)/R*radius, -tau/R*radius]), $V([(sy-savg)/R*radius, tau/R*radius]));
         this.text($V([(sx-savg)/R*radius, -tau/R*radius]), $V([-1,-1]), `  X (${sx}, ${tau})`);
-        this.text($V([(sy-savg)/R*radius, tau/R*radius]), $V([-1,1]), `Y (${sy}, ${-tau})`);
+        this.text($V([(sy-savg)/R*radius, tau/R*radius]), $V([1,1]), `Y (${sy}, ${-tau})  `);
         this.text(O, $V([-1, -1]), `(${savg}, ${0})`);
 
         this.line($V([-3, 0]), $V([3, 0]))
@@ -478,6 +478,8 @@ The principal stresses are where the circle crosses the x-axis, and the maximum 
 
         this.line(O, $V([Math.cos(theta_p+2*theta)*radius, Math.sin(theta_p+2*theta)*radius]), 'blue');
         this.point($V([Math.cos(theta_p+2*theta)*radius, Math.sin(theta_p+2*theta)*radius]), 'blue');
+        this.line(O, $V([-Math.cos(theta_p+2*theta)*radius, -Math.sin(theta_p+2*theta)*radius]), 'blue');
+        this.point($V([-Math.cos(theta_p+2*theta)*radius, -Math.sin(theta_p+2*theta)*radius]), 'blue');
 
         if (theta > 0){
           this.arc(O, radius/4, theta_p, theta_p+2*theta, false);
@@ -491,13 +493,42 @@ The principal stresses are where the circle crosses the x-axis, and the maximum 
 
         var current_angle = 2*theta;
 
-        var sxp = savg + (sx-sy)/2*Math.cos(current_angle)+tau*Math.sin(current_angle);
-        var syp = savg - (sx-sy)/2*Math.cos(current_angle)-tau*Math.sin(current_angle);
-        var txpyp = -(sx-sy)/2*Math.sin(current_angle)+tau*Math.cos(current_angle);
+        var sxp = Math.round((savg + (sx-sy)/2*Math.cos(current_angle)+tau*Math.sin(current_angle))*100)/100;
+        var syp = Math.round((savg - (sx-sy)/2*Math.cos(current_angle)-tau*Math.sin(current_angle))*100)/100;
+        var txpyp = Math.round((-(sx-sy)/2*Math.sin(current_angle)+tau*Math.cos(current_angle))*100)/100;
         
-        document.querySelector("span#sigma_xp").innerText = Math.round((sxp)*100)/100;
-        document.querySelector("span#sigma_yp").innerText = Math.round((syp)*100)/100;
-        document.querySelector("span#tau_xpyp").innerText = Math.round((txpyp)*100)/100;
+        document.querySelector("span#sigma_xp").innerText = sxp;
+        document.querySelector("span#sigma_yp").innerText = syp;
+        document.querySelector("span#tau_xpyp").innerText = txpyp;
+
+        var xp_location = $V([-Math.cos(theta_p+2*theta)*radius, -Math.sin(theta_p+2*theta)*radius]);
+        var yp_location = $V([Math.cos(theta_p+2*theta)*radius, Math.sin(theta_p+2*theta)*radius]);
+
+
+        if(xp_location.dot($V([1, 0])) > 0){
+          if(xp_location.dot($V([0, 1])) > 0){
+            this.text(xp_location, $V([-1,-1]), `  X' (${Math.round(sxp)}, ${Math.round(txpyp)})`);
+            this.text(yp_location, $V([1, 1]), `  Y' (${Math.round(syp)}, ${Math.round(-txpyp)})`);
+          }else{
+            this.text(xp_location, $V([-1, 1]), `  X' (${Math.round(sxp)}, ${Math.round(txpyp)})`);
+            this.text(yp_location, $V([1, -1]), `  Y' (${Math.round(syp)}, ${Math.round(-txpyp)})`);
+          }
+        }else{
+          if(xp_location.dot($V([0, 1])) > 0){
+            this.text(xp_location, $V([1,-1]), `  X' (${Math.round(sxp)}, ${Math.round(txpyp)})`);
+            this.text(yp_location, $V([-1, 1]), `  Y' (${Math.round(syp)}, ${Math.round(-txpyp)})`);
+          }else{
+            this.text(xp_location, $V([1, 1]), `  X' (${Math.round(sxp)}, ${Math.round(txpyp)})`);
+            this.text(yp_location, $V([-1,-1]), `  Y' (${Math.round(syp)}, ${Math.round(-txpyp)})`);
+          }
+          
+        }
+        
+        this.arrow($V([-2.3, 2.3]), $V([-1.6, 2.3]))
+        this.text($V([-1.6, 2.3]), $V([-1, 1]), "+sigma")
+
+        this.arrow($V([-2.3, 2.3]), $V([-2.3, 1.5]))
+        this.text($V([-2.3, 1.5]), $V([-1, 1]), "+tau")
 
         var sigma = Math.round((savg+R*Math.cos(theta_p+2*theta))*1000)/1000;
         
