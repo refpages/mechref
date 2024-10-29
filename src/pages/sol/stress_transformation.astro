@@ -18,6 +18,7 @@ import Row from "../../components/Row.astro"
 import Col from "../../components/Col.astro"
 import Center from "../../components/Center.astro"
 import CustomCanvas from "../../components/CustomCanvas.astro"
+import SubSubSubSection from "../../components/SubSubSubSection.astro"
 ---
 <Layout title="Stress Transformation">
 
@@ -44,7 +45,11 @@ import CustomCanvas from "../../components/CustomCanvas.astro"
     <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#max-shear-stress'>Maximum Shear Stress</a></li> 
     <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#mohrs-circle'>Mohr's Cirlce</a>
       <ul class='list-group list-group-flush py-0'> 
-        <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#2d'>2D Mohr's Circle</a></li> 
+        <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#2d'>2D Mohr's Circle</a>
+          <ul class='list-group list-group-flush py-0'> 
+          <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#circle-anim'>Interactive Mohr's circle</a></li>
+          </ul> 
+        </li> 
         <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#3d'>3D Mohr's Circle</a></li>  
     </ul>
   </li>  
@@ -366,6 +371,16 @@ Mohr's circle is a graphical representation of stress transformations. The equat
 
 The principal stresses are where the circle crosses the x-axis, and the maximum shear stress is the highest y-coordinate of the circle. 
 
+</SubSubSection>
+
+<SubSubSubSection title="Interactive Mohr's circle" id="circle-anim">
+
+  <p>
+    The stress element below is plotted on Mohr’s circle as shown in the left image. The right image shows the new orientation of the stress element. Use the slider below to change the angle and see the resulting normal and shear stresses on Mohr’s circle.
+  </p>
+  <Image src="/Solid_Mechanics/Stress Transformation-Figures/mohrs_demo.png" width="4">
+
+  </Image>
 <div class="row">
   <Col values="0 md-1 lg-2"></Col>
   <Col values="12 md-10 lg-8">
@@ -582,7 +597,8 @@ $(document).ready(function() {
   })
 });
 </script>
-</SubSubSection>
+</SubSubSubSection>
+
 
 <SubSubSection title="3-D Mohr's Circle" id="3d">
   <Image src="/Solid_Mechanics/Stress Transformation-Figures/3dMohrsCircle.png" width="5"></Image>
