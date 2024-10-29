@@ -101,10 +101,18 @@ Examples of coefficients of static friction:
 
 <SubSection title="Tipping vs. Slipping" id="tip_slip">
 
+Consider a box of length <i>l</i> that is sitting on a rough surface with an applied load <i>P</i> on the right side. 
+
+As <i>P</i> increases, there are two possible scenarios: either the box will "slip" and start sliding along the surface, or the box will tip onto the right corner.  
+
 <Image src='/Statics/FrictionFigures/TipSlip.jpg' width='5'>tipping vs. slipping</Image>
 
 <p>
-To solve for X (the location of the normal force), one can write the equations of equilibrium.
+If the box experiences <b>slipping</b>, the normal force will act at a location can be written as  <DisplayEquation equation="\\N = \mu P" />. You can solve for the force <i>P</i> required for the box to slip. 
+
+If the box experiences <b>tipping</b>, the normal force will act at the bottom right corner of the box, and the couple from <DisplayEquation equation="\\F_f" /> and <i>N</i> will create a moment causing the box to tip. 
+
+To determine which of these scenarios will occur, you should write the equations of equilibrium for each case and solve for the force <i>P</i> required to cause either slipping or tipping. Whichever condition has the smallest force <i>P</i> will be the condition that occurs. 
 </p>
 
 <p>
