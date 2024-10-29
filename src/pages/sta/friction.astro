@@ -8,6 +8,8 @@ import RedText from "../../components/RedText.astro"
 import DisplayEquation from "../../components/DisplayEquation.astro"
 import DisplayTable from "../../components/DisplayTable.astro"
 import InlineEquation from "../../components/InlineEquation.astro"
+import CalloutContainer from "../../components/CalloutContainer.astro"
+import CalloutCard from "../../components/CalloutCard.astro"
 ---
 
 <style>
@@ -81,6 +83,19 @@ Examples of coefficients of static friction:
 In TAM 210/211, we will focus on dry friction. Dry friction occurs between two surfaces with <strong>no</strong> lubricating fluid between them. 
 
 Static friction is the friction between two bodies when there is no movement between them.
+
+    <CalloutContainer slot="cards">
+        <CalloutCard title="Did you know?">
+            <p>
+                Articular cartilage lines the end of your bones at joints, where two bones come together in your body. It acts as a smooth surface that allows your bones to slide past each other when your body is moving. 
+              </p>
+		
+              <p>
+                Articular cartilage is very slippery and has a <i>very</> small coefficient of friction: <a href="https://www.annualreviews.org/content/journals/10.1146/annurev-bioeng-081514-123305">as low as 0.001</a>! This is similar to the coefficient of friction between two pieces of ice! 
+              </p>
+        </CalloutCard>
+    </CalloutContainer>
+
 </SubSection>
 
 <SubSection title="Tipping vs. Slipping" id="tip_slip">
