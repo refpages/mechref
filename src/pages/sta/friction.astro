@@ -33,8 +33,14 @@ import Example from "../../components/Example.astro"
 Friction is a force that resists the movement of two contacting surfaces sliding relative to each other. Frictional forces act tangential to the surface at the point of contact and act in opposition to the possible or existing motion between the surfaces. 
 </p>
 
+<DisplayEquation equation="F \\le  \\mu N" background="True"  title="Limit on friction force magnitude." />
+
 <p>
-Consider a box with applied load P and weight W sitting on a rough surface. The box has normal force N and frictional force \\{F_f} opposing the motion of the box: 
+	Variables <b> <InlineEquation equation=" F "/> </b> and <b> <InlineEquation equation=" N "/> </b> are the magnitude of the friction for <b> <InlineEquation equation=" \\vec{F} "/> </b> and the normal force <b> <InlineEquation equation=" \\vec{N} "/> </b>, and <b> <InlineEquation equation=" \\mu "/> </b> is the coefficient of friction.
+</p>
+
+<p>
+Consider a box with applied load P and weight W sitting on a rough surface. The box has normal force N and frictional force F_f opposing the motion of the box: 
 </p>
 
 <Image src='/Statics/FrictionFigures/FGraph.jpg' width='5'></Image>
@@ -47,11 +53,6 @@ With a very small applied load, the box won't move. However, at some point, with
 Writing the equations of equilibrium of the box and solving for P results in  
 </p>
 
-<DisplayEquation equation="F \\le  \\mu N" background="True"  title="Limit on friction force magnitude." />
-
-<p>
-	Variables <b> <InlineEquation equation=" F "/> </b> and <b> <InlineEquation equation=" N "/> </b> are the magnitude of the friction for <b> <InlineEquation equation=" \\vec{F} "/> </b> and the normal force <b> <InlineEquation equation=" \\vec{N} "/> </b>, and <b> <InlineEquation equation=" \\mu "/> </b> is the coefficient of friction.
-</p>
 </Section>
 
 <SubSection title="Static Friction" id="static_friction">
