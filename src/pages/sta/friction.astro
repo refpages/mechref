@@ -33,6 +33,19 @@ import Example from "../../components/Example.astro"
 Friction is a force that resists the movement of two contacting surfaces sliding relative to each other. Frictional forces act tangential to the surface at the point of contact and act in opposition to the possible or existing motion between the surfaces. 
 </p>
 
+<p>
+Consider a box with applied load P and weight W sitting on a rough surface. The box has normal force N and frictional force \\{F_f} opposing the motion of the box: 
+</p>
+
+<Image src='/Statics/FrictionFigures/FGraph.jpg' width='5'></Image>
+
+<p>
+With a very small applied load, the box won't move. However, at some point, with a large anough load, the box will start to slide along the surface. 
+</p>
+
+<p>
+Writing the equations of equilibrium of the box and solving for P results in  
+</p>
 
 <DisplayEquation equation="F \\le  \\mu N" background="True"  title="Limit on friction force magnitude." />
 
@@ -137,7 +150,7 @@ To determine which of these scenarios will occur, you should write the equations
           So far, so good! However, we run into a problem when we write the sum of moments equation:  
 	</p>
 
-	  <DisplayEquation equation="\\\sum M_O = -Py = 0" />
+	  <DisplayEquation equation="\\sum M_O = -Py = 0" />
 
 	<p>
 	The sum of moments equation about point O results in an expression that is not possible: we know that <i>P</> cannot be zero, so there must be some sort of moment about the center of the box from the normal force acting offset from the center of mass of the box. 
