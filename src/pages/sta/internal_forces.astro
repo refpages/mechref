@@ -109,10 +109,10 @@ The general procedures for creating shear / bending moment diagrams are:</p>
 <DisplayTable id="moi_table">
     <thead>
         <tr>
-            <th class="nosideborderleft">
+            <th class="table-shaded">
 		<strong>Diagram</strong>
             </th>
-            <th>
+            <the class="table-shaded">
                 <strong>Discontinuities</strong>
             </th>
             <th class="table-shaded"> 
@@ -126,16 +126,32 @@ The general procedures for creating shear / bending moment diagrams are:</p>
     <tbody>
         <tr>
             <td class="nosideborderleft">
-                <strong>Shear</strong>
+                <strong>Shear (<InlineEquation equation="V"/>) </strong>
             </td>
             <td>
-		A concentrated force results in a discontinuity/jump in V . An upward (downward) force causes an upward (downward) jump. The magnitude of the jump is equal to the force magnitude. Concentrated moments have no effect on the shear diagram.
+		A concentrated force results in a discontinuity/jump in <InlineEquation equation="V"/> . An upward (downward) force causes an upward (downward) jump. The magnitude of the jump is equal to the force magnitude. Concentrated moments do not affect the shear diagram.
             </td>
 	    <td>
-       		The slope of V at a point is equal to the value of the distributed load at that point. An upward (downward) distributed load results in a positive (negative) slope.
+       		The slope of <InlineEquation equation="V"/> at a point is equal to the value of the distributed load at that point. An upward (downward) distributed load results in a positive (negative) slope.
 	    </td>
 	    <td>
-		Change is shear between two points is equal to the area under the curve between the two points.
+		The Change in shear between two points is equal to the area under the distributed loading curve between the two points.
+	    </td>
+        </tr>
+    </tbody>
+    <tbody>
+        <tr>
+            <td class="nosideborderleft">
+                <strong>Moment (<InlineEquation equation="M"/>) </strong>
+            </td>
+            <td>
+		A concentrated moment results in a discontinuity/jump in <InlineEquation equation="M"/>. A clockwise (anti-clockwise) moment causes an upward (downward) jump. The magnitude of the jump is equal to the moment magnitude.
+            </td>
+	    <td>
+       		The slope of <InlineEquation equation="M"/> at a point is equal to the shear at the point. A positive (negative) shear results in a positive (negative) slope.
+	    </td>
+	    <td>
+		The change is the moment between two points is equal to the area under the shear diagram between the two points.
 	    </td>
         </tr>
     </tbody>
