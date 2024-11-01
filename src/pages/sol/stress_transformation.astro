@@ -33,8 +33,8 @@ import SubSubSubSection from "../../components/SubSubSubSection.astro"
       <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#plane-stress-transformation'>Plane Stress Transformation</a>
           <ul class='list-group list-group-flush py-0'> 
               <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#sign-convention-transformation'>Sign Convention</a></li> 
-              <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#stress-inclined-plane'>Stresses in Inclined Planes</a></li>  
-              <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#torsion-inclined-plane'>Torsion in Inclined Planes</a></li> 
+              <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#stress-inclined-plane'>Stresses on Inclined Planes</a></li>  
+              <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#torsion-inclined-plane'>Torsion on Inclined Planes</a></li> 
           </ul>
       </li> 
       <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#principal-stresses'>Principal Stresses</a>
@@ -109,7 +109,8 @@ The general state of stress at a point is characterized by three independent nor
 
 <SubSection title="Plane Stress Transformation" id="plane-stress-transformation">
 
-<Image src="/Solid_Mechanics/Stress Transformation-Figures/Plane Transformation.png" width="7"></Image>
+  <Image src="/Solid_Mechanics/Stress Transformation-Figures/Coord Transformation.png" width="7"></Image>
+
 
 <p>For any surface that divides the body ( imaginary or real surface), the action of one part of the body on the other is equivalent to the system of distributed internal forces and moments and it is represented by the stress vector <InlineEquation equation="t^n" /> (also called traction), defined on the surface with normal unit vector <InlineEquation equation="n" />.
 </p>
@@ -164,11 +165,12 @@ The general state of stress at a point is characterized by three independent nor
  
 </SubSubSection>
 
-<!--
-<SubSubSection title="Stresses in Inclined Planes" id="stress-inclined-plane">
 
+<SubSubSection title="Stresses on Inclined Planes" id="stress-inclined-plane">
 
-<DisplayEquation equation="\\begin{align} \\sigma_n &= {\\bf n}\\cdot\\ {\\bf t}^{n}={\\bf n}\\cdot\\ {\\bf T}\\,{\\bf n} = \\sigma_{x} \\cos ^2(\\theta) + 2 \\,\\tau_{xy} \\sin(\\theta) \\cos(\\theta)+\\sigma_{y} \\sin ^2(\\theta) \\\\ \\tau_{ns} &= {\\bf s}\\cdot\\ {\\bf t}^{n}={\\bf s}\\cdot\\ {\\bf T}\\,{\\bf n} = (\\sigma_y - \\sigma_{x}) \\sin(\\theta) \\cos(\\theta) + \\tau_{xy} ( \\cos^2(\\theta) - \\sin^2(\\theta) ) \\\\  \\\\\\sigma_n &= {\\bf n}\\cdot\\ {\\bf t}^{n}={\\bf n}\\cdot\\ {\\bf T}\\,{\\bf n} = \\sigma_{x} \\cos ^2(\\theta) + 2 \\,\\tau_{xy} \\sin(\\theta) \\cos(\\theta)+\\sigma_{y} \\sin ^2(\\theta) \\\\ \\tau_{ns} &= {\\bf s}\\cdot\\ {\\bf t}^{n}={\\bf s}\\cdot\\ {\\bf T}\\,{\\bf n} = (\\sigma_y - \\sigma_{x}) \\sin(\\theta) \\cos(\\theta) + \\tau_{xy} ( \\cos^2(\\theta) - \\sin^2(\\theta) )  \\end{align}" title="Stressed on inclined planes." background="True" derivation="True" id="str-inc">
+  <Image src="/Solid_Mechanics/Stress Transformation-Figures/Plane Transformation.png" width="7"></Image>
+
+<DisplayEquation equation="\\begin{align} \\sigma_n &= {\\bf n}\\cdot\\ {\\bf t}^{n}={\\bf n}\\cdot\\ {\\bf T}\\,{\\bf n} = \\sigma_{x} \\cos ^2(\\theta) + 2 \\,\\tau_{xy} \\sin(\\theta) \\cos(\\theta)+\\sigma_{y} \\sin ^2(\\theta) \\\\ \\tau_{ns} &= {\\bf s}\\cdot\\ {\\bf t}^{n}={\\bf s}\\cdot\\ {\\bf T}\\,{\\bf n} = (\\sigma_y - \\sigma_{x}) \\sin(\\theta) \\cos(\\theta) + \\tau_{xy} ( \\cos^2(\\theta) - \\sin^2(\\theta) )  \\end{align}" title="Stresses on inclined planes." background="True" derivation="True" id="str-inc">
 
   Equilibrium equations.
   <DisplayEquation equation="\\sum F_x: -\\sigma_x (A\\rm\\cos\\theta) - \\tau_{xy}(A\\rm\\sin\\theta) + (\\sigma_{x}'\\rm\\cos\\theta)A - (\\tau_{x'y'}\\rm\\sin\\theta)A=0\\" />
@@ -192,32 +194,43 @@ The general state of stress at a point is characterized by three independent nor
 
 </SubSubSection>
 
-<SubSubSection title="Torsion in Inclined Planes" id="torsion-inclined-plane">
 
-<DisplayEquation equation=" \\begin{align} \\sigma_n = \\frac{P}{A_o}(\\cos^2(\\theta)) \\\\ \\tau_{ns} = -\\frac{P}{A_o}\\sin(\\theta)\\cos(\\theta) \\end{align} " title=" Recall projected forces." background="True"/> 
 
- Maximum normal stress at 90 degrees.
-<Image src="/Solid_Mechanics/Stress Transformation-Figures/Max Normal.png" width="2.25"></Image>
+<SubSubSection title="Torsion on Inclined Planes" id="torsion-inclined-plane">
 
-<DisplayEquation equation="\\begin{align} \\sigma_n = \\tau_{max} = \\frac{Tc}{J} \\\\ \\sigma_s = -\\tau_{max} = -\\frac{Tc}{J} \\\\ \\tau_{ns} = 0 \\end{align}" title="Maximum normal stress." background="True"/> 
-
- Maximum shear stress at 45 degrees.
- <Image src="/Solid_Mechanics/Stress Transformation-Figures/Max Shear.png" width="2"></Image>
-
- <DisplayEquation equation="\\begin{align} \\sigma_n = 0 \\\\ \\sigma_s = 0 \\\\ \\tau_{ns} = \\tau_{max} = \\frac{Tc}{J} \\end{align}" title="Maximum shear stress." background="True"/> 
 
  A circular shaft under torsion develops <strong>pure shear</strong> on cross-sections between longitudinal planes (the faces of element <InlineEquation equation="a" /> are parallel and perpendicular to the axis of the shaft).
 
-<Image src="/Solid_Mechanics/Stress Transformation-Figures/Circular Shaft Torsion.png" width="4"></Image>
+<Image src="/Solid_Mechanics/Stress Transformation-Figures/Circular Shaft Torsion.png" width="6"></Image>
+
+<DisplayEquation equation="\\begin{align} \\sigma_n = 2\\tau_{max} \\sin\\theta \\cos\\theta = \\tau_{max} \\sin (2\\theta) \\\\ \\tau_{ns} = \\tau_{max}(\\cos^2\\theta - \\sin^2\\theta) = \\tau_{max} \\cos(2\\theta) \\end{align}" title="Torsion on inclined planes." background="True" derivation="True" id="tor-inc">
+
+  Recall projected forces.
+
+  <DisplayEquation equation=" \\begin{align} \\sigma_n = \\frac{P}{A_o}(\\cos^2(\\theta)) \\\\ \\tau_{ns} = -\\frac{P}{A_o}\\sin(\\theta)\\cos(\\theta) \\end{align} "/> 
 
 
-<DisplayEquation equation="\\begin{align} \\sigma_n = 2\\tau_{max} \\sin\\theta \\cos\\theta = \\tau_{max} \\sin (2\\theta) \\\\ \tau_{ns} = \\tau_{max}(\\cos^2\\theta - \\sin^2\\theta) = \\tau_{max} \\cos(2\\theta) \\end{align}" title="Projected forces for torsion." background="True"/> 
+  <Image src="/Solid_Mechanics/Stress Transformation-Figures/Max Stress.png" width="6"></Image>
+
+ Maximum normal stress at 90 degrees.
+
+<DisplayEquation equation="\\begin{align} \\sigma_n = \\tau_{max} = \\frac{Tc}{J} \\\\ \\sigma_s = -\\tau_{max} = -\\frac{Tc}{J} \\\\ \\tau_{ns} = 0 \\end{align}" /> 
+
+ Maximum shear stress at 45 degrees.
+ <DisplayEquation equation="\\begin{align} \\sigma_n = 0 \\\\ \\sigma_s = 0 \\\\ \\tau_{ns} = \\tau_{max} = \\frac{Tc}{J} \\end{align}" /> 
+
+
+</DisplayEquation>
+
+
 
 <Image src="/Solid_Mechanics/Stress Transformation-Figures/normalShearStressRelation.png" width="4"></Image>
 
 Maximum stresses can be shown graphically to see how the stresses overlap depending on the angle. 
 
 </SubSubSection>
+<!--
+
 -->
 
 <SubSection title="Principal Stresses" id="principal-stresses">
@@ -379,7 +392,7 @@ The principal stresses are where the circle crosses the x-axis, and the maximum 
   <p>
     The stress element below is plotted on Mohr’s circle as shown in the left image. The right image shows the new orientation of the stress element. Use the slider below to change the angle and see the resulting normal and shear stresses on Mohr’s circle.
   </p>
-  <Image src="/Solid_Mechanics/Stress Transformation-Figures/mohrs_demo.png" width="4">
+  <Image src="/Solid_Mechanics/Stress Transformation-Figures/mohrs_demo.png" width="3">
 
   </Image>
 <div class="row">
