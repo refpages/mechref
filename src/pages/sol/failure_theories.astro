@@ -9,112 +9,124 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
 import BlueText from "../../components/BlueText.astro" 
 ---
 <Layout title="Failure Theories">
-<Section title="Failure Theories-NEW PAGE">
 
-<BlueText>BSM: Nice work on this new page. A table at the end summarizing the three main theories and their failure conditions would be a nice addition.</BlueText>
+<div slot="navtree">
+    <ul class='list-group list-group-flush py-0'> 
+        <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#tresca'>Maximum Shear Stress (Tresca) Criterion</a>
+            <ul class='list-group list-group-flush py-0'> 
+                <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#tension'>Uniaxial Tension</a></li> 
+                <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#2d-loading'>General 2D Loading State</a></li> 
+            </ul>
+        </li> 
+        <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#von-mises'>Maximum Distortion Energy (Von Mises) Criterion</a></li>
+        <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#max-normal'>Maximum Normal Stress Criterion</a></li>
+    </ul>
+</div>
+<Section title="Failure Theories" id="units">
+    
+<!-- BSM:A table at the end summarizing the three main theories and their failure conditions would be a nice addition. -->
 
 Failure of a material depends on (1) nature of loading and (2) type of material. There are theories that can predict material failure for complex states. 
 
 </Section>
 
-<SubSection title="5.6.1 Types of Material Failure - move here?"></SubSection>
+<SubSection title="Types of Material Failure - add here?"></SubSection>
 
-<SubSection title="Maximum Shear Stress (Tresca) Criterion">
+<SubSection title="Maximum Shear Stress (Tresca) Criterion" id="tresca">
 
  If a material is <strong>ductile</strong>, failure is defined by <strong>yield stress</strong> (<InlineEquation equation="\\sigma_Y" />) and occurs at <strong>max shear stress</strong> (<InlineEquation equation="\\tau_{max}" />).
 
 </SubSection>
 
-<SubSubSection title="Uniaxial Tension">
+<SubSubSection title="Uniaxial Tension" id="tension">
 
-<Image src='/Solid_Mechanics/Failure Theories-Figures/Tresca.png' width='2'>  <BlueText>Taken from TAM251 Lecture Notes - L10S3</BlueText></Image>
+<Image src='/Solid_Mechanics/Failure Theories-Figures/Tresca.png' width='3'> </Image>
 
  Consider a material subjected to <strong>uniaxial tension</strong> <InlineEquation equation="\\sigma = \\frac{P}{A}" /> and <InlineEquation equation="P" /> is loaded to the yield point, then the following is true:
+ 
+<DisplayEquation equation="\\begin{align} \\sigma_1 = \\sigma_Y \\\\ \\sigma_2 = 0 \\\\ \\tau_{max} = \\frac{\\sigma_Y}{2} \\end{align}" title="Tresca uniaxial tension." background="True"/>
 
-<DisplayEquation equation="\\sigma_1 = \\sigma_Y\\" />
-<DisplayEquation equation="\\sigma_2 = 0\\" />
-<DisplayEquation equation="\\tau_{max} = \\frac{\\sigma_Y}{2}\\" />
 
- If <strong>shear stress</strong> is responsible for causing the ductile material to yield, then 
+<strong>Shear stress</strong> is responsible for causing the ductile material to yield and <InlineEquation equation="\\sigma_Y" /> is the <strong>tensile</strong> yield strength.
 
-<DisplayEquation equation="\\tau_{max} \\ge \\frac{\\sigma_Y}{2}\\" />
+<DisplayEquation equation="\\tau_{max} \\ge \\frac{\\sigma_Y}{2}\\" title="Max  shear." background="True" />
 
- where <InlineEquation equation="\\sigma_Y" /> is the <strong>tensile</strong> yield strength.
+
 
 </SubSubSection>
 
-<SubSubSection title="General 2D Loading State">
+<SubSubSection title="General 2D Loading State" id="2d-loading">
 
-<DisplayEquation equation="\\sigma_z = \\sigma_3 = 0\\" />
+<DisplayEquation equation="\\sigma_z = \\sigma_3 = 0\\" title="Plane stresses." background="True" />
 
- Failure still occurs at 
+ Failure still occurs at max  shear.
 
-<DisplayEquation equation="\\tau_{max} = \\frac{\\sigma_Y}{2}\\" />
+<DisplayEquation equation="\\tau_{max} = \\frac{\\sigma_Y}{2}\\" title="Tresca material failure." background="True" />
 
-<Image src='/Solid_Mechanics/Failure Theories-Figures/TrescaSurface.png' width='3'>  <BlueText>Taken from TAM251 Lecture Notes - L10S4</BlueText></Image>
+<Image src='/Solid_Mechanics/Failure Theories-Figures/TrescaSurface.png' width='4'></Image>
 
  The equations for <InlineEquation equation="\\sigma_1" /> and <InlineEquation equation="\\sigma_2" /> can be plotted to show the failure surface. Loading conditions that occur <strong>outside</strong> of the surface are when the material fails.
 
- If <InlineEquation equation="\\sigma_1" /> and <InlineEquation equation="\\sigma_2" /> have the <strong>same</strong> signs
+<br>
+<br>
+ If <InlineEquation equation="\\sigma_1" /> and <InlineEquation equation="\\sigma_2" /> have the <strong>same</strong> signs:
 
-<DisplayEquation equation="|\\sigma_1| = \\sigma_Y\\" />
-<DisplayEquation equation="|\\sigma_2| = \\sigma_Y\\" />
+ <Image src='/Solid_Mechanics/Failure Theories-Figures/TrescaSameSigns.png' width='3'></Image>
 
-<Image src='/Solid_Mechanics/Failure Theories-Figures/TrescaSameSigns.png' width='2'>  <BlueText>Taken from TAM251 Lecture Notes - L10S5</BlueText></Image>
+<DisplayEquation equation=" \\begin{align} |\\sigma_1| = \\sigma_Y \\\\ |\\sigma_2| = \\sigma_Y \\end{align}" title="Tresca with same signs." background="True" />
 
- If <InlineEquation equation="\\sigma_1" /> and <InlineEquation equation="\\sigma_2" /> have <strong>opposite</strong> signs
+ If <InlineEquation equation="\\sigma_1" /> and <InlineEquation equation="\\sigma_2" /> have <strong>opposite</strong> signs:
 
-<Image src='/Solid_Mechanics/Failure Theories-Figures/TrescaOppositeSigns.png' width='2'>  <BlueText>Taken from TAM251 Lecture Notes - L10S5</BlueText></Image>
+<Image src='/Solid_Mechanics/Failure Theories-Figures/TrescaOppositeSigns.png' width='3'></Image>
 
-<DisplayEquation equation="|\\sigma_1 - \\sigma_2| = \\sigma_Y\\" />
+<DisplayEquation equation="|\\sigma_1 - \\sigma_2| = \\sigma_Y\\" title="Tresca with opposite signs." background="True" />
 
 </SubSubSection>
 
-<SubSection title="Maximum Distortion Energy (Von Misses) Criterion">
+<SubSection title="Maximum Distortion Energy (Von Mises) Criterion" id="von-mises">
 
 <strong>Ductile</strong> materials likely do not fail due to stresses that only result in a <strong>volume change</strong>. It is hypothesized that failure is driven by <strong>distortion strain energy</strong>.
 
-<Image src='/Solid_Mechanics/Failure Theories-Figures/VonMises.png' width='4'>  <BlueText>Taken from TAM251 Lecture Notes - L10S6</BlueText></Image>
+<Image src='/Solid_Mechanics/Failure Theories-Figures/VonMises.png' width='6'></Image>
 
  All elastic deformations can be broken down into <strong>volumetric</strong> and <strong>distortional</strong> deformations. 
 
 
 
- The total strain energy <InlineEquation equation="W" /> in a material is broken into these same parts, resulting in
+ The total strain energy <InlineEquation equation="W" /> in a material is broken into these same parts.
 
 <DisplayEquation equation="W = W_v + W_d\\" />
 
- For plane stress
-<DisplayEquation equation="W_d = \\frac{1+\\nu}{3E}(\\sigma_1^2 - \\sigma_1 \\sigma_2 + \\sigma_2^2)\\" />
 
- At the moment of yield
-<DisplayEquation equation="W_{d,yield} = \\frac{1+\\nu}{3E}\\sigma_Y^2\\" />
+<DisplayEquation equation="\\sigma_{VM} = \\sqrt{\\sigma_1^2 - \\sigma_1 \\sigma_2 + \\sigma_2^2} \\ge \\sigma_Y\\" title="Von Mises material failure." background="True" derivation="True" id="von-mis">
 
- Equating these conditions gives
+    <DisplayEquation equation="W_d = \\frac{1+\\nu}{3E}(\\sigma_1^2 - \\sigma_1 \\sigma_2 + \\sigma_2^2)\\" title="Strain energy density for  plane stress." />
+    
+    <DisplayEquation equation="W_{d,yield} = \\frac{1+\\nu}{3E}\\sigma_Y^2\\" title="Strain energy density at the moment of yield." />
+        
+    <DisplayEquation equation="\\sigma_1^2 - \\sigma_1 \\sigma_2 + \\sigma_2^2 = \\sigma_Y^2\\" title="Equating the plane stress and moment of yield equations." />
+        
+    <DisplayEquation equation="\\sigma_{VM}^2 = \\sigma_Y^2\\" title="Von Mises at yield." />
+    
 
-<DisplayEquation equation="\\sigma_1^2 - \\sigma_1 \\sigma_2 + \\sigma_2^2 = \\sigma_Y^2\\" />
+</DisplayEquation>
 
- At yield
-
-<DisplayEquation equation="\\sigma_{VM}^2 = \\sigma_Y^2\\" />
-
- Failure occurs at
-<DisplayEquation equation="\\sigma_{VM} = \\sqrt{\\sigma_1^2 - \\sigma_1 \\sigma_2 + \\sigma_2^2} \\ge \\sigma_Y\\" />
-
-<Image src='/Solid_Mechanics/Failure Theories-Figures/VonMisesSurface.png' width='3'>  <BlueText>Taken from TAM251 Lecture Notes - L10S8</BlueText></Image>
+<Image src='/Solid_Mechanics/Failure Theories-Figures/VonMisesSurface.png' width='4'></Image>
 
  The equating equation be plotted to show the failure surface. The elliptical surface is the Von Mises surface overlaid with the Teresca surface. Loading conditions that occur <strong>outside</strong> of the surface are when the material fails.
 
 </SubSection>
 
-<SubSection title="Maximum Normal Stress Criterion">
+<SubSection title="Maximum Normal Stress Criterion" id="max-normal">
 
 For <strong>brittle</strong> materials, failure is caused by the <strong>maximum tensile stress</strong> and NOT compressive stress.
 
-<DisplayEquation equation="|\\sigma_1| = \\sigma_{ult}\\" />
-<DisplayEquation equation="|\\sigma_2| = \\sigma_{ult}\\" />
+
+
+
+<DisplayEquation equation="\\begin{align} |\\sigma_1| = \\sigma_{ult} \\\\ |\\sigma_2| = \\sigma_{ult} \\end{align}" title="Maximum normal stress criterion material failure." background="True" />
  
-<Image src='/Solid_Mechanics/Failure Theories-Figures/Brittle.png' width='3'>  <BlueText>Taken from TAM251 Lecture Notes - L10S8</BlueText></Image>
+<Image src='/Solid_Mechanics/Failure Theories-Figures/Brittle.png' width='3'></Image>
 
  The <InlineEquation equation="\\sigma_1" /> and <InlineEquation equation="\\sigma_2" /> equations can be plotted to show the failure surface. Loading conditions that occur <strong>outside</strong> of the surface are when the material fails.
 
