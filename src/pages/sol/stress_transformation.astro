@@ -19,43 +19,34 @@ import Col from "../../components/Col.astro"
 import Center from "../../components/Center.astro"
 import CustomCanvas from "../../components/CustomCanvas.astro"
 import SubSubSubSection from "../../components/SubSubSubSection.astro"
+import CalloutContainer from "../../components/CalloutContainer.astro"
+import CalloutCard from "../../components/CalloutCard.astro"
 ---
 <Layout title="Stress Transformation">
 
 <div slot="navtree">
   <ul class='list-group list-group-flush py-0'> 
-      <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#general-state'>General State of Stress</a>
-        <ul class='list-group list-group-flush py-0'> 
-          <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#sign-convention-general'>Sign Convention</a></li> 
-      </ul>
-      </li>
+      <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#general-state'>General State of Stress</a></li>
+      <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#sign-convention-general'>Sign Convention</a></li> 
       <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#plane-stress'>Plane Stress</a></li> 
       <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#plane-stress-transformation'>Plane Stress Transformation</a>
           <ul class='list-group list-group-flush py-0'> 
-              <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#sign-convention-transformation'>Sign Convention</a></li> 
+              <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#sign-convention-transformation'>Transformation Sign Convention</a></li> 
+              <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#2d'>2D Mohr's Circle</a></li> 
+              <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#circle-anim'>Interactive Mohr's circle</a></li>
+              <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#3d'>3D Mohr's Circle</a></li> 
               <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#stress-inclined-plane'>Stresses on Inclined Planes</a></li>  
-              <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#torsion-inclined-plane'>Torsion on Inclined Planes</a></li> 
+              <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#pure-shear'>Pure Shear</a></li> 
           </ul>
       </li> 
       <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#principal-stresses'>Principal Stresses</a>
         <ul class='list-group list-group-flush py-0'> 
           <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#eigenvalues'>Alternative Approach: Eigenvalues</a></li> 
-      </ul>
-    </li>
-    <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#max-shear-stress'>Maximum Shear Stress</a></li> 
-    <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#mohrs-circle'>Mohr's Cirlce</a>
-      <ul class='list-group list-group-flush py-0'> 
-        <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#2d'>2D Mohr's Circle</a>
-          <ul class='list-group list-group-flush py-0'> 
-          <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#circle-anim'>Interactive Mohr's circle</a></li>
-          </ul> 
-        </li> 
-        <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#3d'>3D Mohr's Circle</a></li>  
-    </ul>
-  </li>  
+        </ul>
+      </li>
+      <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#max-shear-stress'>Maximum Shear Stress</a></li>   
   </ul>
 </div>
-
 
 
 <Section title="Stress Transformation" id="stress-transformation">
@@ -77,7 +68,7 @@ The general state of stress at a point is characterized by three independent nor
 
 </SubSection>
 
-<SubSubSection title="Sign Convention" id="sign-convention-general">
+<SubSection title="Sign Convention" id="sign-convention-general">
 
 <Image src="/Solid_Mechanics/Stress Transformation-Figures/Sign Convention.png" width="7"> Sign conventions on 2D elements</Image>
 
@@ -88,11 +79,11 @@ The general state of stress at a point is characterized by three independent nor
 
 </Itemize>
 
-</SubSubSection>
+</SubSection>
 
 <SubSection title="Plane Stress" id="plane-stress">
 
-<Image src="/Solid_Mechanics/Stress Transformation-Figures/Plane Stress.png" width="2"></Image>
+<Image src="/Solid_Mechanics/Stress Transformation-Figures/Plane Stress.png" width="2.5"></Image>
 
  Plane stress occurs when two faces of the cube element are stress free.
 
@@ -108,30 +99,37 @@ The general state of stress at a point is characterized by three independent nor
 </SubSection>
 
 <SubSection title="Plane Stress Transformation" id="plane-stress-transformation">
+  
+  <CalloutContainer slot="cards">
+    <CalloutCard title="Heads  up!">
+        <p>
+            <strong> Cauchys stress theorem </strong> builds on this content  in later solid mechanics courses.
+            </p>
+            <p>
+              For any surface that divides the body ( imaginary or real surface), the action of one part of the body on the other is equivalent to the system of distributed internal forces and moments and it is represented by the stress vector <InlineEquation equation="t^n" /> (also called traction), defined on the surface with normal unit vector <InlineEquation equation="n" />.
+              <br>
+              <br>
+              The state of stress at a point in the body is defined by all the stress vectors <InlineEquation equation="t^n" /> associated with all planes (infinite in number) that pass through that point.
 
-  <Image src="/Solid_Mechanics/Stress Transformation-Figures/Coord Transformation.png" width="7"></Image>
+              <DisplayEquation equation="t^n=\\boldsymbol{T}\\boldsymbol{n}" title="Cauchys stress theorem."/>
+
+              Cauchys stress theorem states that there exists a stress tensor <InlineEquation equation="T" /> (which is independent of <InlineEquation equation="n" />), such that <InlineEquation equation="t^n" /> is a linear function of <InlineEquation equation="n" />.
+            </p>
+    </CalloutCard>
+</CalloutContainer>
 
 
-<p>For any surface that divides the body ( imaginary or real surface), the action of one part of the body on the other is equivalent to the system of distributed internal forces and moments and it is represented by the stress vector <InlineEquation equation="t^n" /> (also called traction), defined on the surface with normal unit vector <InlineEquation equation="n" />.
-</p>
- 
+  <Image src="/Solid_Mechanics/Stress Transformation-Figures/Coord Transformation.png" width="6"></Image>
+
+
 <p>
- The state of stress at a point in the body is defined by all the stress vectors <InlineEquation equation="t^n" /> associated with all planes (infinite in number) that pass through that point.
-</p>
- 
-<p>
- Cauchys stress theorem states that there exists a stress tensor <InlineEquation equation="T" /> (which is independent of <InlineEquation equation="n" />), such that <InlineEquation equation="t^n" />
- is a linear function of <InlineEquation equation="n" />.
-</p>
-<DisplayEquation equation="t^n=\\boldsymbol{T}\\boldsymbol{n}" title="Cauchys stress theorem." background="True" />
-
  We think of stresses acting on faces, so we often associate the state of stress with a coordinate system. However, the selection of a coordinate system is arbitrary (materials don't know about coordinates - it's a mathematical construct!) and we could choose to express the stress state acting on any set of faces aligned with <strong>any</strong> coordinate system axes. Furthermore, we can relate the states of stress in each coordinate system to one another through <strong>stress transformation equations.</strong>
-
-
 
 </SubSection>
 
-<SubSubSection title="Sign Convention" id="sign-convention-transformation">
+<SubSubSection title="Transformation Sign Convention" id="sign-convention-transformation">
+
+  <Image src="/Solid_Mechanics/Stress Transformation-Figures/Plane Transformation.png" width="7"></Image>
 
 <Itemize>
 	<Item>Both the <InlineEquation equation="x-y" /> (original) and <InlineEquation equation="x’-y’" /> (transformed) systems follow the right-hand rule.</Item>
@@ -140,7 +138,7 @@ The general state of stress at a point is characterized by three independent nor
 
 
 <DisplayEquation equation = "\\begin{align} \\sigma_x' &= \\frac{\\sigma_x + \\sigma_y}{2} + \\frac{\\sigma_x - \\sigma_y}{2}\\rm\\cos(2\\theta) + \\tau_{xy}\\sin(2\\theta) \\\\ \\sigma_y' &= \\frac{\\sigma_x + \\sigma_y}{2} - \\frac{\\sigma_x - \\sigma_y}{2}\\rm\\cos(2\\theta) - \\tau_{xy}\\sin(2\\theta) \\\\ \\tau_{x'y'} &= -\\frac{\\sigma_x - \\sigma_y}{2}\\rm\\sin(2\\theta) + \\tau_{xy}\\cos(2\\theta) \\end{align}" title="Stress transformation equations." background="True" derivation="True" id="str-trn">
-
+  
   Use the equations from stress in inclined planes.
 
  <DisplayEquation equation = "\\begin{align} \\sigma_{x}' &= \\sigma_{x} \\cos ^2(\\theta) + 2 \\,\\tau_{xy} \\sin(\\theta) \\cos(\\theta)+\\sigma_{y} \\sin ^2(\\theta) \\\\ \\tau_{x'y'} &= (\\sigma_{y} - \\sigma_{x}) \\sin(\\theta) \\cos(\\theta) + \\tau_{xy} ( \\cos^2(\\theta) - \\sin^2(\\theta) ) \\end{align}" />
@@ -160,17 +158,273 @@ The general state of stress at a point is characterized by three independent nor
  We can then simplify to the equations above. Note that to derive <InlineEquation equation="\\sigma '_y" />, we use the following.
 
 <DisplayEquation equation="\\sigma_{x}' + \\sigma_{y}' = \\sigma_{x} + \\sigma_{y}" />
+ </DisplayEquation>
 
-  </DisplayEquation>
- 
+Normal and shear stresses can be shown graphically as a function of <InlineEquation equation="\\theta" /> to  see how they overlap. 
+
+<Image src="/Solid_Mechanics/Stress Transformation-Figures/normalShearStressRelation.png" width="4">Stresses based on the transformation angle chosen.</Image>
+
 </SubSubSection>
+
+    
+  <SubSubSection title="2-D Mohr's Circle" id="2d">
+    Mohr's circle is a graphical representation of stress transformations. The equations for stress transformations actually describe a circle if we consider the normal stress <InlineEquation equation="\\sigma" /> to be the x-coordinate and the shear stress <InlineEquation equation="\\pi" /> to be the y-coordinate.
+
+   <Image src="/Solid_Mechanics/Stress Transformation-Figures/mohrsCircle.png" width="4"></Image>
+  
+  <DisplayEquation equation="C = \\sigma_{avg} = \\frac{\\sigma_x +\\sigma_y}{2} = \\frac{\\sigma_1 +\\sigma_2}{2}\\" title="Circle centroid." background="True"/>
+  
+  <DisplayEquation equation="R = \\sqrt{(\\frac{\\sigma_x - \\sigma_y}{2})^2 + \\tau_{xy}^2}\\" title="Cirlce radius." background="True"/>
+  
+  <DisplayEquation equation="\\begin{align} \\rm\\ Point \\ X&: (\\sigma_x, \\tau_{xy}) \\\\ \\rm\\ Point \\ Y&: (\\sigma_y, -\\tau_{xy}) \\end{align}" title="Two points of the circle." background="True"/>
+  
+  The principal stresses are where the circle crosses the x-axis, and the maximum shear stress is the highest y-coordinate of the circle. 
+  
+  </SubSubSection>
+  
+  <SubSubSection title="Interactive Mohr's circle" id="circle-anim">
+  
+    <p>
+      The stress element below is plotted on Mohr’s circle as shown in the left image. The right image shows the new orientation of the stress element. Use the slider below to change the angle and see the resulting normal and shear stresses on Mohr’s circle.
+    </p>
+    <Image src="/Solid_Mechanics/Stress Transformation-Figures/mohrs_demo.png" width="3">
+  
+    </Image>
+  <div class="row">
+    <Col values="0 md-1 lg-2"></Col>
+    <Col values="12 md-10 lg-8">
+      <div class="w-100 p-2 m-0" style="border: 2px solid var(--bs-border-color); border-radius: 10px;">
+        <Row>
+          <Col values="4">
+            <p class="mb-1"><InlineEquation equation="\\sigma_x" />: -80</p>
+            <p class="mb-1"><InlineEquation equation="\\sigma_y" />: 50</p>
+            <p class="mb-1"><InlineEquation equation="\\tau_{xy}" />: -25</p>
+        </Col>
+          <Col values="4">
+              <p class="mb-1"><InlineEquation equation="\\sigma_1" />: <span id="sigma_1"></span></p>
+              <p class="mb-1"><InlineEquation equation="\\sigma_2" />: <span id="sigma_2"></span></p>
+              <p class="mb-1"><InlineEquation equation="\\tau_{max}" />: <span id="tau_max"></span></p>
+          </Col>
+          <Col values="4">
+            <p class="mb-1"><InlineEquation equation="\\sigma_{x^{\\prime}}" />: <span id="sigma_xp"></span></p>
+            <p class="mb-1"><InlineEquation equation="\\sigma_{y^{\\prime}}" />: <span id="sigma_yp"></span></p>
+            <p class="mb-1"><InlineEquation equation="\\tau_{x^{\\prime}y^{\\prime}}" />: <span id="tau_xpyp"></span></p>
+          </Col>
+        </Row>
+      </div>
+    </Col>
+    <Col values="0 md-1 lg-2"></Col>
+  </div>
+  <p></p>
+  <div class="w-100" id="anim-container">
+    <canvas id="stt-mc-c" height="300" width="300" style="background: white; border: 1px solid black; border-radius: 10px;"></canvas>
+  
+    <canvas id="stt-cb-c" height="300" width="300" style="background: white; border: 1px solid black; border-radius: 10px;"></canvas>
+  </div>
+  
+  
+  <Row> 
+    <Col values="12">
+      <div class="d-flex  align-items-baseline">
+          <p class="m-0 flex-shrink-1">Angle:</p>
+          <div class="flex-grow-1 d-flex align-items-baseline">
+              <input type="range" min="-90" max="90" value="0" step="1" class="data-input:stt-cb-c:theta flex-grow-1 mx-2" onchange="stt_cb_c.setOption('theta', this.value); stt_mc_c.setOption('theta', this.value); document.querySelector('span[class*=theta]').innerText = this.value;" oninput="stt_cb_c.setOption('theta', this.value); stt_mc_c.setOption('theta', this.value); document.querySelector('span[class*=theta]').innerText = this.value;"/>
+                  \(\theta = \; \) <span class="data-option:avb-fp-c:theta">0</span>\(^\circ\)
+          </div>
+      </div>
+    </Col>
+  </Row>
+  
+  <script is:inline>
+    const container = document.querySelector("#anim-container");
+    const cb = document.querySelector("#stt-cb-c");
+    const mc = document.querySelector("#stt-mc-c");
+  
+    function resize_anim_container(){
+      var container_width = container.clientWidth;
+  
+      if (container_width < 600){
+        cb.width = Math.round(container_width)-8;
+        cb.height = Math.round(container_width)-8;
+        mc.width = Math.round(container_width)-8;
+        mc.height = Math.round(container_width)-8;
+      }else{
+        cb.width = Math.round(container_width/2)-8;
+        cb.height = Math.round(container_width/2)-8;
+        mc.width = Math.round(container_width/2)-8;
+        mc.height = Math.round(container_width/2)-8;
+      }
+      
+    }
+  
+    resize_anim_container();
+  
+    window.addEventListener("resize", function(){
+      resize_anim_container();
+  
+      stt_mc_c.redraw();
+      stt_cb_c.redraw();
+    })
+  </script>
+  
+  
+  <script is:inline>
+    $(document).ready(function() {
+    
+        stt_mc_c = new PrairieDraw("stt-mc-c", function() {
+          this.setUnits(5, 5);
+          
+          this.addOption("theta", 0)
+  
+          var sx = -80;
+          var sy =  50;
+          var tau =  -25;
+  
+          var theta_p = -Math.atan(2*tau/(sx-sy));
+  
+          var theta = Math.PI/180*this.getOption('theta');
+  
+          var savg = (sx+sy)/2;
+          var R = Math.sqrt((sx-sy)**2/4 + tau**2);
+          var radius = 1.7;
+          var O = $V([0, 0]);
+          
+          this.circle(O, radius, false)
+          this.line($V([(sx-savg)/R*radius, -tau/R*radius]), $V([(sy-savg)/R*radius, tau/R*radius]));
+          this.text($V([(sx-savg)/R*radius, -tau/R*radius]), $V([-1,-1]), `  X (${sx}, ${tau})`);
+          this.text($V([(sy-savg)/R*radius, tau/R*radius]), $V([1,1]), `Y (${sy}, ${-tau})  `);
+          this.text(O, $V([-1, -1]), `(${savg}, ${0})`);
+  
+          this.line($V([-3, 0]), $V([3, 0]))
+  
+          this.text($V([radius, 0]), $V([-1, 1]), `s1`);
+          this.text($V([-radius, 0]), $V([1, 1]), `s2`);
+  
+          this.line(O, $V([Math.cos(theta_p+2*theta)*radius, Math.sin(theta_p+2*theta)*radius]), 'blue');
+          this.point($V([Math.cos(theta_p+2*theta)*radius, Math.sin(theta_p+2*theta)*radius]), 'blue');
+          this.line(O, $V([-Math.cos(theta_p+2*theta)*radius, -Math.sin(theta_p+2*theta)*radius]), 'blue');
+          this.point($V([-Math.cos(theta_p+2*theta)*radius, -Math.sin(theta_p+2*theta)*radius]), 'blue');
+  
+          if (theta > 0){
+            this.arc(O, radius/4, theta_p, theta_p+2*theta, false);
+          }else{
+            this.arc(O, radius/4, theta_p+2*theta, theta_p, false);
+          }
+          
+          document.querySelector("span#sigma_1").innerText = Math.round((savg + R)*100)/100;
+          document.querySelector("span#sigma_2").innerText = Math.round((savg - R)*100)/100;
+          document.querySelector("span#tau_max").innerText = Math.round((R)*100)/100;
+  
+          var current_angle = 2*theta;
+  
+          var sxp = Math.round((savg + (sx-sy)/2*Math.cos(current_angle)+tau*Math.sin(current_angle))*100)/100;
+          var syp = Math.round((savg - (sx-sy)/2*Math.cos(current_angle)-tau*Math.sin(current_angle))*100)/100;
+          var txpyp = Math.round((-(sx-sy)/2*Math.sin(current_angle)+tau*Math.cos(current_angle))*100)/100;
+          
+          document.querySelector("span#sigma_xp").innerText = sxp;
+          document.querySelector("span#sigma_yp").innerText = syp;
+          document.querySelector("span#tau_xpyp").innerText = txpyp;
+  
+          var xp_location = $V([-Math.cos(theta_p+2*theta)*radius, -Math.sin(theta_p+2*theta)*radius]);
+          var yp_location = $V([Math.cos(theta_p+2*theta)*radius, Math.sin(theta_p+2*theta)*radius]);
+  
+  
+          if(xp_location.dot($V([1, 0])) > 0){
+            if(xp_location.dot($V([0, 1])) > 0){
+              this.text(xp_location, $V([-1,-1]), `  X' (${Math.round(sxp)}, ${Math.round(txpyp)})`);
+              this.text(yp_location, $V([1, 1]), `  Y' (${Math.round(syp)}, ${Math.round(-txpyp)})`);
+            }else{
+              this.text(xp_location, $V([-1, 1]), `  X' (${Math.round(sxp)}, ${Math.round(txpyp)})`);
+              this.text(yp_location, $V([1, -1]), `  Y' (${Math.round(syp)}, ${Math.round(-txpyp)})`);
+            }
+          }else{
+            if(xp_location.dot($V([0, 1])) > 0){
+              this.text(xp_location, $V([1,-1]), `  X' (${Math.round(sxp)}, ${Math.round(txpyp)})`);
+              this.text(yp_location, $V([-1, 1]), `  Y' (${Math.round(syp)}, ${Math.round(-txpyp)})`);
+            }else{
+              this.text(xp_location, $V([1, 1]), `  X' (${Math.round(sxp)}, ${Math.round(txpyp)})`);
+              this.text(yp_location, $V([-1,-1]), `  Y' (${Math.round(syp)}, ${Math.round(-txpyp)})`);
+            }
+            
+          }
+          
+          this.arrow($V([-2.3, 2.3]), $V([-1.6, 2.3]))
+          this.text($V([-1.6, 2.3]), $V([-1, 1]), "+sigma")
+  
+          this.arrow($V([-2.3, 2.3]), $V([-2.3, 1.5]))
+          this.text($V([-2.3, 1.5]), $V([-1, 1]), "+tau")
+  
+          var sigma = Math.round((savg+R*Math.cos(theta_p+2*theta))*1000)/1000;
+          
+      })
+    });
+    </script>
+  
+  <script is:inline>
+  $(document).ready(function() {
+  
+      stt_cb_c = new PrairieDraw("stt-cb-c", function() {
+        this.setUnits(4, 4);
+  
+        this.addOption("theta", 0)
+  
+        var O = $V([0, 0]);
+        var theta = Math.PI/180*this.getOption('theta');
+  
+        var width = 2;
+        var height = 2;
+  
+        var rC = $V([0, 0]);
+  
+        var axis_length = 1.5;
+        
+        var x = $V([Math.cos(theta)*axis_length,Math.sin(theta)*axis_length]);
+        var y = $V([-Math.sin(theta)*axis_length, Math.cos(theta)*axis_length]);
+  
+        this.arrow(rC, rC.add(x));
+        this.labelLine(rC, rC.add(x), $V([1, 1]), "x'")
+        this.arrow(rC, rC.add(y));
+        this.labelLine(rC, rC.add(y), $V([1, 1]), "y'")
+  
+        this.arrow(rC, rC.add($V([axis_length, 0])));
+        this.arrow(rC, rC.add($V([0, axis_length])));
+  
+        if(theta > 0){
+          this.text(rC.add($V([width/4, 0])), $V([0, 1]), "theta");
+          this.arc(rC, width/4, 0, theta, false)
+        }else if (theta < 0){
+          this.text(rC.add($V([width/4, 0])), $V([0, -1]), "theta");
+          this.arc(rC, width/4, theta, 0, false)
+        }
+        
+        this.rectangle(width, height, O, theta, false);
+  
+        this.translate($V([0, -5.5]))
+  
+        this.circle(O, 2.5, false)
+        
+    })
+  });
+  </script>
+  </SubSubSection>
+  
+  
+  <SubSubSection title="3-D Mohr's Circle" id="3d">
+    <Image src="/Solid_Mechanics/Stress Transformation-Figures/3dMohrsCircle.png" width="7"></Image>
+    
+    <DisplayEquation equation="C = \\sigma_{avg} = \\frac{\\sigma_1 +\\sigma_3}{2}\\" title="Circle centroid." background="True"/>
+  
+  <DisplayEquation equation="R = \\frac{\\sigma_1 - \\sigma_3}{2} " title="Cirlce radius." background="True"/>
+  
+  <DisplayEquation equation="(\\sigma_{plane}, \\tau_{plane})" title="Points of the circle are plotted using each face." background="True"/>
+  
+  The principal stresses are where the circle crosses the x-axis, and the maximum shear stress is the highest y-coordinate of the circle. 
+  </SubSubSection>
 
 
 <SubSubSection title="Stresses on Inclined Planes" id="stress-inclined-plane">
 
-  <Image src="/Solid_Mechanics/Stress Transformation-Figures/Plane Transformation.png" width="7"></Image>
-
-<DisplayEquation equation="\\begin{align} \\sigma_n &= {\\bf n}\\cdot\\ {\\bf t}^{n}={\\bf n}\\cdot\\ {\\bf T}\\,{\\bf n} = \\sigma_{x} \\cos ^2(\\theta) + 2 \\,\\tau_{xy} \\sin(\\theta) \\cos(\\theta)+\\sigma_{y} \\sin ^2(\\theta) \\\\ \\tau_{ns} &= {\\bf s}\\cdot\\ {\\bf t}^{n}={\\bf s}\\cdot\\ {\\bf T}\\,{\\bf n} = (\\sigma_y - \\sigma_{x}) \\sin(\\theta) \\cos(\\theta) + \\tau_{xy} ( \\cos^2(\\theta) - \\sin^2(\\theta) )  \\end{align}" title="Stresses on inclined planes." background="True" derivation="True" id="str-inc">
+<DisplayEquation equation="\\begin{align} \\sigma_{x'} &= {\\bf n}\\cdot\\ {\\bf t}^{n}={\\bf n}\\cdot\\ {\\bf T}\\,{\\bf n} = \\sigma_{x} \\cos ^2(\\theta) + 2 \\,\\tau_{xy} \\sin(\\theta) \\cos(\\theta)+\\sigma_{y} \\sin ^2(\\theta) \\\\ \\tau_{x'y'} &= {\\bf s}\\cdot\\ {\\bf t}^{n}={\\bf s}\\cdot\\ {\\bf T}\\,{\\bf n} = (\\sigma_y - \\sigma_{x}) \\sin(\\theta) \\cos(\\theta) + \\tau_{xy} ( \\cos^2(\\theta) - \\sin^2(\\theta) )  \\end{align}" title="Stresses on inclined planes." background="True" derivation="True" id="str-inc">
 
   Equilibrium equations.
   <DisplayEquation equation="\\sum F_x: -\\sigma_x (A\\rm\\cos\\theta) - \\tau_{xy}(A\\rm\\sin\\theta) + (\\sigma_{x}'\\rm\\cos\\theta)A - (\\tau_{x'y'}\\rm\\sin\\theta)A=0\\" />
@@ -196,46 +450,38 @@ The general state of stress at a point is characterized by three independent nor
 
 
 
-<SubSubSection title="Torsion on Inclined Planes" id="torsion-inclined-plane">
+<SubSubSection title="Pure Shear" id="pure-shear">
 
 
  A circular shaft under torsion develops <strong>pure shear</strong> on cross-sections between longitudinal planes (the faces of element <InlineEquation equation="a" /> are parallel and perpendicular to the axis of the shaft).
 
-<Image src="/Solid_Mechanics/Stress Transformation-Figures/Circular Shaft Torsion.png" width="6"></Image>
+<Image src="/Solid_Mechanics/Stress Transformation-Figures/Circular Shaft Torsion.png" width="7"></Image>
 
-<DisplayEquation equation="\\begin{align} \\sigma_n = 2\\tau_{max} \\sin\\theta \\cos\\theta = \\tau_{max} \\sin (2\\theta) \\\\ \\tau_{ns} = \\tau_{max}(\\cos^2\\theta - \\sin^2\\theta) = \\tau_{max} \\cos(2\\theta) \\end{align}" title="Torsion on inclined planes." background="True" derivation="True" id="tor-inc">
+<DisplayEquation equation="\\begin{align} \\sigma_{x'} = 2\\tau_{max} \\sin\\theta \\cos\\theta = \\tau_{max} \\sin (2\\theta) \\\\ \\tau_{x'y'} = \\tau_{max}(\\cos^2\\theta - \\sin^2\\theta) = \\tau_{max} \\cos(2\\theta) \\end{align}" title="Torsion on inclined planes." background="True" derivation="True" id="tor-inc">
 
   Recall projected forces.
 
-  <DisplayEquation equation=" \\begin{align} \\sigma_n = \\frac{P}{A_o}(\\cos^2(\\theta)) \\\\ \\tau_{ns} = -\\frac{P}{A_o}\\sin(\\theta)\\cos(\\theta) \\end{align} "/> 
+  <DisplayEquation equation=" \\begin{align} \\sigma_{x'} = \\frac{P}{A_o}(\\cos^2(\\theta)) \\\\ \\tau_{x'y'} = -\\frac{P}{A_o}\\sin(\\theta)\\cos(\\theta) \\end{align} "/> 
 
 
   <Image src="/Solid_Mechanics/Stress Transformation-Figures/Max Stress.png" width="6"></Image>
 
  Maximum normal stress at 90 degrees.
 
-<DisplayEquation equation="\\begin{align} \\sigma_n = \\tau_{max} = \\frac{Tc}{J} \\\\ \\sigma_s = -\\tau_{max} = -\\frac{Tc}{J} \\\\ \\tau_{ns} = 0 \\end{align}" /> 
+<DisplayEquation equation="\\begin{align} \\sigma_{x'} = \\tau_{max} = \\frac{Tc}{J} \\\\ \\sigma_{y'} = -\\tau_{max} = -\\frac{Tc}{J} \\\\ \\tau_{x'y'} = 0 \\end{align}" /> 
 
  Maximum shear stress at 45 degrees.
- <DisplayEquation equation="\\begin{align} \\sigma_n = 0 \\\\ \\sigma_s = 0 \\\\ \\tau_{ns} = \\tau_{max} = \\frac{Tc}{J} \\end{align}" /> 
+ <DisplayEquation equation="\\begin{align} \\sigma_{x'} = 0 \\\\ \\sigma_{y'} = 0 \\\\ \\tau_{x'y'} = \\tau_{max} = \\frac{Tc}{J} \\end{align}" /> 
 
 
 </DisplayEquation>
 
-
-
-<Image src="/Solid_Mechanics/Stress Transformation-Figures/normalShearStressRelation.png" width="4"></Image>
-
-Maximum stresses can be shown graphically to see how the stresses overlap depending on the angle. 
-
 </SubSubSection>
-<!--
-
--->
 
 <SubSection title="Principal Stresses" id="principal-stresses">
 
-<Image src="/Solid_Mechanics/Stress Transformation-Figures/Principle Stresses.png" width="4"></Image>
+  <Image src="/Solid_Mechanics/Stress Transformation-Figures/principalStressesElement.png" width="3"> </Image>
+
 
 <InlineEquation equation="\\sigma_{x}'" /> can be maximized to find the principal stresses. 
 
@@ -261,7 +507,6 @@ Maximum stresses can be shown graphically to see how the stresses overlap depend
 
  We use the convention that <InlineEquation equation="\\sigma_1 > \\sigma_2" />.
 
-<Image src="/Solid_Mechanics/Stress Transformation-Figures/principalStressesElement.png" width="3"> </Image>
 
 </SubSection>
 
@@ -331,7 +576,9 @@ We can repeat this procedure for the second eigenvalue, <InlineEquation equation
 
 <SubSection title="Maximum Shear Stress" id="max-shear">
 
-<Image src="/Solid_Mechanics/Stress Transformation-Figures/Max Shear Stresses.png" width="4"></Image>
+  <Image src="/Solid_Mechanics/Stress Transformation-Figures/maxShearStressState.png" width="2"></Image>
+
+ The orientations for the principal stress element and max shear stress element are <InlineEquation equation="45^o" /> apart.
 
 <InlineEquation equation="\\tau_{x'y'}" /> can also be maximized. 
 
@@ -361,270 +608,6 @@ We can repeat this procedure for the second eigenvalue, <InlineEquation equation
 
 <Warning title="Unlike with the principal stress element, the normal stresses are not zero." id="max-shr"> </Warning>
 
-<Image src="/Solid_Mechanics/Stress Transformation-Figures/maxShearStressState.png" width="2"></Image>
-
-
- The orientations for the principal stress element and max shear stress element are <InlineEquation equation="45^o" /> apart.
- 
 </SubSection>
-
-<SubSection title="Mohr's Circle" id="mohrs-circle">
-
-Mohr's circle is a graphical representation of stress transformations. The equations for stress transformations actually describe a circle if we consider the normal stress <InlineEquation equation="\\sigma" /> to be the x-coordinate and the shear stress <InlineEquation equation="\\pi" /> to be the y-coordinate.
-
-</SubSection>
-
-<SubSubSection title="2-D Mohr's Circle" id="2d">
- <Image src="/Solid_Mechanics/Stress Transformation-Figures/mohrsCircle.png" width="3"></Image>
-
-<DisplayEquation equation="C = \\sigma_{avg} = \\frac{\\sigma_x +\\sigma_y}{2} = \\frac{\\sigma_1 +\\sigma_2}{2}\\" title="Circle centroid." background="True"/>
-
-<DisplayEquation equation="R = \\sqrt{(\\frac{\\sigma_x - \\sigma_y}{2})^2 + \\tau_{xy}^2}\\" title="Cirlce radius." background="True"/>
-
-<DisplayEquation equation="\\begin{align} \\rm\\ Point \\ X&: (\\sigma_x, \\tau_{xy}) \\\\ \\rm\\ Point \\ Y&: (\\sigma_y, -\\tau_{xy}) \\end{align}" title="Two points of the circle." background="True"/>
-
-The principal stresses are where the circle crosses the x-axis, and the maximum shear stress is the highest y-coordinate of the circle. 
-
-</SubSubSection>
-
-<SubSubSubSection title="Interactive Mohr's circle" id="circle-anim">
-
-  <p>
-    The stress element below is plotted on Mohr’s circle as shown in the left image. The right image shows the new orientation of the stress element. Use the slider below to change the angle and see the resulting normal and shear stresses on Mohr’s circle.
-  </p>
-  <Image src="/Solid_Mechanics/Stress Transformation-Figures/mohrs_demo.png" width="3">
-
-  </Image>
-<div class="row">
-  <Col values="0 md-1 lg-2"></Col>
-  <Col values="12 md-10 lg-8">
-    <div class="w-100 p-2 m-0" style="border: 2px solid var(--bs-border-color); border-radius: 10px;">
-      <Row>
-        <Col values="4">
-          <p class="mb-1"><InlineEquation equation="\\sigma_x" />: -80</p>
-          <p class="mb-1"><InlineEquation equation="\\sigma_y" />: 50</p>
-          <p class="mb-1"><InlineEquation equation="\\tau_{xy}" />: -25</p>
-      </Col>
-        <Col values="4">
-            <p class="mb-1"><InlineEquation equation="\\sigma_1" />: <span id="sigma_1"></span></p>
-            <p class="mb-1"><InlineEquation equation="\\sigma_2" />: <span id="sigma_2"></span></p>
-            <p class="mb-1"><InlineEquation equation="\\tau_{max}" />: <span id="tau_max"></span></p>
-        </Col>
-        <Col values="4">
-          <p class="mb-1"><InlineEquation equation="\\sigma_{x^{\\prime}}" />: <span id="sigma_xp"></span></p>
-          <p class="mb-1"><InlineEquation equation="\\sigma_{y^{\\prime}}" />: <span id="sigma_yp"></span></p>
-          <p class="mb-1"><InlineEquation equation="\\tau_{x^{\\prime}y^{\\prime}}" />: <span id="tau_xpyp"></span></p>
-        </Col>
-      </Row>
-    </div>
-  </Col>
-  <Col values="0 md-1 lg-2"></Col>
-</div>
-<p></p>
-<div class="w-100" id="anim-container">
-  <canvas id="stt-mc-c" height="300" width="300" style="background: white; border: 1px solid black; border-radius: 10px;"></canvas>
-
-  <canvas id="stt-cb-c" height="300" width="300" style="background: white; border: 1px solid black; border-radius: 10px;"></canvas>
-</div>
-
-
-<Row> 
-  <Col values="12">
-    <div class="d-flex  align-items-baseline">
-        <p class="m-0 flex-shrink-1">Angle:</p>
-        <div class="flex-grow-1 d-flex align-items-baseline">
-            <input type="range" min="-90" max="90" value="0" step="1" class="data-input:stt-cb-c:theta flex-grow-1 mx-2" onchange="stt_cb_c.setOption('theta', this.value); stt_mc_c.setOption('theta', this.value); document.querySelector('span[class*=theta]').innerText = this.value;" oninput="stt_cb_c.setOption('theta', this.value); stt_mc_c.setOption('theta', this.value); document.querySelector('span[class*=theta]').innerText = this.value;"/>
-                \(\theta = \; \) <span class="data-option:avb-fp-c:theta">0</span>\(^\circ\)
-        </div>
-    </div>
-  </Col>
-</Row>
-
-<script is:inline>
-  const container = document.querySelector("#anim-container");
-  const cb = document.querySelector("#stt-cb-c");
-  const mc = document.querySelector("#stt-mc-c");
-
-  function resize_anim_container(){
-    var container_width = container.clientWidth;
-
-    if (container_width < 600){
-      cb.width = Math.round(container_width)-8;
-      cb.height = Math.round(container_width)-8;
-      mc.width = Math.round(container_width)-8;
-      mc.height = Math.round(container_width)-8;
-    }else{
-      cb.width = Math.round(container_width/2)-8;
-      cb.height = Math.round(container_width/2)-8;
-      mc.width = Math.round(container_width/2)-8;
-      mc.height = Math.round(container_width/2)-8;
-    }
-    
-  }
-
-  resize_anim_container();
-
-  window.addEventListener("resize", function(){
-    resize_anim_container();
-
-    stt_mc_c.redraw();
-    stt_cb_c.redraw();
-  })
-</script>
-
-
-<script is:inline>
-  $(document).ready(function() {
-  
-      stt_mc_c = new PrairieDraw("stt-mc-c", function() {
-        this.setUnits(5, 5);
-        
-        this.addOption("theta", 0)
-
-        var sx = -80;
-        var sy =  50;
-        var tau =  -25;
-
-        var theta_p = -Math.atan(2*tau/(sx-sy));
-
-        var theta = Math.PI/180*this.getOption('theta');
-
-        var savg = (sx+sy)/2;
-        var R = Math.sqrt((sx-sy)**2/4 + tau**2);
-        var radius = 1.7;
-        var O = $V([0, 0]);
-        
-        this.circle(O, radius, false)
-        this.line($V([(sx-savg)/R*radius, -tau/R*radius]), $V([(sy-savg)/R*radius, tau/R*radius]));
-        this.text($V([(sx-savg)/R*radius, -tau/R*radius]), $V([-1,-1]), `  X (${sx}, ${tau})`);
-        this.text($V([(sy-savg)/R*radius, tau/R*radius]), $V([1,1]), `Y (${sy}, ${-tau})  `);
-        this.text(O, $V([-1, -1]), `(${savg}, ${0})`);
-
-        this.line($V([-3, 0]), $V([3, 0]))
-
-        this.text($V([radius, 0]), $V([-1, 1]), `s1`);
-        this.text($V([-radius, 0]), $V([1, 1]), `s2`);
-
-        this.line(O, $V([Math.cos(theta_p+2*theta)*radius, Math.sin(theta_p+2*theta)*radius]), 'blue');
-        this.point($V([Math.cos(theta_p+2*theta)*radius, Math.sin(theta_p+2*theta)*radius]), 'blue');
-        this.line(O, $V([-Math.cos(theta_p+2*theta)*radius, -Math.sin(theta_p+2*theta)*radius]), 'blue');
-        this.point($V([-Math.cos(theta_p+2*theta)*radius, -Math.sin(theta_p+2*theta)*radius]), 'blue');
-
-        if (theta > 0){
-          this.arc(O, radius/4, theta_p, theta_p+2*theta, false);
-        }else{
-          this.arc(O, radius/4, theta_p+2*theta, theta_p, false);
-        }
-        
-        document.querySelector("span#sigma_1").innerText = Math.round((savg + R)*100)/100;
-        document.querySelector("span#sigma_2").innerText = Math.round((savg - R)*100)/100;
-        document.querySelector("span#tau_max").innerText = Math.round((R)*100)/100;
-
-        var current_angle = 2*theta;
-
-        var sxp = Math.round((savg + (sx-sy)/2*Math.cos(current_angle)+tau*Math.sin(current_angle))*100)/100;
-        var syp = Math.round((savg - (sx-sy)/2*Math.cos(current_angle)-tau*Math.sin(current_angle))*100)/100;
-        var txpyp = Math.round((-(sx-sy)/2*Math.sin(current_angle)+tau*Math.cos(current_angle))*100)/100;
-        
-        document.querySelector("span#sigma_xp").innerText = sxp;
-        document.querySelector("span#sigma_yp").innerText = syp;
-        document.querySelector("span#tau_xpyp").innerText = txpyp;
-
-        var xp_location = $V([-Math.cos(theta_p+2*theta)*radius, -Math.sin(theta_p+2*theta)*radius]);
-        var yp_location = $V([Math.cos(theta_p+2*theta)*radius, Math.sin(theta_p+2*theta)*radius]);
-
-
-        if(xp_location.dot($V([1, 0])) > 0){
-          if(xp_location.dot($V([0, 1])) > 0){
-            this.text(xp_location, $V([-1,-1]), `  X' (${Math.round(sxp)}, ${Math.round(txpyp)})`);
-            this.text(yp_location, $V([1, 1]), `  Y' (${Math.round(syp)}, ${Math.round(-txpyp)})`);
-          }else{
-            this.text(xp_location, $V([-1, 1]), `  X' (${Math.round(sxp)}, ${Math.round(txpyp)})`);
-            this.text(yp_location, $V([1, -1]), `  Y' (${Math.round(syp)}, ${Math.round(-txpyp)})`);
-          }
-        }else{
-          if(xp_location.dot($V([0, 1])) > 0){
-            this.text(xp_location, $V([1,-1]), `  X' (${Math.round(sxp)}, ${Math.round(txpyp)})`);
-            this.text(yp_location, $V([-1, 1]), `  Y' (${Math.round(syp)}, ${Math.round(-txpyp)})`);
-          }else{
-            this.text(xp_location, $V([1, 1]), `  X' (${Math.round(sxp)}, ${Math.round(txpyp)})`);
-            this.text(yp_location, $V([-1,-1]), `  Y' (${Math.round(syp)}, ${Math.round(-txpyp)})`);
-          }
-          
-        }
-        
-        this.arrow($V([-2.3, 2.3]), $V([-1.6, 2.3]))
-        this.text($V([-1.6, 2.3]), $V([-1, 1]), "+sigma")
-
-        this.arrow($V([-2.3, 2.3]), $V([-2.3, 1.5]))
-        this.text($V([-2.3, 1.5]), $V([-1, 1]), "+tau")
-
-        var sigma = Math.round((savg+R*Math.cos(theta_p+2*theta))*1000)/1000;
-        
-    })
-  });
-  </script>
-
-<script is:inline>
-$(document).ready(function() {
-
-    stt_cb_c = new PrairieDraw("stt-cb-c", function() {
-      this.setUnits(4, 4);
-
-      this.addOption("theta", 0)
-
-      var O = $V([0, 0]);
-      var theta = Math.PI/180*this.getOption('theta');
-
-      var width = 2;
-      var height = 2;
-
-      var rC = $V([0, 0]);
-
-      var axis_length = 1.5;
-      
-      var x = $V([Math.cos(theta)*axis_length,Math.sin(theta)*axis_length]);
-      var y = $V([-Math.sin(theta)*axis_length, Math.cos(theta)*axis_length]);
-
-      this.arrow(rC, rC.add(x));
-      this.labelLine(rC, rC.add(x), $V([1, 1]), "x'")
-      this.arrow(rC, rC.add(y));
-      this.labelLine(rC, rC.add(y), $V([1, 1]), "y'")
-
-      this.arrow(rC, rC.add($V([axis_length, 0])));
-      this.arrow(rC, rC.add($V([0, axis_length])));
-
-      if(theta > 0){
-        this.text(rC.add($V([width/4, 0])), $V([0, 1]), "theta");
-        this.arc(rC, width/4, 0, theta, false)
-      }else if (theta < 0){
-        this.text(rC.add($V([width/4, 0])), $V([0, -1]), "theta");
-        this.arc(rC, width/4, theta, 0, false)
-      }
-      
-      this.rectangle(width, height, O, theta, false);
-
-      this.translate($V([0, -5.5]))
-
-      this.circle(O, 2.5, false)
-      
-  })
-});
-</script>
-</SubSubSubSection>
-
-
-<SubSubSection title="3-D Mohr's Circle" id="3d">
-  <Image src="/Solid_Mechanics/Stress Transformation-Figures/3dMohrsCircle.png" width="5"></Image>
-  
-  <DisplayEquation equation="C = \\sigma_{avg} = \\frac{\\sigma_1 +\\sigma_3}{2}\\" title="Circle centroid." background="True"/>
-
-<DisplayEquation equation="R = \\frac{\\sigma_1 - \\sigma_3}{2} " title="Cirlce radius." background="True"/>
-
-<DisplayEquation equation="(\\sigma_{plane}, \\tau_{plane})" title="Points of the circle are plotted using each face." background="True"/>
-
-The principal stresses are where the circle crosses the x-axis, and the maximum shear stress is the highest y-coordinate of the circle. 
-</SubSubSection>
-
 
 </Layout>
