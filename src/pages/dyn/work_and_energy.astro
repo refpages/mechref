@@ -69,7 +69,20 @@ import DisplayTable from "../../components/DisplayTable.astro"
 </SubSubSection>
 
 <SubSubSection title="Summary" id="energy_summary">
-    <Image src="/Dynamics/WorkEnergyFigs/Energy.png" width="7"></Image>
+<p><b> Total energy </b></p>
+<DisplayEquation equation=" \\begin{aligned}  E &amp;= T + V  \\\\     Total \\ Energy &amp;= Kinetic + Potential   \\end{aligned}" background="True"  id="wan-su"/>
+
+<p><b> Kinetic </b></p>
+
+<DisplayEquation equation=" T = \\frac{1}{2} m v^2 " background="True"  title= "Point Mass." id="sum-pm"/>
+
+<DisplayEquation equation=" \\begin{aligned}  T &amp;= \\frac{1}{2} m \\ {v_c}^2 + \\frac{1}{2} I_c \\ \\omega^2  \\quad \\text{(about center of mass C)} \\\\    T &amp;= \\frac{1}{2} \\ I_O \\ \\omega^2  \\quad \\text{(if point O is pinned)}  \\\\    T &amp;= \\frac{1}{2} \\ I_M \\ \\omega^2  \\quad \\text{(if M is the instantaneous center)} \\end{aligned}"  background="True"   title="Rigid Body."  id="sum-rb" />
+
+<p><b> Potential </b></p>
+
+<DisplayEquation equation=" V = m \\ g \\ h_c    \\quad \\text{ (h is the height of center of mass)}" background="True"  title= "Gravitational." id="sum-pg"/>
+<DisplayEquation equation=" V = \\frac{1}{2}\\  k \\ x^2    \\quad \\text{ (k is the spring stifness and x is elongation)}" background="True"  title= "Elastic." id="sum-pe"/>
+
 </SubSubSection>
 
 </SubSection>
@@ -82,7 +95,27 @@ import DisplayTable from "../../components/DisplayTable.astro"
 
 <SubSubSection title="Work done by a Force"  id="work_force">
 	<BlueText> Copy <a target="_blank" rel="noopener noreferrer" target="_blank" rel="noopener noreferrer" href="https://mechref.engr.illinois.edu/dyn/ren.html"> Work, Forces and Moments </a> subsection here. </BlueText>
-    <Image src="/Dynamics/WorkEnergyFigs/WorkExample.png" width="7"></Image>
+
+    
+	<Example id="wfe-cf" title="Constant Force." solution=True>
+    <div>
+		<p> Work done by <InlineEquation equation=" \\vec{F}" /> is <InlineEquation equation="W = 6 J " />.  Assume no gravity, frictionless, constraint force <InlineEquation equation=" \\vec{R}" /> of the slot of the mass. </p>
+	  <Image src="/Dynamics/WorkEnergyFigs/WorkForce_example1.png" width="10"></Image>
+	  <p> What is the increase in energy of the mass? </p>
+	     <ol  type="A">
+			<li> <InlineEquation equation=" > 6 J" />  </li>
+			<li> <InlineEquation equation=" 6 J" /> </li>
+			<li> <InlineEquation equation=" < 6 J" /> </li>
+			<li> Need to first find <InlineEquation equation=" \\vec{R}" />  </li>
+		 </ol>	
+    </div>
+	  
+	 <div slot="solution">
+	  <p> B. <InlineEquation equation=" 6 J" /> </p>
+	  <DisplayEquation equation=" \\Delta E = W = \\vec{R} \\ \\cdot \\Delta \\ \\vec{r}   \\quad , \\quad  \\vec{R}  \\perp  \\vec{r} "  />
+	  </div>
+    </Example>
+
 </SubSubSection>
 
 <SubSubSection title="Conservative vs Non-conservative forces"  id="conserv_nonconserv_forces">
