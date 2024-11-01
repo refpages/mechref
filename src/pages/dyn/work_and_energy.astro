@@ -28,29 +28,23 @@ import DisplayTable from "../../components/DisplayTable.astro"
         <ul class='list-group list-group-flush py-0'> 
             <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#potential_energy'>Potential energy</a></li>  
 			<li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#kinetic_energy'>Kinetic energy</a></li>  
-			<li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#energy_summary'>Summary</a></li>  
+			<li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#energy_summary'>Summary energy</a></li>  
         </ul>	
 	<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#work'>Work</a></li>
-        <ul class='list-group list-group-flush py-0'> 
-            <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#work_energy'>Work and Energy</a></li>  
+        <ul class='list-group list-group-flush py-0'>  
 			<li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#work_force'>Work done by a force</a></li>  
 			<li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#conserv_nonconserv_forces'>Conservative vs Non-conservative forces</a></li>  
 			<li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#work_friction'>Work done by friction</a></li> 
 			<li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#work_moment'>Work done by a moment</a></li> 
         </ul>
 	<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#friction'>Friction</a></li>
-        <ul class='list-group list-group-flush py-0'> 
-            <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#stick_transition_slip'>Stick, transition, slip</a></li>  
+        <ul class='list-group list-group-flush py-0'>   
 			<li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#solution_procedure'>Solution procedure</a></li>  
         </ul>
 	<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#momentum'>Momentum</a></li>
 	<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#impulse'>Impulse</a></li>
 	<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#collisions'>Collisions</a></li>
 	<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#app_work_energy'>Applications</a></li>
-		<ul class='list-group list-group-flush py-0'> 
-            <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#app_wind_turbine'>Wind turbine</a></li>  
-			<li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#app_race_cars'>Race cars</a></li>
-        </ul>
   </ul>
 </div>
 
@@ -88,10 +82,8 @@ import DisplayTable from "../../components/DisplayTable.astro"
 </SubSection>
 
 <SubSection title="Work" id="work" >
+    <DisplayEquation equation=" W = \\Delta{E} = E_f  -   E_0" background="True"  title="Work-Energy Principal" id="wan-we" />
 
-<SubSubSection title="Work and Energy"  id="work_energy">
-    <DisplayEquation equation=" W = \\Delta{E} = E_f  -   E_0" background="True"  title="Work-Energy Principal" id="wan-we">
-</SubSubSection>
 
 <SubSubSection title="Work done by a Force"  id="work_force">
 	<BlueText> Copy <a target="_blank" rel="noopener noreferrer" target="_blank" rel="noopener noreferrer" href="https://mechref.engr.illinois.edu/dyn/ren.html"> Work, Forces and Moments </a> subsection here. </BlueText>
@@ -123,11 +115,70 @@ import DisplayTable from "../../components/DisplayTable.astro"
 </SubSubSection>
 
 <SubSubSection title="Work done by Friction"  id="work_friction">
-    <Image src="/Dynamics/WorkEnergyFigs/WorkFriction.png" width="7"></Image>
+
+<DisplayEquation equation=" W = \\Delta{E} = E_f  -   E_i  " background="True"   id="wan-wf"> </DisplayEquation>
+
+<p> Work done by friction can be positive, zero, or negative. </p>
+
+	<Example id="wdf-rws" title="Friction during rolling wihtout slip." solution=True>
+    <div>
+	  <Image src="/Dynamics/WorkEnergyFigs/WorkForce_example2.png" width="10"></Image>
+	  <ol> 
+		<li> Which direction does friction force <InlineEquation equation=" \\vec{F}" /> act? </li>
+			 <ol  type="A">
+				<li> Right </li>
+				<li> Zero </li>
+				<li> Left </li>
+			 </ol>	
+		<li> What is the work done by friction? </li>
+			 <ol  type="A">
+				<li> <InlineEquation equation=" > 0 " />  </li>
+				<li> Zero </li>
+				<li> <InlineEquation equation=" < 0" /> </li>
+			 </ol>	
+	   </ol>
+    </div>
+	  
+	 <div slot="solution">
+	 <ol>
+	  <li> A. </li>
+	  <li> B. 
+	  <DisplayEquation equation=" W = \\int \\vec{F} \\cdot \\vec{r} \\,dt = 0   \\quad  \\text{as} \\quad  \\vec{r} = 0"  />
+	    <ul>
+			<li> Friction prevents slip </li>
+			<li> Converts rotation motion into translational </li>
+		</ul>
+	  </li>
+	 </ol>
+	 </div>
+    </Example>
+
 </SubSubSection>
+
     
 <SubSubSection title="Work done by a Moment"  id="work_moment">
-	<Image src="/Dynamics/WorkEnergyFigs/WorkMoment.png" width="7"></Image>
+
+<DisplayEquation equation=" W = \\int_{\\theta_0}^{\\theta_f} M_z \\,d\\theta = \\int_{t_0}^{t_f} M_z \\ \\dot{\\theta} \\,d\\theta " background="True"  id="wan-wm"> </DisplayEquation>
+
+	<Example id="wdm-rm" title="Rod with friction moment." solution=True>
+    <div>
+	  <Image src="/Dynamics/WorkEnergyFigs/WorkForce_example3.png" width="10"></Image>
+		<p> Rod shown above starts from rest, falls to horizontal, fiction moment of 2 Nm. What is the work done by friction? </p>
+		<ol  type="A">
+				<li> <InlineEquation equation=" \\geq 2 J" /> </li>
+				<li> <InlineEquation equation=" 0 < W < 2 J" /> </li>
+				<li> <InlineEquation equation=" = 0" /> </li>
+				<li> <InlineEquation equation=" W \\leq -2 J" /> </li>
+			 </ol>
+    </div>
+	  
+	 <div slot="solution">
+		<p> D.  </p>
+		<InlineEquation equation=" W = \\int_{\\frac{\\pi}{4}}^0 (2 Nm) \\, d\\theta \\\\ =  \\mu \\ (\\Delta \\theta) \\\\ = (2 Nm)(0- \\frac{\\pi}{4}) = -\\frac{\\pi}{2} J " /> 
+
+	 </div>
+    </Example>
+
 </SubSubSection>
 
 </SubSection>
@@ -135,12 +186,78 @@ import DisplayTable from "../../components/DisplayTable.astro"
 
 <SubSection title="Friction"  id="friction">
     
-<SubSubSection title="Stick, Transition, Slip"  id="stick_transition_slip">
-    <Image src="/Dynamics/WorkEnergyFigs/Friction.png" width="7"></Image>
-</SubSubSection>
+
+<DisplayTable id="friction_table">
+    <thead>
+        <tr>
+            <th class="table-shaded">
+		<strong>Stick</strong>
+            </th>
+            <th class="table-shaded">
+                <strong>Transition</strong>
+            </th>
+            <th class="table-shaded"> 
+                <strong>Slip</strong>
+            </th>	
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+                <ul>
+					<li> No relative motion <InlineEquation equation="v_{px} = 0"/> and <InlineEquation equation="a_{px} = 0"/>  </li>
+					<li> <InlineEquation equation="F \\leq \\mu N"/>  </li>
+				</ul>
+				<Image src="/Dynamics/WorkEnergyFigs/FrictionTableStick.png" width="10"></Image>
+            </td>
+            <td>
+                <ul>
+					<li> No relative motion <InlineEquation equation="v_{px} = 0"/> and <InlineEquation equation="a_{px} = 0"/>  </li>
+					<li> Critical friction force <InlineEquation equation="F = \\mu N"/>  </li>
+				</ul>
+				<Image src="/Dynamics/WorkEnergyFigs/FrictionTableTransition.png" width="10"></Image>
+            </td>
+	    <td>
+       		    <ul>
+					<li> Relative motion <InlineEquation equation="v_{px} \\neq 0"/> or <InlineEquation equation="a_{px} \\neq 0"/>  </li>
+					<li> <InlineEquation equation="F = \\mu N"/>  </li>
+					<li> <InlineEquation equation="\\hat{F}"/> opposed motion </li>
+				</ul>
+				<Image src="/Dynamics/WorkEnergyFigs/FrictionTableSlip.png" width="10"></Image>
+	    </td>
+	   
+        </tr>
+    </tbody>
+</DisplayTable>
     
 <SubSubSection title="Solution procedure"  id="solution_procedure">
-    <Image src="/Dynamics/WorkEnergyFigs/FrictionSolutionProcedure.png" width="7"></Image>
+    <p><b> Known Case </b></p>
+			<ol> 
+				<li> Determine case: stick, transition, slip (and direction) </li>
+				<li> FBD, equations of motion (or statics), solve </li>
+			</ol>
+			
+    <p><b> Unknown Case </b></p>
+			<ol type="A"> 
+				<li> Try stick </li>
+					<ol>
+						<li> Assume <InlineEquation equation="v_{px} = 0"/> and <InlineEquation equation="a_{px} = 0"/> </li>
+						<li> Solve for N, F </li>
+						<li> Check <InlineEquation equation=" |F| \\leq \\mu |N|"/>
+					</ol>
+				<li> Try slip </li>
+					<ol>
+						<li> Assume <InlineEquation equation="F = \\mu N"/> (in one direction) </li>
+						<li> Solve for motion of contact point and N, F </li>
+						<li> Check <InlineEquation equation=" v_{px} \\neq 0"/> or <InlineEquation equation=" a_{px} \\neq 0"/> and <InlineEquation equation="\\hat{F}"/> opposed motion (<InlineEquation equation="\\hat{v}"/> or <InlineEquation equation="\\hat{a}"/>) </li>
+					</ol>
+				<li> Otherwise </li>
+					<ol>
+						<li> Assume <InlineEquation equation="F = \\mu N"/> (in opposite direction) and resume from step B.2 </li>
+					</ol>
+			</ol>
+			
+			
 </SubSubSection>
 
 </SubSection>
@@ -162,15 +279,6 @@ import DisplayTable from "../../components/DisplayTable.astro"
 
 <SubSection title="Applications"  id="app_work_energy">
 
-<SubSubSection title="Wind Turbine"  id="app_wind_turbine">
-	Application for "Energy".
-    <Image src="/Dynamics/WorkEnergyFigs/AppWindTurbine.png" width="7"></Image>
-</SubSubSection>
-    
-<SubSubSection title="Race Cars"  id="app_race_cars">
-	Application for "Friction".
-	<Image src="/Dynamics/WorkEnergyFigs/AppRaceCars.png" width="7"></Image>
-</SubSubSection>
 
 </SubSection>
 
