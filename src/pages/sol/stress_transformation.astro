@@ -294,8 +294,7 @@ Normal and shear stresses can be shown graphically as a function of <InlineEquat
           this.text($V([(sx-savg)/R*radius, -tau/R*radius]), $V([-1,-1]), `  X (${sx}, ${tau})`);
           this.text($V([(sy-savg)/R*radius, tau/R*radius]), $V([1,1]), `Y (${sy}, ${-tau})  `);
           this.text(O, $V([1, 1]), `(${savg}, ${0})`);
-  
-          this.line($V([-3, 0]), $V([3, 0]))
+
   
           this.text($V([radius, 0]), $V([-1, 1]), `s1`);
           this.text($V([-radius, 0]), $V([1, 1]), `s2`);
@@ -306,9 +305,11 @@ Normal and shear stresses can be shown graphically as a function of <InlineEquat
           this.point($V([-Math.cos(theta_p+2*theta)*radius, -Math.sin(theta_p+2*theta)*radius]), 'blue');
   
           if (theta > 0){
-            this.arc(O, radius/4, theta_p, theta_p+2*theta, false);
-          }else{
-            this.arc(O, radius/4, theta_p+2*theta, theta_p, false);
+            this.arc(O, radius/2, theta_p, theta_p+2*theta, false);
+            this.text($V([Math.cos(theta_p+2*theta)*radius/2, Math.sin(theta_p+2*theta)*radius/2]), $V([-1, -1])," 2θ");
+          }else if (theta < 0){
+            this.arc(O, radius/2, theta_p+2*theta, theta_p, false);
+            this.text($V([Math.cos(theta_p+2*theta)*radius/2, Math.sin(theta_p+2*theta)*radius/2]),$V([1, 1]), " 2θ");
           }
           
           document.querySelector("span#sigma_1").innerText = Math.round((savg + R)*100)/100;
@@ -351,7 +352,10 @@ Normal and shear stresses can be shown graphically as a function of <InlineEquat
           sigma_equals_0 = -savg/R*radius
 
           this.arrow($V([sigma_equals_0, radius+.5]), $V([sigma_equals_0, -radius-.5]))
-          this.text($V([sigma_equals_0, -radius-.5]), $V([-1, 1]), "+tau")
+          this.text($V([sigma_equals_0, -radius-.5]), $V([-1, 1]), "τ")
+
+          this.arrow($V([-radius-.5, 0]), $V([radius+.5, 0]))
+          this.text($V([radius+.5, 0]), $V([-1, 1]), "σ")
 
       })
     });
@@ -387,10 +391,10 @@ Normal and shear stresses can be shown graphically as a function of <InlineEquat
         this.arrow(rC, rC.add($V([0, axis_length])));
   
         if(theta > 0){
-          this.text(rC.add($V([width/4, 0])), $V([0, 1]), "theta");
+          this.text(rC.add($V([width/4, 0])), $V([0, 1]), "θ");
           this.arc(rC, width/4, 0, theta, false)
         }else if (theta < 0){
-          this.text(rC.add($V([width/4, 0])), $V([0, -1]), "theta");
+          this.text(rC.add($V([width/4, 0])), $V([0, -1]), "θ");
           this.arc(rC, width/4, theta, 0, false)
         }
         
