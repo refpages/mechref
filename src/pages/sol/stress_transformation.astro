@@ -124,7 +124,7 @@ The general state of stress at a point is characterized by three independent nor
 
 <p>
  We think of stresses acting on faces, so we often associate the state of stress with a coordinate system. However, the selection of a coordinate system is arbitrary (materials don't know about coordinates - it's a mathematical construct!) and we could choose to express the stress state acting on any set of faces aligned with <strong>any</strong> coordinate system axes. Furthermore, we can relate the states of stress in each coordinate system to one another through <strong>stress transformation equations.</strong>
-
+</p>
 </SubSection>
 
 <SubSubSection title="Transformation Sign Convention" id="sign-convention-transformation">
@@ -293,7 +293,7 @@ Normal and shear stresses can be shown graphically as a function of <InlineEquat
           this.line($V([(sx-savg)/R*radius, -tau/R*radius]), $V([(sy-savg)/R*radius, tau/R*radius]));
           this.text($V([(sx-savg)/R*radius, -tau/R*radius]), $V([-1,-1]), `  X (${sx}, ${tau})`);
           this.text($V([(sy-savg)/R*radius, tau/R*radius]), $V([1,1]), `Y (${sy}, ${-tau})  `);
-          this.text(O, $V([-1, -1]), `(${savg}, ${0})`);
+          this.text(O, $V([1, 1]), `(${savg}, ${0})`);
   
           this.line($V([-3, 0]), $V([3, 0]))
   
@@ -348,14 +348,11 @@ Normal and shear stresses can be shown graphically as a function of <InlineEquat
             
           }
           
-          this.arrow($V([-2.3, 2.3]), $V([-1.6, 2.3]))
-          this.text($V([-1.6, 2.3]), $V([-1, 1]), "+sigma")
-  
-          this.arrow($V([-2.3, 2.3]), $V([-2.3, 1.5]))
-          this.text($V([-2.3, 1.5]), $V([-1, 1]), "+tau")
-  
-          var sigma = Math.round((savg+R*Math.cos(theta_p+2*theta))*1000)/1000;
-          
+          sigma_equals_0 = -savg/R*radius
+
+          this.arrow($V([sigma_equals_0, radius+.5]), $V([sigma_equals_0, -radius-.5]))
+          this.text($V([sigma_equals_0, -radius-.5]), $V([-1, 1]), "+tau")
+
       })
     });
     </script>
