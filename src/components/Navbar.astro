@@ -238,12 +238,20 @@ import Searchbar from "./Searchbar.astro";
         transition: all .2s ease-in;
     }
 
-    nav{
-        align-self: start;
-        position: sticky;
-        top: 0;
-        z-index: 1000;
+    @media (width > 998px){
+        nav{
+            align-self: start;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
     }
+    @media (width <=  998px){
+        nav{
+            position: relative;
+        }
+    }
+
 
     .menu{
         color: var(--illini-blue);
