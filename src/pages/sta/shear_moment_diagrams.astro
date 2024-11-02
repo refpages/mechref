@@ -21,7 +21,7 @@ import DisplayTable from "../../components/DisplayTable.astro"
           <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#general_procedure'>General Procedure</a></li>
           <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#general_rules'>General Rules</a></li>
       </ul>
-      </div>
+    </div>
 
 
 <style>
@@ -41,9 +41,13 @@ import DisplayTable from "../../components/DisplayTable.astro"
         border-left: solid 1px var(--bs-border-color);
         text-align:center;
     }
+
+    th:first-of-type{
+        border-left: none; 
+    }
 </style>
 
-<Section title="Shear Force & Bending Moment Diagrams" id="internal_forces">
+<Section title="Shear Force & Bending Moment Diagrams" id="shear_moment_diagrams">
 <p>
 Internal forces of a member can be determined by creating an imaginary cut in a member, and then solving for the internal shear force, normal force, and bending moment (which, after the cut, become "external" forces that can be solved for). 
 </p>
