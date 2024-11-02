@@ -107,6 +107,9 @@ links_to_replace = {
     "href=\"/sta/": "href=\"../sta/",
     "href=\"/sol/": "href=\"../sol/",
     "href=\"/dyn/": "href=\"../dyn/",
+    "href=\"/about/\"": "href=\"../about.html\"",
+    "href=\"/about\"": "href=\"../about.html\"",
+    "src=\"/about/": "src=\"../about/",
     "src=\"/sta/": "src=\"../sta/",
     "src=\"/sol/": "src=\"../sol/",
     "src=\"/dyn/": "src=\"../dyn/",
@@ -175,8 +178,10 @@ links_to_replace = {
     "src=\"/Dynamics/": "src=\"./Dynamics/",
     "href=\"${e['item']['link']}\"": "href=\".${e['item']['link']}\"",
     "src=\"/light-menu.png\"": "src=\"./light-menu.png\"",
-    "src=\"/dark-menu.png\"": "src=\"./dark-menu.png\""
-    
+    "src=\"/dark-menu.png\"": "src=\"./dark-menu.png\"",
+    "href=\"/about/\"": "href=\"./about.html\"",
+    "href=\"/about\"": "href=\"./about.html\"",
+    "src=\"/about/": "src=\"./about/",
 }
 
 all_content_pages = os.listdir(os.path.join(home, 'sta')) + os.listdir(os.path.join(home, 'sol')) + os.listdir(os.path.join(home, 'dyn'))
@@ -185,7 +190,7 @@ all_content_pages = [p for p in all_content_pages if p[-5:] == '.html']
 
 hrefs ={'/'+p.replace('.html', ''): '/'+p for p in all_content_pages}
 
-for page in ['index.html', 'dyn.html', 'sta.html', 'sol.html']:
+for page in ['index.html', 'dyn.html', 'sta.html', 'sol.html', "about.html"]:
     print(page)
     with open(os.path.join(home, page), 'r') as file:
         data = file.read()
@@ -220,7 +225,7 @@ for dir in ['dyn', 'sta', 'sol']:
         with open(os.path.join(home, os.path.join(dir, page)), 'w') as file:
             file.write(data)
 
-for page in ['index.html', 'dyn.html', 'sta.html', 'sol.html']:
+for page in ['index.html', 'dyn.html', 'sta.html', 'sol.html', "about.html"]:
     print(page)
     with open(os.path.join(home, page), 'r') as file:
         data = file.read()
