@@ -71,3 +71,11 @@
         {/each}
     {/if}
 {/each}
+
+<section class="mt-sm-4 mt-2">
+    <h3 class="fw-bold w-100">Helpful links:</h3>
+    <ul>
+        <li><a href="/sta/pltips" class="text-body text-decoration-none">PrairieLearn tips</a></li>
+    </ul>
+    
+</section>

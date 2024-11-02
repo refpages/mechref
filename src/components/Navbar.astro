@@ -407,9 +407,10 @@ import Searchbar from "./Searchbar.astro";
                 </div>
             </li>
         </ul>
-        <span class="navbar-text p-0 d-flex flex-row justify-content-center align-items-center theme-toggler" onclick="toggle_theme();" >
+        <span class="navbar-text d-flex flex-row justify-content-center align-items-center" style="padding: 8px 10px 10px 10px;"><a class="me-2 fw-bold nav-link" href="/about">About</a></span>
+        <span class="navbar-text d-flex flex-row justify-content-center align-items-center theme-toggler" style="padding: 8px 10px 10px 10px;" onclick="toggle_theme();" >
             <i class="bi ps-1 pe-2 m-0" id="theme-icon"></i>
-            <p class="nav-link active py-1 pe-1 m-0 fw-bold" style="text-wrap: nowrap;">Toggle theme</p>
+            <p class="nav-link active pe-1 m-0 fw-bold" style="text-wrap: nowrap;">Toggle theme</p>
          
             <script is:inline>
                 const theme_icon = document.querySelector("#theme-icon");
