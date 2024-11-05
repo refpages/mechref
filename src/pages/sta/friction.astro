@@ -176,8 +176,30 @@ To determine which of these scenarios will occur, you should write the equations
 	<Image src='/Statics/FrictionFigures/FridgeFBD.jpg' width='5'></Image>
 
 	<p> We will then use the FBD and equations of equilibrium to solve for the force <InlineEquation equation=" P "/> necessary to make the fridge tip, and make the fridge slip along the surface: </p>
+	
+	<ol>
+		<li> Assume slipping, max <InlineEquation equation="F = \\mu_s \\ N" /> 
+				<DisplayEquation equation=" \\begin{aligned}  \\sum{F_x} &amp;= 0   \\\\   P - F &amp;= 0  \\\\  P &amp;= F  \\\\ \\sum{F_y} &amp;= 0   \\\\   N - W &amp;= 0  \\\\  N &amp;= W \\end{aligned} " />
+				<p> If <InlineEquation equation=" P = F \\leq \\mu_s \\ N" /> , the fridge won't slide </p>
+				<p> Max <InlineEquation equation=" P " /> before sliding: </p>
+				<DisplayEquation equation="P = F = \\mu_s \\ N = \\mu_s \\ W = 0.4 \\ (250 \\ lb) = 100 \\ lb" /> 
+		</li>
+		<li> Check to see if it is tipping at <InlineEquation equation="P = 100 \\ lb" />, solve for <InlineEquation equation="x" /> 
+			<DisplayEquation equation="\\begin{aligned}  \\sum{M_o} &amp;= P_y  - N_x = 0  \\\\  x &amp;= \\frac{P_y}{N} = \\frac{P_y}{W} = \\frac{100 \\ lb \\ (40 \\ in)}{250 \\ lb}  = 16'' \\end{aligned}"   /> 
+			<p> If  <InlineEquation equation=" x = 18 '' " /> , the fridge would tip. Because <InlineEquation equation=" x = 16 '' " /> , the fridge is not tipping!  </p>
+		</li>
+		<li> Assume tipping, solve for <InlineEquation equation="P" />  
+			<DisplayEquation equation=" \\begin{aligned}  \\sum{F_x} &amp;= 0   \\\\   P - F &amp;= 0  \\\\  P &amp;= F  \\\\ \\sum{F_y} &amp;= 0   \\\\   N - W &amp;= 0  \\\\  N &amp;= W   \\\\  \\sum{M_o} &amp;= 0  \\\\   P_y  - N_x &amp;= 0  \\\\ P &amp;= \\frac{N_x}{y}  = \\frac{W_x}{y}  =  \\frac{250 \\ lb \\ (18 \\ in)}{40 \\ in}  \\\\ p &amp;= 112.5 \\ lb \\quad \\text{for tipping} \\end{aligned}"   /> 
+		</li>
+	</ol>
+	
+	
+	<ul>
+		<li> Min <InlineEquation equation="P" /> for sliding: 100 lb </li>
+		<li> Min <InlineEquation equation="P" /> for tipping: 112.5 lb </li>
+		<li> Fridge will slide at <InlineEquation equation="P=100 // lb" />  </li>
+	</ul>
 
-	<Image src='/Statics/FrictionFigures/FridgeSln.jpg' width='6'></Image>
 
 	</div>
 
