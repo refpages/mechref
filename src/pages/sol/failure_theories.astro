@@ -113,6 +113,26 @@ Failure of a material depends on (1) nature of loading and (2) type of material.
 
  The equating equation be plotted to show the failure surface. The elliptical surface is the Von Mises surface overlaid with the Teresca surface. Loading conditions that occur <strong>outside</strong> of the surface are when the material fails.
 
+<div id="failure-criteria-container" class="overflow-hidden">
+    
+</div>
+
+<script is:inline>
+
+    $(function(){
+
+        var data = $.getJSON("/failure2.json").done(function(){
+            console.log(JSON.parse(data['responseText']))
+            Plotly.newPlot("failure-criteria-container", JSON.parse(data['responseText']), {height: 400} ,{responsive: true})})
+            Plotly.Plots.resize("failure-criteria-container")
+            //document.querySelector()
+        });
+
+        $("body").on("resize", function(){Plotly.Plots.resize("failure-criteria-container")})
+    
+        
+</script>
+
 </SubSection>
 
 <SubSection title="Maximum Normal Stress Criterion" id="max-normal">
@@ -133,3 +153,5 @@ For <strong>brittle</strong> materials, failure is caused by the <strong>maximum
 </SubSection>
 
 </Layout>
+
+<script src="/plotly.js" is:inline></script>
