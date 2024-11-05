@@ -491,8 +491,23 @@ To solve for the centroid of an object:
 with similar equations for <InlineEquation equation="\\bar{y}" />. 
 
 
-<Example title="Centroid of a curved area">
+<Example title="Centroid of a curved area"  id="com-epc">
+	<ol>
+		<li> Solve for <InlineEquation equation=" \\bar{x}" /> </li>
+		<li> Solve for <InlineEquation equation=" \\bar{y}" /> </li>
+	</ol>
 	<Image src='/Statics/COMFigures/CentroidEx.jpg' width='5'> </Image>
+	
+	<div slot="solution">
+	<ol>
+		<li> Solve for <InlineEquation equation=" \\bar{x}" /> 
+			<DisplayEquation equation=" \\bar{x} = \\frac{\\int \\tilde{x} \\,dA}{\\int dA} = \\frac{\\int x \\ y  \\,dx}{\\int y \\,dx}  = \\frac{\\int_{0}^{1} x^3 \\,dx}{\\int_{0}^{1} x^2 \\,dx} =  \\frac{\\frac{x^4}{4} \\Big|_{0}^{1}}{\\frac{x^3}{3} \\Big|_{0}^{1}}   = \\frac{3}{4} \\ m" />
+		</li>
+		<li> Solve for <InlineEquation equation=" \\bar{y}" /> 
+			<DisplayEquation equation=" \\bar{y} = \\frac{\\int \\tilde{y} \\,dA}{\\int dA} = \\frac{\\int \\frac{y}{2} y   \\,dx}{\\int y \\,dx}  = \\frac{\\int_{0}^{1} \\frac{x^4}{2} \\,dx}{\\int_{0}^{1} x^2 \\,dx} =  \\frac{\\frac{x^5}{10} \\Big|_{0}^{1}}{\\frac{x^3}{3} \\Big|_{0}^{1}}   = \\frac{3}{10} \\ m" />
+		</li>
+	</ol>
+	</div>
 </Example>
 
 </SubSection>
