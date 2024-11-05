@@ -28,14 +28,17 @@ For an incompressible fluid (density <InlineEquation equation='\\rho' />) at res
 
 <Image src='/Statics/FluidFigures/HydrostaticPressure.jpg' width='4'> Derivation of the pressure  <InlineEquation equation='P(z)' />  at the bottom of a cylinder of liquid with cross-sectional area  <InlineEquation equation='A' /></Image>
 
-The fluid pressure <InlineEquation equation='P(z)' /> can be written as: 
 
-<DisplayEquation equation='P(z) = \\rho*g*z\\' />
 
- Derivation: 
-
-<Image src='/Statics/FluidFigures/FluidDerivation.jpg' width=''> Derivation of the pressure  <InlineEquation equation='P(z)' />  at the bottom of a cylinder of liquid with cross-sectional area  <InlineEquation equation='A' /></Image>
-
+    <DisplayEquation equation="P(z) = \\rho*g*z" background="True" title="The fluid pressure P(z) can be written as"   id="hfp-eq" derivation="True">
+            <p>
+                Ignoring air pressure:
+				<Image src='/Statics/FluidFigures/FluidDerivation.jpg' width='4'> </Image>
+                <DisplayEquation equation="\\begin{aligned} \\sum{F_y} &amp;= 0  \\\\ P(z)A - W &amp;= 0   \\\\   P(z)A - (\\rho \\ A \\ z) \\ g &amp;=  0 \\\\   P(z)  &amp;= \\rho \\ g \\ z          \\end{aligned}"/>
+                
+			 </p>
+    </DisplayEquation>
+		
 </SubSection>
 
 <SubSection title="Buoyancy" id="buoyancy">
