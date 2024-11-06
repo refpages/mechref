@@ -137,7 +137,7 @@ Failure of a material depends on (1) nature of loading and (2) type of material.
         };
 
 
-        var data = $.getJSON("/failure.json").done(function(){
+        var data = $.getJSON("/FailureCriteria.json").done(function(){
             document.querySelector("#failure-criteria-container").innerHTML = "";
             console.log(JSON.parse(data['responseText']))
             Plotly.newPlot("failure-criteria-container", JSON.parse(data['responseText']), layout ,{responsive: true})
