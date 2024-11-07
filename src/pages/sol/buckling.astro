@@ -11,7 +11,24 @@ import Item from "../../components/Item.astro"
 import Itemize from "../../components/Itemize.astro"
 ---
 <Layout title="Buckling">
-<Section title="Buckling">
+
+	<div slot="navtree">
+		<ul class='list-group list-group-flush py-0'> 
+			<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#stability'>Stability of Structures</a>
+				<ul class='list-group list-group-flush py-0'> 
+					<li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#single-column'>Single Column</a></li> 
+					<li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#two-rods-spring'>Two Rods and a Torsional Spring</a></li>  
+				</ul>
+			</li>
+			<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#euler'>Euler's Formula</a>
+				<ul class='list-group list-group-flush py-0'> 
+					<li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#pinned-end'>Pinned-end Columns</a></li> 
+					<li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#other-boundary-conditions'>Other Boundary Conditions</a></li>  
+				</ul>
+			</li>  
+		</ul>
+	</div>
+<Section title="Buckling" id="buckling">
 
 <strong>Buckling</strong> is the sudden change in shape of a structural component under a compressive load
 
@@ -22,9 +39,9 @@ import Itemize from "../../components/Itemize.astro"
  Failure is elastic (<InlineEquation equation='\\sigma < \\sigma_Y' />), but if increased loads are applied, further deformation and plastic failure (yielding) / brittle failure (fracture) can occur (post-buckling failure).
 </Section>
 
-<SubSection title="Stability of Structures"></SubSection>
+<SubSection title="Stability of Structures" id="stability"></SubSection>
 
-<SubSubSection title="Single Column">
+<SubSubSection title="Single Column" id="single-column">
 
 <Image src='/Solid_Mechanics/Buckling-Figures/Stability of Structures.png' width='3'></Image>
 
@@ -34,7 +51,8 @@ import Itemize from "../../components/Itemize.astro"
 
  Increasing the load can cause the column to buckle <InlineEquation equation='\\rightarrow' /> instability causing failure.
 </SubSubSection>
-<SubSubSection title="Two Rods and a Torsional Spring">
+
+<SubSubSection title="Two Rods and a Torsional Spring" id="two-rods-spring">
 
 <Image src='/Solid_Mechanics/Buckling-Figures/TwoRods.png' width='3.5'></Image>
 
@@ -69,13 +87,13 @@ The resultant moment from the applied load <InlineEquation equation="P"/> tends 
 
 </SubSubSection>
 
-<SubSection title="Euler's formula">
+<SubSection title="Euler's Formula" id="euler">
 
 Euler's formula can be used to solve for the critical load of a uniaxially loaded column. 
 
 </SubSection>
 
-<SubSubSection title="Pinned-end Columns">
+<SubSubSection title="Pinned-end Columns" id="pinned-end">
 
 <Image src='/Solid_Mechanics/Buckling-Figures/Pinned.png' width='3.5'></Image>
 
@@ -120,7 +138,7 @@ Euler's formula can be used to solve for the critical load of a uniaxially loade
 </DisplayEquation>
 
 </SubSubSection>
-<SubSubSection title="Other Boundary Conditions">
+<SubSubSection title="Other Boundary Conditions" id="other-boundary-conditions">
 
 <Image src='/Solid_Mechanics/Buckling-Figures/EulerConditions.png' width='7'></Image>
 
