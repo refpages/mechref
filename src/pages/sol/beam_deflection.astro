@@ -12,9 +12,24 @@ import Itemize from "../../components/Itemize.astro"
 import Enumerate from "../../components/Enumerate.astro"
 import Example from "../../components/Example.astro"
 import InlineCanvas from "../../components/InlineCanvas.astro"
+import DisplayTable from "../../components/DisplayTable.astro"
 ---
 <Layout title="Beam Deflection">
-<Section title="Beam Deflection" id="id">
+    <div slot="navtree">
+        <ul class='list-group list-group-flush py-0'> 
+            <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#sign-conventions'>Sign Conventions</a></li>
+            <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#boundary-conditions'>Boundary Conditions</a></li>
+            <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#moment-curvature'>Moment-Curvature Equation</a>
+                <ul class='list-group list-group-flush py-0'> 
+                    <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#assumptions'>Assumptions</a></li> 
+                </ul>
+            </li>  
+            <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#differentiation'>Differentiation</a></li>
+            <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#integration'>Integration</a></li>
+            <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#solutions'>Beam Solutions</a></li>
+        </ul>
+    </div>
+<Section title="Beam Deflection" id="beam-deflection">
 
 <strong>Goal:</strong> Determine the deflection and slope at specified points of beams and shafts.
 <br>
@@ -25,19 +40,19 @@ import InlineCanvas from "../../components/InlineCanvas.astro"
 
 </Section>
 
-<SubSection title="Sign Conventions" id="id">
+<SubSection title="Sign Conventions" id="sign-conventions">
 
 <Image src='/Solid_Mechanics/Beam Deflection-Figures/signConvention1.png' width='5'></Image>
 
 </SubSection>
 
-<SubSection title="Boundary Conditions" id="id">
+<SubSection title="Boundary Conditions" id="boundary-conditions">
 
 <Image src='/Solid_Mechanics/Beam Deflection-Figures/BoundryConditions.png' width='5'></Image>
 
 </SubSection>
 
-<SubSection title="Moment-Curvature Equation" id="id">
+<SubSection title="Moment-Curvature Equation" id="moment-curvature">
 
 <Image src='/Solid_Mechanics/Beam Deflection-Figures/ElasticCurveBeam.png' width='4'></Image>
 
@@ -66,7 +81,7 @@ To find the deflection shape:
 </SubSection>
 
 
-<SubSubSection title="Assumptions" id="id">
+<SubSubSection title="Assumptions" id="assumptions">
 
 <Itemize>
     <Item> <InlineEquation equation='y(x)' /> is the vertical direction </Item>
@@ -77,7 +92,7 @@ To find the deflection shape:
 </SubSubSection>
 
 
-<SubSection title="Differentiation" id="id">
+<SubSection title="Differentiation" id="differentiation">
 
     <DisplayEquation equation="EIy''(x) = M(x)" title="Elastic curve equation for constant E and I." background="True" />
     <DisplayEquation equation="EIy'''(x) = \\frac{dM(x)}{dx} = V(x)" title="Differentiating the elastic curve equation." background="True" />
@@ -92,7 +107,7 @@ To find the deflection shape:
 
 </SubSection>
 
-<SubSection title="Integration" id="id">
+<SubSection title="Integration" id="integration">
 
 
    <DisplayEquation equation='V(x) = \\int w(x) dx\\' title="Shear force." background="True"/>
@@ -127,11 +142,175 @@ To find the deflection shape:
    </SubSection>
 
 
-<SubSection title="Beam Solutions" id="id"> 
+<SubSection title="Beam Solutions" id="solutions"> 
     Common beam deflection solutions have been worked out.
-    
-    <Image src='/Solid_Mechanics/Beam Deflection-Figures/Common Solutions.png' width='7'>  <BlueText> Taken from the formula sheet</BlueText></Image>
-    
+    <DisplayTable id="beam_sol_table" >
+        <thead class="text-center">
+            <tr valign="top">
+                <th class="table-shaded">
+            <strong>Diagram</strong>
+                </th>
+                <th class="table-shaded">
+                    <strong>Max. deflection 
+                        <br>
+                        <InlineEquation equation="y_{max}"/>
+                    </strong>
+                </th>
+                <th class="table-shaded"> 
+                    <strong>Slope at end
+                        <br>
+                        <InlineEquation equation="\\theta"/>
+                    </strong>
+                </th>
+            <th class="table-shaded"> 
+                    <strong>Elastic curve
+                        <br>
+                        <InlineEquation equation="y(x)"/>
+                    </strong>
+                </th>	
+            </tr>
+        </thead>
+        <tbody class="text-center">
+            <tr>
+                <td class="nosideborderleft">
+                    <Image src='/Solid_Mechanics/Beam Deflection-Figures/Table1.png' width='7'></Image>
+                </td>
+                <td valign="middle">
+                    <InlineEquation equation="-\\frac{PL^3}{3EI}"/>
+                </td>
+                <td valign="middle">
+                    <InlineEquation equation="-\\frac{PL^2}{2EI}"/>    
+                </td>
+                <td valign="middle">
+                    <InlineEquation equation="\\frac{P}{6EI}(x^3-3Lx^2)" />
+                </td>
+            </tr>
+        </tbody>
+        <tbody class="text-center">
+            <tr>
+                <td class="nosideborderleft">
+                    <Image src='/Solid_Mechanics/Beam Deflection-Figures/Table2.png' width='7'></Image>
+                </td>
+                <td valign="middle">
+                    <InlineEquation equation="-\\frac{wL^4}{8EI}"/>
+                </td>
+                <td valign="middle">
+                    <InlineEquation equation="-\\frac{wL^3}{6EI}"/>    
+                </td>
+                <td valign="middle">
+                    <InlineEquation equation="-\\frac{w}{24EI}(x^4-4Lx^3+6L^2x^2)" />
+                </td>
+            </tr>
+        </tbody>
+        <tbody class="text-center">
+            <tr>
+                <td class="nosideborderleft">
+                    <Image src='/Solid_Mechanics/Beam Deflection-Figures/Table3.png' width='7'></Image>
+                </td>
+                <td valign="middle">
+                    <InlineEquation equation="-\\frac{ML^2}{2EI}"/>
+                </td>
+                <td valign="middle">
+                    <InlineEquation equation="-\\frac{ML}{EI}"/>    
+                </td>
+                <td valign="middle">
+                    <InlineEquation equation="-\\frac{M}{2EI}x^2" />
+                </td>
+            </tr>
+        </tbody>
+        <tbody class="text-center">
+            <tr>
+                <td class="nosideborderleft">
+                    <Image src='/Solid_Mechanics/Beam Deflection-Figures/Table4.png' width='7'></Image>
+                </td>
+                <td valign="middle">
+                    <InlineEquation equation="-\\frac{5wL^4}{384EI}"/>
+                </td>
+                <td valign="middle">
+                    <InlineEquation equation="\\pm\\frac{wL^3}{24EI}"/>    
+                </td>
+                <td valign="middle">
+                    <InlineEquation equation="-\\frac{w}{24EI}(x^4-2Lx^3+L^3x)" />
+                </td>
+            </tr>
+        </tbody>
+        <tbody class="text-center">
+            <tr>
+                <td class="nosideborderleft">
+                    <Image src='/Solid_Mechanics/Beam Deflection-Figures/Table5.png' width='7'></Image>
+                </td>
+                <td valign="middle">
+                    <InlineEquation equation="-\\frac{PL^3}{48EI}"/>
+                </td>
+                <td valign="middle">
+                    <InlineEquation equation="\\pm\\frac{PL^2}{16EI}"/>    
+                </td>
+                <td valign="middle">
+                    <p style="text-align:left;">
+                        For <InlineEquation equation="0 \\le x \\le \\frac{L}{2}:"/>
+                    </p>
+
+                    <InlineEquation equation="\\frac{P}{48EI}(4x^3-3L^2x)" />
+                </td>
+            </tr>
+        </tbody>
+        <tbody class="text-center">
+            <tr>
+                <td class="nosideborderleft">
+                    <Image src='/Solid_Mechanics/Beam Deflection-Figures/Table6.png' width='7'></Image>
+                </td>
+                <td valign="middle">
+                    <p style="text-align:left;">
+                        For <InlineEquation equation="a>b:"/>
+                    </p>
+                    <InlineEquation equation="-\\frac{Pb(L^2-b^2)^{\\frac{3}{2}}}{9\\sqrt{3}EIL}"/>
+                    <br>
+                    <br>
+                    <InlineEquation equation="x_m = \\sqrt{\\frac{L^2-b^2}{3}}"/>
+                </td>
+                <td valign="middle">
+                    <InlineEquation equation="B: -\\frac{Pb(L^2-b^2)}{6EIL}"/>   
+                    <br>
+                    <br>
+                    <InlineEquation equation="A: +\\frac{Pa(L^2-a^2)}{6EIL}"/>    
+                </td>
+                <td valign="middle">
+                    <p style="text-align:left;">
+                        For <InlineEquation equation="x<a:"/>
+                    </p>
+                    <InlineEquation equation="\\frac{Pb}{6EIL}(x^3-x(L^2-b^2))" />
+                    <br>
+                    <br>
+                    <p style="text-align:left;">
+                        For <InlineEquation equation="x=a:"/>
+                    </p>
+                    <InlineEquation equation="-\\frac{Pa^2 b^2}{3EIL}" />
+                </td>
+            </tr>
+        </tbody>
+        <tbody class="text-center">
+            <tr>
+                <td class="nosideborderleft">
+                    <Image src='/Solid_Mechanics/Beam Deflection-Figures/Table7.png' width='7'></Image>
+                </td>
+                <td valign="middle">
+                    <InlineEquation equation="-\\frac{ML^2}{9\\sqrt{3}EI}"/>
+                    <br>
+                    <br>
+                    <InlineEquation equation="x_m = \\frac{L}{\\sqrt{3}}"/>
+                </td>
+                <td valign="middle">
+                    <InlineEquation equation="A: -\\frac{ML}{6EI}"/>   
+                    <br>
+                    <br>
+                    <InlineEquation equation="B: +\\frac{ML}{3EI}"/>   
+                </td>
+                <td valign="middle">
+                    <InlineEquation equation="\\frac{M}{6EIL}(x^3-L^2x)" />
+                </td>
+            </tr>
+        </tbody>
+    </DisplayTable>  
     
     
      To solve loadings that are not in the table, use <strong>superposition</strong> to get the resulting deflection curve.
