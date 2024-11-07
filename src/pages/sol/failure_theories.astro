@@ -7,6 +7,7 @@ import SubSubSection from "../../components/SubSubSection.astro"
 import InlineEquation from "../../components/InlineEquation.astro" 
 import DisplayEquation from "../../components/DisplayEquation.astro" 
 import BlueText from "../../components/BlueText.astro" 
+import RedText from "../../components/RedText.astro" 
 ---
 <Layout title="Failure Theories">
 
@@ -18,7 +19,11 @@ import BlueText from "../../components/BlueText.astro"
                 <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#2d-loading'>General 2D Loading State</a></li> 
             </ul>
         </li> 
-        <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#von-mises'>Maximum Distortion Energy (Von Mises) Criterion</a></li>
+        <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#von-mises'>Maximum Distortion Energy (Von Mises) Criterion</a>
+            <ul class='list-group list-group-flush py-0'> 
+                <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#failure-surfaces'>Interactive 3D Failure Surfaces</a></li> 
+            </ul>
+        </li>
         <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#max-normal'>Maximum Normal Stress Criterion</a></li>
     </ul>
 </div>
@@ -115,9 +120,14 @@ Failure of a material depends on (1) nature of loading and (2) type of material.
 
 </SubSection>
 
-<SubSubSection id="failure-surfaces" title="Yield surfaces in principal stress coordinates">
+<SubSubSection id="failure-surfaces" title="Interactive 3D Failure Surfaces">
 
-<p>The following figure shows the failure surfaces of Tresca and von Mises criteria in term of the principal stresses. Regions outside the surfaces are considered to have failed. (Note this 3d plot is interactive, click and drag orbit, scroll to zoom, click on legend entries to toggle them on or off.)</p>
+<p>
+    The following figure shows the failure surfaces of <BlueText>Tresca</BlueText> and <RedText>von Mises</RedText> criteria in term of the principal stresses in 3 dimensions. 
+    The 2D figure above can be found cenered around the origin in this plot. 
+    The shape of the 2D failure surface <InlineEquation equation="(\\sigma_1,\\sigma_2)"/> remains the same, but moves location depending on <InlineEquation equation="\\sigma_3"/>.
+    Just like in 2D, regions <strong>outside</strong> the surfaces are considered to have failed. 
+</p>
 
 <div id="failure-criteria-container" class="overflow-hidden d-flex flex-column align-items-center">
     <div class="spinner-border" role="status">
@@ -161,7 +171,7 @@ Failure of a material depends on (1) nature of loading and (2) type of material.
 
     });
 </script>
-
+<em>Note: </em> Click and drag to rotate, scroll to zoom, and click legend entries to toggle. 
 </SubSubSection>
 
 <SubSection title="Maximum Normal Stress Criterion" id="max-normal">
