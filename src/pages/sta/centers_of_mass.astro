@@ -31,219 +31,104 @@ import InlineCanvas from "../../components/InlineCanvas.astro"
       </ul>
       </div>
 
-<Section title="Center of Mass" id="center_of_mass">
+<Section title="Center of Mass, Gravity, and Volume" id="center_of_mass">
 
-    <p>
-        The total mass of a rigid body is as follows:
-    </p>
-
-    <DisplayEquation equation="m = \\iiint_{\\mathcal{B}} \\rho \\, dV" background="True" derivation="True" title="Total mass of a rigid body." id="rcm-tm">
-        <p>
-            The mass of an infinitesimally small element of the rigid body $dm$ assuming constant density is:
-            \[
-            dm =  \rho \, dV
-            \]
-            Therefore, integrating over the entire volume of the body gives us the expression above.
-        </p>
-    </DisplayEquation>
-
-    <p>
-        The center of mass of a rigid body can be calculated as follows:
-    </p>
-
-    <DisplayEquationCustom background="True" derivation="True" title="Center of mass \\(C\\) of a rigid body." id="rcm-cm">
-        <div class="w-100 d-flex flex-row align-items-center">
-            <div class="w-50">
-                <DisplayEquation equation="\\begin{gathered} \\vec{r}_C = \\frac{1}{m}\\iiint_{\\mathcal{B}} \\rho \\vec{r} \\, dV \\\\ \\end{gathered}" />
-            </div>
-            <div class="w-50">
-                <InlineCanvas id="rcm-cm-c" width="300" height="300" >
-            </div>
-        </div>
-        
-        <p>
-            <InlineEquation equation="\\vec{r}" /> is the vector from a reference origin <InlineEquation equation="O" /> to <InlineEquation equation="dV" />.
-        </p>
-        <p>
-            The integral term <InlineEquation equation="\\iiint_{\\mathcal{B}} \\rho \\vec{r} \\, dV" /> is known as the "first moment of mass".
-        </p>
-
-        <div class="w-100" slot="derivation">
-            <p>
-                The center of mass of a collection of particles is given by the finite sum:
-                <DisplayEquation equation="\\vec{r}_C = \\frac{1}{m} \\sum_{i=1}^{N} m_i \\, \\vec{r}_i" />
-            </p>
-            <p>
-                Therefore, for a continuous mass distribution and infinite number of particles, the sum becomes an integral
-                and the masses become the mass of an infinitesimally small element on the rigid body:
-                <DisplayEquation equation="\\vec{r}_C = \\frac{1}{m}\\iiint_{\\mathcal{B}} \\vec{r} dm" />
-            </p>
-            <p>
-                Where <InlineEquation equation="dm = \\rho \\, dV" /> from the differential of <a href="rcm.html#rcm-tm">#rcm-tm</a>. Substituting in:
-                <DisplayEquation equation="\\begin{aligned} \\vec{r}_C &amp;= \\frac{1}{m}\\iiint_{\\mathcal{B}} \\vec{r} dm \\\\ &amp;= \\frac{1}{m}\\iiint_{\\mathcal{B}} \\vec{r} \\rho \\, dV \\\\ &amp;= \\frac{1}{m}\\iiint_{\\mathcal{B}} \\rho \\vec{r} \\, dV \\\\ \\end{aligned}" />
-            </p>
-        </div>
-    </DisplayEquationCustom>
-
-    <Example title="Center of mass of a right-triangular plate." id="rcm-xc">        
-        <div class="w-100 d-flex flex-row ">
-            <div class="w-50">
-                <p>
-                    A solid uniform right-triangular plate with mass <InlineEquation equation="m" /> has width <InlineEquation equation="w" />, height <InlineEquation equation="h" />. Where is the
-                    center of mass <InlineEquation equation="\\vec{r}_C" />located? 
-                </p>
-            </div>
-            <div class="w-50">
-                <InlineCanvas id="rcm-xc-c" width="300" height="200"/>
-            </div>
-        </div>
-
-        <div slot="solution">
-            <p>
-                In order to figure out where the center of mass is located, we will need to choose an origin. The origin chosen
-                in this instant is where the base and height begin, as shown. Using the center of mass formula will allow us
-                to calculate the vector shown below (i.e we are calculating <InlineEquation equation="\\vec{r}_{OC}" />).
-            </p>
-            <Center>
-                <InlineCanvas id="rcm-xc-s1" width="300" height="200"/>
-            </Center>
-            <p>
-                Using the formula <a href="#rcm-cm">#rcm-cm</a>:
-                <DisplayEquation equation="\\begin{aligned} \\vec{r}_C &amp;= \\frac{1}{m} \\iiint_{\\mathcal{B}} \\rho \\vec{r} \\, dV \\\\  &amp;= \\frac{1}{m} \\iint_{A} \\rho \\vec{r} \\, tdA \\\\ \\end{aligned}" />
-            </p>
-            <p>
-                Where <InlineEquation equation="A" /> represents the surface area of the plate, and <InlineEquation equation="t" /> is the thickness. We will assume the thickness is 1, as 
-                we are only interested in the center of mass in the <InlineEquation equation="x" />-<InlineEquation equation="y" /> plane. Our triple integral with <InlineEquation equation="dV" />instead becomes a
-                double integral with <InlineEquation equation="dV = t dA" />. We therefore have:
-                <DisplayEquation equation="\\vec{r}_C = \\frac{1}{m} \\int_{x_1}^{x_2} \\int_{y_1}^{y_2} \\rho \\vec{r} \\, dA" />
-            </p>
-            <p>
-                We will redraw the figure and show the \(dA\) element. We will also find the \(x\)-coordinate and \(y\)-coordinate ranges
-                for the body. 
-            </p>
-            <Center>
-                <InlineCanvas id="rcm-xc-s2" width="300" height="200" />
-            </Center>
-            <p>
-                Examining the figure above, we can see that the <InlineEquation equation="x" />-coordinate range is <InlineEquation equation="0" /> to <InlineEquation equation="w" />. Our <InlineEquation equation="y" />-coordinate range
-                has a dependence on the <InlineEquation equation="x" />-value, and the equation of the hypotenuse is <InlineEquation equation="y = h - \\frac{h}{w}x" />, using the point-slope formula. Therefore,
-                the <InlineEquation equation="y" />-coordinate range is <InlineEquation equation="0" /> to <InlineEquation equation="h - \\frac{h}{w}x" />. As a result of this, we will have to integrate with respect to <InlineEquation equation="y" /> first. All in all,
-                our center of mass equation becomes:
-                <DisplayEquation equation="\\vec{r}_C = \\frac{1}{m} \\int_{0}^{w} \\int_{0}^{h - \\frac{h}{w}x} \\rho \\vec{r} \\, dydx" />
+<DisplayTable id="mvdiag_table">
+    <thead>
+        <tr>
+	    <th class="table-shaded"> 
+                <strong></strong>
+            </th>            
+	   <th class="table-shaded">
+		<strong>Center of Mass</strong>
+            </th>
+            <th class="table-shaded">
+                <strong>Center of Gravity</strong>
+            </th>
+            <th class="table-shaded"> 
+                <strong>Center of Volume</strong>
+            </th>	
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td class="nosideborderleft">
+                <strong>Definition</strong>
+            </td>
+            <td>
                 
-            </p>
-            <p>
-                where <InlineEquation equation="vec{r}" /> is the distance to the <InlineEquation equation="dA" /> element. We can see the coordinates of <InlineEquation equation="dA" /> are \([x,y]\). Thus, 
-                <InlineEquation equation="\\vec{r} = x\\hat{\\imath} + y\\hat{\\jmath}" />. Therefore:
-                <DisplayEquation equation="\\begin{aligned} \\vec{r}_C &amp;= \\frac{1}{m} \\int_{0}^{w} \\int_{0}^{h - \\frac{h}{w}x} \\rho \\left(x\\hat{\\imath} + y\\hat{\\jmath}\\right) \\, dydx \\\\ &amp;= \\frac{\\rho}{m} \\int_{0}^{w} \\int_{0}^{h - \\frac{h}{w}x} \\left(x\\hat{\\imath} + y\\hat{\\jmath}\\right) \\, dydx \\\\ &amp;= \\frac{\\rho}{m} \\left[\\int_{0}^{w} \\int_{0}^{h - \\frac{h}{w}x} \\left(x\\hat{\\imath} \\, dy\\right)dx + \\int_{0}^{w} \\int_{0}^{h - \\frac{h}{w}x} \\left(y\\hat{\\jmath} \\, dy\\right)dx\\right] \\\\ &amp;= \\frac{\\rho}{m} \\left[\\int_{0}^{w} x\\left(h - \\frac{h}{w}x\\right)\\hat{\\imath}dx + \\int_{0}^{w} \\frac{1}{2}\\left(h - \\frac{h}{w}x\\right)^2\\hat{\\jmath}dx\\right] \\\\ &amp;= \\frac{\\rho}{m} \\left[\\frac{w^2 h}{6}\\hat{\\imath} + \\frac{wh^2}{6}\\hat{\\jmath}\\right] \\end{aligned}" />
-            </p>
-            <p>
-                where <InlineEquation equation="\\frac{\\rho}{m} = \\frac{1}{A} = \\frac{1}{\\frac{1}{2}wh} = \\frac{2}{wh}" />. Substituting that in yields:
-            
-                <DisplayEquation equation="\\vec{r}_C = \\frac{1}{3}w \\hat{\\imath} + \\frac{1}{3}h \\hat{\\jmath}" />
+            </td>
+	    <td>
+              
+           </td>
+	    <td> 
+
+	   </td>
+           </tr>
+    </tbody>
+    <tbody>
+        <tr>
+            <td class="nosideborderleft">
+                <strong>Equation</strong>
+            </td>
+            <td>
+                <DisplayEquation equation="\\Delta V = V_2 - V_1" />            
+            </td>
+	    <td>
+            	    
+        </td>
+	    <td>
                 
-            </p>
-            <p>
-                Meaning the center of mass for a right-triangular plate is located at 1/3rd of the width, and 1/3rd of the height.
-                This formula has been used to calculate the center of mass of different common shapes.
-            </p>
-        </div>
-    </Example>
-
-    <p>
-        Finding the center of mass allows us to treat complex shapes as point-masses with all their mass at the center of mass.
-    </p>
-    <p>
-        To find the center of mass of a body made up of composite shapes, we simply do the weighted average of each body by
-        using the fact above.
-    </p>
-
-    <DisplayEquationCustom title="Center of mass \(C\) of composite bodies." id="rcm-cb" background="True" derivation="True">
-        <div class="w-100 d-flex flex-row align-items-center">
-            <div class="w-50">
-                <DisplayEquation equation="\\vec{r}_C = \\frac{m_1 \\vec{r}_1 + m_2 \\vec{r}_2}{m_1 + m_2}" />
-            </div>
-            <div class="w-50">
-                <InlineCanvas id="rcm-cm-cb" width="300" height="300">
-            </div>
-        </div>
-        
-        <p>            
-            <InlineEquation equation="\\vec{r}_i" /> is the center of mass of the \(i\)th body. 
-                The whole body <InlineEquation equation="\\mathcal{B}" /> is composed of sub-bodies <InlineEquation equation="\\mathcal{B}_1" /> and <InlineEquation equation="\\mathcal{B}_2" />
-            
-        </p>
-
-        <div class="w-100" slot="derivation">
-            <p>
-                Finding the center of mass of the whole body follows directly from the fact that the integral
-                over the whole body is the sum of the integrals over the sub-bodies. That is, for <InlineEquation equation="\\mathcal{B} = \\mathcal{B}_1 \\cup \\mathcal{B}_2" />
-                (and <InlineEquation equation="\\mathcal{B}_1" />not overlapping with <InlineEquation equation="\\mathcal{B}_2$" />, we have:
-                <DisplayEquation equation="\\begin{aligned} \\vec{r}_C &amp;= \\frac{1}{M}\\iiint_\\mathcal{B} \\rho \\vec{r} \\, dV \\\\ &amp;= \\frac{1}{M}\\iiint_{\\mathcal{B}_1 \\cup \\mathcal{B}_2} \\rho \\vec{r} \\, dV \\\\ &amp;= \\frac{1}{M}\\left[\\iiint_{\\mathcal{B}_1} \\rho_1 \\vec{r}_1 \\, dV + \\iiint_{\\mathcal{B}_2} \\rho_2 \\vec{r}_2 \\, dV \\right] \\\\ &amp;= \\frac{m_1 \\vec{r}_1 + m_2 \\vec{r}_2}{M} \\\\ &amp;= \\frac{m_1 \\vec{r}_1 + m_2 \\vec{r}_2}{m_1 + m_2} \\end{aligned}" />
-            </p>
-        </div>
-    </DisplayEquationCustom>
-
-    <Example title="Center of mass of an L-shaped plate." id="rcm-xl">
-        <div class="w-100 d-flex flex-row ">
-            <div class="w-50 p-2">
-                <InlineCanvas id="rcm-xl-c" width="300" height="200"/>
-            </div>
-            <div class="w-50 p-2">
-                <p>
-                    A solid uniform L-shaped plate has mass \(m\) and dimensions as shown. What
-                is the location of the center of mass?
-                </p>
-            </div>
-        </div>
-
-        <div slot="solution">
-            <div class="w-100 d-flex flex-row ">
-                <Center>
-                    <InlineCanvas id="rcm-xl-cd" width="300" height="200"  />
-                </Center>
-                <div>
-                    <p>
-                        In order to figure out where the center of mass is located, we will need to choose an origin. The origin chosen
-                        here is the corner shown.
-                    </p>
-                    <p>
-                        Then we must realize that the L-shape can be decomposed into four square plates, as shown.
-                        Each square plate has the same mass, so:
-                        <DisplayEquation equation="m_i = \\frac{1}{4}m" />
-                    </p>
-                </div>
-                
-            </div>
-            
-            <p>
-                Using the addition formula <a href="#rcm-cb">#rcm-cb</a>:
-                <DisplayEquation equation="\\vec{r}_C = \\frac{1}{m} \\sum_{i=1}^{4} m_i \\vec{r}_i" />
-            </p>
-            <p>
-                where:
-                <DisplayEquation equation="\\begin{aligned} \\vec{r}_1 &amp;= d\\hat{\\imath} + 3d\\hat{\\jmath} \\\\ \\vec{r}_2 &amp;= d\\hat{\\imath} + d\\hat{\\jmath} \\\\ \\vec{r}_3 &amp;= 3d\\hat{\\imath} + d\\hat{\\jmath} \\\\ \\vec{r}_4 &amp;= 5d\\hat{\\imath} + d\\hat{\\jmath} \\end{aligned}" />
-            </p>
-            <p>
-                Substituting in:
-                <DisplayEquation equation="\\begin{aligned} x_C = \\frac{\\frac{1}{4}md + \\frac{1}{4}md + \\frac{3}{4}md + \\frac{5}{4}md}{m} = \\frac{5}{2}d \\\\ y_C = \\frac{\\frac{3}{4}md + \\frac{1}{4}md + \\frac{1}{4}md + \\frac{1}{4}md}{m} = \\frac{3}{2}d \\end{aligned}" />
-            </p>
-            <p>
-                Thus, the center of mass of the L-shape plate:
-                <DisplayEquation equation="\\vec{r}_C = \\frac{5}{2}d \\hat{\\imath} + \\frac{3}{2}d \\hat{\\jmath}" />
-            </p>
-            <p>
-                And its location on the plate is shown below.
-            </p>
-            <Center>
-                <InlineCanvas id="rcm-xl-cf" width="300" height="200">
-            </Center>
-        </div>
-    </Example>
-
-
+        </td>
+        </tr>
+    </tbody>
+</DisplayTable>
 
 </Section>
+
+<SubSection title="Centroid" id="centroid">
+
+<p>
+    The centroid denotes the <em>geometric</em> center of an object. When an object is made of a homogeneous material, the centroid and the center of mass are at the same point. If the object has an axis of symmetry, the centroid is on the axis of symmetry. In some cases, the centroid may not be on the object. 
+</p>
+
+To solve for the centroid of an object:
+<Enumerate>
+    <Item>Define your coordinate system</Item>
+    <Item>Define the infinitesimally small element (usually \(dL\), \(dA\), or \(dV\))</Item>
+    <Item>Express the element in terms of the coordinate system you defined</Item>
+    <Item>Identify any symmetry</Item>
+    <Item>Define the centroid <InlineEquation equation="(\\tilde{x}, \\tilde{y})" />of the element</Item>
+    <Item>Plug the equations from 3 and 5 into the equations for the centroid</Item>
+</Enumerate>
+
+<p>The equation for the centroid of an object is as follows:</p>
+
+<DisplayEquation equation="\\begin{align} \\bar{x} = \\frac{\\int{\\tilde{x}dV}}{\\int{dV}} \\\\ {\\bar{x}} = \\frac{\\int{\\tilde{x}dA}}{\\int{dA}} \\\\ {\\bar{x}} = \\frac{\\int{\\tilde{x}dL}}{\\int{dL}} \\end{align}" />
+
+with similar equations for <InlineEquation equation="\\bar{y}" />. 
+
+
+<Example title="Centroid of a curved area"  id="com-epc">
+	<ol>
+		<li> Solve for <InlineEquation equation=" \\bar{x}" /> </li>
+		<li> Solve for <InlineEquation equation=" \\bar{y}" /> </li>
+	</ol>
+	<Image src='/Statics/COMFigures/CentroidEx.jpg' width='5'> </Image>
+	
+	<div slot="solution">
+	<ol>
+		<li> Solve for <InlineEquation equation=" \\bar{x}" /> 
+			<DisplayEquation equation=" \\bar{x} = \\frac{\\int \\tilde{x} \\,dA}{\\int dA} = \\frac{\\int x \\ y  \\,dx}{\\int y \\,dx}  = \\frac{\\int_{0}^{1} x^3 \\,dx}{\\int_{0}^{1} x^2 \\,dx} =  \\frac{\\frac{x^4}{4} \\Big|_{0}^{1}}{\\frac{x^3}{3} \\Big|_{0}^{1}}   = \\frac{3}{4} \\ m" />
+		</li>
+		<li> Solve for <InlineEquation equation=" \\bar{y}" /> 
+			<DisplayEquation equation=" \\bar{y} = \\frac{\\int \\tilde{y} \\,dA}{\\int dA} = \\frac{\\int \\frac{y}{2} y   \\,dx}{\\int y \\,dx}  = \\frac{\\int_{0}^{1} \\frac{x^4}{2} \\,dx}{\\int_{0}^{1} x^2 \\,dx} =  \\frac{\\frac{x^5}{10} \\Big|_{0}^{1}}{\\frac{x^3}{3} \\Big|_{0}^{1}}   = \\frac{3}{10} \\ m" />
+		</li>
+	</ol>
+	</div>
+</Example>
+
+</SubSection>
 <!-- Lectures 28, 29  -->
 
 <SubSubSection title="Basic Shapes" id="basic_shapes">
@@ -468,49 +353,7 @@ import InlineCanvas from "../../components/InlineCanvas.astro"
 	
 </SubSection>
 
-<SubSection title="Centroid" id="centroid">
 
-<p>
-    The centroid denotes the <em>geometric</em> center of an object. When an object is made of a homogeneous material, the centroid and the center of mass are at the same point. If the object has an axis of symmetry, the centroid is on the axis of symmetry. In some cases, the centroid may not be on the object. 
-</p>
-
-To solve for the centroid of an object:
-<Enumerate>
-    <Item>Define your coordinate system</Item>
-    <Item>Define the infinitesimally small element (usually \(dL\), \(dA\), or \(dV\))</Item>
-    <Item>Express the element in terms of the coordinate system you defined</Item>
-    <Item>Identify any symmetry</Item>
-    <Item>Define the centroid <InlineEquation equation="(\\tilde{x}, \\tilde{y})" />of the element</Item>
-    <Item>Plug the equations from 3 and 5 into the equations for the centroid</Item>
-</Enumerate>
-
-<p>The equation for the centroid of an object is as follows:</p>
-
-<DisplayEquation equation="\\begin{align} \\bar{x} = \\frac{\\int{\\tilde{x}dV}}{\\int{dV}} \\\\ {\\bar{x}} = \\frac{\\int{\\tilde{x}dA}}{\\int{dA}} \\\\ {\\bar{x}} = \\frac{\\int{\\tilde{x}dL}}{\\int{dL}} \\end{align}" />
-
-with similar equations for <InlineEquation equation="\\bar{y}" />. 
-
-
-<Example title="Centroid of a curved area"  id="com-epc">
-	<ol>
-		<li> Solve for <InlineEquation equation=" \\bar{x}" /> </li>
-		<li> Solve for <InlineEquation equation=" \\bar{y}" /> </li>
-	</ol>
-	<Image src='/Statics/COMFigures/CentroidEx.jpg' width='5'> </Image>
-	
-	<div slot="solution">
-	<ol>
-		<li> Solve for <InlineEquation equation=" \\bar{x}" /> 
-			<DisplayEquation equation=" \\bar{x} = \\frac{\\int \\tilde{x} \\,dA}{\\int dA} = \\frac{\\int x \\ y  \\,dx}{\\int y \\,dx}  = \\frac{\\int_{0}^{1} x^3 \\,dx}{\\int_{0}^{1} x^2 \\,dx} =  \\frac{\\frac{x^4}{4} \\Big|_{0}^{1}}{\\frac{x^3}{3} \\Big|_{0}^{1}}   = \\frac{3}{4} \\ m" />
-		</li>
-		<li> Solve for <InlineEquation equation=" \\bar{y}" /> 
-			<DisplayEquation equation=" \\bar{y} = \\frac{\\int \\tilde{y} \\,dA}{\\int dA} = \\frac{\\int \\frac{y}{2} y   \\,dx}{\\int y \\,dx}  = \\frac{\\int_{0}^{1} \\frac{x^4}{2} \\,dx}{\\int_{0}^{1} x^2 \\,dx} =  \\frac{\\frac{x^5}{10} \\Big|_{0}^{1}}{\\frac{x^3}{3} \\Big|_{0}^{1}}   = \\frac{3}{10} \\ m" />
-		</li>
-	</ol>
-	</div>
-</Example>
-
-</SubSection>
 </Layout>
 
 <script src="/sta/centers_of_mass/canvases.js" is:inline></script>
