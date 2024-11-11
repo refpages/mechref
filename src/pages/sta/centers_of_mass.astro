@@ -158,8 +158,14 @@ with similar equations for <InlineEquation equation="\\bar{y}" />.
 <SubSubSection title="Centroids of Basic Shapes" id="basic_shapes">
 
 <style>
-    /* CSS to center images in table cells */
-    td img {
+    /* Center-align all table content */
+    #mvdiag_table th, #mvdiag_table td {
+        text-align: center;
+        vertical-align: middle;
+    }
+    
+    /* Center images within table cells */
+    #mvdiag_table td img {
         display: block;
         margin: 0 auto;
     }
