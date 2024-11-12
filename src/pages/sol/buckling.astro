@@ -11,155 +11,141 @@ import Item from "../../components/Item.astro"
 import Itemize from "../../components/Itemize.astro"
 ---
 <Layout title="Buckling">
-<Section title="Buckling">
+
+	<div slot="navtree">
+		<ul class='list-group list-group-flush py-0'> 
+			<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#stability'>Stability of Structures</a>
+				<ul class='list-group list-group-flush py-0'> 
+					<li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#single-column'>Single Column</a></li> 
+					<li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#two-rods-spring'>Two Rods and a Torsional Spring</a></li>  
+				</ul>
+			</li>
+			<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#euler'>Euler's Formula</a>
+				<ul class='list-group list-group-flush py-0'> 
+					<li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#pinned-end'>Pinned-end Columns</a></li> 
+					<li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#other-boundary-conditions'>Other Boundary Conditions</a></li>  
+				</ul>
+			</li>  
+		</ul>
+	</div>
+<Section title="Buckling" id="buckling">
 
 <strong>Buckling</strong> is the sudden change in shape of a structural component under a compressive load
 
-<Image src='/Solid_Mechanics/Buckling-Figures/BuckleVSDeflect.png' width='4'>  <BlueText>Taken from TAM251 Lecture Notes - L13S2 </BlueText></Image>
+<Image src='/Solid_Mechanics/Buckling-Figures/BuckleVSDeflect.png' width='5'></Image>
 
  The beam is still able to withstand normal loads, but buckling causes an <strong>instability</strong>. Small perturbations make the structure unstable. 
 
-
-
  Failure is elastic (<InlineEquation equation='\\sigma < \\sigma_Y' />), but if increased loads are applied, further deformation and plastic failure (yielding) / brittle failure (fracture) can occur (post-buckling failure).
 </Section>
-<SubSection title="Stability of Structures"></SubSection>
 
-<SubSubSection title="Single Column">
+<SubSection title="Stability of Structures" id="stability"></SubSection>
 
-<Image src='/Solid_Mechanics/Buckling-Figures/Stability of Structures.png' width='1.75'>  <BlueText>Taken from TAM251 Lecture Notes - L13S3</BlueText></Image>
+<SubSubSection title="Single Column" id="single-column">
 
- Column <InlineEquation equation='AB' /> is supporting uniaxial compressive load <InlineEquation equation='P' />. To properly design this column, the cross-section must satisfy the following:
+<Image src='/Solid_Mechanics/Buckling-Figures/Stability of Structures.png' width='3'></Image>
 
-<DisplayEquation equation='\\sigma = \\frac{P}{A} \\le \\sigma_{all}\\' />
-<DisplayEquation equation='\\delta = \\frac{PL}{EA} \\le \\delta_{spec}\\' />
+ Column <InlineEquation equation='AB' /> is supporting uniaxial compressive load <InlineEquation equation='P' />. To properly design this column, the cross-section must satisfy two equations.
+
+<DisplayEquation equation=' \\begin{align} \\sigma = \\frac{P}{A} \\le \\sigma_{all} \\\\ \\delta = \\frac{PL}{EA} \\le \\delta_{spec} \\end{align}' title="Uniaxial compressive load on single column." background="True" />
 
  Increasing the load can cause the column to buckle <InlineEquation equation='\\rightarrow' /> instability causing failure.
 </SubSubSection>
-<SubSubSection title="Two Rods and a Torsional Spring">
 
-<Image src='/Solid_Mechanics/Buckling-Figures/TwoRods.png' width='4'>  <BlueText>Taken from TAM251 Lecture Notes - L13S4</BlueText></Image>
+<SubSubSection title="Two Rods and a Torsional Spring" id="two-rods-spring">
+
+<Image src='/Solid_Mechanics/Buckling-Figures/TwoRods.png' width='3.5'></Image>
 
  Rods <InlineEquation equation='AC' /> and <InlineEquation equation='CB' /> are perfectly aligned and a torsional spring connects them at point <InlineEquation equation='C' />. For small perturbations, point <InlineEquation equation='C' /> moves to the right.
 
 <Itemize>
-	<Item>If </Item>
-	<Item>If </Item>
+	<Item>If <InlineEquation equation="C"/> <strong>returns</strong> to the original position, then the system is <strong>stable</strong></Item>
+	<Item>If <InlineEquation equation="C"/> <strong>moves farther away</strong> from the original position, then the system is <strong>unstable</strong></Item>
 </Itemize>
 
-<Image src='/Solid_Mechanics/Buckling-Figures/TopRodFBD.png' width='1'><BlueText>Taken from TAM251 Lecture Notes - L13S5</BlueText></Image>
+<Image src='/Solid_Mechanics/Buckling-Figures/TopRodFBD.png' width='1.5'></Image>
 
 
- The spring restoring moment is 
+<DisplayEquation equation='M_s = K(2\\Delta\\theta)= \\text{restoring moment}\\' title="Spring restoring moment." background="True" />
 
-<DisplayEquation equation='M_s = K(2\\Delta\\theta)= \\text{restoring moment}\\' />
+The resultant moment from the applied load <InlineEquation equation="P"/> tends to move the rod away from the vertical position.
+<DisplayEquation equation='M_{load} = P\\frac{L}{2}\\sin\\Delta\\theta = P\\frac{L}{2}\\Delta\\theta = \\text{destabilizing moment}\\' title="Sprind destabilizing moment." background="True" />
 
- The moment resultant from the applied load P tends to move the rod away from the vertical position
-
-<DisplayEquation equation='M_{load} = P\\frac{L}{2}\\sin\\Delta\\theta = P\\frac{L}{2}\\Delta\\theta = \\text{destabilizing moment}\\' />
 
 <Itemize>
-	<Item>Stable system: </Item>
-	<Item>Unstable system: </Item>
-	<Item>Equilibrium position gives: </Item>
+	<Item>Stable system: <InlineEquation equation="M > M_{load}" /></Item>
+	<Item>Unstable system: <InlineEquation equation="M< M_{load}" /></Item>
+	<Item>Equilibrium position gives:<InlineEquation equation="M=M_{load}" /> </Item>
 </Itemize>
 
+<DisplayEquation equation="P_{cr} = \\frac{4K}{L}\\" title="Critical load." background="True" derivation="True" id="crt-lod">
 
- The critical load can be found with
+    <DisplayEquation equation="M_s = M_{load}" />
+    <DisplayEquation equation="K(2\\Delta\\theta) = P_{cr}\\frac{L}{2}\\Delta\\theta" />
 
-<DisplayEquation equation='P_{cr} = \\frac{4K}{L}\\' />
-
- <BlueText><strong>**Expandable Derivation**</strong></BlueText>
-
-<BlueText>
-<DisplayEquation equation='M_s = M_{load}\\' />
-<DisplayEquation equation='K(2\\Delta\\theta) = P_{cr}\\frac{L}{2}\\Delta\\theta\\' />
-</BlueText>
-
- <BlueText><strong>**End Derivation**</strong></BlueText>
+</DisplayEquation>
 
 </SubSubSection>
 
-<SubSection title="Euler's formula">
+<SubSection title="Euler's Formula" id="euler">
 
-<BlueText>Euler's formula can be used to solve for the critical load of a uniaxially loaded column. 
-</BlueText>
+Euler's formula can be used to solve for the critical load of a uniaxially loaded column. 
 
 </SubSection>
 
-<SubSubSection title="Pinned-end Columns">
+<SubSubSection title="Pinned-end Columns" id="pinned-end">
 
-<Image src='/Solid_Mechanics/Buckling-Figures/Pinned.png' width='3'>  <BlueText>Taken from TAM251 Lecture Notes - L13S6</BlueText></Image>
+<Image src='/Solid_Mechanics/Buckling-Figures/Pinned.png' width='3.5'></Image>
 
- Rod <InlineEquation equation='AB' /> is pinned on each end.
+ Rod <InlineEquation equation='AB' /> is pinned on each end. After a small perturbation, the system reaches equilibrium.
 
- Equilibrium gives
+<DisplayEquation equation="y''(x) + \\frac{P}{EI}y(x) = 0\\" title="Pinned-end equilibrium." background="True" derivation="True" id="pin-end">
 
-<DisplayEquation equation='M = -Py\\' />
+    <DisplayEquation equation="M(x) = EIy''(x)\\" />
+    <DisplayEquation equation="M = -Py(x)\\"/>
+	<DisplayEquation equation="EIy''(x) = -Py(x)\\" />
 
- After a small perturbation, the system reaches equilibrium 
-
-
-<DisplayEquation equation='M(x) = EIy''(x)\\' />
-<DisplayEquation equation='EIy'' = -Py\\' />
-<DisplayEquation equation='y'' + \\frac{P}{EI}y = 0\\' />
-
- Linear, homogeneous differential equation of second order with constant coefficients. The general solution is 
-
-<DisplayEquation equation='y(x) = A\\sin(px) + B\\cos(px)\\' />
-
- With boundary conditions 
-<DisplayEquation equation='y(0) = y(L) = 0\\' />
-
- Euler's Formula 
-<DisplayEquation equation='P_{cr} = \\frac{\\pi^2EI}{L^2}\\' />
-
- Buckling occurs at
-<DisplayEquation equation='P > P_{cr}\\' />
+</DisplayEquation>
 
 
+ Linear, homogeneous differential equation of second order with constant coefficients.
 
- <BlueText><strong>**Expandable Derivation**</strong></BlueText>
+<DisplayEquation equation='y(x) = A\\sin(px) + B\\cos(px)\\'  title="General solution." background="True" />
 
-<BlueText>
-<DisplayEquation equation='y(x) = A\\sin(\\sqrt{\\frac{P}{EI}}x) + B\\cos(\\sqrt{\\frac{P}{EI}}x)\\' />
-<DisplayEquation equation='y(x=0)=0 \\rightarrow A\\sin(0)+B\\cos(0) = 0\\' />
-<DisplayEquation equation='B=0\\' />
-<DisplayEquation equation='y(x=L)=0 \\rightarrow A\\sin(\\sqrt{\\frac{P}{EI}}L)+0 = 0\\' />
-<DisplayEquation equation=' A\\sin(\\sqrt{\\frac{P}{EI}}L)=0\\' />
- This has two solutions
-</BlueText>
+<DisplayEquation equation='y(0) = y(L) = 0\\'  title="Boundary conditions." background="True" />
 
 
+<DisplayEquation equation="\\begin{align} P_{cr} = \\frac{\\pi^2EI}{L^2} \\\\ \\text{where	} P > P_{cr} \\end{align}" title="Euler's formula for buckling." background="True" derivation="True" id="axl-fdr">
 
+	<DisplayEquation equation='y(x) = A\\sin(\\sqrt{\\frac{P}{EI}}x) + B\\cos(\\sqrt{\\frac{P}{EI}}x)\\' />
+	<DisplayEquation equation='y(x=0)=0 \\rightarrow A\\sin(0)+B\\cos(0) = 0\\' />
+	<DisplayEquation equation='B=0\\' />
+	<DisplayEquation equation='y(x=L)=0 \\rightarrow A\\sin(\\sqrt{\\frac{P}{EI}}L)+0 = 0\\' />
+	<DisplayEquation equation=' A\\sin(\\sqrt{\\frac{P}{EI}}L)=0\\' />
+	This has two solutions
 
- <BlueText>
-<DisplayEquation equation='A = 0 \\rightarrow \\text{not interesting}\\' />
- </BlueText>
+	<DisplayEquation equation='A = 0 \\rightarrow \\text{not interesting}\\' />
 
- <BlueText>
-<DisplayEquation equation="A = n \\rightarrow n \\text{any number except where} A\\sin(\\sqrt{\\frac{P}{EI}}L) = n\\pi" />
-<DisplayEquation equation='\\frac{P}{EI}L^2 = n^2\\pi^2\\' />
-<DisplayEquation equation='P_{cr} = \\frac{n^2\\pi^2EI}{L^2}\\' />
-</BlueText>
+	<DisplayEquation equation="A = n \\rightarrow n \\text{ (any number) except where } A\\sin(\\sqrt{\\frac{P}{EI}}L) = n\\pi" />
+	<DisplayEquation equation='\\frac{P}{EI}L^2 = n^2\\pi^2\\' />
+	<DisplayEquation equation='P_{cr} = \\frac{n^2\\pi^2EI}{L^2}\\' />
 
- <BlueText>Buckling usually happens at the smallest non-zero value of <InlineEquation equation='P_{cr}' />
-<DisplayEquation equation='n=1\\' />
-</BlueText>
+	Buckling usually happens at the smallest non-zero value of <InlineEquation equation='P_{cr}' />.
+	<DisplayEquation equation='n=1\\' />
 
- <BlueText>Higher <InlineEquation equation='n' /> values can be achieved if columns are prevented from buckling at <InlineEquation equation='n=1' />
- </BlueText>
+	Higher <InlineEquation equation='n' /> values can be achieved if columns are prevented from buckling at <InlineEquation equation='n=1' />.
 
- <BlueText><strong>**End Derivation**</strong></BlueText>
+</DisplayEquation>
+
 </SubSubSection>
-<SubSubSection title="Other Boundary Conditions">
+<SubSubSection title="Other Boundary Conditions" id="other-boundary-conditions">
 
-<Image src='/Solid_Mechanics/Buckling-Figures/EulerConditions.png' width='5'><BlueText>Taken from TAM251 Lecture Notes - L13S8</BlueText></Image>
+<Image src='/Solid_Mechanics/Buckling-Figures/EulerConditions.png' width='7'></Image>
 
-<BlueText>
-Different boundary conditions change length used in the critical load formula to the effective length (<InlineEquation equation='L_e' />).
-<DisplayEquation equation='P_{cr} = \\frac{\\pi^2EI}{L_e^2}\\' />
-</BlueText>
+
+Different boundary conditions change the length used in the critical load formula resulting in an effective length (<InlineEquation equation='L_e' />).
+<DisplayEquation equation='P_{cr} = \\frac{\\pi^2EI}{L_e^2}\\' title="General critical load formula." background="True" />
+
 
 </SubSubSection>
 </Layout>
