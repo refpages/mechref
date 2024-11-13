@@ -8,6 +8,52 @@ import Image from "../../components/Image.astro"
 <Layout title="About">
 <Section title="About"></Section>
 
+    
+
+        <p class="mb-5 d-none d-xl-block">
+            Use the expandable sidebar menu on the left to explore the topics for a certain course, and navigate to your desired page.
+        </p>
+
+        <Searchbar />
+
+        <p class="my-3">
+            Use the searchbar that looks exactly like the one above to lookup a particular keyword (I'm in the navbar at the top)! You can filter between the courses, or search across all of them at once.
+        </p>
+       
+
+    <CalloutContainer slot="cards">
+        <CalloutCard>
+            You can toggle between light and dark mode? The button is located in the navbar at the top of each page. On desktop, it should be right above me! 
+        </CalloutCard>
+    </CalloutContainer>
+
+    <SubSection title="In-page features">
+        <p>Pages contain blue boxes, meant to give you helpful tips, extra information, or show applications of the material being discussed!</p>
+        <Row>
+            
+            <Col values="6 md-8 lg-9">
+                <p>
+                    You can also find a in-page navigation menu, showing you all the sections and subsections in the page, and allow you to navigate to them in one click. On phones and tablets, this is located at the top of the page, and on desktops and laptops it is below the sidebar menu.
+                </p>
+            </Col>
+            <Col values="6 md-4 lg-3">
+                <img src="/light-menu.png" class="w-100" id="menu-demo"/>
+
+                <script>
+                    if (theme == 'dark'){
+                        document.querySelector("#menu-demo").src = "/dark-menu.png"
+                    }
+                </script>
+            </Col>
+        </Row>
+        
+
+        
+    </SubSection>
+     
+
+
+
 <SubSection title="SIIP efforts in TAM 2XX">
     <Image src="/about/studentLearningOutcomes.PNG" width="7"/>
     <Image src="/about/assessmentOfLearning.PNG" width="7"/>
