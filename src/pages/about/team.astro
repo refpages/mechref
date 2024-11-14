@@ -3,10 +3,20 @@ import Layout from "../../layouts/Layout.astro"
 import Section from "../../components/Section.astro"
 import SubSection from "../../components/SubSection.astro"
 import Image from "../../components/Image.astro"
+import Row from '../components/Row.astro';
+import Col from '../components/Col.astro';
 ---
 
 <Layout title="About">
-<Section title="Meet the team">
-</Section>
+
+<Row>
+    <Col values="7">
+       <p> Mission </p>
+       <p> </p>
+    </Col>
+    <Col values="5">
+        <p> Vision </p>
+    </Col>
+</Row>
 </SubSection>
 </Layout>
