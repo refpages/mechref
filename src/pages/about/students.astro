@@ -29,7 +29,26 @@ import CalloutContainer from "../../components/CalloutContainer.astro"
     </CalloutContainer>
 </SubSection>
 
+<SubSection title="In-page features">
+        <p>Pages contain blue boxes, meant to give you helpful tips, extra information, or show applications of the material being discussed!</p>
+        <Row>
+            
+            <Col values="6 md-8 lg-9">
+                <p>
+                    You can also find a in-page navigation menu, showing you all the sections and subsections in the page, and allow you to navigate to them in one click. On phones and tablets, this is located at the top of the page, and on desktops and laptops it is below the sidebar menu.
+                </p>
+            </Col>
+            <Col values="6 md-4 lg-3">
+                <img src="/light-menu.png" class="w-100" id="menu-demo"/>
 
+                <script>
+                    if (theme == 'dark'){
+                        document.querySelector("#menu-demo").src = "/dark-menu.png"
+                    }
+                </script>
+            </Col>
+        </Row>      
+</SubSection>
  
 <SubSection title="SIIP efforts in TAM 2XX">
     <Image src="/about/studentLearningOutcomes.PNG" width="7"/>
