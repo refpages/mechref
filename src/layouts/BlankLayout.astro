@@ -1,15 +1,8 @@
 ---
 import Navbar from '../components/Navbar.astro';
-import SidebarContainer from '../components/SidebarContainer.astro';
+import Footer from '../components/Footer.astro';
 
 const { title } = Astro.props;
-
-const current_path = Astro.url;
-const split_ = current_path.pathname.split('/')
-const cleaned = split_.slice(1, split_.length)
-
-const course = cleaned[0]
-const pagename = cleaned[1]
 ---
 
 <!doctype html>
@@ -28,9 +21,8 @@ const pagename = cleaned[1]
 		
 		<script src="/bootstrap.min.js" is:inline></script>
 		
-
 		<script id="MathJax-script" src="/mathjax/tex-chtml.js" is:inline></script>
-
+		
 
 		
 		<script src="/jquery-2.1.4.min.js" is:inline></script>
@@ -45,14 +37,15 @@ const pagename = cleaned[1]
 		<link rel="stylesheet" href="/static/css/lightTheme.css" id="lightTheme">
 		<link rel="stylesheet" href="/static/css/darkTheme.css" id="darkTheme" disabled>
 
+		<link rel="stylesheet" href="/static/css/tables.css">
+
 		<script src="/static/js/themes.js" is:inline></script>
 		<link rel="stylesheet" href="/static/css/themes.css">
 		
 		<link rel="stylesheet" href="/static/css/main.css">
 		<link rel="stylesheet" href="/static/css/sidebar.css">
 
-		
-	
+
 		<!-- Google tag (gtag.js) -->
 		<script async src="https://www.googletagmanager.com/gtag/js?id=G-2YD4TR8K2S"></script>
 		<script is:inline>
@@ -63,19 +56,15 @@ const pagename = cleaned[1]
 			gtag('config', 'G-2YD4TR8K2S');
 		</script>
 	</head>
-	<body class="w-100">
-		<Navbar course={course}/>
-		<div class="container-xxl content mb-5">
-			<SidebarContainer page={pagename} course={course}>
-				<slot name="navtree" />
-			</SidebarContainer>
-			<div class="w-100 pt-0 pt-xl-3">
-				<slot />
-			</div>
-
+	<body style="width: 100%;">
+		<Navbar />
+		<div class="container-xxl content my-5">
+			<slot />
 		</div>
+		<Footer />
 	</body>
 </html>
+
 <style is:global>
 	@font-face {
 		font-family: 'SourceSansPro';
@@ -86,11 +75,40 @@ const pagename = cleaned[1]
 
 	@font-face {
 		font-family: 'SourceSansPro';
+		font-style: semibold;
+		font-weight: 600;
+		src: url('/fonts/source-sans-pro/SourceSansPro-Semibold.otf');
+	}
+
+	@font-face {
+		font-family: 'SourceSansPro';
 		font-style: bold;
 		font-weight: 700;
 		src: url('/fonts/source-sans-pro/SourceSansPro-Bold.otf');
 	}
 	
+	@font-face {
+		font-family: 'Montserrat';
+		font-style: bold;
+		font-weight: 700;
+		src: url('/fonts/Montserrat-Bold.ttf');
+	}
+
+	@font-face {
+		font-family: 'Font Awesome 6';
+		src: url('/fonts/pro-fa-brands-400-1.woff2');
+	}
+
+	.fa-brands{
+		font-family: "Font Awesome 6 Brands";
+		-webkit-font-smoothing: antialiased;
+		display: inline-block;
+		font-style: normal;
+		font-variant: normal;
+		line-height: 1;
+		text-rendering: auto;
+	}
+
 	:root {
 		--illini-orange: #ff5f05;
 		--illini-blue: #13294B;
@@ -112,40 +130,5 @@ const pagename = cleaned[1]
 
 	body {
 		font-size: 1.1rem;
-	}
-
-	.callout-grid{
-		display: grid;
-		grid-template-columns: 1fr;
-	}
-
-	.content{
-		display: grid;
-		grid-template-columns: 1fr;
-	}
-
-
-	.subsection{
-        color: var(--text-main);
-    }
-
-    .subsubsection{
-        color:var(--text-secondary);
-    }
-
-	.subsubsubsection{
-        color:var(--text-tertiary);
-    }
-
-	@media (min-width: 1200px){
-		.content{
-			grid-template-columns: 1fr 5fr;
-		}
-	}
-
-	@media (min-width: 992px){
-		.callout-grid{
-			grid-template-columns: 20fr 7fr;
-		}
 	}
 </style>
