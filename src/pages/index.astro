@@ -13,9 +13,18 @@ import Layout from '../layouts/Layout.astro';
 
 <Layout title="Mechanics Reference">
 
-<Image src='/MainFig.png' width='6'></Image>
+<Row>
+<Col values="6">
+<Image src='/MainFig.png' </Image>
+</Col>
+<Col values="6">
+Welcome to the reference pages for the courses taught in Mechanical Science and Engineering at the University of Illinois at Urbana-Champaign.
+</Col>
+</Row>
 
-    <Section title="Welcome to Mechref!">
+
+
+    <SubSection title="Navigation tips">
 
         <p class="mb-5 d-none d-xl-block">
             Use the expandable sidebar menu on the left to explore the topics for a certain course, and navigate to your desired page.
@@ -33,7 +42,7 @@ import Layout from '../layouts/Layout.astro';
             You can toggle between light and dark mode? The button is located in the navbar at the top of each page. On desktop, it should be right above me! 
         </CalloutCard>
     </CalloutContainer>
-    </Section>
+    </SubSection>
 
     <SubSection title="In-page features">
         <p>Pages contain blue boxes, meant to give you helpful tips, extra information, or show applications of the material being discussed!</p>
