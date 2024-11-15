@@ -8,14 +8,16 @@ import InlineEquation from "../../components/InlineEquation.astro"
 import DisplayEquation from "../../components/DisplayEquation.astro" 
 import Enumerate from "../../components/Enumerate.astro"
 import Item from "../../components/Item.astro"
+import Warning from "../../components/Warning.astro"
+import SubSubSection from "../../components/SubSubSection.astro"
 ---
 <Layout title="Virtual Work">
 
     <div slot="navtree">
         <ul class='list-group list-group-flush py-0'> 
-          <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#virtual_displacements'>Virtual displacements</a></li> 
+          <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#virtual_displacements'>Virtual Displacements</a></li> 
           <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#principle_virtual_work'>Principle of Virtual Work</a></li>
-          <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#virtual_work_analysis'>Virtual work analysis</a></li>
+          <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#virtual_work_analysis'>Virtual Work Analysis</a></li>
       </ul>
       </div>
 
@@ -24,46 +26,78 @@ import Item from "../../components/Item.astro"
 <!-- Lectures 34 and 35 -->
 A force does work when it produces a displacement along its line of action. 
 
-Virtual work (<InlineEquation equation='dU' />) is the work produced by a force over an infinitesimally small displacement <InlineEquation equation='dr' />.
+Virtual work (<InlineEquation equation='dU' />) is the work produced by a force (<InlineEquation equation='F' />) over an infinitesimally small displacement (<InlineEquation equation='dr' />).
 
-<DisplayEquation equation='dU = F\\cdot dr\\' />
-
-Virtual work of a couple moment: 
-
-<DisplayEquation equation='dU = \\vec{M}\\cdot d\\theta \\vec{k}\\' />
-
-<Image src='/Statics/VWorkFigures/VWorkCoupleMoment.png' width='5 '> Virtual work  <InlineEquation equation='dU' />  completed by a couple moment,  <InlineEquation equation='M' /> .</Image>
+<DisplayEquation equation='dU = F\\cdot dr\\' title="Virtual work." background="True"/>
 
 We can use virtual work to solve for the forces in a system without needing to solve for all of the support reactions. For example, if a truss is completely pinned on one end, it doesn't move, which means there is no virtual work completed on that pin because there are no virtual displacements!
 
 </Section>
 
-<SubSection title="Virtual displacements" id="virtual_displacements">
-A virtual displacement is an infinitesimally small displacement (or rotation) that is possible in the system, denoted usually as <InlineEquation equation='dx' /> or <InlineEquation equation='d\\theta' />. It's important to note that virtual displacements are assumed to be possible but don't actually exist. 
+<SubSection title="Virtual Displacements" id="virtual_displacements">
+
+<DisplayEquation equation="d\\vec{r_P} = d\\vec{r_A} + d\\theta \\vec{k} \\times \\vec{r_{AP}}" title="Virtual displacement." background="True" />
+
+A virtual displacement is an infinitesimally small displacement and/or rotation (<InlineEquation equation="dx \\text{ and/or } d\\theta"/>) that is possible in the system. 
+<br>
+<em>Note:</em> virtual displacements are assumed to be possible, but don't actually exist. 
 
 </SubSection>
+
+<SubSubSection title="Couple Moments" id="couple_moments">
+
+    <Image src='/Statics/VWorkFigures/VWorkCoupleMoment.png' width='5 '> Virtual work  <InlineEquation equation='dU' />  completed by a couple moment,  <InlineEquation equation='M' /> .</Image>
+
+    When a body's roation and the moment vector are orented in the same direction, the couple moment does work.
+    
+    Couple moment  virtual work (<InlineEquation equation='dU' />) is the work produced by a couple moment (<InlineEquation equation='M' />) over an infinitesimally small angular displacement (<InlineEquation equation='d\\theta' />).
+    
+    <DisplayEquation equation='dU = M d\\theta' title="Virtual work of a couple moment." background="True" derivation="True" id="cpl-mmt">
+
+        <DisplayEquation equation="dU = \\Sigma \\vec{F_i} \\cdot d\\vec{r_i}"/>
+        <DisplayEquation equation="dU = \\vec{F_A} \\cdot d\\vec{r_A} +\\vec{F_B} \\cdot d\\vec{r_B}"/>
+        <DisplayEquation equation="dU = -\\vec{F} \\cdot (d\\vec{r_A} + d\\theta \\vec{k} \\times \\vec{r_{AA}}) + F \\cdot (d\\vec{r_A} + d\\theta \\vec{k} \\times \\vec{r_{AB}})"/>
+        <DisplayEquation equation="d\\theta \\vec{k} \\times \\vec{r_{AA}} = 0"/>
+        <DisplayEquation equation="dU = -\\vec{F} \\cdot d\\vec{r_A} + \\vec{F} \\cdot d\\vec{r_A} +  \\vec{F} \\cdot (d\\theta \\vec{k} \\times \\vec{r_{AB}})"/>
+        <DisplayEquation equation="dU = \\vec{F} \\cdot (d\\theta \\vec{k} \\times \\vec{r_{AB}})"/>
+        <DisplayEquation equation="dU = d\\theta \\vec{k} \\cdot (\\vec{r_{AB}} \\times \\vec{F})"/>
+        <DisplayEquation equation="dU = d\\theta \\vec{k} \\cdot \\vec{M}"/>
+        <DisplayEquation equation="dU = M \\vec{k} \\cdot d\\theta \\vec{k}"/>
+    </DisplayEquation>
+
+</SubSubSection>
 
 <SubSection title="Principle of Virtual Work" id="principle_virtual_work">
 
 If a body is in equilibrium, the sum of the virtual work done by all the forces and couple moments acting on the body is zero. 
 
-<DisplayEquation equation="\\sum{dU} = \\sum{\\vec{F}d\\vec{x}} + \\sum{\\vec{M}d\\vec{\\theta}} = 0 " />
+<DisplayEquation equation="\\sum{dU} = \\sum{\\vec{F}d\\vec{x}} + \\sum{\\vec{M}d\\vec{\\theta}} = 0 " title="Virtual work equilibrium." background="True"/>
 
 </SubSection>
 
-<SubSection title="Virtual work analysis" id="virtual_work_analysis">
+<SubSection title="Virtual Work Analysis" id="virtual_work_analysis">
 
 <p>Steps for completing an analysis of a system using virtual work: </p>
 
 <!-- %taken from TAM 210 Lecture 34 -->
 <Enumerate>
-    <Item>Draw a free body diagram of the system, including a coordinate system</Item>
-    <Item>Sketch the "deflected" position of the system</Item>
-    <Item>Define the position coordinates (measured from a fixed point), select the parallel line of action component, and remove all the forces that do not complete any work </Item>
-    <Item>Differentiate the position coordinates to obtain virtual displacement</Item>
-    <Item>Write the virtual work equation, expressing the virtual work of every force and moment</Item>
-    <Item>Factor out the common virtual displacement term and solve</Item>
+    <Item>Draw a free body diagram of the system, including a coordinate system.</Item>
+    <Item>Sketch the "deflected" position of the system.</Item>
+    <Item>Define the position coordinates (measured from a fixed point).</Item>
+    <Item>Select the parallel line of action component.</Item>
+    <Item>Remove all the forces that do not complete any work. </Item>
+    <Item>Differentiate the position coordinates to obtain virtual displacement.</Item>
+    <Item>Write the virtual work equation, expressing the virtual work of every force and moment.</Item>
+    <Item>Factor out the common virtual displacement term.</Item> 
+    <Item>Solve.</Item>
 </Enumerate>
+
+
+<Warning title="Virtual work can be an easier method of solving for some problems." id="vrt-wrk">
+    <p>
+      For simple problems, virtual work is aobut the same amount of work as the equailibrium equations. 
+    </p>
+   </Warning>
 
 <!--It might be good to put an example problem here eventually-->
 

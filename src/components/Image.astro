@@ -1,9 +1,5 @@
 ---
-const { src, width="5", alt='', id=""} = Astro.props;
-
-const img_path_split = src.split('/')
-
-const filename = 'Fig: ' + img_path_split.pop().replace('.png', '')
+const { src, width="5", alt='', id="", class_="my-3"} = Astro.props;
 ---
 
 <style define:vars={{width}}>
@@ -35,7 +31,7 @@ const filename = 'Fig: ' + img_path_split.pop().replace('.png', '')
     }
 </style>
 
-<div class="img-container w-100 d-flex flex-column align-items-center my-3" id={id}>
+<div class={"img-container w-100 d-flex flex-column align-items-center " + class_} id={id}>
     <div class="d-flex flex-column align-items-center image-block p-1">
         <img src={src} class="w-100" alt={alt} id={`${id}-image`}>
     </div>

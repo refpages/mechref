@@ -1,0 +1,52 @@
+---
+import Layout from "../../layouts/Layout.astro"
+import Section from "../../components/Section.astro"
+import SubSection from "../../components/SubSection.astro"
+import Image from "../../components/Image.astro"
+import Searchbar from "../../components/Searchbar.astro"
+import CalloutCard from "../../components/CalloutCard.astro"
+import CalloutContainer from "../../components/CalloutContainer.astro"
+import Row from '../components/Row.astro';
+import Col from '../components/Col.astro';
+---
+
+<Layout title="About">
+
+<SubSection title="Navigation and usage">
+        <p class="mb-5 d-none d-xl-block">
+            Use the expandable sidebar menu on the left to explore the topics for a certain course, and navigate to your desired page.
+        </p>
+
+        <Searchbar />
+
+        <p class="my-3">
+            Use the searchbar that looks exactly like the one above to lookup a particular keyword (I'm in the navbar at the top)! You can filter between the courses, or search across all of them at once.
+        </p>
+       
+
+    <CalloutContainer slot="cards">
+        <CalloutCard>
+            You can toggle between light and dark mode? The button is located in the navbar at the top of each page. On desktop, it should be right above me! 
+        </CalloutCard>
+    </CalloutContainer>
+</SubSection>
+
+<SubSection title="In-page features">
+        <p>Pages contain blue boxes, meant to give you helpful tips, extra information, or show applications of the material being discussed!</p>
+        <p>You can also find an in-page navigation menu, showing you all the sections and subsections in the page, and allow you to navigate to them in one click. On phones and tablets, this is located at the top of the page, and on desktops and laptops it is below the sidebar menu.
+                </p>
+</SubSection>
+
+ 
+<SubSection title="Improving student learning">
+<p>These reference pages have been designed to help you access critical information when working on homeworks or studying for quizzes and exams.  </p>
+<p> Feedback from students was that they preferred web-based resources versus a textbook. </p>
+ <Image src="/about/referencePage.PNG" width="5"/>
+
+<p> We found that student GPA increased in introductory mechanics courses that included reference pages in addition to creating an active and collaborative learning environment. </p>
+    <Image src="/about/studentLearningOutcomes.PNG" width="5"/>
+    <Image src="/about/activeAndCollabLearning.PNG" width="5"/>
+    <Image src="/about/blendedLearning.PNG" width="5"/>
+</SubSection>
+
+</Layout>

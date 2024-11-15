@@ -6,21 +6,19 @@ import Image from "../components/Image.astro"
 ---
 
 <Layout title="About">
-<Section title="About"></Section>
-
-<SubSection title="SIIP efforts in TAM 2XX">
-    <Image src="/about/studentLearningOutcomes.PNG" width="7"/>
-    <Image src="/about/assessmentOfLearning.PNG" width="7"/>
-    <Image src="/about/activeAndCollabLearning.PNG" width="7"/>
-    <Image src="/about/blendedLearning.PNG" width="7"/>
-    <Image src="/about/referencePage.PNG" width="7"/>
-    <Image src="/about/onlineHomework.PNG" width="7"/>
-    <Image src="/about/quizRetries.PNG" width="7"/>
-</SubSection>
-
-<SubSection title="Importance of collaboration in learning">
-    <p>The TAM 2XX staff has worked on engineering education research with the <a target="_blank" href="https://www.colearnlab.org/" >Collaborative Learning Laboratory</a> in the Department of Education. This project is called Collaborative Support Tools for Engineering Problem Solving (CSTEPS).</p>
-
-    <p>As Teaching and Course Assistants, we try to encourage a collaborative environment using the principle of this  <a target="_blank" href="/about/CollabTeachingSequence.pdf">teaching sequence.</a></p>
-</SubSection>
+<Section title="About">
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item"><a href="/about/students"  class="text-body">For students</a></li>
+        <li class="list-group-item"><a href="/about/instructors" class="text-body">For instructors</a></li>
+        <li class="list-group-item">
+            Setup your own version of MechRef...
+            <ul class="list-group list-group-flush ">
+                <li class="list-group-item"><a href="/about/instructions/mechse" class="text-body">...as a MechSE course</a></li>
+                <li class="list-group-item"><a href="/about/instructions/illinois" class="text-body">... as a non-MechSE Illinois department</a></li>
+                <li class="list-group-item pb-0"><a href="/about/instructions/external" class="text-body">... as another college</a></li>
+            </ul>
+        </li>
+        <li class="list-group-item"><a href="/about/team" class="text-body">The project and our team</a></li>
+    </ul>
+</Section>
 </Layout>
