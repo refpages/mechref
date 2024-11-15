@@ -132,9 +132,16 @@ To solve for the centroid of an object:
     <Item>Plug the equations from 3 and 5 into the equations for the centroid</Item>
 </Enumerate>
 
-<p>The equation for the centroid of an object is as follows:</p>
+<p>The equation for the centroid of an object is:</p>
 
-<DisplayEquation equation="\\begin{align} \\bar{x} = \\frac{\\int{\\tilde{x}dV}}{\\int{dV}} \\\\ {\\bar{x}} = \\frac{\\int{\\tilde{x}dA}}{\\int{dA}} \\\\ {\\bar{x}} = \\frac{\\int{\\tilde{x}dL}}{\\int{dL}} \\end{align}" />
+  <DisplayEquation title="Centroid of an Object (3D)" id="com3D" background="True" equation="\\bar{x} = \\frac{\\int{\\tilde{x}dV}}{\\int{dV}}" derivation="False">
+ </DisplayEquation>
+
+  <DisplayEquation title="Centroid of an Object (2D)" id="com2D" background="True" equation="\\bar{x} = \\frac{\\int{\\tilde{x}dA}}{\\int{dA}}" derivation="False">
+ </DisplayEquation>
+
+  <DisplayEquation title="Centroid of an Object (1D)" id="com1D" background="True" equation="\\bar{x} = \\frac{\\int{\\tilde{x}dL}}{\\int{dL}}" derivation="False">
+ </DisplayEquation>
 
 with similar equations for <InlineEquation equation="\\bar{y}" />. 
 
@@ -239,229 +246,19 @@ with similar equations for <InlineEquation equation="\\bar{y}" />.
     </tbody>
 </DisplayTable>
 
-<!-- 
-    <p>
-        The centers of mass listed below are all computed directly from the integral <a href="#rcm-cm">#rcm-cm</a>. Note
-        the center of mass provided is the vector from point \(O\) (the reference origin).
-    </p>
-
-    <DisplayEquationCustom id="rcm-er" title="Rectangular plate: center of mass" background="True" derivation=True>
-        <div class="w-100 d-flex flex-row align-items-center">
-            <div class="w-50">
-                <InlineCanvas id="rcm-er-c" width="300" height="300" show_border=False>
-            </div>
-
-            <div class="w-50">
-                <DisplayEquation equation="\\vec{r}_C = \\frac{\\ell_x}{2}\\hat{\\imath} + \\frac{\\ell_y}{2}\\hat{\\jmath}" />
-            </div>
-        </div>
-        
-        <div slot="derivation">
-            <p>
-                <DisplayEquation equation="\\begin{aligned} \\vec{r}_C &amp;= \\frac{1}{m}\\iiint_\\mathcal{B} \\rho \\vec{r} \\, dV \\\\ &amp;= \\frac{1}{m}\\iint_{A} \\rho \\vec{r} \\, dA \\\\ &amp;= \\frac{\\rho}{m}\\int_{0}^{\\ell_x}\\int_{0}^{\\ell_y} \\left[x\\hat{\\imath} + y\\hat{\\jmath}\\right] \\, dydx \\\\ &amp;= \\frac{\\rho}{m}\\int_{0}^{\\ell_x} \\left[xy\\hat{\\imath} + \\frac{y^2}{2}\\hat{\\jmath}\\right]_{y = 0}^{y = \\ell_y} dx \\\\ &amp; = \\frac{\\rho}{m}\\int_{0}^{\\ell_x} \\left[x\\ell_y \\hat{\\imath} + \\frac{\\ell^2_y}{2}\\hat{\\jmath}\\right]dx \\\\ &amp; = \\frac{\\rho}{m} \\left[\\frac{x^2}{2}\\ell_y \\hat{\\imath} + \\frac{\\ell^2_y}{2}x\\right]_{x = 0}^{x = \\ell_x} \\\\ &amp; = \\frac{\\rho}{m} \\left[\\frac{\\ell_y \\, \\ell^2_x}{2} \\hat{\\imath} + \\frac{\\ell^2_y \\, \\ell_x}{2} \\hat{\\jmath}\\right] \\\\ \\end{aligned}" />
-            </p>
-            <p>
-                The total mass of the plate is <InlineEquation equation="m = \\rho A = \\rho \\ell_x \\ell_y "/>. Thus we have:
-                <DisplayEquation equation="\\vec{r}_C = \\frac{\\ell_x}{2}\\hat{\\imath} + \\frac{\\ell_y}{2}\\hat{\\jmath}" />
-            </p>
-        </div>
-    </DisplayEquationCustom>
-
-    <DisplayEquationCustom id="rcm-et" title="Triangular plate: center of mass" background="True" derivation=True>
-        <div class="w-100 d-flex flex-row align-items-center">
-            <div class="w-50">
-                <InlineCanvas id="rcm-et-c" width="300" height="300" show_border=False>
-            </div>
-
-            <div class="w-50">
-                <DisplayEquation equation="\\vec{r}_C = \\frac{x_P + x_Q}{3}\\hat{\\imath} + \\frac{y_Q}{3}\\hat{\\jmath}" />
-            </div>
-        </div>
-        
-        <div slot="derivation">
-            <p>
-                <DisplayEquation equation="\\begin{aligned} \\vec{r}_C &amp;= \\frac{1}{m}\\iiint_\\mathcal{B} \\rho \\vec{r} \\, dV \\\\ &amp;= \\frac{1}{m}\\iint_{A} \\rho \\vec{r} \\, dA \\\\ \\end{aligned}" />
-            </p>
-            <p>
-                It is convenient to do a linear transformation from \(x\)-\(y\) plane to the \(u\)-\(v\) plane,
-                to transform the triangle into a right-triangle with \(b = 1\), \(h = 1\):
-                <DisplayEquation equation="\\begin{aligned} x &amp;= au + bv \\\\ y &amp;= cu + dv \\\\ \\end{aligned}" />
-            </p>
-            <p>
-                Or solve the following system of equations:
-                <DisplayEquation equation="\\begin{aligned} x_P &amp;= a(1) + b(0) \\\\ x_Q &amp;= a(0) + b(1) \\ y_P &amp;= c(1) + d(0) \\\\ y_Q &amp;= c(0) + d(1) \\\\ \\end{aligned}" />
-            </p>
-            <p>
-                We find that the linear transformation is:
-                <DisplayEquation equation="\\begin{aligned} x &amp;= x_P u + x_Q v \\\\ y &amp;= y_P u + y_Q v \\\\ \\end{aligned}" />
-            </p>
-            <p>
-                The Jacobian of this coordinate transformation is:
-                <DisplayEquation equation="\\begin{aligned} J &amp;= \\begin{vmatrix}  \\frac{\\partial x}{\\partial u} &amp; \\frac{\\partial x}{\\partial v} \\\\  \\frac{\\partial y}{\\partial u} &amp; \\frac{\\partial y}{\\partial v}  \\end{vmatrix}  = \\begin{vmatrix} x_P &amp; x_Q \\\\  y_P &amp; y_Q \\end{vmatrix} = x_P y_Q - x_Q y_P \\end{aligned}" />
-            </p>
-            <p>
-                Starting with the $x$-coordinate:
-                <DisplayEquation equation="\\begin{aligned} x_C &amp;= \\frac{\\rho}{m}\\int_{0}^{1}\\int_{0}^{1 - u} (x_P u + x_Q v) \\, J \\, dvdu \\\\ &amp;= \\frac{\\rho}{m}\\int_{0}^{1}\\int_{0}^{1 - u} (x_P u + x_Q v) \\, (x_P y_Q - x_Q y_P) \\, dvdu \\\\ &amp;= \\frac{\\rho}{m}(x_P y_Q - x_Q y_P)\\int_{0}^{1}\\int_{0}^{1 - u} (x_P u + x_Q v) \\, dvdu \\\\ &amp;= \\frac{\\rho}{m}(x_P y_Q - x_Q y_P)\\int_{0}^{1}x_P u\\left[v\\right]_{v = 0}^{v = 1-u} + \\frac{x_Q}{2}\\left[v^2\\right]_{v = 0}^{v = 1-u}du \\\\ &amp;= \\frac{\\rho}{m}(x_P y_Q - x_Q y_P)\\int_{0}^{1} x_P u(1 - u) + \\frac{x_Q}{2}(1 - u)^2 du \\\\ &amp;= \\frac{\\rho}{m}(x_P y_Q - x_Q y_P) \\left(\\frac{x_P}{2} \\left[u^2\\right]_{0}^{1} - \\frac{x_P}{3}\\left[u^3\\right]_{0}^{1}  + \\frac{x_Q}{2}\\left[u\\right]_{0}^{1} - \\frac{x_Q}{2}\\left[u^2\\right]_{0}^{1} + \\frac{x_Q}{6}\\left[u^3\\right]_{0}^{1}\\right) \\\\  &amp;= \\frac{\\rho}{m}(x_P y_Q - x_Q y_P) \\left(\\frac{x_P}{2} - \\frac{x_P}{3} + \\frac{x_Q}{2} - \\frac{x_Q}{2} + \\frac{x_Q}{6}\\right) \\\\ &amp;= \\frac{\\rho}{m}(x_P y_Q - x_Q y_P) \\left(\\frac{x_P + x_Q}{6}\\right) \\end{aligned}" />
-            </p>
-            <p>
-                The total mass of the plate is <InlineEquation equation="m = \rho A = \frac{1}{2}\rho x_P y_Q" />, and with the chosen configuration \(y_P = 0\). Thus:
-                <DisplayEquation equation="x_C = \frac{x_P + x_Q}{3}" />
-            </p>
-        </div>
-    </DisplayEquationCustom>
-
-    <DisplayEquationCustom id="rcm-ee" title="Elliptical plate: center of mass" background="True" derivation=True>
-        <div class="w-100 d-flex flex-row align-items-center">
-            <div class="w-50">
-                <InlineCanvas id="rcm-ee-c" width="300" height="300" show_border=False>
-            </div>
-
-            <div class="w-50">
-                <DisplayEquation equation="\\vec{r}_C = \\frac{2a\\sin\\theta}{3\\theta}\\hat{\\imath} + \\frac{2b\\left(1 - \\cos\\theta\\right)}{3\\theta}\\hat{\\jmath}" />
-            </div>
-        </div>
-        
-        <div slot="derivation">
-            <p>
-                <DisplayEquation equation="\\begin{aligned} \\vec{r}_C &amp;= \\frac{1}{m}\\iiint_\\mathcal{B} \\rho \\vec{r} \\, dV \\\\ &amp;= \\frac{1}{m}\\iint_{A} \\rho \\vec{r} \\, dA \\\\ \\end{aligned}" />
-            </p>
-            <p>
-                It is convenient to switch to <a href="rvy.html#rvy-ec">cylindrical coordinates</a>: 
-                <DisplayEquation equation="\\begin{aligned} x &amp;= a \\, r \\cos\\theta \\\\ y &amp;= b \\, r \\sin\\theta \\\\ \\end{aligned}" />
-            </p>
-            <p>
-                The Jacobian of this coordinate transformation is:
-                <DisplayEquation equation="\\begin{aligned} J &amp;= \\begin{vmatrix}  \\frac{\\partial x}{\\partial r} &amp; \\frac{\\partial x}{\\partial \\theta} \\\\  \\frac{\\partial y}{\\partial r} &amp; \\frac{\\partial y}{\\partial \\theta}  \\end{vmatrix}  = \\begin{vmatrix} a\\cos\\theta &amp; -a r \\sin\\theta \\\\  b \\sin\\theta &amp; b r\\cos\\theta \\end{vmatrix} = a b r \\cos^2\\theta + a b r\\sin^2\\theta = a b r  \\\\ \\end{aligned}" />
-            </p>
-            <p>
-                Therefore:
-                <DisplayEquation equation="\\begin{aligned} \\vec{r}_C &amp;= \\frac{1}{m}\\iint_{A} \\rho \\vec{r} \\, dx \\, dy \\\\ &amp;= \\frac{\\rho}{m}\\int_{0}^{\\theta} \\int_{0}^{1} \\left[ar\\cos\\theta\\hat{\\imath} + br\\sin\\theta\\hat{\\jmath}\\right] \\, J \\, dr \\, d\\theta \\\\ &amp;= \\frac{\\rho ab}{m}\\int_{0}^{\\theta} \\int_{0}^{1} \\left[ar^2\\cos\\theta\\hat{\\imath} + br^2\\sin\\theta\\hat{\\jmath}\\right] \\, dr \\, d\\theta \\\\ &amp;= \\frac{\\rho ab}{m}\\int_{0}^{\\theta} \\left[\\frac{r^3}{3}\\right]_{0}^{1}a\\cos\\theta\\hat{\\imath} + \\left[\\frac{r^3}{3}\\right]_{0}^{1}b\\sin\\theta\\hat{\\jmath} \\, d\\theta \\\\ &amp;= \\frac{\\rho ab}{m}\\int_{0}^{\\theta} \\left[\\frac{1}{3}a\\cos\\theta\\hat{\\imath} + \\frac{1}{3}b\\sin\\theta\\hat{\\jmath}\\right] \\, d\\theta \\\\ &amp;= \\frac{\\rho ab}{m}\\left(\\left[\\sin\\theta\\right]_{0}^{\\theta}\\frac{1}{3}a\\hat{\\imath} + \\left[-\\cos\\theta\\right]_{0}^{\\theta}\\frac{1}{3}b\\hat{\\jmath}\\right) \\\\ &amp;= \\frac{\\rho ab}{m}\\left[\\frac{1}{3}a\\sin\\theta\\hat{\\imath} + \\frac{1}{3}b\\left(1 - \\cos\\theta\\right)\\hat{\\jmath}\\right] \\\\ \\end{aligned}" />
-            </p>
-            <p>
-                The total mass of the sector is <InlineEquation equation="m = \\rho A = \\frac{\\theta}{2}\\rho ab" />. Thus:
-                <DisplayEquation equation="\\begin{aligned} \\vec{r}_C &amp;= \\frac{\\rho ab}{m}\\left[\\frac{1}{3}a\\sin\\theta\\hat{\\imath} + \\frac{1}{3}b\\left(1 - \\cos\\theta\\right)\\hat{\\jmath}\\right] \\\\ &amp;= \\frac{\\rho ab}{\\frac{\\theta}{2}\\rho ab}\\left[\\frac{1}{3}a\\sin\\theta\\hat{\\imath} + \\frac{1}{3}b\\left(1 - \\cos\\theta\\right)\\hat{\\jmath}\\right] \\\\ &amp;= \\frac{2}{\\theta}\\left[\\frac{1}{3}a\\sin\\theta\\hat{\\imath} + \\frac{1}{3}b\\left(1 - \\cos\\theta\\right)\\hat{\\jmath}\\right] \\\\ &amp;= \\frac{2a\\sin\\theta}{3\\theta}\\hat{\\imath} + \\frac{2b\\left(1 - \\cos\\theta\\right)}{3\\theta}\\hat{\\jmath}  \\end{aligned}" />
-            </p>
-        </div>
-    </DisplayEquationCustom>
-</SubSubSection>
-
-
-<SubSection title="Simplified Shapes" id="simplified_shapes">
-
-   <p>
-        The centers of mass listed below are all special cases of the basic shapes given in Section <a href="#rcm-bs">#rcm-bs</a>. Other
-        special cases can be easily obtained by similar methods, or directly computing the integral.
-    </p>
-    
-    <DisplayEquationCustom title="Right triangular plate: center of mass" background="True" derivation="True" id="rcm-eg">
-        <div class="w-100 d-flex flex-row align-items-center">
-            <div class="w-50">
-                <InlineCanvas id="rcm-eg-c" width="300" height="300" show_border=False>
-            </div>
-
-            <div class="w-50">
-                <DisplayEquation equation="\\vec{r}_C = \\frac{b}{3}\\hat{\\imath} + \\frac{h}{3}\\hat{\\jmath}" />
-            </div>
-        </div>
-
-        <div slot="derivation">
-            <p>
-                See <a href="#rcm-xc">example problem</a> on how to derive it by directly computing the integrals.
-            </p>
-            <p>
-                The other perhaps simpler approach is to let \(x_Q = 0\) in <a href="#rcm-et">#rcm-et</a>, which forms a right triangle if the configuration
-                is the same as the one shown in the figure. Thus:
-                <DisplayEquation equation="\\begin{aligned} \\vec{r}_C &amp;= \\frac{x_P + x_Q}{3}\\hat{\\imath} + \\frac{y_Q}{3}\\hat{\\jmath} \\\\ &amp;= \\frac{x_P}{3}\\hat{\\imath} + \\frac{y_Q}{3}\\hat{\\jmath} \\\\ &amp;= \\frac{b}{3}\\hat{\\imath} + \\frac{h}{3}\\hat{\\jmath} \\end{aligned}" />
-            </p>
-        </div>
-    </DisplayEquationCustom>
-
-    <DisplayEquationCustom title="Isosceles triangular plate: center of mass" background="True" derivation="True" id="rcm-ei">
-        <div class="w-100 d-flex flex-row align-items-center">
-            <div class="w-50">
-                <InlineCanvas id="rcm-ei-c" width="300" height="300" show_border=False>
-            </div>
-
-            <div class="w-50">
-                <DisplayEquation equation="\\vec{r}_C = \\frac{b}{2}\\hat{\\imath} + \\frac{h}{3}\\hat{\\jmath}" />
-            </div>
-        </div>
-
-        <div slot="derivation">
-            <p>
-                See <a href="#rcm-xc">example problem</a> on how to derive it by directly computing the integrals.
-            </p>
-            <p>
-                The other perhaps simpler approach is to let \(x_Q = 0\) in <a href="#rcm-et">#rcm-et</a>, which forms a right triangle if the configuration
-                is the same as the one shown in the figure. Thus:
-                <DisplayEquation equation="\\begin{aligned} \\vec{r}_C &amp;= \\frac{x_P + x_Q}{3}\\hat{\\imath} + \\frac{y_Q}{3}\\hat{\\jmath} \\\\ &amp;= \\frac{x_P + \\frac{x_P}{2}}{3}\\hat{\\imath} + \\frac{y_Q}{3}\\hat{\\jmath} \\\\ &amp;= \\frac{\\frac{3}{2}x_P}{3}\\hat{\\imath} + \\frac{y_Q}{3}\\hat{\\jmath} \\\\ &amp;= \\frac{b}{2}\\hat{\\imath} + \\frac{h}{3}\\hat{\\jmath} \\end{aligned}" />
-            </p>
-        </div>
-    </DisplayEquationCustom>
-
-    <DisplayEquationCustom title="Circular sector: center of mass" background="True" derivation="True" id="rcm-ec">
-        <div class="w-100 d-flex flex-row align-items-center">
-            <div class="w-50">
-                <InlineCanvas id="rcm-ec-c" width="300" height="300" show_border=False>
-            </div>
-
-            <div class="w-50">
-                <DisplayEquation equation="\\vec{r}_C = \\frac{2r\\sin\\theta}{3\\theta}\\hat{\\imath} + \\frac{2r\\left(1 - \\cos\\theta\\right)}{3\\theta}\\hat{\\jmath}" />
-            </div>
-        </div>
-
-        <div slot="derivation">
-            <p>
-                We could use the integral definition of the center of mass and compute it directly:
-            </p>
-            <p>
-                <DisplayEquation equation="\\begin{aligned} \\vec{r}_C &amp;= \\frac{1}{m}\\iiint_\\mathcal{B} \\rho \\vec{r} \\, dV \\\\ &amp;= \\frac{1}{m}\\iint_{A} \\rho \\vec{r} \\, dA \\\\ \\end{aligned}" />
-            </p>
-            <p>
-                It is convenient to switch to <a href="rvy.html#rvy-ec">cylindrical coordinates</a>:
-                <DisplayEquation equation="\\begin{aligned} x &amp;= r \\cos\\theta \\\\ y &amp;= r \\sin\\theta \\\\ \\end{aligned}"/>
-            </p>
-            <p>
-                The Jacobian of this coordinate transformation is:
-                <DisplayEquation equation="\\begin{aligned} J &amp;= \\begin{vmatrix}  \\frac{\\partial x}{\\partial r} &amp; \\frac{\\partial x}{\\partial \\theta} \\\\  \\frac{\\partial y}{\\partial r} &amp; \\frac{\\partial y}{\\partial \\theta}  \\end{vmatrix}  = \\begin{vmatrix} \\cos\\theta &amp; -r \\sin\\theta \\\\  \\sin\\theta &amp; r\\cos\\theta \\end{vmatrix} = r \\cos^2\\theta + r \\sin^2\\theta = r \\end{aligned}" />
-            </p>
-            <p>
-                Therefore:
-                <DisplayEquation equation="\\begin{aligned} \\vec{r}_C &amp;= \\frac{1}{m}\\iint_{A} \\rho \\vec{r} \\, dx \\, dy \\\\ &amp;= \\frac{\\rho}{m}\\int_{0}^{\\theta} \\int_{0}^{r} \\left[r\\cos\\theta\\hat{\\imath} + r\\sin\\theta\\hat{\\jmath}\\right] \\, J \\, dr \\, d\\theta \\\\ &amp;= \\frac{\\rho}{m}\\int_{0}^{\\theta} \\int_{0}^{r} \\left[r^2\\cos\\theta\\hat{\\imath} + r^2\\sin\\theta\\hat{\\jmath}\\right] \\, dr \\, d\\theta \\\\ &amp;= \\frac{\\rho}{m}\\int_{0}^{\\theta} \\left[\\frac{r^3}{3}\\right]_{0}^{r}\\cos\\theta\\hat{\\imath} + \\left[\\frac{r^3}{3}\\right]_{0}^{r}\\sin\\theta\\hat{\\jmath} \\, d\\theta \\\\ &amp;= \\frac{\\rho}{m}\\int_{0}^{\\theta} \\left[\\frac{r^3}{3}\\cos\\theta\\hat{\\imath} + \\frac{r^3}{3}\\sin\\theta\\hat{\\jmath}\\right] \\, d\\theta \\\\ &amp;= \\frac{\\rho}{m}\\left(\\left[\\sin\\theta\\right]_{0}^{\\theta}\\frac{r^3}{3}\\hat{\\imath} + \\left[-\\cos\\theta\\right]_{0}^{\\theta}\\frac{r^3}{3}\\hat{\\jmath}\\right) \\\\ &amp;= \\frac{\\rho}{m}\\left[\\frac{1}{3}r^3\\sin\\theta\\hat{\\imath} + \\frac{1}{3}r^3\\left(1 - \\cos\\theta\\right)\\hat{\\jmath}\\right] \\\\ \\end{aligned}" />
-            </p>
-            <p>
-                The total mass of the sector is <InlineEquation equation="m = \\rho A = \\frac{\\theta}{2}\\rho r^2" />. Thus:
-                <DisplayEquation equation="\\begin{aligned} \\vec{r}_C &amp;= \\frac{\\rho}{m}\\left[\\frac{1}{3}r^3\\sin\\theta\\hat{\\imath} + \\frac{1}{3}r^3\\left(1 - \\cos\\theta\\right)\\hat{\\jmath}\\right] \\\\ &amp;= \\frac{\\rho}{\\frac{\\theta}{2}\\rho r^2}\\left[\\frac{1}{3}r^3\\sin\\theta\\hat{\\imath} + \\frac{1}{3}r^3\\left(1 - \\cos\\theta\\right)\\hat{\\jmath}\\right] \\\\ &amp;= \\frac{2}{\\theta r^2}\\left[\\frac{1}{3}r^3\\sin\\theta\\hat{\\imath} + \\frac{1}{3}r^3\\left(1 - \\cos\\theta\\right)\\hat{\\jmath}\\right] \\\\ &amp;= \\frac{2r\\sin\\theta}{3\\theta}\\hat{\\imath} + \\frac{2r\\left(1 - \\cos\\theta\\right)}{3\\theta}\\hat{\\jmath}  \\end{aligned}" />
-            </p>
-            <p>
-                Another way to reach this formula is to use <a href="#rcm-ee">#rcm-ee</a>, and for a circular
-                sector, let \(a = b = r\).
-            </p>
-        </div>
-    </DisplayEquationCustom>
-
-    <DisplayEquationCustom title="Semi-circular sector: center of mass" background="True" derivation="True" id="rcm-es">
-        <div class="w-100 d-flex flex-row align-items-center">
-            <div class="w-50">
-                <InlineCanvas id="rcm-es-c" width="300" height="300" show_border=False>
-            </div>
-
-            <div class="w-50">
-                <DisplayEquation equation="\\vec{r}_C = \\frac{4r}{3\\pi}\\hat{\\jmath}" />
-            </div>
-        </div>
-
-        <div slot="derivation">
-            <p>
-                Using <a href="#rcm-ec">#rcm-ec</a>, for a semi-circular sector, the angle <InlineEquation equation="\\theta = \\pi" />. Therefore:
-                <DisplayEquation equation="\\begin{aligned} \\vec{r}_C &amp;= \\frac{2r\\sin\\theta}{3\\theta}\\hat{\\imath} + \\frac{2r\\left(1 - \\cos\\theta\\right)}{3\\theta}\\hat{\\jmath} \\\\ &amp;= \\frac{2r\\sin(\\pi)}{3\\pi}\\hat{\\imath} + \\frac{2r\\left(1 - \\cos(\\pi)\\right)}{3\\pi}\\hat{\\jmath} \\\\ &amp;= 0 + \\frac{4r}{3\\pi}\\hat{\\jmath} \\\\ &amp;= \\frac{4r}{3\\pi}\\hat{\\jmath} \\end{aligned}" />
-            </p>
-        </div>
-    </DisplayEquationCustom>
-
--->
-
 <SubSubSection title = "Finding Centroids Using Composite Shapes" id = "composite_shapes">
+
+<p> We can find the centroid of more complicated shapes by breaking them up into simpler shapes and finding the centroids of those simpler shapes. </p>
+
+<p> To solve for the centroid of our original shape <InlineEquation equation="(\\bar{x}, \\bar{y})" />, we take a weighted sum of each of the centroids of our smaller shapes. We will call the centroid locations of the smaller shapes <InlineEquation equation="\\tilde{x}" /> and <InlineEquation equation="\\tilde{y}" />. </p>
+
+<DisplayEquation title="Composite Centroid (x)" id="compositex" background="True" equation="\\bar{x} &amp;= \\frac{\\sum \\tilde{x}_i A_i}{\\sum A_i}" derivation="False">
+</DisplayEquation>
+
+<DisplayEquation title="Composite Centroid (x)" id="compositey" background="True" equation="\\bar{y} &amp;= \\frac{\\sum \\tilde{y}_i A_i}{\\sum A_i}" derivation="False">
+</DisplayEquation>
+
+<p> For these equations, the weighted sum is dependent on the area of each individual shape. This is typically for 2D problems. You can also use length, weight, or mass as your weighing factor depending on what you're being asked to solve for. </p>
 
 <Example title="Find centroid of a composite shape"  id="com-ccs">
 	
@@ -471,9 +268,11 @@ with similar equations for <InlineEquation equation="\\bar{y}" />.
 	<Image src="/Statics/COMFigures/CompositeEx.jpg" width="4"></Image>
 	
 	<div slot="solution">
-	<p> First, we notice that there's a line of symmetry along <InlineEquation equation=" x = 2 \\ cm" /> , so we know that <InlineEquation equation="\\bar{x} = 2  \\ cm" />  because if there is a line of symmetry the centroid falls on that line of symmetry. This means that we only need to colve for <InlineEquation equation="\\bar{y}" />. </p>
+	<p> First, we notice that there's a line of symmetry along <InlineEquation equation=" x = 2 \\ cm" /> , so we know that <InlineEquation equation="\\bar{x} = 2  \\ cm" />  because if there is a line of symmetry the centroid falls on that line of symmetry. This means that we only need to solve for <InlineEquation equation="\\bar{y}" />. </p>
 	<DisplayEquation equation=" \\begin{aligned}  (\\bar{x}, \\bar{y}) &amp;= (2, ?)  \\\\     \\bar{y} &amp;= \\frac{\\sum \\tilde{y}_i A_i}{\\sum A_i}   \\end{aligned}"/>
-	
+
+	<p> We can do this by splitting our shape into composite shapes with known centroid locations. In this case, we will use a rectangle, a semicircle, and an isoceles triangle. </p>
+
 	<Image src="/Statics/COMFigures/CompositeSol.jpg" width="8"></Image>
 	
 	<DisplayTable id="comsol_table">
