@@ -68,9 +68,16 @@ For an incompressible fluid (density <InlineEquation equation='\\rho' />) at res
 
 <SubSection title="Fluid Pressure with Slanted and Curved Surfaces" id="fluid_pressure_FBD">
 
-<p> We will often be required to analyze the hdrostatic fluid pressure on surfaces that are not perfectly horizontal or vertical. In these cases, it is often easier to redraw our system and create articifial horizontal and vertical "surfaces" 
+<p> We will often be required to analyze the hdrostatic fluid pressure on surfaces that are not perfectly horizontal or vertical. In these cases, it is often easier to redraw our system and create articifial horizontal and vertical "surfaces", adding the force from the FBD of the weight of the water trapped in our horizontal and vertical surfaces. 
 </p>
 
+<p> This method will result in the same resultant force on the slanted surface, but the distributed loads are easier to calculate. 
+</p>
+
+<p> Using this method, we can solve for the resultant force by calculating the total horizontal forces (<InlineEquation equation=" F_H " />) and vertical forces (<InlineEquation equation=" F_V " />) and relating them using </p>
+
+<DisplayEquation equation="F_R = \\sqrt{{F_H}^2+{F_V}^2}" title="Resultant force from fluid pressure"   id="res-force">
+</DisplayEquation>
 
 <Example title="Resultant force on a curved plate"  id="fluid-curved">
 
