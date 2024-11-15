@@ -112,19 +112,27 @@ In 2D, the the value for <InlineEquation equation=" w " />, the distributed load
 
 <strong>Archimedes' Principle:</strong> Any object that is either partially or totally immersed in a fluid has a buoyancy force equal to the weight of the fluid displaced by the object. 
 
-<DisplayEquation equation="F_B = W_displaced" title="Buoyant Force" background="True" id="buoyant-f">
+<DisplayEquation equation="F_B = W_displaced" title="Buoyant Force" background="True" id="buoyant-f" derivation="True">
+
+   <DisplayEquation equation="\\sum F_x :  \\text{horizontal forces cancel out}"/></DisplayEquation>
+	<DisplayEquation equation="\\begin{aligned}  \\sum F_y :  F_B  &amp;= F_{R_2} - F_{R_1}  \\\\    &amp;= W_2 \\ S  -  W_1 \\ S  \\\\   &amp;=  \\rho \\ g \\ h_2 \\ S^2 -  \\rho \\ g \\ h_1 \\ S^2   \\\\   &amp;=  \\rho \\ g \\ S^2 \\ (h_2  -  h_1)  \\\\ &amp;=  \\rho \\ g \\ S^3   \\\\  F_B  &amp;=  \\rho \\ g \\ V  = m \\ g  \\end{aligned} "/>
+	</DisplayEquation>
+
+	<p> In which <InlineEquation equation=" F_B " /> is the buoyance force, <InlineEquation equation=" \\rho \\ g \\ V " /> is the volume of the cube, and <InlineEquation equation=" m \\ g " /> is the weight of the cube. </p>
+	 </p>
+
+    </DisplayEquation>
+
 </DisplayEquation>
 
 <Example title="Buoyant force of a basketball"  id="basketball">
-	<p> What is the buoyant force on this basketball with radius <InlineEquation equation=" R " />
+	<p> What is the buoyant force on this basketball with radius <InlineEquation equation=" R " />?
 	<Image src='/Statics/FluidFigures/Buoyancy.jpg' width='4'>
 
 	<div slot="solution">
 	<DisplayEquation equation="\\begin{aligned}  F_B &amp;=  W   \\\\   &amp;= m_{water} \\ g \\\\  &amp;= \\rho_{water} \\ V_{displaced} \\ g    \\\\   &amp;= \\rho_{water} (\\frac{4}{3} \\pi R^3) \\ g  \\end{aligned}">
 	</DisplayEquation>	
 	</div>
-
-
 </Example>
 
 
