@@ -462,6 +462,104 @@ with similar equations for <InlineEquation equation="\\bar{y}" />.
 
 <SubSubSection title = "Finding Centroids Using Composite Shapes" id = "composite_shapes">
 
+<Example title="Find centroid of a composite shape"  id="com-ccs">
+	<ul>
+		<li> Solve for <InlineEquation equation=" \\bar{y}" /> </li>
+		<li> Line of symmetry at <InlineEquation equation="x = 2 \\quad cm" /> </li>
+	</ul>
+	
+	<Image src="/Statics/COMFigures/CompositeEx.jpg" width="4"></Image>
+	
+	<div slot="solution">
+	<DisplayEquation equation=" \\begin{aligned}  (\\bar{x}, \\bar{y}) &amp;= (2, ?)  \\\\     \\bar{y} &amp;= \\frac{\\sum \\tilde{y}_i A_i}{\\sum A_i}   \\end{aligned}"/>
+	
+	<Image src="/Statics/COMFigures/CompositeSol.jpg" width="8"></Image>
+	
+	<DisplayTable id="comsol_table">
+    <thead>
+        <tr>
+	    <th class="table-shaded"> 
+            Segment
+            </th>            
+	   <th class="table-shaded">
+			Area
+            </th>
+            <th class="table-shaded">
+                 <InlineEquation equation=" \\tilde{x}"  /> 
+            </th>
+            <th class="table-shaded"> 
+                <InlineEquation equation=" \\tilde{y}"  /> 
+            </th>	
+			<th class="table-shaded"> 
+                <InlineEquation equation=" \\tilde{y} A"  /> 
+            </th>	
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td class="nosideborderleft">
+                1
+            </td>
+            <td>
+                <InlineEquation equation=" 24 \\ cm^2 " />
+            </td>
+	    <td>
+               <InlineEquation equation=" 2 \\ cm " /> 
+           </td>
+	    <td> 
+				<InlineEquation equation=" 3 \\ cm " />
+	   </td>
+	   <td> 
+				<InlineEquation equation=" 72 \\ cm^3 " />
+	   </td>
+           </tr>
+    </tbody>
+    <tbody>
+        <tr>
+            <td class="nosideborderleft">
+                2
+            </td>
+            <td>
+                <InlineEquation equation=" -4 \\ cm^2 " />
+            </td>
+	    <td>
+               <InlineEquation equation=" 2 \\ cm " /> 
+           </td>
+	    <td> 
+				<InlineEquation equation=" \\frac{1}{3} (2) = \\frac{2}{3} \\ cm " />
+	   </td>
+	   <td> 
+				<InlineEquation equation=" - \\frac{64}{3} \\ cm^3 " />
+	   </td>
+           </tr>
+    </tbody>
+        <tbody>
+        <tr>
+            <td class="nosideborderleft">
+                3
+            </td>
+            <td>
+                <InlineEquation equation=" 2 \\pi \\ cm^2 " />
+            </td>
+	    <td>
+               <InlineEquation equation=" 2 \\ cm " /> 
+           </td>
+	    <td> 
+				<InlineEquation equation=" \\frac{4R}{3 \\pi} +6 = \\frac{8}{3 \\pi} \\ cm " />
+	   </td>
+	   <td> 
+				<InlineEquation equation=" \\frac{16}{3} + 12 \\pi \\ cm^3 " />
+	   </td>
+           </tr>
+    </tbody>
+</DisplayTable>
+	
+	 <DisplayEquation equation=" \\bar{y} = \\frac{\\sum \\tilde{y}_i A_i}{\\sum A_i} = \\frac{(72 - \\frac{64}{3} + \\frac{16}{3} + 12 \\pi) \\ cm^3}{(24 - 4 +2 \\pi \\ cm^2)}  = ... \\ cm   "/>
+	 <DisplayEquation equation=" (\\bar{x} , \\bar(y)) = (2, ...) \\ cm   "/>
+	 
+	</div>
+</Example>
+
 </SubSubSection>
 
 </SubSection>
