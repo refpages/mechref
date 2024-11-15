@@ -246,6 +246,8 @@ with similar equations for <InlineEquation equation="\\bar{y}" />.
     </tbody>
 </DisplayTable>
 
+</SubSubSection> 
+
 <SubSubSection title = "Finding Centroids Using Composite Shapes" id = "composite_shapes">
 
 <p> We can find the centroid of more complicated shapes by breaking them up into simpler shapes and finding the centroids of those simpler shapes. </p>
@@ -260,6 +262,10 @@ with similar equations for <InlineEquation equation="\\bar{y}" />.
 
 <p> For these equations, the weighted sum is dependent on the area of each individual shape. This is typically for 2D problems. You can also use length, weight, or mass as your weighing factor depending on what you're being asked to solve for. </p>
 
+<Image src="/Statics/COMFigures/AxisOfSymmetry.png" width="7"></Image>
+
+If the shape has an axis of symmetry, the centroid falls on that line of symmetry. Shapes can also have more than one axis. For example, a rectangle has 2 axes, and a circle has infinite number of axes. This applies to composite shapes as well. 
+
 <Example title="Find centroid of a composite shape"  id="com-ccs">
 	
    Solve for centroid <InlineEquation equation=" (\\bar{x} , \\bar{y})" />  of the shape below.
@@ -268,7 +274,7 @@ with similar equations for <InlineEquation equation="\\bar{y}" />.
 	<Image src="/Statics/COMFigures/CompositeEx.jpg" width="4"></Image>
 	
 	<div slot="solution">
-	<p> First, we notice that there's a line of symmetry along <InlineEquation equation=" x = 2 \\ cm" /> , so we know that <InlineEquation equation="\\bar{x} = 2  \\ cm" />  because if there is a line of symmetry the centroid falls on that line of symmetry. This means that we only need to solve for <InlineEquation equation="\\bar{y}" />. </p>
+	<p> First, we notice that there's a line of symmetry along <InlineEquation equation=" x = 2 \\ cm" /> , so we know that <InlineEquation equation="\\bar{x} = 2  \\ cm" />. This means that we only need to solve for <InlineEquation equation="\\bar{y}" />. </p>
 	<DisplayEquation equation=" \\begin{aligned}  (\\bar{x}, \\bar{y}) &amp;= (2, ?)  \\\\     \\bar{y} &amp;= \\frac{\\sum \\tilde{y}_i A_i}{\\sum A_i}   \\end{aligned}"/>
 
 	<p> We can do this by splitting our shape into composite shapes with known centroid locations. In this case, we will use a rectangle, a semicircle, and an isoceles triangle. </p>
