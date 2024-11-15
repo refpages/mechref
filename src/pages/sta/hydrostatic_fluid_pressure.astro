@@ -6,6 +6,7 @@ import SubSection from "../../components/SubSection.astro"
 import BlueText from "../../components/BlueText.astro" 
 import InlineEquation from "../../components/InlineEquation.astro" 
 import DisplayEquation from "../../components/DisplayEquation.astro" 
+import Warning from "../../components/Warning.astro"
 ---
 <Layout title="Hydrostatic Fluid Pressure">
 
@@ -20,11 +21,14 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
 <!-- Lecture 30, 31, 32 -->
 <strong>Pascal's Law:</strong> A fluid at rest creates a pressure point <em>p</em> at a point that is the same in all directions. 
 
+<p><strong>Hydrostatic Fluid Pressure:</strong> Hydrostatic fluid pressure refers to the pressure from a fluid that is at rest (the "static" part of hydrostatic. It comes from the force of gravity acting on the fluid. 
+</p>
+
 </Section>
 
 <SubSection title="Fluid Pressure" id="fluid_pressure">
 
-For an incompressible fluid (density <InlineEquation equation='\\rho' />) at rest, the pressure <InlineEquation equation='p' /> varies linearly with fluid depth <InlineEquation equation='z' />. This means that the pressure along a horizontal plane (at a certain depth <InlineEquation equation='z' /> is constant.
+For an incompressible fluid (density <InlineEquation equation='\\rho' />) at rest, the pressure <InlineEquation equation='P' /> varies linearly with fluid depth <InlineEquation equation='z' />. This means that the pressure along a horizontal plane (at a certain depth <InlineEquation equation='z' /> is constant.
 
 <Image src='/Statics/FluidFigures/HydrostaticPressure.jpg' width='4'> Derivation of the pressure  <InlineEquation equation='P(z)' />  at the bottom of a cylinder of liquid with cross-sectional area  <InlineEquation equation='A' /></Image>
 
@@ -38,6 +42,18 @@ For an incompressible fluid (density <InlineEquation equation='\\rho' />) at res
                 
 			 </p>
     </DisplayEquation>
+
+<Warning title="Make sure you don't confuse pressure with force!" id="force-pressure">
+    <p>
+      Pressure is a force distributed over an area (Force per area) and therefore has units of Pascals (Pa). To calculate the resultant force from hydrostatic fluid pressure, you must use  
+    </p>
+
+	<DisplayEquation equation="F = P*A"/>
+
+	<p> Where <InlineEquation equation=" A " /> is the area that the force is applied over. 
+	<p>	
+	
+</Warning>
 		
 </SubSection>
 
