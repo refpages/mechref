@@ -2,7 +2,6 @@
 import Layout from "../layouts/Layout.astro"
 import Section from "../components/Section.astro"
 import SubSection from "../components/SubSection.astro"
-import Image from "../components/Image.astro"
 ---
 
 <Layout title="About">
@@ -21,4 +20,16 @@ import Image from "../components/Image.astro"
         <li class="list-group-item"><a href="/about/team" class="text-body">The project and our team</a></li>
     </ul>
 </Section>
+<SubSection title="Start building your course">
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            Skeleton pages
+            <ul class="list-group list-group-flush ">
+                <li class="list-group-item"><a href="/about/examples/home_page" class="text-body">Starter home page</a></li>
+                <li class="list-group-item"><a href="/about/examples/example" class="text-body">Starter page</a></li>
+            </ul>
+        </li>
+        <li class="list-group-item"><a href="/about/docs" class="text-body">Style guide & documentation</a></li>
+    </ul>
+</SubSection>
 </Layout>

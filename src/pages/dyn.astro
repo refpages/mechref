@@ -1,0 +1,35 @@
+---
+import Layout from "../layouts/CourseMenuLayout.astro"
+import Section from "../components/Section.astro"
+import SubSection from "../components/SubSection.astro"
+import Image from "../components/Image.astro"
+
+import "../../public/static/css/course_home_pages.css"
+---
+
+<Layout title="Dynamics">
+
+  <h1>
+    <strong>Dynamics</strong>
+  </h1>
+
+  <section class="mt-sm-4 mt-2">
+    <ol>
+      <li><a href="/dyn/vectors?origin=coursemenu">Vectors</a></li>
+      <li><a href="/dyn/vector_calculus?origin=coursemenu">Vector Calculus</a></li>
+      <li><a href="/dyn/particle_kinematics?origin=coursemenu">Particle Kinematics</a></li>
+      <li><a href="/dyn/particle_kinetics?origin=coursemenu">Particle Kinetics</a></li>
+      <li><a href="/dyn/rigid_body_kinematics?origin=coursemenu">Rigid Body Kinematics</a></li>
+      <li><a href="/dyn/rigid_body_kinetics?origin=coursemenu">Rigid Body Kinetics</a></li>
+      <li><a href="/dyn/contact_and_rolling?origin=coursemenu">Contact And Rolling</a></li>
+      <li><a href="/dyn/work_and_energy?origin=coursemenu">Work And Energy</a></li>
+    </ol>    
+  </section>
+  <section class="mt-sm-4 mt-2">
+    <h3 class="fw-bold w-100">Helpful links:</h3>
+    <ul>
+      <li><a href="/sta/pltips">PrairieLearn tips</a></li>
+    </ul>
+  </section>
+</div>
+</Layout>

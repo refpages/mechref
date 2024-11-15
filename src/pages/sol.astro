@@ -1,0 +1,40 @@
+---
+import Layout from "../layouts/CourseMenuLayout.astro"
+import Section from "../components/Section.astro"
+import SubSection from "../components/SubSection.astro"
+import Image from "../components/Image.astro"
+
+import "../../public/static/css/course_home_pages.css"
+---
+
+<Layout title="Solid Mechanics">
+
+<h1>
+    <strong>Solid Mechanics</strong>
+</h1>
+  <section class="mt-sm-4 mt-2">
+    <ol>
+      <li><a href="/sol/stress?origin=coursemenu">Stress</a></li>
+      <li><a href="/sol/strain?origin=coursemenu">Strain</a></li>
+      <li><a href="/sol/material_properties?origin=coursemenu">Material Properties</a></li>
+      <li><a href="/sol/axial_loading?origin=coursemenu">Axial Loading</a></li>
+      <li><a href="/sol/torsion?origin=coursemenu">Torsion</a></li>
+      <li><a href="/sol/shear_moment_diagrams?origin=coursemenu">Shear Moment Diagrams</a></li>
+      <li><a href="/sol/bending?origin=coursemenu">Bending</a></li>
+      <li><a href="/sol/transverse_shear?origin=coursemenu">Transverse Shear</a></li>
+      <li><a href="/sol/pressure_vessels?origin=coursemenu">Pressure Vessels</a></li>
+      <li><a href="/sol/combined_loading?origin=coursemenu">Combined Loading</a></li>
+      <li><a href="/sol/stress_transformation?origin=coursemenu">Stress Transformation</a></li>
+      <li><a href="/sol/failure_theories?origin=coursemenu">Failure Theories</a></li>
+      <li><a href="/sol/beam_deflection?origin=coursemenu">Beam Deflection</a></li>
+      <li><a href="/sol/buckling?origin=coursemenu">Buckling</a></li>
+    </ol>
+  </section>
+  <section class="mt-sm-4 mt-2">
+    <h3 class="fw-bold w-100">Helpful links:</h3>
+    <ul>
+      <li><a href="/sta/pltips">PrairieLearn tips</a></li>
+    </ul>
+  </section>
+</div>
+</Layout>

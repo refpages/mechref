@@ -1,0 +1,8 @@
+li:hover{
+    font-weight: bold;
+}
+
+li a{
+    color: var(--bs-text-body);
+    text-decoration: none;
+}

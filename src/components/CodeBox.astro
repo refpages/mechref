@@ -1,0 +1,32 @@
+---
+const {code = "", language=""} = Astro.props;
+---
+
+<script src="/highlight.js" is:inline></script>
+<link class="code-theme" rel="stylesheet" href="">
+
+<script is:inline>
+    codeboxes = document.querySelectorAll(".code-theme");
+
+    if (theme === 'light'){
+        
+
+        Array.from(codeboxes).forEach(e => {
+            e.href = "/static/css/stackoverflow-light.css";
+        })
+    }else{
+        Array.from(codeboxes).forEach(e => {
+            e.href = "/static/css/atom-one-dark.css";
+        })
+    }
+</script>
+
+
+
+<pre class="hljs">
+    <code class={language != "" ? "language-" + language : ""}>
+        {code}
+    </code>
+</pre>
+
+<script is:inline>hljs.highlightAll();</script>
