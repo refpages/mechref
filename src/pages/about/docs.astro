@@ -5,7 +5,12 @@ import SubSection from "../../components/SubSection.astro";
 import SubSubSection from "../../components/SubSubSection.astro";
 import CodeBox from "../../components/CodeBox.astro";
 import DisplayEquation from "../../components/DisplayEquation.astro";
+import DisplayEquationCustom from "../../components/DisplayEquationCustom.astro";
+import PrairieDrawCanvas from "../../components/PrairieDrawCanvas.astro";
 import InlineEquation from "../../components/InlineEquation.astro";
+import InlineCanvas from "../../components/InlineCanvas.astro";
+import CalloutCard from "../../components/CalloutCard.astro";
+import CalloutContainer from "../../components/CalloutContainer.astro";
 ---
 
 <Layout title="docs">
@@ -77,19 +82,22 @@ Now, the component only has one tag, essentially combining both the start and en
 Depending on that state, the behavior of the component might be different. For example, let's take the `&ltDisplayEquation&gt` component. When declared with self closing tags, it will simply be displaying an equation that take up the entire width of the screen (or whichever element it's inside of):
 
 <CodeBox language="html" code=`
-<DisplayEquation title="Normalization to unit vector." id="rvv-eu" background="True" equation="\\begin{aligned} \\hat{a} =\\frac{\\vec{a}}{a}\\end{aligned}"/>
+<DisplayEquation title="Normalization to unit vector." id="rvv-eu1" background="True" equation="\\begin{aligned} \\hat{a} =\\frac{\\vec{a}}{a}\\end{aligned}"/>
 ` />
-<img src="https://files.jcrayb.com/files/mechref/docs/comp_imgs/plain_eq.png" style="width: 100%"/>
+<DisplayEquation title="Normalization to unit vector." id="rvv-eu1" background="True" equation="\\begin{aligned} \\hat{a} =\\frac{\\vec{a}}{a}\\end{aligned}"/>
 
 But when in regular mode, whatever content we add inside of it will now be displayed inside the derivation menu:
 
 <CodeBox language="html" code=`
-<DisplayEquation title="Normalization to unit vector." id="rvv-eu" background="True" equation="\\begin{aligned} \\hat{a} =\\frac{\\vec{a}}{a}\\end{aligned}" derivation="True">
+<DisplayEquation title="Normalization to unit vector." id="rvv-eu2" background="True" equation="\\begin{aligned} \\hat{a} =\\frac{\\vec{a}}{a}\\end{aligned}" derivation="True">
     <p>Content goes here:</p>
     <DisplayEquation equation="\\vec{v} = \\vec{\\omega} \\times \\vec{r}"/>
 </DisplayEquation>
 ` />
-<img src="https://files.jcrayb.com/files/mechref/docs/comp_imgs/eq_w_derivation.png" style="width: 100%"/>
+<DisplayEquation title="Normalization to unit vector." id="rvv-eu2" background="True" equation="\\begin{aligned} \\hat{a} =\\frac{\\vec{a}}{a}\\end{aligned}" derivation="True">
+    <p>Content goes here:</p>
+    <DisplayEquation equation="\\vec{v} = \\vec{\\omega} \\times \\vec{r}"/>
+</DisplayEquation>
 
 This concept is very important, and applies to almost every component. The different behaviors will be discussed when explaining the different uses of each component.
 
@@ -97,9 +105,9 @@ This concept is very important, and applies to almost every component. The diffe
 
 <h3><a id="sections" class="title">Section elements:</a></h3>
 
-### Section
+<h4>Section</h4> 
 
-Type: Regular only
+<p><p>Type: Regular only</p></p>
 
 Options:
 <ul>
@@ -123,7 +131,7 @@ Result:
 
 Same as Section, but with smaller title.
 
-Type: Regular only
+<p><p>Type: Regular only</p></p>
 
 Options:
 <ul>
@@ -145,7 +153,7 @@ Result:
 
 Same as SubSection, but with smaller title.
 
-Type: Regular only
+<p>Type: Regular only</p>
 
 Options:
 <ul>
@@ -167,7 +175,7 @@ Result:
 
 Same as SubSection, but with smaller title.
 
-Type: Regular only
+<p>Type: Regular only</p>
 
 Options:
 <ul>
@@ -193,7 +201,7 @@ These elements provide a wrapper for LateX equation, since we cannot use `{}` di
 
 This will create an element that takes the entire width of the element it's inside of, and is useful for important equations that deserve to be highlighted.
 
-Type: Self-closing & Regular
+<p>Type: Self-closing & Regular</p>
 
 Options:
 <ul>
@@ -214,49 +222,27 @@ Example:
 <DisplayEquation title="Normalization to unit vector." id="rvv-eu" background="True" equation="Equation here"/>
 ` />
 Result:
-<display-equation>
-<div style="background-color: #f0f0d0; border: 1px solid #444; border-radius: 5px; color: black;">
-<div style="margin-left: 1rem;">Normalization to unit vector. <small>rvv-eu</small></div>
-<div style="width: 100%; display: flex; justify-content: center">
-    <div style="margin-bottom: 1rem; margin-top: 1rem;">
-        Equation here
-    </div>
-</div>
-</div>
-</display-equation>
+<DisplayEquation title="Normalization to unit vector." id="rvv-eu" background="True" equation="\\text{Equation here}"/>
 
 <u>Regular mode:</u>
 
 But when in regular mode, whatever content we add inside of it will now be displayed inside the derivation menu:
 
 <CodeBox language="html" code=`
-<DisplayEquation title="Normalization to unit vector." id="rvv-eu" background="True" equation="Equation here" derivation="True">
+<DisplayEquation title="Normalization to unit vector." id="rvv-eu3" background="True" equation="Equation here" derivation="True">
     <p>Derivation goes here:</p>
 </DisplayEquation>
 ` />
 Result:
-<display-equation>
-<div style="background-color: #f0f0d0; border: 1px solid #444; border-radius: 5px; color: black;">
-<div style="margin-left: 1rem;">Normalization to unit vector. <small>rvv-eu</small></div>
-<div style="width: 100%; display: flex; justify-content: center">
-    <div style="margin-bottom: 1rem; margin-top: 1rem;">
-        Equation here
-    </div>
-</div>
-<button style="background-color: #6c757d; color: white;">Derivation -</button>
-</div>
-<div style="background-color: #f8f8f8; border: 1px solid #444; border-radius: 5px; width: 100%; display: flex; justify-content: center; color: black;">
-    <div style="margin-bottom: 1rem; margin-top: 1rem;">
-        Derivation goes here
-    </div>
-</div>
-</display-equation>
+<DisplayEquation title="Normalization to unit vector." id="rvv-eu3" background="True"  equation="\\text{Equation here}" derivation="True">
+    <p>Derivation goes here:</p>
+</DisplayEquation>
 
 ### DisplayEquationCustom
 
 Same as DisplayEquation, but provides a lot more freedom with how everything looks. Made for when equation boxes don't follow the format above.
 
-Type: Regular only
+<p>Type: Regular only</p>
 
 Options:
 <ul>
@@ -272,7 +258,7 @@ Options:
             <DisplayEquation equation="Random Equation here" />
         </div>
         <div class="w-50">
-            <PrairieDrawCanvas id="rcm-cm-c" width="300" height="300" show_border="False">
+            <InlineCanvas id="rcm-cm-c" width="300" height="300" show_border="False">
         </div>
     </div>
     <div slot="derivation">
@@ -280,35 +266,29 @@ Options:
     </div>
 </DisplayEquation>
 ` />
-<red-text>Important:</red-text> Note the use of the `<div slot="derivation"></div>`. This is required when adding a derivation inside a `DisplayEquationCustom` element.
+<red-text>Important:</red-text> Note the use of the `&ltdiv slot="derivation"&gt&lt/div&gt`. This is required when adding a derivation inside a `DisplayEquationCustom` element.
 
 Result:
 
-<display-equation>
-<div style="background-color: #f0f0d0; border: 1px solid #444; border-radius: 5px; color: black;">
-<div style="margin-left: 1rem;">Moment of inertia of prism. <small>rvv-eu</small></div>
-<div style="width: 100%; display: flex; justify-content: center; align-items: center; margin-bottom: 1rem; margin-top: 1rem;">
-    <div style="width: 50%; text-align: center;">
-        Random equation here,
+<DisplayEquationCustom title="Moment of inertia of prism." id="rvv-eu" background="True" equation="Equation here" derivation="True">
+    <div class="w-100">
+        <div class="w-50">
+            <DisplayEquation equation="\\text{Random Equation here}" />
+        </div>
+        <div class="w-50">
+            <InlineCanvas id="rcm-cm-c" width="200" height="200" show_border="False" />
+        </div>
     </div>
-    <div style="width: 50%; display: flex; justify-content: center; align-items: center;">
-        <img src="https://files.jcrayb.com/files/mechref/docs/comp_imgs/dec.png" style="width: 100%">
+    <div slot="derivation">
+        <p>Derivation goes here:</p>
     </div>
-</div>
-<button style="background-color: #6c757d; color: white;">Derivation -</button>
-</div>
-<div style="background-color: #f8f8f8; border: 1px solid #444; border-radius: 5px; width: 100%; display: flex; justify-content: center; color: black;">
-    <div style="margin-bottom: 1rem; margin-top: 1rem;">
-        Derivation goes here
-    </div>
-</div>
-</display-equation>
+</DisplayEquation>
 
-### InlineEquation:
+<h4>InlineEquation:</h4>
 
 This will create an element that goes along with the text it's included with, and is useful for important equations that need to be part of a paragraph.
 
-Type: Self-closing only
+<p>Type: Self-closing only</p>
 
 Options:
 <ul>
@@ -328,11 +308,11 @@ Result:
 
 <h3><a id="callout" class="title">Callout card elements:</a></h3>
 
-### CalloutContainer
+<h4>CalloutContainer:</h4>
 
 To add callout cards, one first needs to add a `CalloutContainer` element within a section element (Section, SubSection, SubSubSection, etc.)
 
-Type: Regular only
+<p>Type: Regular only</p>
 
 This element doesn't have options and follows the exact same naming convention everytime, don't forget to include `slot="cards"`:
 
@@ -347,11 +327,11 @@ This element doesn't have options and follows the exact same naming convention e
 </SubSection>
 ` />
 
-### CalloutCard
+<h4>CalloutCard:</h4>
 
 Must be within CalloutContainer.
 
-Type: Regular only
+<p>Type: Regular only</p>
 
 Options:
 <ul>
@@ -377,33 +357,40 @@ Example:
 </SubSection>
 ` />
 Result:
-<div style="width: 100%; display: grid; grid-template-columns: 20fr 7fr;">
-    <div style="padding-right: 1rem;">
-        <h2 style="text-align: center;">Vectors</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus lorem justo, tristique nec facilisis ac, malesuada sed elit. Nam mattis dolor ex, sit amet ullamcorper sem rhoncus ut. Proin suscipit porta nulla consectetur placerat. Suspendisse vel urna rhoncus, consectetur sem non, efficitur nisi. Praesent sagittis turpis ut turpis blandit finibus. Aliquam vel arcu nec tortor feugiat iaculis et sed arcu. Etiam eu lacus lobortis, tempus purus dapibus, pharetra mauris. Nulla facilisi. Vivamus hendrerit odio purus, in lobortis nunc hendrerit at. Mauris viverra vel urna ac molestie. Duis vestibulum semper orci, ac pharetra nisl lobortis quis. Morbi sed sapien dignissim, tristique massa quis, accumsan neque. Sed ac dignissim eros, quis porttitor lectus.
+<div class="fake-subsection">
 
-Quisque sed scelerisque nunc. Sed ultrices erat hendrerit, facilisis libero nec, viverra nisi. Nullam dolor ligula, luctus eget sem eget, mollis porttitor enim. Morbi egestas, diam vel tempus rhoncus, sapien augue fermentum quam, quis lacinia magna nunc eget massa. Fusce molestie feugiat dictum. Nam dignissim nisi in augue faucibus maximus. Praesent id augue dictum, sagittis ligula nec, maximus tellus. In semper venenatis nibh, nec eleifend ex tempus condimentum.
-
-Pellentesque gravida rhoncus turpis vitae tempor. Vivamus aliquam ipsum libero, interdum rhoncus dui bibendum in. Maecenas egestas leo sit amet nisl finibus, sit amet ultrices risus faucibus. Duis tempor commodo arcu, ultrices dignissim tellus dapibus malesuada. Integer quis turpis sed erat lacinia fermentum sed id sem. Nunc gravida felis viverra turpis lobortis, sit amet scelerisque eros ultrices. Duis eu metus est. Proin varius purus vel nisi cursus molestie. Sed elementum elit a ante efficitur accumsan. Cras eu neque et quam mollis porta. Vivamus commodo tincidunt orci at ullamcorper. Pellentesque sed orci facilisis, malesuada libero eget, maximus lorem. Aliquam quis tristique odio, ac convallis dui. Aliquam ac quam euismod enim dictum convallis in quis nunc. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
-    </div>
-    <div>
-        <div style="background: #e6f1f6; border-radius: 5px; padding: 1rem; color: black; margin-bottom: 1rem;">
-            <h3 style="font-weight: bold; color: black; margin-top: 0;">Extras!</h3>
+    <p>Lorem ipsum.</p>
+    
+    <div class="example-callout">
+        <CalloutCard title="Extras!">
             <p style="margin-bottom: 0px">Random image:</p>
             <img src="https://picsum.photos/200" />
-        </div>
-        <div style="background: #e6f1f6; border-radius: 5px; padding: 1rem; color: black;">
-            <h3 style="font-weight: bold; color: black; margin-top: 0;">Did you know?</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus lorem justo, tristique nec facilisis ac, malesuada sed elit. Nam mattis dolor ex, sit amet ullamcorper sem rhoncus ut. Proin suscipit porta nulla consectetur placerat. Suspendisse vel urna rhoncus, consectetur sem non, efficitur nisi.</p>
-        </div>
+        </CalloutCard>
+        <CalloutCard>
+            <p style="margin-bottom: 0px">Lorem ipsum.</p>
+        </CalloutCard>
     </div>
 </div>
+
+<style>
+ .fake-subsection{
+    display: grid;
+    grid-template-columns: 20fr 7fr;
+ }
+
+ @media (width <= 992px){
+    .fake-subsection{
+    display: grid;
+    grid-template-columns: 1fr;
+ }
+ }
+</style>
 
 <h3><a id="image" class="title">Images:</a></h3>
 
 The `Image` component is used to display images with optional width and alt text (text displayed in case the image fails to load).
 
-Type: Self-closing & Regular
+<p>Type: Self-closing & Regular</p>
 
 Options:
 <ul>
