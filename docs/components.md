@@ -36,6 +36,8 @@ I want to:
 <li><a href="#sections">Create a new section inside my page</a></li>
 <li><a href="#latex">Add an equation</a></li>
 <li><a href="#callout">Add a callout card</a></li>
+<li><a href="#image">Add a image</a></li>
+<li><a href="#utilities">Find elements that simplify my coding</a></li>
 </ul>
 
 <h2><a id="basics"> How to import components</a></h2>
@@ -93,12 +95,14 @@ Options:
 <li>title: Displays title of the section.</li>
 <li>id: Gives an id to the section so it can be linked to in the navigation tree or other pages.</li>
 </ul>
+
 Example:
 ```html
 <Section title="Example Page" id="example_page">
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce nulla augue, interdum sed sapien non, dictum luctus risus. Maecenas pretium leo orci, condimentum vehicula libero scelerisque vel. Nulla hendrerit nunc a mauris elementum, id molestie augue dictum. Etiam convallis justo eu sem ultricies, sed ultricies tellus commodo. Nunc ac bibendum odio. Etiam non tincidunt mauris, vitae condimentum eros. Fusce id semper arcu, id dictum neque.</p>
 </Section>
 ```
+
 Result:
 
 <h1 style="text-align: center;">Example page</h1>
@@ -383,4 +387,58 @@ Pellentesque gravida rhoncus turpis vitae tempor. Vivamus aliquam ipsum libero, 
         </div>
     </div>
 </div>
+
+<h3><a id="image" class="title">Images:</a></h3>
+
+The `Image` component is used to display images with optional width and alt text (text displayed in case the image fails to load).
+
+Type: Self-closing & Regular
+
+Options:
+<ul>
+<li>src: URL to the image.</li>
+<li>width: A value between 1 and 7. 7 means it will take up the full available width, and otherwise it will take up \(\frac{n}{7}*100%\).</li>
+<li>id: Gives an id to the image so it can be linked to in within the current page or from other pages. Optional.</li>
+<li>alt: The text to display in place of the image if it fails to load. Optional but recommended for accessibility reasons.</li>
+<li>class_: Give the image extra classes for styling. Optional.</li>
+</ul>
+
+<u>Self-Closing:</u>
+
+Will just display the image.
+
+Example: 
+
+```html
+<Image src="/Solid_Mechanics/Bending-Figures/Geometry.png" width="5"/>
+```
+
+Result:
+<div style="width: 100%; display: flex; align-items: center; justify-content:center;">
+<img src="../public/Solid_Mechanics/Bending-Figures/Geometry.png" style="width: calc(5 / 7 * 100%);">
+</div>
+
+<u>Regular:</u>
+
+Anything contained within the `Image` tag will be treated as a caption.
+
+Example: 
+
+```html
+<Image src="/Solid_Mechanics/Torsion-Figures/Equilibrium.png" width="3">
+    <p>
+        Wow that's a beautiful image
+    </p>
+</Image>
+```
+
+Result:
+<div style="width: 100%; display: flex; flex-direction: column; align-items: center; justify-content:center;">
+<img src="../public/Solid_Mechanics/Torsion-Figures/Equilibrium.png" style="width: calc(3 / 7 * 100%);">
+<p>
+ Wow that's a beautiful image
+ </p>
+</div>
+
+<h3><a id="utilities" class="title">Utility elements:</a></h3>
 
