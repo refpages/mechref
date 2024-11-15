@@ -69,7 +69,7 @@ For an incompressible fluid (density <InlineEquation equation='\\rho' />) at res
 <p> Hydrostatic fluid pessure is a type of distributed load. If you need a refresher on distributed loads, see the <a href="https://www.mechref.org/sta/force_systems/?origin=sidebar#distributed_loads">Distributed Loads Reference Page</a>. 
 </p> 
 
-<Image src='/Statics/FluidFigures/FluidPlateExample.PNG' width='6'></Image>
+<Image src='/Statics/FluidFigures/FluidPlateExample.PNG' width='5'></Image>
 
 <p>
 Given a plate submerged in water, we can choose to draw the FBD of the plate in 2D or 3D:
@@ -79,13 +79,13 @@ Given a plate submerged in water, we can choose to draw the FBD of the plate in 
 In 3D, the value for <InlineEquation equation=" w " />, the distributed load on the plate from the fluid, is just the pressure <InlineEquation equation=" P " /> at depth <InlineEquation equation=" h " />. To solve for the resultant force from the distributed load we multiply by the area of the plate. 
 </p>
 
-<Image src='/Statics/FluidFigures/Fluid3DPlate.PNG' width='6'></Image>
+<Image src='/Statics/FluidFigures/Fluid3DPlate.PNG' width='5'></Image>
 
 <p>
 In 2D, the the value for <InlineEquation equation=" w " />, the distributed load on the plate from the fluid, is the pressure <InlineEquation equation=" P " /> at depth <InlineEquation equation=" h " /> <strong> multiplied by the plate depth <InlineEquation equation=" b " />. </strong> To solve for the resultant force from the distributed load we multiply by the length of the plate.
 </p>
 
-<Image src='/Statics/FluidFigures/Fluid2DPlate.PNG' width='6'></Image>
+<Image src='/Statics/FluidFigures/Fluid2DPlate.PNG' width='5'></Image>
 
 </SubSection>
 
@@ -115,7 +115,17 @@ In 2D, the the value for <InlineEquation equation=" w " />, the distributed load
 <DisplayEquation equation="F_B = W_displaced" title="Buoyant Force" background="True" id="buoyant-f">
 </DisplayEquation>
 
-<Image src='/Statics/FluidFigures/Buoyancy.jpg' width='4'>
+<Example title="Buoyant force of a basketball"  id="basketball">
+	<p> What is the buoyant force on this basketball with radius <InlineEquation equation=" R " />
+	<Image src='/Statics/FluidFigures/Buoyancy.jpg' width='4'>
+
+	<div slot="solution">
+	<DisplayEquation equation="\\begin{aligned}  F_B &amp;=  W   \\\\   &amp;= m_{water} \\ g \\\\  &amp;= \\rho_{water} \\ V_{displaced} \\ g    \\\\   &amp;= \\rho_{water} (\\frac{4}{3} \\pi R^3) \\ g  \\end{aligned}">
+	</DisplayEquation>	
+	</div>
+
+
+</Example>
 
 
     <DisplayEquation equation="\\begin{aligned}  F_B &amp;=  W   \\\\   &amp;= m_{water} \\ g \\\\  &amp;= \\rho_{water} \\ V_{displaced} \\ g    \\\\   &amp;= \\rho_{water} (\\frac{4}{3} \\pi R^3) \\ g  \\end{aligned}"   background="True" title="Force equation of Buoyancy"   id="hff-eq" derivation="True">
