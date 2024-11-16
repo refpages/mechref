@@ -3,6 +3,7 @@ import Layout from "../../layouts/BlankLayout.astro";
 import Section from "../../components/Section.astro";
 import SubSection from "../../components/SubSection.astro";
 import SubSubSection from "../../components/SubSubSection.astro";
+import SubSubSubSection from "../../components/SubSubSubSection.astro";
 import CodeBox from "../../components/CodeBox.astro";
 import DisplayEquation from "../../components/DisplayEquation.astro";
 import DisplayEquationCustom from "../../components/DisplayEquationCustom.astro";
@@ -12,9 +13,6 @@ import InlineCanvas from "../../components/InlineCanvas.astro";
 import CalloutCard from "../../components/CalloutCard.astro";
 import CalloutContainer from "../../components/CalloutContainer.astro";
 ---
-
-<Layout title="docs">
-
 
 <style>
     red-text{
@@ -35,11 +33,13 @@ import CalloutContainer from "../../components/CalloutContainer.astro";
     }
 </style>
 
-# Mechref Component Docs
+<Layout title="Style Guide & Documentation">
+
+<Section title="Mechref Component Docs">
 
 The aim of using components is to maintain a consistant look and feel throughout the website, as well as being able to make changes without having to go through every page.
 
-When relevant, I've tried to maintain the LateX naming scheme for ease of use by those coming directly from it with little coding experience. For example:
+When relevant, we've tried to maintain the LateX naming scheme for ease of use by those coming directly from it with little coding experience. For example:
 <ul>
 <li> \item => `Item`</li>
 <li> \itemize => `Itemize`</li>
@@ -57,15 +57,18 @@ I want to:
 <li><a href="#utilities">Find elements that simplify my coding</a></li>
 </ul>
 
-<h2><a id="basics"> How to import components</a></h2>
+</Section>
+
+<SubSection id="basics" title="How to import components">
 
 Make sure to import the element at the top of the page before using it. If you get an error like `XXX is not defined`, this is typically what it's refering to. To import an element, use the following syntax:
 ` />javascript
 import Component from '../../components/Component.astro'
 ` />
 , where `Component` refers to the name of the component you want to import.
+</SubSection>
 
-## Inserting components into HTML page
+<SubSection title="Inserting components into HTML page" >
 
 All HTML tags must be closed, which means when you add an element to the page, you must close it to indicate the beginning and the end of that element. Elements can be in two states: regular or self-closed. Regular means it follows the following convention:
 <CodeBox language="html" code=`
@@ -82,16 +85,16 @@ Now, the component only has one tag, essentially combining both the start and en
 Depending on that state, the behavior of the component might be different. For example, let's take the `&ltDisplayEquation&gt` component. When declared with self closing tags, it will simply be displaying an equation that take up the entire width of the screen (or whichever element it's inside of):
 
 <CodeBox language="html" code=`
-<DisplayEquation title="Normalization to unit vector." id="rvv-eu1" background="True" equation="\\begin{aligned} \\hat{a} =\\frac{\\vec{a}}{a}\\end{aligned}"/>
+<DisplayEquation title="Normalization to unit vector." id="rvv-eu1" background="True" equation="\\\\begin{aligned} \\\\hat{a} =\\\\frac{\\\\vec{a}}{a}\\\\end{aligned}"/>
 ` />
 <DisplayEquation title="Normalization to unit vector." id="rvv-eu1" background="True" equation="\\begin{aligned} \\hat{a} =\\frac{\\vec{a}}{a}\\end{aligned}"/>
 
 But when in regular mode, whatever content we add inside of it will now be displayed inside the derivation menu:
 
 <CodeBox language="html" code=`
-<DisplayEquation title="Normalization to unit vector." id="rvv-eu2" background="True" equation="\\begin{aligned} \\hat{a} =\\frac{\\vec{a}}{a}\\end{aligned}" derivation="True">
+<DisplayEquation title="Normalization to unit vector." id="rvv-eu2" background="True" equation="\\begin{aligned} \\\\hat{a} =\\\\frac{\\\\vec{a}}{a}\\\\end{aligned}" derivation="True">
     <p>Content goes here:</p>
-    <DisplayEquation equation="\\vec{v} = \\vec{\\omega} \\times \\vec{r}"/>
+    <DisplayEquation equation="\\\\vec{v} = \\\\vec{\\omega} \\\\times \\\\vec{r}"/>
 </DisplayEquation>
 ` />
 <DisplayEquation title="Normalization to unit vector." id="rvv-eu2" background="True" equation="\\begin{aligned} \\hat{a} =\\frac{\\vec{a}}{a}\\end{aligned}" derivation="True">
@@ -100,12 +103,11 @@ But when in regular mode, whatever content we add inside of it will now be displ
 </DisplayEquation>
 
 This concept is very important, and applies to almost every component. The different behaviors will be discussed when explaining the different uses of each component.
+</SubSection>
 
-## Elements currently added:
+<SubSection id="sections" title="Elements currently added">
 
-<h3><a id="sections" class="title">Section elements:</a></h3>
-
-<h4>Section</h4> 
+<h4 class="h3">Section:</h4> 
 
 <p><p>Type: Regular only</p></p>
 
@@ -118,16 +120,17 @@ Options:
 Example:
 <CodeBox language="html" code=`
 <Section title="Example Page" id="example_page">
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce nulla augue, interdum sed sapien non, dictum luctus risus. Maecenas pretium leo orci, condimentum vehicula libero scelerisque vel. Nulla hendrerit nunc a mauris elementum, id molestie augue dictum. Etiam convallis justo eu sem ultricies, sed ultricies tellus commodo. Nunc ac bibendum odio. Etiam non tincidunt mauris, vitae condimentum eros. Fusce id semper arcu, id dictum neque.</p>
+    <p>Lorem ipsum.</p>
 </Section>
 ` />
 
-Result:
+<p class="mt-3">Result:</p>
 
-<h1 style="text-align: center;">Example page</h1>
+<Section title="Example page">
 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce nulla augue, interdum sed sapien non, dictum luctus risus. Maecenas pretium leo orci, condimentum vehicula libero scelerisque vel. Nulla hendrerit nunc a mauris elementum, id molestie augue dictum. Etiam convallis justo eu sem ultricies, sed ultricies tellus commodo. Nunc ac bibendum odio. Etiam non tincidunt mauris, vitae condimentum eros. Fusce id semper arcu, id dictum neque.</p>
+</Section>
 
-### SubSection
+<h4 class="h3">SubSection:</h4> 
 
 Same as Section, but with smaller title.
 
@@ -142,14 +145,15 @@ Options:
 Example:
 <CodeBox language="html" code=`
 <SubSection title="Example Subsection" id="example_subsection">
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce nulla augue, interdum sed sapien non, dictum luctus risus. Maecenas pretium leo orci, condimentum vehicula libero scelerisque vel. Nulla hendrerit nunc a mauris elementum, id molestie augue dictum. Etiam convallis justo eu sem ultricies, sed ultricies tellus commodo. Nunc ac bibendum odio. Etiam non tincidunt mauris, vitae condimentum eros. Fusce id semper arcu, id dictum neque.</p>
+    <p>Lorem ipsum.</p>
 </SubSection>
 ` />
-Result:
-<h2 style="text-align: center;">Example Subsection</h2>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce nulla augue, interdum sed sapien non, dictum luctus risus. Maecenas pretium leo orci, condimentum vehicula libero scelerisque vel. Nulla hendrerit nunc a mauris elementum, id molestie augue dictum. Etiam convallis justo eu sem ultricies, sed ultricies tellus commodo. Nunc ac bibendum odio. Etiam non tincidunt mauris, vitae condimentum eros. Fusce id semper arcu, id dictum neque.</p>
+<p class="mt-3">Result:</p>
+<SubSection title="Example Subsection">
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce nulla augue, interdum sed sapien non, dictum luctus risus. Maecenas pretium leo orci, condimentum vehicula libero scelerisque vel. Nulla hendrerit nunc a mauris elementum, id molestie augue dictum. Etiam convallis justo eu sem ultricies, sed ultricies tellus commodo. Nunc ac bibendum odio. Etiam non tincidunt mauris, vitae condimentum eros. Fusce id semper arcu, id dictum neque.</p>
+</SubSection>
 
-### SubSubSection
+<h4 class="h3">SubSubSection:</h4> 
 
 Same as SubSection, but with smaller title.
 
@@ -167,11 +171,12 @@ Example:
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce nulla augue, interdum sed sapien non, dictum luctus risus. Maecenas pretium leo orci, condimentum vehicula libero scelerisque vel. Nulla hendrerit nunc a mauris elementum, id molestie augue dictum. Etiam convallis justo eu sem ultricies, sed ultricies tellus commodo. Nunc ac bibendum odio. Etiam non tincidunt mauris, vitae condimentum eros. Fusce id semper arcu, id dictum neque.</p>
 </SubSubSection>
 ` />
-Result:
-<h3 style="text-align: center;">Example SubSubsection</h3>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce nulla augue, interdum sed sapien non, dictum luctus risus. Maecenas pretium leo orci, condimentum vehicula libero scelerisque vel. Nulla hendrerit nunc a mauris elementum, id molestie augue dictum. Etiam convallis justo eu sem ultricies, sed ultricies tellus commodo. Nunc ac bibendum odio. Etiam non tincidunt mauris, vitae condimentum eros. Fusce id semper arcu, id dictum neque.</p>
+<p class="mt-3">Result:</p>
+<SubSubSection title="Example SubSubsection" id="example_subsubsection">
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce nulla augue, interdum sed sapien non, dictum luctus risus. Maecenas pretium leo orci, condimentum vehicula libero scelerisque vel. Nulla hendrerit nunc a mauris elementum, id molestie augue dictum. Etiam convallis justo eu sem ultricies, sed ultricies tellus commodo. Nunc ac bibendum odio. Etiam non tincidunt mauris, vitae condimentum eros. Fusce id semper arcu, id dictum neque.</p>
+</SubSubSection>
 
-### SubSubSection
+<h4 class="h3">SubSubSubSection:</h4> 
 
 Same as SubSection, but with smaller title.
 
@@ -189,15 +194,15 @@ Example:
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce nulla augue, interdum sed sapien non, dictum luctus risus. Maecenas pretium leo orci, condimentum vehicula libero scelerisque vel. Nulla hendrerit nunc a mauris elementum, id molestie augue dictum. Etiam convallis justo eu sem ultricies, sed ultricies tellus commodo. Nunc ac bibendum odio. Etiam non tincidunt mauris, vitae condimentum eros. Fusce id semper arcu, id dictum neque.</p>
 </SubSubSubSection>
 ` />
-Result:
-<h4 style="text-align: center;">Example SubSubSubsection</h4>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce nulla augue, interdum sed sapien non, dictum luctus risus. Maecenas pretium leo orci, condimentum vehicula libero scelerisque vel. Nulla hendrerit nunc a mauris elementum, id molestie augue dictum. Etiam convallis justo eu sem ultricies, sed ultricies tellus commodo. Nunc ac bibendum odio. Etiam non tincidunt mauris, vitae condimentum eros. Fusce id semper arcu, id dictum neque.</p>
+<p class="mt-3">Result:</p>
+<SubSubSubSection title="Example SubSubsection" id="example_subsubsubsection">
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce nulla augue, interdum sed sapien non, dictum luctus risus. Maecenas pretium leo orci, condimentum vehicula libero scelerisque vel. Nulla hendrerit nunc a mauris elementum, id molestie augue dictum. Etiam convallis justo eu sem ultricies, sed ultricies tellus commodo. Nunc ac bibendum odio. Etiam non tincidunt mauris, vitae condimentum eros. Fusce id semper arcu, id dictum neque.</p>
+</SubSubSubSection>
 
-<h3><a id="latex" class="title">Latex displaying elements:</a></h3>
+<SubSubSection id="latex" title="Latex displaying elements" >
+These elements provide a wrapper for LateX equation, since we cannot use {`{}`} directly in the HTML, preventing us from writing complex equations. <red-text>Make sure to double every backslash</red-text>, e.g. \\vec => \\\\vec.
 
-These elements provide a wrapper for LateX equation, since we cannot use `{}` directly in the HTML, preventing us from writing complex equations. <red-text>Make sure to double every backslash</red-text>, e.g. \\vec => \\\\vec.
-
-### DisplayEquation
+<h4 class="h3 mt-2">DisplayEquation:</h4> 
 
 This will create an element that takes the entire width of the element it's inside of, and is useful for important equations that deserve to be highlighted.
 
@@ -212,7 +217,7 @@ Options:
 <li>derivation: Adds a "Derivation +" button to expand the derivation menu when set to "True".</li>
 </ul>
 
-<u>Self-Closing:</u>
+<p class="mt-3"><u>Self-closing:</u></p>
 
 Will simply display equation. 
 
@@ -221,10 +226,10 @@ Example:
 <CodeBox language="html" code=`
 <DisplayEquation title="Normalization to unit vector." id="rvv-eu" background="True" equation="Equation here"/>
 ` />
-Result:
+<p class="mt-3">Result:</p>
 <DisplayEquation title="Normalization to unit vector." id="rvv-eu" background="True" equation="\\text{Equation here}"/>
 
-<u>Regular mode:</u>
+<p class="mt-3"><u>Regular:</u></p>
 
 But when in regular mode, whatever content we add inside of it will now be displayed inside the derivation menu:
 
@@ -233,12 +238,12 @@ But when in regular mode, whatever content we add inside of it will now be displ
     <p>Derivation goes here:</p>
 </DisplayEquation>
 ` />
-Result:
+<p class="mt-3">Result:</p>
 <DisplayEquation title="Normalization to unit vector." id="rvv-eu3" background="True"  equation="\\text{Equation here}" derivation="True">
     <p>Derivation goes here:</p>
 </DisplayEquation>
 
-### DisplayEquationCustom
+<h4 class="h3 mt-2">DisplayEquationCustom:</h4>
 
 Same as DisplayEquation, but provides a lot more freedom with how everything looks. Made for when equation boxes don't follow the format above.
 
@@ -252,39 +257,42 @@ Options:
 </ul>
 
 <CodeBox language="html" code=`
-<DisplayEquationCustom title="Moment of inertia of prism." id="rvv-eu" background="True" equation="Equation here" derivation="True">
-    <div class="w-100">
+<DisplayEquationCustom title="Moment of inertia of prism." id="prism" background="True" derivation="True">
+    <div class="w-100 d-flex flex-row">
         <div class="w-50">
-            <DisplayEquation equation="Random Equation here" />
+            <InlineCanvas id="rcm-er-c" width="300" height="300" show_border="False" />
         </div>
         <div class="w-50">
-            <InlineCanvas id="rcm-cm-c" width="300" height="300" show_border="False">
+            <DisplayEquation equation="\\vec{r}_C = \\frac{\\ell_x}{2}\\hat{\\imath} + \\frac{\\ell_y}{2}\\hat{\\jmath}" />
         </div>
     </div>
     <div slot="derivation">
         <p>Derivation goes here:</p>
     </div>
-</DisplayEquation>
+</DisplayEquationCustom>
 ` />
+
+<script src="/about/docs.js" is:inline></script>
+
 <red-text>Important:</red-text> Note the use of the `&ltdiv slot="derivation"&gt&lt/div&gt`. This is required when adding a derivation inside a `DisplayEquationCustom` element.
 
-Result:
+<p class="mt-3">Result:</p>
 
-<DisplayEquationCustom title="Moment of inertia of prism." id="rvv-eu" background="True" equation="Equation here" derivation="True">
-    <div class="w-100">
+<DisplayEquationCustom title="Moment of inertia of prism." id="prism" background="True" derivation="True">
+    <div class="w-100 d-flex flex-row align-items-center">
         <div class="w-50">
-            <DisplayEquation equation="\\text{Random Equation here}" />
+            <InlineCanvas id="rcm-er-c" width="300" height="300" show_border="False" />
         </div>
         <div class="w-50">
-            <InlineCanvas id="rcm-cm-c" width="200" height="200" show_border="False" />
+            <DisplayEquation equation="\\vec{r}_C = \\frac{\\ell_x}{2}\\hat{\\imath} + \\frac{\\ell_y}{2}\\hat{\\jmath}" />
         </div>
     </div>
     <div slot="derivation">
         <p>Derivation goes here:</p>
     </div>
-</DisplayEquation>
+</DisplayEquationCustom>
 
-<h4>InlineEquation:</h4>
+<h4 class="h3">InlineEquation:</h4>
 
 This will create an element that goes along with the text it's included with, and is useful for important equations that need to be part of a paragraph.
 
@@ -302,13 +310,15 @@ Example:
     <InlineEquation equation="\\vec{F} = m\\vec{a}" /> is a very important equation you guys need to remember.
 </p>
 ` />
-Result:
+<p class="mt-3">Result:</p>
 
 <InlineEquation equation=`\\vec{F} = m\\vec{a}` /> is a very important equation you guys need to remember.
+</SubSubSection>
 
-<h3><a id="callout" class="title">Callout card elements:</a></h3>
 
-<h4>CalloutContainer:</h4>
+<SubSection id="callout" title="Callout card elements:">
+
+<h4 class="h3">CalloutContainer:</h4>
 
 To add callout cards, one first needs to add a `CalloutContainer` element within a section element (Section, SubSection, SubSubSection, etc.)
 
@@ -327,7 +337,7 @@ This element doesn't have options and follows the exact same naming convention e
 </SubSection>
 ` />
 
-<h4>CalloutCard:</h4>
+<h4 class="h3">CalloutCard:</h4>
 
 Must be within CalloutContainer.
 
@@ -356,11 +366,13 @@ Example:
 </CalloutContainer>
 </SubSection>
 ` />
-Result:
-<div class="fake-subsection">
+<p class="mt-3">Result:</p>
 
-    <p>Lorem ipsum.</p>
-    
+<div class="fake-subsection">
+    <div class="w-100">
+        <h2 class="fw-bold text-center">Vectors</h2>
+        <p class="px-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce nulla augue, interdum sed sapien non, dictum luctus risus. Maecenas pretium leo orci, condimentum vehicula libero scelerisque vel. Nulla hendrerit nunc a mauris elementum, id molestie augue dictum. Etiam convallis justo eu sem ultricies, sed ultricies tellus commodo. Nunc ac bibendum odio. Etiam non tincidunt mauris, vitae condimentum eros. Fusce id semper arcu, id dictum neque.</p>
+    </div>
     <div class="example-callout">
         <CalloutCard title="Extras!">
             <p style="margin-bottom: 0px">Random image:</p>
@@ -385,6 +397,7 @@ Result:
  }
  }
 </style>
+</SubSection>
 
 <h3><a id="image" class="title">Images:</a></h3>
 
@@ -395,13 +408,13 @@ The `Image` component is used to display images with optional width and alt text
 Options:
 <ul>
 <li>src: URL to the image.</li>
-<li>width: A value between 1 and 7. 7 means it will take up the full available width, and otherwise it will take up <InlineEquation equation="\\frac{n}{7}*100%" />.</li>
+<li>width: A value between 1 and 7. A value of 7 means it will take up the full available width, and otherwise it will take up <InlineEquation equation="n/7\\cdot100\\%" />.</li>
 <li>id: Gives an id to the image so it can be linked to in within the current page or from other pages. Optional.</li>
 <li>alt: The text to display in place of the image if it fails to load. Optional but recommended for accessibility reasons.</li>
 <li>class_: Give the image extra classes for styling. Optional.</li>
 </ul>
 
-<u>Self-Closing:</u>
+<p class="mt-3"><u>Self-closing:</u></p>
 
 Will just display the image.
 
@@ -411,12 +424,12 @@ Example:
 <Image src="/Solid_Mechanics/Bending-Figures/Geometry.png" width="5"/>
 ` />
 
-Result:
+<p class="mt-3">Result:</p>
 <div style="width: 100%; display: flex; align-items: center; justify-content:center;">
 <img src="../public/Solid_Mechanics/Bending-Figures/Geometry.png" style="width: calc(5 / 7 * 100%);">
 </div>
 
-<u>Regular:</u>
+<p class="mt-3"><u>Regular:</u></p>
 
 Anything contained within the `Image` tag will be treated as a caption.
 
@@ -430,7 +443,7 @@ Example:
 </Image>
 ` />
 
-Result:
+<p class="mt-3">Result:</p>
 <div style="width: 100%; display: flex; flex-direction: column; align-items: center; justify-content:center;">
 <img src="../public/Solid_Mechanics/Torsion-Figures/Equilibrium.png" style="width: calc(3 / 7 * 100%);">
 <p>
