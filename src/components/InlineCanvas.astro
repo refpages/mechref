@@ -1,5 +1,5 @@
 ---
-const {id, height, width} = Astro.props;
+const {id, height, width, show_border="False"} = Astro.props;
 
 import Center from "./Center.astro";
 ---
@@ -8,12 +8,16 @@ import Center from "./Center.astro";
     .figureCaption{
         margin-top: 1rem;
     }
+
+    .canvas-border{
+        border: 1px solid black;
+    }
 </style>
 
 
 <Center>
 <div id={id+'_container'}>
-    <canvas id={id} height={height} width={0}></canvas>
+    <canvas id={id} height={height} width={0} class={show_border != "False" ? "canvas-border" : ""}></canvas>
 
     <div class="w-100"> 
             <slot />

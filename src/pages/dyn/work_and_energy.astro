@@ -19,6 +19,7 @@ import Warning from "../../components/Warning.astro"
 import CalloutCard from "../../components/CalloutCard.astro"
 import CalloutContainer from "../../components/CalloutContainer.astro"
 import DisplayTable from "../../components/DisplayTable.astro"
+import InlineCanvas from "../../components/InlineCanvas.astro"
 ---
 <Layout title="Work and Energy">
 
@@ -51,15 +52,294 @@ import DisplayTable from "../../components/DisplayTable.astro"
 
 <Section title="Work and Energy"></Section>
 
-<SubSection title="Energy"  id="energy">
+<SubSection title="Energy"  id="energy"></SubSection>
 
 <SubSubSection title="Potential Energy" id="potential_energy" >
-<BlueText> Copy <a target="_blank" rel="noopener noreferrer" target="_blank" rel="noopener noreferrer" href="https://mechref.engr.illinois.edu/dyn/ren.html"> Potential energy </a> subsection here. </BlueText>
+
+<DisplayEquation equation="\\begin{aligned}\\vec{F} &amp;= -\\nabla V \\\\&amp; = -\\frac{\\partial V}{\\partial x}\\hat{\\imath} -\\frac{\\partial V}{\\partial y}\\hat{\\jmath} - \\frac{\\partial V}{\\partial z}\\hat{k}\\end{aligned}" id="ren-efp" title="Force and potential energy." background="True" derivation="True">
+	<p>
+		Beginning with <a href="#ren-ec">#ren-ec</a> and generalizing it to one-dimensional displacement in the y-direction, the equation becomes:
+		<DisplayEquation equation="\\begin{aligned}		W &amp;= \\vec{F} \\cdot \\Delta{\\vec{y}}		\\end{aligned}" />
+
+	</p>
+	<p>
+		Assuming the only force applied is the force <InlineEquation equation="\\vec{F}" />		, then the system gains potential energy, so the amount of work done is equal to <InlineEquation equation=" \\Delta{V}" />		.
+		<DisplayEquation equation="\\begin{aligned}		\\Delta{V} &amp;= \\vec{F} \\cdot \\Delta{\\vec{y}}		\\end{aligned}" />
+
+	</p>
+	<p>
+		Rearranging:
+		<DisplayEquation equation="\\begin{aligned}		F &amp;= \\frac{\\Delta{V}}{\\Delta{y}}		\\end{aligned}" />
+
+	</p>
+	<p>
+		Since we are interested in the force the field exerts on the system, due to Newton's Third Law, the force is equal and opposite. Therefore, the above result becomes:
+		<DisplayEquation equation="\\begin{aligned}		F &amp;= -\\frac{\\Delta{V}}{\\Delta{y}}		\\end{aligned}" />
+
+	</p>
+	<p>
+		If the change in potential energy and displacement is infinitesimally small, this becomes a derivative:
+		<DisplayEquation equation="\\begin{aligned}		F &amp;= -\\frac{dV}{dy}		\\end{aligned}" />
+
+	</p>
+	<p>
+		Generalizing this result to 3 dimensions, we use the gradient to obtain the following result:
+		<DisplayEquation equation="\\begin{aligned}		\\vec{F} &amp;= -\\nabla V \\\\		&amp; = -\\frac{\\partial V}{\\partial x}\\hat{\\imath} -\\frac{\\partial V}{\\partial y}\\hat{\\jmath} - \\frac{\\partial V}{\\partial z}\\hat{k}		\\end{aligned}" />
+
+	</p>
+</DisplayEquation>
+
+<Example id="ren-xgp" title="Gravitational potential energy." solution="True">
+	<div class="d-flex flex-row">
+		<p>
+			Consider an object of mass \(m\) in the air under the influence of gravity.
+			Derive the potential energy \(V_g\) of the object.
+		</p>
+		<PrairieDrawCanvas id="ren-xgp-c" width="300" height="200"/>
+	</div>
+	<div slot="solution">
+		<p>
+			Using <a href="#ren-efp">#ren-efp</a>, we can derive the gravitational potential energy. The force due to gravity is:
+			<DisplayEquation equation="\\begin{aligned}			\\vec{F} &amp;= -mg\\hat{\\jmath}			\\end{aligned}" />
+
+		  </p>
+		  <p>
+			Since gravity only acts in one direction, we can simplify <a href="ren-efp">#ren-efp</a> to:
+			<DisplayEquation equation="\\begin{aligned}			F &amp;= -\\frac{dV}{dy} \\\\			-mg &amp;= -\\frac{dV}{dy} \\\\			mg \\, dy &amp;= dV \\\\			\\end{aligned}" />
+
+		  </p>
+		  <p>
+			Integrating both sides:
+			<DisplayEquation equation="\\begin{aligned}			\\int_{V_1}^{V_2} dU &amp;= \\int_{y_1}^{y_2} mg \\, dy \\\\			\\Delta V &amp; = mg\\Delta y			\\end{aligned}" />
+
+		  </p>
+		  <p>
+			We can simplify the result by assuming \(U_1\) is zero, and \(y_1\) is at the reference zero-potential height. Therefore, the above becomes:
+			<DisplayEquation equation="\\begin{aligned}			V_g &amp; = mgy = mgh			\\end{aligned}" />
+
+		  </p>
+		  <p>
+			The above result also proves that gravity is a conservative force, as it only depends on the initial and final position of the object.
+		</p>
+	</div>
+</Example>
+
+<Example id="ren-xsp" title="Potential energy in a spring." solution="True">
+	<div class="d-flex flex-row">
+		<p>
+			Consider an object of mass \(m\) attached to a spring of stiffness \(k\).
+			Derive the potential energy \(V_s\) stored in the spring.
+		</p>
+		<PrairieDrawCanvas id="ren-xsp-c" width="300" height="200" />
+	</div>
+	<div slot="solution">
+		<p>
+			Using <a href="#ren-efp">#ren-efp</a>, we can derive the potential energy in a spring. 
+			From the above diagram, the spring force is:
+			<DisplayEquation equation="\\begin{aligned}			\\vec{F} &amp;= -kx\\hat{\\imath}			\\end{aligned}" />
+
+		  </p>
+		  <p>
+			Since the restoring force in a spring only acts in one direction, we can simplify <a href="ren-efp">#ren-efp</a> to:
+			<DisplayEquation equation="\\begin{aligned}			F &amp;= -\\frac{dV}{dx} \\\\			-kx &amp;= -\\frac{dV}{dx} \\\\			kx \\, dx &amp;= dV \\\\			\\end{aligned}" />
+
+		  </p>
+		  <p>
+			Integrating both sides:
+			<DisplayEquation equation="\\begin{aligned}			\\int_{V_1}^{V_2} dU &amp;= \\int_{x_1}^{x_2} kx \\, dx \\\\			\\Delta V &amp; = \\frac{1}{2}k\\Delta x^2 = \\frac{1}{2}k(x^2_2 - x^2_1)			\\end{aligned}" />
+
+		  </p>
+		  <p>
+			We can simplify the result by assuming \(U_1\) is zero, and \(x_1\) is at the reference zero-potential displacement. Therefore, the above becomes:
+			<DisplayEquation equation="\\begin{aligned}			V &amp; = \\frac{1}{2}kx^2			\\end{aligned}" />
+
+		  </p>
+		  <p>
+			The above result also proves that the restoring force in a spring is a conservative force, as it only depends on the initial and final position of the object.
+		</p>
+	</div>
+</Example>
+
+<Warning title="Work and energy are not vectors." id="wrng-vec">
+	<p>
+		Work and energy are scalar quantities, as seen by the dot product that results in a scalar value. Positive and negative work/energy values represent either
+		a gain or loss in energy in the system. For instance, in thermodynamics, work done by the system is negative, and work done on the system is positive.
+		In mechanics, positive work represents an object speeding up (putting energy into the system), and negative work represents an object slowing 
+		down (taking energy away from the system).
+	</p>
+</Warning>
+
+<DisplayEquationCustom id="ren-eg" title="Gravitational potential energy with uniform gravitational acceleration \\(g\\)." background="True">
+	<DisplayEquation equation="V_g = mgh_C" />
+	<p>
+		The distance \(h_C\) is the height of the center of mass
+		of the body above the reference height.
+	</p>
+</DisplayEquationCustom>
+
+<DisplayEquationCustom id="ren-es" title="Potential energy stored in a spring with stiffness \\(k\\)." background="True">
+	<DisplayEquation equation="V_s = \\frac{1}{2}kx_C^2" />
+	<p>
+		The distance \(h_C\) is the height of the center of mass
+		of the body above the reference height.
+	</p>
+</DisplayEquationCustom>
+
+<DisplayEquation id="ren-ewp" equation="W = -\\Delta V" title="Work-potential energy theorem." background="True" derivation="true">
+	<p>
+		Beginning with the work definition:
+		<DisplayEquation equation="\\begin{aligned}		W = \\vec{F} \\cdot \\Delta \\vec{r}		\\end{aligned}" />
+
+	</p>
+	<p>
+		Assuming one-dimensional motion, and using the force-potential energy relationship:
+		<DisplayEquation equation="\\begin{aligned}		W &amp; = -\\frac{\\Delta V}{\\Delta x}\\Delta x\\\\		&amp; = -\\Delta V		\\end{aligned}" />
+
+	</p>
+</DisplayEquation>
 
 </SubSubSection>
 
 <SubSubSection title="Kinetic Energy" id="kinetic_energy" >
 <BlueText> Copy <a target="_blank" rel="noopener noreferrer" target="_blank" rel="noopener noreferrer" href="https://mechref.engr.illinois.edu/dyn/ren.html"> Kinetic energy </a> subsection here. </BlueText>
+
+<DisplayEquation id="ren-ek" equation="T = \\frac{1}{2}mv^2" title="Kinetic energy of a point mass." background="True" derivation="true">
+	<p>
+		We begin with Newton's 2nd Law assuming <InlineEquation equation="\\vec{F}" /> is the total external force applied:
+		<DisplayEquation equation="\\begin{aligned}		\\vec{F} &amp;= m\\vec{a} \\\\		&amp; = m\\frac{d\\vec{v}}{dt}		\\end{aligned}" />
+
+	</p>
+	<p>
+		Using <a href="#ren-efp">#ren-efp</a> to relate force and energy:
+		<DisplayEquation equation="\\begin{aligned}		\\frac{dU(\\vec{r})}{d\\vec{r}} &amp; = m\\frac{d\\vec{v}}{dt}		\\end{aligned}" />
+
+	</p>
+	<p>
+		Note that the negative is not found here, as we're interested in the force exerted on the field, not by the field (see derivation in <a href="#ren-efp">#ren-efp</a>).
+	</p>
+	<p>
+		Rearranging then yields:
+		<DisplayEquation equation="\\begin{aligned}		dU &amp; = m\\frac{d\\vec{v}}{dt} d\\vec{r}		\\end{aligned}" />
+
+	</p>
+	<p>
+		We can then do the following:
+		<DisplayEquation equation="\\begin{aligned}		dU &amp; = m\\frac{d\\vec{r}}{dt} d\\vec{v} \\\\		&amp; = m\\vec{v} \\, d\\vec{v} \\\\		\\end{aligned}" />
+
+	</p>
+	<p>
+		Integrating both sides:
+		<DisplayEquation equation="\\begin{aligned}		\\int_{U_1}^{U_2} dU &amp; = \\int_{\\vec{v_1}}^{\\vec{v_2}}m\\vec{v} \\, d\\vec{v} \\\\		\\Delta U &amp; = \\frac{1}{2}m\\left[\\vec{v} \\cdot \\vec{v}\\right]_{\\vec{v_1}}^{\\vec{v_2}} \\\\		\\end{aligned}" />
+
+	</p>
+	<p>
+		Assuming an initial velocity of zero, and zero potential energy (i.e the object is at the reference height):
+		<DisplayEquation equation="\\begin{aligned}		U &amp; = \\frac{1}{2}m\\left(\\vec{v} \\cdot \\vec{v}\\right)		\\end{aligned}" />
+
+	</p>
+	<p>
+		Using conservation of energy, and the fact that a vector dotted with itself equals its magnitude squared (see <a href="rvi.html#rvi-eg">#rvi-eg</a>), then:
+		<DisplayEquation equation="\\begin{aligned}		T &amp; = \\frac{1}{2}mv^2\\\\		\\end{aligned}" />
+
+	</p>
+	<p>
+		Another perhaps less intuitive way is to begin with the work definition <a href="#ren-ef">#ren-ef</a>:
+		<DisplayEquation equation="\\begin{aligned}		W &amp;= \\int_{\\vec{r}_1}^{\\vec{r}_2} \\vec{F} \\cdot d\\vec{r} \\\\		&amp; = \\int_{t_1}^{t_2} \\vec{F} \\cdot \\dot{\\vec{r}}dt \\\\ 		&amp; = \\int_{t_1}^{t_2} \\vec{F} \\cdot \\vec{v} \\, dt		\\end{aligned}" />
+
+	</p>
+	<p>
+		Using Newton's 2nd Law assuming <InlineEquation equation="\\vec{F}" /> is the total external force applied:
+		<DisplayEquation equation="\\begin{aligned}		W &amp; = \\int_{t_1}^{t_2} m\\vec{a} \\cdot \\vec{v} \\, dt 		\\end{aligned}" />
+
+	</p>
+	<p>
+		Note that this integrand looks similar to the following:
+		<DisplayEquation equation="\\begin{aligned}		  \\frac{d}{dt}(\\vec{u} \\cdot \\vec{u}) = \\dot{\\vec{u}} \\cdot \\vec{u} + \\vec{u} \\cdot \\dot{\\vec{u}} = 2\\vec{u} \\cdot \\dot{\\vec{u}}		\\end{aligned}" />
+
+	</p>
+	<p>
+		By the fundamental theorem of calculus, this must mean that: 
+		<DisplayEquation equation="\\begin{aligned}		  W = \\frac{1}{2}m\\left(\\vec{v} \\cdot \\vec{v}\\right)		\\end{aligned}" />
+
+	</p>
+	<p>
+		And we've arrived at the last step of the previous derivation.
+	</p>
+</DisplayEquation>
+
+<DisplayEquation id="ren-ekb" equation="T = \\iiint_{\\mathcal{B}} \\frac{1}{2} \\rho v^2 \\, dV" title="Kinetic energy of an arbitrary body." background="True" />
+
+<DisplayEquation id="ren-ekr" equation="T = \\frac{1}{2} m v_C^2 + \\frac{1}{2} I_{C,\\hat\\omega} \\omega^2" title="Kinetic energy of a rigid body about the center of mass $C$." background="True" derivation="true">
+	<p>
+		Using <a href="#ren-ea">#ren-ea</a> below, in the case
+		that the point \(Q\) is the center of mass $C$ we see that
+		<InlineEquation equation="\\vec{r}_{QC} = \\vec{r}_{CC} = 0" /> and so the middle term
+		in <a href="#ren-ea">#ren-ea</a> is eliminated, leaving
+		the result.
+	</p>
+</DisplayEquation>
+
+<DisplayEquation id="ren-em" equation="T = \\frac{1}{2} I_{M,\\hat\\omega} \\omega^2" title="Kinetic energy of a rigid body about the instantaneous center \(M\)." background="True" derivation="true">
+	<p>
+		Using <a href="#ren-ea">#ren-ea</a> below, in the case
+		that the point \(Q\) is the instantaneous center \(M\) we
+		have that <InlineEquation equation="\\vec{v}_Q = \\vec{v}_M = 0" /> and so the first
+		two terms are eliminated.
+	</p>
+</DisplayEquation>
+
+<DisplayEquation id="ren-ea" equation="T = \\frac{1}{2} m v_Q^2 + m \\vec{v}_Q \\cdot \\left( \\vec\\omega \\times \\vec{r}_{QC} \\right) + \\frac{1}{2} I_{Q,\\hat\\omega} \\omega^2" title="Kinetic energy of a rigid body about an arbitrary body point \(Q\)." background="True" derivation="true">
+	<p>
+		We start with the general expression <a href="#rem-eb">#rem-eb</a>:
+
+		<DisplayEquation equation="\\begin{aligned}		T &amp;= \\iiint_{\\mathcal{B}} \\frac{1}{2} \\rho v_P^2 \\, dV,		\\end{aligned}" />
+
+
+		where we integrate over the body with a location \(P\). We
+		choose a point \(Q\) fixed to the body and
+		use <a href="rkg.html#rkg-er">#rkg-er</a> to express the
+		velocity of \(P\) in terms of <InlineEquation equation="\\vec{v}_Q" /> and
+		\(\vec\omega\), giving
+
+		<DisplayEquation equation="\\begin{aligned}		T &amp;= \\iiint_{\\mathcal{B}} \\frac{1}{2} \\rho \\|\\vec{v}_Q + \\vec\\omega \\times \\vec{r}_{QP}\\|^2 \\, dV \\\\		&amp;= \\iiint_{\\mathcal{B}} \\frac{1}{2} \\rho		\\left(\\vec{v}_Q + \\vec\\omega \\times \\vec{r}_{QP}\\right)		\\cdot \\left(\\vec{v}_Q + \\vec\\omega \\times \\vec{r}_{QP}\\right) \\, dV \\\\		&amp;= \\iiint_{\\mathcal{B}} \\frac{1}{2} \\rho \\left( \\vec{v}_Q \\cdot \\vec{v}_Q		+ 2 \\vec{v}_Q \\cdot (\\vec\\omega \\times \\vec{r}_{QP})		+ (\\vec\\omega \\times \\vec{r}_{QP}) \\cdot (\\vec\\omega \\times \\vec{r}_{QP}) \\right) \\, dV.		\\end{aligned}" />
+
+
+		We next use the fact that <InlineEquation equation="\\vec{v}_Q" /> and \(\vec\omega\)
+		do not depend on the integration point within the body
+		to pull them outside of the integrals, which results in
+
+		<DisplayEquation equation="\\begin{aligned}		T &amp;= \\frac{1}{2} \\|\\vec{v}_Q\\|^2 \\iiint_{\\mathcal{B}} \\rho \\, dV		+ \\vec{v}_Q \\cdot \\bigg( \\vec\\omega \\times		\\iiint_{\\mathcal{B}} \\rho \\vec{r}_{QP} \\, dV \\bigg)		+ \\iiint_{\\mathcal{B}} \\frac{1}{2} \\rho		(\\vec\\omega \\times \\vec{r}_{QP}) \\cdot (\\vec\\omega \\times \\vec{r}_{QP}) \\, dV \\\\		&amp;= \\frac{1}{2} m v_Q^2 + \\vec{v}_Q \\cdot \\left( \\vec\\omega \\times m \\vec{r}_{QC} \\right)		+ \\iiint_{\\mathcal{B}} \\frac{1}{2} \\rho \\| \\vec\\omega \\times \\vec{r}_{QP} \\|^2 \\, dV \\\\		&amp;= \\frac{1}{2} m v_Q^2 + m \\vec{v}_Q \\cdot \\left( \\vec\\omega \\times \\vec{r}_{QC} \\right)		+ \\iiint_{\\mathcal{B}} \\frac{1}{2} \\rho \\omega^2 r_{QP}^2 \\sin^2\\theta \\, dV \\\\		&amp;= \\frac{1}{2} m v_Q^2 + m \\vec{v}_Q \\cdot \\left( \\vec\\omega \\times \\vec{r}_{QC} \\right)		+ \\frac{1}{2} \\omega^2 \\iiint_{\\mathcal{B}} \\rho (r_{QP} \\sin\\theta)^2 \\, dV,		\\end{aligned}" />
+
+
+		where $\theta$ is the angle between \(\vec\omega\) and
+		<InlineEquation equation="\\vec{r}_{QP}" />. But <InlineEquation equation=" r_{QP}\\sin\\theta" />
+		is simply the
+		orthogonal distance to point \(P\) from the line through
+		\(Q\) in direction <InlineEquation equation="\\vec\\omega" />
+		, so
+		from <a href="rem.html#rem-ei">#rem-ei</a> we see that
+		the final integral above is the moment of inertia
+		<InlineEquation equation="I_{Q,\\hat\\omega}" />
+  about the  axis through
+		point \(Q\).
+	</p>
+</DisplayEquation>
+
+<DisplayEquation id="ren-wk" equation="W = \\Delta T" title="Work-kinetic energy theorem." background="True" derivation="true">
+	<p>
+		Skipping the derivation shown in <a href="#ren-ep">#ren-ep</a>, taking the last step with the integral:
+		<DisplayEquation equation="\\begin{aligned}		\\int dW &amp; = \\int_{\\vec{v_1}}^{\\vec{v_2}}m\\vec{v} \\, d\\vec{v} \\\\		W &amp; = \\frac{1}{2}m\\left[\\vec{v} \\cdot \\vec{v}\\right]_{\\vec{v_1}}^{\\vec{v_2}} \\\\		&amp; = \\Delta T		\\end{aligned}" />
+	</p>
+</DisplayEquation>
+
+<DisplayEquationCustom id="ren-eco" title="Work-energy theorem." background="True" derivation="true">
+	<DisplayEquation equation="W = \Delta T + \Delta V"/>
+	<p>
+		where \(W\) is the work done by non-conservative forces. If non-conservative forces are not present, then
+		it becomes conservation of energy.
+	</p>
+</DisplayEquationCustom>
+
 </SubSubSection>
 
 <SubSubSection title="Summary" id="energy_summary">
@@ -75,19 +355,64 @@ import DisplayTable from "../../components/DisplayTable.astro"
 <p><b> Potential </b></p>
 
 <DisplayEquation equation=" V = m \\ g \\ h_c    \\quad \\text{ (h is the height of center of mass)}" background="True"  title= "Gravitational." id="sum-pg"/>
+
 <DisplayEquation equation=" V = \\frac{1}{2}\\  k \\ x^2    \\quad \\text{ (k is the spring stifness and x is elongation)}" background="True"  title= "Elastic." id="sum-pe"/>
 
 </SubSubSection>
 
-</SubSection>
+
 
 <SubSection title="Work" id="work" >
     <DisplayEquation equation=" W = \\Delta{E} = E_f  -   E_0" background="True"  title="Work-Energy Principal" id="wan-we" />
-
+</SubSection>
 
 <SubSubSection title="Work done by a Force"  id="work_force">
 	<BlueText> Copy <a target="_blank" rel="noopener noreferrer" target="_blank" rel="noopener noreferrer" href="https://mechref.engr.illinois.edu/dyn/ren.html"> Work, Forces and Moments </a> subsection here. </BlueText>
 
+	<DisplayEquation equation="\\begin{aligned}W &amp;= \\int_{\\vec{r}_1}^{\\vec{r}_2} \\vec{F} \\cdot d\\vec{r} \\\\&amp; = \\int_{t_1}^{t_2} \\vec{F} \\cdot \\dot{\\vec{r}}dt\\end{aligned}" background="True" title="Work done by a force \\(\\vec{F}\\)." id="ren-wf"/>
+
+	<DisplayEquationCustom id="ren-wc" title="Work done by a constant force \\(\\vec{F}\\)." background="True" derivation="true">
+		<DisplayEquation equation="W = \\vec{F} \\cdot \\Delta \\vec{r}"/>
+		<p>
+			The change in position is <InlineEquation equation=" \\Delta \\vec{r} = \\vec{r}_2 - \\vec{r}_1" />
+			.
+		</p>
+
+		<div slot="derivation">
+			<p>
+				Compute the <a href="#ren-ef">work definition</a> for a
+				constant force by pulling <InlineEquation equation="\\vec{F}" />
+				out of the integral,
+				so the resulting trivial integral is just the difference
+				between the endpoints.
+			</p>
+		</div>
+	</DisplayEquationCustom>
+
+	<DisplayEquationCustom id="ren-wt" title="Work done by a constraint force \\(\\vec{F}\\)." background="True" derivation="true">
+		<DisplayEquation equation="W = 0"/>
+		<p>
+			The work \(W\) is by a force of constraint force <InlineEquation equation="\\vec{F}" />
+			.
+		</p>
+
+		<div slot="derivation">
+			<p>
+				By definition a constraint force <InlineEquation equation="\\vec{F}" /> does not
+				permit movement in the direction that it applies. This means
+				that the constraint force and the displacement are always orthogonal
+				and the dot product between orthogonal vectors is zero.
+			</p>
+		</div>
+	</DisplayEquationCustom>
+
+	<DisplayEquationCustom id="ren-wm" title="Work done by a moment \(M\)." background="True" derivation="true">
+		<DisplayEquation equation="\\begin{aligned}W &amp;= \\int_{\\theta_1}^{\\theta_2} M \\, d\\theta \\\\&amp; = \\int_{t_1}^{t_2} M \\dot\\theta \\, dt \\\\&amp;= M \\, \\Delta \\theta \\text{ (for constant M)}\\end{aligned}" />
+		<p>
+			The rotation angle \(\theta\) is measured around the same
+			axis <InlineEquation equation="\\vec{a}" /> about which the moment \(M\) is applied.
+		</p>
+	</DisplayEquationCustom>
     
 	<Example id="wfe-cf" title="Constant Force." solution=True>
     <div>
@@ -181,7 +506,7 @@ import DisplayTable from "../../components/DisplayTable.astro"
 
 </SubSubSection>
 
-</SubSection>
+
 
 
 <SubSection title="Friction"  id="friction">
@@ -229,7 +554,8 @@ import DisplayTable from "../../components/DisplayTable.astro"
         </tr>
     </tbody>
 </DisplayTable>
-    
+</SubSection>
+
 <SubSubSection title="Solution procedure"  id="solution_procedure">
     <p><b> Known Case </b></p>
 			<ol> 
@@ -260,8 +586,6 @@ import DisplayTable from "../../components/DisplayTable.astro"
 			
 </SubSubSection>
 
-</SubSection>
-
 
 <SubSection title="Momentum"  id="momentum">
     <BlueText> Copy <a target="_blank" rel="noopener noreferrer" target="_blank" rel="noopener noreferrer" href="https://mechref.engr.illinois.edu/dyn/rec.html"> Momentum </a> subsection here  (first subsection). </BlueText>
@@ -284,3 +608,5 @@ import DisplayTable from "../../components/DisplayTable.astro"
 
 
 </Layout>
+
+<script src="/dyn/work_and_energy/canvases.js" is:inline></script>
