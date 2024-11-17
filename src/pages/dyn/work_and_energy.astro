@@ -20,6 +20,8 @@ import CalloutCard from "../../components/CalloutCard.astro"
 import CalloutContainer from "../../components/CalloutContainer.astro"
 import DisplayTable from "../../components/DisplayTable.astro"
 import InlineCanvas from "../../components/InlineCanvas.astro"
+import Row from "../../components/Row.astro"
+import Col from "../../components/Col.astro"
 ---
 <Layout title="Work and Energy">
 
@@ -201,7 +203,6 @@ import InlineCanvas from "../../components/InlineCanvas.astro"
 </SubSubSection>
 
 <SubSubSection title="Kinetic Energy" id="kinetic_energy" >
-<BlueText> Copy <a target="_blank" rel="noopener noreferrer" target="_blank" rel="noopener noreferrer" href="https://mechref.engr.illinois.edu/dyn/ren.html"> Kinetic energy </a> subsection here. </BlueText>
 
 <DisplayEquation id="ren-ek" equation="T = \\frac{1}{2}mv^2" title="Kinetic energy of a point mass." background="True" derivation="true">
 	<p>
@@ -279,7 +280,7 @@ import InlineCanvas from "../../components/InlineCanvas.astro"
 	</p>
 </DisplayEquation>
 
-<DisplayEquation id="ren-em" equation="T = \\frac{1}{2} I_{M,\\hat\\omega} \\omega^2" title="Kinetic energy of a rigid body about the instantaneous center \(M\)." background="True" derivation="true">
+<DisplayEquation id="ren-em" equation="T = \\frac{1}{2} I_{M,\\hat\\omega} \\omega^2" title="Kinetic energy of a rigid body about the instantaneous center \\(M\\)." background="True" derivation="true">
 	<p>
 		Using <a href="#ren-ea">#ren-ea</a> below, in the case
 		that the point \(Q\) is the instantaneous center \(M\) we
@@ -288,7 +289,7 @@ import InlineCanvas from "../../components/InlineCanvas.astro"
 	</p>
 </DisplayEquation>
 
-<DisplayEquation id="ren-ea" equation="T = \\frac{1}{2} m v_Q^2 + m \\vec{v}_Q \\cdot \\left( \\vec\\omega \\times \\vec{r}_{QC} \\right) + \\frac{1}{2} I_{Q,\\hat\\omega} \\omega^2" title="Kinetic energy of a rigid body about an arbitrary body point \(Q\)." background="True" derivation="true">
+<DisplayEquation id="ren-ea" equation="T = \\frac{1}{2} m v_Q^2 + m \\vec{v}_Q \\cdot \\left( \\vec\\omega \\times \\vec{r}_{QC} \\right) + \\frac{1}{2} I_{Q,\\hat\\omega} \\omega^2" title="Kinetic energy of a rigid body about an arbitrary body point \\(Q\\)." background="True" derivation="true">
 	<p>
 		We start with the general expression <a href="#rem-eb">#rem-eb</a>:
 
@@ -367,7 +368,6 @@ import InlineCanvas from "../../components/InlineCanvas.astro"
 </SubSection>
 
 <SubSubSection title="Work done by a Force"  id="work_force">
-	<BlueText> Copy <a target="_blank" rel="noopener noreferrer" target="_blank" rel="noopener noreferrer" href="https://mechref.engr.illinois.edu/dyn/ren.html"> Work, Forces and Moments </a> subsection here. </BlueText>
 
 	<DisplayEquation equation="\\begin{aligned}W &amp;= \\int_{\\vec{r}_1}^{\\vec{r}_2} \\vec{F} \\cdot d\\vec{r} \\\\&amp; = \\int_{t_1}^{t_2} \\vec{F} \\cdot \\dot{\\vec{r}}dt\\end{aligned}" background="True" title="Work done by a force \\(\\vec{F}\\)." id="ren-wf"/>
 
@@ -406,7 +406,7 @@ import InlineCanvas from "../../components/InlineCanvas.astro"
 		</div>
 	</DisplayEquationCustom>
 
-	<DisplayEquationCustom id="ren-wm" title="Work done by a moment \(M\)." background="True" derivation="true">
+	<DisplayEquationCustom id="ren-wm" title="Work done by a moment \\(M\\)." background="True" derivation="true">
 		<DisplayEquation equation="\\begin{aligned}W &amp;= \\int_{\\theta_1}^{\\theta_2} M \\, d\\theta \\\\&amp; = \\int_{t_1}^{t_2} M \\dot\\theta \\, dt \\\\&amp;= M \\, \\Delta \\theta \\text{ (for constant M)}\\end{aligned}" />
 		<p>
 			The rotation angle \(\theta\) is measured around the same
@@ -437,6 +437,26 @@ import InlineCanvas from "../../components/InlineCanvas.astro"
 
 <SubSubSection title="Conservative vs Non-conservative forces"  id="conserv_nonconserv_forces">
 	<BlueText> Copy <a target="_blank" rel="noopener noreferrer" target="_blank" rel="noopener noreferrer" href="https://mechref.engr.illinois.edu/dyn/ren.html"> Conservative vs non-conservative forces </a> subsection here. </BlueText>
+
+	<p>
+		A conservative force is one such that the work done by the force only depends on the initial 
+		and final positions of the object (i.e independent of the path taken by the object). Examples of 
+		conservative forces are gravity and spring force, where only the initial and final displacements are needed
+		to calculate the work done by those forces. Examples of a non-conservative force are any type of drag forces
+		(e.g friction, air resistance).
+	</p>
+	<p>
+		The diagram below illustrates different paths and the work done by a conservative
+		forces vs. a non-conservative force.
+	</p>
+
+	<PrairieDrawCanvas id="ren-cf-c" width="500" height="300" />
+
+	<p>
+		If the force moving an object from point \(A\) to point \(B\) was conservative, the work done by that force
+		in all paths is equal. If the force was non-conservative, the work done by that force is not equal, and
+		it depends on the path length.
+	</p>
 </SubSubSection>
 
 <SubSubSection title="Work done by Friction"  id="work_friction">
@@ -488,7 +508,7 @@ import InlineCanvas from "../../components/InlineCanvas.astro"
 	<Example id="wdm-rm" title="Rod with friction moment." solution=True>
     <div>
 	  <Image src="/Dynamics/WorkEnergyFigs/WorkForce_example3.png" width="10"></Image>
-		<p> Rod shown above starts from rest, falls to horizontal, fiction moment of 2 Nm. What is the work done by friction? </p>
+		<p> Rod shown above starts from rest, falls to horizontal, friction moment of 2 Nm. What is the work done by friction? </p>
 		<ol  type="A">
 				<li> <InlineEquation equation=" \\geq 2 J" /> </li>
 				<li> <InlineEquation equation=" 0 < W < 2 J" /> </li>
@@ -589,16 +609,644 @@ import InlineCanvas from "../../components/InlineCanvas.astro"
 
 <SubSection title="Momentum"  id="momentum">
     <BlueText> Copy <a target="_blank" rel="noopener noreferrer" target="_blank" rel="noopener noreferrer" href="https://mechref.engr.illinois.edu/dyn/rec.html"> Momentum </a> subsection here  (first subsection). </BlueText>
+
+	<p>
+		Momentum is one of the most fundamental concepts in dynamical systems. It is often
+		convenient to derive equations of motion using momentum. Furthermore, it is related
+		to kinetic energy and Newton's second law. Conservation of momentum is one of the 
+		three conservation laws in dynamics alongside conservation of energy and mass.
+	</p>
+
+	<DisplayEquation equation="\\vec{p} = m\\vec{v}_C"  background="True" title="Linear momentum of a rigid body." id="rec-lm"/>
+
+	<p>
+		Unlike energy, momentum is a vector, and its direction is the same as the direction of
+		the velocity of the center of mass.
+	</p>
+	<p>
+		Furthermore, angular momentum is analogous to linear momentum. The angular momentum of
+		a rigid body is shown below.
+	</p>
+
+	<DisplayEquation equation="\\vec{L}_O = I_{O,\\, \\hat{a}} \\vec{\\omega}"  background="True" title="Angular momentum of a rigid body rotating about principal axis \\(\\hat{a}\\) through point \\(O\\)." id="rec-am"/>
+
+	<p>
+		Momentum is also closely linked to force and moments. More specifically,
+		the change in momentum and Newton's second law can be related.
+	</p>
+
+	<DisplayEquation equation="\\begin{aligned}\\vec{F} &amp;= \\frac{d\\vec{p}_C}{dt}\\\\&amp;= \\dot{\\vec{p}_C}\\end{aligned}"  background="True" title="Newton's equations and linear momentum." id="rec-mn" derivation="True">
+		<p>
+			We begin with Newton's second law:
+			<DisplayEquation equation="\\begin{aligned}			\\vec{F} &amp;= m\\vec{a}_C\\\\			&amp;= m \\frac{d\\vec{v}_C}{dt} \\\\			\\end{aligned}" />
+
+		</p>
+		<p>
+			Assuming constant mass, then this can be rewritten as:
+			<DisplayEquation equation="			\\begin{aligned}			\\vec{F} &amp;= \\frac{d}{dt} (m\\vec{v}_C)\\\\			&amp; = \\frac{d\\vec{p}_C}{dt} \\\\			&amp; = \\dot{\\vec{p}_C}			\\end{aligned}" />
+
+		</p>
+	</DisplayEquation>
+
+	<Warning title="\\(\\vec{F} = \\dot{\\vec{p}_C}\\) is not applicable with variable mass." id="rec-wm">
+		<p>
+			In the derivation of <a href="#rec-mn">#ren-mn</a>, the mass was assumed to be constant.
+			In the case of a rocket expelling propellant, this does not work. See 
+			the rocket equation derivation further down.
+		</p>
+	</Warning>
+
+	<p>
+		As aforementioned, angular momentum is analogous to linear momentum,
+		so the above equation can also be derived using moments and angular
+		momentum.
+	</p>
+
+	<DisplayEquation equation="\\begin{aligned} \\vec{M}_{C} &amp;= \\frac{d\\vec{L}_C}{dt}\\\\&amp;= \\dot{\\vec{L}_C}\\end{aligned}"  background="True" title="Newton's equations and angular momentum." id="rec-mm" derivation="True">
+		<p>
+			We begin with Newton's second law:
+			<DisplayEquation equation="\\begin{aligned}			 \\vec{M}_{C} &amp;= I_{C, \\hat{a}}\\vec{\\alpha}\\\\			&amp;= I_{C, \\hat{a}} \\frac{d\\vec{\\omega}}{dt} \\\\			\\end{aligned}" />
+
+		</p>
+		<p>
+			Assuming constant moment of inertia, then this can be rewritten as:
+			<DisplayEquation equation="\\begin{aligned}			 \\vec{M}_{C} &amp;= \\frac{d}{dt} (I_{C, \\hat{a}}\\vec{\\omega})\\\\			&amp; = \\frac{d\\vec{L}_C}{dt} \\\\			&amp; = \\dot{\\vec{L}_C}			\\end{aligned}" />
+
+		</p>
+	</DisplayEquation>
+
+	<p>
+		From the above equations, it is clear to see that linear momentum is conserved
+		if and only if the <em>sum</em> of external forces acting on the system is 
+		zero, and angular momentum is conserved if and only if the <em>sum</em>
+		of external moments acting on the system is zero.
+	</p>
+
+	<DisplayEquation equation="\\begin{aligned} \\vec{F} &amp;= \\frac{d\\vec{p}_C}{dt}\\\\&amp;= \\vec{0}\\end{aligned}"  background="True" title="Conservation of linear momentum." id="rec-lmc" />
+
+	<Warning title="Linear momentum is conserved if and only if the sum of external forces is zero" id="rec-wlmc">
+		<p>
+			As seen from <a href="#rec-lmc">#rec-lmc</a>, linear momentum is conserved if the sum of the external forces
+			is zero. This is why choosing an appropriate system and
+			drawing a free-body diagram is crucial in determining whether linear momentum is conserved.
+			See examples below.
+		</p>
+	</Warning>
+
+	<DisplayEquation equation="\\begin{aligned} \\vec{M}_{C} &amp;= \\frac{d\\vec{L}_C}{dt}\\\\&amp;= \\vec{0}\\end{aligned}"  background="True" title="Conservation of angular momentum." id="rec-amc" />
+
+	<Warning title="Angular momentum is conserved if and only if the sum of external moments is zero." id="rec-wamc">
+		<p>
+			As seen from <a href="#rec-lmc">#rec-amc</a>, angular momentum is conserved if the sum of the external moments
+			is zero. This is why choosing an appropriate system and
+			and drawing a free-body diagram is crucial in determining whether angular momentum is conserved.
+			See examples below.
+		</p>
+	</Warning>
+
+	<Example title="An object in free-fall." id="rec-xlmc">
+		<div class="d-flex flex-row">
+			<p>
+				An object is free-falling in the air under the influence of gravity.
+				Take the system to be the object. Is linear momentum conserved?
+			</p>
+			<PrairieDrawCanvas id="rec-xlm-c" width="300" height="200"  />
+		</div>
+		
+		<div slot="solution">
+			<p>
+				Begin with a free-body diagram of the forces acting on the system:
+			</p>
+			<PrairieDrawCanvas id="rec-xlm-f" width="300" height="200" />
+			<p>
+				Write <a href="#rec-mn">Newton's second law in terms of momentum</a>:
+				<DisplayEquation equation="\\begin{aligned}				 \\vec{F} &amp;= \\frac{d\\vec{p}_C}{dt} \\\\				m\\vec{g} &amp; = \\frac{d\\vec{p}_C}{dt}				\\end{aligned}" />
+
+			</p>
+			<p>
+				Verifying with <a href="#rec-lmc">conservation of linear momentum</a>, it's clear to see
+				that the sum of external forces is not zero, as the weight of the object is external to the system,
+				and is not balanced by any other force. Therefore, linear momentum is not conserved.
+			</p>
+			<p>
+				If however, the system was chosen to be the object <em>and the Earth</em>, then linear
+				momentum is conserved, as by Newton's third law, the Earth exerts a force equal to \(mg\),
+				and the object exerts a force \(-mg\) on the Earth. Therefore, the sum of external forces 
+				acting on the system is zero, and linear momentum is conserved.
+			</p>
+		</div>
+	</Example>
+
+	<Example title="A satellite in a circular orbit around the Earth." id="rec-xamc">
+		<div class="d-flex flex-row">
+			<p>
+				A satellite of mass \(m\) is inserted into a circular orbit around the Earth.
+				Take the system to be the satellite and the Earth. Ignoring the effects
+				of gravity from any other celestial body, is angular momentum conserved?
+			</p>
+			<PrairieDrawCanvas id="rec-xam-c" width="300" height="200"  />
+		</div>
+		
+		<div slot="solution">
+			<p>
+				Begin with a free-body diagram of the forces acting on the system. Assume the altitude of the satellite
+				is negligble enough so that the gravitational acceleration is $g$. Otherwise, Newton's Law of Gravitation
+				would need to be used to denote the forces.
+			</p>
+			<PrairieDrawCanvas id="rec-xam-f" width="300" height="200" />
+			<p>
+				Write <a href="#rec-mm">Newton's second law in terms of momentum</a>:
+				<DisplayEquation equation="\\begin{aligned}				 \\vec{M}_C &amp;= \\frac{d\\vec{L}}{dt} \\\\				\\vec{r} \\times m\\vec{g} - \\vec{r} \\times m\\vec{g} &amp; = \\frac{d\\vec{L}}{dt}				\\end{aligned}" />
+
+			</p>
+			<p>
+				Verifying with <a href="#rec-amc">conservation of angular momentum</a>, it's clear to see
+				that the sum of external moments is zero, as the moment due to the pull of the Earth on the satellite is equal
+				and opposite to the moment due to the pull of the satellite on the Earth. Moreover, those moments
+				are equal to zero as the position vector $r$ and $mg$ are parallel, which yields a cross product of zero.
+			</p>
+		</div>
+	</Example>
+
+	<p>
+		Interestingly, angular momentum is also related to linear momentum if 
+		the object is a point mass.
+	</p>
+
+
+	<DisplayEquation equation="\\vec{L}_{O} = \\vec{r}_{OP} \\times \\vec{p}_P" id="rec-al" title="Angular momentum of a point mass \\(P\\) about a stationary point \\(O\\)." background="True" derivation="True">
+		<p>
+			Begin with the relationship between angular momentum and moment at <a href="#rec-mm">#rec-mm</a>
+			<DisplayEquation equation="\\begin{aligned}			 \\vec{M}_C &amp;= \\frac{d\\vec{L}}{dt}\\\\			\\end{aligned}" />
+
+		</p>
+		<p>
+			For simplicity's sake, assume there's only one external moment due to 
+			a force applied at point \(P\). Recall the definition of moment due to a 
+			force applied at point \(P\):
+			<DisplayEquation equation="\\begin{aligned}			\\vec{M}_O &amp;= \\vec{r}_{OP} \\times \\vec{F}_P \\\\			\\end{aligned}" />
+
+		</p>
+		<p>
+			Then <a href="#rec-mm">#rec-mm</a> becomes:
+			<DisplayEquation equation="\\begin{aligned}			\\frac{d\\vec{L}}{dt} &amp;= \\vec{r}_{OP} \\times \\vec{F}_P			\\end{aligned}" />
+
+		</p>
+		<p>
+			Using the relationship between linear momentum and force at <a href="#rec-mn">#rec-mn</a>
+			, the above equation becomes:
+			<DisplayEquation equation="\\begin{aligned}			\\frac{d\\vec{L}}{dt} &amp;= \\vec{r}_{OP} \\times \\vec{F}_P \\\\			&amp; = \\vec{r}_{OP} \\times \\frac{d\\vec{p}_P}{dt}			\\end{aligned}" />
+
+		</p>
+		<p>
+			Multiplying both sides by $dt$ yields:
+			<DisplayEquation equation="			d\\vec{L} = \\vec{r}_{OP} \\times d\\vec{p}_P			" />
+
+		</p>
+		<p>
+			Recall integration by parts:
+			<DisplayEquation equation="			\\int u \\, dw = uw - \\int w \\, du			" />
+
+		</p>
+		<p>
+			Setting <InlineEquation equation="dw = d\\vec{p}_P and u = \\vec{r}_{OP}" />
+			, then:
+			<DisplayEquation equation="\\begin{aligned}			u = \\vec{r}_{OP} \\quad \\quad \\quad du = \\vec{v}_P \\,dt \\\\			w = \\vec{p}_P \\quad \\quad \\quad dw = d\\vec{p}_P			\\end{aligned}" />
+
+		</p>
+		<p>
+			Therefore:
+			<DisplayEquation equation="\\begin{aligned}			\\int d\\vec{L} &amp;= \\int \\vec{r}_{OP} \\times d\\vec{p}_P \\\\			&amp;= \\vec{r}_{OP} \\times \\vec{p}_P - \\int \\vec{p}_P \\times \\vec{v}_P \\,dt			\\end{aligned}" />
+
+		</p>
+		<p>
+			However, <InlineEquation equation="\\vec{p}_P = m\\vec{v}_P" />
+			as established in <a href="#rec-lm">#rec-lm</a>:
+			<DisplayEquation equation="\\begin{aligned}			\\vec{L} &amp;= \\vec{r}_{OP} \\times \\vec{p}_P - \\int m\\vec{v}_P \\times \\vec{v}_P \\,dt			\\end{aligned}" />
+
+		</p>
+		<p>
+			The cross product of a vector with itself is zero 
+			(<a href="rvi.html#rvi-ez">cross product self-annihilation</a>). So the
+			integral of <InlineEquation equation="\\int m\\vec{v}_P \\times \\vec{v}_P \\, dt" />			is a constant, which is 
+			the initial angular momentum. Assuming this is zero, we arrive at the 
+			desired expression.
+		</p>
+	</DisplayEquation>
 </SubSection>
 
 
 
 <SubSection title="Impulse" id="impulse">
     <BlueText> Copy <a target="_blank" rel="noopener noreferrer" target="_blank" rel="noopener noreferrer" href="https://mechref.engr.illinois.edu/dyn/rec.html"> Impulse </a> subsection here. </BlueText>
+
+	<p>
+		Impulse is a quantity that describes the effect of a resultant force acting over
+		time. Naturally, impulse is related to momentum.
+	</p>
+	
+	<DisplayEquation equation="\\vec{J} = \\int_{t_1}^{t_2}  \\vec{F} \\, dt" id="rec-ij" title="Impulse." background="True" derivation="True" />
+
+	<p>
+		Note that impulse, like momentum, is a vector. Its direction is the same direction
+		as the net force.
+	</p>
+	<p>
+		As seen from the equation above, this naturally leads to relating the impulse and
+		momentum. Specifically, impulse is the change in momentum.
+	</p>
+
+	<DisplayEquation equation="\\vec{J} = \\Delta \\vec{p}_C" id="rec-jm" title="Impulse-momentum theorem." background="True" derivation="True">
+		<p>
+			From Newton's second law and linear momentum at <a href="#rec-mn">#rec-mn</a>:
+			<DisplayEquation equation="\\vec{F} = \\frac{d\\vec{p}_C}{dt}" />
+
+		</p>
+		<p>
+			Plugging into the impulse definition:
+			<DisplayEquation equation="\\begin{aligned}\\vec{J} &amp;= \\int_{t_1}^{t_2} \\frac{d\\vec{p}_C}{dt} \\, dt \\\\&amp;= \\int_{\\vec{p}_1}^{\\vec{p}_2} d\\vec{p} \\\\&amp;= \\vec{p}_2 - \\vec{p}_1 = \\Delta \\vec{p}_C\\end{aligned}" />
+
+
+		</p>
+	</DisplayEquation>
+
+	<Example title="The Rocket Equation" id="rec-xr" solution="false">
+		<p>
+			As stated in the warning at <a href="#rec-wm">#rec-wm</a>, the 
+			relationship between Newton's equations and linear momentum are 
+			not applicable for a system whose mass is changing with time. To use
+			that relationship, a few things must be changed. Consider the figure 
+			below of a rocket.
+		</p>
+		<PrairieDrawCanvas id="rec-xr-c" width="600" height="200" />
+		<p>
+			The vector <InlineEquation equation="\\vec{v}" /> is the velocity of the center of mass of the rocket
+			relative to an inertially fixed point in space, \(O\). The vector <InlineEquation equation="\\vec{c}" />
+			is the effective exhaust velocity. It is the average equivalent velocity
+			at which propellant is ejected from the rocket <em>relative to the rocket</em>.
+			We will explain further how it relates to what is often a characteristic value of
+			the performance of an engine, called the <em>specific impulse</em>, denoted by <InlineEquation equation="I_{sp}" />.
+		</p>
+		<p>
+			Since the rocket is ejecting propellant, the rate at which this propellant is expelled is
+			the mass flow rate, denoted by <InlineEquation equation=" \\dot{m}" />. In this case, it will be <InlineEquation equation="-\\dot{m} " /> as the 
+			rocket is expelling propellant. To derive the rocket equation, we will need to calculuate
+			the momentum at time \(t\), and at time \(t + dt\), a little time after expelling propellant.
+		</p>
+		<p>
+			The momentum at time \(t\) is simply <InlineEquation equation="\\vec{p}_1 = m\\vec{v}" />. The momentum at time \(t + dt\)
+			consists of two parts: the momentum of the rocket without the mass lost to propellant expulsion,
+			and the momentum of the propellant leaving the rocket. First, the momentum of the rocket at 
+			time \(t + dt\) is given by:
+			<DisplayEquation equation="\\begin{aligned}\\vec{p}_{2, rocket} = (m + \\dot{m}dt)(\\vec{v} + d\\vec{v})\\end{aligned}" />
+
+		</p>
+		<p>
+			You can expand the result to make sure it makes sense:
+			<DisplayEquation equation="\\begin{aligned}\\vec{p}_{2, rocket} &amp;= (m + \\dot{m}dt)(\\vec{v} + d\\vec{v}) \\\\&amp; = m\\vec{v} + md\\vec{v} + \\dot{m}\\vec{v}dt + \\dot{m}d\\vec{v}dt\\end{aligned}" />
+
+		</p>
+		<p>
+			The expression <InlineEquation equation="m\\vec{v}" /> is the initial momentum of the rocket. 
+			The expression <InlineEquation equation="md\\vec{v}" /> is the momentum of the rocket due to the velocity change.
+			The expression <InlineEquation equation="\\dot{m}\\vec{v}dt" /> is the momentum of the propellant at the initial velocity.
+			(Note that <InlineEquation equation="\\dot{m}dt" /> is the mass of the propellant since <InlineEquation equation=" \\dot{m} = -\\frac{dm}{dt}" />).
+			The expredssion <InlineEquation equation="\\dot{m}d\\vec{c}dt" /> is the momentum of the propellant due to the velocity change.
+		</p>
+		<p>
+			The second part of the momentum is the momentum of the propellant leaving the rocket. This
+			expression is a little tricky, as the effective exhaust velocity is <em>relative to the rocket</em>
+			as aforementioned, so we need to obtain the effective exhaust velocity <InlineEquation equation="\\vec{c}" /> relative to the inertially
+			fixed point, \(O\). Otherwise, Newton's equations cannot work. The exhaust velocity relative to \(O\) is:
+			<DisplayEquation equation="\\vec{c}_{O} = \\vec{c}_{rocket} + \\vec{v}_{rocket, O} = \\vec{c} + \\vec{v} " />
+
+		</p>
+		<p>
+			Then the momentum of the propellant being exhausted:
+			<DisplayEquation equation="\\vec{p}_{2, p} = -\\dot{m}dt(\\vec{c} + \\vec{v})" />
+
+		</p>
+		<p>
+			So the total momentum at time \(t + dt\):
+			<DisplayEquation equation="\\vec{p}_2 = (m + \\dot{m}dt)(\\vec{v} + d\\vec{v}) - \\dot{m}dt(\\vec{c} + \\vec{v})" />
+
+		</p>
+		<p>
+			By the impulse-momentum theorem:
+			<DisplayEquation equation="\\begin{aligned}\\vec{J} = \\Delta \\vec{p}_C =  \\vec{F} dt\\end{aligned}" />
+
+		</p>
+		<p>
+			Plugging into the above equation:
+			<DisplayEquation equation="\\begin{aligned}(m + \\dot{m}dt)(\\vec{v} + d\\vec{v}) - \\dot{m}dt(\\vec{c} + \\vec{v}) - m\\vec{v} =  \\vec{F} dt\\end{aligned}" />
+
+		</p>
+		<p>
+			Expanding:
+			<DisplayEquation equation="\\begin{aligned}m\\vec{v} + md\\vec{v} + \\dot{m}\\vec{v}dt + \\dot{m}d\\vec{v}dt - \\dot{m}\\vec{c}dt - \\dot{m}\\vec{v}dt - m\\vec{v} =  \\vec{F} dt\\end{aligned}" />
+
+		</p>
+		<p>
+			Simplifying:
+			<DisplayEquation equation="\\begin{aligned}md\\vec{v} + \\dot{m}d\\vec{v}dt - \\dot{m}\\vec{c}dt &amp;=  \\vec{F}dt \\\\md\\vec{v} + \\dot{m}dt(d\\vec{v} - \\vec{c}) &amp;=  \\vec{F}dt\\end{aligned}" />
+
+		</p>
+		<p>
+			Dividing by $dt$:
+			<DisplayEquation equation="\\begin{aligned}m\\frac{d\\vec{v}}{dt} + \\dot{m}(d\\vec{v} - \\vec{c}) &amp;=  \\vec{F} \\\\m\\vec{a} + \\dot{m}(d\\vec{v} - \\vec{c}) &amp;=  \\vec{F}\\end{aligned}" />
+
+		</p>
+		<p>
+			This shows that Newton's equations in linear momentum form do not work
+			with variable mass, as <InlineEquation equation="\\vec{F} - m\\vec{a}" /> is not zero in this case.
+			Rearranging one more time:
+			<DisplayEquation equation="\\begin{aligned}m\\frac{d\\vec{v}}{dt} = \\dot{m}(d\\vec{v} - \\vec{c}) +  \\vec{F}\\end{aligned}" />
+
+		</p>
+		<p>
+			Note the positive next to <InlineEquation equation="\\dot{m}" /> is due to the loss of mass, as aforementioned earlier.
+			The above equation is called the <em>ideal rocket equation</em>, or <a href="https://en.wikipedia.org/wiki/Tsiolkovsky_rocket_equation"><em>Tsiolkovsky rocket equation</em></a>.
+		</p>
+	</Example>
 </SubSection>
 
 <SubSection title="Collisions" id="collisions">
     <BlueText> Copy <a target="_blank" rel="noopener noreferrer" target="_blank" rel="noopener noreferrer" href="https://mechref.engr.illinois.edu/dyn/rec.html"> Collisions </a> subsection here. </BlueText>
+
+	<p>
+		A collision is when two or more objects exert forces on each other in a relatively short time. These problems are usually
+		solved using conservation of momentum and energy. There are two general types of collisions: elastic and inelastic collisions.
+		They are categorized by the state of the kinetic energy before and after the collisions:
+	</p>
+
+	<DisplayTable id="rec-tc">
+		<thead>
+			<tr>
+				<th>type of collision</th>
+                <th>definition</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>elastic collisions</td>
+				<td>collisions where there is no loss in kinetic energy</td> 
+			</tr>
+			<tr>
+				<td>inelastic collisions</td>
+				<td>collisions where there are losses in kinetic energy, typically due to internal friction</td>
+			</tr>
+		</tbody>
+	</DisplayTable>
+
+	<p>
+		Typically in collisions, it is assumed it takes place on a frictionless surface. This is important, since if friction were to be present, the system
+		is not isolated, and therefore momentum is not conserved. 
+	</p>
+	<p>
+		The types of collisions that will be noted are <em>perfectly</em> inelastic and elastic collisions.
+	</p>
+	<p>
+		The steps involved in solving a perfectly elastic collision with conservation of momentum and energy are detailed as follows:
+	</p>
+
+	<DisplayEquationCustom id="rec-ecp" title="Solution procedure of perfectly elastic collisions." background="True">
+		<DisplayEquation equation="\\begin{aligned}                            m_1 \\vec{v}_{1, i} + m_2 \\vec{v}_{2, i} &amp;= m_1 \\vec{v}_{1, f} + m_2 \\vec{v}_{2, f} \\\\                            \\frac{1}{2} m_1 v_{1, i}^2 + \\frac{1}{2} m_2 v_{2, i}^2 &amp; = \\frac{1}{2} m_1 v_{1, f}^2 + \\frac{1}{2} m_2 v_{2, f}^2                            \\end{aligned}" />
+		<p>
+			where subscripts \(i, f\) denote initial and final velocities, respectively.
+		</p>
+	</DisplayEquationCustom>
+
+	<p>
+		Below an animation to simulate a 1D perfectly elastic collision between two blocks.
+	</p>
+
+	<PrairieDrawCanvas id="rec-eco-c" width="600" height="200">
+		<p class="controls">
+			<button class="anim-toggle:rec-eco-c" onclick="rec_eco_c.toggleAnim()">animation</button>
+			<button class="reset:rec-eco-c" onclick="rec_eco_c.reset()">reset</button>
+		</p>
+		
+		<Row> 
+			<Col values="12 md-6">
+				<div class="d-flex  align-items-baseline">
+					<p class="m-0 flex-shrink-1">\(m_1\)</p>
+					<div class="flex-grow-1 d-flex align-items-baseline">
+						<input type="range" min="1" max="50" value="0" step="1" class="data-option:rec-eco-c:m1 flex-grow-1 mx-2" onchange="rec_eco_c.setOption('m1', this.value)" oninput="rec_eco_c.setOption('m1', this.value)"/>
+					</div>
+				</div>
+			</Col>
+			<Col values="12 md-6">
+				<div class="d-flex  align-items-baseline">
+					<p class="m-0 flex-shrink-1">\(v_1\)</p>
+					<div class="flex-grow-1 d-flex align-items-baseline">
+						<input type="range" min="-5" max="5" value="0" step="1" class="data-option:rec-eco-c:v1x flex-grow-1 mx-2" onchange="rec_eco_c.setOption('v1x', this.value)" oninput="rec_eco_c.setOption('v1x', this.value)"/>
+					</div>
+				</div>
+			</Col>
+			<Col values="12 md-6">
+				<div class="d-flex  align-items-baseline">
+					<p class="m-0 flex-shrink-1">\(m_2\)</p>
+					<div class="flex-grow-1 d-flex align-items-baseline">
+						<input type="range" min="1" max="50" value="0" step="1" class="data-option:rec-eco-c:m2 flex-grow-1 mx-2" onchange="rec_eco_c.setOption('m2', this.value)" oninput="rec_eco_c.setOption('m2', this.value)"/>
+					</div>
+				</div>
+			</Col>
+			<Col values="12 md-6">
+				<div class="d-flex  align-items-baseline">
+					<p class="m-0 flex-shrink-1">\(v_2\)</p>
+					<div class="flex-grow-1 d-flex align-items-baseline">
+						<input type="range" min="-5" max="5" value="0" step="1" class="data-option:rec-eco-c:v2x flex-grow-1 mx-2" onchange="rec_eco_c.setOption('v2x', this.value)" oninput="rec_eco_c.setOption('v2x', this.value)"/>
+					</div>
+				</div>
+			</Col>
+		</Row>
+	</PrairieDrawCanvas>
+
+	<p>
+		The solution procedure to solve a perfectly inelastic collisions is simpler, as the objects stick together after an inelastic collision.
+		It involves using conservation of momentum only, as kinetic energy is lost in the collision, as aforementioned.
+	</p>
+
+	<DisplayEquationCustom id="rec-icp" title="Solution procedure of perfectly inelastic collisions." background="True">
+		<DisplayEquation equation="m_1 \\vec{v}_{1, i} + m_2 \\vec{v}_{2, i} = (m_1 + m_2)\\vec{v}_f" />
+		<p>
+			where subscripts \(i, f\) denote initial and final velocities, respectively.
+		</p>
+	</DisplayEquationCustom>
+
+
+	<p>
+		Note the <InlineEquation equation="\\vec{v}_f" /> shown above is the velocity of the <em>center of mass</em>. It is the same before and after the collision due to conservation of
+		momentum where the net external force is zero (and therefore, the acceleration of the center of mass).
+	</p>
+	<p>
+		Below is an animation to simulate a 1D perfectly inelastic collision between two blocks.
+	</p>
+
+	<PrairieDrawCanvas id="rec-ico-c" width="600" height="200">
+		<p class="controls">
+			<button class="anim-toggle:rec-ico-c" onclick="rec_ico_c.toggleAnim()">animation</button>
+			<button class="reset:rec-ico-c" onclick="rec_ico_c.reset()">reset</button>
+		</p>
+		
+		<Row> 
+			<Col values="12 md-6">
+				<div class="d-flex  align-items-baseline">
+					<p class="m-0 flex-shrink-1">\(m_1\)</p>
+					<div class="flex-grow-1 d-flex align-items-baseline">
+						<input type="range" min="1" max="50" value="0" step="1" class="data-option:rec-ico-c:m1 flex-grow-1 mx-2" onchange="rec_ico_c.setOption('m1', this.value)" oninput="rec_ico_c.setOption('m1', this.value)"/>
+					</div>
+				</div>
+			</Col>
+			<Col values="12 md-6">
+				<div class="d-flex  align-items-baseline">
+					<p class="m-0 flex-shrink-1">\(v_1\)</p>
+					<div class="flex-grow-1 d-flex align-items-baseline">
+						<input type="range" min="-5" max="5" value="0" step="1" class="data-option:rec-ico-c:v1x flex-grow-1 mx-2" onchange="rec_ico_c.setOption('v1x', this.value)" oninput="rec_ico_c.setOption('v1x', this.value)"/>
+					</div>
+				</div>
+			</Col>
+			<Col values="12 md-6">
+				<div class="d-flex  align-items-baseline">
+					<p class="m-0 flex-shrink-1">\(m_2\)</p>
+					<div class="flex-grow-1 d-flex align-items-baseline">
+						<input type="range" min="1" max="50" value="0" step="1" class="data-option:rec-ico-c:m2 flex-grow-1 mx-2" onchange="rec_ico_c.setOption('m2', this.value)" oninput="rec_ico_c.setOption('m2', this.value)"/>
+					</div>
+				</div>
+			</Col>
+			<Col values="12 md-6">
+				<div class="d-flex  align-items-baseline">
+					<p class="m-0 flex-shrink-1">\(v_2\)</p>
+					<div class="flex-grow-1 d-flex align-items-baseline">
+						<input type="range" min="-5" max="5" value="0" step="1" class="data-option:rec-ico-c:v2x flex-grow-1 mx-2" onchange="rec_ico_c.setOption('v2x', this.value)" oninput="rec_ico_c.setOption('v2x', this.value)"/>
+					</div>
+				</div>
+			</Col>
+		</Row>
+	</PrairieDrawCanvas>
+
+	<p>
+		One way collisions can be classified into elastic and inelastic collisions is using what is called <em>the coefficient of restitution</em>.
+		It is the ratio of the final to initial relative speeds between two objects after the collision. It can be a way to solve collisions that
+		are not classified as perfectly inelastic or elastic, as well as collisions of more than two objects.
+	</p>
+
+	<DisplayEquationCustom id="rec-cor" title="Coefficient of restitution." background="True" derivation="True">
+		<DisplayEquation equation="e = \\frac{\\left|v_{2,f} - v_{1,f}\\right|}{\\left|v_{2,i} - v_{1,i}\\right|}" />
+		<p>
+			where subscripts \(i, f\) denote initial and final velocities, respectively.
+		</p>
+
+		<div slot="derivation">
+			<p>
+				Using the solution procedure of perfectly elastic collisions at <a href="#rec-ecp">#rec-ecp</a> and assuming
+				a one-dimensional collision:
+				<DisplayEquation equation="\\begin{aligned}m_1 v_{1, i} + m_2 v_{2, i} &amp;= m_1 v_{1, f} + m_2 v_{2, f} \\\\\\frac{1}{2} m_1 v_{1, i}^2 + \\frac{1}{2} m_2 v_{2, i}^2 &amp; = \\frac{1}{2} m_1 v_{1, f}^2 + \\frac{1}{2} m_2 v_{2, f}^2\\end{aligned}" />
+
+			</p>
+			<p>
+				From conservation of kinetic energy:
+				<DisplayEquation equation="\\begin{aligned}m_1 \\left(v_{1, i}^2 - v_{1, f}^2\\right) &amp;= m_2 \\left(v_{2, f}^2 - v_{2, i}^2\\right)\\end{aligned}" />
+
+			</p>
+			<p>
+				Using the difference of two squares :
+				<DisplayEquation equation="\\begin{aligned}m_1 \\left(v_{1, i} - v_{1, f}\\right) \\left(v_{1, i} + v_{1, f}\\right) &amp;= m_2 \\left(v_{2, f} - v_{2, i}\\right) \\left(v_{2, f} + v_{2, i}\\right)\\end{aligned}" />
+
+			</p>
+			<p>
+				From conservation of linear momentum:
+				<DisplayEquation equation="\\begin{aligned}m_1 \\left(v_{1, i} - v_{1, f}\\right) &amp;= m_2 \\left(v_{2, f} - v_{2, i}\\right)\\end{aligned}" />
+
+			</p>
+			<p>
+				Divide the conservation of linear momentum equation:
+				<DisplayEquation equation="\\begin{aligned}\\frac{m_1 \\left(v_{1, i} - v_{1, f}\\right)}{m_2 \\left(v_{2, f} - v_{2, i}\\right)} &amp;= 1\\end{aligned}" />
+
+			</p>
+			<p>
+				Divide the conservation of kinetic energy equation:
+				<DisplayEquation equation="\\begin{aligned}\\frac{m_1 \\left(v_{1, i} - v_{1, f}\\right)}{m_2 \\left(v_{2, f} - v_{2, i}\\right)} &amp;= \\frac{\\left(v_{2, f} + v_{2, i}\\right)}{\\left(v_{1, i} + v_{1, f}\\right)}\\end{aligned}" />
+
+			</p>
+			<p>
+				Substituting the division from conservation of momentum into the division from the conservation of kinetic energy:
+				<DisplayEquation equation="\\begin{aligned}1 &amp;= \\frac{\\left(v_{2, f} + v_{2, i}\\right)}{\\left(v_{1, i} + v_{1, f}\\right)}\\end{aligned}" />
+
+			</p>
+			<p>
+				Rearranging:
+				<DisplayEquation equation="\\begin{aligned}v_{1, i} + v_{1, f} &amp;= v_{2, f} + v_{2, i} \\\\v_{1, i} - v_{2, i} &amp; = -\\left(v_{1, f} - v_{2, f}\\right)\\end{aligned}" />
+
+			</p>
+			<p>
+				Finally, one more divison and taking the absolute value:
+				<DisplayEquation equation="\\begin{aligned}1 &amp; = \\frac{\\left|v_{2,f} - v_{1,f}\\right|}{\\left|v_{2,i} - v_{1,i}\\right|}\\end{aligned}" />
+
+			</p>
+			<p>
+				Which equals 1, which is the coefficient of restitution for a perfectly elastic collision.
+			</p>
+		</div>
+	</DisplayEquationCustom>
+
+	<p>
+		The range of values of the coefficient of restitution corresponds to different types of collisions. It is a dimensionless parameter, usually between
+		0 and 1. Those ranges are tabulated below.
+	</p>
+
+	<DisplayTable id="rec-tc">
+		<thead>
+			<tr>
+				<th>range</th>
+				<th>type of collision</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>\(e = 0\)</td>
+				<td>This corresponds to a perfectly inelastic collision. The velocity of both objects after the collision is the same</td> 
+			</tr>
+			<tr>
+				<td>\(0 &lt; e &lt; 1\)</td>
+				<td>This corresponds to an inelastic collision that happens in the real world, where some kinetic energy is lost</td>
+			</tr>
+			<tr>
+				<td>\(e = 1\)</td>
+				<td>This corresponds to a perfectly elastic collision, where no kinetic energy is lost.</td>
+			</tr>
+			<tr>
+				<td>\(e &gt; 1\)</td>
+				<td>This corresponds to a superelastic collision, where energy is gained/released, like a chemical reaction, a reduction of rotational energy.</td>
+			</tr>
+		</tbody>
+		
+	</DisplayTable>
+
+	<CalloutContainer slot="cards">
+		<CalloutCard>
+			<p>
+				Counting the number of collisions with two simple objects, such as blocks,
+				billiard balls, can be used to estimate \(\pi\) to any accuracy. Mathematician
+				<a href="https://www.ux1.eiu.edu/~cfgg/"><i>Gregory Galperin</i></a> of
+				Eastern Illinois University discovered this in 1995 and 
+				<a href="https://www.maths.tcd.ie/~lebed/Galperin.%20Playing%20pool%20with%20pi.pdf">published</a> this in 2003.
+				Famous YouTuber <a href="https://www.youtube.com/c/3blue1brown"><i>3Blue1Brown</i></a> 
+				made a <a href="https://www.youtube.com/watch?v=HEfHFsfGXjs">video</a> on this explaining this
+				seemingly paradoxical result. However, looking at the velocity phase space,
+				which is graphing the velocity of \(m_1\) on one axis, and the velocity of \(m_2\)
+				on another. This arises from conservation of kinetic energy in elastic collisions.
+			</p>
+		</CalloutCard>
+		<CalloutCard>
+			<p>
+				There was a time when hitting the perfect shot in a game of billiards could result in the ball to explode. 
+				They were made from <a href="https://pubchem.ncbi.nlm.nih.gov/compound/Nitrocellulose"><em>nitrocellulose</em></a>, which is
+				a plastic that is easily combustible, as an alternative to ivory. This corresponds to a coefficient of restitution greater than 1.
+			</p>
+		</CalloutCard>
+	</CalloutContainer>
+
 </SubSection>
 
 <SubSection title="Applications"  id="app_work_energy">
