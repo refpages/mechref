@@ -116,7 +116,11 @@ links_to_replace = {
     "src=\"/Statics/": "src=\"../Statics/",
     "src=\"/Solid_Mechanics/": "src=\"../Solid_Mechanics/",
     "src=\"/Dynamics/": "src=\"../Dynamics/",
-    "href=\"${e['item']['link']}\"": "href=\"..${e['item']['link']}\""
+    "href=\"${e['item']['link']}\"": "href=\"..${e['item']['link']}\"",
+    "url(/fonts/source-sans-pro/SourceSansPro-Regular.otf": "url(../fonts/source-sans-pro/SourceSansPro-Regular.otf",
+    "url(/fonts/source-sans-pro/SourceSansPro-Semibold.otf": "url(../fonts/source-sans-pro/SourceSansPro-Semibold.otf",
+    "url(/fonts/source-sans-pro/SourceSansPro-Bold.otf": "url(../fonts/source-sans-pro/SourceSansPro-Bold.otf",
+    "url(/fonts/Montserrat-Bold.ttf": "url(../fonts/Montserrat-Bold.ttf"
 }
 
 all_content_pages = os.listdir(os.path.join(home, 'sta')) + os.listdir(os.path.join(home, 'sol')) + os.listdir(os.path.join(home, 'dyn'))
@@ -182,6 +186,10 @@ links_to_replace = {
     "href=\"/about/\"": "href=\"./about.html\"",
     "href=\"/about\"": "href=\"./about.html\"",
     "src=\"/about/": "src=\"./about/",
+    "url(/fonts/source-sans-pro/SourceSansPro-Regular.otf": "url(./fonts/source-sans-pro/SourceSansPro-Regular.otf",
+    "url(/fonts/source-sans-pro/SourceSansPro-Semibold.otf": "url(./fonts/source-sans-pro/SourceSansPro-Semibold.otf",
+    "url(/fonts/source-sans-pro/SourceSansPro-Bold.otf": "url(./fonts/source-sans-pro/SourceSansPro-Bold.otf",
+    "url(/fonts/Montserrat-Bold.ttf": "url(./fonts/Montserrat-Bold.ttf"
 }
 
 all_content_pages = os.listdir(os.path.join(home, 'sta')) + os.listdir(os.path.join(home, 'sol')) + os.listdir(os.path.join(home, 'dyn'))
