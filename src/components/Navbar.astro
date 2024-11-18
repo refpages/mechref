@@ -190,7 +190,6 @@ import Searchbar from "./Searchbar.astro";
 
     .dynamics-menu{
         column-count: 2;
-        
     }
 
     .menu li{
@@ -205,7 +204,7 @@ import Searchbar from "./Searchbar.astro";
 
     @media (width <= 578px){
         .course-menu{
-            columns: 1;
+            columns: 1 !important;
         }
     }
 
@@ -406,6 +405,24 @@ import Searchbar from "./Searchbar.astro";
                     </div>
                 </div>
             </li>
+            COPY THE TEXT BELOW AND MODIFY IT WITH 
+            <!-- <li class="dropdown mega nav-item ">
+                <a class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false" aria-label="About">
+                    <span><course_name>/span>
+                </a>
+                <div class="dropdown-menu tile-list px-2" id="mainnav-<course_abbreviation>"> 
+                    <div class="d-flex">
+                        <section class="tile menu white-box col">
+                            <h2><a href="/<course_abbreviation>" aria-label="About">Solid Mechanics</a></h2>
+                                <ol style="column-fill: balance;" class="course-menu <course_abbreviation>-menu">
+                                    <li><a href="/<course_abbreviation>/page1?origin=sidebar">Page 1</a></li>
+                                    <li><a href="/<course_abbreviation>/page2?origin=sidebar">Page 2</a></li>
+                                    etc...
+                                </ol>
+                        </section>
+                    </div>
+                </div>
+            </li> -->
         </ul>
         <span class="navbar-text d-flex flex-row justify-content-center align-items-center" style="padding: 8px 10px 10px 10px;"><a class="me-2 fw-bold nav-link" href="/about">About</a></span>
         <span class="navbar-text d-flex flex-row justify-content-center align-items-center theme-toggler" style="padding: 8px 10px 10px 10px;" onclick="toggle_theme();" >
