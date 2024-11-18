@@ -21,12 +21,39 @@ const {code = "", language=""} = Astro.props;
     }
 </script>
 
+<style is:global>
+    code > span.hljs-tag:first-of-type{
+        position: relative;
+        left: -4.5rem;
+    }
 
+    pre{
+        border-radius: 1rem;
+        display: block;
+    }
 
-<pre class="hljs px-3" style="white-space: pre; ">
+    pre:hover{
+        background-color: red;
+    }
+
+    pre:hover + p.not-tooltip {
+        display: block;
+    }
+
+    p.not-tooltip{
+        display: none;
+        margin: 0;
+        position: absolute;
+        
+    }
+ 
+</style>
+
+<pre class="hljs px-3" style="white-space: pre;">
     <code class={language != "" ? "language-" + language : ""}>
         {code}
     </code>
 </pre>
+
 
 <script is:inline>hljs.highlightAll();</script>
