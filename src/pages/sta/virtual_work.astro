@@ -10,6 +10,10 @@ import Enumerate from "../../components/Enumerate.astro"
 import Item from "../../components/Item.astro"
 import Warning from "../../components/Warning.astro"
 import SubSubSection from "../../components/SubSubSection.astro"
+import Example from "../../components/Example.astro"
+import InlineCanvas from "../../components/InlineCanvas.astro"
+import Row from "../../components/Row.astro"
+import Col from "../../components/Col.astro"
 ---
 <Layout title="Virtual Work">
 
@@ -24,17 +28,73 @@ import SubSubSection from "../../components/SubSubSection.astro"
 <Section title="Virtual Work" id="virtual_work">
 
 <!-- Lectures 34 and 35 -->
+
+<Image src='/Statics/VWorkFigures/VirtualWork.png' width='3.5'></Image>
+
 A force does work when it produces a displacement along its line of action. 
 
 Virtual work (<InlineEquation equation='dU' />) is the work produced by a force (<InlineEquation equation='F' />) over an infinitesimally small displacement (<InlineEquation equation='dr' />).
 
 <DisplayEquation equation='dU = F\\cdot dr\\' title="Virtual work." background="True"/>
 
-We can use virtual work to solve for the forces in a system without needing to solve for all of the support reactions. For example, if a truss is completely pinned on one end, it doesn't move, which means there is no virtual work completed on that pin because there are no virtual displacements!
+We can use virtual work to solve for the forces in a system without needing to solve for all of the support reactions. 
+
+<p>
+For example, if a truss is completely pinned on one end, it doesn't move, which means there is no virtual work completed on that pin because there are no virtual displacements!
+</p>
+
+<Example id="pin-trs" title="Pinned truss virtual work." solution="True">
+    <div class="d-flex">
+        <div class="d-flex flex-row">
+        <Row>
+        <Col values="12 md-5">
+            <p>
+            The box on top of the truss has a mass of 10 kg. Determine the couple moment <InlineEquation equation="M"/> needed to maintain equilibrium at <InlineEquation equation="\\theta=60\\deg"/>.
+            </p>
+        </Col>
+        <Col values="12 md-7">
+            <Image src='/Statics/VWorkFigures/Box.png' width='6'></Image>
+        </Col>
+        </Row>
+    </div>
+</div>
+<div slot="solution">
+  <p>
+      <Enumerate>
+        <Item> Free body diagram. </Item>
+        <Image src='/Statics/VWorkFigures/BoxFBD1.png' width='3'></Image>
+        <Item> Deflected position. </Item>
+        <Image src='/Statics/VWorkFigures/BoxFBD2.png' width='3'></Image>
+        <Item> Position coordinates.</Item>
+        <DisplayEquation equation="\\vec{r_W} = (l cos\\theta + 0.2)\\hat{i} =(l sin\\theta+b)\\hat{j}"/>
+        <Item>Select the parallel line of action component. </Item>
+        <span style="display: block; text-align: center"> Fixed point at B.</span>
+        <Item>Remove forces that do no work. </Item>
+        <DisplayEquation equation="B_x, B_y, D_x, D_y"/>
+        <DisplayEquation equation ="dU = 0"/>
+        <Item>Differentiate position coordinates.</Item>
+        <DisplayEquation equation="d\\vec{r_W} = (-l sin\\theta \\text{ } d\\theta)\\hat{i} + (l cos\\theta \\text{ } d\\theta)\\hat{j}"/>
+        <Item>Virtual work equation.</Item>
+        <DisplayEquation equation="\\Sigma dU = M \\text{ } d\\theta + \\vec{W} \\cdot d\\vec{r_W} = 0"/>
+        <Item>Solve.</Item> 
+        <DisplayEquation equation="\\Sigma dU = M \\text{ } d\\theta + (-W \\hat{j}) \\cdot (-l sin\\theta \\text{ } d\\theta \\hat{i} + lcos\\theta \\text{ } d\\theta \\hat{j}) = 0"/>
+        <DisplayEquation equation="\\Sigma dU = M \\text{ } d\\theta -Wl cos\\theta \\text{ } d\\theta = 0"/>
+        <DisplayEquation equation="\\Sigma dU = (M - Wlcos\\theta)\\text{ }d\\theta = 0"/>
+        <DisplayEquation equation="M = Wlcos\\theta"/>
+    </Enumerate>
+      
+
+      
+    </p>
+</div>
+
+</Example>
 
 </Section>
 
 <SubSection title="Virtual Displacements" id="virtual_displacements">
+
+<Image src='/Statics/VWorkFigures/VirtualDisp.png' width='7'></Image>
 
 <DisplayEquation equation="d\\vec{r_P} = d\\vec{r_A} + d\\theta \\vec{k} \\times \\vec{r_{AP}}" title="Virtual displacement." background="True" />
 
@@ -46,7 +106,7 @@ A virtual displacement is an infinitesimally small displacement and/or rotation 
 
 <SubSubSection title="Couple Moments" id="couple_moments">
 
-    <Image src='/Statics/VWorkFigures/VWorkCoupleMoment.png' width='5 '> Virtual work  <InlineEquation equation='dU' />  completed by a couple moment,  <InlineEquation equation='M' /> .</Image>
+    <Image src='/Statics/VWorkFigures/CoupleMoments.png' width='5'></Image>
 
     When a body's roation and the moment vector are orented in the same direction, the couple moment does work.
     
@@ -92,7 +152,61 @@ If a body is in equilibrium, the sum of the virtual work done by all the forces 
     <Item>Solve.</Item>
 </Enumerate>
 
+<Example id="rod-wal" title="Rod leaning against a wall." solution="True">
+    <div class="d-flex">
+        <div class="d-flex flex-row">
+        <Row>
+        <Col values="12 md-5">
+            <p>
+                A thin rod with a weight <InlineEquation equation="W"/> rests against a smooth wall and floor. Determine the magnitude of force <InlineEquation equation="P"/> needed to maintain equailibrium.
+            </p>
+        </Col>
+        <Col values="12 md-7">
+            <Image src='/Statics/VWorkFigures/ThinRod.png' width='6'></Image>
+        </Col>
+        </Row>
+    </div>
+</div>
+<div slot="solution">
+  <p>
+      <Enumerate>
+        <Item> Free body diagram. </Item>
+        <Image src='/Statics/VWorkFigures/ThinRodFBD1.png' width='3'></Image>
+        <Item> Deflected position. </Item>
+        <Image src='/Statics/VWorkFigures/ThinRodFBD2.png' width='3'></Image>
+        <Item> Position coordinates.</Item>
+        Point A:
+        <DisplayEquation equation="\\vec{r_A} = -Lcos\\theta\\hat{i}"/>
+        Point B: 
+        <DisplayEquation equation="\\vec{r_B} = Lsin\\theta \\hat{j}"/>
+        COM:
+        <DisplayEquation equation="\\vec{r_W} = -\\frac{L}{2} cos\\theta \\hat{i} + \\frac{L}{2}sin\\theta\\hat{j}"/>
+        <Item>Select the parallel line of action component. </Item>
+        <span style="display: block; text-align: center"> The corner of the wall and floor is fixed. </span>
+        <Item>Remove forces that do no work. </Item>
+        <DisplayEquation equation="N_a, N_b, M"/>
+        <DisplayEquation equation="dU = 0"/>
+        <Item>Differentiate position coordinates.</Item>
+        Point A:
+        <DisplayEquation equation="d\\vec{r_A} = Lsin\\theta \\text{ } d\\theta \\hat{i}"/>
+        Point B: 
+        <DisplayEquation equation="d\\vec{r_B} = Lcos\\theta \\text{ } d\\theta \\hat{j}"/>
+        COM:
+        <DisplayEquation equation="d\\vec{r_W} = \\frac{L}{2} sin\\theta \\text{ } d\\theta \\hat{i} + \\frac{L}{2}cos\\theta \\text{ } d\\theta \\hat{j}"/>
+        <Item>Virtual work equation.</Item>
+        <DisplayEquation equation="\\Sigma dU = \\Sigma \\vec{F} \\cdot d\\vec{r} = 0"/>
+        <Item>Solve.</Item>
+        <DisplayEquation equation="\\Sigma dU = \\vec{P} \\cdot d\\vec{r_A} + \\vec{W} \\cdot d\\vec{r_W} = 0"/> 
+        <DisplayEquation equation="\\Sigma dU = (P\\hat{i}) \\cdot (L sin\\theta \\text{ } d\\theta \\hat{i}) - (W\\hat{j}) \\cdot (\\frac{L}{2} sin\\theta \\text{ } d\\theta \\hat{i} + \\frac{L}{2}cos\\theta \\text{ } d\\theta \\hat{j}) = 0"/>
+        <DisplayEquation equation="\\Sigma dU = PLsin\\theta\\text{ } d\\theta - \\frac{WL}{2}cos\\theta \\text{ } d\\theta = 0"/>
+        <DisplayEquation equation="\\Sigma dU = L \\text{ } d\\theta(Psin\\theta - \\frac{W}{2}cos\\theta) = 0"/>
+        <DisplayEquation equation="Psin\\theta - \\frac{W}{2} cos\\theta = 0"/>
+        <DisplayEquation equation="P = \\frac{Wcos\\theta}{2sin\\theta}"/>
+    </Enumerate>
+</p>
+</div>
 
+</Example>
 <Warning title="Virtual work can be an easier method of solving for some problems." id="vrt-wrk">
     <p>
       For simple problems, virtual work is aobut the same amount of work as the equailibrium equations. 
