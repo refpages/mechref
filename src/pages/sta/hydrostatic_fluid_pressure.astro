@@ -20,10 +20,10 @@ import Example from "../../components/Example.astro"
 <Section title="Hydrostatic Fluid Pressure" id="hydrostatic_fluid_pressure">
 
 <!-- Lecture 30, 31, 32 -->
-<p> <strong>Pascal's Law:</strong> A fluid at rest creates a pressure point <em>p</em> at a point that is the same in all directions. 
+<p> <strong>Pascal's Law:</strong> A fluid at rest creates a pressure that is the same in all directions. 
 </p>
 
-<p><strong>Hydrostatic Fluid Pressure:</strong> Hydrostatic fluid pressure refers to the pressure from a fluid that is at rest (the "static" part of hydrostatic). It comes from the force of gravity acting on the fluid. 
+<p><strong>Hydrostatic Fluid Pressure:</strong> Hydrostatic fluid pressure refers to the pressure from a fluid that is at rest (the "static" part of hydrostatic). It orginates from the force of gravity acting on the fluid. 
 </p>
 
 </Section>
@@ -32,7 +32,7 @@ import Example from "../../components/Example.astro"
 
 For an incompressible fluid (density <InlineEquation equation='\\rho' />) at rest, the pressure <InlineEquation equation='P' /> varies linearly with fluid depth <InlineEquation equation='z' />. This means that the pressure along a horizontal plane (at a certain depth <InlineEquation equation='z' />) is constant.
 
-<Image src='/Statics/FluidFigures/HydrostaticPressure.jpg' width='4'> Derivation of the pressure  <InlineEquation equation='P(z)' />  at the bottom of a cylinder of liquid with cross-sectional area  <InlineEquation equation='A' /></Image>
+<Image src='/Statics/FluidFigures/HydrostaticPressure.jpg' width='4'> Derivation of the variation of pressure  <InlineEquation equation='P(z)' />  with respect to the fluid depth <InlineEquation equation='z' /> </Image>
 
 
 
@@ -55,7 +55,7 @@ For an incompressible fluid (density <InlineEquation equation='\\rho' />) at res
 
 	<DisplayEquation equation="F_R = P*A"/>
 
-	<p> Where <InlineEquation equation=" A " /> is the area that the force is applied over. 
+	<p> where <InlineEquation equation=" A " /> is the area that the force is applied over. 
 	</p>	
 	
 </Warning>
@@ -91,7 +91,7 @@ In 2D, the the value for <InlineEquation equation=" w " />, the distributed load
 
 <SubSection title="Fluid Pressure with Slanted and Curved Surfaces" id="fluid_pressure_FBD">
 
-<p> We will often be required to analyze the hdrostatic fluid pressure on surfaces that are not perfectly horizontal or vertical. In these cases, it is often easier to redraw our system and create articifial horizontal and vertical "surfaces", adding the force from the FBD of the weight of the water trapped in our horizontal and vertical surfaces. 
+<p> We will often be required to analyze the hydrostatic fluid pressure on surfaces that are not perfectly horizontal or vertical. In these cases, it is easier to redraw our system and create articifial horizontal and vertical "surfaces", adding the force from the FBD of the weight of the water trapped in our horizontal and vertical surfaces. 
 </p>
 
 <p> This method will result in the same resultant force on the slanted surface, but the distributed loads are easier to calculate. 
