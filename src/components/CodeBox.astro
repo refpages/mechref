@@ -31,10 +31,6 @@ const {code = "", language=""} = Astro.props;
 </script>
 
 <style is:global>
-    code > span.hljs-tag:first-of-type{
-        position: relative;
-        left: -4.5rem;
-    }
 
     pre{
         border-radius: 1rem;
@@ -89,8 +85,8 @@ const {code = "", language=""} = Astro.props;
 </p>
 </div>
 
-<pre class="hljs px-3" style="white-space: pre; cursor: copy;" onclick="copy_to_clipboard(this);" >
-    <code class={language != "" ? "language-" + language : ""} >
+<pre class="hljs px-3" style="cursor: copy;" onclick="copy_to_clipboard(this);" >
+    <code class={language != "" ? "language-" + language : ""} style="white-space: pre-line; ">
         {code}
     </code>
 </pre>
