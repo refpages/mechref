@@ -109,26 +109,26 @@ In 2D, the the value for <InlineEquation equation=" w " />, the distributed load
 Find the magnitude of the resultant force from the fluid on the curved surface AB (thickness <InlineEquation equation=" t" /> of the surface <InlineEquation equation="= 2 \\ m " />). 
 Density of <InlineEquation equation=" \\text{water}  = 1000 \\ kg / m^3" />
 
-<Image src='/Statics/FluidFigures/CurvedPlateEx.jpg' width='4'> </Image>
+<Image src='/Statics/FluidFigures/CurvedPlateEx.PNG' width='4'> </Image>
 
 <div slot="solution">
 
 <ol>
 	<li> First, we will draw a FBD of the curved surface 
-		<Image src='/Statics/FluidFigures/CurvedPlateSol1.jpg' width='2'> </Image>
+		<Image src='/Statics/FluidFigures/CurvedPlateSol1.PNG' width='2'> </Image>
 	</li>
 	<li> This is complicated! Let's split into horizontal and vertical forces and look at the free body diagram of the water: 
-		<Image src='/Statics/FluidFigures/CurvedPlateSol2.jpg' width='6'> </Image>
+		<Image src='/Statics/FluidFigures/CurvedPlateSol2.png' width='6'> </Image>
 	</li>
 	<li> Solve for <InlineEquation equation=" F_{R1} " /> and <InlineEquation equation=" F_{R2} " /> 
 		<DisplayEquation equation=" \\begin{aligned}   w_1 &amp;= P_1 \\ t  = \\rho \\ g \\ h_1 \\ t  \\\\     w_2 &amp;= P_2 \\ t  = \\rho \\ g \\ h_2 \\ t   \\\\   F_{R1} &amp;= w_1 \\ R  = \\rho \\ g \\ h_1 \\ t  \\ R   \\end{aligned}"  />
 		<p> To solve for <InlineEquation equation=" F_{R2} " />, split the horizontal distributed load into a rectangle and a triangle: </p>
-		<Image src='/Statics/FluidFigures/CurvedPlateSol4.jpg' width='6'> </Image>
+		<Image src='/Statics/FluidFigures/CurvedPlateSol4.PNG' width='6'> </Image>
 		<DisplayEquation equation=" \\begin{aligned}  F_{triangle} &amp;= \\frac{1}{2} (w_2  - w_1) (R)   \\\\  &amp;= \\frac{1}{2} \\rho \\ g \\ (h_2  - h_1) \\ t \\ R   \\\\  F_{rectangle}  &amp;=  w_1 \\ R  =  \\rho \\ g \\ h_1 \\ t  \\ R   \\end{aligned}"  />
 		<DisplayEquation equation=" \\begin{aligned}  F_{R2}  &amp;= F_{triangle} +  F_{rectangle}  \\\\   &amp;= \\frac{1}{2} \\rho \\ g \\ (h_2  - h_1) \\ t \\  + \\rho \\ g \\ h_1 \\ t  \\ R   \\\\   &amp;= \\rho \\ g  \\ t  \\ R \\ [\\frac{1}{2} \\ (h_2  - h_1) + h_1]   \\\\ &amp;= \\rho \\ g  \\ t  \\ R \\ [\\frac{1}{2} \\ h_2  +  \\frac{1}{2} \\ h_1 ]  \\\\  &amp;= \\frac{1}{2} \\rho \\ g  \\ t  \\ R \\ (h_2  +  h_1)  \\end{aligned}"  />
 	</li>
 	<li> Solve for weight of water <InlineEquation equation=" W" /> 
-		<Image src='/Statics/FluidFigures/CurvedPlateSol3.jpg' width='2'> </Image>
+		<Image src='/Statics/FluidFigures/CurvedPlateSol3.PNG' width='2'> </Image>
 		<DisplayEquation equation=" \\begin{aligned}  W &amp;=  m \\ g = \\rho \\ V \\ g  \\\\   V  &amp;= \\text{volume of water} = \\frac{1}{4} \\pi \\ R^2 \\ (t)  \\\\  W  &amp;= \\rho \\frac{1}{4} \\pi \\ R^2 \\ t \\ g \\end{aligned}" />
 	</li>
 	<li> Solve for <InlineEquation equation=" F_{H} " /> and <InlineEquation equation=" F_{V} " /> 
