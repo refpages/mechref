@@ -3,10 +3,99 @@ import Layout from "../../../layouts/Layout.astro"
 import Section from "../../../components/Section.astro"
 import SubSection from "../../../components/SubSection.astro"
 import Image from "../../../components/Image.astro"
+import DisplayTable from "../../../components/DisplayTable.astro"
+import CodeBox from "../../../components/CodeBox.astro"
+import SubSubSection from "../../../components/SubSubSection.astro"
 ---
 
 <Layout title="About">
 <Section title="Setup your page on MechRef">
+    Here is a step-by-step guide on how to set-up your own page on the existing MechRef website.
 </Section>
+
+<SubSection title="GitHub access">
+    Mechref uses <a href="https://github.com/IllinoisRef/mechref" target="_blank" rel="noopener noreferrer">GitHub</a> as a version-control and collaboration platform. While the project's files are public, only those with access can edit them. To gain access, email Professor <a href="mailto:mwest@illinois.edu" target="_blank" rel="noopener noreferrer">Matt West</a> to be added as a collaborator. Once granted, use <a href="https://github.com/IllinoisRef/mechref/blob/main/README.md" target="_blank" rel="noopener noreferrer">this guide</a> to set up a local version of the website, allowing you to quickly make and visualize your changes before they are published online.
 </SubSection>
+
+<SubSection title="Setup your course">
+    Before adding your page, decide on a name and abbreviation for your course. This abbreviation will be used in all links referring to your course's pages, e.g., the abbreviation for Solid Mechanics is "sol", therefore the link to the "Bending" page will be "/sol/bending". Ideally, the abbreviation should be short but distinct, and cannot contain any spaces or special characters. Here is a table with all existing courses and their abbreviated names:
+
+    <DisplayTable id="course-names">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Abbreviation</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Statics</td>
+                <td>sta</td>
+            </tr>
+            <tr>
+                <td>Dynamics</td>
+                <td>dyn</td>
+            </tr>
+            <tr>
+                <td>Solid Mechanics</td>
+                <td>sol</td>
+            </tr>
+        </tbody>
+    </DisplayTable>
+
+    Once an abbreviation has been chosen, copy the file at "src/pages/about/example/home_page.astro", rename it with your abbreviated name, and move it to "src/pages". Also create a folder with the same name. Your file structure should look like this:
+    <CodeBox language="plaintext" code=`
+    src
+    |--> components
+    |--> layouts
+    |--> pages
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|--> <course_abbreviation>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|--> <course_abbreviation>.astro
+    ` /> 
+    Once your folder and home page have been created, decide on how many pages you will have, as well as all their names. Once that is done, to get started, copy the example page which is located at "src/pages/about/examples/example.astro" into your folder, and rename it. Once again, no spaces or special characters, so for example, "Stress Transformation" =\&gt "stress_transformation". Repeat until you reach your desired amount of pages. You should now have the following structure:
+    <CodeBox language="plaintext" code=`
+    src
+    |--> components
+    |--> layouts
+    |--> pages
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|--> <course_abbreviation>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|--> <page_1>.astro
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|--> <page_2>.astro
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|--> <page_3>.astro
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|--> <course_abbreviation>.astro
+    ` /> 
+    Now, if you have the pages locally running on your computer, they should be accessible at <a href="http://localhost:4321/<course_abbreviation>/<page_1>">http://localhost:4321/&lt;course_abbreviation&gt;/&lt;page_1&gt;</a> (replace &lt;course_abbreviation&gt; and &lt;page_1&gt; with your respective course abbreviation and page names). Note that while the pages have ".astro" as their file extension, the links to those pages do not include it.
+</SubSection>
+
+<SubSection title="Make your pages discoverable">
+</SubSection>
+
+<SubSubSection title="Course menu">
+    Once you have decided on how many pages your course will contain and what their names will be, you need to update your home page with the links to all these pages. From the template that you previously copied, add edit all the necessary items (course names, page links, page names, etc.). 
+</SubSubSection>
+<SubSubSection title="Navigation bar">
+    Next step is to add your course to the navigation bar at the top of the page. Open the file "src/components/Navbar.astro". Scroll down until the section that contains
+    <CodeBox language="html" code=`
+    <!-- COPY THE TEXT BELOW AND MODIFY IT WITH ACCORDING TO YOUR NEEDS -->
+            <!-- <li class="dropdown mega nav-item ">
+                <a class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false" aria-label="About">
+                    <span><course_name>/span>
+                </a>
+                <div class="dropdown-menu tile-list px-2" id="mainnav-<course_abbreviation>"> 
+                    <div class="d-flex">
+                        <section class="tile menu white-box col">
+                            <h2><a href="/<course_abbreviation>" aria-label="About">Solid Mechanics</a></h2>
+                                <ol style="column-fill: balance; columns: x <= how many columns do you want your menu to have?;" class="course-menu">
+                                    <li><a href="/<course_abbreviation>/page1?origin=sidebar">Page 1</a></li>
+                                    <li><a href="/<course_abbreviation>/page2?origin=sidebar">Page 2</a></li>
+                                    etc...
+                                </ol>
+                        </section>
+                    </div>
+                </div>
+            </li> -->
+    ` /> 
+    Copy and paste this whole block right above where it is currently located, and remove all the "&lt!--" and  "--&gt". Edit everything to fit your course name, course abbreviation, etc., and add the same links as on your home page, make sure however that the links contain "?origin=sidebar" and not "?origin=coursemenu", as the distinction is essential for analytics purposes. 
+</SubSubSection>
+
 </Layout>
