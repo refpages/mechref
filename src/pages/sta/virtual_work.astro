@@ -94,11 +94,12 @@ For example, if a truss is completely pinned on one end, it doesn't move, which 
 
 <SubSection title="Virtual Displacements" id="virtual_displacements">
 
+<p> A virtual displacement is an infinitesimally small displacement and/or rotation (<InlineEquation equation="dx \\text{ and/or } d\\theta"/>) that is possible in the system. </p>
+
 <Image src='/Statics/VWorkFigures/VirtualDisp.png' width='7'></Image>
 
 <DisplayEquation equation="d\\vec{r_P} = d\\vec{r_A} + d\\theta \\vec{k} \\times \\vec{r_{AP}}" title="Virtual displacement." background="True" />
 
-A virtual displacement is an infinitesimally small displacement and/or rotation (<InlineEquation equation="dx \\text{ and/or } d\\theta"/>) that is possible in the system. 
 <br>
 <em>Note:</em> virtual displacements are assumed to be possible, but don't actually exist. 
 
@@ -148,7 +149,7 @@ If a body is in equilibrium, the sum of the virtual work done by all the forces 
     <Item>Remove all the forces that do not complete any work. </Item>
     <Item>Differentiate the position coordinates to obtain virtual displacement.</Item>
     <Item>Write the virtual work equation, expressing the virtual work of every force and moment.</Item>
-    <Item>Factor out the common virtual displacement term.</Item> 
+    <Item>Factor out the common virtual displacement term (<InlineEquation equation="dx \\text{ and/or } d\\theta"/>).</Item> 
     <Item>Solve.</Item>
 </Enumerate>
 
@@ -193,9 +194,9 @@ If a body is in equilibrium, the sum of the virtual work done by all the forces 
         <DisplayEquation equation="d\\vec{r_B} = Lcos\\theta \\text{ } d\\theta \\hat{j}"/>
         COM:
         <DisplayEquation equation="d\\vec{r_W} = \\frac{L}{2} sin\\theta \\text{ } d\\theta \\hat{i} + \\frac{L}{2}cos\\theta \\text{ } d\\theta \\hat{j}"/>
-        <Item>Virtual work equation.</Item>
+        <Item>Write the virtual work equation.</Item>
         <DisplayEquation equation="\\Sigma dU = \\Sigma \\vec{F} \\cdot d\\vec{r} = 0"/>
-        <Item>Solve.</Item>
+        <Item>Solve by factoring out the common virtual displacement term (in this case, <InlineEquation equation="d\\theta"/>).</Item>
         <DisplayEquation equation="\\Sigma dU = \\vec{P} \\cdot d\\vec{r_A} + \\vec{W} \\cdot d\\vec{r_W} = 0"/> 
         <DisplayEquation equation="\\Sigma dU = (P\\hat{i}) \\cdot (L sin\\theta \\text{ } d\\theta \\hat{i}) - (W\\hat{j}) \\cdot (\\frac{L}{2} sin\\theta \\text{ } d\\theta \\hat{i} + \\frac{L}{2}cos\\theta \\text{ } d\\theta \\hat{j}) = 0"/>
         <DisplayEquation equation="\\Sigma dU = PLsin\\theta\\text{ } d\\theta - \\frac{WL}{2}cos\\theta \\text{ } d\\theta = 0"/>
@@ -209,7 +210,7 @@ If a body is in equilibrium, the sum of the virtual work done by all the forces 
 </Example>
 <Warning title="Virtual work can be an easier method of solving for some problems." id="vrt-wrk">
     <p>
-      For simple problems, virtual work is aobut the same amount of work as the equailibrium equations. 
+      For simple problems, virtual work is about the same amount of work as the equailibrium equations. 
     </p>
    </Warning>
 
