@@ -149,6 +149,7 @@ import Searchbar from "./Searchbar.astro";
         text-align: center;
         font-weight: bold;
         padding: 8px 10px 10px 10px;
+        cursor: pointer;
     }
 
 
@@ -329,7 +330,7 @@ import Searchbar from "./Searchbar.astro";
     <div class="navbar-collapse collapse pt-2 pb-2 pb-lg-0" id="mainnav">
         <ul class="navbar-nav w-100">
             <li class="dropdown mega nav-item">
-                <a class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false" aria-label="About">
+                <a class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false" aria-label="About" onclick="window.location.href='/sta'">
                     <span>Statics</span>
                 </a>
                 <div class="dropdown-menu tile-list px-2" id="mainnav-statics">
@@ -356,7 +357,7 @@ import Searchbar from "./Searchbar.astro";
                 </div>
             </li>
             <li class="dropdown mega nav-item ">
-                <a class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false" aria-label="About" >
+                <a class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false" aria-label="About" onclick="window.location.href=`/dyn`">
                     <span>Dynamics</span>
                 </a>
                 <div class="dropdown-menu tile-list px-2" id="mainnav-dynamics">
@@ -378,8 +379,8 @@ import Searchbar from "./Searchbar.astro";
                 </div>
             </li>
             <li class="dropdown mega nav-item ">
-                <a class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false" aria-label="About">
-                    <span>Solid Mechanics</span>
+                <a class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false" aria-label="About" onclick="window.location.href=`/sol`">
+                    <span>Solid Mechanics</a></span>
                 </a>
                 <div class="dropdown-menu tile-list px-2" id="mainnav-solids"> 
                     <div class="d-flex" >
@@ -405,24 +406,7 @@ import Searchbar from "./Searchbar.astro";
                     </div>
                 </div>
             </li>
-            <!-- COPY THE TEXT BELOW AND MODIFY IT WITH ACCORDING TO YOUR NEEDS -->
-            <!-- <li class="dropdown mega nav-item ">
-                <a class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false" aria-label="About">
-                    <span><course_name>/span>
-                </a>
-                <div class="dropdown-menu tile-list px-2" id="mainnav-<course_abbreviation>"> 
-                    <div class="d-flex">
-                        <section class="tile menu white-box col">
-                            <h2><a href="/<course_abbreviation>" aria-label="About">Solid Mechanics</a></h2>
-                                <ol style="column-fill: balance; columns: x <= how many columns do you want your menu to have?;" class="course-menu">
-                                    <li><a href="/<course_abbreviation>/page1?origin=sidebar">Page 1</a></li>
-                                    <li><a href="/<course_abbreviation>/page2?origin=sidebar">Page 2</a></li>
-                                    etc...
-                                </ol>
-                        </section>
-                    </div>
-                </div>
-            </li> -->
+            <!-- ADD YOUR COURSE HERE -->
         </ul>
         <span class="navbar-text d-flex flex-row justify-content-center align-items-center" style="padding: 8px 10px 10px 10px;"><a class="me-2 fw-bold nav-link" href="/about">About</a></span>
         <span class="navbar-text d-flex flex-row justify-content-center align-items-center theme-toggler" style="padding: 8px 10px 10px 10px;" onclick="toggle_theme();" >
