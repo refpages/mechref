@@ -31,9 +31,13 @@ import Col from "../../components/Col.astro"
 
 <p>In general, a force does work when it produces a displacement along its line of action. When we talk about virtual work, we're imagining those displacements becoming infinitesimally small. </p>
 
+<p> Work is defined as <strong>positive</strong> when the force and the displacement are in the same direction, and <strong>negative</strong> when the force and displacement are in opposite directions. </p> 
+
 <Image src='/Statics/VWorkFigures/VirtualWork.png' width='3.5'></Image>
 
 Virtual work (<InlineEquation equation='dU' />) is the work produced by a force (<InlineEquation equation='F' />) over an infinitesimally small displacement (<InlineEquation equation='dr' />).
+
+
 
 <DisplayEquation equation='dU = F\\cdot dr\\' title="Virtual work." background="True"/>     
 
@@ -45,7 +49,7 @@ Virtual work (<InlineEquation equation='dU' />) is the work produced by a force 
 
 <SubSection title="Virtual Displacements" id="virtual_displacements">
 
-<p> A virtual displacement is an infinitesimally small displacement and/or rotation (<InlineEquation equation="dx \\text{ and/or } d\\theta"/>) that is possible in the system. </p>
+<p> A virtual displacement is an infinitesimally small displacement and/or rotation (<InlineEquation equation="dr \\text{ and/or } d\\theta"/>) that is possible in the system. </p>
 
 <Image src='/Statics/VWorkFigures/VirtualDisp.png' width='7'></Image>
 
@@ -58,7 +62,11 @@ Virtual work (<InlineEquation equation='dU' />) is the work produced by a force 
 
 <SubSubSection title="Couple Moments" id="couple_moments">
 
-    When a body's rotation and the moment vector are oriented in the same direction, the couple moment does work.
+    <p>
+    Couple moments can also do work! When a body's rotation and the moment vector are oriented in the same direction, the couple moment does work. 
+    For 2D problems, this is usually when both the moment and the rotation are oriented in the <InlineEquation equation='\\hat{k}' /> direction 
+    using the <a href="https://www.mechref.org/sta/cartesian_coordinates/?origin=sidebar#right_hand_rule">right hand rule</a>. 
+    </p>
 
     <Image src='/Statics/VWorkFigures/CoupleMoments.png' width='5'></Image>
 
