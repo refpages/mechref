@@ -64,7 +64,7 @@ Virtual work (<InlineEquation equation='dU' />) is the work produced by a force 
 
     <p>
     Couple moments can also do work! When a body's rotation and the moment vector are oriented in the same direction, the couple moment does work. 
-    For 2D problems, this is usually when both the moment and the rotation are oriented in the <InlineEquation equation='\\hat{k}' /> direction 
+    For 2D problems, this is when both the moment and the rotation are oriented in the <InlineEquation equation='\\hat{k}' /> direction 
     using the <a href="https://www.mechref.org/sta/cartesian_coordinates/?origin=sidebar#right_hand_rule">right hand rule</a>. 
     </p>
 
@@ -115,14 +115,14 @@ If a body is in equilibrium, the sum of the virtual work done by all the forces 
     <Item>Remove all the forces that do not complete any work. </Item>
     <Item>Differentiate the position coordinates to obtain virtual displacement.</Item>
     <Item>Write the virtual work equation, expressing the virtual work of every force and moment.</Item>
-    <Item>Factor out the common virtual displacement term (<InlineEquation equation="dx \\text{ and/or } d\\theta"/>).</Item> 
+    <Item>Factor out the common virtual displacement term (<InlineEquation equation="dr \\text{ and/or } d\\theta"/>).</Item> 
     <Item>Solve.</Item>
 </Enumerate>
 
 <p>We can use virtual work to solve for the forces in a system without needing to solve for all of the support reactions. 
 </p>
 <p>
-For example, if a truss is completely pinned on one end, it doesn't move, which means there is no virtual work completed on that pin because there are no virtual displacements ((<InlineEquation equation='dr = 0' />). This means that we can ignore it in our virtual work equation and don't need to solve for the reaction forces at the truss pin. 
+For example, if a truss is completely pinned on one end, it doesn't move, which means there is no virtual work completed on that pin because there are no virtual displacements (<InlineEquation equation='dr = 0' />). This means that we can ignore it in our virtual work equation and don't need to solve for the reaction forces at the truss pin. 
 </p>
 
 <Example id="pin-trs" title="Virtual work problem: box on a structure." solution="True">
@@ -155,11 +155,11 @@ For example, if a truss is completely pinned on one end, it doesn't move, which 
         <DisplayEquation equation="d\\vec{r_W} = (-l sin\\theta \\text{ } d\\theta)\\hat{i} + (l cos\\theta \\text{ } d\\theta)\\hat{j}"/>
         <Item>Apply the Principle of Virtual Work.</Item>
         <DisplayEquation equation="\\Sigma dU = M \\text{ } d\\theta + \\vec{W} \\cdot d\\vec{r_W} = 0"/>
-        <Item>Solve.</Item> 
+        <Item>Solve for <InlineEquation equation= "M"/>.</Item> 
         <DisplayEquation equation="\\Sigma dU = M \\text{ } d\\theta + (-W \\hat{j}) \\cdot (-l sin\\theta \\text{ } d\\theta \\hat{i} + lcos\\theta \\text{ } d\\theta \\hat{j}) = 0"/>
         <center> <InlineEquation equation= "(-W \\hat{j}) \\cdot (-l sin\\theta \\text{ } d\\theta \\hat{i})"/> is zero, so we are left with: </center>
         <DisplayEquation equation="\\Sigma dU = M \\text{ } d\\theta -Wl cos\\theta \\text{ } d\\theta = 0"/>
-        <center> Factor out <InlineEquation equation= "dU"/>: </center>
+        <center> Factor out <InlineEquation equation= "d\\theta"/>: </center>
         <DisplayEquation equation="(M - Wlcos\\theta)\\text{ }d\\theta = 0"/>
         <DisplayEquation equation="M = Wlcos\\theta"/>
     </Enumerate>
@@ -185,30 +185,27 @@ For example, if a truss is completely pinned on one end, it doesn't move, which 
 <div slot="solution">
   <p>
       <Enumerate>
-        <Item> Free body diagram. </Item>
+        <Item> Draw the free body diagram. </Item>
         <Image src='/Statics/VWorkFigures/ThinRodFBD1.png' width='3'></Image>
-        <Item> Deflected position. </Item>
+        <Item> Sketch the deflected position. </Item>
         <Image src='/Statics/VWorkFigures/ThinRodFBD2.png' width='3'></Image>
-        <Item> Position coordinates.</Item>
+        <Item> Define the position coordinates from a fixed point. In this case, we will use the fixed point of the origin at the corner of the wall and floor as our fixed point.</Item>
         Point A:
         <DisplayEquation equation="\\vec{r_A} = -Lcos\\theta\\hat{i}"/>
         Point B: 
         <DisplayEquation equation="\\vec{r_B} = Lsin\\theta \\hat{j}"/>
         COM:
         <DisplayEquation equation="\\vec{r_W} = -\\frac{L}{2} cos\\theta \\hat{i} + \\frac{L}{2}sin\\theta\\hat{j}"/>
-        <Item>Select the parallel line of action component. </Item>
-        <span style="display: block; text-align: center"> The corner of the wall and floor is fixed. </span>
-        <Item>Remove forces that do no work. </Item>
-        <DisplayEquation equation="N_a, N_b, M"/>
-        <DisplayEquation equation="dU = 0"/>
-        <Item>Differentiate position coordinates.</Item>
+        <Item>Identify forces that have components parallel to the virtual displacements. For this problem, this would only be the weight <InlineEquation equation="W"/>.</Item>
+        <Item>Remove forces that do no work. <InlineEquation equation="N_a, N_b"/> do not do any work (<InlineEquation equation= "dU = 0"/>), so they can be removed. </Item>
+        <Item>Differentiate the position coordinates.</Item>
         Point A:
         <DisplayEquation equation="d\\vec{r_A} = Lsin\\theta \\text{ } d\\theta \\hat{i}"/>
         Point B: 
         <DisplayEquation equation="d\\vec{r_B} = Lcos\\theta \\text{ } d\\theta \\hat{j}"/>
         COM:
         <DisplayEquation equation="d\\vec{r_W} = \\frac{L}{2} sin\\theta \\text{ } d\\theta \\hat{i} + \\frac{L}{2}cos\\theta \\text{ } d\\theta \\hat{j}"/>
-        <Item>Write the virtual work equation.</Item>
+        <Item>Apply the Principle of Virtual Work.</Item>
         <DisplayEquation equation="\\Sigma dU = \\Sigma \\vec{F} \\cdot d\\vec{r} = 0"/>
         <Item>Solve by factoring out the common virtual displacement term (in this case, <InlineEquation equation="d\\theta"/>).</Item>
         <DisplayEquation equation="\\Sigma dU = \\vec{P} \\cdot d\\vec{r_A} + \\vec{W} \\cdot d\\vec{r_W} = 0"/> 
