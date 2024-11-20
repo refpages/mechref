@@ -147,18 +147,17 @@ For example, if a truss is completely pinned on one end, it doesn't move, which 
         <Image src='/Statics/VWorkFigures/BoxFBD1.png' width='3'></Image>
         <Item> Sketch the deflected position. </Item>
         <Image src='/Statics/VWorkFigures/BoxFBD2.png' width='3'></Image>
-        <Item> Define the Position coordinates from a fixed point. In this case, we are defining them from the origin, which is at point B.</Item>
-        <DisplayEquation equation="\\vec{r_W} = (l cos\\theta + 0.2)\\hat{i} =(l sin\\theta+b)\\hat{j}"/>
+        <Item> Define the position coordinates from a fixed point. In this case, we are defining them from the fixed point B.</Item>
+        <DisplayEquation equation="\\vec{r_W} = (l cos\\theta + 0.2)\\hat{i} + (l sin\\theta+b)\\hat{j}"/>
         <Item>Select the components of the forces that are parallel to the displacements. For this problem, only W and M have  components parallel to any virtual displacement. </Item>
-        <Item>Remove forces that do no work. </Item>
-        <DisplayEquation equation="B_x, B_y, D_x, D_y"/>
-        <DisplayEquation equation ="dU = 0"/>
-        <Item>Differentiate position coordinates.</Item>
+        <Item>Remove forces that do no work. <InlineEquation equation="B_x, B_y, D_x, D_y"/> do not do any work (<InlineEquation equation= "dU = 0"/>, so they can be removed.  </Item>
+        <Item>Differentiate the position coordinates.</Item>
         <DisplayEquation equation="d\\vec{r_W} = (-l sin\\theta \\text{ } d\\theta)\\hat{i} + (l cos\\theta \\text{ } d\\theta)\\hat{j}"/>
-        <Item>Virtual work equation.</Item>
+        <Item>Apply the Principle of Virtual Work.</Item>
         <DisplayEquation equation="\\Sigma dU = M \\text{ } d\\theta + \\vec{W} \\cdot d\\vec{r_W} = 0"/>
         <Item>Solve.</Item> 
         <DisplayEquation equation="\\Sigma dU = M \\text{ } d\\theta + (-W \\hat{j}) \\cdot (-l sin\\theta \\text{ } d\\theta \\hat{i} + lcos\\theta \\text{ } d\\theta \\hat{j}) = 0"/>
+        <center> <InlineEquation equation= "(-W \\hat{j}) \\cdot (-l sin\\theta \\text{ } d\\theta \\hat{i})"/> is zero, so we are left with: </center>
         <DisplayEquation equation="\\Sigma dU = M \\text{ } d\\theta -Wl cos\\theta \\text{ } d\\theta = 0"/>
         <DisplayEquation equation="\\Sigma dU = (M - Wlcos\\theta)\\text{ }d\\theta = 0"/>
         <DisplayEquation equation="M = Wlcos\\theta"/>
