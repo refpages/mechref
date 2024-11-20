@@ -111,7 +111,7 @@ If a body is in equilibrium, the sum of the virtual work done by all the forces 
     <Item>Draw a free body diagram of the system, including a coordinate system.</Item>
     <Item>Sketch the "deflected" position of the system.</Item>
     <Item>Define the position coordinates (measured from a fixed point).</Item>
-    <Item>Select the components of the forces that are parallel to the deflections (the parallel line of action components).</Item>
+    <Item>Select the components of the forces that are parallel to the virtual displacements (the parallel line of action components).</Item>
     <Item>Remove all the forces that do not complete any work. </Item>
     <Item>Differentiate the position coordinates to obtain virtual displacement.</Item>
     <Item>Write the virtual work equation, expressing the virtual work of every force and moment.</Item>
@@ -125,13 +125,13 @@ If a body is in equilibrium, the sum of the virtual work done by all the forces 
 For example, if a truss is completely pinned on one end, it doesn't move, which means there is no virtual work completed on that pin because there are no virtual displacements ((<InlineEquation equation='dr = 0' />). This means that we can ignore it in our virtual work equation and don't need to solve for the reaction forces at the truss pin. 
 </p>
 
-<Example id="pin-trs" title="Pinned truss virtual work." solution="True">
+<Example id="pin-trs" title="Virtual work problem: box on a structure." solution="True">
     <div class="d-flex">
         <div class="d-flex flex-row">
         <Row>
         <Col values="12 md-5">
             <p>
-            The box on top of the truss has a mass of 10 kg. Determine the couple moment <InlineEquation equation="M"/> needed to maintain equilibrium at <InlineEquation equation="\\theta=60\\deg"/>.
+            The box has a mass of 10 kg. Determine the couple moment <InlineEquation equation="M"/> needed to maintain equilibrium at <InlineEquation equation="\\theta=60\\deg"/>.
             </p>
         </Col>
         <Col values="12 md-7">
@@ -143,13 +143,13 @@ For example, if a truss is completely pinned on one end, it doesn't move, which 
 <div slot="solution">
   <p>
       <Enumerate>
-        <Item> Free body diagram. </Item>
+        <Item> Draw the free body diagram of the structure. </Item>
         <Image src='/Statics/VWorkFigures/BoxFBD1.png' width='3'></Image>
-        <Item> Deflected position. </Item>
+        <Item> Sketch the deflected position. </Item>
         <Image src='/Statics/VWorkFigures/BoxFBD2.png' width='3'></Image>
-        <Item> Position coordinates.</Item>
+        <Item> Define the Position coordinates from a fixed point. In this case, we are defining them from the origin, which is at point B.</Item>
         <DisplayEquation equation="\\vec{r_W} = (l cos\\theta + 0.2)\\hat{i} =(l sin\\theta+b)\\hat{j}"/>
-        <Item>Select the parallel line of action component. </Item>
+        <Item>Select the components of the forces that are parallel to the displacements. For this problem, only W has a componen. </Item>
         <span style="display: block; text-align: center"> Fixed point at B.</span>
         <Item>Remove forces that do no work. </Item>
         <DisplayEquation equation="B_x, B_y, D_x, D_y"/>
