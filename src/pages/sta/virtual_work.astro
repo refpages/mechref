@@ -29,63 +29,14 @@ import Col from "../../components/Col.astro"
 
 <!-- Lectures 34 and 35 -->
 
-<Image src='/Statics/VWorkFigures/VirtualWork.png' width='3.5'></Image>
+In general, a force does work when it produces a displacement along its line of action. When we talk about virtual work, we're making those displacements infinitesimally small. 
 
-In general, a force does work when it produces a displacement along its line of action. When we talk about virtual work, we're talking about making those displacements infinitesimally small. 
+<Image src='/Statics/VWorkFigures/VirtualWork.png' width='3.5'></Image>
 
 Virtual work (<InlineEquation equation='dU' />) is the work produced by a force (<InlineEquation equation='F' />) over an infinitesimally small displacement (<InlineEquation equation='dr' />).
 
-<DisplayEquation equation='dU = F\\cdot dr\\' title="Virtual work." background="True"/>
+<DisplayEquation equation='dU = F\\cdot dr\\' title="Virtual work." background="True"/>     
 
-We can use virtual work to solve for the forces in a system without needing to solve for all of the support reactions. 
-
-<p>
-For example, if a truss is completely pinned on one end, it doesn't move, which means there is no virtual work completed on that pin because there are no virtual displacements!
-</p>
-
-<Example id="pin-trs" title="Pinned truss virtual work." solution="True">
-    <div class="d-flex">
-        <div class="d-flex flex-row">
-        <Row>
-        <Col values="12 md-5">
-            <p>
-            The box on top of the truss has a mass of 10 kg. Determine the couple moment <InlineEquation equation="M"/> needed to maintain equilibrium at <InlineEquation equation="\\theta=60\\deg"/>.
-            </p>
-        </Col>
-        <Col values="12 md-7">
-            <Image src='/Statics/VWorkFigures/Box.png' width='6'></Image>
-        </Col>
-        </Row>
-    </div>
-</div>
-<div slot="solution">
-  <p>
-      <Enumerate>
-        <Item> Free body diagram. </Item>
-        <Image src='/Statics/VWorkFigures/BoxFBD1.png' width='3'></Image>
-        <Item> Deflected position. </Item>
-        <Image src='/Statics/VWorkFigures/BoxFBD2.png' width='3'></Image>
-        <Item> Position coordinates.</Item>
-        <DisplayEquation equation="\\vec{r_W} = (l cos\\theta + 0.2)\\hat{i} =(l sin\\theta+b)\\hat{j}"/>
-        <Item>Select the parallel line of action component. </Item>
-        <span style="display: block; text-align: center"> Fixed point at B.</span>
-        <Item>Remove forces that do no work. </Item>
-        <DisplayEquation equation="B_x, B_y, D_x, D_y"/>
-        <DisplayEquation equation ="dU = 0"/>
-        <Item>Differentiate position coordinates.</Item>
-        <DisplayEquation equation="d\\vec{r_W} = (-l sin\\theta \\text{ } d\\theta)\\hat{i} + (l cos\\theta \\text{ } d\\theta)\\hat{j}"/>
-        <Item>Virtual work equation.</Item>
-        <DisplayEquation equation="\\Sigma dU = M \\text{ } d\\theta + \\vec{W} \\cdot d\\vec{r_W} = 0"/>
-        <Item>Solve.</Item> 
-        <DisplayEquation equation="\\Sigma dU = M \\text{ } d\\theta + (-W \\hat{j}) \\cdot (-l sin\\theta \\text{ } d\\theta \\hat{i} + lcos\\theta \\text{ } d\\theta \\hat{j}) = 0"/>
-        <DisplayEquation equation="\\Sigma dU = M \\text{ } d\\theta -Wl cos\\theta \\text{ } d\\theta = 0"/>
-        <DisplayEquation equation="\\Sigma dU = (M - Wlcos\\theta)\\text{ }d\\theta = 0"/>
-        <DisplayEquation equation="M = Wlcos\\theta"/>
-    </Enumerate>
-      
-
-      
-    </p>
 </div>
 
 </Example>
@@ -159,6 +110,53 @@ If a body is in equilibrium, the sum of the virtual work done by all the forces 
     <Item>Factor out the common virtual displacement term (<InlineEquation equation="dx \\text{ and/or } d\\theta"/>).</Item> 
     <Item>Solve.</Item>
 </Enumerate>
+
+We can use virtual work to solve for the forces in a system without needing to solve for all of the support reactions. 
+
+<p>
+For example, if a truss is completely pinned on one end, it doesn't move, which means there is no virtual work completed on that pin because there are no virtual displacements ((<InlineEquation equation='dr = 0' />). This means that we can ignore it in our virtual work equation and don't need to solve for the reaction forces at the truss pin. 
+</p>
+
+<Example id="pin-trs" title="Pinned truss virtual work." solution="True">
+    <div class="d-flex">
+        <div class="d-flex flex-row">
+        <Row>
+        <Col values="12 md-5">
+            <p>
+            The box on top of the truss has a mass of 10 kg. Determine the couple moment <InlineEquation equation="M"/> needed to maintain equilibrium at <InlineEquation equation="\\theta=60\\deg"/>.
+            </p>
+        </Col>
+        <Col values="12 md-7">
+            <Image src='/Statics/VWorkFigures/Box.png' width='6'></Image>
+        </Col>
+        </Row>
+    </div>
+</div>
+<div slot="solution">
+  <p>
+      <Enumerate>
+        <Item> Free body diagram. </Item>
+        <Image src='/Statics/VWorkFigures/BoxFBD1.png' width='3'></Image>
+        <Item> Deflected position. </Item>
+        <Image src='/Statics/VWorkFigures/BoxFBD2.png' width='3'></Image>
+        <Item> Position coordinates.</Item>
+        <DisplayEquation equation="\\vec{r_W} = (l cos\\theta + 0.2)\\hat{i} =(l sin\\theta+b)\\hat{j}"/>
+        <Item>Select the parallel line of action component. </Item>
+        <span style="display: block; text-align: center"> Fixed point at B.</span>
+        <Item>Remove forces that do no work. </Item>
+        <DisplayEquation equation="B_x, B_y, D_x, D_y"/>
+        <DisplayEquation equation ="dU = 0"/>
+        <Item>Differentiate position coordinates.</Item>
+        <DisplayEquation equation="d\\vec{r_W} = (-l sin\\theta \\text{ } d\\theta)\\hat{i} + (l cos\\theta \\text{ } d\\theta)\\hat{j}"/>
+        <Item>Virtual work equation.</Item>
+        <DisplayEquation equation="\\Sigma dU = M \\text{ } d\\theta + \\vec{W} \\cdot d\\vec{r_W} = 0"/>
+        <Item>Solve.</Item> 
+        <DisplayEquation equation="\\Sigma dU = M \\text{ } d\\theta + (-W \\hat{j}) \\cdot (-l sin\\theta \\text{ } d\\theta \\hat{i} + lcos\\theta \\text{ } d\\theta \\hat{j}) = 0"/>
+        <DisplayEquation equation="\\Sigma dU = M \\text{ } d\\theta -Wl cos\\theta \\text{ } d\\theta = 0"/>
+        <DisplayEquation equation="\\Sigma dU = (M - Wlcos\\theta)\\text{ }d\\theta = 0"/>
+        <DisplayEquation equation="M = Wlcos\\theta"/>
+    </Enumerate>
+</p>
 
 <Example id="rod-wal" title="Rod leaning against a wall." solution="True">
     <div class="d-flex">
