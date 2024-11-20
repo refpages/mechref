@@ -35,7 +35,7 @@ import Col from "../../components/Col.astro"
 
 <Image src='/Statics/VWorkFigures/VirtualWork.png' width='3.5'></Image>
 
-Virtual work (<InlineEquation equation='dU' />) is the work produced by a force (<InlineEquation equation='F' />) over an infinitesimally small displacement (<InlineEquation equation='dr' />).
+Virtual work (<InlineEquation equation='dU' />) is the work produced by a force (<InlineEquation equation='F' />) over an infinitesimally small displacement (<InlineEquation equation='dr'/>).
 
 
 
@@ -49,11 +49,11 @@ Virtual work (<InlineEquation equation='dU' />) is the work produced by a force 
 
 <SubSection title="Virtual Displacements" id="virtual_displacements">
 
-<p> A virtual displacement is an infinitesimally small displacement and/or rotation (<InlineEquation equation="dr \\text{ and/or } d\\theta"/>) that is possible in the system. </p>
+<p> A virtual displacement is an infinitesimally small translation (<InlineEquation equation="dr"/>) and/or rotation (<InlineEquation equation="d\\theta"/>) that is possible in the system. </p>
 
-<Image src='/Statics/VWorkFigures/VirtualDisp.png' width='7'></Image>
+ <Image src='/Statics/VWorkFigures/VirtualDisp.png' width='7'></Image> 
 
-<DisplayEquation equation="d\\vec{r_P} = d\\vec{r_A} + d\\theta \\vec{k} \\times \\vec{r_{AP}}" title="Virtual displacement." background="True" />
+<!-- <DisplayEquation equation="d\\vec{r_P} = d\\vec{r_A} + d\\theta \\vec{k} \\times \\vec{r_{AP}}" title="Virtual displacement." background="True" /> -->
 
 <br>
 <em>Note:</em> virtual displacements are assumed to be possible, but don't actually exist. 
@@ -96,7 +96,7 @@ Virtual work (<InlineEquation equation='dU' />) is the work produced by a force 
 
 <SubSection title="Principle of Virtual Work" id="principle_virtual_work">
 
-If a body is in equilibrium, the sum of the virtual work done by all the forces and couple moments acting on the body is zero. 
+If a body is in equilibrium, the sum of the virtual work done by all the forces and couple moments acting on the body is zero. We can use this principle to solve for the forces on systems with virtual work. 
 
 <DisplayEquation equation="\\sum{dU} = \\sum{\\vec{F}d\\vec{x}} + \\sum{\\vec{M}d\\vec{\\theta}} = 0 " title="Virtual work equilibrium." background="True"/>
 
