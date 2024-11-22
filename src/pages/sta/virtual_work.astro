@@ -137,7 +137,7 @@ For example, if a truss is completely pinned on one end, it doesn't move, which 
         <Row>
         <Col values="12 md-5">
             <p>
-            The box has a mass of 10 kg. Determine the couple moment <InlineEquation equation="M"/> needed to maintain equilibrium at <InlineEquation equation="\\theta=60\\deg"/>.
+            The box has a weight <InlineEquation equation="W"/>. Determine the couple moment <InlineEquation equation="M"/> applied at both points B and D needed to maintain equilibrium at an angle <InlineEquation equation="\\theta"/>.
             </p>
         </Col>
         <Col values="12 md-7">
@@ -160,14 +160,14 @@ For example, if a truss is completely pinned on one end, it doesn't move, which 
         <Item>Differentiate the position coordinates.</Item>
         <DisplayEquation equation="d\\vec{r_W} = (-l sin\\theta \\text{ } d\\theta)\\hat{i} + (l cos\\theta \\text{ } d\\theta)\\hat{j}"/>
         <Item>Apply the Principle of Virtual Work.</Item>
-        <DisplayEquation equation="\\Sigma dU = M \\text{ } d\\theta + \\vec{W} \\cdot d\\vec{r_W} = 0"/>
+        <DisplayEquation equation="\\Sigma dU = 2M \\text{ } d\\theta + \\vec{W} \\cdot d\\vec{r_W} = 0"/>
         <Item>Solve for <InlineEquation equation= "M"/>.</Item> 
-        <DisplayEquation equation="\\Sigma dU = M \\text{ } d\\theta + (-W \\hat{j}) \\cdot (-l sin\\theta \\text{ } d\\theta \\hat{i} + lcos\\theta \\text{ } d\\theta \\hat{j}) = 0"/>
+        <DisplayEquation equation="\\Sigma dU = 2M \\text{ } d\\theta + (-W \\hat{j}) \\cdot (-l sin\\theta \\text{ } d\\theta \\hat{i} + lcos\\theta \\text{ } d\\theta \\hat{j}) = 0"/>
         <center> <InlineEquation equation= "(-W \\hat{j}) \\cdot (-l sin\\theta \\text{ } d\\theta \\hat{i})"/> is zero, so we are left with: </center>
-        <DisplayEquation equation="\\Sigma dU = M \\text{ } d\\theta -Wl cos\\theta \\text{ } d\\theta = 0"/>
+        <DisplayEquation equation="\\Sigma dU = 2M \\text{ } d\\theta -Wl cos\\theta \\text{ } d\\theta = 0"/>
         <center> Factor out <InlineEquation equation= "d\\theta"/>: </center>
-        <DisplayEquation equation="(M - Wlcos\\theta)\\text{ }d\\theta = 0"/>
-        <DisplayEquation equation="M = Wlcos\\theta"/>
+        <DisplayEquation equation="(2M - Wlcos\\theta)\\text{ }d\\theta = 0"/>
+        <DisplayEquation equation="M = \\frac{Wlcos\\theta}{2}"/>
     </Enumerate>
 </p>
 </div>
