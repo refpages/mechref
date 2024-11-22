@@ -8,24 +8,28 @@ import CalloutContainer from "../../../components/CalloutContainer.astro";
 import CalloutCard from "../../../components/CalloutCard.astro";
 import InlineEquation from "../../../components/InlineEquation.astro";
 import DisplayEquation from "../../../components/DisplayEquation.astro";
+import Image from "../../../components/Image.astro" 
 import DisplayTable from "../../../components/DisplayTable.astro";
 import Warning from "../../../components/Warning.astro";
 import InlineCanvas from "../../../components/InlineCanvas.astro";
+
 ---
 
 <Layout title="Mechref Example Skeleton">
 
     <div slot="navtree">
         <ul class='list-group list-group-flush py-0'> 
-            <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#secondary-section'>Secondary Section</a>
+            <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#secondary-section'>Page Section Title</a>
                 <ul class='list-group list-group-flush py-0'> 
-                    <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#tertiary-section'>Tertiary Section</a>
+                    <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#tertiary-section'>Page Subsection Title</a>
                         <ul class='list-group list-group-flush py-0'> 
-                            <li class='list-group-item py-0'><a class='text-decoration-none subsubsubsection' href='#quaternary-section'>Quaternary Section</a></li> 
+                            <li class='list-group-item py-0'><a class='text-decoration-none subsubsubsection' href='#quaternary-section'>Page Subsubsection Title</a></li> 
                         </ul>
                     </li> 
                 </ul>
             </li>
+            <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#navbar'>NavBar</a></li>
+            <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#images'>Adding Images</a></li>
             <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#math-section'>Math in Mechref</a>
                 <ul class='list-group list-group-flush py-0'> 
                     <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#inline-math'>Inline Math</a></li> 
@@ -37,27 +41,33 @@ import InlineCanvas from "../../../components/InlineCanvas.astro";
 
 
 
-    <Section id="main-section" title="Main section">
+    <Section id="main-section" title="Page Title">
         <p>
             Use this page to get familiar with the different components Mechref has to offer. Resize the browser window to visualize how the pages look like on different screen sizes (desktop vs. tablet vs. phone).
         </p>
         <p>
             The <a href="/about/docs"> Style guide & documentation</a> has a detailed explanation of how a page should be set up and a list of the different elements that can be added to a page.
-            This page is just meant to get you started with the basics.
+            This page is just meant to get you started with the basics of page structure, <a href="#navbar">the navbar</a>, <a href="#images">images</a>, and <a href="#math-section">equations</a>.
+        </p>
+        <p>
+            Each block of information should be structured by: figure, equation(s), and text. 
+            If a given bock of information does not need an equation and/or figure then skip that part. Each section should have some text, but no more than 3-4 sentences.
+            The goal of these pages is to be referenced and the page is to be written assuming students have already seen the materal and are not learning the material for the first time. 
+            AKA don't write a textbook.
         </p>
         <p>
             Good luck!
         </p>
+
+        <p>
+            This section of your page should be a brief intro to the topic of the page. Keep it short and sweet here!
+        </p>
     </Section>
 
-    <SubSection id="secondary-section" title="Secondary section">
+    <SubSection id="secondary-section" title="Page Section Title">
         <p>
-            You can add little cards to the side of each section. These are meant to contain extra information not critical to what's discussed in the section, such as fun-facts, extra readings related to the material, or real-world applications. 
-        </p>
-        <p>
-            These will follow the user as they scroll through the section they are defined in, but will stay contained to their section. Scroll up and down to experience this effect.
-        </p>
-
+            These sections should be the main topics of the page.
+         </p>    
         <CalloutContainer slot="cards">
             <CalloutCard title="I'm here!">
                 By default, the title is "Did you know?", but can be changed, as illustrated here.
@@ -65,18 +75,44 @@ import InlineCanvas from "../../../components/InlineCanvas.astro";
         </CalloutContainer>
     </SubSection>
 
-    <SubSubSection id="tertiary-section" title="Tertiary section">
-        There exists a hierarchy of sections to indicate to students that certain concepts are directly related to another. The main "Section" item should only be used at the top of the page and acts as the page's title. There also exist "SubSection", "SubSubSection", and "SubSubSubSection", each with a progressively smaller header and faded color, to emphasize that they belong inside another bigger section.
+    <SubSubSection id="tertiary-section" title="Page Subsection Title">
+        <p>
+            Use if the topic requires.
+        </p>
     </SubSubSection>
 
-    <SubSubSubSection id="quaternary-section" title="Quaternary section">
-        Each page also has its own navtree on the left-hand side (desktop and tablet) or at the top (phone)  that links to each Subsection, SubSubSection and SubSubSubSection.
-
+    <SubSubSubSection id="quaternary-section" title="Page Subsubsection Title">
+        <p>
+            Use if the topic requires.
+        </p>
     </SubSubSubSection>
+
+    <SubSection id="navbar" title="NavBar">
+        <p>
+            You can add little cards to the side of each section. These are meant to contain extra information not critical to what's discussed in the section, such as fun-facts, extra readings related to the material, or real-world applications. 
+        </p>
+        <p>
+            These will follow the user as they scroll through the section they are defined in, but will stay contained to their section. Scroll up and down to experience this effect.
+        </p>
+        <p>
+            There exists a hierarchy of sections to indicate to students that certain concepts are directly related to another. The main "Section" item should only be used at the top of the page and acts as the page's title. There also exist "SubSection", "SubSubSection", and "SubSubSubSection", each with a progressively smaller header and faded color, to emphasize that they belong inside another bigger section.
+        </p>
+        <p>
+            Each page also has its own navtree on the left-hand side (desktop and tablet) or at the top (phone)  that links to each Subsection, SubSubSection and SubSubSubSection.
+        </p>
+    </SubSection>
+
+    <SubSection id="images" title="Adding Images">
+        <p>
+            You can also add images with or without a caption. More info on formatting images is in the <a href="/about/docs"> Style guide & documentation</a>.
+        </p>
+        <Image src="/Solid_Mechanics/Bending-Figures/Geometry.png" width="4"> Add caption here if you want one </Image>
+    </SubSection>
 
     <SubSection id="math-section" title="Math in Mechref">
         <p>
             <InlineEquation equation="\\LaTeX"/> can be used inside your pages. Just like in Latex, we differentiate between inline-math and display-math.
+            One difference betweem <InlineEquation equation="\\LaTeX"/> and these pages is when writing math in <InlineEquation equation="\\LaTeX"/>, you use one backslash <InlineEquation equation="(\\backslash)"/>, but in the reference pages you need to use two <InlineEquation equation="(\\backslash \\backslash)"/>.
         </p>
     </SubSection>
 
