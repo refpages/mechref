@@ -130,18 +130,18 @@ If a body is in equilibrium, the sum of the virtual work done by all the forces 
 <p>
 For example, if a truss is completely pinned on one end, it doesn't move, which means there is no virtual work completed on that pin because there are no virtual displacements (<InlineEquation equation='dr = 0' />). This means that we can ignore it in our virtual work equation and don't need to solve for the reaction forces at the truss pin. 
 </p>
-<!-- 
-<Example id="pin-trs" title="Virtual work problem: box on a structure." solution="True">
+
+<Example id="pin-trs" title="Virtual work analysis of a truss." solution="True">
     <div class="d-flex">
         <div class="d-flex flex-row">
         <Row>
-        <Col values="12 md-5">
+        <Col values="12 md-6">
             <p>
-            The box has a weight <InlineEquation equation="W"/>. Determine the couple moment <InlineEquation equation="M"/> applied at both points B and D needed to maintain equilibrium at an angle <InlineEquation equation="\\theta"/>.
+            Determine the force <InlineEquation equation="P"/> needed to maintain equilibrium of the linkage at angle <InlineEquation equation="\\theta_P"/>. The spring is unstretched at <InlineEquation equation="\\theta_S"/>.
             </p>
         </Col>
-        <Col values="12 md-7">
-            <Image src='/Statics/VWorkFigures/Box.png' width='6'></Image>
+        <Col values="12 md-6">
+            <Image src='/Statics/VWorkFigures/Truss.png' width='6'></Image>
         </Col>
         </Row>
     </div>
@@ -150,29 +150,37 @@ For example, if a truss is completely pinned on one end, it doesn't move, which 
   <p>
       <Enumerate>
         <Item> Draw the free body diagram of the structure. </Item>
-        <Image src='/Statics/VWorkFigures/BoxFBD1.png' width='3'></Image>
+        <Image src='/Statics/VWorkFigures/TrussFBD1.png' width='3'></Image>
         <Item> Sketch the deflected position. </Item>
-        <Image src='/Statics/VWorkFigures/BoxFBD2.png' width='3'></Image>
-        <Item> Define the position coordinates from a fixed point. In this case, we are defining them from the fixed point B.</Item>
-        <DisplayEquation equation="\\vec{r_W} = (l cos\\theta + 0.2)\\hat{i} + (l sin\\theta+b)\\hat{j}"/>
-        <Item>Select the components of the forces that are parallel to the displacements. For this problem, only W and M have  components parallel to any virtual displacement. </Item>
-        <Item>Remove forces that do no work. <InlineEquation equation="B_x, B_y, D_x, D_y"/> do not do any work (<InlineEquation equation= "dU = 0"/>), so they can be removed.  </Item>
+        <Image src='/Statics/VWorkFigures/TrussFBD2.png' width='3'></Image>
+        <Item> Define the position coordinates from a fixed point. </Item>
+        <DisplayEquation equation="\\text{In this case, we are defining them from the fixed point A.}"/>
+        <DisplayEquation equation="\\vec{dr_S} = l sin\\theta \\hat{i} + l cos\\theta\\hat{j}"/>
+        <DisplayEquation equation="\\vec{dr_P} = 3l sin\\theta \\hat{i} + l cos\\theta\\hat{j}"/>
+        <Item>Select the components of the forces that are parallel to the displacements. </Item>
+        <DisplayEquation equation="\\text{For this problem, this would be the force of the spring } (F_S) \\text{ and the applied load } (P). "/>
+        <Item>Remove forces that do no work. </Item>
+        <DisplayEquation equation="A_x, A_y, G_x \\text{ do not do any work } (dU = 0) \\text{, so they can be removed.}"/>
         <Item>Differentiate the position coordinates.</Item>
-        <DisplayEquation equation="d\\vec{r_W} = (-l sin\\theta \\text{ } d\\theta)\\hat{i} + (l cos\\theta \\text{ } d\\theta)\\hat{j}"/>
+        <DisplayEquation equation="\\vec{r_S} = l cos\\theta \\text{ } d\\theta \\hat{i} - l sin\\theta \\text{ } d\\theta \\hat{j}"/>
+        <DisplayEquation equation="\\vec{r_P} = 3l cos\\theta \\text{ } d\\theta \\hat{i} - l sin\\theta \\text{ } d\\theta \\hat{j}"/>
         <Item>Apply the Principle of Virtual Work.</Item>
-        <DisplayEquation equation="\\Sigma dU = 2M \\text{ } d\\theta + \\vec{W} \\cdot d\\vec{r_W} = 0"/>
-        <Item>Solve for <InlineEquation equation= "M"/>.</Item> 
-        <DisplayEquation equation="\\Sigma dU = 2M \\text{ } d\\theta + (-W \\hat{j}) \\cdot (-l sin\\theta \\text{ } d\\theta \\hat{i} + lcos\\theta \\text{ } d\\theta \\hat{j}) = 0"/>
-        <center> <InlineEquation equation= "(-W \\hat{j}) \\cdot (-l sin\\theta \\text{ } d\\theta \\hat{i})"/> is zero, so we are left with: </center>
-        <DisplayEquation equation="\\Sigma dU = 2M \\text{ } d\\theta -Wl cos\\theta \\text{ } d\\theta = 0"/>
-        <center> Factor out <InlineEquation equation= "d\\theta"/>: </center>
-        <DisplayEquation equation="(2M - Wlcos\\theta)\\text{ }d\\theta = 0"/>
-        <DisplayEquation equation="M = \\frac{Wlcos\\theta}{2}"/>
+        <DisplayEquation equation="\\Sigma dU = dU_P + dU_{F_S} = 0"/>
+        <Item>Factor our the common virtual displacement term and solve.</Item> 
+        <DisplayEquation equation="\\Sigma dU = \\vec{P} \\cdot d\\vec{r_P} + \\vec{F_S} \\cdot d\\vec{r_S} = 0"/>
+        <DisplayEquation equation="\\Sigma dU = (P \\hat{i}) \\cdot (3l cos\\theta \\text{ } d\\theta \\hat{i} - l sin\\theta \\text{ } d\\theta \\hat{j}) + (-F_s \\hat{i}) \\cdot (l cos\\theta \\text{ } d\\theta \\hat{i} - l sin\\theta \\text{ } d\\theta \\hat{j}) = 0"/>
+        <DisplayEquation equation="\\Sigma dU = 3lP cos\\theta \\text{ } d\\theta -F_Sl cos\\theta \\text{ } d\\theta = 0"/>
+        <DisplayEquation equation="\\Sigma dU = (3P - F_S) l cos\\theta  \\text{ } d\\theta = 0"/>
+        <DisplayEquation equation="3P - F_S = 0"/>
+        <DisplayEquation equation="P = \\frac{1}{3} F_S"/>
+        <DisplayEquation equation=" F_S = k \\Delta x"/>
+        <DisplayEquation equation=" F_S = k (l sin\\theta_P - l sin \\theta_S)"/>
+        <DisplayEquation equation="P = \\frac{1}{3} kl (sin\\theta_P - sin \\theta_S)"/>
     </Enumerate>
 </p>
 </div>
 </Example>
-
+<!-- 
 <Example id="rod-wal" title="Rod leaning against a wall." solution="True">
     <div class="d-flex">
         <div class="d-flex flex-row">
