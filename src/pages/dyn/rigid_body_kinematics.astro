@@ -65,10 +65,6 @@ import DisplayTable from "../../components/DisplayTable.astro"
 			<li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#acce_contact_noslip_convention'>Acceleration in contact (no slip)</a></li>
         </ul>
     </li>
-    <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#euler-motion'>Euler's laws of motion</a>
-    </li>
-    <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#rotation-arbitrary'>Rotation about arbitrary reference points</a>
-    </li>
 		<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#applications_rgkinema'>Applications</a>
 	        <ul class='list-group list-group-flush py-0'> 
             <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#steering_geometry'>Steering geometry</a></li>
@@ -1169,90 +1165,6 @@ import DisplayTable from "../../components/DisplayTable.astro"
 
     <Image src="/Dynamics/RigidBodyKinematics/GearsContact.png" width="7"></Image>
 </SubSubSection>
-
-<SubSection title="Euler's laws of motion" id="euler-motion">
-  <p>
-    The laws of motion for rigid bodies were formulated by <a href="https://en.wikipedia.org/wiki/Leonhard_Euler">Leonhard Euler</a>, which
-    extended Newton's equations for point-masses to rigid bodies. 
-</p>
-<p>
-    Euler's first law relates the mass $m$ and acceleration of the center of mass <InlineEquation equation="\\vec{a}_C" />
-    of the body to the total force <InlineEquation equation="\\vec{F}" /> on
-    the body (sum of all external forces). It describes the translational motion of the body.
-</p>
-
-<DisplayEquation equation="\\vec{F} = m\\vec{a}_C" title="Euler's first law (acceleration form)." id="reg-ef1" background="True"/>
-
-<p>
-  Euler's second law relates the moment of inertia about the center of mass \(I_C\) and the angular acceleration of the body to the total moment
-  <InlineEquation equation="\\vec{M}_C" /> (sum of all external moments) about the center of mass. It describes the rotational motion of the body.
-</p>
-
-<DisplayEquation equation="\\vec{M}_C = I_C\\vec\\alpha" title="Euler's second law (angular acceleration form)." id="reg-es1" background="True"/>
-
-<p>
-  Recall that the total force on a particle is related to the linear momentum of the particle. Thus, if we extend that to
-  rigid bodies, we have an alternative way to express Euler's first law:
-</p>
-
-<DisplayEquation equation="\\vec{F} = \\frac{d\\vec{p}_C}{dt} = \\frac{d}{dt}(m\\vec{v}_C)" title="Euler's first law (momentum form)." id="reg-ef2" background="True"/>
-
-<p>
-  Similarly, the total moment on a particle about a certain point is related to the angular momentum of the particle about the same base point.
-  We can do the same thing as above, and extend it to rigid bodies, and obtain an alternative form to Euler's second law:
-</p>
-
-<DisplayEquation equation="\\vec{M}_C = \\frac{d\\vec{L}_C}{dt} = \\frac{d}{dt}(I_C \\, \\vec\\omega)" title="Euler's second law (momentum form)." id="reg-es2" background="True"/>
-
-</SubSection>
-
-<SubSection title="Rotation about arbitrary reference points" id="rotation-arbitrary">
-  <p>
-    In some cases, using the center of mass as a reference point is not ideal, and we might encounter
-    situations in which we would need to consider the dynamics about another point. We will begin by
-    finding the angular momentum of a rigid body about any arbitrary point, and extend that from there.
-</p>
-
-<DisplayEquation equation="\\vec{L}_P = \\vec{r}_{PC} \\times m\\vec{v}_C + I_C \\, \\vec\\omega" title="Angular momentum of a rigid body about an arbitrary point \\(P\\)." id="reg-lp" background="True"/>
-
-<p>
-  We can differentiate the above expression with respect to time and obtain the time derivative of
-  the angular momentum of the rigid body about point $P$. This will yield two important special cases of
-  rotations. 
-</p>
-
-<DisplayEquation equation="\\frac{d\\vec{L}_P}{dt} = \\vec{M}_P - \\vec{r}_{PC} \\times m\\vec{a}_P" title="Rate of change of angular momentum about an arbitrary point \\(P\\)." id="reg-lt" background="True"/>
-
-<p>
-  The important special cases are outlined below.
-</p>
-
-<DisplayTable id="reg-lm" >
-  <thead>
-    <tr class="lineBelow">
-      <th>case</th>
-      <th>result</th>
-      <th>consequence</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr class="lineBelow">
-      <th>\(P = C\)</th>
-      <td><InlineEquation equation="\\vec{M}_P = \\vec{M}_C = \\frac{d\\vec{L}_C}{dt}" />      </td>
-      <td>This is Euler's 2nd law.</td>
-    </tr>
-    <tr class="lineBelow">
-      <th><InlineEquation equation="\\vec{a}_P = \\vec{0}" />
-      </th>
-      <td><InlineEquation equation="\\vec{M}_P = \\frac{d\\vec{L}_P}{dt}" />
-      </td>
-      <td>The rigid body is rotating about a fixed point \(P\). This is another
-      form of Euler's 2nd law.</td>
-    </tr>
-  </tbody>
-</DisplayTable>
-
-</SubSection>
 
 <SubSection title="Applications" id="applications_rgkinema">
 </SubSection>

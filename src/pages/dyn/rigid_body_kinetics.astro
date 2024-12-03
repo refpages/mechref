@@ -25,13 +25,14 @@ import DisplayTable from "../../components/DisplayTable.astro"
 
 <div slot="navtree">
   <ul class='list-group list-group-flush py-0'> 
-    <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#center_of_mass'>Center of mass</a></li>
+    <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#center_of_mass'>Center of mass</a>
         <ul class='list-group list-group-flush py-0'> 
             <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#recap_com'>Recap</a></li>  
 			<li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#basic_shapes_com'>Basic shapes</a></li>  
 			<li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#simple_shapes_com'>Simplified shapes</a></li>  
         </ul>	
-    <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#moment_of_inertia'>Moment of inertia</a></li>
+    </li>
+    <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#moment_of_inertia'>Moment of inertia</a>
         <ul class='list-group list-group-flush py-0'> 
             <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#parallel_axis_theorem'>Parallel axis theorem</a></li>  
             <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#additive_theorem'>Additive theorem</a></li>  
@@ -39,15 +40,21 @@ import DisplayTable from "../../components/DisplayTable.astro"
             <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#simple_shapes_moi'>Simplified shapes</a></li>  
         </ul>
     </li> 
-    <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#instant_center_center'>Instantaneous center</a></li>
+    <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#instant_center_center'>Instantaneous center</a>
         <ul class='list-group list-group-flush py-0'> 
-            <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#graphical_rules_ic'>Graphical rules for finding M</a></li>  
+            <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#graphical_rules_ic'>Graphical rules for finding M</a>
         </ul>
-	<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#app_rg_kinetics'>Applications</a></li>
+    </li>  
+    <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#euler-motion'>Euler's laws of motion</a>
+    </li>
+    <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#rotation-arbitrary'>Rotation about arbitrary reference points</a>
+    </li>
+	<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#app_rg_kinetics'>Applications</a>
         <ul class='list-group list-group-flush py-0'> 
             <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#accelerating_braking'>Accelerating and braking</a></li>  
             <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#banked_turns'>Banked turns</a></li>
         </ul>
+    </li>
   </ul>
 </div>
 
@@ -62,7 +69,7 @@ import DisplayTable from "../../components/DisplayTable.astro"
 
     <DisplayEquation equation="m = \\iiint_{\\mathcal{B}} \\rho \\, dV" background="True" derivation="True" title="Total mass of a rigid body." id="rcm-tm">
         <p>
-            The mass of an infinitesimally small element of the rigid body $dm$ assuming constant density is:
+            The mass of an infinitesimally small element of the rigid body \(dm\) assuming constant density is:
             \[
             dm =  \rho \, dV
             \]
@@ -201,7 +208,7 @@ import DisplayTable from "../../components/DisplayTable.astro"
             <p>
                 Finding the center of mass of the whole body follows directly from the fact that the integral
                 over the whole body is the sum of the integrals over the sub-bodies. That is, for <InlineEquation equation="\\mathcal{B} = \\mathcal{B}_1 \\cup \\mathcal{B}_2" />
-                (and <InlineEquation equation="\\mathcal{B}_1" />not overlapping with <InlineEquation equation="\\mathcal{B}_2$" />, we have:
+                (and <InlineEquation equation="\\mathcal{B}_1" />not overlapping with <InlineEquation equation="\\mathcal{B}_2" />, we have:
                 <DisplayEquation equation="\\begin{aligned} \\vec{r}_C &amp;= \\frac{1}{M}\\iiint_\\mathcal{B} \\rho \\vec{r} \\, dV \\\\ &amp;= \\frac{1}{M}\\iiint_{\\mathcal{B}_1 \\cup \\mathcal{B}_2} \\rho \\vec{r} \\, dV \\\\ &amp;= \\frac{1}{M}\\left[\\iiint_{\\mathcal{B}_1} \\rho_1 \\vec{r}_1 \\, dV + \\iiint_{\\mathcal{B}_2} \\rho_2 \\vec{r}_2 \\, dV \\right] \\\\ &amp;= \\frac{m_1 \\vec{r}_1 + m_2 \\vec{r}_2}{M} \\\\ &amp;= \\frac{m_1 \\vec{r}_1 + m_2 \\vec{r}_2}{m_1 + m_2} \\end{aligned}" />
             </p>
         </div>
@@ -350,7 +357,7 @@ import DisplayTable from "../../components/DisplayTable.astro"
                 <DisplayEquation equation="\\begin{aligned} J &amp;= \\begin{vmatrix}  \\frac{\\partial x}{\\partial u} &amp; \\frac{\\partial x}{\\partial v} \\\\  \\frac{\\partial y}{\\partial u} &amp; \\frac{\\partial y}{\\partial v}  \\end{vmatrix}  = \\begin{vmatrix} x_P &amp; x_Q \\\\  y_P &amp; y_Q \\end{vmatrix} = x_P y_Q - x_Q y_P \\end{aligned}" />
             </p>
             <p>
-                Starting with the $x$-coordinate:
+                Starting with the \(x\)-coordinate:
                 <DisplayEquation equation="\\begin{aligned} x_C &amp;= \\frac{\\rho}{m}\\int_{0}^{1}\\int_{0}^{1 - u} (x_P u + x_Q v) \\, J \\, dvdu \\\\ &amp;= \\frac{\\rho}{m}\\int_{0}^{1}\\int_{0}^{1 - u} (x_P u + x_Q v) \\, (x_P y_Q - x_Q y_P) \\, dvdu \\\\ &amp;= \\frac{\\rho}{m}(x_P y_Q - x_Q y_P)\\int_{0}^{1}\\int_{0}^{1 - u} (x_P u + x_Q v) \\, dvdu \\\\ &amp;= \\frac{\\rho}{m}(x_P y_Q - x_Q y_P)\\int_{0}^{1}x_P u\\left[v\\right]_{v = 0}^{v = 1-u} + \\frac{x_Q}{2}\\left[v^2\\right]_{v = 0}^{v = 1-u}du \\\\ &amp;= \\frac{\\rho}{m}(x_P y_Q - x_Q y_P)\\int_{0}^{1} x_P u(1 - u) + \\frac{x_Q}{2}(1 - u)^2 du \\\\ &amp;= \\frac{\\rho}{m}(x_P y_Q - x_Q y_P) \\left(\\frac{x_P}{2} \\left[u^2\\right]_{0}^{1} - \\frac{x_P}{3}\\left[u^3\\right]_{0}^{1}  + \\frac{x_Q}{2}\\left[u\\right]_{0}^{1} - \\frac{x_Q}{2}\\left[u^2\\right]_{0}^{1} + \\frac{x_Q}{6}\\left[u^3\\right]_{0}^{1}\\right) \\\\  &amp;= \\frac{\\rho}{m}(x_P y_Q - x_Q y_P) \\left(\\frac{x_P}{2} - \\frac{x_P}{3} + \\frac{x_Q}{2} - \\frac{x_Q}{2} + \\frac{x_Q}{6}\\right) \\\\ &amp;= \\frac{\\rho}{m}(x_P y_Q - x_Q y_P) \\left(\\frac{x_P + x_Q}{6}\\right) \\end{aligned}" />
             </p>
             <p>
@@ -530,7 +537,7 @@ import DisplayTable from "../../components/DisplayTable.astro"
       <DisplayEquationCustom id="rem-ei" title="Moment of inertia about axis \\( \\hat{a} \\) through point \(P\)." background="True">
         <div class="w-100 d-flex flex-row align-items-center">
             <div class="w-50">
-                <DisplayEquation equation="\\begin{gathered} I_{P,\\hat{a}} = \\iiint_\\mathcal{B} \\rho r^2 \\,dV \\\\ \\text{(units: $\\rm kg\\ m^2$)} \\end{gathered}" />
+                <DisplayEquation equation="\\begin{gathered} I_{P,\\hat{a}} = \\iiint_\\mathcal{B} \\rho r^2 \\,dV \\\\ (\\text{units: } \\rm kg\\ m^2) \\end{gathered}" />
             </div>
 
             <div class="w-50">
@@ -672,7 +679,7 @@ import DisplayTable from "../../components/DisplayTable.astro"
             
             
             <p>
-              Taking the density of the plate to be $\rho$, we
+              Taking the density of the plate to be \(\rho\), we
               thus have:
 
               <DisplayEquation equation="\\begin{aligned} I_{C,z} &amp;= \\iiint_\\mathcal{B} \\rho (x^2 + y^2) \\,dx\\,dy\\,dz \\\\ &amp;= \\int_{-h/2}^{h/2} \\int_{-\\ell/2}^{\\ell/2} \\int_{-\\ell/2}^{\\ell/2} \\rho (x^2 + y^2) \\,dx\\,dy\\,dz \\\\ &amp;= \\int_{-h/2}^{h/2} \\int_{-\\ell/2}^{\\ell/2} \\left[ \\rho \\left(\\frac{1}{3}x^3 + y^2 x\\right)\\right]_{x = -\\ell/2}^{x = \\ell/2} \\,dy\\,dz \\\\ &amp;= \\int_{-h/2}^{h/2} \\int_{-\\ell/2}^{\\ell/2} \\rho \\left(\\frac{1}{12}\\ell^3 + y^2 \\ell \\right) \\,dy\\,dz \\\\ &amp;= \\int_{-h/2}^{h/2} \\left[ \\rho \\left(\\frac{1}{12}\\ell^3 y + \\frac{1}{3} y^3 \\ell \\right) \\right]_{y = -\\ell/2}^{y = \\ell/2} \\,dz \\\\ &amp;= \\int_{-h/2}^{h/2} \\rho \\left(\\frac{1}{12}\\ell^4 + \\frac{1}{12} \\ell^4 \\right) \\,dz \\\\ &amp;= \\int_{-h/2}^{h/2} \\rho \\frac{1}{6}\\ell^4 \\,dz \\\\ &amp;= \\left[ \\rho \\frac{1}{6}\\ell^4 z \\right]_{z = -h/2}^{z = h/2} \\\\ &amp;= \\rho \\frac{1}{6}\\ell^4 h. \\end{aligned}" />
@@ -982,7 +989,7 @@ import DisplayTable from "../../components/DisplayTable.astro"
             </p>
             <p>
               Now individual moments of inertia about the corner
-              $P$ can be found using the parallel axis
+              \(P\) can be found using the parallel axis
               theorem:
 
               <DisplayEquation equation="\\begin{aligned} I^{\\mathcal{B}_1}_{P,z} &amp;= I^{\\mathcal{B}_1}_{C_1,z} + m_1 \\, {r_{C_1P}}^2 = \\frac{1}{6} m d^2 + \\left(\\frac{1}{4} m\\right) \\left(d^2 + (3d)^2\\right) = \\frac{8}{3} m d^2 \\\\ I^{\\mathcal{B}_2}_{P,z} &amp;= I^{\\mathcal{B}_2}_{C_2,z} + m_2 \\, {r_{C_2P}}^2 = \\frac{1}{6} m d^2 + \\left(\\frac{1}{4} m\\right) \\left(d^2 + d^2\\right) = \\frac{2}{3} m d^2 \\\\ I^{\\mathcal{B}_3}_{P,z} &amp;= I^{\\mathcal{B}_1}_{P,z} = \\frac{8}{3} m d^2 \\\\ I^{\\mathcal{B}_4}_{P,z} &amp;= I^{\\mathcal{B}_4}_{C_4,z} + m_4 \\, {r_{C_4P}}^2 = \\frac{1}{6} m d^2 + \\left(\\frac{1}{4} m\\right) \\left((5d)^2 + d^2\\right) = \\frac{20}{3} m d^2. \\end{aligned}" />
@@ -1421,6 +1428,90 @@ import DisplayTable from "../../components/DisplayTable.astro"
 
 
 </SubSection>
+
+<SubSection title="Euler's laws of motion" id="euler-motion">
+    <p>
+      The laws of motion for rigid bodies were formulated by <a href="https://en.wikipedia.org/wiki/Leonhard_Euler">Leonhard Euler</a>, which
+      extended Newton's equations for point-masses to rigid bodies. 
+  </p>
+  <p>
+      Euler's first law relates the mass \(m\) and acceleration of the center of mass <InlineEquation equation="\\vec{a}_C" />
+      of the body to the total force <InlineEquation equation="\\vec{F}" /> on
+      the body (sum of all external forces). It describes the translational motion of the body.
+  </p>
+  
+  <DisplayEquation equation="\\vec{F} = m\\vec{a}_C" title="Euler's first law (acceleration form)." id="reg-ef1" background="True"/>
+  
+  <p>
+    Euler's second law relates the moment of inertia about the center of mass \(I_C\) and the angular acceleration of the body to the total moment
+    <InlineEquation equation="\\vec{M}_C" /> (sum of all external moments) about the center of mass. It describes the rotational motion of the body.
+  </p>
+  
+  <DisplayEquation equation="\\vec{M}_C = I_C\\vec\\alpha" title="Euler's second law (angular acceleration form)." id="reg-es1" background="True"/>
+  
+  <p>
+    Recall that the total force on a particle is related to the linear momentum of the particle. Thus, if we extend that to
+    rigid bodies, we have an alternative way to express Euler's first law:
+  </p>
+  
+  <DisplayEquation equation="\\vec{F} = \\frac{d\\vec{p}_C}{dt} = \\frac{d}{dt}(m\\vec{v}_C)" title="Euler's first law (momentum form)." id="reg-ef2" background="True"/>
+  
+  <p>
+    Similarly, the total moment on a particle about a certain point is related to the angular momentum of the particle about the same base point.
+    We can do the same thing as above, and extend it to rigid bodies, and obtain an alternative form to Euler's second law:
+  </p>
+  
+  <DisplayEquation equation="\\vec{M}_C = \\frac{d\\vec{L}_C}{dt} = \\frac{d}{dt}(I_C \\, \\vec\\omega)" title="Euler's second law (momentum form)." id="reg-es2" background="True"/>
+  
+  </SubSection>
+  
+  <SubSection title="Rotation about arbitrary reference points" id="rotation-arbitrary">
+    <p>
+      In some cases, using the center of mass as a reference point is not ideal, and we might encounter
+      situations in which we would need to consider the dynamics about another point. We will begin by
+      finding the angular momentum of a rigid body about any arbitrary point, and extend that from there.
+  </p>
+  
+  <DisplayEquation equation="\\vec{L}_P = \\vec{r}_{PC} \\times m\\vec{v}_C + I_C \\, \\vec\\omega" title="Angular momentum of a rigid body about an arbitrary point \\(P\\)." id="reg-lp" background="True"/>
+  
+  <p>
+    We can differentiate the above expression with respect to time and obtain the time derivative of
+    the angular momentum of the rigid body about point \(P\). This will yield two important special cases of
+    rotations. 
+  </p>
+  
+  <DisplayEquation equation="\\frac{d\\vec{L}_P}{dt} = \\vec{M}_P - \\vec{r}_{PC} \\times m\\vec{a}_P" title="Rate of change of angular momentum about an arbitrary point \\(P\\)." id="reg-lt" background="True"/>
+  
+  <p>
+    The important special cases are outlined below.
+  </p>
+  
+  <DisplayTable id="reg-lm" >
+    <thead>
+      <tr class="lineBelow">
+        <th>case</th>
+        <th>result</th>
+        <th>consequence</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="lineBelow">
+        <th>\(P = C\)</th>
+        <td><InlineEquation equation="\\vec{M}_P = \\vec{M}_C = \\frac{d\\vec{L}_C}{dt}" />      </td>
+        <td>This is Euler's 2nd law.</td>
+      </tr>
+      <tr class="lineBelow">
+        <th><InlineEquation equation="\\vec{a}_P = \\vec{0}" />
+        </th>
+        <td><InlineEquation equation="\\vec{M}_P = \\frac{d\\vec{L}_P}{dt}" />
+        </td>
+        <td>The rigid body is rotating about a fixed point \(P\). This is another
+        form of Euler's 2nd law.</td>
+      </tr>
+    </tbody>
+  </DisplayTable>
+  
+  </SubSection>
 
 <SubSection title="Applications"  id="app_rg_kinetics" ></SubSection>
 
