@@ -59,7 +59,6 @@ import InlineCanvas from "../../components/InlineCanvas.astro"
 	<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#cylindrical_coordinates'>Cylindrical Coordinates</a></li>
     <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#applications'>Applications</a>
         <ul class='list-group list-group-flush py-0'> 
-            <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#haystack_antenna'>Haystack antenna</a></li>
             <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#shortest_flight_paths'>Shortest flight paths</a>
                 <ul class='list-group list-group-flush py-0'> 
                     <li class='list-group-item py-0'><a class='text-decoration-none subsubsubsection' href='#shortest_paths_on_the_sphere'>Shortest paths on the sphere</a></li>
@@ -1428,41 +1427,6 @@ import InlineCanvas from "../../components/InlineCanvas.astro"
 
 
 <SubSection title="Applications" id="applications"></SubSection>
-
-<SubSubSection title="Haystack antenna" id="haystack_antenna">
-  <p>
-    The Haystack antenna is a large radio telescope used for radar astronomy, 
-    atmospheric science, and satellite tracking. When tracking objects in space,  
-    such as satellites or celestial bodies, the orientation of the object relative 
-    to the antenna's coordinate system changes as both the object and the Earth move. 
-    The change of basis is used to transform the coordinates of the observed object 
-    from a global coordinate system (e.g., a celestial coordinate system) to a local
-    coordinate system (relative to the antenna). This is essential for accurately 
-    pointing the antenna and tracking the object.
-  </p>
-
-<CalloutContainer slot="cards">
-      <CalloutCard title="Reference material">
-        <ul>
-          <li><a href="rvv.html#rvv-xn">Changing basis</a></li>
-        </ul>
-      </CalloutCard>
-      <CalloutCard>
-        <p>
-          The Haystack antenna was originally constructed in the 1960s 
-          for satellite tracking during the Cold War and has since been 
-          repurposed for scientific research.
-        </p>
-        <p>
-          The antenna is housed in a radome, a dome-like structure, to 
-          protect it from weather conditions while allowing it to operate 
-          smoothly. This structure also affects the antenna's orientation 
-          calculations, requiring constant adjustments via vector transformations.
-        </p>
-      </CalloutCard>
- </CalloutContainer>
-
-</SubSubSection>
 
 <SubSubSection title="Shortest flight paths" id="shortest_flight_paths">
 
