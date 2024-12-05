@@ -82,7 +82,7 @@ The magnitude of the equivalent force <InlineEquation equation='F_R' /> is the a
 
 For a constant distributed load of magnitude c applied to a bar over a length l, the resultant force magnitude is 
 
-<DisplayEquation equation='F_R = c*l\\' />
+<DisplayEquation equation='F_R = c*l\\' title="Rectangular Distributed Load" background="True" />
 
 the resultant force location is at <InlineEquation equation='l/2' />.
 
@@ -94,7 +94,7 @@ the resultant force location is at <InlineEquation equation='l/2' />.
 
 For a triangular distributed load (a uniformly varying load), the magnitude of the load is equivalent to the area of the triangle. 
 
-<DisplayEquation equation='F_R = 0.5*c*l\\' />
+<DisplayEquation equation='F_R = 0.5*c*l\\' title="Triangular Distributed Load" background="True"/>
 
 The location of <InlineEquation equation='F_R' /> is 1/3 from the base of the triangle. 
 
@@ -108,15 +108,15 @@ The location of <InlineEquation equation='F_R' /> is 1/3 from the base of the tr
 
 More complex distributed loads can be reduced to two distributed loads of uniform shape, or the integral of the distributed load function can be taken to obtain the area under <InlineEquation equation='w(x)' />, which is <InlineEquation equation='F_R' />. 
 
-<DisplayEquation equation='F_R = \\int_{0}^{L} w(x) \\,dx \\' />
+<DisplayEquation equation='F_R = \\int_{0}^{L} w(x) \\,dx \\' title="Nonuniform Distributed Load" background="True" />
 
 The location of <InlineEquation equation='F_R' /> on the beam can be found by solving for the moment <InlineEquation equation='M_R' /> about a point. In this case we will take the moment about the point <InlineEquation equation='x' />=0 and setting it equivalent to the moment produced by the resultant force <InlineEquation equation='F_R' /> at <InlineEquation equation='x' />=0. 
 
-<DisplayEquation equation='M_R = \\int_{0}^{L} x*w(x) \\,dx = \\bar{x}*F_R\\' />
+<DisplayEquation equation='M_R = \\int_{0}^{L} x*w(x) \\,dx = \\bar{x}*F_R\\' title="Moment from distributed load" background="True" />
 
 Now we can solve for the center of mass of the distributed load, <InlineEquation equation='\\bar{x}' />, using
 
-<DisplayEquation equation='\\bar{x} = \\dfrac{M_R}{F_R}\\' />
+<DisplayEquation equation='\\bar{x} = \\dfrac{M_R}{F_R}\\' title="Location of resultant force" background="True" />
 
 <Image src='/Statics/ForceSystemsFigures/NonuniformLoad.jpg' width='8'> Nonuniform load.</Image>
 </SubSubSection>

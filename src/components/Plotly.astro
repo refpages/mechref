@@ -1,0 +1,49 @@
+---
+const {file_path, id, height=400} = Astro.props;
+---
+
+<script src="/plotly.js" is:inline></script>
+
+<div id={id} class="overflow-hidden d-flex flex-column align-items-center">
+    <div class="spinner-border" role="status">
+        <span class="visually-hidden">Loading...</span>
+    </div>      
+    <span class="visually-hidden">Loading...</span>
+</div>
+
+<script is:inline define:vars={{file_path, id, height}}>
+
+    $(function(){
+
+        const layout = {
+            autosize: true, 
+            width: '100%', 
+            height: height 
+        };
+
+        console.log(file_path)
+
+        var data = $.getJSON(`/${file_path}`).done(function(){
+            document.querySelector(`#${id}`).innerHTML = "";
+            console.log(JSON.parse(data['responseText']))
+            Plotly.newPlot(`${id}`, JSON.parse(data['responseText']), layout ,{responsive: true})
+            Plotly.Plots.resize(`${id}`)
+        });
+
+        $(window).on("resize", function(){Plotly.Plots.resize(`${id}`)})
+
+        $( window ).on( "resize", function() {
+            let body_width;
+            body_width = $('body').width();
+            graph_width = body_width - 24;
+            if (body_width < 992){
+                //document.querySelector(`#${id}`).style = `max-width: ${graph_width}px`;
+                document.querySelector(`#${id}`).style = `max-width: ${graph_width}px; overflow-x: auto;`;
+            }else{
+                document.querySelector(`#${id}`).style = `width: 100%; overflow-x: auto;`
+            }
+            }  
+        );
+
+    });
+</script>

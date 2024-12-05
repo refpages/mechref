@@ -110,7 +110,8 @@ The center of mass, center of gravity, and center of volume are all represented 
 
   <DisplayEquation title="When are Centers of Gravity, Mass, and Volume the same?" id="com" background="True" equation="" derivation="True">
     
-      <Image src='/Statics/COMFigures/CoGMVDerivation.jpg' width='5'> </Image>
+      	<p> The center of gravity, center of mass, and center of volume of an object are the same when that object has a constant density (is homogeneous) and gravity is constant along the object. </p>
+	<Image src='/Statics/COMFigures/CoGMVDerivation.jpg' width='5'> </Image>
 
   </DisplayEquation>
 
@@ -167,6 +168,14 @@ with similar equations for <InlineEquation equation="\\bar{y}" />.
 
 </SubSection>
 <!-- Lectures 28, 29  -->
+
+<SubSubSection title = "Axes of Symmetry">
+
+<Image src="/Statics/COMFigures/AxisOfSymmetry.png" width="7"></Image>
+
+If the shape has an axis of symmetry, the centroid falls on that line of symmetry. Shapes can also have more than one axis. For example, a rectangle has 2 axes, and a circle has infinite number of axes. This applies to composite shapes as well. 
+
+</SubSubSection>
 
 <SubSubSection title="Centroids of Basic Shapes" id="basic_shapes">
 
@@ -262,10 +271,6 @@ with similar equations for <InlineEquation equation="\\bar{y}" />.
 
 <p> For these equations, the weighted sum is dependent on the area of each individual shape. This is typically for 2D problems. You can also use length, weight, or mass as your weighing factor depending on what you're being asked to solve for. </p>
 
-<Image src="/Statics/COMFigures/AxisOfSymmetry.png" width="7"></Image>
-
-If the shape has an axis of symmetry, the centroid falls on that line of symmetry. Shapes can also have more than one axis. For example, a rectangle has 2 axes, and a circle has infinite number of axes. This applies to composite shapes as well. 
-
 <Example title="Find centroid of a composite shape"  id="com-ccs">
 	
    Solve for centroid <InlineEquation equation=" (\\bar{x} , \\bar{y})" />  of the shape below.
@@ -335,7 +340,7 @@ If the shape has an axis of symmetry, the centroid falls on that line of symmetr
 				<InlineEquation equation=" \\frac{1}{3} (2) = \\frac{2}{3} \\ cm " />
 	   </td>
 	   <td> 
-				<InlineEquation equation=" - \\frac{64}{3} \\ cm^3 " />
+				<InlineEquation equation=" - \\frac{8}{3} \\ cm^3 " />
 	   </td>
            </tr>
     </tbody>
@@ -360,8 +365,8 @@ If the shape has an axis of symmetry, the centroid falls on that line of symmetr
     </tbody>
 </DisplayTable>
 	
-	 <DisplayEquation equation=" \\bar{y} = \\frac{\\sum \\tilde{y}_i A_i}{\\sum A_i} = \\frac{(72 - \\frac{64}{3} + \\frac{16}{3} + 12 \\pi) \\ cm^3}{(24 - 4 +2 \\pi \\ cm^2)}  = 3.56 \\ cm   "/>
-	 <DisplayEquation equation=" (\\bar{x} , \\bar{y}) = (2, 3.56) \\ cm   "/>
+	 <DisplayEquation equation=" \\bar{y} = \\frac{\\sum \\tilde{y}_i A_i}{\\sum A_i} = \\frac{(72 - \\frac{8}{3} + \\frac{16}{3} + 12 \\pi) \\ cm^3}{(24 - 4 +2 \\pi \\ cm^2)}  = 4.27 \\ cm   "/>
+	 <DisplayEquation equation=" (\\bar{x} , \\bar{y}) = (2, 4.27) \\ cm   "/>
 	 
 	</div>
 </Example>

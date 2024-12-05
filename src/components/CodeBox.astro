@@ -19,12 +19,74 @@ const {code = "", language=""} = Astro.props;
             e.href = "/static/css/atom-one-dark.css";
         })
     }
+
+    function copy_to_clipboard(e){
+        if (window.innerWidth > 768){
+            navigator.clipboard.writeText(e.innerText);
+            e.previousElementSibling.firstElementChild.classList.add("show-alert");
+            window.setTimeout(function(){e.previousElementSibling.firstElementChild.classList.remove("show-alert");}, 1500)
+        }
+        
+    }
 </script>
 
+<style is:global>
+
+    pre{
+        border-radius: 1rem;
+        display: block;
+    }
+
+    pre:hover{
+
+    }
+
+    .show-alert{
+        display: block !important;
+        opacity: 1 !important;
+        scale: 1 !important;
+        transition: all 0s;
+    }
 
 
-<pre class="hljs px-3" style="white-space: pre; ">
-    <code class={language != "" ? "language-" + language : ""}>
+    .alert-container{
+        position: fixed;
+        left: 0;
+        z-index: 10000;
+    }
+
+    @media (width >= 992px){
+        .alert-container{
+            top: 3.5rem;
+        }
+    }
+
+    @media (width < 992px){
+        .alert-container{
+            top: .5rem;
+        }
+    }
+
+
+    .alert-container p{
+        margin: 0;
+        transition: all 1s cubic-bezier(0,.8,0,.8);
+        transition: all 1s cubic-bezier(0,.8,0,.8) allow-discrete;
+        opacity: 0;
+        scale: 0;
+        display: none;
+        z-index: 10000;
+    }
+</style>
+
+<div class="alert-container w-100 d-flex flex-row justify-content-center">
+<p class="alert alert-success">
+    <span class="fw-bold">Text successfully copied to clipboard!</span>
+</p>
+</div>
+
+<pre class="hljs px-3" style="cursor: copy;" onclick="copy_to_clipboard(this);" >
+    <code class={language != "" ? "language-" + language : ""} style="white-space: pre-line; ">
         {code}
     </code>
 </pre>

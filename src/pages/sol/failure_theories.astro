@@ -8,6 +8,7 @@ import InlineEquation from "../../components/InlineEquation.astro"
 import DisplayEquation from "../../components/DisplayEquation.astro" 
 import BlueText from "../../components/BlueText.astro" 
 import RedText from "../../components/RedText.astro" 
+import Plotly from "../../components/Plotly.astro"
 ---
 <Layout title="Failure Theories">
 
@@ -129,48 +130,8 @@ Failure of a material depends on (1) nature of loading and (2) type of material.
     Just like in 2D, regions <strong>outside</strong> the surfaces are considered to have failed. 
 </p>
 
-<div id="failure-criteria-container" class="overflow-hidden d-flex flex-column align-items-center">
-    <div class="spinner-border" role="status">
-        <span class="visually-hidden">Loading...</span>
-    </div>      
-    <span class="visually-hidden">Loading...</span>
-</div>
+<Plotly id="failure-criteria-container" file_path="Solid_Mechanics/plotly_graphs/FailureCriteria.json"/>
 
-<script is:inline>
-
-    $(function(){
-
-        const layout = {
-            autosize: true, 
-            width: '100%', 
-            height: 400 
-        };
-
-
-        var data = $.getJSON("/FailureCriteria.json").done(function(){
-            document.querySelector("#failure-criteria-container").innerHTML = "";
-            console.log(JSON.parse(data['responseText']))
-            Plotly.newPlot("failure-criteria-container", JSON.parse(data['responseText']), layout ,{responsive: true})
-            Plotly.Plots.resize("failure-criteria-container")
-        });
-
-        $(window).on("resize", function(){Plotly.Plots.resize("failure-criteria-container")})
-
-        $( window ).on( "resize", function() {
-            let body_width;
-            body_width = $('body').width();
-            graph_width = body_width - 24;
-            if (body_width < 992){
-                //document.querySelector(`#${id}`).style = `max-width: ${graph_width}px`;
-                document.querySelector(`#failure-criteria-container`).style = `max-width: ${graph_width}px; overflow-x: auto;`;
-            }else{
-                document.querySelector(`#failure-criteria-container`).style = `width: 100%; overflow-x: auto;`
-            }
-            }  
-        );
-
-    });
-</script>
 <em>Note: </em> Click and drag to rotate, scroll to zoom, and click legend entries to toggle. 
 </SubSubSection>
 
@@ -192,5 +153,3 @@ For <strong>brittle</strong> materials, failure is caused by the <strong>maximum
 </SubSection>
 
 </Layout>
-
-<script src="/plotly.js" is:inline></script>

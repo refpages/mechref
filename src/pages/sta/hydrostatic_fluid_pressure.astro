@@ -20,10 +20,10 @@ import Example from "../../components/Example.astro"
 <Section title="Hydrostatic Fluid Pressure" id="hydrostatic_fluid_pressure">
 
 <!-- Lecture 30, 31, 32 -->
-<p> <strong>Pascal's Law:</strong> A fluid at rest creates a pressure point <em>p</em> at a point that is the same in all directions. 
+<p> <strong>Pascal's Law:</strong> A fluid at rest creates a pressure that is the same in all directions. 
 </p>
 
-<p><strong>Hydrostatic Fluid Pressure:</strong> Hydrostatic fluid pressure refers to the pressure from a fluid that is at rest (the "static" part of hydrostatic). It comes from the force of gravity acting on the fluid. 
+<p><strong>Hydrostatic Fluid Pressure:</strong> Hydrostatic fluid pressure refers to the pressure from a fluid that is at rest (the "static" part of hydrostatic). It orginates from the force of gravity acting on the fluid. 
 </p>
 
 </Section>
@@ -32,7 +32,7 @@ import Example from "../../components/Example.astro"
 
 For an incompressible fluid (density <InlineEquation equation='\\rho' />) at rest, the pressure <InlineEquation equation='P' /> varies linearly with fluid depth <InlineEquation equation='z' />. This means that the pressure along a horizontal plane (at a certain depth <InlineEquation equation='z' />) is constant.
 
-<Image src='/Statics/FluidFigures/HydrostaticPressure.jpg' width='4'> Derivation of the pressure  <InlineEquation equation='P(z)' />  at the bottom of a cylinder of liquid with cross-sectional area  <InlineEquation equation='A' /></Image>
+<Image src='/Statics/FluidFigures/HydrostaticPressure.jpg' width='4'> Derivation of the variation of pressure  <InlineEquation equation='P(z)' />  with respect to the fluid depth <InlineEquation equation='z' /> </Image>
 
 
 
@@ -55,7 +55,7 @@ For an incompressible fluid (density <InlineEquation equation='\\rho' />) at res
 
 	<DisplayEquation equation="F_R = P*A"/>
 
-	<p> Where <InlineEquation equation=" A " /> is the area that the force is applied over. 
+	<p> where <InlineEquation equation=" A " /> is the area that the force is applied over. 
 	</p>	
 	
 </Warning>
@@ -91,7 +91,7 @@ In 2D, the the value for <InlineEquation equation=" w " />, the distributed load
 
 <SubSection title="Fluid Pressure with Slanted and Curved Surfaces" id="fluid_pressure_FBD">
 
-<p> We will often be required to analyze the hdrostatic fluid pressure on surfaces that are not perfectly horizontal or vertical. In these cases, it is often easier to redraw our system and create articifial horizontal and vertical "surfaces", adding the force from the FBD of the weight of the water trapped in our horizontal and vertical surfaces. 
+<p> We will often be required to analyze the hydrostatic fluid pressure on surfaces that are not perfectly horizontal or vertical. In these cases, it is easier to redraw our system and create articifial horizontal and vertical "surfaces", adding the force from the FBD of the weight of the water trapped in our horizontal and vertical surfaces. 
 </p>
 
 <p> This method will result in the same resultant force on the slanted surface, but the distributed loads are easier to calculate. 
@@ -102,41 +102,41 @@ In 2D, the the value for <InlineEquation equation=" w " />, the distributed load
 <DisplayEquation equation="F_R = \\sqrt{{F_H}^2+{F_V}^2}" title="Resultant force from fluid pressure" background="True" id="res-force">
 </DisplayEquation>
 
-<Image src='/Statics/FluidFigures/SlantedCurveSurf.jpg' width='7'> </Image>
+<Image src='/Statics/FluidFigures/SlantedCurveSurf.png' width='7'> </Image>
 
 <Example title="Resultant force on a curved plate"  id="fluid-curved" solution="True">
 
 Find the magnitude of the resultant force from the fluid on the curved surface AB (thickness <InlineEquation equation=" t" /> of the surface <InlineEquation equation="= 2 \\ m " />). 
 Density of <InlineEquation equation=" \\text{water}  = 1000 \\ kg / m^3" />
 
-<Image src='/Statics/FluidFigures/CurvedPlateEx.jpg' width='4'> </Image>
+<Image src='/Statics/FluidFigures/CurvedPlateEx.PNG' width='4'> </Image>
 
 <div slot="solution">
 
 <ol>
 	<li> First, we will draw a FBD of the curved surface 
-		<Image src='/Statics/FluidFigures/CurvedPlateSol1.jpg' width='2'> </Image>
+		<Image src='/Statics/FluidFigures/CurvedPlateSol1.PNG' width='2'> </Image>
 	</li>
-	<li> This is complicated! Let's split into horizontal and vertical forces 
-		<Image src='/Statics/FluidFigures/CurvedPlateSol2.jpg' width='6'> </Image>
+	<li> This is complicated! Let's split into horizontal and vertical forces and look at the free body diagram of the water: 
+		<Image src='/Statics/FluidFigures/CurvedPlateSol2.png' width='6'> </Image>
 	</li>
 	<li> Solve for <InlineEquation equation=" F_{R1} " /> and <InlineEquation equation=" F_{R2} " /> 
 		<DisplayEquation equation=" \\begin{aligned}   w_1 &amp;= P_1 \\ t  = \\rho \\ g \\ h_1 \\ t  \\\\     w_2 &amp;= P_2 \\ t  = \\rho \\ g \\ h_2 \\ t   \\\\   F_{R1} &amp;= w_1 \\ R  = \\rho \\ g \\ h_1 \\ t  \\ R   \\end{aligned}"  />
-		<p> Split the horizontal distributed load into a rectangle and a triangle: </p>
-		<Image src='/Statics/FluidFigures/CurvedPlateSol4.jpg' width='6'> </Image>
+		<p> To solve for <InlineEquation equation=" F_{R2} " />, split the horizontal distributed load into a rectangle and a triangle: </p>
+		<Image src='/Statics/FluidFigures/CurvedPlateSol4.PNG' width='6'> </Image>
 		<DisplayEquation equation=" \\begin{aligned}  F_{triangle} &amp;= \\frac{1}{2} (w_2  - w_1) (R)   \\\\  &amp;= \\frac{1}{2} \\rho \\ g \\ (h_2  - h_1) \\ t \\ R   \\\\  F_{rectangle}  &amp;=  w_1 \\ R  =  \\rho \\ g \\ h_1 \\ t  \\ R   \\end{aligned}"  />
 		<DisplayEquation equation=" \\begin{aligned}  F_{R2}  &amp;= F_{triangle} +  F_{rectangle}  \\\\   &amp;= \\frac{1}{2} \\rho \\ g \\ (h_2  - h_1) \\ t \\  + \\rho \\ g \\ h_1 \\ t  \\ R   \\\\   &amp;= \\rho \\ g  \\ t  \\ R \\ [\\frac{1}{2} \\ (h_2  - h_1) + h_1]   \\\\ &amp;= \\rho \\ g  \\ t  \\ R \\ [\\frac{1}{2} \\ h_2  +  \\frac{1}{2} \\ h_1 ]  \\\\  &amp;= \\frac{1}{2} \\rho \\ g  \\ t  \\ R \\ (h_2  +  h_1)  \\end{aligned}"  />
 	</li>
 	<li> Solve for weight of water <InlineEquation equation=" W" /> 
-		<Image src='/Statics/FluidFigures/CurvedPlateSol3.jpg' width='2'> </Image>
+		<Image src='/Statics/FluidFigures/CurvedPlateSol3.PNG' width='2'> </Image>
 		<DisplayEquation equation=" \\begin{aligned}  W &amp;=  m \\ g = \\rho \\ V \\ g  \\\\   V  &amp;= \\text{volume of water} = \\frac{1}{4} \\pi \\ R^2 \\ (t)  \\\\  W  &amp;= \\rho \\frac{1}{4} \\pi \\ R^2 \\ t \\ g \\end{aligned}" />
 	</li>
-	<li> Sollve for <InlineEquation equation=" F_{H} " /> and <InlineEquation equation=" F_{V} " /> 
+	<li> Solve for <InlineEquation equation=" F_{H} " /> and <InlineEquation equation=" F_{V} " /> 
 		<DisplayEquation equation=" \\begin{aligned}  F_H &amp;= F_{R2} \\\\ &amp;= \\frac{1}{2} \\rho \\ g \\ t \\ R \\ (h_2 + h_1)  \\\\   &amp;=  \\frac{1}{2} (1000 \\ kg/m^2) \\ (9.81 \\ m/s^2) \\ (2 \\ m) \\ (3 \\ m) \\ (1.5 + 4.5 \\ m)  \\\\  &amp;= 177 \\ kN   \\end{aligned}" />
-		<DisplayEquation equation=" \\begin{aligned}  F_V &amp;= W + F_{R1} \\\\ &amp;= \\frac{1}{4} \\rho \\pi \\ R^2 \\ t \\ g + \\rho \\ g \\ h_1 \\ t \\ R  = \\rho \\ t \\ g \\ R (\\frac{1}{4} \\pi \\ R +  h_1  \\\\   &amp;= 1000 \\ kg/m^3 \\ (2 \\ m) \\ (9.81 \\ m/s^2) \\ (3 \\ m) [ \\frac{1}{4} \\pi \\ (3 \\ m) + 1.5 \\ m ]  \\\\ &amp;= 58,860 \\ [3.856]  \\\\   &amp;= 227 \\ kN  \\end{aligned}" />
+		<DisplayEquation equation=" \\begin{aligned}  F_V &amp;= W + F_{R1} \\\\ &amp;= \\frac{1}{4} \\rho \\pi \\ R^2 \\ t \\ g + \\rho \\ g \\ h_1 \\ t \\ R  = \\rho \\ t \\ g \\ R (\\frac{1}{4} \\pi \\ R +  h_1)  \\\\   &amp;= 1000 \\ kg/m^3 \\ (2 \\ m) \\ (9.81 \\ m/s^2) \\ (3 \\ m) [ \\frac{1}{4} \\pi \\ (3 \\ m) + 1.5 \\ m ]  \\\\ &amp;= 58,860*3.856  \\\\   &amp;= 227 \\ kN  \\end{aligned}" />
 	</li>
-	<li> Sollve for <InlineEquation equation=" F_{R} " /> 
-		<DisplayEquation equation=" \\begin{aligned} F_R  &amp;= \\sqrt{{F_H}^2 + {F_V}^2}  \\\\  &amp;=  \\sqrt{{177 \\ kN}^2 + {227 \\ kN}^2}  \\\\  &amp;=  288 \\ kN  \\end{aligned}"  />  
+	<li> Solve for <InlineEquation equation=" F_{R} " /> 
+		<DisplayEquation equation=" \\begin{aligned} F_R  &amp;= \\sqrt{{F_H}^2 + {F_V}^2}  \\\\  &amp;=  \\sqrt{{(177 \\ kN)}^2 + {(227 \\ kN)}^2}  \\\\  &amp;=  288 \\ kN  \\end{aligned}"  />  
 	</li>
 </ol>
 
@@ -173,6 +173,7 @@ Density of <InlineEquation equation=" \\text{water}  = 1000 \\ kg / m^3" />
 	<Image src='/Statics/FluidFigures/Buoyancy.jpg' width='4'></Image>
 
 	<div slot="solution">
+	<p> We know that the buoyant force is equivalent to the weight of the water that was displaced by the basketball, or the weight of a sphere of water that is the same size as the basketball. </p>
 	<DisplayEquation equation="\\begin{aligned}  F_B &amp;=  W   \\\\   &amp;= m_{water} \\ g \\\\  &amp;= \\rho_{water} \\ V_{displaced} \\ g    \\\\   &amp;= \\rho_{water} (\\frac{4}{3} \\pi R^3) \\ g  \\end{aligned}">
 	</DisplayEquation>	
 	</div>

@@ -149,6 +149,7 @@ import Searchbar from "./Searchbar.astro";
         text-align: center;
         font-weight: bold;
         padding: 8px 10px 10px 10px;
+        cursor: pointer;
     }
 
 
@@ -190,7 +191,6 @@ import Searchbar from "./Searchbar.astro";
 
     .dynamics-menu{
         column-count: 2;
-        
     }
 
     .menu li{
@@ -205,7 +205,7 @@ import Searchbar from "./Searchbar.astro";
 
     @media (width <= 578px){
         .course-menu{
-            columns: 1;
+            columns: 1 !important;
         }
     }
 
@@ -330,7 +330,7 @@ import Searchbar from "./Searchbar.astro";
     <div class="navbar-collapse collapse pt-2 pb-2 pb-lg-0" id="mainnav">
         <ul class="navbar-nav w-100">
             <li class="dropdown mega nav-item">
-                <a class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false" aria-label="About">
+                <a class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false" aria-label="About" class-value="sta">
                     <span>Statics</span>
                 </a>
                 <div class="dropdown-menu tile-list px-2" id="mainnav-statics">
@@ -357,7 +357,7 @@ import Searchbar from "./Searchbar.astro";
                 </div>
             </li>
             <li class="dropdown mega nav-item ">
-                <a class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false" aria-label="About" >
+                <a class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false" aria-label="About" class-value="dyn">
                     <span>Dynamics</span>
                 </a>
                 <div class="dropdown-menu tile-list px-2" id="mainnav-dynamics">
@@ -379,8 +379,8 @@ import Searchbar from "./Searchbar.astro";
                 </div>
             </li>
             <li class="dropdown mega nav-item ">
-                <a class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false" aria-label="About">
-                    <span>Solid Mechanics</span>
+                <a class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false" aria-label="About" class-value="sol">
+                    <span>Solid Mechanics</a></span>
                 </a>
                 <div class="dropdown-menu tile-list px-2" id="mainnav-solids"> 
                     <div class="d-flex" >
@@ -406,6 +406,7 @@ import Searchbar from "./Searchbar.astro";
                     </div>
                 </div>
             </li>
+            <!-- ADD YOUR COURSE HERE -->
         </ul>
         <span class="navbar-text d-flex flex-row justify-content-center align-items-center" style="padding: 8px 10px 10px 10px;"><a class="me-2 fw-bold nav-link" href="/about">About</a></span>
         <span class="navbar-text d-flex flex-row justify-content-center align-items-center theme-toggler" style="padding: 8px 10px 10px 10px;" onclick="toggle_theme();" >
@@ -455,6 +456,16 @@ showHideScrollDiv();
     }
 
     //experiment for on hover menu activation
+
+$("a.nav-link").on('click', function(e){
+    if (window.innerWidth >= 992) {
+        $(location).prop('href', "/"+$(this).attr("class-value"));
+        console.log($(this).attr("class-value"))
+    }
+
+    
+})
+
 
 //activate dropdown menus on mouse hover
 $("#mainnav .nav-item").on("mouseenter", 

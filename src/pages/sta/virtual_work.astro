@@ -10,12 +10,19 @@ import Enumerate from "../../components/Enumerate.astro"
 import Item from "../../components/Item.astro"
 import Warning from "../../components/Warning.astro"
 import SubSubSection from "../../components/SubSubSection.astro"
+import Example from "../../components/Example.astro"
+import InlineCanvas from "../../components/InlineCanvas.astro"
+import Row from "../../components/Row.astro"
+import Col from "../../components/Col.astro"
 ---
 <Layout title="Virtual Work">
 
     <div slot="navtree">
         <ul class='list-group list-group-flush py-0'> 
-          <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#virtual_displacements'>Virtual Displacements</a></li> 
+          <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#virtual_displacements'>Virtual Displacements</a><ul class='list-group list-group-flush py-0'> 
+            <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#couple_moments'>Couple Moments</a></li> 
+        </ul>
+    </li> 
           <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#principle_virtual_work'>Principle of Virtual Work</a></li>
           <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#virtual_work_analysis'>Virtual Work Analysis</a></li>
       </ul>
@@ -24,21 +31,33 @@ import SubSubSection from "../../components/SubSubSection.astro"
 <Section title="Virtual Work" id="virtual_work">
 
 <!-- Lectures 34 and 35 -->
-A force does work when it produces a displacement along its line of action. 
 
-Virtual work (<InlineEquation equation='dU' />) is the work produced by a force (<InlineEquation equation='F' />) over an infinitesimally small displacement (<InlineEquation equation='dr' />).
+<p>In general, a force does work when it produces a displacement along its line of action. When we talk about virtual work, we're imagining those displacements becoming infinitesimally small. </p>
 
-<DisplayEquation equation='dU = F\\cdot dr\\' title="Virtual work." background="True"/>
+<p> Work is defined as <strong>positive</strong> when the force and the displacement are in the same direction, and <strong>negative</strong> when the force and displacement are in opposite directions. </p> 
 
-We can use virtual work to solve for the forces in a system without needing to solve for all of the support reactions. For example, if a truss is completely pinned on one end, it doesn't move, which means there is no virtual work completed on that pin because there are no virtual displacements!
+<Image src='/Statics/VWorkFigures/VirtualWork.png' width='3.5'></Image>
+
+Virtual work (<InlineEquation equation='dU' />) is the work produced by a force (<InlineEquation equation='F' />) over an infinitesimally small displacement (<InlineEquation equation='dr'/>).
+
+
+
+<DisplayEquation equation='dU = \\vec{F}\\cdot d\\vec{r}\\' title="Virtual work." background="True"/>     
+
+
+
+
 
 </Section>
 
 <SubSection title="Virtual Displacements" id="virtual_displacements">
 
-<DisplayEquation equation="d\\vec{r_P} = d\\vec{r_A} + d\\theta \\vec{k} \\times \\vec{r_{AP}}" title="Virtual displacement." background="True" />
+<p> A virtual displacement is an infinitesimally small translation (<InlineEquation equation="dr"/>) and/or rotation (<InlineEquation equation="d\\theta"/>) that is possible in the system. </p>
 
-A virtual displacement is an infinitesimally small displacement and/or rotation (<InlineEquation equation="dx \\text{ and/or } d\\theta"/>) that is possible in the system. 
+ <Image src='/Statics/VWorkFigures/VirtualDisp.png' width='7'></Image> 
+
+<!-- <DisplayEquation equation="d\\vec{r_P} = d\\vec{r_A} + d\\theta \\vec{k} \\times \\vec{r_{AP}}" title="Virtual displacement." background="True" /> -->
+
 <br>
 <em>Note:</em> virtual displacements are assumed to be possible, but don't actually exist. 
 
@@ -46,14 +65,29 @@ A virtual displacement is an infinitesimally small displacement and/or rotation 
 
 <SubSubSection title="Couple Moments" id="couple_moments">
 
-    <Image src='/Statics/VWorkFigures/VWorkCoupleMoment.png' width='5 '> Virtual work  <InlineEquation equation='dU' />  completed by a couple moment,  <InlineEquation equation='M' /> .</Image>
+    <p>
+    Couple moments can also do work! When a body's rotation and the moment vector are oriented in the same direction, the couple moment does work. 
+    For 2D problems, this is when both the moment and the rotation are oriented in the <InlineEquation equation='\\hat{k}' /> direction 
+    using the <a href="https://www.mechref.org/sta/cartesian_coordinates/?origin=sidebar#right_hand_rule">right hand rule</a>. 
+    </p>
 
-    When a body's roation and the moment vector are orented in the same direction, the couple moment does work.
-    
-    Couple moment  virtual work (<InlineEquation equation='dU' />) is the work produced by a couple moment (<InlineEquation equation='M' />) over an infinitesimally small angular displacement (<InlineEquation equation='d\\theta' />).
-    
-    <DisplayEquation equation='dU = M d\\theta' title="Virtual work of a couple moment." background="True" derivation="True" id="cpl-mmt">
+    <!--
+    <Image src='/Statics/VWorkFigures/CoupleMoments.png' width='5'></Image>
 
+    <p>
+    In the example above, the orange shape both translates over a distance <InlineEquation equation='dr' /> AND rotates about point A by an angle <InlineEquation equation='d\\theta' />. 
+    This rotation is caused by the couple moment from the force couple. 
+    </p>
+    -->
+
+    <p>
+    Couple moment virtual work (<InlineEquation equation='dU' />) is the work produced by a couple moment (<InlineEquation equation='M' />) over an infinitesimally small angular displacement (<InlineEquation equation='d\\theta' />).
+    </p>
+    
+    <DisplayEquation equation='dU = \\vec{M} \\cdot d\\theta \\hat{k}' title="Virtual work of a couple moment." background="True" id="cpl-mmt">
+    </DisplayEquation>
+        
+        <!--
         <DisplayEquation equation="dU = \\Sigma \\vec{F_i} \\cdot d\\vec{r_i}"/>
         <DisplayEquation equation="dU = \\vec{F_A} \\cdot d\\vec{r_A} +\\vec{F_B} \\cdot d\\vec{r_B}"/>
         <DisplayEquation equation="dU = -\\vec{F} \\cdot (d\\vec{r_A} + d\\theta \\vec{k} \\times \\vec{r_{AA}}) + F \\cdot (d\\vec{r_A} + d\\theta \\vec{k} \\times \\vec{r_{AB}})"/>
@@ -63,15 +97,15 @@ A virtual displacement is an infinitesimally small displacement and/or rotation 
         <DisplayEquation equation="dU = d\\theta \\vec{k} \\cdot (\\vec{r_{AB}} \\times \\vec{F})"/>
         <DisplayEquation equation="dU = d\\theta \\vec{k} \\cdot \\vec{M}"/>
         <DisplayEquation equation="dU = M \\vec{k} \\cdot d\\theta \\vec{k}"/>
-    </DisplayEquation>
+        -->
 
 </SubSubSection>
 
 <SubSection title="Principle of Virtual Work" id="principle_virtual_work">
 
-If a body is in equilibrium, the sum of the virtual work done by all the forces and couple moments acting on the body is zero. 
+If a body is in equilibrium, the sum of the virtual work done by all the forces and couple moments acting on the body is zero. We can use this principle to solve for the forces on systems. 
 
-<DisplayEquation equation="\\sum{dU} = \\sum{\\vec{F}d\\vec{x}} + \\sum{\\vec{M}d\\vec{\\theta}} = 0 " title="Virtual work equilibrium." background="True"/>
+<DisplayEquation equation="\\sum{dU} = \\sum{\\vec{F} \\cdot d\\vec{r}} + \\sum{\\vec{M} \\cdot d\\theta}\\hat{k} = 0 " title="Virtual work equilibrium." background="True"/>
 
 </SubSection>
 
@@ -84,18 +118,124 @@ If a body is in equilibrium, the sum of the virtual work done by all the forces 
     <Item>Draw a free body diagram of the system, including a coordinate system.</Item>
     <Item>Sketch the "deflected" position of the system.</Item>
     <Item>Define the position coordinates (measured from a fixed point).</Item>
-    <Item>Select the parallel line of action component.</Item>
+    <Item>Identify the components of the forces or moments that are parallel to the virtual displacements (the parallel line of action components).</Item>
     <Item>Remove all the forces that do not complete any work. </Item>
     <Item>Differentiate the position coordinates to obtain virtual displacement.</Item>
     <Item>Write the virtual work equation, expressing the virtual work of every force and moment.</Item>
-    <Item>Factor out the common virtual displacement term.</Item> 
-    <Item>Solve.</Item>
+    <Item>Factor out the common virtual displacement term (<InlineEquation equation="dr"/> and/or <InlineEquation equation="dr"/>) and solve.</Item> 
 </Enumerate>
 
+<p>We can use virtual work to solve for the forces in a system without needing to solve for all of the support reactions. 
+</p>
+<p>
+For example, if a truss is completely pinned on one end, it doesn't move, which means there is no virtual work completed on that pin because there are no virtual displacements (<InlineEquation equation='dr = 0' />). This means that we can ignore it in our virtual work equation and don't need to solve for the reaction forces at the truss pin. 
+</p>
 
+<Example id="pin-trs" title="Virtual work analysis of a truss." solution="True">
+    <div class="d-flex">
+        <div class="d-flex flex-row">
+        <Row>
+        <Col values="12 md-6">
+            <p>
+            Determine the force <InlineEquation equation="P"/> needed to maintain equilibrium of the linkage at angle <InlineEquation equation="\\theta_P"/>. The spring is unstretched at <InlineEquation equation="\\theta_S"/>.
+            </p>
+        </Col>
+        <Col values="12 md-6">
+            <Image src='/Statics/VWorkFigures/Truss.png' width='6'></Image>
+        </Col>
+        </Row>
+    </div>
+</div>
+<div slot="solution">
+  <p>
+      <Enumerate>
+        <Item> Draw the free body diagram of the structure. </Item>
+        <Image src='/Statics/VWorkFigures/TrussFBD1.png' width='3'></Image>
+        <Item> Sketch the deflected position. </Item>
+        <Image src='/Statics/VWorkFigures/TrussFBD2.png' width='3'></Image>
+        <Item> Define the position coordinates from a fixed point. </Item>
+        <DisplayEquation equation="\\text{In this case, we are defining them from the fixed point A.}"/>
+        <DisplayEquation equation="\\vec{dr_S} = l sin\\theta \\hat{i} + l cos\\theta\\hat{j}"/>
+        <DisplayEquation equation="\\vec{dr_P} = 3l sin\\theta \\hat{i} + l cos\\theta\\hat{j}"/>
+        <Item>Select the components of the forces that are parallel to the displacements. </Item>
+        <DisplayEquation equation="\\text{For this problem, this would be the force of the spring } (F_S) \\text{ and the applied load } (P). "/>
+        <Item>Remove forces that do no work. </Item>
+        <DisplayEquation equation="A_x, A_y, G_x \\text{ do not do any work } (dU = 0) \\text{, so they can be removed.}"/>
+        <Item>Differentiate the position coordinates.</Item>
+        <DisplayEquation equation="\\vec{r_S} = l cos\\theta \\text{ } d\\theta \\hat{i} - l sin\\theta \\text{ } d\\theta \\hat{j}"/>
+        <DisplayEquation equation="\\vec{r_P} = 3l cos\\theta \\text{ } d\\theta \\hat{i} - l sin\\theta \\text{ } d\\theta \\hat{j}"/>
+        <Item>Apply the Principle of Virtual Work.</Item>
+        <DisplayEquation equation="\\Sigma dU = dU_P + dU_{F_S} = 0"/>
+        <Item>Factor our the common virtual displacement term and solve.</Item> 
+        <DisplayEquation equation="\\Sigma dU = \\vec{P} \\cdot d\\vec{r_P} + \\vec{F_S} \\cdot d\\vec{r_S} = 0"/>
+        <DisplayEquation equation="\\Sigma dU = (P \\hat{i}) \\cdot (3l cos\\theta \\text{ } d\\theta \\hat{i} - l sin\\theta \\text{ } d\\theta \\hat{j}) + (-F_s \\hat{i}) \\cdot (l cos\\theta \\text{ } d\\theta \\hat{i} - l sin\\theta \\text{ } d\\theta \\hat{j}) = 0"/>
+        <DisplayEquation equation="\\Sigma dU = 3lP cos\\theta \\text{ } d\\theta -F_Sl cos\\theta \\text{ } d\\theta = 0"/>
+        <DisplayEquation equation="\\Sigma dU = (3P - F_S) l cos\\theta  \\text{ } d\\theta = 0"/>
+        <DisplayEquation equation="3P - F_S = 0"/>
+        <DisplayEquation equation="P = \\frac{1}{3} F_S"/>
+        <DisplayEquation equation=" F_S = k \\Delta x"/>
+        <DisplayEquation equation=" F_S = k (l sin\\theta_P - l sin \\theta_S)"/>
+        <DisplayEquation equation="P = \\frac{1}{3} kl (sin\\theta_P - sin \\theta_S)"/>
+    </Enumerate>
+</p>
+</div>
+</Example>
+<!-- 
+<Example id="rod-wal" title="Rod leaning against a wall." solution="True">
+    <div class="d-flex">
+        <div class="d-flex flex-row">
+        <Row>
+        <Col values="12 md-5">
+            <p>
+                A thin rod with a weight <InlineEquation equation="W"/> rests against a smooth wall and floor. Determine the magnitude of force <InlineEquation equation="P"/> needed to maintain equailibrium.
+            </p>
+        </Col>
+        <Col values="12 md-7">
+            <Image src='/Statics/VWorkFigures/ThinRod.png' width='6'></Image>
+        </Col>
+        </Row>
+    </div>
+</div>
+<div slot="solution">
+  <p>
+      <Enumerate>
+        <Item> Draw the free body diagram. </Item>
+        <Image src='/Statics/VWorkFigures/ThinRodFBD1.png' width='3'></Image>
+        <Item> Sketch the deflected position. </Item>
+        <Image src='/Statics/VWorkFigures/ThinRodFBD2.png' width='3'></Image>
+        <Item> Define the position coordinates from a fixed point. In this case, we will use the fixed point of the origin at the corner of the wall and floor as our fixed point.</Item>
+        Point A:
+        <DisplayEquation equation="\\vec{r_A} = -Lcos\\theta\\hat{i}"/>
+        Point B: 
+        <DisplayEquation equation="\\vec{r_B} = Lsin\\theta \\hat{j}"/>
+        COM:
+        <DisplayEquation equation="\\vec{r_W} = -\\frac{L}{2} cos\\theta \\hat{i} + \\frac{L}{2}sin\\theta\\hat{j}"/>
+        <Item>Identify forces that have components parallel to the virtual displacements. For this problem, this would only be the weight <InlineEquation equation="W"/>.</Item>
+        <Item>Remove forces that do no work. <InlineEquation equation="N_a, N_b"/> do not do any work (<InlineEquation equation= "dU = 0"/>), so they can be removed. </Item>
+        <Item>Differentiate the position coordinates.</Item>
+        Point A:
+        <DisplayEquation equation="d\\vec{r_A} = Lsin\\theta \\text{ } d\\theta \\hat{i}"/>
+        Point B: 
+        <DisplayEquation equation="d\\vec{r_B} = Lcos\\theta \\text{ } d\\theta \\hat{j}"/>
+        COM:
+        <DisplayEquation equation="d\\vec{r_W} = \\frac{L}{2} sin\\theta \\text{ } d\\theta \\hat{i} + \\frac{L}{2}cos\\theta \\text{ } d\\theta \\hat{j}"/>
+        <Item>Apply the Principle of Virtual Work.</Item>
+        <DisplayEquation equation="\\Sigma dU = \\Sigma \\vec{F} \\cdot d\\vec{r} = 0"/>
+        <Item>Solve by factoring out the common virtual displacement term (in this case, <InlineEquation equation="d\\theta"/>).</Item>
+        <DisplayEquation equation="\\Sigma dU = \\vec{P} \\cdot d\\vec{r_A} + \\vec{W} \\cdot d\\vec{r_W} = 0"/> 
+        <DisplayEquation equation="\\Sigma dU = (P\\hat{i}) \\cdot (L sin\\theta \\text{ } d\\theta \\hat{i}) - (W\\hat{j}) \\cdot (\\frac{L}{2} sin\\theta \\text{ } d\\theta \\hat{i} + \\frac{L}{2}cos\\theta \\text{ } d\\theta \\hat{j}) = 0"/>
+        <DisplayEquation equation="\\Sigma dU = PLsin\\theta\\text{ } d\\theta - \\frac{WL}{2}cos\\theta \\text{ } d\\theta = 0"/>
+        <DisplayEquation equation="\\Sigma dU = L \\text{ } d\\theta(Psin\\theta - \\frac{W}{2}cos\\theta) = 0"/>
+        <DisplayEquation equation="Psin\\theta - \\frac{W}{2} cos\\theta = 0"/>
+        <DisplayEquation equation="P = \\frac{Wcos\\theta}{2sin\\theta}"/>
+    </Enumerate>
+</p>
+</div> 
+
+</Example>-->
 <Warning title="Virtual work can be an easier method of solving for some problems." id="vrt-wrk">
     <p>
-      For simple problems, virtual work is aobut the same amount of work as the equailibrium equations. 
+      For simple problems, virtual work is about the same amount of work as the equilibrium equations. 
     </p>
    </Warning>
 
