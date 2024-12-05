@@ -131,7 +131,7 @@ If a body is in equilibrium, the sum of the virtual work done by all the forces 
 For example, if a truss is completely pinned on one end, it doesn't move, which means there is no virtual work completed on that pin because there are no virtual displacements (<InlineEquation equation='dr = 0' />). This means that we can ignore it in our virtual work equation and don't need to solve for the reaction forces at the truss pin. 
 </p>
 
-<Example id="pin-trs" title="Virtual work analysis of a truss." solution="True">
+<Example id="pin-trs" title="Virtual work analysis of a linkage system." solution="True">
     <div class="d-flex">
         <div class="d-flex flex-row">
         <Row>
@@ -149,32 +149,37 @@ For example, if a truss is completely pinned on one end, it doesn't move, which 
 <div slot="solution">
   <p>
       <Enumerate>
-        <Item> Draw the free body diagram of the structure. </Item>
+        <Item> Draw the free body diagram of the structure. In this case, we have the support reactions at points A and G and the force P and spring force. </Item>
         <Image src='/Statics/VWorkFigures/TrussFBD1.png' width='3'></Image>
         <Item> Sketch the deflected position. </Item>
         <Image src='/Statics/VWorkFigures/TrussFBD2.png' width='3'></Image>
         <Item> Define the position coordinates from a fixed point. </Item>
-        <DisplayEquation equation="\\text{In this case, we are defining them from the fixed point A.}"/>
-        <DisplayEquation equation="\\vec{dr_S} = l sin\\theta \\hat{i} + l cos\\theta\\hat{j}"/>
-        <DisplayEquation equation="\\vec{dr_P} = 3l sin\\theta \\hat{i} + l cos\\theta\\hat{j}"/>
-        <Item>Select the components of the forces that are parallel to the displacements. </Item>
-        <DisplayEquation equation="\\text{For this problem, this would be the force of the spring } (F_S) \\text{ and the applied load } (P). "/>
+        For this problem, we are defining the coordinates of points B and D from the fixed point A.
+        <DisplayEquation equation="\\vec{r_B} = l sin\\theta \\hat{i} + l cos\\theta\\hat{j}"/>
+        <DisplayEquation equation="\\vec{r_D} = 3l sin\\theta \\hat{i} + l cos\\theta\\hat{j}"/>
+        <Item>Identify forces that have components parallel to the virtual displacements. For this problem, this would the force of the spring <InlineEquation equation="F_S"/> and the applied load <InlineEquation equation="P"/>.</Item>
         <Item>Remove forces that do no work. </Item>
-        <DisplayEquation equation="A_x, A_y, G_x \\text{ do not do any work } (dU = 0) \\text{, so they can be removed.}"/>
+        <InlineEquation equation="A_x"/>, <InlineEquation equation="A_y"/>, and <InlineEquation equation="G_x"/> do not do any work (dU = 0), so they can be removed.
         <Item>Differentiate the position coordinates.</Item>
-        <DisplayEquation equation="\\vec{r_S} = l cos\\theta \\text{ } d\\theta \\hat{i} - l sin\\theta \\text{ } d\\theta \\hat{j}"/>
-        <DisplayEquation equation="\\vec{r_P} = 3l cos\\theta \\text{ } d\\theta \\hat{i} - l sin\\theta \\text{ } d\\theta \\hat{j}"/>
+        <DisplayEquation equation="\\vec{dr_B} = l cos\\theta \\text{ } d\\theta \\hat{i} - l sin\\theta \\text{ } d\\theta \\hat{j}"/>
+        <DisplayEquation equation="\\vec{dr_D} = 3l cos\\theta \\text{ } d\\theta \\hat{i} - l sin\\theta \\text{ } d\\theta \\hat{j}"/>
         <Item>Apply the Principle of Virtual Work.</Item>
         <DisplayEquation equation="\\Sigma dU = dU_P + dU_{F_S} = 0"/>
-        <Item>Factor our the common virtual displacement term and solve.</Item> 
-        <DisplayEquation equation="\\Sigma dU = \\vec{P} \\cdot d\\vec{r_P} + \\vec{F_S} \\cdot d\\vec{r_S} = 0"/>
+        <Item>Factor our the common virtual displacement term and solve (in this case, we will factor out <InlineEquation equation="d\\theta"/>)</Item> 
+        <DisplayEquation equation="\\Sigma dU = \\vec{P} \\cdot d\\vec{r_D} + \\vec{F_S} \\cdot d\\vec{r_B} = 0"/>
         <DisplayEquation equation="\\Sigma dU = (P \\hat{i}) \\cdot (3l cos\\theta \\text{ } d\\theta \\hat{i} - l sin\\theta \\text{ } d\\theta \\hat{j}) + (-F_s \\hat{i}) \\cdot (l cos\\theta \\text{ } d\\theta \\hat{i} - l sin\\theta \\text{ } d\\theta \\hat{j}) = 0"/>
+        Remember that the dot product of any <InlineEquation equation="\\hat{i}"/> terms with any <InlineEquation equation="\\hat{j}"/> terms is equal to zero becuase the vectorrs are perpendicular, which leaves us with:    
         <DisplayEquation equation="\\Sigma dU = 3lP cos\\theta \\text{ } d\\theta -F_Sl cos\\theta \\text{ } d\\theta = 0"/>
+        Factor out the common <InlineEquation equation="l cos\\theta  \\text{ } d\\theta"/> term: 
         <DisplayEquation equation="\\Sigma dU = (3P - F_S) l cos\\theta  \\text{ } d\\theta = 0"/>
         <DisplayEquation equation="3P - F_S = 0"/>
+        Solve for <InlineEquation equation="P"/>: 
         <DisplayEquation equation="P = \\frac{1}{3} F_S"/>
+        Now that we have <InlineEquation equation="P"/>, we need to solve for the force in the spring. 
         <DisplayEquation equation=" F_S = k \\Delta x"/>
+        <DisplayEquation equation=" F_S = k (l-l_0)"/>
         <DisplayEquation equation=" F_S = k (l sin\\theta_P - l sin \\theta_S)"/>
+        Plug into our equation for <InlineEquation equation="P"/> to get our final answer: 
         <DisplayEquation equation="P = \\frac{1}{3} kl (sin\\theta_P - sin \\theta_S)"/>
     </Enumerate>
 </p>
