@@ -4,7 +4,7 @@ Currently, the website is hosted at <a href="https://mechref.org">https://mechre
 
 Index:
 <ul>
-    <li><a href="https://files.jcrayb.com/pretty/files/mechref/docs/components.md">Guide on custom components and their options</a></li>
+    <li><a href="https://mechref.org/about/docs">Guide on custom components and their options</a></li>
     <li>
         To run the pages locally, refer to the guide for your specific Operating System:
         <ul>
