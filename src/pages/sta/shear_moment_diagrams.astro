@@ -25,30 +25,6 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
       </ul>
     </div>
 
-
-<style>
-    tr {
-        border: solid 0px var(--bs-border-color); 
-    }
-    td {
-        border-right: solid 1px var(--bs-border-color); 
-        border-left: solid 1px var(--bs-border-color);
-        text-align:center;
-        padding-top: .5em;
-        padding-bottom: .5em;
-    }
-
-    th{
-        border-right: solid 1px var(--bs-border-color); 
-        border-left: solid 1px var(--bs-border-color);
-        text-align:center;
-    }
-
-    th:first-of-type{
-        border-left: none; 
-    }
-</style>
-
 <Section title="Shear Force & Bending Moment Diagrams" id="shear_moment_diagrams">
 <p>
 Internal forces of a member can be determined by creating an imaginary cut in a member, and then solving for the internal shear force, normal force, and bending moment (which, after the cut, become "external" forces that can be solved for). 
@@ -137,9 +113,9 @@ The general procedures for creating shear / bending moment diagrams are:</p>
     </thead>
     <tbody>
         <tr>
-            <td class="nosideborderleft">
-                <strong>Internal shear<br> force <br><InlineEquation equation="(V)"/> </strong>
-            </td>
+            <th>
+                Internal shear force <br> <InlineEquation equation="(V)"/>
+            </th>
             <td>
                 (+) concentrated force <InlineEquation equation="\\rightarrow"/>
                 <br>
@@ -165,9 +141,9 @@ The general procedures for creating shear / bending moment diagrams are:</p>
     </tbody>
     <tbody>
         <tr>
-            <td class="nosideborderleft">
-                <strong>Internal bending moment <br><InlineEquation equation="(M)"/> </strong>
-            </td>
+            <th>
+                Internal bending moment <br><InlineEquation equation="(M)"/>
+            </th>
             <td>
                 (+, CCW) moment <InlineEquation equation="\\rightarrow"/>
                 <br>

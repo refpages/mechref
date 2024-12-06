@@ -22,22 +22,6 @@ import DisplayTable from "../../components/DisplayTable.astro"
 import InlineCanvas from "../../components/InlineCanvas.astro"
 ---
 
-<style>
-  .border-below{
-        border-bottom: solid 1px black;
-  }
-
-  .table-collapse{
-    border-collapse: collapse;
-  }
-
-
-  tbody.row-spacing > tr > td {
-    padding-top: .25rem;
-    padding-bottom: .25rem;
-  }
-</style>
-
 
 <Layout title="Particle Kinematics">
 
@@ -306,27 +290,27 @@ import InlineCanvas from "../../components/InlineCanvas.astro"
 
 
 <SubSubSection title="Summary table"  id="summary_table">
-    <DisplayTable id="summary_table_table" class_ = "table-sm table-bordered">
+    <DisplayTable id="summary_table_table" class_ = "table-sm">
     <thead>
         <tr>
             <th>  </th>
-            <th style="text-align: center;">Cartesian </th>
-            <th style="text-align: center;">Polar</th>
+            <th>Cartesian </th>
+            <th>Polar</th>
         </tr>
     </thead>
     <tbody>
         <tr>
-            <td> Position </td>
+            <th> Position </th>
             <td><DisplayEquation equation="\\vec{r} = x\\hat\\imath + y \\hat\\jmath" /></td>
             <td><DisplayEquation equation="\\vec{r} = r \\hat{e}_r" /></td>
         </tr>
         <tr>
-            <td> Velocity </td>
+            <th> Velocity </th>
             <td><DisplayEquation equation="\\vec{v} = \\dot{x}\\hat\\imath + \\dot{y} \\hat\\jmath" /></td>
             <td><DisplayEquation equation="\\vec{v} = \\dot{r} \\hat{e}_r + r\\dot{\\theta}\\hat{e}_\\theta" /></td>
         </tr>
-		<tr>
-            <td> Acceleration </td>
+		    <tr>
+            <th> Acceleration </th>
             <td><DisplayEquation equation="\\vec{a} = \\ddot{x}\\hat\\imath + \\ddot{y} \\hat\\jmath" /></td>
             <td><DisplayEquation equation="\\vec{a} = \\frac{d}{dt} (\\vec{v}) = \\ddot{r} \\hat{e}_r + \\dot{\\hat{e}_r} + \\dot{r}\\dot{\\theta}\\hat{e}_\\theta\\ + r\\ddot{\\theta}\\hat{e}_\\theta + r\\dot{\\theta}\\dot{\\hat{e}_\\theta}" />
 			    <DisplayEquation equation="\\vec{a} = (\\ddot{r} - r\\dot{\\theta}^2 ) \\hat{e}_r +  (2\\dot{r}\\dot{\\theta} + r\\ddot{\\theta}) \\hat{e}_\\theta" /></td>
@@ -1030,10 +1014,31 @@ import InlineCanvas from "../../components/InlineCanvas.astro"
   shapes:
 </p>
 <DisplayTable class="basic" id="rkt-tm">
-  <tr><th>match</th><th>geometric object</th><th>name</th></tr>
-  <tr><td><InlineEquation equation="\\vec{r}" /></td><td>point</td><td>position</td></tr>
-  <tr><td><InlineEquation equation="\\vec{r},\\vec{v}" /></td><td>line</td><td>tangent line</td></tr>
-  <tr><td><InlineEquation equation="\\vec{r},\\vec{v},\\vec{a}" /></td><td>circle</td><td>osculating circle</td></tr>
+  <thead>
+    <tr noborder>
+      <th>match</th>
+      <th>geometric object</th>
+      <th>name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><InlineEquation equation="\\vec{r}" /></td>
+      <td>point</td>
+      <td>position</td>
+    </tr>
+    <tr>
+      <td><InlineEquation equation="\\vec{r},\\vec{v}" /></td>
+      <td>line</td>
+      <td>tangent line</td>
+    </tr>
+    <tr>
+      <td><InlineEquation equation="\\vec{r},\\vec{v},\\vec{a}" /></td>
+      <td>circle</td>
+      <td>osculating circle</td>
+    </tr>
+  </tbody>
+  
 </DisplayTable>
 
 <p>
@@ -1225,30 +1230,30 @@ import InlineCanvas from "../../components/InlineCanvas.astro"
 
 <SubSubSection title="System comparison: Cartesian/Polar/Tangent-Normal" id="system_comparison">
 
-    <DisplayTable id="systemcomp_table" class_ = "table-sm table-bordered">
+    <DisplayTable id="systemcomp_table" class_ = "table-sm">
     <thead>
         <tr>
             <th>  </th>
-            <th style="text-align: center;">Cartesian </th>
-            <th style="text-align: center;">Polar</th>
-			<th style="text-align: center;">Tangent-Normal</th>
+            <th>Cartesian </th>
+            <th>Polar</th>
+			      <th>Tangent-Normal</th>
         </tr>
     </thead>
     <tbody>
         <tr>
-            <td> Position </td>
+            <th> Position </th>
             <td><DisplayEquation equation="\\vec{r} = x\\hat\\imath + y \\hat\\jmath" /></td>
             <td><DisplayEquation equation="\\vec{r} = r \\hat{e}_r" /></td>
-			<td style="text-align: center;">\(s\)</td>
+			      <td><DisplayEquation equation="s" /></td>
         </tr>
         <tr>
-            <td> Velocity </td>
+            <th> Velocity </th>
             <td><DisplayEquation equation="\\vec{v} = \\dot{x}\\hat\\imath + \\dot{y} \\hat\\jmath" /></td>
             <td><DisplayEquation equation="\\vec{v} = \\dot{r} \\hat{e}_r + r\\dot{\\theta}\\hat{e}_\\theta" /></td>
-			<td style="text-align: center;"><DisplayEquation equation="\\vec{v} =  \\dot{s}\\hat{e}_t" /></td>
+			<td><DisplayEquation equation="\\vec{v} =  \\dot{s}\\hat{e}_t" /></td>
         </tr>
 		<tr>
-            <td> Acceleration </td>
+            <th> Acceleration </th>
             <td><DisplayEquation equation="\\vec{a} = \\ddot{x}\\hat\\imath + \\ddot{y} \\hat\\jmath" /></td>
             <td><DisplayEquation equation="\\vec{a} = (\\ddot{r} - r\\dot{\\theta}^2 ) \\hat{e}_r +  (2\\dot{r}\\dot{\\theta} + r\\ddot{\\theta}) \\hat{e}_\\theta" /></td>
 			<td><DisplayEquation equation="\\vec{a} = \\ddot{s}\\hat{e}_t + \\dot{s}^2 \\kappa \\hat{e}_n" /></td>
@@ -1307,9 +1312,9 @@ import InlineCanvas from "../../components/InlineCanvas.astro"
     or even orthogonal directions.
   </p>
 
-  <DisplayTable id="periods_of_rotation_table" class_ = "table-sm table-bordered table-collapse text-center w-100">
+  <DisplayTable id="periods_of_rotation_table" class_ = "table-sm">
     <thead style="font-size: 1rem;">
-      <tr class="border-below">
+      <tr>
         <th></th>
         <th>Earth spin</th>
         <th>Earth orbit</th>
@@ -1317,72 +1322,70 @@ import InlineCanvas from "../../components/InlineCanvas.astro"
         <th>Through <a target="_blank" rel="noopener noreferrer" href="http://en.wikipedia.org/wiki/Cosmic_microwave_background">CMB</a></th>
       </tr>
     </thead>
-    <tbody class='row-spacing' style="font-size: 1rem;">
+    <tbody style="font-size: 1rem;">
     <tr>
-      <td>period \(T\)</td>
+      <th rowspan="2">period \(T\)</th>
       <td>\(24\rm\ h\)</td>
       <td>\(365\rm\ d\)</td>
       <td>\(200\rm\ My\)</td>
       <td></td>
     </tr>
-    <tr class="border-below">
-      <td></td>
+    <tr>
       <td>\(8.64 \times 10^4\rm\ s\)</td>
       <td>\(3.16 \times 10^7\rm\ s\)</td>
       <td><InlineEquation equation="6.31 \\times 10^{15}\\rm\\ s" /></td>
       <td></td>
     </tr>
     <tr>
-      <td>radius \(r\)</td>
+      <th rowspan="2">radius \(r\)</th>
       <td>\(6370\rm\ km\)</td>
       <td>\(1\rm\ AU\)</td>
       <td>\(27.2\rm\ kly\)</td>
       <td></td>
     </tr>
-    <tr class="border-below">
-      <td></td>
+    <tr>
       <td>\(6.37 \times 10^6\rm\ m\)</td>
       <td><InlineEquation equation="1.50 \\times 10^{11}\\rm\\ s" /></td>
       <td><InlineEquation equation="2.57 \\times 10^{20}\\rm\\ s" /></td>
       <td></td>
     </tr>
     <tr>
-      <td>ang. vel.</td>
+      <th>ang. vel.</th>
       <td>\(15.0^\circ/\rm h\)</td>
       <td>\(0.986^\circ/\rm d\)</td>
       <td>\(1.8^\circ/\rm My\)</td>
       <td></td>
     </tr>
-    <tr class="border-below">
-      <td>\(\omega = 2\pi/T\)</td>
+    <tr>
+      <th>\(\omega = 2\pi/T\)</th>
       <td><InlineEquation equation="7.27 \\times 10^{-5}\\rm\\ s" /></td>
       <td><InlineEquation equation="1.99 \\times 10^{-7}\\rm\\ s" /></td>
       <td><InlineEquation equation="9.97 \\times 10^{-16}\\rm\\ s" /></td>
       <td></td>
     </tr>
     <tr>
-      <td>velocity</td>
+      <th>velocity</th>
       <td>\(1670\rm\ km/h\)</td>
       <td>\(107\,000\rm\ km/h\)</td>
       <td>\(922\,000\rm\ km/h\)</td>
       <td>\(1\,990\,000\rm\ km/h\)</td>
     </tr>
-    <tr class="border-below">
-      <td>\(v = r\omega\)</td>
+    <tr>
+      <th>\(v = r\omega\)</th>
       <td>\(4.63 \times 10^2\rm\ m/s\)</td>
       <td>\(2.98 \times 10^4\rm\ m/s\)</td>
       <td>\(2.56 \times 10^5\rm\ m/s\)</td>
       <td>\(5.52 \times 10^5\rm\ m/s\)</td>
     </tr>
     <tr>
-      <td>acceleration</td>
+      <th>acceleration</th>
       <td>\(0.343\%\ g\)</td>
       <td>\(0.0605\%\ g\)</td>
-      <td>\(2.60 \times 10^{-9} \%\ g\)</td>
+      <td><InlineEquation equation="2.60 \\times 10^{-9} \%\ g" /></td>
       <td></td>
     </tr>
-    <tr class="border-below">
-      <td>\(a = r\omega^2\)</td>
+    <tr>
+      <th>\(a = r\omega^2\)</th>
       <td><InlineEquation equation="3.37 \\times 10^{-2}\\rm\\ m/s^2" /></td>
       <td><InlineEquation equation="5.93 \\times 10^{-3}\\rm\\ m/s^2" /></td>
       <td><InlineEquation equation="2.55 \\times 10^{-10}\\rm\\ m/s^2" /></td>

@@ -21,22 +21,6 @@ import SubSubSubSection from "../../components/SubSubSubSection.astro"
 import DisplayTable from "../../components/DisplayTable.astro"
 import InlineCanvas from "../../components/InlineCanvas.astro"
 ---
-<style>
-    table{
-        border-collapse: collapse;
-    }
-
-    th {
-        text-align: center
-    }
-    td{
-        text-align: center
-    }
-
-    .border-below{
-        border-bottom: solid 1px black;
-    }
-</style>
 
 <Layout title="Vectors">
 
@@ -123,24 +107,29 @@ import InlineCanvas from "../../components/InlineCanvas.astro"
         2D and 3D, with perpendicular straight-line axes.
       </p>
         <DisplayTable id="rvp-tc" class_="mb-3">
-          <tr>
-          <th>coordinate</th>
-          <th>name</th>
-          <th>range</th>
-          <th>definition</th>
-        </tr>
-        <tr>
-          <td>\(x\)</td>
-          <td>horizontal</td>
-          <td>\(-\infty \lt x \lt \infty\)</td>
-          <td>horizontal distance from the \(y\)-axis</td>
-        </tr>
-        <tr>
-          <td>\(y\)</td>
-          <td>vertical</td>
-          <td>\(-\infty \lt y \lt \infty\)</td>
-          <td>vertical distance from the \(x\)-axis</td>
-        </tr>
+          <thead>
+            <tr>
+              <th noborder>coordinate</th>
+              <th>name</th>
+              <th>range</th>
+              <th>definition</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>\(x\)</td>
+              <td>horizontal</td>
+              <td>\(-\infty \lt x \lt \infty\)</td>
+              <td>horizontal distance from the \(y\)-axis</td>
+            </tr>
+            <tr>
+              <td>\(y\)</td>
+              <td>vertical</td>
+              <td>\(-\infty \lt y \lt \infty\)</td>
+              <td>vertical distance from the \(x\)-axis</td>
+            </tr>
+          </tbody>
+        
       </DisplayTable>
       <p>
         In 3D the \(x\),\(y\),\(z\) axes are oriented in <em>right-handed
@@ -200,25 +189,29 @@ import InlineCanvas from "../../components/InlineCanvas.astro"
       </p>
 
       <DisplayTable id="rvp-tp" class_="mb-3">
-            <tr>
-            <th>coordinate</th>
+        <thead>
+          <tr>
+            <th noborder>coordinate</th>
             <th>name</th>
             <th>range</th>
             <th>definition</th>
+          </tr>
+        </thead>
+          <tbody>
+            <tr>
+              <td>\(r\)</td>
+              <td>radius</td>
+              <td>\(0 \le r \lt \infty\)</td>
+              <td>distance from the origin \(O\)</td>
             </tr>
             <tr>
-            <td>\(r\)</td>
-            <td>radius</td>
-            <td>\(0 \le r \lt \infty\)</td>
-            <td>distance from the origin \(O\)</td>
+              <td>\(\theta\)</td>
+              <td>angle</td>
+              <td>\(-\pi \lt \theta \le \pi\)</td>
+              <td>angle from the \(x\)-axis in the \(x\)–\(y\) plane</td>
             </tr>
-            <tr>
-            <td>\(\theta\)</td>
-            <td>angle</td>
-            <td>\(-\pi \lt \theta \le \pi\)</td>
-            <td>angle from the \(x\)-axis in the \(x\)–\(y\) plane</td>
-            </tr>
-          </DisplayTable>
+          </tbody>
+        </DisplayTable>
 
     <p>
         The two common extensions of polar coordinates to 3D are
@@ -965,30 +958,34 @@ import InlineCanvas from "../../components/InlineCanvas.astro"
       consisting of:
     </p>
       <DisplayTable id="rvs-tc" class_="mb-3">
-        <tr class="border-below">
-          <th>coordinate</th>
-          <th>name</th>
-          <th>range</th>
-          <th>definition</th>
-        </tr>
-        <tr>
-          <td>\(r\)</td>
-          <td>radius</td>
-          <td>\(0 \le r \lt \infty\)</td>
-          <td>distance from the origin</td>
-        </tr>
-        <tr>
-          <td>\(\theta\)</td>
-          <td>azimuth</td>
-          <td>\(-\pi \lt \theta \le \pi\)</td>
-          <td>angle from the \(x\)-axis in the \(x\)–\(y\) plane</td>
-        </tr>
-        <tr>
-          <td>\(\phi\)</td>
-          <td>inclination</td>
-          <td>\(0 \le \phi \le \pi\)</td>
-          <td>angle from the positive \(z\) axis</td>
-        </tr>
+        <thead>
+          <tr>
+            <th noborder>coordinate</th>
+            <th>name</th>
+            <th>range</th>
+            <th>definition</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>\(r\)</td>
+            <td>radius</td>
+            <td>\(0 \le r \lt \infty\)</td>
+            <td>distance from the origin</td>
+          </tr>
+          <tr>
+            <td>\(\theta\)</td>
+            <td>azimuth</td>
+            <td>\(-\pi \lt \theta \le \pi\)</td>
+            <td>angle from the \(x\)-axis in the \(x\)–\(y\) plane</td>
+          </tr>
+          <tr>
+            <td>\(\phi\)</td>
+            <td>inclination</td>
+            <td>\(0 \le \phi \le \pi\)</td>
+            <td>angle from the positive \(z\) axis</td>
+          </tr>
+        </tbody>
       </DisplayTable>
 
     <p>
@@ -999,65 +996,64 @@ import InlineCanvas from "../../components/InlineCanvas.astro"
       coordinate line in the direction <InlineEquation equation="\\hat{e}_\\theta" />, and
       similarly for the other coordinates.
     </p>
-    <Row>
-      <Col values="12 md-6" class:list={['overflow-hidden']}>
-        <!-- <div class="d-flex justify-content-center justify-content-md-start"> -->
-          <PrairieDrawCanvas id="rvs-fd-c" width="400" height="400" />
-        <!-- </div> -->
-        
-      </Col>
-      <Col values="12 md-6">
-        <div class="d-flex justify-content-center justify-content-md-start">
-        <div>
-          <Center>
-            <button class="reset:rvs-fd-c" onclick="rvs_fd_c.reset();">reset</button>
-          </Center>
-          <table class="alignTop">
-            <tr>
-              <td>Show:</td>
-              <td>
-                <button class="option-toggle:rvs-fd-c:showLabels m-1" onclick="rvs_fd_c.toggleOption('showLabels');">labels</button>
-                <button class="option-toggle:rvs-fd-c:showCoords m-1" onclick="rvs_fd_c.toggleOption('showCoords');">coordinates</button>
-              </td>
-            </tr>
-            <tr>
-              <td></td>
-              <td>
-                <button class="option-toggle:rvs-fd-c:showBasis" onclick="rvs_fd_c.toggleOption('showBasis');">basis vectors</button>
-              </td>
-            </tr>
-          </table>
-          <table class="mt-1">
-            <tr>
-              <td >Coordinate lines:</td>
-              <td>
-                <button class="option-toggle:rvs-fd-c:showCoordLineR mx-1" onclick="rvs_fd_c.toggleOption('showCoordLineR');">\(r\)</button>
-                <button class="option-toggle:rvs-fd-c:showCoordLineTheta mx-1" onclick="rvs_fd_c.toggleOption('showCoordLineTheta');">\(\theta\)</button>
-                <button class="option-toggle:rvs-fd-c:showCoordLinePhi mx-1" onclick="rvs_fd_c.toggleOption('showCoordLinePhi');">\(\phi\)</button>
-              </td>
-            </tr>
-          </table>
-          <table>
-            <tr>
-              <td>Radius:</td>
-              <td><input type="range" min="1" max="4" value="4" step="0.1" class="data-input:rvs-fd-c:r" onchange="rvs_fd_c.setOption('r', this.value); document.querySelector('span[class*=r]').innerText = this.value;" oninput="rvs_fd_c.setOption('r', this.value); document.querySelector('span[class*=r]').innerText = this.value;"/></td>
-              <td>\(r = \) <span class="data-option:rvs-fd-c:r">4</span></td>
-            </tr>
-            <tr>
-              <td>Azimuth:</td>
-              <td><input type="range" min="-180" max="180" value="45" step="5" class="data-input:rvs-fd-c:thetaDeg" onchange="rvs_fd_c.setOption('thetaDeg', this.value); document.querySelector('span[class*=thetaDeg]').innerText = this.value+'°';" oninput="rvs_fd_c.setOption('thetaDeg', this.value); document.querySelector('span[class*=thetaDeg]').innerText = this.value+'°';"/></td>
-              <td>\(\theta = \) <span class="data-option:rvs-fd-c:thetaDeg">45°</span></td>
-            </tr>
-            <tr>
-              <td>Inclination:</td>
-              <td><input type="range" min="0" max="180" value="45" step="5" class="data-input:rvs-fd-c:phiDeg" onchange="rvs_fd_c.setOption('phiDeg', this.value); document.querySelector('span[class*=phiDeg]').innerText = this.value+'°';" oninput="rvs_fd_c.setOption('phiDeg', this.value); document.querySelector('span[class*=phiDeg]').innerText = this.value+'°';"/></td>
-              <td>\(\phi = \) <span class="data-option:rvs-fd-c:phiDeg">45°</span></td>
-            </tr>
-          </table>
-        </div>
-      </div>
-      </Col>  
-    </Row>
+
+          <PrairieDrawCanvas id="rvs-fd-c" width="400" height="400">
+                <button class="reset:rvs-fd-c" onclick="rvs_fd_c.reset();">reset</button>
+                <table class="alignTop">
+                  <tr>
+                    <td>Show:</td>
+                    <td>
+                      <button class="option-toggle:rvs-fd-c:showLabels m-1" onclick="rvs_fd_c.toggleOption('showLabels');">labels</button>
+                      <button class="option-toggle:rvs-fd-c:showCoords m-1" onclick="rvs_fd_c.toggleOption('showCoords');">coordinates</button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td></td>
+                    <td>
+                      <button class="option-toggle:rvs-fd-c:showBasis" onclick="rvs_fd_c.toggleOption('showBasis');">basis vectors</button>
+                    </td>
+                  </tr>
+                </table>
+                <table class="mt-1">
+                  <tr>
+                    <td >Coordinate lines:</td>
+                    <td>
+                      <button class="option-toggle:rvs-fd-c:showCoordLineR mx-1" onclick="rvs_fd_c.toggleOption('showCoordLineR');">\(r\)</button>
+                      <button class="option-toggle:rvs-fd-c:showCoordLineTheta mx-1" onclick="rvs_fd_c.toggleOption('showCoordLineTheta');">\(\theta\)</button>
+                      <button class="option-toggle:rvs-fd-c:showCoordLinePhi mx-1" onclick="rvs_fd_c.toggleOption('showCoordLinePhi');">\(\phi\)</button>
+                    </td>
+                  </tr>
+                </table>
+                <Row> 
+                  <Col values="12">
+                    <div class="d-flex  align-items-baseline">
+                        <p class="m-0 flex-shrink-1">Radius:</p>
+                        <div class="flex-grow-1 d-flex align-items-baseline">
+                            <input min="1" max="6" value="4" step="0.1" type="range" class="data-input:rvy-fd-c:r flex-grow-1 mx-2" onchange="rvs_fd_c.setOption('r', this.value); document.querySelector('span[class*=r]').innerText = this.value;" oninput="rvs_fd_c.setOption('r', this.value); document.querySelector('span[class*=r]').innerText = this.value;"/>
+                                \(r = \; \) <span class="data-option:avb-fp-c:rCyl1">4</span>
+                        </div>
+                    </div>
+                </Col>
+                  <Col values="12">
+                      <div class="d-flex  align-items-baseline">
+                          <p class="m-0 flex-shrink-1">Azimuth:</p>
+                          <div class="flex-grow-1 d-flex align-items-baseline">
+                              <input type="range" min="-180" max="180" value="45" step="5" class="data-input:rvy-fd-c:thetaDeg flex-grow-1 mx-2" onchange="rvs_fd_c.setOption('thetaDeg', this.value); document.querySelector('span[class*=thetaDeg]').innerText = this.value+'°';" oninput="rvs_fd_c.setOption('thetaDeg', this.value); document.querySelector('span[class*=thetaDeg]').innerText = this.value+'°';"/>
+                                  \(\theta = \; \) <span class="data-option:avb-fp-c:thetaDegCyl1">45</span>\(^\circ\)
+                          </div>
+                      </div>
+                  </Col>
+                  <Col values="12">
+                    <div class="d-flex  align-items-baseline">
+                        <p class="m-0 flex-shrink-1">Inclination:</p>
+                        <div class="flex-grow-1 d-flex align-items-baseline">
+                            <input type="range" min="0" max="180" value="45" step="5" class="data-input:rvs-fd-c:phiDeg flex-grow-1 mx-2" onchange="rvs_fd_c.setOption('phiDeg', this.value); document.querySelector('span[class*=phiDeg]').innerText = this.value+'°';" oninput="rvs_fd_c.setOption('phiDeg', this.value); document.querySelector('span[class*=phiDeg]').innerText = this.value+'°';"/>
+                            \(\phi = \; \) <span class="data-option:rvs-fd-c:phiDeg">45°</span>
+                        </div>
+                    </div>
+                </Col>
+              </Row>
+          </PrairieDrawCanvas>
 
   <p>
     Spherical coordinates are defined with respect to a set of
@@ -1217,30 +1213,34 @@ import InlineCanvas from "../../components/InlineCanvas.astro"
       consisting of:
     </p>
   <DisplayTable id="cylcoords_table" class_="mb-3">
-    <tr class="border-below">
-      <th>coordinate</th>
-      <th>name</th>
-      <th>range</th>
-      <th>definition</th>
-    </tr>
-    <tr>
-      <td>\(r\)</td>
-      <td>radius</td>
-      <td>\(0 \le r \lt \infty\)</td>
-      <td>distance from the origin</td>
-    </tr>
-    <tr>
-      <td>\(\theta\)</td>
-      <td>azimuth</td>
-      <td>\(-\pi \lt \theta \le \pi\)</td>
-      <td>angle from the \(x\)-axis in the \(x\)–\(y\) plane</td>
-    </tr>
-    <tr>
-      <td>\(z\)</td>
-      <td>height</td>
-      <td>\(-\infty \le z \le \infty\)</td>
-      <td>vertical height</td>
-    </tr>
+    <thead>
+      <tr>
+        <th noborder>coordinate</th>
+        <th>name</th>
+        <th>range</th>
+        <th>definition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>\(r\)</td>
+        <td>radius</td>
+        <td>\(0 \le r \lt \infty\)</td>
+        <td>distance from the origin</td>
+      </tr>
+      <tr>
+        <td>\(\theta\)</td>
+        <td>azimuth</td>
+        <td>\(-\pi \lt \theta \le \pi\)</td>
+        <td>angle from the \(x\)-axis in the \(x\)–\(y\) plane</td>
+      </tr>
+      <tr>
+        <td>\(z\)</td>
+        <td>height</td>
+        <td>\(-\infty \le z \le \infty\)</td>
+        <td>vertical height</td>
+      </tr>
+    </tbody>
   </DisplayTable>
 
 <CalloutContainer slot="cards">
@@ -1258,7 +1258,7 @@ import InlineCanvas from "../../components/InlineCanvas.astro"
 	  </CalloutContainer>
 
     <p>
-      The diagram below shows the spherical coordinates of a point
+      The diagram below shows the cylindrical coordinates of a point
       \(P\). By changing the display options, we can see that the
       basis vectors are tangent to the corresponding coordinate
       lines. Changing \(\theta\) moves \(P\) along the \(\theta\)
@@ -1266,71 +1266,66 @@ import InlineCanvas from "../../components/InlineCanvas.astro"
       similarly for the other coordinates.
     </p>
 
-  <Row>
-    <Col values="12 md-6">
-      <PrairieDrawCanvas id="rvy-fd-c" width="400" height="400" />
-    </Col>
-    <Col values="12 md-6">
-      <button class="reset:rvy-fd-c" onclick="rvy_fd_c.reset()">reset</button>
-      <table class="alignTop">
-        <tr>
-          <td>Show:</td>
-          <td>
-            <button class="option-toggle:rvy-fd-c:showLabels" onclick="rvy_fd_c.toggleOption('showLabels')">labels</button>
-            <button class="option-toggle:rvy-fd-c:showCoords" onclick="rvy_fd_c.toggleOption('showCoords')">coordinates</button>
-          </td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>
-            <button class="option-toggle:rvy-fd-c:showBasis" onclick="rvy_fd_c.toggleOption('showBasis')">basis vectors</button>
-          </td>
-        </tr>
-      </table>
-      <table>
-        <tr>
-          <td>Coordinate lines:</td>
-          <td>
-            <button class="option-toggle:rvy-fd-c:showCoordLineR" onclick="rvy_fd_c.toggleOption('showCoordLineR')">\(r\)</button>
-            <button class="option-toggle:rvy-fd-c:showCoordLineTheta" onclick="rvy_fd_c.toggleOption('showCoordLineTheta')">\(\theta\)</button>
-            <button class="option-toggle:rvy-fd-c:showCoordLineZ" onclick="rvy_fd_c.toggleOption('showCoordLineZ')">\(z\)</button>
-          </td>
-        </tr>
-      </table>
-
-        <Row> 
-          <Col values="12">
-            <div class="d-flex  align-items-baseline">
-                <p class="m-0 flex-shrink-1">Radius:</p>
-                <div class="flex-grow-1 d-flex align-items-baseline">
-                    <input min="1" max="6" value="4" step="0.1" type="range" class="data-input:rvy-fd-c:r flex-grow-1 mx-2" onchange="rvy_fd_c.setOption('r', this.value); document.querySelector('span[class*=rCyl1]').innerText = this.value; console.log(this.value);" oninput="rvy_fd_c.setOption('r', this.value); document.querySelector('span[class*=rCyl1]').innerText = this.value;"/>
-                        \(r = \; \) <span class="data-option:avb-fp-c:rCyl1">4</span>
-                </div>
-            </div>
-        </Col>
-          <Col values="12">
+      <PrairieDrawCanvas id="rvy-fd-c" width="400" height="400"1>
+        <button class="reset:rvy-fd-c" onclick="rvy_fd_c.reset()">reset</button>
+        <table class="alignTop">
+          <tr>
+            <td>Show:</td>
+            <td>
+              <button class="option-toggle:rvy-fd-c:showLabels" onclick="rvy_fd_c.toggleOption('showLabels')">labels</button>
+              <button class="option-toggle:rvy-fd-c:showCoords" onclick="rvy_fd_c.toggleOption('showCoords')">coordinates</button>
+            </td>
+          </tr>
+          <tr>
+            <td></td>
+            <td>
+              <button class="option-toggle:rvy-fd-c:showBasis" onclick="rvy_fd_c.toggleOption('showBasis')">basis vectors</button>
+            </td>
+          </tr>
+        </table>
+        <table>
+          <tr>
+            <td>Coordinate lines:</td>
+            <td>
+              <button class="option-toggle:rvy-fd-c:showCoordLineR" onclick="rvy_fd_c.toggleOption('showCoordLineR')">\(r\)</button>
+              <button class="option-toggle:rvy-fd-c:showCoordLineTheta" onclick="rvy_fd_c.toggleOption('showCoordLineTheta')">\(\theta\)</button>
+              <button class="option-toggle:rvy-fd-c:showCoordLineZ" onclick="rvy_fd_c.toggleOption('showCoordLineZ')">\(z\)</button>
+            </td>
+          </tr>
+        </table>
+  
+          <Row> 
+            <Col values="12">
               <div class="d-flex  align-items-baseline">
-                  <p class="m-0 flex-shrink-1">Azimuth:</p>
+                  <p class="m-0 flex-shrink-1">Radius:</p>
                   <div class="flex-grow-1 d-flex align-items-baseline">
-                      <input type="range" min="-180" max="180" value="45" step="5" class="data-input:rvy-fd-c:thetaDeg flex-grow-1 mx-2" onchange="rvy_fd_c.setOption('thetaDeg', this.value); document.querySelector('span[class*=thetaDegCyl1]').innerText = this.value; console.log(this.value);" oninput="rvy_fd_c.setOption('thetaDeg', this.value); document.querySelector('span[class*=thetaDegCyl1]').innerText = this.value;"/>
-                          \(\theta = \; \) <span class="data-option:avb-fp-c:thetaDegCyl1">45</span>\(^\circ\)
+                      <input min="1" max="6" value="4" step="0.1" type="range" class="data-input:rvy-fd-c:r flex-grow-1 mx-2" onchange="rvy_fd_c.setOption('r', this.value); document.querySelector('span[class*=rCyl1]').innerText = this.value; console.log(this.value);" oninput="rvy_fd_c.setOption('r', this.value); document.querySelector('span[class*=rCyl1]').innerText = this.value;"/>
+                          \(r = \; \) <span class="data-option:avb-fp-c:rCyl1">4</span>
                   </div>
               </div>
           </Col>
-          <Col values="12">
-            <div class="d-flex  align-items-baseline">
-                <p class="m-0 flex-shrink-1">Elevation:</p>
-                <div class="flex-grow-1 d-flex align-items-baseline">
-                    <input type="range" min="-180" max="180" value="45" step="5" class="data-input:rvy-fd-c:z flex-grow-1 mx-2" onchange="rvy_fd_c.setOption('z', this.value); document.querySelector('span[class*=zCyl1]').innerText = this.value; console.log(this.value);" oninput="rvy_fd_c.setOption('z', this.value); document.querySelector('span[class*=zCyl1]').innerText = this.value;"/>
-                        \(z = \; \) <span class="data-option:avb-fp-c:zCyl1">4</span>
+            <Col values="12">
+                <div class="d-flex  align-items-baseline">
+                    <p class="m-0 flex-shrink-1">Azimuth:</p>
+                    <div class="flex-grow-1 d-flex align-items-baseline">
+                        <input type="range" min="-180" max="180" value="45" step="5" class="data-input:rvy-fd-c:thetaDeg flex-grow-1 mx-2" onchange="rvy_fd_c.setOption('thetaDeg', this.value); document.querySelector('span[class*=thetaDegCyl1]').innerText = this.value; console.log(this.value);" oninput="rvy_fd_c.setOption('thetaDeg', this.value); document.querySelector('span[class*=thetaDegCyl1]').innerText = this.value;"/>
+                            \(\theta = \; \) <span class="data-option:avb-fp-c:thetaDegCyl1">45</span>\(^\circ\)
+                    </div>
                 </div>
-            </div>
-        </Col>
-      </Row>
-    </Col>
-  </Row>  
+            </Col>
+            <Col values="12">
+              <div class="d-flex  align-items-baseline">
+                  <p class="m-0 flex-shrink-1">Elevation:</p>
+                  <div class="flex-grow-1 d-flex align-items-baseline">
+                      <input type="range" min="-180" max="180" value="45" step="5" class="data-input:rvy-fd-c:z flex-grow-1 mx-2" onchange="rvy_fd_c.setOption('z', this.value); document.querySelector('span[class*=zCyl1]').innerText = this.value; console.log(this.value);" oninput="rvy_fd_c.setOption('z', this.value); document.querySelector('span[class*=zCyl1]').innerText = this.value;"/>
+                          \(z = \; \) <span class="data-option:avb-fp-c:zCyl1">4</span>
+                  </div>
+              </div>
+          </Col>
+        </Row>
+      </PrairieDrawCanvas> 
   <p>
-    Spherical coordinates are defined with respect to a set of
+    Cylindrical coordinates are defined with respect to a set of
     Cartesian coordinates, and can be converted to and from
     these coordinates using the atan2 function, as described in the previos section of Spherical coordinates.
   </p>
@@ -1435,7 +1430,7 @@ import InlineCanvas from "../../components/InlineCanvas.astro"
       path should we follow? The locations of the two cities are:
     </p>
       <DisplayTable class="mb-3" id="coordinates">
-        <tr class="border-below">
+        <tr>
           <td></td>
           <td class="fw-bold">Latitude</td>
           <td class="fw-bold">Longitude</td>

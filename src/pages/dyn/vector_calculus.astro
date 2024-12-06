@@ -894,28 +894,28 @@ import InlineCanvas from "../../components/InlineCanvas.astro"
 
 <SubSubSection title="Polar basis" id="polar_basis">
 
-    <table class="table table-responsive table-bordered table-sm">
-    <thead>
-        <tr>
-            <th>Vector</th>
-            <th>Scalar equations</th>
-            <th>Initial conditions</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td><DisplayEquation equation="\\vec{v} = 2\\hat{e}_r + \\hat{e}_\\theta" /> </td>
-            <td><DisplayEquation equation="\\dot{r} = 2" /></td>
-            <td><DisplayEquation equation="r(0) = 1" /></td>
-        </tr>
-        <tr>
-            <td><DisplayEquation equation="\\vec{v} = \\dot{r}\\hat{e}_r + r \\dot{\\theta}\\hat{e}_\\theta" /></td>
-            <td><DisplayEquation equation="r \\dot{\\theta} = 1" /></td>
-            <td><DisplayEquation equation="\\theta(0) = 0" /></td>
-        </tr>
+    <DisplayTable id="polar-basis-table" class="table-sm">
+      <thead>
+          <tr>
+              <th>Vector</th>
+              <th>Scalar equations</th>
+              <th>Initial conditions</th>
+          </tr>
+      </thead>
+      <tbody>
+          <tr>
+              <td><DisplayEquation equation="\\vec{v} = 2\\hat{e}_r + \\hat{e}_\\theta" /> </td>
+              <td><DisplayEquation equation="\\dot{r} = 2" /></td>
+              <td><DisplayEquation equation="r(0) = 1" /></td>
+          </tr>
+          <tr>
+              <td><DisplayEquation equation="\\vec{v} = \\dot{r}\\hat{e}_r + r \\dot{\\theta}\\hat{e}_\\theta" /></td>
+              <td><DisplayEquation equation="r \\dot{\\theta} = 1" /></td>
+              <td><DisplayEquation equation="\\theta(0) = 0" /></td>
+          </tr>
 
-    </tbody>
-</table>
+      </tbody>
+    </DisplayTable>
 
 <DisplayEquation equation="\\begin{aligned} \\dot{r} &amp;= 2 \\\\    r &amp;=\\int\\dot{r} dt \\\\ r &amp;=2t + c \\\\    r(0) &amp;=1\\quad  ,\\quad c=1 \\\\ r(t) &amp;=2t + 1 \\\\  \\end{aligned} " title="Radial:" background="True"/>
 

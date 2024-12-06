@@ -23,23 +23,6 @@ import Col from "../../components/Col.astro"
 import SubSubSubSection from "../../components/SubSubSubSection.astro"
 import DisplayTable from "../../components/DisplayTable.astro"
 ---
-<style>
-    table { border-collapse: collapse; }
-    tr {
-        border: none; 
-    }
-    td {
-        border-bottom: solid 1px #000; 
-        text-align:center;
-        padding-top: .5em;
-        padding-bottom: .5em;
-    }
-
-    th{
-        border-bottom: solid 1px #000;;
-        text-align:center;
-    }
-</style>
 
 <Layout title="Rigid Body Kinematics">
 
@@ -89,7 +72,7 @@ import DisplayTable from "../../components/DisplayTable.astro"
           the position of one point \(P\) inside it, together with the
           rotation angle of the body (one angle in 2D, three angles in
           3D).
-  <DisplayTable>
+  <DisplayTable id="rigid-body-table1">
     <thead>
       <tr>
         <th></th>
@@ -99,12 +82,12 @@ import DisplayTable from "../../components/DisplayTable.astro"
     </thead>
     <tbody>
       <tr>
-        <td class="fw-bold">point mass</td>
+        <th>point mass</th>
         <td>position vector <InlineEquation equation="\\vec{r}_P" /></td>
         <td>velocity vector <InlineEquation equation="\\vec{v}_P" /></td>
         </tr>
         <tr>
-        <td class="fw-bold">rigid body in 2D</td>
+        <th>rigid body in 2D</th>
         <td>
             position vector <InlineEquation equation="\\vec{r}_P" />
             <br />
@@ -117,7 +100,7 @@ import DisplayTable from "../../components/DisplayTable.astro"
         </td>
         </tr>
         <tr>
-          <td class="fw-bold">rigid body in 3D</td>
+          <th>rigid body in 3D</th>
         <td>
             position vector <InlineEquation equation="\\vec{r}_P"/>
             <br />

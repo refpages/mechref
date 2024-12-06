@@ -12,24 +12,6 @@ import InlineCanvas from "../../components/InlineCanvas.astro"
 import Row from "../../components/Row.astro"
 import Col from "../../components/Col.astro"
 ---
-<style>
-    tr {
-        border: solid 0px var(--bs-border-color); 
-    }
-    td {
-        border-right: solid 1px var(--bs-border-color); 
-        border-left: solid 1px var(--bs-border-color);
-        text-align:center;
-        padding-top: .5em;
-        padding-bottom: .5em;
-    }
-
-    th{
-        border-right: solid 1px var(--bs-border-color); 
-        border-left: solid 1px var(--bs-border-color);
-        text-align:center;
-    }
-</style>
 
 <Layout title="Moment of Inertia">
 
@@ -47,10 +29,10 @@ import Col from "../../components/Col.astro"
 <!-- Lecture 33 -->
 <em>Note:</em> in statics we are using the second moment of area as our moment of inertia. In dynamics, a different moment of inertia is used (the mass moment of inertia). The differences between these two quantities are summarized in the following table. 
 
-<DisplayTable id="moi_table">
+<DisplayTable id="moi_table" >
     <thead>
         <tr>
-            <th class="nosideborderleft">
+            <th>
                 
             </th>
             <th>
@@ -63,9 +45,7 @@ import Col from "../../components/Col.astro"
     </thead>
     <tbody>
         <tr>
-            <td class="nosideborderleft">
-                <strong>Other names</strong>
-            </td>
+            <th>Other names</th>
             <td>
 
             </td>
@@ -74,9 +54,7 @@ import Col from "../../components/Col.astro"
             </td>
         </tr>
         <tr>
-            <td class="nosideborderleft">
-                <strong>Description</strong>
-            </td>
+            <th>Description</th>
             <td>
                 Determines the torque needed to produce a desired angular rotation about an axis of rotation (resistance to rotation)
             </td>
@@ -85,9 +63,7 @@ import Col from "../../components/Col.astro"
             </td>
         </tr>
         <tr>
-            <td class="nosideborderleft">
-                <strong>Equations</strong>
-            </td>
+            <th>Equations</th>
             <td>
                 <DisplayEquation equation='I_{P,\\hat{a}} = \\iiint_\\mathcal{B} \\rho r^2 \\,dV\\' /> 
             </td>
@@ -98,8 +74,7 @@ import Col from "../../components/Col.astro"
             </td>
         </tr>
         <tr>
-            <td class="nosideborderleft">
-                <strong>Units</strong> 
+            <th>Units</strong> 
             </td>
             <td>
                 <InlineEquation equation="length*mass^2"/>
@@ -109,9 +84,7 @@ import Col from "../../components/Col.astro"
             </td>
         </tr>
         <tr>
-            <td class="nosideborderleft">
-                <strong>Typical Equations</strong>
-            </td>
+            <th>Typical Equations</th>
             <td>
                 <DisplayEquation equation='\\tau = I\\alpha' /> 
             </td>
@@ -120,9 +93,7 @@ import Col from "../../components/Col.astro"
             </td>
         </tr>
         <tr>
-            <td class="nosideborderleft">
-                <strong>Courses</strong>
-            </td>
+            <th>Courses</th>
             <td>
                 TAM 212
             </td>
@@ -208,7 +179,7 @@ Moments of inertia of simple shapes can be combined to calculate the moments of 
     <DisplayTable class_="text-center" id="shapes_table">
         <thead>
             <tr>
-                <th class="table-shaded">
+                <th class="table-shaded" noborder>
             <strong>Shape</strong>
                 </th>
                 <th class="table-shaded" style="width:50%">
@@ -224,7 +195,7 @@ Moments of inertia of simple shapes can be combined to calculate the moments of 
         </thead>
         <tbody>
             <tr>
-                <td class="nosideborderleft" style="vertical-align: middle">
+                <td style="vertical-align: middle">
                     Rectangle
                 </td>
                 <td>
@@ -252,7 +223,7 @@ Moments of inertia of simple shapes can be combined to calculate the moments of 
         </tbody>
         <tbody>
             <tr>
-                <td class="nosideborderleft" style="vertical-align: middle">
+                <td style="vertical-align: middle">
                     Triangle
                 </td>
                 <td>
@@ -270,7 +241,7 @@ Moments of inertia of simple shapes can be combined to calculate the moments of 
         </tbody>
         <tbody>
             <tr>
-                <td class="nosideborderleft" style="vertical-align: middle">
+                <td style="vertical-align: middle">
                     Circle
                 </td>
                 <td>
@@ -288,7 +259,7 @@ Moments of inertia of simple shapes can be combined to calculate the moments of 
         </tbody>
         <tbody>
             <tr>
-                <td class="nosideborderleft" style="vertical-align: middle">
+                <td style="vertical-align: middle">
                     Semicircle
                 </td>
                 <td>
@@ -310,7 +281,7 @@ Moments of inertia of simple shapes can be combined to calculate the moments of 
         </tbody>
         <tbody>
             <tr>
-                <td class="nosideborderleft" style="vertical-align: middle">
+                <td style="vertical-align: middle">
                     Quarter circle
                 </td>
                 <td>
@@ -330,7 +301,7 @@ Moments of inertia of simple shapes can be combined to calculate the moments of 
         </tbody>
         <tbody>
             <tr>
-                <td class="nosideborderleft" style="vertical-align: middle">
+                <td style="vertical-align: middle">
                     Ellipse
                 </td>
                 <td>

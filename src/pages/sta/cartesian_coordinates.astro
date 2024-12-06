@@ -13,16 +13,6 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
 import DisplayTable from "../../components/DisplayTable.astro"
 ---
 
-<style>
-    th {
-        text-align: center
-    }
-
-    td {
-        text-align: center
-    }
-</style>
-
 <Layout title="Cartesian Coordinates">
 
 <div slot="navtree">
@@ -40,24 +30,28 @@ import DisplayTable from "../../components/DisplayTable.astro"
         2D and 3D, with perpendicular straight-line axes.
       </p>
         <DisplayTable id="rvp-tc" class="mb-3 table">
+          <thead>
             <tr>
-                <th>coordinate</th>
-                <th>name</th>
-                <th>range</th>
-                <th>definition</th>
+              <th noborder>coordinate</th>
+              <th>name</th>
+              <th>range</th>
+              <th>definition</th>
             </tr>
+          </thead>
+          <tbody>
             <tr>
-                <td>\(x\)</td>
-                <td>horizontal</td>
-                <td>\(-\infty \lt x \lt \infty\)</td>
-                <td>horizontal distance from the \(y\)-axis</td>
-            </tr>
-            <tr>
-                <td>\(y\)</td>
-                <td>vertical</td>
-                <td>\(-\infty \lt y \lt \infty\)</td>
-                <td>vertical distance from the \(x\)-axis</td>
-            </tr>
+              <td>\(x\)</td>
+              <td>horizontal</td>
+              <td>\(-\infty \lt x \lt \infty\)</td>
+              <td>horizontal distance from the \(y\)-axis</td>
+          </tr>
+          <tr>
+              <td>\(y\)</td>
+              <td>vertical</td>
+              <td>\(-\infty \lt y \lt \infty\)</td>
+              <td>vertical distance from the \(x\)-axis</td>
+          </tr>
+          </tbody>
         </DisplayTable>
       <p>
         In 3D the \(x\),\(y\),\(z\) axes are oriented in <em>right-handed
