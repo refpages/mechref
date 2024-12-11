@@ -53,11 +53,11 @@ Transverse loads applied to a beam causes deflections, primarily up or down is r
 
 <strong>Internal</strong>
 
-<Image src='/Solid_Mechanics/Bending-Figures/internalSignConvention.png' width='5'> </Image>
+<Image src='/sol/bending/internalSignConvention.png' width='5'> </Image>
 
  <strong>External</strong>
 
-<Image src='/Solid_Mechanics/Bending-Figures/externalSignConvention.png' width='4.5'> </Image>
+<Image src='/sol/bending/externalSignConvention.png' width='4.5'> </Image>
 
 </SubSection>
 
@@ -65,21 +65,21 @@ Transverse loads applied to a beam causes deflections, primarily up or down is r
 
 <strong>Statically Determinate Beams</strong>
 
-<Image src='/Solid_Mechanics/Bending-Figures/determinateBeams.png' width='7'> </Image>
+<Image src='/sol/bending/determinateBeams.png' width='7'> </Image>
 
 
  <strong>Statically Indeterminate Beams</strong>
 
-<Image src='/Solid_Mechanics/Bending-Figures/indeterminateBeams.png' width='7'> </Image>
+<Image src='/sol/bending/indeterminateBeams.png' width='7'> </Image>
 
  <strong>Loadings</strong>
-<Image src='/Solid_Mechanics/Bending-Figures/loadings1.png' width='7'> </Image>
+<Image src='/sol/bending/loadings1.png' width='7'> </Image>
 
 </SubSection>
 
 <SubSection title="Pure Bending" id="pure-bending">
 
-<Image src='/Solid_Mechanics/Bending-Figures/PureBending.png' width='3'></Image>
+<Image src='/sol/bending/PureBending.png' width='3'></Image>
 
 Take a flexible strip, such as a thin ruler, and apply equal forces with your fingers as shown. Each hand applies a couple or moment (equal and opposite forces a distance apart). The couples of the two hands must be equal and opposite. Between the thumbs, the strip has deformed into a circular arc. For the loading shown here, just as the deformation is uniform, so the internal bending <strong>moment is uniform</strong>, equal to the moment applied by each hand.
 
@@ -87,7 +87,7 @@ Take a flexible strip, such as a thin ruler, and apply equal forces with your fi
 
 <SubSection title="Geometry of Deformation" id="geom-deform">
 
-<Image src='/Solid_Mechanics/Bending-Figures/Geometry.png' width='4'>Bending diagram</Image>
+<Image src='/sol/bending/Geometry.png' width='4'>Bending diagram</Image>
 
  Assumptions:
 <Itemize>
@@ -111,12 +111,12 @@ Take a flexible strip, such as a thin ruler, and apply equal forces with your fi
 
 <SubSection title="Stress-Strain Variations" id="stress-strain-variations">
 
-<Image src='/Solid_Mechanics/Bending-Figures/StressStrainVar.png' width='4'></Image>
+<Image src='/sol/bending/StressStrainVar.png' width='4'></Image>
 
 The magnitudes of stress and strain vary along the cross section. The magnitudes increase as the point of intrest moves away from the neutral axis. The maximum is at the point farthest away from the neutral axis. 
     
 
-<Image src='/Solid_Mechanics/Bending-Figures/Superposition.png' width='5'> </Image>
+<Image src='/sol/bending/Superposition.png' width='5'> </Image>
 
 This variation also changes as more moads are added. 
 
@@ -160,14 +160,14 @@ The first moment of the area A with respect to the z-axis is given by <InlineEqu
 
  <InlineEquation equation='(\\overline{x}, \\overline{y})' title="The centroid of an area." background="True"/>
 
-<Image src='/Solid_Mechanics/Bending-Figures/Centroid.png' width='2'> Centroid of a body </Image>
+<Image src='/sol/bending/Centroid.png' width='2'> Centroid of a body </Image>
 
 <DisplayEquation equation='\\bar{x} = \\frac{1}{A}\\int_A x dA\\' title="x coordinate." background="True"/>
 <DisplayEquation equation='\\bar{y} = \\frac{1}{A}\\int_A y dA\\' title="y coordinate." background="True"/> 
 
 Complex (or composite) areas can be divided into smaller, easier parts.
 
-<Image src='/Solid_Mechanics/Bending-Figures/CompositeCentroid.png' width='6'>  Centroid of a composite body</Image>
+<Image src='/sol/bending/CompositeCentroid.png' width='6'>  Centroid of a composite body</Image>
 
 <DisplayEquation equation="\\bar{X} = \\frac{1}{A_{tot}}\\sum_i (A_i\\bar{y}_i)\\" title="Composite x coordinate" background="True"/>
 <DisplayEquation equation='\\bar{Y} = \\frac{1}{A_{tot}} \\sum_i (A_i\\bar{y}_i)' title="Composite y coordinate" background="True"/>
@@ -221,7 +221,7 @@ The moment of inertia of the area <InlineEquation equation='A' /> with respect t
                     Rectangle
                 </td>
                 <td>
-                    <Image src='/Solid_Mechanics/Bending-Figures/CommonShapes_Rect.png' width='5'> </Image>
+                    <Image src='/sol/bending/CommonShapes_Rect.png' width='5'> </Image>
                 </td>
             <td style="vertical-align: middle">
                 <InlineEquation equation="\\bar{I_{x'}} = \\frac{1}{12}b h^3" />    
@@ -246,7 +246,7 @@ The moment of inertia of the area <InlineEquation equation='A' /> with respect t
                     Triangle
                 </td>
                 <td>
-                    <Image src='/Solid_Mechanics/Bending-Figures/CommonShapes_Tri.png' width='5'> </Image>
+                    <Image src='/sol/bending/CommonShapes_Tri.png' width='5'> </Image>
                 </td>
             <td style="vertical-align: middle">
                 <InlineEquation equation="\\bar{I_{x'}} = \\frac{1}{36}bh^3" />
@@ -262,7 +262,7 @@ The moment of inertia of the area <InlineEquation equation='A' /> with respect t
                     Circle
                 </td>
                 <td>
-                    <Image src='/Solid_Mechanics/Bending-Figures/CommonShapes_Circle.png' width='5'> </Image>
+                    <Image src='/sol/bending/CommonShapes_Circle.png' width='5'> </Image>
                 </td>
             <td style="vertical-align: middle">
                 <InlineEquation equation="\\bar{I_x} = \\bar{I_y}  = \\frac{1}{4} \\pi r^4" />
@@ -278,7 +278,7 @@ The moment of inertia of the area <InlineEquation equation='A' /> with respect t
                     Semicircle
                 </td>
                 <td>
-                    <Image src='/Solid_Mechanics/Bending-Figures/CommonShapes_Semi.png' width='5'> </Image>
+                    <Image src='/sol/bending/CommonShapes_Semi.png' width='5'> </Image>
                 </td>
             <td style="vertical-align: middle">
                 <InlineEquation equation="I_x = I_y = \\frac{1}{8} \\pi r^4" />
@@ -294,7 +294,7 @@ The moment of inertia of the area <InlineEquation equation='A' /> with respect t
                     Quarter circle
                 </td>
                 <td>
-                    <Image src='/Solid_Mechanics/Bending-Figures/CommonShapes_Quart.png' width='5'> </Image>
+                    <Image src='/sol/bending/CommonShapes_Quart.png' width='5'> </Image>
                 </td>
             <td style="vertical-align: middle">
                 <InlineEquation equation="I_x = I_y = \\frac{1}{16} \\pi r^4" />
@@ -310,7 +310,7 @@ The moment of inertia of the area <InlineEquation equation='A' /> with respect t
                     Ellipse
                 </td>
                 <td>
-                    <Image src='/Solid_Mechanics/Bending-Figures/CommonShapes_Elipse.png' width='5'> </Image>
+                    <Image src='/sol/bending/CommonShapes_Elipse.png' width='5'> </Image>
                 </td>
             <td style="vertical-align: middle">
                 <InlineEquation equation="\\bar{I_x} = \\frac{1}{4} \\pi a b^3" />
@@ -463,7 +463,7 @@ The moment of inertia of the area <InlineEquation equation='A' /> with respect t
 
 
 
-                <Image src='/Solid_Mechanics/Bending-Figures/CompositeBeam.png' width='9'></Image>
+                <Image src='/sol/bending/CompositeBeam.png' width='9'></Image>
 
 
 
@@ -492,7 +492,7 @@ From equilibrium: the centroid is located at <InlineEquation equation='\\bar{y}=
 
  To evaluate the maximum absolute normal stress, denoting “c” the largest distance from the neutral surface, we use:
 
-<Image src='/Solid_Mechanics/Bending-Figures/MaxStress.png' width='4'></Image>
+<Image src='/sol/bending/MaxStress.png' width='4'></Image>
 
 <DisplayEquation equation='\\sigma_{max} = \\frac{|M|c}{I_z}\\' title="Absolute maximum stress." background="True"/>
 
@@ -506,7 +506,7 @@ From equilibrium: the centroid is located at <InlineEquation equation='\\bar{y}=
 
 <SubSection title="Eccentric Axial Loading in a Plane of Symmetry" id="eccentric-loading">
 
-<Image src='/Solid_Mechanics/Bending-Figures/EccentricLoading.png' width='4'> </Image>
+<Image src='/sol/bending/EccentricLoading.png' width='4'> </Image>
 
 <DisplayEquation equation="F=P \\ \\ \\text{and} \\ \\ M=Pd\\" title="Equilibrium." background="True"/>
 

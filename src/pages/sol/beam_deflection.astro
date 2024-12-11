@@ -42,19 +42,19 @@ import DisplayTable from "../../components/DisplayTable.astro"
 
 <SubSection title="Sign Conventions" id="sign-conventions">
 
-<Image src='/Solid_Mechanics/Beam Deflection-Figures/signConvention1.png' width='5'></Image>
+<Image src='/sol/beam_deflection/signConvention1.png' width='5'></Image>
 
 </SubSection>
 
 <SubSection title="Boundary Conditions" id="boundary-conditions">
 
-<Image src='/Solid_Mechanics/Beam Deflection-Figures/BoundryConditions.png' width='5'></Image>
+<Image src='/sol/beam_deflection/BoundryConditions.png' width='5'></Image>
 
 </SubSection>
 
 <SubSection title="Moment-Curvature Equation" id="moment-curvature">
 
-<Image src='/Solid_Mechanics/Beam Deflection-Figures/ElasticCurveBeam.png' width='4'></Image>
+<Image src='/sol/beam_deflection/ElasticCurveBeam.png' width='4'></Image>
 
 The physical shape of the deflected beam is called the elastic curve. The curvature <InlineEquation equation="\\kappa"/> can be found by rearranging the bending moment <InlineEquation equation="M(x)"/> equation, and for small angles, can be approximated by the second derivative of <InlineEquation equation="y(x)"/>.
 
@@ -65,7 +65,7 @@ The physical shape of the deflected beam is called the elastic curve. The curvat
 
 </DisplayEquation>
 
-<Image src='/Solid_Mechanics/Beam Deflection-Figures/ElasticCurveGraph.png' width='5'>  </Image>
+<Image src='/sol/beam_deflection/ElasticCurveGraph.png' width='5'>  </Image>
 
 <DisplayEquation equation='\\frac{d^2y}{dx^2} = \\frac{M(x)}{EI}\\'  title="Elastic curve governing equation." background="True" />
 
@@ -126,7 +126,7 @@ To find the deflection shape:
     <Example id="ovr-hng" title="Overhanging beam." solution="False">
         <div class="d-flex">
             <p>
-                <Image src='/Solid_Mechanics/Beam Deflection-Figures/Overhang Ex.png' width='5'></Image>
+                <Image src='/sol/beam_deflection/Overhang Ex.png' width='5'></Image>
               </p>
         </div>
     </Example>
@@ -134,7 +134,7 @@ To find the deflection shape:
     <Example id="can-tlv" title="Cantilever beam." solution="False">
         <div class="d-flex">
             <p>
-                <Image src='/Solid_Mechanics/Beam Deflection-Figures/Cantilever Ex.png' width='5'></Image>
+                <Image src='/sol/beam_deflection/Cantilever Ex.png' width='5'></Image>
               </p>
         </div>
     </Example>
@@ -173,7 +173,7 @@ To find the deflection shape:
         <tbody class="text-center">
             <tr>
                 <td class="nosideborderleft">
-                    <Image src='/Solid_Mechanics/Beam Deflection-Figures/Table1.png' width='7'></Image>
+                    <Image src='/sol/beam_deflection/Table1.png' width='7'></Image>
                 </td>
                 <td valign="middle">
                     <InlineEquation equation="-\\frac{PL^3}{3EI}"/>
@@ -189,7 +189,7 @@ To find the deflection shape:
         <tbody class="text-center">
             <tr>
                 <td class="nosideborderleft">
-                    <Image src='/Solid_Mechanics/Beam Deflection-Figures/Table2.png' width='7'></Image>
+                    <Image src='/sol/beam_deflection/Table2.png' width='7'></Image>
                 </td>
                 <td valign="middle">
                     <InlineEquation equation="-\\frac{wL^4}{8EI}"/>
@@ -205,7 +205,7 @@ To find the deflection shape:
         <tbody class="text-center">
             <tr>
                 <td class="nosideborderleft">
-                    <Image src='/Solid_Mechanics/Beam Deflection-Figures/Table3.png' width='7'></Image>
+                    <Image src='/sol/beam_deflection/Table3.png' width='7'></Image>
                 </td>
                 <td valign="middle">
                     <InlineEquation equation="-\\frac{ML^2}{2EI}"/>
@@ -221,7 +221,7 @@ To find the deflection shape:
         <tbody class="text-center">
             <tr>
                 <td class="nosideborderleft">
-                    <Image src='/Solid_Mechanics/Beam Deflection-Figures/Table4.png' width='7'></Image>
+                    <Image src='/sol/beam_deflection/Table4.png' width='7'></Image>
                 </td>
                 <td valign="middle">
                     <InlineEquation equation="-\\frac{5wL^4}{384EI}"/>
@@ -237,7 +237,7 @@ To find the deflection shape:
         <tbody class="text-center">
             <tr>
                 <td class="nosideborderleft">
-                    <Image src='/Solid_Mechanics/Beam Deflection-Figures/Table5.png' width='7'></Image>
+                    <Image src='/sol/beam_deflection/Table5.png' width='7'></Image>
                 </td>
                 <td valign="middle">
                     <InlineEquation equation="-\\frac{PL^3}{48EI}"/>
@@ -257,7 +257,7 @@ To find the deflection shape:
         <tbody class="text-center">
             <tr>
                 <td class="nosideborderleft">
-                    <Image src='/Solid_Mechanics/Beam Deflection-Figures/Table6.png' width='7'></Image>
+                    <Image src='/sol/beam_deflection/Table6.png' width='7'></Image>
                 </td>
                 <td valign="middle">
                     <p style="text-align:left;">
@@ -291,7 +291,7 @@ To find the deflection shape:
         <tbody class="text-center">
             <tr>
                 <td class="nosideborderleft">
-                    <Image src='/Solid_Mechanics/Beam Deflection-Figures/Table7.png' width='7'></Image>
+                    <Image src='/sol/beam_deflection/Table7.png' width='7'></Image>
                 </td>
                 <td valign="middle">
                     <InlineEquation equation="-\\frac{ML^2}{9\\sqrt{3}EI}"/>
@@ -318,7 +318,7 @@ To find the deflection shape:
      <Example id="dfl-spp" title="Deflection from a moment and distributed load using superpositon." solution="False">
         <div class="d-flex">
             <p>
-                <Image src='/Solid_Mechanics/Beam Deflection-Figures/Superposition Ex.png' width='3'></Image>
+                <Image src='/sol/beam_deflection/Superposition Ex.png' width='3'></Image>
               </p>
         </div>
     </Example>
