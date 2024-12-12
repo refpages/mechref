@@ -17,6 +17,9 @@ hue-6:   #d19a66
 hue-6-2: #e6c07b
 
 */
+:root{
+  --code-background: #282c34;
+}
 
 .hljs {
   color: #abb2bf;

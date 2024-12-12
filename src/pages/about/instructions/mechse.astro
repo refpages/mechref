@@ -23,7 +23,7 @@ import SubSubSection from "../../../components/SubSubSection.astro"
     <DisplayTable id="course-names">
         <thead>
             <tr>
-                <th>Name</th>
+                <th noborder>Name</th>
                 <th>Abbreviation</th>
             </tr>
         </thead>
@@ -45,6 +45,7 @@ import SubSubSection from "../../../components/SubSubSection.astro"
 
     Once an abbreviation has been chosen, add it to this table above, then copy the file at "src/pages/about/example/home_page.astro", rename it with your abbreviated name, and move it to "src/pages/&lt;course_abbreviation&gt;.astro". Also create a folder with your course abbreviation. Your file structure should look like this:
     <CodeBox language="plaintext" code=`
+    public
     src
     |--> components
     |--> layouts
@@ -54,6 +55,7 @@ import SubSubSection from "../../../components/SubSubSection.astro"
     ` /> 
     Once your folder and home page have been created, decide on how many pages you will have, as well as all their names. Once that is done, to get started, copy the example page which is located at "src/pages/about/examples/example.astro" into your folder, and rename it. Once again, no spaces or special characters, so for example, "Stress Transformation" becomes "stress_transformation". Repeat until you reach your desired amount of pages. You should now have the following structure:
     <CodeBox language="plaintext" code=`
+    public
     src
     |--> components
     |--> layouts
@@ -65,6 +67,24 @@ import SubSubSection from "../../../components/SubSubSection.astro"
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|--> <course_abbreviation>.astro
     ` /> 
     Now, if you have the pages locally running on your computer, they should be accessible at http://localhost:4321/&lt;course_abbreviation&gt;/&lt;page_1&gt; (replace &lt;course_abbreviation&gt; and &lt;page_1&gt; with your respective course abbreviation and page names). Note that while the pages have ".astro" as their file extension, the links to those pages do not include it.
+
+    <p>
+        If you plan on adding images or animations to your course, make sure to create a new folder in `public` as well, with your course abbreviation. You should now have the following structure:
+        <CodeBox language="plaintext" code=`
+        public
+        |--> <course_abbreviation>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|--> <image1>.png
+        src
+        |--> components
+        |--> layouts
+        |--> pages
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|--> <course_abbreviation>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|--> <page_1>.astro
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|--> <page_2>.astro
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|--> <page_3>.astro
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|--> <course_abbreviation>.astro
+        ` /> 
+    </p>
 </SubSection>
 
 <SubSection title="Make your pages discoverable">

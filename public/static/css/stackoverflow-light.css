@@ -12,6 +12,10 @@
   Colors: /blob/v0.64.0/lib/css/exports/_stacks-constants-colors.less
 */
 
+:root{
+  --code-background: #f6f6f6;
+}
+
 .hljs {
   /* var(--highlight-color) */
   color: #2f3337;

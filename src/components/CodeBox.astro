@@ -1,8 +1,7 @@
 ---
-const {code = "", language=""} = Astro.props;
+const {code = "", language="", closed_by_default="False", id=""} = Astro.props;
 ---
 
-<script src="/highlight.js" is:inline></script>
 <link class="code-theme" rel="stylesheet" href="">
 
 <script is:inline>
@@ -86,9 +85,34 @@ const {code = "", language=""} = Astro.props;
 </div>
 
 <pre class="hljs px-3" style="cursor: copy;" onclick="copy_to_clipboard(this);" >
-    <code class={language != "" ? "language-" + language : ""} style="white-space: pre-line; ">
+    <code class={language != "" ? "language-" + language : ""} style="white-space: pre-line; " onload="console.log(this);" id={id ? `code-${id}` : ""}>
         {code}
     </code>
 </pre>
+
+<script is:inline define:vars={{closed_by_default, id}}>
+
+    if (closed_by_default != "False" ){
+        el = document.querySelector(`code#code-${id}`).parentElement;
+
+        el.style = "cursor: copy; max-height: 60px; overflow: hidden; margin-bottom: 0px;";
+
+        node = document.createElement('p');
+        node.classList.add("text-center", "text-decoration-underline")
+
+        node.onclick = function(){
+            console.log(this.previousSibling)
+            this.previousSibling.style="cursor:copy;"
+            this.style="display:none";
+        }
+
+        console.log(node)
+
+        node.innerText = "Expand code example";
+        node.style = "color: var(bs-body-color); cursor: pointer;"
+
+        el.after(node);
+    }
+</script>
 
 <script is:inline>hljs.highlightAll();</script>

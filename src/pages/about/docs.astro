@@ -258,7 +258,7 @@ Options:
         <p>Derivation goes here:</p>
     </div>
 </DisplayEquationCustom>
-` />
+` closed_by_default="True" id="test"/>
 
 <script src="/about/docs.js" is:inline></script>
 
@@ -510,7 +510,7 @@ Example:
 We have added a few utilies to customize the look of your tables while maintaining a consistent look and feel in the pages. For example, add the `table-shaded` class to add a grey background to each cell. For example, this can be used in the header to contrast it with the rest of the page. Example:
 
 <CodeBox code=`
-<DisplayTableid="shapes_table">
+<DisplayTable id="shapes_table">
     <thead>
         <tr>
             <th class="table-shaded" noborder>
@@ -529,15 +529,15 @@ We have added a few utilies to customize the look of your tables while maintaini
     </thead>
     <tbody>
         <tr>
-            <td style="vertical-align: middle">Circle</td>
+            <th noborder >Circle</th>
             <td>
             <Image src='/Solid_Mechanics/Bending-Figures/CommonShapes_Circle.png' width='5'/>
             </td>
             <td style="vertical-align: middle">
-            <InlineEquation equation="\\\\bar{I_{x'}} = \\\\bar{I_{y'}}  = \\\\frac{1}{4} \\\\pi r^4" />
+            <DisplayEquation equation="\\\\bar{I_{x'}} = \\\\bar{I_{y'}}  = \\\\frac{1}{4} \\\\pi r^4" />
             </td>
             <td style="vertical-align: middle">
-            <InlineEquation equation="J_O= \\\\frac{1}{2} \\\\pi r^4"/>
+            <DisplayEquation equation="J_O= \\\\frac{1}{2} \\\\pi r^4"/>
             </td>
         </tr>
     </tbody>
@@ -563,19 +563,17 @@ We have added a few utilies to customize the look of your tables while maintaini
     </thead>
     <tbody>
         <tr>
-            <td style="vertical-align: middle">
+            <th noborder>
                 Circle
-            </td>
+            </th>
             <td>
                 <Image src='/Solid_Mechanics/Bending-Figures/CommonShapes_Circle.png' width='5'> </Image>
             </td>
         <td style="vertical-align: middle">
-            <InlineEquation equation="\\bar{I_{x'}} = \\bar{I_{y'}}  = \\frac{1}{4} \\pi r^4" />
+            <DisplayEquation equation="\\bar{I_{x'}} = \\bar{I_{y'}}  = \\frac{1}{4} \\pi r^4" />
         </td>
         <td style="vertical-align: middle">
-            <br>
-            <br>
-            <InlineEquation equation="J_O= \\frac{1}{2} \\pi r^4"/>    
+            <DisplayEquation equation="J_O= \\frac{1}{2} \\pi r^4"/>    
         </td>
         </tr>
     </tbody>
@@ -584,7 +582,7 @@ We have added a few utilies to customize the look of your tables while maintaini
 It can also be used to emphasize a particular part of the table. Example:
 
 <CodeBox code=`
-DisplayTable id="moi_table" class_="mt-3">
+<DisplayTable id="moi_table" class_="mt-3">
     <thead>
         <tr>
             <th></th>

@@ -75,5 +75,3 @@ function lightTheme(){
 function darkTheme(){
     change_theme('dark');
 }
-
-console.log(theme)
