@@ -1,5 +1,5 @@
 ---
-const {code = "", language="", closed_by_default="False", id=""} = Astro.props;
+const {code = "", language="", closed_by_default="False", id="", closed_height=60} = Astro.props;
 ---
 
 <link class="code-theme" rel="stylesheet" href="">
@@ -90,12 +90,12 @@ const {code = "", language="", closed_by_default="False", id=""} = Astro.props;
     </code>
 </pre>
 
-<script is:inline define:vars={{closed_by_default, id}}>
+<script is:inline define:vars={{closed_by_default, id, closed_height}}>
 
     if (closed_by_default != "False" ){
         el = document.querySelector(`code#code-${id}`).parentElement;
 
-        el.style = "cursor: copy; max-height: 60px; overflow: hidden; margin-bottom: 0px;";
+        el.style = `cursor: copy; max-height: ${Number(closed_height)}px; overflow: hidden; margin-bottom: 0px;`;
 
         node = document.createElement('p');
         node.classList.add("text-center", "text-decoration-underline")
