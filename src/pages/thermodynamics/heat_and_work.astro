@@ -1,0 +1,311 @@
+---
+import Layout from "../../layouts/Layout.astro" 
+import Image from "../../components/Image.astro" 
+import Section from "../../components/Section.astro" 
+import SubSection from "../../components/SubSection.astro" 
+import SubSubSection from "../../components/SubSubSection.astro" 
+import InlineEquation from "../../components/InlineEquation.astro" 
+import DisplayEquation from "../../components/DisplayEquation.astro" 
+---
+<Layout title="Heat and Work">
+<Section title="">Energy Transfers</Section>\label{sec:energytransfers}
+<p>When mass does not flow into or out of a system, the energy of the system changes in only two ways, through the loss or addition of <strong>work</strong> and/or <strong>heat</strong>.</p>
+
+ The internal energy (<InlineEquation equation="U" />) of a system is affected by the energetic contributions from heat flow (<InlineEquation equation="Q" />) in and out of a system and work (<InlineEquation equation="W" />)done by or on a system.  
+<DisplayEquation equation="\Delta U = Q -  W." title="eq:Ebal" />
+\begin{figure}[h]
+\begin{center}
+\begin{tikzpicture}[auto, node distance=1.75cm,>=latex']
+	\node(1) [draw, fill=Mteal, rectangle, rounded corners=10pt, minimum width=3cm, minimum height = 2cm, text centered,thick] {system};
+	\node(100) [draw=none, fill=none, text width=2cm, text height=0.5cm, text depth=0.5cm]{};
+<p>	% Flow labels</p>
+	\node(2) [draw=none, fill=none, left of=1,yshift=0.7cm, xshift=-2cm]{<InlineEquation equation="Q_{1}" />, heat to system};
+	\node(3) [draw=none, fill=none, left of=1,yshift=-0.7cm, xshift=-2.1cm]{<InlineEquation equation="W_{2}" />, work on system};
+	\node(4) [draw=none, fill=none, right of=1,yshift=-0.7cm, xshift=2.3cm]{<InlineEquation equation="Q_{2}" />, heat from system};
+	\node(5) [draw=none, fill=none, right of=1,yshift=0.7cm, xshift=2cm]{<InlineEquation equation="W_{1}" />, work by system};
+	\node(6) [draw=none, fill=none, above of=1,xshift = 3cm]{\color{Dlblue}surroundings};
+<p>	% Flow arrows</p>
+	\draw [-latex,decorate,decoration={snake,amplitude=.4mm,segment length=2mm, post length=9pt}, ultra thick] (2) -- (100);
+	\draw[-latex,decorate,decoration={snake,amplitude=.4mm,segment length=2mm ,post length=9pt}, ultra thick] (100) -- (4);
+	\draw [-latex, ultra thick] (3) -- (100);
+	\draw [-latex, ultra thick] (100) -- (5);
+\end{tikzpicture}
+\end{center}
+\caption{A schematic illustrating the direction of energy flow when heat is transferred to/from the system and work is performed on or by the system.}\label{fig:SysSchematic1}	
+<Image src="/Thermo/" width="5"></Image>
+<p>%%%%%%%%%%%%%%%%%%%%%%%%%<!-- %%%%%%%%%%%%--></p> 
+
+<SubSection title="">Heat</SubSection>
+<p>In thermodynamics, heat <InlineEquation equation="Q" /> is the thermal energy transferred between systems due to a temperature difference. Heat can both flow into and out of a system as shown in Figure \ref{fig:HeatSchematic}.</p>
+
+
+\begin{figure}[h]
+\begin{center}
+\begin{tikzpicture}[auto, node distance=1.75cm,>=latex']
+	\node(1) [draw, fill=Mteal, rectangle, rounded corners=10pt, minimum width=3cm, minimum height = 2cm, text centered,thick] {system};
+	\node(100) [draw=none, fill=none, text width=2cm, text height=0.5cm, text depth=0.5cm]{};
+<p>	% Flow labels</p>
+	\node(2) [draw=none, fill=none, left of=1,yshift=0.7cm, xshift=-2cm]{<InlineEquation equation="Q_{1}" />, heat to system};
+	\node(3) [draw=none, fill=none, right of=1,yshift=-0.7cm, xshift=2.3cm]{<InlineEquation equation="Q_{2}" />, heat from system};
+	\node(4) [draw=none, fill=none, above of=1,xshift = 3cm]{\color{Dlblue}surroundings};
+<p>	% Flow arrows</p>
+	\draw [-latex,decorate,decoration={snake,amplitude=.4mm,segment length=2mm, post length=9pt}, ultra thick] (2) -- (100);
+	\draw[-latex,decorate,decoration={snake,amplitude=.4mm,segment length=2mm ,post length=9pt}, ultra thick] (100) -- (3);
+\end{tikzpicture}
+\end{center}
+\caption{A schematic illustrating the heat flow transferred to/from the system.}\label{fig:HeatSchematic}	
+<Image src="/Thermo/" width="5"></Image>
+<p>%%%%%%%%%%%%%%%%%%%%%%%%%<!-- %%%%%%%%%%%%<!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</p> --> -->
+<p></p><p>
+<!-- %%%%%%%%%%%%<!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</p> --> -->
+<p><!-- %%%%%%%%%%%%<!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</p> --> -->
+<SubSection title="">Work</SubSection>
+<p>Recall from previous physics courses, that when a force <InlineEquation equation="f" /> acts over a distance <InlineEquation equation="d" /> it does work, defined as</p>
+<DisplayEquation equation="W=fd." title="" />
+<p>However, applied force does not have to be constant during a process. More generally, work is</p>
+<DisplayEquation equation="W=\int_{d_1}^{d_2}f(x)dx" title="eqn: GenW" />
+<p>where <InlineEquation equation="f" /> varies along the path parameterized by <InlineEquation equation="x" /> from position <InlineEquation equation="d_1" /> to position <InlineEquation equation="d_2" />, where we are assuming <InlineEquation equation="f" /> is tangent to the path.</p>
+<p> </p>
+<p></p><p>
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%<!-- %%%%%%%%%%%%<!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</p> --> -->
+
+<SubSubSection title=""><InlineEquation equation="pV" />  work</SubSubSection>
+<p>Work done by or on a gas, is known as <InlineEquation equation="\\boldsymbol{pV}" />~<strong>work</strong>.  A gas, such as the one enclosed in the cylindrical device in Figure \ref{fig:pressure}, applies a force uniformly over an area <InlineEquation equation="A" />, due to collisions against the wall, which is defined as pressure,</p>
+\begin{figure}[h]
+\begin{center}
+\begin{tikzpicture}[auto, >=latex']
+<p>	% Cylinder</p>
+  \node [cylinder,draw=black, thick,aspect=3,minimum height=8cm,minimum width=2.5cm,shape border rotate=0,cylinder uses custom fill, cylinder body     fill=Lteal,cylinder end fill=Dlblue] (A) {};
+<p>    % particle end</p>
+     \node [circle,draw=none, minimum width=5pt, ball color=Dteal, right=0.2cm of A.bottom] (p) {};
+    \node[coordinate, right=0.5cm of p] (pend) {};
+     	\draw [-latex, thick, draw=Dlblue] (p) -- (pend);
+<p>	    % particle end</p>
+     \node [circle,draw=none, minimum width=5pt, ball color=Dteal, right=1cm of A.bottom, yshift=1cm] (p2) {};
+    \node[coordinate, right=0.5cm of p2] (pend2) {};
+     	\draw [-latex, thick, draw=Dlblue] (p2) -- (pend2);
+<p>	    % particle end</p>
+     \node [circle,draw=none, minimum width=5pt, ball color=Dteal, right=3cm of A.bottom, yshift=-0.75cm] (p3) {};
+    \node[coordinate, right=0.5cm of p3] (pend3) {};
+     	\draw [-latex, thick, draw=Dlblue] (p3) -- (pend3);
+<p>	    % particle end</p>
+     \node [circle,draw=none, minimum width=5pt, ball color=Dteal, right=5cm of A.bottom, yshift=0.5cm] (p4) {};
+    \node[coordinate, right=0.5cm of p4] (pend4) {};
+     	\draw [-latex, thick, draw=Dlblue] (p4) -- (pend4);
+<p>	    % particle end</p>
+     \node [circle,draw=none, minimum width=5pt, ball color=Dteal, right=2cm of A.bottom, yshift=-0.2cm] (p5) {};
+    \node[coordinate, left=0.5cm of p5] (pend5) {};
+     	\draw [-latex, thick, draw=Dlblue] (p5) -- (pend5);
+<p>	    % particle end</p>
+     \node [circle,draw=none, minimum width=5pt, ball color=Dteal, right=4cm of A.bottom, yshift=0.9cm] (p6) {};
+    \node[coordinate, left=0.5cm of p6] (pend6) {};
+     	\draw [-latex, thick, draw=Dlblue] (p6) -- (pend6);
+<p>	    % particle end</p>
+     \node [circle,draw=none, minimum width=5pt, ball color=Dteal, right=6cm of A.bottom, yshift=-0.4cm] (p7) {};
+    \node[coordinate, left=0.5cm of p7] (pend7) {};
+     	\draw [-latex, thick, draw=Dlblue] (p7) -- (pend7);
+<p>     % other cylinder end</p>
+    \draw[solid, thick]
+<p>    let \p1 = (<InlineEquation equation=" (A.after bottom) - (A.before bottom) " />),</p>
+        \n1 = {0.5*veclen(\x1,\y1)-\pgflinewidth},
+        \p2 = (<InlineEquation equation=" (A.bottom) - (A.after bottom)!.5!(A.before bottom) " />),
+        \n2 = {veclen(\x2,\y2)-\pgflinewidth}
+<p>  in</p>
+<p>    ([xshift=-\pgflinewidth] A.before bottom) arc [start angle=270, delta angle=180,</p>
+<p>    x radius=\n2, y radius=\n1];	</p>
+<p>    % Nodes for lines and labels</p>
+    \node[coordinate, above=0.1 cm of A.north] (xend) {};
+    \node[coordinate, below=0.3 cm of A.before bottom] (D1) {};
+    \node[coordinate, below=0.3 cm of A.after top] (D2) {};
+    \node[coordinate, below=0.3 cm of A.south, xshift=-0.5cm] (D3) {};
+    \node[coordinate, below=0.3 cm of A.south, xshift=0.5cm] (D4) {};
+<p>    </p>
+<p>    % Labels</p>
+	\node(area1) [draw=none, fill=none, left=0.1cm of A.top]{\textcolor{Lteal}{<InlineEquation equation="A" />}};
+	\node(wall) [draw=none, fill=none, above=0.3cm of A.before top]{wall};
+<p>	%\node(1) [draw=none, fill=none, right=0.1cm of B.east, yshift=0.7cm]{<InlineEquation equation="\\mathcal{B}_B" />};</p>
+<p>	% Lines and arrows</p>
+	\draw [->, thick] (wall) -- (A.before top);
+	
+	
+\end{tikzpicture}
+\end{center}
+\caption{A sub-volume of gas, imparting forces from collisions on a sub-section of the container wall having area, <InlineEquation equation="A" />.}\label{fig:pressure}
+<Image src="/Thermo/" width="5"><InlineEquation equation="A" /> .</Image>
+<DisplayEquation equation="p=\frac{f}{A}." title="eq:Pdefn" />
+<p>Referring back to the definition of work in Eqn.~\ref{eqn: GenW}, if <InlineEquation equation="x" /> is a single cartesian direction normal to an area <InlineEquation equation="A" /> then <InlineEquation equation="A\\cdot dx" /> is a differential volume <InlineEquation equation="dV" />.  Additionally, using the definition of pressure Eqn.~\ref{eq:Pdefn}, we can define <InlineEquation equation="pV" /> work as follows,</p>
+\begin{align}
+\label{eq:pVwork}
+<p>W&=\int_{d_1}^{d_2}f(x)\,dx \nonumber \\</p>
+<p>&=\int_{d_1}^{d_2}\frac{f(x)}{A}A\,dx \nonumber \\</p>
+<p>&=\int_{V_1}^{V_2}p(V)\,dV </p>
+\end{align}
+
+
+\paragraph{<InlineEquation equation="pV" /> diagrams} Graphs whose <InlineEquation equation="y" /> and <InlineEquation equation="x" /> axes are <InlineEquation equation="p" /> and <InlineEquation equation="V" />, respectively.  According to Eqn.~\eqref{eq:pVwork}, work is the area under the process curve.  An example is shown in Figure \ref{fig:PVdiagrams}.
+
+\begin{figure}[h]
+\begin{center}
+\begin{tikzpicture}[auto,>=latex',every text node part/.style={align=center},
+<p>	declare function={</p>
+<p>        		curve(\x) = \x^2+0.75;</p>
+<p>  	}
+	]</p>
+<p>	</p>
+<p>% left plot</p>
+	\node (ref) at (0,0) [draw=none, coordinate] {};
+	\begin{axis} [at={(ref)},xmin=0, ymin=0, xmax=1, ymax = 1, samples = 2, 
+<p>			ytick=\empty, yticklabels={}, ylabel style={rotate=-90},</p>
+<p>			xtick=\empty, xticklabels={},</p>
+<p>			ylabel={<InlineEquation equation="p" />}, xlabel={<InlineEquation equation="V" />},</p>
+<p>			width = 5.5cm, height=5.5cm, axis y line = left, axis x line = bottom,</p>
+<p>			domain = 0.1:0.9, thick, fill between/on layer={axis background}]</p>
+		
+		\addplot[-> ,mark=*, very thick, name path=f] {0.7};		
+		\path[name path=ax] (axis cs:0, 0) -- (axis cs:1, 0);
+		\addplot [fill=Dlorange]
+<p>		fill between [</p>
+<p>			of = f and ax,</p>
+<p>			soft clip={domain=0.1:0.9},</p>
+<p>		];</p>
+		\node [above, color=black] at (axis cs:0.1, 0.7) {state \\[-5pt]<InlineEquation equation="1" />};
+		\node [above, color=black] at (axis cs:0.9, 0.7) {state \\[-5pt]<InlineEquation equation="2" />};
+		\node [above, color=black] at (axis cs:0.5, 0.2) {<InlineEquation equation="\\int_{V_1}^{V_2} p dV = " />\hspace{6pt} \\ \hspace{18pt}<InlineEquation equation="p (V_2-V_1)" />};
+		\node [above, color=black] at (axis cs:0.5, 0.68) {process <InlineEquation equation="{1\\rightarrow2}" />};
+
+
+		
+	\end{axis}
+<p></p><p>
+<!--  right plot</p> -->
+	\node (ref2) at (<InlineEquation equation=" (ref) + (5,0)" />) [draw=none, coordinate] {};
+	\begin{axis} [at={(ref2)},xmin=-1, ymin=0, xmax=1, ymax = 2, samples = 50, 
+<p>			ytick=\empty, yticklabels={}, ylabel style={rotate=-90},</p>
+<p>			xtick=\empty, xticklabels={},</p>
+<p>			ylabel={<InlineEquation equation="p" />}, xlabel={<InlineEquation equation="V" />},</p>
+<p>			width = 5.5cm, height=5.5cm, axis y line = left, axis x line = bottom,</p>
+<p>			domain = -0.8:0.8, fill between/on layer={axis background}]</p>
+		
+		\addplot[name path=g, black, very thick,->] {curve(x)};
+		\addplot[draw=none,decoration={text along path, text align=center, text={alternate process},}, postaction={decorate}]  {curve(x)+0.1};%mark options={decoration={name=none}} <- not needed here, but might be sometimes.
+		\path[name path=ax2] (axis cs:-1, 0) -- (axis cs:1, 0);
+		\addplot [fill=Dlorange]
+<p>		fill between [</p>
+<p>			of = g and ax2,</p>
+<p>			soft clip={domain=-0.8:0.8},</p>
+<p>		];</p>
+		\addplot [only marks, very thick] coordinates {
+<p>		(-0.8, {curve(-0.8)})</p>
+<p>		(0.8, {curve(0.8)})</p>
+<p>		};</p>
+		\node [above, color=black] at (axis cs:-0.8, {curve(-0.8)}) {state \\[-5pt]<InlineEquation equation="1" />};
+		\node [above, color=black] at (axis cs:0.8, {curve(0.8)}) {state \\[-5pt]<InlineEquation equation="2" />};
+		\node [above, color=black] at (axis cs:0, 0.2) {<InlineEquation equation="\\int_{V_1}^{V_2} p(V) dV" />};
+		
+	\end{axis}
+
+\end{tikzpicture}
+\end{center}
+\caption{<InlineEquation equation="pV" /> diagrams for 2 processes where the start and end state are identical but with differing processes.}\label{fig:PVdiagrams}
+<Image src="/Thermo/" width="5"> diagrams for 2 processes where the start and end state are identical but with differing processes.</Image>
+
+\paragraph{Isobaric Process:} During the process to go from 1 state to another, the system remains at a constant pressure, as shown in Figure \ref{fig:PVdiagrams} (left).
+
+\paragraph{Work is path dependent:} Work transfer depends on the process. Figure \ref{fig:PVdiagrams} shows two processes where despite having the same initial and final thermodynamic states, the difference in magnitude of work for these two processes is different.
+<p></p><p>
+</p><p></p><p>
+<!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</p> -->
+<p><!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</p> -->
+<SubSubSection title="">\teal{Shaft work}</SubSubSection>
+\begin{figure}
+\begin{center}
+\begin{tikzpicture}[auto,every text node part/.style={align=center}]
+
+
+	\draw[fill=Dlblue](0,0) circle (-0.2 and 0.5);
+	\draw[top color=Dlblue!50,bottom color=black,middle color=Dlblue] (0.1,0.5) arc (90:270:-0.2 and 0.5) -- ++(-0.1,0) arc (-90:-270:-0.2 and 0.5) -- cycle;
+	\draw[top color=white,bottom color=black!70] (0,1mm) arc (90:-90:0.5mm and 1mm)--++(-1cm,0) arc (-90:90:0.5mm and 1mm)-- cycle;
+<p>	%\draw[top color=white,bottom color=black!70] (0,3mm) arc (90:270:1.5mm and 3mm)--++(3cm,0) arc (-90:-270:1.5mm and 3mm)-- cycle;</p>
+	\draw (-1cm,1mm) arc (90:270:0.5mm and 1mm);
+
+	\node (weight) at (0.25,-1) [draw, fill =Dlorange, trapezium, minimum width=2cm, trapezium angle =78,  outer sep=0pt, thick] {\small{weight}};
+	\draw[thick] (0.05,0.5) arc (90:180:-0.2 and 0.5);
+	\draw[thick] (0.25,0) -- (weight.north);
+	
+	\draw[thick, -latex] (0,0.7) arc (90:170:-0.4 and 0.6);
+	
+	\draw[very thick, -latex] (-1cm,0.5cm) node[left]{pulley}-- (0,0.2cm);
+	
+
+	\draw[fill=Dlblue](4,0) circle (-0.2 and 0.5);
+	\draw[top color=Dlblue!50,bottom color=black,middle color=Dlblue] (4.1,0.5) arc (90:270:-0.2 and 0.5) -- ++(-0.1,0) arc (-90:-270:-0.2 and 0.5) -- cycle;
+	\draw[top color=white,bottom color=black!70] (4,1mm) arc (90:-90:0.5mm and 1mm)--++(-1cm,0) arc (-90:90:0.5mm and 1mm)-- cycle;
+<p>	%\draw[top color=white,bottom color=black!70] (0,3mm) arc (90:270:1.5mm and 3mm)--++(3cm,0) arc (-90:-270:1.5mm and 3mm)-- cycle;</p>
+	\draw (3cm,1mm) arc (90:270:0.5mm and 1mm);
+
+	\node (weight) at (4.05,-2) [draw, fill =Dlorange, trapezium, minimum width=2cm, trapezium angle =78,  outer sep=0pt, thick] {\small{weight}};
+	\draw[thick] (4.05,-0.5) -- (weight.north);
+
+\end{tikzpicture}\end{center}
+\caption{Spontaneous lowering of a weight on a pulley.}\label{fig:WeightLower}
+<Image src="/Thermo/" width="5"></Image>
+<p>Work can also be done via shaft work.  This can be explained by a shaft, on which a weight and pulley are mounted, providing a mechanism for inputting or extracting work as in Fig.~\ref{fig:CycleWithThermalReservoir}. Work <InlineEquation equation="W_{\\text{cycle}}" /> is done by the lowering mass on the system when the mass is released from its the raised position. The motion of the molecules in the system increases due to the shaft work input. This additional molecular energy temporarily increases the temperature of the system before the excess thermal energy is transmitted as heat <InlineEquation equation="Q" /> to the reservoir.  </p>
+\begin{figure}
+\begin{center}
+\begin{tikzpicture}[auto,every text node part/.style={align=center}]
+
+
+	\draw[fill=Dlblue](0,0) circle (-0.2 and 0.5);
+	\draw[top color=Dlblue!50,bottom color=black,middle color=Dlblue] (0.1,0.5) arc (90:270:-0.2 and 0.5) -- ++(-0.1,0) arc (-90:-270:-0.2 and 0.5) -- cycle;
+	\draw[top color=white,bottom color=black!70] (0,1mm) arc (90:-90:0.5mm and 1mm)--++(-1.5cm,0) arc (-90:90:0.5mm and 1mm)-- cycle;
+<p>	%\draw[top color=white,bottom color=black!70] (0,3mm) arc (90:270:1.5mm and 3mm)--++(3cm,0) arc (-90:-270:1.5mm and 3mm)-- cycle;</p>
+	\draw (-1.5cm,1mm) arc (90:270:0.5mm and 1mm);
+
+	\node (weight) at (0.25,-1) [draw, fill =gray!50, trapezium, minimum width=2cm, trapezium angle =78,  outer sep=0pt, thick] {\small{weight}};
+	\draw[thick] (0.05,0.5) arc (90:180:-0.2 and 0.5);
+	\draw[thick] (0.25,0) -- (weight.north);
+	
+	\draw[thick, -latex] (0,0.7) arc (90:170:-0.4 and 0.6);
+<p></p><p>
+	% system</p>
+	\draw[thick](-2,0) circle (0.5);
+	\draw (-2.6,-0.6) node[below]{\small{system}} [thin,dashed] rectangle (-1.4,0.6);
+<p>	</p>
+<p>	% thermal reservoir</p>
+	\node (Tres) at (-2,1.75) [draw=none, bottom color=Ddblue, top color=white, trapezium, minimum width=0cm, minimum height=1cm, outer sep=0pt,trapezium angle =70,  inner sep=5pt, inner xsep=8pt,thick,rotate=180] {};
+	\node (Tlabel) at (Tres) [draw=none, text=white] {\small{thermal} \\[-6pt] \small{reservoir}};
+<p>	</p>
+<p>	</p>
+<p>	% heat & work flows</p>
+	\draw [ultra thick, -latex,decorate,decoration={snake,amplitude=.4mm,segment length=2mm, post length=9pt}] (-2,0.5) -- (Tres.north) node[midway]{<InlineEquation equation="Q" />} ;
+	\draw [ultra thick, latex-] (-2,0) -- (-0.75,0) node[above]{<InlineEquation equation="W_{\\text{cycle}}" />} ;
+	
+	
+	\node (ref) at (3,-1.5) [draw=none, coordinate] {};
+	\begin{axis} [at={(ref)},xmin=0.1, ymin=0.15, xmax=1, ymax = 0.8, samples = 2, 
+<p>			ytick=\empty, yticklabels={}, ylabel style={rotate=-90},</p>
+<p>			xtick=\empty, xticklabels={},</p>
+<p>			ylabel={<InlineEquation equation="p" />}, xlabel={<InlineEquation equation="v" />},</p>
+<p>			width = 5.5cm, height=5.5cm, axis y line = left, axis x line = bottom,</p>
+<p>			domain = 0.1:0.9, thick, fill between/on layer={axis background}]</p>
+		
+		\addplot[-latex ,mark=*, very thick, name path=comp,domain=0.9:0.5] {0.2 -1.25*(x-0.9)};		
+		\addplot[latex- ,mark=*, very thick, name path=throttle,domain=0.9:0.2] {0.2 -0.7143*(x-0.9)};	
+		\addplot[-latex ,mark=*, very thick, name path=hex,domain=0.5:0.2] {0.7};	
+		\addplot [fill=Dlblue]
+<p>		fill between [</p>
+<p>			of = comp and throttle,</p>
+<p>			soft clip={domain=0.1:0.9},</p>
+<p>		];</p>
+		\node [above, color=black, rotate=-62] at (axis cs:0.7, 0.45) {compressor};
+		\node [above, color=black, rotate=-42] at (axis cs:0.45, 0.4) {throttle};
+		\node [above, color=black] at (axis cs:0.35, 0.7) {hex};
+		
+	\end{axis}
+
+	\draw[ultra thick, *-] (4.6,1) -- (5.6,2) node[right]{<InlineEquation equation="W_{\\text{cycle}}" />};
+
+\end{tikzpicture}\end{center}
+\caption{A cycle in contact with a single thermal reservoir (left) may operate such that work input leads to an equal amount of heat output. The <InlineEquation equation="pv" /> diagram for one such cycle (right) is shown for a compressor, heat exhanger (hex), and throttle running at steady state.}\label{fig:CycleWithThermalReservoir}
+<Image src="/Thermo/" width="5"><InlineEquation equation="pv" />  diagram for one such cycle (right) is shown for a compressor, heat exhanger (hex), and throttle running at steady state.</Image>
+</Layout>
