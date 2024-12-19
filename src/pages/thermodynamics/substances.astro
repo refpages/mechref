@@ -4,6 +4,8 @@ import Image from "../../components/Image.astro"
 import Section from "../../components/Section.astro" 
 import SubSection from "../../components/SubSection.astro" 
 import SubSubSection from "../../components/SubSubSection.astro" 
+import OrangeText from "../../components/OrangeText.astro" 
+import TealText from "../../components/TealText.astro" 
 import Enumerate from "../../components/Enumerate.astro" 
 import Item from "../../components/Item.astro" 
 import Itemize from "../../components/Itemize.astro" 
@@ -12,176 +14,72 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
 ---
 <Layout title="Substances">
 <Section title="">Substances</Section>
-<SubSection title="">\teal{Phases of matter}</SubSection> %missing title
+\subsection{<TealText>Phases of matter</TealText>} %missing title
 <p>A phase of matter is homogeneous in both its molecular composition and the structure of its molecules with respect to one another. </p>
 
-\paragraph{Pure Substance:} A pure substance is when a substance occurs in a single phase and is composed of a single type of molecule. 
-\teal{\paragraph{Solid:} A substance that has a definite shape and volume is a solid.  The molecules in a solid are tightly packed, and cannot move past one another but vibrate.}
-\teal{\paragraph{Liquid:} A substance that has a definite volume, but no definite shape is a liquid, taking on the shape of their container.  The molecules in a liquid are constantly moving yet still in contact with one another.}
-\teal{\paragraph{Gas:} A substance with no definite shape or volume, gases take on the shape or volume of the container they are surrounded by.  Molecules can move freely and have negligible intermolecular interactions.}
+<h4><strong>Pure Substance:</strong></h4>
+<p>A pure substance is when a substance occurs in a single phase and is composed of a single type of molecule.</p> 
+
+<TealText><h4><strong>Solid:</strong></h4>
+<p>A substance that has a definite shape and volume is a solid.  The molecules in a solid are tightly packed, and cannot move past one another but vibrate.</TealText></p> 
+
+<TealText><h4><strong>Liquid:</strong></h4>
+<p>A substance that has a definite volume, but no definite shape is a liquid, taking on the shape of their container.  The molecules in a liquid are constantly moving yet still in contact with one another.</TealText></p> 
+
+<TealText><h4><strong>Gas:</strong></h4>
+<p>A substance with no definite shape or volume, gases take on the shape or volume of the container they are surrounded by.  Molecules can move freely and have negligible intermolecular interactions.</TealText></p> 
 
 <SubSubSection title="">Phase Diagrams</SubSubSection>
 <p>A phase diagram is like a map and predicts the phase of a substance according to its thermodynamic properties: <InlineEquation equation="p" />, <InlineEquation equation="T" />, <InlineEquation equation="v" />, <InlineEquation equation="u" />, and <InlineEquation equation="h" />. An example of a <InlineEquation equation="pv" /> liquid-vapor phase diagram for a pure substance is shown below:</p>
-\begin{figure}[h]
-\begin{center}
-\begin{tikzpicture}[auto,every text node part/.style={align=center},
-<p>	declare function={</p>
-<p>        		curveL(\x) = -0.7*\x^2+10;</p>
-<p>		curveR(\x) = -1*\x^2 + 0.3*x^2.5 + 10;</p>
-<p>		TcurveL(\x) = 2*(\x+1.5)^4;</p>
-<p>		TcurveR(\x) = -1*x+7.83+0.03*x^2;</p>
-<p>  	}
-	]</p>
-<p>	</p>
-<p>% left plot</p>
-	\node (ref) at (0,0) [draw=none, coordinate] {};
-	\begin{axis} [at={(ref)},xmin=-5.5, ymin=0, xmax=8, ymax = 14, samples = 50, 
-<p>			ytick=\empty, yticklabels={}, ylabel style={rotate=-90},</p>
-<p>			xtick=\empty, xticklabels={},</p>
-<p>			ylabel={<InlineEquation equation="p" />}, xlabel={<InlineEquation equation="v" />},</p>
-<p>			width = 8cm, height=7cm, axis y line = left, axis x line = bottom,</p>
-<p>			thick, fill between/on layer={axis background}]</p>
-<p>		%L+V dome</p>
-		\addplot[very thick,domain=-5:0, name path=L] {curveL(x)};	
-		\path[name path=axL] (axis cs:-5, 0) -- (axis cs:0, 0);	
-		\addplot[very thick,domain=0:7, name path=R] {curveR(x)};
-		\path[name path=axR] (axis cs:0, 0) -- (axis cs:14, 0);
-		\addplot [fill=Dteal]
-<p>		fill between [</p>
-<p>			of = L and axL,</p>
-<p>			soft clip={domain=-5:0},</p>
-<p>		];</p>
-		\addplot [fill=Dteal]
-<p>		fill between [</p>
-<p>			of = R and axR,</p>
-<p>			soft clip={domain=0:14},</p>
-<p>		];</p>
-				\addplot[color=Dteal] coordinates {(0,10) (0,0)}; % cover seam	
-<p>	</p>
-<p>		%critical point</p>
-		\addplot[mark=*] coordinates {(0,10)};
-		\addplot[dashed,thin,domain=-5.5:8,color=black!20] {10};
-<p>		</p>
-<p>		</p>
-<p>		% isotherm </p>
-		\addplot[very thick,domain=-5:-2.74, Dlblue] {TcurveL(x)};	
-		\addplot[very thick,domain=-2.74:3.4445,Dlblue] {4.74142};
-		\addplot[very thick,domain=3.44449:14, Dlblue] {TcurveR(x)};	
-		
 
-		
-		\node [below, color=black, yshift=-0.2cm] at (axis cs:0, 10) {critical \\[-5pt] point};
-		\node [above, color=black] at (axis cs:6, 5) {vapor};
-		\node [above, color=black] at (axis cs:-4.2, 5) {liquid};
-		\node [color=Dlblue] at (axis cs:7, 3) {<InlineEquation equation="T" />};
-		\node [above,color=white] at (axis cs:1, 1) {two-phase region};
-		\node [above, color=black] at (axis cs:0, 12) {supercritical \\[-4pt]fluid};
-		\draw [thick,stealth-] (axis cs:2.35863, 7) -- (axis cs:4, 9) node[right]{vapor\\[-4pt]  dome};
-<p>		%\node [above, color=black] at (axis cs:0.5, 0.2) {<InlineEquation equation="\\int_{V_1}^{V_2} p dV = " />\hspace{6pt} \\ \hspace{18pt}<InlineEquation equation="p (V_2-V_1)" />};</p>
-<p>		%\node [above, color=black] at (axis cs:0.5, 0.68) {process <InlineEquation equation="{1\\rightarrow2}" />};</p>
+<h4><strong>Critical Point:</strong></h4>
+<p>Point at which at lesser pressures the substance exists as either a liquid or vapor, and above exists as a supercritical fluid.
+<h4><strong>Vapor Dome:</strong></h4>
+<p>Region within the dome-like curve known as the</p></p> 
 
-	\end{axis}
-	\node (isolabel) at (<InlineEquation equation="(ref)+(7.2,0.75)" />) [draw=none,color=Dlblue]{example \\[-4pt]isotherm};
+<strong>two-phase region</strong>, where some part of the substance is in a liquid phase, and some part is in a vapor phase. The substance is in a <strong>liquid phase</strong> when its <InlineEquation equation="p" /> and <InlineEquation equation="v" /> lie in the region to the left of the vapor dome and in a <strong>vapor phase</strong> when its <InlineEquation equation="p" /> and <InlineEquation equation="v" /> lie in the region to the right of the vapor dome.
+<Itemize>
 
-\end{tikzpicture}\end{center}
-\caption{A <InlineEquation equation="pv" /> liquid-vapor phase diagram for a pure substance illustrating the critical point, vapor dome, and liquid and vapor regions. }\label{fig:PhaseDiag}
-<Image src="/Thermo/" width="5"><InlineEquation equation="pv" />  liquid-vapor phase diagram for a pure substance illustrating the critical point, vapor dome, and liquid and vapor regions. </Image>
-\paragraph{Critical Point:} Point at which at lesser pressures the substance exists as either a liquid or vapor, and above exists as a supercritical fluid.
-\paragraph{Vapor Dome:} Region within the dome-like curve known as the <strong>two-phase region</strong>, where some part of the substance is in a liquid phase, and some part is in a vapor phase. The substance is in a <strong>liquid phase</strong> when its <InlineEquation equation="p" /> and <InlineEquation equation="v" /> lie in the region to the left of the vapor dome and in a <strong>vapor phase</strong> when its <InlineEquation equation="p" /> and <InlineEquation equation="v" /> lie in the region to the right of the vapor dome.
-\begin{itemize}
-    \item If <InlineEquation equation="v" /> lies at the intersection of the isotherm and the left side of the vapor dome, the system is said to be in the <strong>saturated liquid</strong> state with specific volume <InlineEquation equation="v_f" />.
-    \item If <InlineEquation equation="v" /> lies at the intersection of the isotherm and the right side of the vapor dome, the system is said to be in the <strong>saturated vapor</strong> state <InlineEquation equation="v_g" />.
-    \item If the system is halfway between the liquid and vapor states (see Fig.~\ref{fig:PhaseDiag2phase}) such that the mass of the liquid portion <InlineEquation equation="m_f" /> equals the mass of the vapor portion <InlineEquation equation="m_g" />, then its <strong>quality</strong> <InlineEquation equation="x" /> is given by
-        <DisplayEquation equation="            x \equiv \frac{m_g}{m_f + m_g} = 0.5" title="" />
-\end{itemize}
+    <Item>If <InlineEquation equation="v" /> lies at the intersection of the isotherm and the left side of the vapor dome, the system is said to be in the <strong>saturated liquid</strong> state with specific volume <InlineEquation equation="v_f" />.</Item>
+    <Item>If <InlineEquation equation="v" /> lies at the intersection of the isotherm and the right side of the vapor dome, the system is said to be in the <strong>saturated vapor</strong> state <InlineEquation equation="v_g" />.</Item>
+    <Item>If the system is halfway between the liquid and vapor states (see Fig.~<OrangeText>fig:PhaseDiag2phase</OrangeText>) such that the mass of the liquid portion <InlineEquation equation="m_f" /> equals the mass of the vapor portion <InlineEquation equation="m_g" />, then its <strong>quality</strong> <InlineEquation equation="x" /> is given by</Item>
+        <DisplayEquation equation='            x \\equiv \\frac{m_g}{m_f + m_g} = 0.5' title="" />
 
-\begin{figure}[h]
-\begin{center}
-\begin{tikzpicture}[auto,every text node part/.style={align=center},
-<p>	declare function={</p>
-<p>        		curveL(\x) = -0.7*\x^2+10;</p>
-<p>		curveR(\x) = -1*\x^2 + 0.3*x^2.5 + 10;</p>
-<p>		TcurveL(\x) = 2*(\x+1.5)^4;</p>
-<p>		TcurveR(\x) = -1*x+7.83+0.03*x^2;</p>
-<p>  	}
-	]</p>
-<p>	</p>
-<p>% left plot</p>
-	\node (ref) at (0,0) [draw=none, coordinate] {};
-	\begin{axis} [at={(ref)},xmin=-5.5, ymin=0, xmax=8, ymax = 14, samples = 50, 
-<p>			ytick=\empty, yticklabels={}, ylabel style={rotate=-90},</p>
-<p>			xtick=\empty, xticklabels={},</p>
-<p>			ylabel={<InlineEquation equation="p" />}, xlabel={<InlineEquation equation="v" />},</p>
-<p>			width = 8cm, height=7cm, axis y line = left, axis x line = bottom,</p>
-<p>			thick, fill between/on layer={axis background}]</p>
-<p>		%L+V dome</p>
-		\addplot[very thick,domain=-5:0, name path=L] {curveL(x)};	
-		\path[name path=axL] (axis cs:-5, 0) -- (axis cs:0, 0);	
-		\addplot[very thick,domain=0:7, name path=R] {curveR(x)};
-		\path[name path=axR] (axis cs:0, 0) -- (axis cs:14, 0);
-		\addplot [fill=Dteal]
-<p>		fill between [</p>
-<p>			of = L and axL,</p>
-<p>			soft clip={domain=-5:0},</p>
-<p>		];</p>
-		\addplot [fill=Dteal]
-<p>		fill between [</p>
-<p>			of = R and axR,</p>
-<p>			soft clip={domain=0:14},</p>
-<p>		];</p>
-		\addplot[color=Dteal] coordinates {(0,10) (0,0)}; % cover seam
-<p>		</p>
-<p>		% points</p>
-		\addplot[mark=*] coordinates {(0,10)};
-		\addplot[mark=*] coordinates {(-2.74,4.74142)} node[left]{<InlineEquation equation="v_f" />};
-		\addplot[mark=*] coordinates {(3.4445,4.74142)} node[right]{<InlineEquation equation="v_g" />};
-		\addplot[mark=*] coordinates {(0.352,4.74142)} node[above]{<InlineEquation equation="x = 0.5" />};
-<p>		</p>
-<p>		% isotherm </p>
-		\addplot[very thick,domain=-5:-2.74, Dlblue] {TcurveL(x)};	
-		\addplot[ultra thick,domain=-2.74:3.4445,Dorange] {4.74142};
-		\addplot[very thick,domain=3.44449:14, Dlblue] {TcurveR(x)};	
-<p>		</p>
-<p>		% vf vg labels</p>
+</Itemize>
 
-		
 
-		\node [above, color=black] at (axis cs:6, 5.5) {vapor};
-		\node [above, color=black] at (axis cs:-4.2, 5.5) {liquid};
-		\node [color=Dlblue] at (axis cs:7, 3) {<InlineEquation equation="T" />};
-		\node [above,color=white] at (axis cs:1, 1) {two-phase region};
-		\draw [thick,stealth-] (axis cs:2.35863, 7) -- (axis cs:4, 9) node[right]{vapor\\[-4pt]  dome};
-<p>		%\node [above, color=black] at (axis cs:0.5, 0.2) {<InlineEquation equation="\\int_{V_1}^{V_2} p dV = " />\hspace{6pt} \\ \hspace{18pt}<InlineEquation equation="p (V_2-V_1)" />};</p>
-<p>		%\node [above, color=black] at (axis cs:0.5, 0.68) {process <InlineEquation equation="{1\\rightarrow2}" />};</p>
+<h4><strong>Supercritical Fluid:</strong></h4>
+<p>Phase of the substance when existing above the critical point, and possesses characteristics similar to both liquids and gases, but strictly behaves as neither.
+<h4><strong>Isotherm:</strong></h4>
+<p>For a given <InlineEquation equation="p" /> and <InlineEquation equation="v" />, the substance's <InlineEquation equation="T" /> lies on an isotherm. The segment of the isotherm within the vapor dome is</p></p> 
 
-	\end{axis}
-	\node (isolabel) at (<InlineEquation equation="(ref)+(7.2,0.75)" />) [draw=none,color=Dlblue]{example \\[-4pt]isotherm};
+<strong>horizontal</strong> because phase transitions occur at a constant <InlineEquation equation="T" /> and <InlineEquation equation="p" />.
 
-\end{tikzpicture}\end{center}
-\caption{A <InlineEquation equation="pv" /> liquid-vapor phase diagram for a pure substance illustrating thermodynamic properties that define the two-phase region. }\label{fig:PhaseDiag2phase}
-<Image src="/Thermo/" width="5"><InlineEquation equation="pv" />  liquid-vapor phase diagram for a pure substance illustrating thermodynamic properties that define the two-phase region. </Image>
-\paragraph{Supercritical Fluid:} Phase of the substance when existing above the critical point, and possesses characteristics similar to both liquids and gases, but strictly behaves as neither.
-\paragraph{Isotherm:} For a given <InlineEquation equation="p" /> and <InlineEquation equation="v" />, the substance's <InlineEquation equation="T" /> lies on an isotherm. The segment of the isotherm within the vapor dome is <strong>horizontal</strong> because phase transitions occur at a constant <InlineEquation equation="T" /> and <InlineEquation equation="p" />.
+<h4><strong>State of a Substance:</strong></h4>
+<p>If any two independent intensive variables are known (<InlineEquation equation="T, v, p, x, h, u" />), they fix the</p> 
 
-\paragraph{State of a Substance:} If any two independent intensive variables are known (<InlineEquation equation="T, v, p, x, h, u" />), they fix the <strong>state</strong> of the substance. (Intensive variables are independent of mass. For example, specific volume <InlineEquation equation="v" /> is intensive. Volume <InlineEquation equation="V=mv" /> is not.)
+<strong>state</strong> of the substance. (Intensive variables are independent of mass. For example, specific volume <InlineEquation equation="v" /> is intensive. Volume <InlineEquation equation="V=mv" /> is not.)
 
 
 <SubSubSection title="">Critical Values and Ideal Gases</SubSubSection>
 <p>Ideal gases are modeled as having internal energy entirely composed of kinetic energy due to the absence of any interactions between the particles of the gas, which occurs when:</p>
 <Enumerate>
-	<Item> The particles are far away from each other, at lower pressure or density 
-    </Item>
-	<Item> the kinetic energy of the particles is so large as to render the energy due to interactions between them negligible, at high temperature
-</Item>
-</Enumerate>
 
-\paragraph{Reduced Values:}
-\emph{Low} and \emph{high} are relative terms and depend on the particular gas, specifically its phase behavior.  Reduced values are normalized with respect to their values at the critical point to describe where gases are far enough away from the vapor dome to behave ideally,
+    <Item>The particles are far away from each other, at lower pressure or density </Item>
+    <Item>the kinetic energy of the particles is so large as to render the energy due to interactions between them negligible, at high temperature</Item>
+
+</Enumerate>
+<h4><strong>Reduced Values:</strong></h4>
+ 
+
+<strong>Low</strong> and <strong>high</strong> are relative terms and depend on the particular gas, specifically its phase behavior.  Reduced values are normalized with respect to their values at the critical point to describe where gases are far enough away from the vapor dome to behave ideally,
 <p>(<InlineEquation equation="p_c" />, <InlineEquation equation="v_c" />, and <InlineEquation equation="T_c" />). The following expressions </p>
-<DisplayEquation equation="p_R = p/p_c \qquad T_R = T/T_c \qquad v_R' = \frac{v}{R(T_c/p_c)}" title="" />
+<DisplayEquation equation='p_R = p/p_c \\qquad T_R = T/T_c \\qquad v_R' = \\frac{v}{R(T_c/p_c)}' title="" />
 define the <strong>reduced pressure</strong>, <strong>reduced temperature</strong>, and <strong>pseudoreduced specific volume</strong>.</p>
-\paragraph{Compressibility factor:} The compressibility factor, <InlineEquation equation="Z" />, for an ideal gas equals 1, meaning a gas behaves ideally at infinitely small <InlineEquation equation="p" />. Therefore, the more deviation of Z from unity the less ideally a gas behaves.
-<DisplayEquation equation="Z = \frac{pv}{RT}" title="eq:Z" />
+<h4><strong>Compressibility factor:</strong></h4>
+<p>The compressibility factor, <InlineEquation equation="Z" />, for an ideal gas equals 1, meaning a gas behaves ideally at infinitely small <InlineEquation equation="p" />. Therefore, the more deviation of Z from unity the less ideally a gas behaves.</p> 
+
+<DisplayEquation equation='Z = \\frac{pv}{RT}' title="eq:Z" />
 </p>
 
 \begin{tikzpicture}[auto,every text node part/.style={align=center}]
@@ -207,145 +105,68 @@ define the <strong>reduced pressure</strong>, <strong>reduced temperature</stron
 	\end{axis}
 
 \end{tikzpicture}
-<p>%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</p>
+
 <SubSection title="">Ideal Gases</SubSection>
 <p>A gas is a state of matter that has neither independent shape nor volume. When contained, the atoms or molecules that comprise it interact with every boundary of the container.</p>
 <SubSubSection title="">Ideal Gas Assumptions</SubSubSection>
 <p>An ideal gas is a hypothetical model of a gas that follows the assumptions that</p>
 <Itemize>
-	<Item> molecules are infinitesimally small (just points in space)
-    </Item>
-	<Item> intermolecular forces are zero
-    </Item>
+
+	<Item>molecules are infinitesimally small (just points in space)</Item>
+    \begin{itemize}
+        <Item>ideal gas molecules never collide with one another</Item>
+        <Item>ideal gas molecules occupy no volume</Item>
+    
+</Itemize> 
+	\item intermolecular forces are zero
+    <Itemize>
+
+        <Item>ideal gas molecules  have no potential energies between molecules</Item>
+        <Item>internal energy is only a function of kinetic energy</Item>
+    
 </Itemize>
+\end{itemize}
 
-\vspace{12pt}
 
-\begin{figure}[h]
-\begin{center}
-\begin{tikzpicture}[auto, >=latex']
-<p>	% Cylinder</p>
-  \node [cylinder,draw=black, thick,aspect=3,minimum height=8cm,minimum width=2.5cm,shape border rotate=0,cylinder uses custom fill, cylinder body     fill=Lteal,cylinder end fill=Dlblue] (A) {};
-<p>    % particle end</p>
-     \node [circle,draw=none, minimum width=5pt, ball color=Dteal, right=0.2cm of A.bottom] (p) {};
-    \node[coordinate, right=0.5cm of p] (pend) {};
-     	\draw [-latex, thick, draw=Dlblue] (p) -- (pend);
-<p>	    % particle end</p>
-     \node [circle,draw=none, minimum width=5pt, ball color=Dteal, right=1cm of A.bottom, yshift=1cm] (p2) {};
-    \node[coordinate, right=0.5cm of p2] (pend2) {};
-     	\draw [-latex, thick, draw=Dlblue] (p2) -- (pend2);
-<p>	    % particle end</p>
-     \node [circle,draw=none, minimum width=5pt, ball color=Dteal, right=3cm of A.bottom, yshift=-0.75cm] (p3) {};
-    \node[coordinate, right=0.5cm of p3] (pend3) {};
-     	\draw [-latex, thick, draw=Dlblue] (p3) -- (pend3);
-<p>	    % particle end</p>
-     \node [circle,draw=none, minimum width=5pt, ball color=Dteal, right=5cm of A.bottom, yshift=0.5cm] (p4) {};
-    \node[coordinate, right=0.5cm of p4] (pend4) {};
-     	\draw [-latex, thick, draw=Dlblue] (p4) -- (pend4);
-<p>	    % particle end</p>
-     \node [circle,draw=none, minimum width=5pt, ball color=Dteal, right=2cm of A.bottom, yshift=-0.2cm] (p5) {};
-    \node[coordinate, left=0.5cm of p5] (pend5) {};
-     	\draw [-latex, thick, draw=Dlblue] (p5) -- (pend5);
-<p>	    % particle end</p>
-     \node [circle,draw=none, minimum width=5pt, ball color=Dteal, right=4cm of A.bottom, yshift=0.9cm] (p6) {};
-    \node[coordinate, left=0.5cm of p6] (pend6) {};
-     	\draw [-latex, thick, draw=Dlblue] (p6) -- (pend6);
-<p>	    % particle end</p>
-     \node [circle,draw=none, minimum width=5pt, ball color=Dteal, right=6cm of A.bottom, yshift=-0.4cm] (p7) {};
-    \node[coordinate, left=0.5cm of p7] (pend7) {};
-     	\draw [-latex, thick, draw=Dlblue] (p7) -- (pend7);
-<p>     % other cylinder end</p>
-    \draw[solid, thick]
-<p>    let \p1 = (<InlineEquation equation=" (A.after bottom) - (A.before bottom) " />),</p>
-        \n1 = {0.5*veclen(\x1,\y1)-\pgflinewidth},
-        \p2 = (<InlineEquation equation=" (A.bottom) - (A.after bottom)!.5!(A.before bottom) " />),
-        \n2 = {veclen(\x2,\y2)-\pgflinewidth}
-<p>  in</p>
-<p>    ([xshift=-\pgflinewidth] A.before bottom) arc [start angle=270, delta angle=180,</p>
-<p>    x radius=\n2, y radius=\n1];	</p>
-<p>    % Nodes for lines and labels</p>
-    \node[coordinate, above=0.1 cm of A.north] (xend) {};
-    \node[coordinate, below=0.3 cm of A.before bottom] (D1) {};
-    \node[coordinate, below=0.3 cm of A.after top] (D2) {};
-    \node[coordinate, below=0.3 cm of A.south, xshift=-0.5cm] (D3) {};
-    \node[coordinate, below=0.3 cm of A.south, xshift=0.5cm] (D4) {};
-    \node[below=0 cm of A.south] {<InlineEquation equation="|\\vec{\\textrm{v}}_x|t" />};
-<p>    % Labels</p>
-	\node(area1) [draw=none, fill=none, left=0.1cm of A.top]{\textcolor{Lteal}{<InlineEquation equation="A" />}};
-	\node(wall) [draw=none, fill=none, above=0.3cm of A.before top]{wall};
-	\node(x)  [draw=none, fill=none, above=0.1cm of A.after bottom]{<InlineEquation equation="x" />};
-	\node [draw=none, fill=none, above=1pt of pend] {<InlineEquation equation="\\vec{\\textrm{v}}_x" />};
-<p>	%\node(1) [draw=none, fill=none, right=0.1cm of B.east, yshift=0.7cm]{<InlineEquation equation="\\mathcal{B}_B" />};</p>
-<p>	% Lines and arrows</p>
-	\draw [->, thick] (wall) -- (A.before top);
-	\draw [|->] (x.south) -- (xend);
-	\draw [|-, thick] (D1) -- (D3);
-	\draw [|-, thick] (D2) -- (D4);
-\end{tikzpicture}
-\end{center}
-\caption{A sub-volume of gas next to a sub-section of the container wall having area, <InlineEquation equation="A" />.}\label{fig:IGequil}
-<Image src="/Thermo/" width="5"><InlineEquation equation="A" /> .</Image>
+
 
 <SubSubSection title="">Equation of State</SubSubSection>
 <p>It has been shown empirically that an ideal gas obeys the <strong>equation of state</strong> </p>
-<DisplayEquation equation="pV=n\overline{R}T" title="eq:IGeos" />
+<DisplayEquation equation='pV=n\\overline{R}T' title="eq:IGeos" />
 
-\begin{equation*}
-\overline{R} = \begin{cases} 
-<p>	&8.314 \textrm{ kJ/kmol}\cdot\textrm{K}\\</p>
-<p>	&1.986 \textrm{ Btu/lbmol}\cdot\textrm{<InlineEquation equation="^{\\circ}" />R}\\</p>
-<p>	&1545 \textrm{ ft<InlineEquation equation="\\cdot" />lbf/kmol}\cdot\textrm{<InlineEquation equation="^{\\circ}" />R}\\</p>
-	\end{cases}
-\end{equation*}
+<DisplayEquation equation='\\overline{R} = \\begin{cases} 	&8.314 \\textrm{ kJ/kmol}\\cdot\\textrm{K}\\\\	&1.986 \\textrm{ Btu/lbmol}\\cdot\\textrm{<InlineEquation equation="^{\\\\circ}" />R}\\\\	&1545 \\textrm{ ft<InlineEquation equation="\\\\cdot" />lbf/kmol}\\cdot\\textrm{<InlineEquation equation="^{\\\\circ}" />R}\\\\	\\end{cases}' title="" />
 <SubSubSection title="">Temperature Effects</SubSubSection>
 <p><InlineEquation equation="\\overline{R}" /> defines the proportionality constant that converts the average translational kinetic energy of a single particle, <InlineEquation equation="\\langle KE\\rangle " />, to temperature (<InlineEquation equation="N_A" /> is Avagadro's number)</p>
-<DisplayEquation equation="T = \frac{2}{3} \frac{N_A}{\overline{R}}\langle KE \rangle." title="" />
-<p></p><p>
-</p><p></p><p>
-Internal energy \underline{of an ideal gas} depends only on the total molecular kinetic energy.  Therefore, internal energy is solely a function of the temperature, <InlineEquation equation="T" />, and mass of the gas, <InlineEquation equation="m" />. The rate of change of the specific internal energy, <InlineEquation equation="u" />, where <InlineEquation equation="u = U/m" />, of an ideal gas with respect to <InlineEquation equation="T" /> is its constant volume specific heat, <InlineEquation equation="c_v" /></p>
-<DisplayEquation equation="\frac{du}{dT} = c_v" title="" />
+<DisplayEquation equation='T = \\frac{2}{3} \\frac{N_A}{\\overline{R}}\\langle KE \\rangle.' title="" />
+<p>
+</p><p>
+Internal energy <u>of an ideal gas</u> depends only on the total molecular kinetic energy.  Therefore, internal energy is solely a function of the temperature, <InlineEquation equation="T" />, and mass of the gas, <InlineEquation equation="m" />. The rate of change of the specific internal energy, <InlineEquation equation="u" />, where <InlineEquation equation="u = U/m" />, of an ideal gas with respect to <InlineEquation equation="T" /> is its constant volume specific heat, <InlineEquation equation="c_v" /></p>
+<DisplayEquation equation='\\frac{du}{dT} = c_v' title="" />
 <p>It follows that the change in internal energy of an ideal gas due to a change in temperature from <InlineEquation equation="T_1" /> to <InlineEquation equation="T_2" /> is given by</p>
-<DisplayEquation equation="\Delta U = U_2 - U_1 = m\int_{T_1}^{T_2} c_v dT." title="" />
-<p>%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</p>
-<SubSection title="">\teal{Incompressible Fluids}</SubSection>
+<DisplayEquation equation='\\Delta U = U_2 - U_1 = m\\int_{T_1}^{T_2} c_v dT.' title="" />
+
+\subsection{<TealText>Incompressible Fluids</TealText>}
 <p>In the <strong>incompressible substance model</strong>, the volume of a quantity of a substance cannot be compressed or expanded, thus its specific volume is constant. <SubSubSection title="">Internal Energy of Incompressible Fluids</SubSubSection>
-Because the specific volume is not changing, the average intermolecular potential energy, which from the average distance between molecules, cannot change. Thus, the only contribution to an incompressible substance's internal energy comes from atomic and molecular kinetic energy, quantified via temperature. It follows that, like the ideal gas model, the \emph{internal energy of an incompressible substance is a function of temperature only} and </p>
-    \begin{equation*}
-<p>        u = u(T)</p>
-    \end{equation*}
-    \begin{equation*}
-        \label{eqn:cvDefinition}
-        \frac{du}{dT} = c_v.
-    \end{equation*}
+Because the specific volume is not changing, the average intermolecular potential energy, which from the average distance between molecules, cannot change. Thus, the only contribution to an incompressible substance's internal energy comes from atomic and molecular kinetic energy, quantified via temperature. It follows that, like the ideal gas model, the <strong>internal energy of an incompressible substance is a function of temperature only</strong> and </p>
+    <DisplayEquation equation='        u = u(T)' title="" />
+    <DisplayEquation equation='\\frac{du}{dT} = c_v.' title="eqn:cvDefinition" />
 <SubSubSection title="">Specific Heat of Incompressible Fluids</SubSubSection>
-<p>For an incompressible substance, \emph{constant pressure specific heat} <InlineEquation equation="c_p" /> equals \emph{constant volume specific heat} <InlineEquation equation="c_v" />. <InlineEquation equation="c_p" /> is defined as the partial derivative of the enthalpy <InlineEquation equation="h" />, while pressure <InlineEquation equation="p" /> is held constant.</p>
-    \begin{equation*}
-<p>        c_p \equiv \left(\frac{\partial h}{\partial T}\right)_p.</p>
-    \end{equation*}
+<p>For an incompressible substance, <strong>constant pressure specific heat</strong> <InlineEquation equation="c_p" /> equals <strong>constant volume specific heat</strong> <InlineEquation equation="c_v" />. <InlineEquation equation="c_p" /> is defined as the partial derivative of the enthalpy <InlineEquation equation="h" />, while pressure <InlineEquation equation="p" /> is held constant.</p>
+    <DisplayEquation equation='        c_p \\equiv \\left(\\frac{\\partial h}{\\partial T}\\right)_p.' title="" />
 <p>By definition <InlineEquation equation="h = u+pv" />, thus at constant <InlineEquation equation="p" /> and for an incompressible substance (constant <InlineEquation equation="v" />), we can write the partial derivative of <InlineEquation equation="h" /> with respect to <InlineEquation equation="T" /> as</p>
-    \begin{equation*}
-        \left(\frac{\partial h}{\partial T}\right)_p = \left(\frac{\partial u}{\partial T}\right)_p = \frac{du}{dT} = c_v
-    \end{equation*}
+    <DisplayEquation equation='\\left(\\frac{\\partial h}{\\partial T}\\right)_p = \\left(\\frac{\\partial u}{\\partial T}\\right)_p = \\frac{du}{dT} = c_v' title="" />
 <p>where the conversion from a partial to total derivative arises because <InlineEquation equation="u = u(T)" /> for an incompressible substance. Therefore <InlineEquation equation="c_p = \\left(\\frac{\\partial h}{\\partial T}\\right)_p = c_v" /> for an incompressible substance.</p>
-    \begin{equation*}
-<p>        c_p = c_v = c</p>
-    \end{equation*}
+    <DisplayEquation equation='        c_p = c_v = c' title="" />
 <SubSubSection title="">Specific Entropy Change of Incompressible Fluids</SubSubSection>
-<p>For an \emph{ideal gas} with a given, <strong>constant specific heat  <InlineEquation equation="c_v" /></strong>, its change in specific entropy from a state <InlineEquation equation="1" /> to a state <InlineEquation equation="2" /> is given by the expression</p>
-    \begin{equation*}
-<p>        s_2 - s_1 = c_v\ln\frac{T_2}{T_1}+ R \ln\frac{v_2}{v_1}
-    \end{equation*}
+<p>For an <strong>ideal gas</strong> with a given, <strong>constant specific heat  <InlineEquation equation="c_v" /></strong>, its change in specific entropy from a state <InlineEquation equation="1" /> to a state <InlineEquation equation="2" /> is given by the expression</p>
+    <DisplayEquation equation='        s_2 - s_1 = c_v\\ln\\frac{T_2}{T_1}+ R \\ln\\frac{v_2}{v_1}' title="" />
 where <InlineEquation equation="R" /> is the gas constant and <InlineEquation equation="v" /> is the specific volume. Assuming this ideal gas is incompressible, <InlineEquation equation="v_2=v_1" />.  Therefore, </p>
-    \begin{equation*}
-<p>        s_2 - s_1 = c_v\ln\frac{T_2}{T_1}+ R \ln(1)</p>
-    \end{equation*}
+    <DisplayEquation equation='        s_2 - s_1 = c_v\\ln\\frac{T_2}{T_1}+ R \\ln(1)' title="" />
 <p>the ratio of <InlineEquation equation="\\frac{v_2}{v_1}=1" /> and the <InlineEquation equation="ln(1)=0" />, simplifying the change in specific entropy is </p>
-    \begin{equation*}
-<p>        s_2 - s_1 = c\ln\frac{T_2}{T_1},</p>
-    \end{equation*}
+    <DisplayEquation equation='        s_2 - s_1 = c\\ln\\frac{T_2}{T_1},' title="" />
 <p>as long as <InlineEquation equation="c" /> is constant.</p>
 <p>    </p>
-<p></p><p>
-</p><p></p>
+<p>
+</p>
 
 </Layout>
