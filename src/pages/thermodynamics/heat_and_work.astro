@@ -1,0 +1,97 @@
+---
+import Layout from "../../layouts/Layout.astro" 
+import Image from "../../components/Image.astro" 
+import Section from "../../components/Section.astro" 
+import SubSection from "../../components/SubSection.astro" 
+import SubSubSection from "../../components/SubSubSection.astro" 
+import OrangeText from "../../components/OrangeText.astro" 
+import TealText from "../../components/TealText.astro" 
+import Enumerate from "../../components/Enumerate.astro" 
+import Item from "../../components/Item.astro" 
+import Itemize from "../../components/Itemize.astro" 
+import InlineEquation from "../../components/InlineEquation.astro" 
+import DisplayEquation from "../../components/DisplayEquation.astro" 
+---
+<Layout title="Energy Transfers">
+<Section title="Energy Transfers">
+<p>When mass does not flow into or out of a system, the energy of the system changes in only two ways, through the loss or addition of <strong>work</strong> and/or <strong>heat</strong>.</p>
+<p>
+ The internal energy (<InlineEquation equation="U" />) of a system is affected by the energetic contributions from heat flow (<InlineEquation equation="Q" />) in and out of a system and work (<InlineEquation equation="W" />)done by or on a system.  </p>
+<DisplayEquation equation='\\Delta U = Q -  W.' title="Energy balance equation" id="ebal" background="True"/>
+
+<Image src="/thermodynamics/heat_and_work/fig1.png" width="7">
+<strong>Figure 1:</strong> A schematic illustrating the direction of energy flow when heat is transferred to/from the system and work is performed on or by the system.
+</Image>
+
+</Section>
+
+<SubSection title="Heat">
+<p>In thermodynamics, heat <InlineEquation equation="Q" /> is the thermal energy transferred between systems due to a temperature difference. Heat can both flow into and out of a system as shown in <a href="#heatschematic">Figure 2</a>.</p>
+
+<Image src="/thermodynamics/heat_and_work/fig2-real.png" width="7" id="heatschematic">
+    <strong>Figure 2:</strong> A schematic illustrating the heat flow transferred to/from the system.
+</Image>
+</SubSection>
+
+
+
+
+
+<SubSection title="Work">
+<p>Recall from previous physics courses, that when a force <InlineEquation equation="f" /> acts over a distance <InlineEquation equation="d" /> it does work, defined as</p>
+
+<DisplayEquation equation='W=fd.' title="Linear work force-displacement relationship" background="True"/>
+
+<p>However, applied force does not have to be constant during a process. More generally, work is</p>
+<DisplayEquation equation='W=\\int_{d_1}^{d_2}f(x)dx' title="General work force-displacement relationship" background="True" id="genw"/>
+<p>where <InlineEquation equation="f" /> varies along the path parameterized by <InlineEquation equation="x" /> from position <InlineEquation equation="d_1" /> to position <InlineEquation equation="d_2" />, where we are assuming <InlineEquation equation="f" /> is tangent to the path.</p>
+</SubSection>
+
+<SubSubSection title="\\(pV\\) work" id="pvwork-section">
+<p>Work done by or on a gas, is known as <InlineEquation equation="\\boldsymbol{pV}" />~<strong>work</strong>.  A gas, such as the one enclosed in the cylindrical device in <a href="pressure-fig">Figure 3</a>, applies a force uniformly over an area <InlineEquation equation="A" />, due to collisions against the wall, which is defined as pressure,</p>
+
+<DisplayEquation equation='p=\\frac{f}{A}.' title="Pressure definition" id="pdefn" background="True"/>
+
+<Image src="/thermodynamics/heat_and_work/fig2.png" width="6" id="pressure-fig">
+    <strong>Figure 3:</strong> A sub-volume of gas, imparting forces from collisions on a sub-section of the container wall having area, \(A\).
+</Image>
+
+<p>Referring back to the definition of work in Eqn. <a href="#genw">GenW</a>, if <InlineEquation equation="x" /> is a single cartesian direction normal to an area <InlineEquation equation="A" /> then <InlineEquation equation="A\\cdot dx" /> is a differential volume <InlineEquation equation="dV" />.  Additionally, using the definition of pressure Eqn. <a href="#pdefn">pdefn</a>, we can define <InlineEquation equation="pV" /> work as follows,</p>
+
+<DisplayEquation equation="\\begin{aligned} W &=\\int_{d_1}^{d_2}f(x)\\,dx \\\\  &=\\int_{d_1}^{d_2}\\frac{f(x)}{A}A\,dx \\\\  &=\\int_{V_1}^{V_2}p(V)\,dV \\end{aligned}" id="pvwork" background="True" title="\\(pV\\) work equation"/>
+
+
+
+<h4><strong><InlineEquation equation="pV" /> diagrams</strong></h4>
+<p>Graphs whose <InlineEquation equation="y" /> and <InlineEquation equation="x" /> axes are <InlineEquation equation="p" /> and <InlineEquation equation="V" />, respectively.  According to the 
+
+<a href="#pvwork">pV work</a> equation, work is the area under the process curve.  An example is shown in <a href="#pvdiagrams">Figure 4</a>.</p>
+
+<Image src="/thermodynamics/heat_and_work/fig3.png" width="6" id="pvdiagrams">
+    <strong>Figure 4:</strong> \(pV\) diagrams for 2 processes where the start and end state are identical but with differing processes.
+</Image>
+
+
+
+<h4><strong>Isobaric Process:</strong></h4>
+<p>During the process to go from 1 state to another, the system remains at a constant pressure, as shown in <a href="#pvdiagrams">Figure 4</a> (left).</p>
+
+<h4><strong>Work is path dependent:</strong></h4>
+<p>Work transfer depends on the process. <a href="#pvdiagrams">Figure 4</a> shows two processes where despite having the same initial and final thermodynamic states, the difference in magnitude of work for these two processes is different.
+</p>
+
+</SubSubSection>
+
+<SubSubSection title="Shaft work">
+
+<p>Work can also be done via shaft work.  This can be explained by a shaft, on which a weight and pulley are mounted, providing a mechanism for inputting or extracting work as in <a href="#CycleWithThermalReservoir">Figure 6</a>. Work <InlineEquation equation="W_{\\text{cycle}}" /> is done by the lowering mass on the system when the mass is released from its the raised position. The motion of the molecules in the system increases due to the shaft work input. This additional molecular energy temporarily increases the temperature of the system before the excess thermal energy is transmitted as heat <InlineEquation equation="Q" /> to the reservoir.  </p>
+
+<Image src="/thermodynamics/heat_and_work/fig4.png" width="6">
+    <strong>Figure 5:</strong> Spontaneous lowering of a weight on a pulley.
+</Image>
+
+<Image src="/thermodynamics/heat_and_work/fig5.png" width="6" id="CycleWithThermalReservoir">
+    <strong>Figure 6:</strong> A cycle in contact with a single thermal reservoir (left) may operate such that work input leads to an equal amount of heat output. The \(pv\) diagram for one such cycle (right) is shown for a compressor, heat exhanger (hex), and throttle running at steady state.
+</Image>
+</SubSubSection>
+</Layout>

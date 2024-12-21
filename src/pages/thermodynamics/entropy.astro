@@ -1,0 +1,138 @@
+---
+import Layout from "../../layouts/Layout.astro" 
+import Image from "../../components/Image.astro" 
+import Section from "../../components/Section.astro" 
+import SubSection from "../../components/SubSection.astro" 
+import SubSubSection from "../../components/SubSubSection.astro" 
+import OrangeText from "../../components/OrangeText.astro" 
+import TealText from "../../components/TealText.astro" 
+import Enumerate from "../../components/Enumerate.astro" 
+import Item from "../../components/Item.astro" 
+import Itemize from "../../components/Itemize.astro" 
+import InlineEquation from "../../components/InlineEquation.astro" 
+import DisplayEquation from "../../components/DisplayEquation.astro" 
+---
+<Layout title="Entropy">
+<Section title="">Entropy</Section>
+<SubSection title="">The Second Law: Energy dispersal</SubSection>
+<p>All energy spontaneously disperses if it is not prevented from doing so. This fact has been repeatedly deduced from observation and underlies the variety of ways of stating the second law of thermodynamics.</p>
+
+<SubSection title="">Clausius Statement of the Second Law</SubSection>
+<p>Heat <strong>spontaneously</strong> flows from a hot object to a colder object, but not the other way around. It is impossible for any system to operate in such a way that the <u>sole result</u> would be an energy transfer by heat from a cooler to a hotter body.</p>
+
+
+
+
+<SubSubSection title="">Expansion</SubSubSection> A gas trapped in a rigid chamber will fill this container's volume.  If this chamber is to expand, the gas will <strong>spontaneously</strong> expand to fill the entire chamber
+
+
+<p>
+A closed system energy balance on the chamber illustrates that the gas experiences no energy change, <strong>i.e.</strong>, because no heat transfer occurred and no work was done on or by the system.</p>
+<DisplayEquation equation='\\begin{aligned}\\Delta U = U_{\\text{after}} - U_{\\text{before}} &= Q - W \\\\U_{\\text{after}} - U_{\\text{before}} &= 0 \\end{aligned}' title="" />
+<p>Though the energy has not changed, the energy has spread out, or dispersed, within the chamber, meaning there are </p>
+<p>more ways for the energy to exist in the chamber, or that the gas has more <strong>microstates</strong> available to it. </p>
+<SubSubSection title="">Directionality</SubSubSection>
+
+<p>From observations of spontaneous processes, it is suggested that the second law restricts the directionality of processes. Spontaneous processes such as falling objects (Fig.~<OrangeText>fig:WeightLower</OrangeText>) and cooling frying pans are encountered every day. Spontaneous processes are <strong>irreversible</strong>, meaning that after they occur, the system and all parts of its surroundings cannot be exactly restored to their respective initial states. Auxiliary processes that can return the system to its initial state (<strong>i.e.</strong>, raise the object or heat the pan), also change the state of the surroundings. These experiences suggest a directionality to processes that is formalized by the second law of thermodynamics. </p>
+
+
+
+<SubSection title="">Kelvin-Planck Statement of the Second Law</SubSection>
+<h4><strong>Statement:</strong></h4>
+<p>It is impossible for any system to operate in a thermodynamic cycle and deliver a net amount of energy by work to its surroundings while receiving energy by heat transfer from a single thermal reservoir.</p> 
+
+
+
+<strong>Any hypothetical system that violates either the first or the second laws of thermodynamics cannot be.</strong>
+
+<SubSection title="">Clausius Inequality</SubSection>
+<p>The <strong>Clausius inequality</strong>, a collary of the second law, states that for <strong>any</strong> thermodynamic cycle</p>
+<DisplayEquation equation='\\oint \\left(\\frac{\\delta Q}{T}\\right)_b \\leq 0' title="eq:ClausiusIneq" />
+<p>where <InlineEquation equation="\\delta Q" /> is the heat transfer across some part of the system boundary for some portion of the cycle, and <InlineEquation equation="T" /> is the absolute temperature at that part of the system boundary, of which we are reminded by the subscript `b'.</p>
+<SubSubSection title="">Reversible Process</SubSubSection>
+<Itemize>
+
+    <Item>A cycle is reversible when the Clausius inequality becomes equality.</Item>
+    <Item>In a <strong>reversible process</strong>, the system and all parts of its surroundings can be exactly restored to their respective initial states after the process has taken place.</Item>
+    <Item>Such processes cannot occur in reality.   </Item>
+
+</Itemize>
+<SubSubSection title="">Internally Reversible Cycles</SubSubSection>
+<p>Internally reversible processes contain no irreversibilities within the system, but can interact with surroundings that include irreversibilities. Thus the validity of the equality holds, even in surroundings where irreversibilities occur. </p>
+
+<SubSection title="">What is Entropy?</SubSection>
+<p>For a reversible processes, the integral of <InlineEquation equation="\\delta Q/T" /> is <strong>path independent</strong>, and this thermodynamic property is called <strong>entropy</strong>.</p>
+<DisplayEquation equation='S_2 - S_1 = \\left(\\int_1^2 \\frac{\\delta Q}{T}\\right)_{\\text{int rev}}.' title="" />
+<Itemize>
+
+    <Item>Entropy <InlineEquation equation="S" /> is the measure of energy dispersal as a function of temperature.</Item>
+    <Item><strong>Entropy is a state function</strong>, with the state being determined by any two intensive thermodynamic properties.</Item>
+    <Item>An entropy change for an <strong>incompressible substance</strong> depends only on temperature.</Item>
+
+</Itemize>
+
+<SubSubSection title="">Differential form of the closed system energy balance</SubSubSection>
+<p>The differential form of the closed system energy balance for an internally reversible process on a simple, compressible system can be written as,</p>
+<DisplayEquation equation='du = T ds - pdv' title="eq:fund" />
+<SubSubSection title="">Specific Entropy of an Ideal Gas</SubSubSection>
+<p>For an <strong>ideal gas</strong> with a given, <strong>constant specific heat  <InlineEquation equation="c_v" /></strong>, its change in specific entropy from a state <InlineEquation equation="1" /> to a state <InlineEquation equation="2" /> is given by the expression</p>
+<DisplayEquation equation='s_2 - s_1 = c_v\\ln\\frac{T_2}{T_1}+ R \\ln\\frac{v_2}{v_1}' title="" />
+where <InlineEquation equation="R" /> is the gas constant and <InlineEquation equation="v" /> is the specific volume. </p>
+
+
+ For an <strong>ideal gas</strong> with a given, <strong>constant specific heat  <InlineEquation equation="c_p" /></strong>, its change in specific entropy is given by the expression.
+<DisplayEquation equation='s_2 - s_1 = c_p\\ln\\frac{T_2}{T_1}- R \\ln\\frac{p_2}{p_1}.' title="" />
+
+<SubSubSection title="">Differential form of the enthalpy equation</SubSubSection>
+<p>This differential equation of enthalpy and Eqn.<OrangeText>eq:fund</OrangeText> are both known as <strong>fundamental equations</strong> of thermodynamics and relate thermodynamic properties between states. We use these expressions and the ideal gas as a model substance to gain some physical insight about entropy. </p>
+<DisplayEquation equation='dh = Tds + v dp.' title="" />
+
+<SubSection title="">Entropy Balance</SubSection>
+<p>The closed system entropy statement of the second law derives from the Clausius Inequality which in turn derives from the Kelvin-Planck statement. As we have shown, this statement is</p>
+<DisplayEquation equation='S_2 - S_1 = \\left(\\int_1^2 \\frac{\\delta Q}{T}\\right)_{\\text{b}} +\\sigma ' title="eq:Centropy1" />
+<p>where <InlineEquation equation="\\sigma" /> represents the <strong>entropy produced in the system</strong> due to the irreversibilities (Fig.~<OrangeText>fig:EntropyBal</OrangeText>) in the process and the `b' indicates that the heat is transferred across a boundary having temperature <InlineEquation equation="T_b" />. To satisfy the second law, <u><InlineEquation equation="\\sigma \\geq 0" /></u>. Entropy production <InlineEquation equation="\\sigma" /> only equals zero when a process is reversible. </p>
+
+<h4><strong>Expanded Derivation:</strong></h4>
+ 
+
+<DisplayEquation equation='\\left(\\int_1^2 \\frac{\\delta Q}{T}\\right)_{\\text{b}} + \\left(\\int_2^1 \\frac{\\delta Q}{T}\\right)_{\\text{b}} &\\leq 0' title="" />
+<DisplayEquation equation='\\left(\\int_1^2 \\frac{\\delta Q}{T}\\right)_{\\text{b}} + S_1 - S_2 & = -\\sigma' title="" />
+<DisplayEquation equation='S_2 - S_1 &= \\left(\\int_1^2 \\frac{\\delta Q}{T}\\right)_{\\text{b}} +\\sigma' title="eq:EntropyBal" />
+<SubSubSection title="">Entropy Balance and multiple heat transfer events</SubSubSection>
+When boundary temperature is constant, and multiple, distinct heat transfers occur, Eqn.<OrangeText>eq:Centropy1</OrangeText> becomes</p>
+<DisplayEquation equation='S_2 - S_1 = \\sum_i \\frac{Q_i}{T_{\\text{b},i}} +\\sigma. ' title="eq:EntropyBalance" />
+
+<SubSubSection title="">Rate of Change of Entropy</SubSubSection>
+<p>In the absence of mass flow, the rate of change of the entropy in a system is derived as </p>
+<DisplayEquation equation="\\begin{aligned}\\frac{d}{dt}\\left(S - S_0\\right) &= \\frac{d}{dt}\\left( \\sum_i \\frac{Q_i}{T_{\\text{b},i}} +\\sigma \\right) \\\\ \\frac{dS}{dt} &=\\sum_i \\frac{\\dot{Q}_i}{T_{\\text{b},i}} +\\dot{\\sigma}.\\end{aligned}`" />
+
+
+
+<SubSubSection title="">Microstates</SubSubSection>
+<p>The sets of possible configurations of the molecules are known as <strong>microstates</strong> and a state has a higher entropy when there are more microstates available to it.</p>
+
+ When adding mass to a system (as shown via
+<p>a two-dimensional gas of two particles in a volume, which is then doubled as shown at the top of Fig.~<OrangeText>fig:Indistinguishable</OrangeText>), </p>
+<Itemize>
+
+    <Item>If the added particles are identical to the original particles (indistinguishable).  Therefore, the two `microstates' at the lower left are exactly the same even if the particles switch places, and this counts as only one microstate. </Item>
+    <Item>On the other hand, for distinguishable particles, the two microstates are different. More microstates means higher entropy, thus when combining dissimilar materials there is a so-called <strong>entropy of mixing</strong>. (<strong>This course does not include entropy of mixing.</strong>)</Item>
+    <Item>The addition of identical substances requires no <strong>entropy of mixing</strong> and therefore entropy of the new system increases in direct proportion to its increase in mass.</Item>
+
+</Itemize>
+
+
+
+
+<SubSubSection title="">Principal of Superposition</SubSubSection>
+<p>Entropy added to a system thus follows a <strong>principal of superposition</strong> meaning that the total system entropy, <InlineEquation equation="S" />, is the sum of the sub-system entropies.</p>
+<DisplayEquation equation='S = \\sum_i m_is_i,' title="" />
+<p>where each subsystem `<InlineEquation equation="i" />' of mass <InlineEquation equation="m_i" /> has specific entropy <InlineEquation equation="s_i" /> relative to some universal reference state.</p>
+<SubSubSection title="">Open System Entropy Rate Balance</SubSubSection>
+<p>It follows that for an <strong>open system</strong> involving no mixing of substances, the entropy rate balance is simply</p>
+<DisplayEquation equation='\\frac{dS}{dt} =\\sum_i \\frac{\\dot{Q}_i}{T_{\\text{b},i}} + \\sum_{\\text{in}} \\dot{m}_{\\text{in}}s_{\\text{in}} - \\sum_{\\text{out}} \\dot{m}_{\\text{out}}s_{\\text{out}} + \\dot{\\sigma} .' title="eq:EntropyRateBalance" />
+<p>
+</p><p>
+</p>
+
+</Layout>
