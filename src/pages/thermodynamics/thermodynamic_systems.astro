@@ -45,7 +45,7 @@ import RedText from "../../components/RedText.astro"
 </SubSubSection> 
 
 <SubSection title="Units of Interest"></SubSection>
-<SubSubSection title="Typical Units in SI and English Systems"></SubSubSection>
+<SubSubSection title="Typical Units in SI and English Systems">
 
 
 
@@ -102,6 +102,7 @@ import RedText from "../../components/RedText.astro"
       </tr>
     </tbody>
   </DisplayTable>
+</SubSubSection>
 
 <SubSubSection title="Useful Conversions">
 <h4><strong>Pressure</strong></h4>
@@ -155,7 +156,7 @@ import RedText from "../../components/RedText.astro"
  
 
 <DisplayEquation equation='\\int_{y_a}^{y_b} \\frac{1}{y}dy = ln(y)|_{y_a}^{y_b}' title="Integral of the inverse function" background="True"/>
-<DisplayEquation equation='\\int_{y_a}^{y_b} \\frac{1}{y^{\\gamma}}dy = - \\left. \\frac{1}{\\gamma -1}\\frac{1}{y^{\\gamma -1}} \\right|_{y_a}^{y_b} ,~\\textrm{for}~\\gamma \\neq 1' title="Power rule with negative exponents" background="True"/>
+<DisplayEquation equation='\\int_{y_a}^{y_b} \\frac{1}{y^{\\gamma}}dy = - \\left. \\frac{1}{\\gamma -1}\\frac{1}{y^{\\gamma -1}} \\right|_{y_a}^{y_b} ,~\\textrm{for}~\\gamma \\neq 1' title="Power rule with negative exponents \\(\\neq\\) -1" background="True"/>
 <h4><strong>Natural Logs:</strong></h4>
  
 
@@ -205,7 +206,7 @@ A mass flow having rate <InlineEquation equation="\\dot{m}" /> with cross-sectio
 <p>
 The volume occupied by the portion of the stream entering a system is defined by,</p>
 <DisplayEquation equation='V_{\\text{in-flow}}=\\dot{m}\\Delta t v=mv' title="" />
-<p>This volume is pushed at constant pressure, <InlineEquation equation="p" />, into the system, is doing <InlineEquation equation="pV" /> work on the system, which will be described further in <BlueText>section <OrangeText>sec:pvwork</OrangeText>. (link this to section)</BlueText>
+<p>This volume is pushed at constant pressure, <InlineEquation equation="p" />, into the system, is doing <InlineEquation equation="pV" /> work on the system, which will be described further in section <OrangeText>sec:pvwork</OrangeText>.
 </p>
 </SubSubSection>
 <SubSection title="Energy and Energy Flow"></SubSection>
@@ -264,25 +265,34 @@ Given the system shown in <a href="#SysSchematic1">Figure 4</a>, the net work do
 <SubSubSection title="Kinetic Energy">
 <p>A system may find itself in motion with respect to a reference frame. In this first case, work has been done to</p>
 <p>accelerate the system to its velocity. Work done is defined by forces acting over a distance, and work <InlineEquation equation="W_{\\text{KE}}" /> can be done to accelerate the system to its velocity,</p>
-<DisplayEquation equation='W_{\\text{KE}}=\\int_{\\vec{x_1}}^{\\vec{x_2}}\\vec{f}\\,d\\vec{x}.' title="" />
+
+<DisplayEquation equation='W_{\\text{KE}}=\\int_{\\vec{x_1}}^{\\vec{x_2}}\\vec{f}\\,d\\vec{x}.' title="Work-force relationship" background="True"/>
+
 <p>Force is determined from Newton's 2nd law:</p>
-<DisplayEquation equation='\\vec{f}=m\\frac{d\\vec{v}}{dt}=m\\frac{d\\vec{v}}{d\\vec{x}}\\underbrace{\\frac{d\\vec{x}}{dt}}_{\\vec{v}}=m\\vec{v}\\frac{d\\vec{v}}{d\\vec{x}}' title="" />
+
+<DisplayEquation equation='\\vec{f}=m\\frac{d\\vec{v}}{dt}=m\\frac{d\\vec{v}}{d\\vec{x}}\\underbrace{\\frac{d\\vec{x}}{dt}}_{\\vec{v}}=m\\vec{v}\\frac{d\\vec{v}}{d\\vec{x}}' title="Newton's second law" background="True"/>
+
 <p>This results in the following relationship for work done via kinetic energy change (<InlineEquation equation="W_{\\text{KE}}" />)</p>
-<DisplayEquation equation='\\begin{split}W_{\\text{KE}}&=\\int_{\\vec{v_1}}^{\\vec{v_2}}m\\vec{v}\\,d\\vec{v}\\\\&=\\frac{1}{2}m(\\vec{v}_2^2-\\vec{v}_1^1).\\end{split}' title="eq:KE" />
+
+<DisplayEquation equation='\\begin{split}W_{\\text{KE}}&=\\int_{\\vec{v_1}}^{\\vec{v_2}}m\\vec{v}\\,d\\vec{v}\\\\&=\\frac{1}{2}m(\\vec{v}_2^2-\\vec{v}_1^1).\\end{split}' title="Work-momentum relationship" background="True"/>
 <p>Thus the change in kinetic energy of the system.</p>
-<DisplayEquation equation='    W_{\\text{KE}}=\\Delta \\text{KE}' title="" />
+<DisplayEquation equation='    W_{\\text{KE}}=\\Delta \\text{KE}' title="Work done by kinetic energy" background="True"/>
 </p>
 </SubSubSection>
 
 <SubSubSection title="Enthalpy">
 <p>Enthalpy is a state function that is the sum of a system's internal energy <InlineEquation equation="\\mu" /> and the product of its pressure and volume <InlineEquation equation="pv" />.</p>
 <h4><strong>Relative Specific Enthalpy</strong></h4>
-<p><p>The sum <InlineEquation equation="u+pv" /> appears frequently in thermodynamic discussion so it is conveniently defined as relative specific enthalpy <InlineEquation equation="h" />, consisting of the same atomic and molecular kinetic and potential energies as specific internal energy <InlineEquation equation="u" />, but with the addition of</p> 
+<p><p>The sum <InlineEquation equation="u+pv" /> appears frequently in thermodynamic discussion so it is conveniently defined as relative specific enthalpy <InlineEquation equation="h" />, consisting of the same atomic and molecular kinetic and potential energies as specific internal energy <InlineEquation equation="u" />, but with the addition of 
 
 <strong>flow work</strong>, <InlineEquation equation="pv" /></p>
 <DisplayEquation equation='h=u+pv.' title="eqn:RelativeEnthalpy" />
-
-\subsection{<BlueText>Entropy</BlueText>}
-<BlueText>We would like this to link to the Entropy page :)</BlueText>
 </SubSubSection>
+
+<SubSubSection title="Entropy">
+
+  The topic of entropy is discussed on <a href="/entropy">this page.</a>
+</SubSubSection>
+
+
 </Layout>

@@ -13,23 +13,25 @@ import InlineEquation from "../../components/InlineEquation.astro"
 import DisplayEquation from "../../components/DisplayEquation.astro" 
 ---
 <Layout title="Substances">
-<Section title="">Substances</Section>
-\subsection{<TealText>Phases of matter</TealText>} %missing title
+<Section title="Substances"></Section>
+<SubSection title="Phases of matter">
 <p>A phase of matter is homogeneous in both its molecular composition and the structure of its molecules with respect to one another. </p>
 
 <h4><strong>Pure Substance:</strong></h4>
 <p>A pure substance is when a substance occurs in a single phase and is composed of a single type of molecule.</p> 
 
 <TealText><h4><strong>Solid:</strong></h4>
-<p>A substance that has a definite shape and volume is a solid.  The molecules in a solid are tightly packed, and cannot move past one another but vibrate.</TealText></p> 
+<p>A substance that has a definite shape and volume is a solid.  The molecules in a solid are tightly packed, and cannot move past one another but vibrate.</p> 
 
-<TealText><h4><strong>Liquid:</strong></h4>
-<p>A substance that has a definite volume, but no definite shape is a liquid, taking on the shape of their container.  The molecules in a liquid are constantly moving yet still in contact with one another.</TealText></p> 
+<h4><strong>Liquid:</strong></h4>
+<p>A substance that has a definite volume, but no definite shape is a liquid, taking on the shape of their container.  The molecules in a liquid are constantly moving yet still in contact with one another.</p> 
 
-<TealText><h4><strong>Gas:</strong></h4>
-<p>A substance with no definite shape or volume, gases take on the shape or volume of the container they are surrounded by.  Molecules can move freely and have negligible intermolecular interactions.</TealText></p> 
+<h4><strong>Gas:</strong></h4>
+<p>A substance with no definite shape or volume, gases take on the shape or volume of the container they are surrounded by.  Molecules can move freely and have negligible intermolecular interactions.</p>
+</TealText> 
+</SubSection>
 
-<SubSubSection title="">Phase Diagrams</SubSubSection>
+<SubSubSection title="Phase Diagrams">
 <p>A phase diagram is like a map and predicts the phase of a substance according to its thermodynamic properties: <InlineEquation equation="p" />, <InlineEquation equation="T" />, <InlineEquation equation="v" />, <InlineEquation equation="u" />, and <InlineEquation equation="h" />. An example of a <InlineEquation equation="pv" /> liquid-vapor phase diagram for a pure substance is shown below:</p>
 
 <h4><strong>Critical Point:</strong></h4>
@@ -60,8 +62,8 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
 
 <strong>state</strong> of the substance. (Intensive variables are independent of mass. For example, specific volume <InlineEquation equation="v" /> is intensive. Volume <InlineEquation equation="V=mv" /> is not.)
 
-
-<SubSubSection title="">Critical Values and Ideal Gases</SubSubSection>
+</SubSubSection>
+<SubSubSection title="Critical Values and Ideal Gases">
 <p>Ideal gases are modeled as having internal energy entirely composed of kinetic energy due to the absence of any interactions between the particles of the gas, which occurs when:</p>
 <Enumerate>
 
@@ -74,99 +76,101 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
 
 <strong>Low</strong> and <strong>high</strong> are relative terms and depend on the particular gas, specifically its phase behavior.  Reduced values are normalized with respect to their values at the critical point to describe where gases are far enough away from the vapor dome to behave ideally,
 <p>(<InlineEquation equation="p_c" />, <InlineEquation equation="v_c" />, and <InlineEquation equation="T_c" />). The following expressions </p>
-<DisplayEquation equation='p_R = p/p_c \\qquad T_R = T/T_c \\qquad v_R' = \\frac{v}{R(T_c/p_c)}' title="" />
+<DisplayEquation equation='p_R = p/p_c \\qquad T_R = T/T_c \\qquad v_R^\\prime = \\frac{v}{R(T_c/p_c)}' title="" />
 define the <strong>reduced pressure</strong>, <strong>reduced temperature</strong>, and <strong>pseudoreduced specific volume</strong>.</p>
 <h4><strong>Compressibility factor:</strong></h4>
 <p>The compressibility factor, <InlineEquation equation="Z" />, for an ideal gas equals 1, meaning a gas behaves ideally at infinitely small <InlineEquation equation="p" />. Therefore, the more deviation of Z from unity the less ideally a gas behaves.</p> 
 
-<DisplayEquation equation='Z = \\frac{pv}{RT}' title="eq:Z" />
-</p>
+<DisplayEquation equation='Z = \\frac{pv}{RT}' title="Compressibility factor \\(Z\\)" background="True"/>
 
-\begin{tikzpicture}[auto,every text node part/.style={align=center}]
-<p>% left plot</p>
-	\node (ref) at (0,0) [draw=none, coordinate] {};
-	\begin{axis} [at={(ref)},xmin=0, ymin=-5, xmax=10, ymax = 5, samples = 50, 
-<p>			ytick=0, yticklabels={<InlineEquation equation="\\bar{R}" />}, ylabel style={rotate=-90},</p>
-<p>			xtick=\empty, xticklabels={},</p>
-<p>			ylabel={<InlineEquation equation="\\frac{pvM}{T}" />}, xlabel={<InlineEquation equation="p" />},</p>
-<p>			width = 5cm, height=5cm, axis y line = left, axis x line = bottom,</p>
-<p>			thick, fill between/on layer={axis background},ylabel style = {at={(axis description cs:0,0.8)},anchor=south east},</p>
-<p>			xlabel style = {at={(axis description cs:0.95,0)},anchor=north east}]</p>
 
-		\addplot[very thick,dashed] coordinates {(0,0) (3,1)};
-		\addplot[very thick] coordinates {(3,1) (9,3)} node[above]{<InlineEquation equation="T_1" />};
-		\addplot[very thick,dashed] coordinates {(0,0) (3,0.5)};
-		\addplot[very thick] coordinates {(3,0.5) (9,1.5)} node[above]{<InlineEquation equation="T_2" />};
-		\addplot[very thick,dashed] coordinates {(0,0) (3,-0.333)};
-		\addplot[very thick] coordinates {(3,-0.333) (9,-1)} node[above]{<InlineEquation equation="T_3" />};
-		\addplot[very thick,dashed] coordinates {(0,0) (3,-0.833)};
-		\addplot[very thick] coordinates {(3,-0.833) (9,-2.5)} node[above]{<InlineEquation equation="T_4" />};
+</SubSubSection>
 
-	\end{axis}
-
-\end{tikzpicture}
-
-<SubSection title="">Ideal Gases</SubSection>
+<SubSection title="Ideal Gases">
 <p>A gas is a state of matter that has neither independent shape nor volume. When contained, the atoms or molecules that comprise it interact with every boundary of the container.</p>
-<SubSubSection title="">Ideal Gas Assumptions</SubSubSection>
+</SubSection>
+
+<SubSubSection title="Ideal Gas Assumptions">
 <p>An ideal gas is a hypothetical model of a gas that follows the assumptions that</p>
 <Itemize>
-
-	<Item>molecules are infinitesimally small (just points in space)</Item>
-    \begin{itemize}
+	<Item>molecules are infinitesimally small (just points in space)
+    <Itemize>
         <Item>ideal gas molecules never collide with one another</Item>
         <Item>ideal gas molecules occupy no volume</Item>
-    
-</Itemize> 
-	\item intermolecular forces are zero
-    <Itemize>
-
-        <Item>ideal gas molecules  have no potential energies between molecules</Item>
-        <Item>internal energy is only a function of kinetic energy</Item>
-    
+    </Itemize>
+    </Item>
+    <Item> intermolecular forces are zero
+        <Itemize>
+            <Item>ideal gas molecules  have no potential energies between molecules</Item>
+            <Item>internal energy is only a function of kinetic energy</Item>
+        </Itemize>
+    </Item>
 </Itemize>
-\end{itemize}
 
+</SubSubSection>
 
-
-
-<SubSubSection title="">Equation of State</SubSubSection>
+<SubSubSection title="Equation of State">
 <p>It has been shown empirically that an ideal gas obeys the <strong>equation of state</strong> </p>
-<DisplayEquation equation='pV=n\\overline{R}T' title="eq:IGeos" />
+<DisplayEquation equation='pV=n\\overline{R}T' title="Ideal-gas law" background="True"/>
 
-<DisplayEquation equation='\\overline{R} = \\begin{cases} 	&8.314 \\textrm{ kJ/kmol}\\cdot\\textrm{K}\\\\	&1.986 \\textrm{ Btu/lbmol}\\cdot\\textrm{<InlineEquation equation="^{\\\\circ}" />R}\\\\	&1545 \\textrm{ ft<InlineEquation equation="\\\\cdot" />lbf/kmol}\\cdot\\textrm{<InlineEquation equation="^{\\\\circ}" />R}\\\\	\\end{cases}' title="" />
-<SubSubSection title="">Temperature Effects</SubSubSection>
+<DisplayEquation equation='\\overline{R} = \\begin{cases} 	&8.314 \\textrm{ kJ/kmol}\\cdot\\textrm{K}\\\\	&1.986 \\textrm{ Btu/lbmol}\\cdot\\textrm{\\(^\\circ\\)R}\\\\	&1545 \\textrm{ ft \\(\\cdot\\)lbf/kmol}\\cdot\\textrm{\\(^\\circ\\)R}\\\\	\\end{cases}' title="\\(\\overline{R}\\) in different unit systems" background="True"/>
+
+</SubSubSection>
+
+<SubSubSection title="Temperature Effects">
 <p><InlineEquation equation="\\overline{R}" /> defines the proportionality constant that converts the average translational kinetic energy of a single particle, <InlineEquation equation="\\langle KE\\rangle " />, to temperature (<InlineEquation equation="N_A" /> is Avagadro's number)</p>
-<DisplayEquation equation='T = \\frac{2}{3} \\frac{N_A}{\\overline{R}}\\langle KE \\rangle.' title="" />
-<p>
-</p><p>
-Internal energy <u>of an ideal gas</u> depends only on the total molecular kinetic energy.  Therefore, internal energy is solely a function of the temperature, <InlineEquation equation="T" />, and mass of the gas, <InlineEquation equation="m" />. The rate of change of the specific internal energy, <InlineEquation equation="u" />, where <InlineEquation equation="u = U/m" />, of an ideal gas with respect to <InlineEquation equation="T" /> is its constant volume specific heat, <InlineEquation equation="c_v" /></p>
-<DisplayEquation equation='\\frac{du}{dT} = c_v' title="" />
-<p>It follows that the change in internal energy of an ideal gas due to a change in temperature from <InlineEquation equation="T_1" /> to <InlineEquation equation="T_2" /> is given by</p>
-<DisplayEquation equation='\\Delta U = U_2 - U_1 = m\\int_{T_1}^{T_2} c_v dT.' title="" />
 
-\subsection{<TealText>Incompressible Fluids</TealText>}
-<p>In the <strong>incompressible substance model</strong>, the volume of a quantity of a substance cannot be compressed or expanded, thus its specific volume is constant. <SubSubSection title="">Internal Energy of Incompressible Fluids</SubSubSection>
+<DisplayEquation equation='T = \\frac{2}{3} \\frac{N_A}{\\overline{R}}\\langle KE \\rangle.' title="\\(\\color{red} Title? \\)" background="True"/>
+
+<p>
+Internal energy <u>of an ideal gas</u> depends only on the total molecular kinetic energy.  Therefore, internal energy is solely a function of the temperature, <InlineEquation equation="T" />, and mass of the gas, <InlineEquation equation="m" />. The rate of change of the specific internal energy, <InlineEquation equation="u" />, where <InlineEquation equation="u = U/m" />, of an ideal gas with respect to <InlineEquation equation="T" /> is its , <InlineEquation equation="c_v" /></p>
+
+<DisplayEquation equation='\\frac{du}{dT} = c_v' title="Constant volume specific heat \\(c_v\\) in an ideal gas" background="True"/>
+
+<p>It follows that the change in internal energy of an ideal gas due to a change in temperature from <InlineEquation equation="T_1" /> to <InlineEquation equation="T_2" /> is given by</p>
+
+<DisplayEquation equation='\\Delta U = U_2 - U_1 = m\\int_{T_1}^{T_2} c_v dT.' title="Internal energy-temperature relationship" background="True"/>
+</SubSubSection>
+
+<SubSection title="Incompressible Fluids">
+<p>In the <strong>incompressible substance model</strong>, the volume of a quantity of a substance cannot be compressed or expanded, thus its specific volume is constant. </p>
+</SubSection>
+
+<SubSubSection title="Internal Energy of Incompressible Fluids">
+<p>
 Because the specific volume is not changing, the average intermolecular potential energy, which from the average distance between molecules, cannot change. Thus, the only contribution to an incompressible substance's internal energy comes from atomic and molecular kinetic energy, quantified via temperature. It follows that, like the ideal gas model, the <strong>internal energy of an incompressible substance is a function of temperature only</strong> and </p>
     <DisplayEquation equation='        u = u(T)' title="" />
-    <DisplayEquation equation='\\frac{du}{dT} = c_v.' title="eqn:cvDefinition" />
-<SubSubSection title="">Specific Heat of Incompressible Fluids</SubSubSection>
+    <DisplayEquation equation='\\frac{du}{dT} = c_v' title="Constant volume specific heat \\(c_v\\) in an incompressible fluid" background="True"/>
+</SubSubSection>
+
+<SubSubSection title="Specific Heat of Incompressible Fluids">
 <p>For an incompressible substance, <strong>constant pressure specific heat</strong> <InlineEquation equation="c_p" /> equals <strong>constant volume specific heat</strong> <InlineEquation equation="c_v" />. <InlineEquation equation="c_p" /> is defined as the partial derivative of the enthalpy <InlineEquation equation="h" />, while pressure <InlineEquation equation="p" /> is held constant.</p>
+
     <DisplayEquation equation='        c_p \\equiv \\left(\\frac{\\partial h}{\\partial T}\\right)_p.' title="" />
+    
 <p>By definition <InlineEquation equation="h = u+pv" />, thus at constant <InlineEquation equation="p" /> and for an incompressible substance (constant <InlineEquation equation="v" />), we can write the partial derivative of <InlineEquation equation="h" /> with respect to <InlineEquation equation="T" /> as</p>
+
     <DisplayEquation equation='\\left(\\frac{\\partial h}{\\partial T}\\right)_p = \\left(\\frac{\\partial u}{\\partial T}\\right)_p = \\frac{du}{dT} = c_v' title="" />
+
 <p>where the conversion from a partial to total derivative arises because <InlineEquation equation="u = u(T)" /> for an incompressible substance. Therefore <InlineEquation equation="c_p = \\left(\\frac{\\partial h}{\\partial T}\\right)_p = c_v" /> for an incompressible substance.</p>
+
     <DisplayEquation equation='        c_p = c_v = c' title="" />
-<SubSubSection title="">Specific Entropy Change of Incompressible Fluids</SubSubSection>
+</SubSubSection>
+
+<SubSubSection title="Specific Entropy Change of Incompressible Fluids">
+
 <p>For an <strong>ideal gas</strong> with a given, <strong>constant specific heat  <InlineEquation equation="c_v" /></strong>, its change in specific entropy from a state <InlineEquation equation="1" /> to a state <InlineEquation equation="2" /> is given by the expression</p>
+
     <DisplayEquation equation='        s_2 - s_1 = c_v\\ln\\frac{T_2}{T_1}+ R \\ln\\frac{v_2}{v_1}' title="" />
+
 where <InlineEquation equation="R" /> is the gas constant and <InlineEquation equation="v" /> is the specific volume. Assuming this ideal gas is incompressible, <InlineEquation equation="v_2=v_1" />.  Therefore, </p>
+
     <DisplayEquation equation='        s_2 - s_1 = c_v\\ln\\frac{T_2}{T_1}+ R \\ln(1)' title="" />
+
 <p>the ratio of <InlineEquation equation="\\frac{v_2}{v_1}=1" /> and the <InlineEquation equation="ln(1)=0" />, simplifying the change in specific entropy is </p>
+
     <DisplayEquation equation='        s_2 - s_1 = c\\ln\\frac{T_2}{T_1},' title="" />
 <p>as long as <InlineEquation equation="c" /> is constant.</p>
-<p>    </p>
-<p>
-</p>
 
+</SubSubSection>
 </Layout>
