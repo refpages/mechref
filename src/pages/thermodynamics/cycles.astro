@@ -88,27 +88,25 @@ illustrating that the work in these two processes are equal in magnitude but opp
 <DisplayEquation equation='\\int_{T_C}^{T_H} \\frac{c_v}{RT} dT =  \\ln\\left(\\frac{V_1}{V_2}\\right).' title="eq:VT12" />
 <p>Integrating between states <InlineEquation equation="4" /> and <InlineEquation equation="3" /> yields </p>
 <DisplayEquation equation='\\int_{T_C}^{T_H} \\frac{c_v}{RT} dT = \\ln\\left(\\frac{V_4}{V_3}\\right).' title="eq:VT43" />
-<p>The left hand side of both Eqns.<OrangeText>eq:VT12</OrangeText> and \eqref{eq:VT43} are equal so that </p>
+<p>The left hand side of both Eqns.<OrangeText>eq:VT12</OrangeText> and \eqref eq:VT43 are equal so that </p>
 <DisplayEquation equation='\\ln\\left(\\frac{V_1}{V_2}\\right) = \\ln\\left(\\frac{V_4}{V_3}\\right).' title="" />
-<p>or equivalently\sidenote{ <InlineEquation equation="\\ln(x/y) = \\ln x - \\ln y" />.}
+<p>or equivalently\sidenote  <InlineEquation equation="\\ln(x/y) = \\ln x - \\ln y" />.
 <DisplayEquation equation='\\ln\\left(\\frac{V_1}{V_4}\\right) = \\ln\\left(\\frac{V_2}{V_3}\\right).' title="eq:V1234" />
-<p>Recalling the results from the energy balances on the isothermal processes (Eqns.<OrangeText>eq:QH</OrangeText> and \eqref{eq:QC}) we can show that the ratio of the heat influx <InlineEquation equation="Q_H" /> to heat loss <InlineEquation equation="Q_C" /> is</p>
+<p>Recalling the results from the energy balances on the isothermal processes (Eqns.<OrangeText>eq:QH</OrangeText> and \eqref eq:QC ) we can show that the ratio of the heat influx <InlineEquation equation="Q_H" /> to heat loss <InlineEquation equation="Q_C" /> is</p>
 <DisplayEquation equation='\\frac{Q_H}{Q_C} = \\frac{T_H\\ln\\left(\\frac{V_3}{V_2}\\right) }{T_H\\ln\\left(\\frac{V_4}{V_1}\\right)}' title="" />
 <p>Applying Eqn.<OrangeText>eq:V1234</OrangeText>, which defines the relationship between the states before and after the adiabatic processes, we obtain</p>
 <DisplayEquation equation='\\frac{Q_H}{Q_C} = \\frac{T_H}{T_C}' title="eq:HeatTemp" />
 <p>for an ideal gas undergoing a Carnot cycle. </p>
 <SubSubSection title="">Internal Energy Balance of the System</SubSubSection>
 <p>The total change in the internal energy of the Carnot cycle <InlineEquation equation="\\Delta U" /> can alternately be determined by an energy balance on the cycle</p>
-\begin{align}
-\Delta U&= Q - W \label{eq:Ebalance} \\
-<p>&= Q_H - Q_C - W_{12} - \underbrace{W_{23}}_{=Q_H} - \underbrace{W_{34}}_{=-W_{12}} - \underbrace{W_{41}}_{=-Q_C} \label{eq:Ebaldetailed} \\</p>
-<p>&= 0</p>
-\end{align}
+
+<DisplayEquation equation="\\begin{aligned}\\Delta U&= Q - W \\label{eq:Ebalance} \\\\<p>&= Q_H - Q_C - W_{12} - \\underbrace{W_{23}}_{=Q_H} - \\underbrace{W_{34}}_{=-W_{12}} - \\underbrace{W_{41}}_{=-Q_C} \\label{eq:Ebaldetailed} \\\\</p><p>&= 0</p>\\end{aligned}" />
+
 <p>Thus the Carnot cycle is consistent with the energy change for a cycle in general.</p>
 <SubSubSection title="">Thermal Efficiency</SubSubSection>
 <p>This Carnot cycle turns heat input <InlineEquation equation="Q_H" /> into work output <InlineEquation equation="W" />. The thermal efficiency <InlineEquation equation="\\eta" /> for such a <strong>heat engine</strong> is given by </p>
 <DisplayEquation equation='\\eta = \\frac{\\text{net work output}}{\\text{heat input}} = \\frac{W}{Q_H}' title="" />
-<p>Combining <InlineEquation equation="\\Delta U = 0" /> for a cycle, the expression for the energy balance on the cycle (Eqns.<OrangeText>eq:Ebalance</OrangeText> and \eqref{eq:Ebaldetailed}), and the temperature-heat transfer relationship found in Eqn.<OrangeText>eq:HeatTemp</OrangeText> yields</p>
+<p>Combining <InlineEquation equation="\\Delta U = 0" /> for a cycle, the expression for the energy balance on the cycle (Eqns.<OrangeText>eq:Ebalance</OrangeText> and \eqref eq:Ebaldetailed ), and the temperature-heat transfer relationship found in Eqn.<OrangeText>eq:HeatTemp</OrangeText> yields</p>
 <DisplayEquation equation='\\eta = \\frac{Q_H - Q_C}{Q_H} = 1-\\frac{T_C}{T_H}.' title="" />
 <p>A Carnot cycle produces the maximum possible efficiency for any heat engine. The efficiency can only approach <InlineEquation equation="1" /> (equivalent to 100\%) when either <InlineEquation equation="T_C \\to 0" /> or <InlineEquation equation="T_H \\to \\infty" />, neither of which is physically attainable. </p>
 
@@ -127,7 +125,7 @@ An ideal Rankine cycle consists of the following internally reversible processes
 </Itemize>
 <p>
 </p><p>
-Instead, the condenser stream is taken to the saturated liquid state, so that only a compressed liquid must be pumped.\sidenote{Cavitation is less of an issue in the two phase fluid used in the turbine since the vapor bubbles that form nearer the saturated vapor portion of the vapor dome are less driven to collapse.} While state <InlineEquation equation="4" /> could be taken all the way to <InlineEquation equation="T_{\\text{sat}}(p_4 = p_1)" />, this would also lead to practical difficulties since, to maintain an isothermal heat transfer, a large thermal reservoir would be required. Instead, the process from state <InlineEquation equation="4" /> to state <InlineEquation equation="1" /> follows an isobar as shown in the plot below. </p>
+Instead, the condenser stream is taken to the saturated liquid state, so that only a compressed liquid must be pumped.\sidenote Cavitation is less of an issue in the two phase fluid used in the turbine since the vapor bubbles that form nearer the saturated vapor portion of the vapor dome are less driven to collapse. While state <InlineEquation equation="4" /> could be taken all the way to <InlineEquation equation="T_{\\text{sat}}(p_4 = p_1)" />, this would also lead to practical difficulties since, to maintain an isothermal heat transfer, a large thermal reservoir would be required. Instead, the process from state <InlineEquation equation="4" /> to state <InlineEquation equation="1" /> follows an isobar as shown in the plot below. </p>
 
 
 <p>

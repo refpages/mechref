@@ -34,33 +34,39 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
 <SubSubSection title="Phase Diagrams">
 <p>A phase diagram is like a map and predicts the phase of a substance according to its thermodynamic properties: <InlineEquation equation="p" />, <InlineEquation equation="T" />, <InlineEquation equation="v" />, <InlineEquation equation="u" />, and <InlineEquation equation="h" />. An example of a <InlineEquation equation="pv" /> liquid-vapor phase diagram for a pure substance is shown below:</p>
 
-<h4><strong>Critical Point:</strong></h4>
-<p>Point at which at lesser pressures the substance exists as either a liquid or vapor, and above exists as a supercritical fluid.
-<h4><strong>Vapor Dome:</strong></h4>
-<p>Region within the dome-like curve known as the</p></p> 
+<Image src="/thermodynamics/substances/fig1.png" width="6">
+    <strong>Figure 1:</strong> A \(pv\) liquid-vapor phase diagram for a pure substance illustrating the critical point, vapor dome,
+    and liquid and vapor regions.
+</Image>
 
-<strong>two-phase region</strong>, where some part of the substance is in a liquid phase, and some part is in a vapor phase. The substance is in a <strong>liquid phase</strong> when its <InlineEquation equation="p" /> and <InlineEquation equation="v" /> lie in the region to the left of the vapor dome and in a <strong>vapor phase</strong> when its <InlineEquation equation="p" /> and <InlineEquation equation="v" /> lie in the region to the right of the vapor dome.
+<h4><strong>Critical Point:</strong></h4>
+<p>Point at which at lesser pressures the substance exists as either a liquid or vapor, and above exists as a supercritical fluid.</p> 
+
+<h4><strong>Vapor Dome:</strong></h4>
+<p>Region within the dome-like curve known as the <strong>two-phase region</strong>, where some part of the substance is in a liquid phase, and some part is in a vapor phase. The substance is in a <strong>liquid phase</strong> when its <InlineEquation equation="p" /> and <InlineEquation equation="v" /> lie in the region to the left of the vapor dome and in a <strong>vapor phase</strong> when its <InlineEquation equation="p" /> and <InlineEquation equation="v" /> lie in the region to the right of the vapor dome.</p>
+
 <Itemize>
 
     <Item>If <InlineEquation equation="v" /> lies at the intersection of the isotherm and the left side of the vapor dome, the system is said to be in the <strong>saturated liquid</strong> state with specific volume <InlineEquation equation="v_f" />.</Item>
     <Item>If <InlineEquation equation="v" /> lies at the intersection of the isotherm and the right side of the vapor dome, the system is said to be in the <strong>saturated vapor</strong> state <InlineEquation equation="v_g" />.</Item>
-    <Item>If the system is halfway between the liquid and vapor states (see Fig.~<OrangeText>fig:PhaseDiag2phase</OrangeText>) such that the mass of the liquid portion <InlineEquation equation="m_f" /> equals the mass of the vapor portion <InlineEquation equation="m_g" />, then its <strong>quality</strong> <InlineEquation equation="x" /> is given by</Item>
+    <Item>If the system is halfway between the liquid and vapor states (see <a href="#PhaseDiag2phase">Figure 2</a>) such that the mass of the liquid portion <InlineEquation equation="m_f" /> equals the mass of the vapor portion <InlineEquation equation="m_g" />, then its <strong>quality</strong> <InlineEquation equation="x" /> is given by</Item>
         <DisplayEquation equation='            x \\equiv \\frac{m_g}{m_f + m_g} = 0.5' title="" />
 
 </Itemize>
 
+<Image src="/thermodynamics/substances/fig2.png" width="6" id="PhaseDiag2phase">
+    <strong>Figure 2:</strong>  A \(pv\) liquid-vapor phase diagram for a pure substance illustrating thermodynamic properties that define the two-phase region.
+</Image>
+
 
 <h4><strong>Supercritical Fluid:</strong></h4>
-<p>Phase of the substance when existing above the critical point, and possesses characteristics similar to both liquids and gases, but strictly behaves as neither.
-<h4><strong>Isotherm:</strong></h4>
-<p>For a given <InlineEquation equation="p" /> and <InlineEquation equation="v" />, the substance's <InlineEquation equation="T" /> lies on an isotherm. The segment of the isotherm within the vapor dome is</p></p> 
+<p>Phase of the substance when existing above the critical point, and possesses characteristics similar to both liquids and gases, but strictly behaves as neither.</p>
 
-<strong>horizontal</strong> because phase transitions occur at a constant <InlineEquation equation="T" /> and <InlineEquation equation="p" />.
+<h4><strong>Isotherm:</strong></h4>
+<p>For a given <InlineEquation equation="p" /> and <InlineEquation equation="v" />, the substance's <InlineEquation equation="T" /> lies on an isotherm. The segment of the isotherm within the vapor dome is <strong>horizontal</strong> because phase transitions occur at a constant <InlineEquation equation="T" /> and <InlineEquation equation="p" />. </p>
 
 <h4><strong>State of a Substance:</strong></h4>
-<p>If any two independent intensive variables are known (<InlineEquation equation="T, v, p, x, h, u" />), they fix the</p> 
-
-<strong>state</strong> of the substance. (Intensive variables are independent of mass. For example, specific volume <InlineEquation equation="v" /> is intensive. Volume <InlineEquation equation="V=mv" /> is not.)
+<p>If any two independent intensive variables are known (<InlineEquation equation="T, v, p, x, h, u" />), they fix the <strong>state</strong> of the substance. (Intensive variables are independent of mass. For example, specific volume <InlineEquation equation="v" /> is intensive. Volume <InlineEquation equation="V=mv" /> is not.)</p>
 
 </SubSubSection>
 <SubSubSection title="Critical Values and Ideal Gases">
@@ -107,6 +113,10 @@ define the <strong>reduced pressure</strong>, <strong>reduced temperature</stron
     </Item>
 </Itemize>
 
+<Image src="/thermodynamics/substances/fig4.png" width="7" id="PhaseDiag2phase">
+    <strong>Figure 3:</strong>  A sub-volume of gas next to a sub-section of the container wall having area, \(A\).
+</Image>
+
 </SubSubSection>
 
 <SubSubSection title="Equation of State">
@@ -120,7 +130,7 @@ define the <strong>reduced pressure</strong>, <strong>reduced temperature</stron
 <SubSubSection title="Temperature Effects">
 <p><InlineEquation equation="\\overline{R}" /> defines the proportionality constant that converts the average translational kinetic energy of a single particle, <InlineEquation equation="\\langle KE\\rangle " />, to temperature (<InlineEquation equation="N_A" /> is Avagadro's number)</p>
 
-<DisplayEquation equation='T = \\frac{2}{3} \\frac{N_A}{\\overline{R}}\\langle KE \\rangle.' title="\\(\\color{red} Title? \\)" background="True"/>
+<DisplayEquation equation='T = \\frac{2}{3} \\frac{N_A}{\\overline{R}}\\langle KE \\rangle.' title="\\(\\color{red} \\textrm{Title?} \\)" background="True"/>
 
 <p>
 Internal energy <u>of an ideal gas</u> depends only on the total molecular kinetic energy.  Therefore, internal energy is solely a function of the temperature, <InlineEquation equation="T" />, and mass of the gas, <InlineEquation equation="m" />. The rate of change of the specific internal energy, <InlineEquation equation="u" />, where <InlineEquation equation="u = U/m" />, of an ideal gas with respect to <InlineEquation equation="T" /> is its , <InlineEquation equation="c_v" /></p>
@@ -144,32 +154,33 @@ Because the specific volume is not changing, the average intermolecular potentia
 </SubSubSection>
 
 <SubSubSection title="Specific Heat of Incompressible Fluids">
+
 <p>For an incompressible substance, <strong>constant pressure specific heat</strong> <InlineEquation equation="c_p" /> equals <strong>constant volume specific heat</strong> <InlineEquation equation="c_v" />. <InlineEquation equation="c_p" /> is defined as the partial derivative of the enthalpy <InlineEquation equation="h" />, while pressure <InlineEquation equation="p" /> is held constant.</p>
 
-    <DisplayEquation equation='        c_p \\equiv \\left(\\frac{\\partial h}{\\partial T}\\right)_p.' title="" />
+    <DisplayEquation equation='        c_p \\equiv \\left(\\frac{\\partial h}{\\partial T}\\right)_p.' title="Constant pressure specific heat" background="True"/>
     
 <p>By definition <InlineEquation equation="h = u+pv" />, thus at constant <InlineEquation equation="p" /> and for an incompressible substance (constant <InlineEquation equation="v" />), we can write the partial derivative of <InlineEquation equation="h" /> with respect to <InlineEquation equation="T" /> as</p>
 
-    <DisplayEquation equation='\\left(\\frac{\\partial h}{\\partial T}\\right)_p = \\left(\\frac{\\partial u}{\\partial T}\\right)_p = \\frac{du}{dT} = c_v' title="" />
+    <DisplayEquation equation='\\left(\\frac{\\partial h}{\\partial T}\\right)_p = \\left(\\frac{\\partial u}{\\partial T}\\right)_p = \\frac{du}{dT} = c_v' />
 
 <p>where the conversion from a partial to total derivative arises because <InlineEquation equation="u = u(T)" /> for an incompressible substance. Therefore <InlineEquation equation="c_p = \\left(\\frac{\\partial h}{\\partial T}\\right)_p = c_v" /> for an incompressible substance.</p>
 
-    <DisplayEquation equation='        c_p = c_v = c' title="" />
+    <DisplayEquation equation='        c_p = c_v = c' title="\\(c_v\\) & \\(c_p\\) equivalence for incompressible substances" background="True" />
 </SubSubSection>
 
 <SubSubSection title="Specific Entropy Change of Incompressible Fluids">
 
 <p>For an <strong>ideal gas</strong> with a given, <strong>constant specific heat  <InlineEquation equation="c_v" /></strong>, its change in specific entropy from a state <InlineEquation equation="1" /> to a state <InlineEquation equation="2" /> is given by the expression</p>
 
-    <DisplayEquation equation='        s_2 - s_1 = c_v\\ln\\frac{T_2}{T_1}+ R \\ln\\frac{v_2}{v_1}' title="" />
+    <DisplayEquation equation='        s_2 - s_1 = c_v\\ln\\frac{T_2}{T_1}+ R \\ln\\frac{v_2}{v_1}' title="Change in specific entropy " background="True"/>
 
 where <InlineEquation equation="R" /> is the gas constant and <InlineEquation equation="v" /> is the specific volume. Assuming this ideal gas is incompressible, <InlineEquation equation="v_2=v_1" />.  Therefore, </p>
 
-    <DisplayEquation equation='        s_2 - s_1 = c_v\\ln\\frac{T_2}{T_1}+ R \\ln(1)' title="" />
+    <DisplayEquation equation='        s_2 - s_1 = c_v\\ln\\frac{T_2}{T_1}+ R \\ln(1)' />
 
 <p>the ratio of <InlineEquation equation="\\frac{v_2}{v_1}=1" /> and the <InlineEquation equation="ln(1)=0" />, simplifying the change in specific entropy is </p>
 
-    <DisplayEquation equation='        s_2 - s_1 = c\\ln\\frac{T_2}{T_1},' title="" />
+    <DisplayEquation equation='        s_2 - s_1 = c\\ln\\frac{T_2}{T_1},' title="Change in specific entropy for incompressible substances" background="True" />
 <p>as long as <InlineEquation equation="c" /> is constant.</p>
 
 </SubSubSection>

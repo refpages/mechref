@@ -28,7 +28,7 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
 
 <p>
 A closed system energy balance on the chamber illustrates that the gas experiences no energy change, <strong>i.e.</strong>, because no heat transfer occurred and no work was done on or by the system.</p>
-<DisplayEquation equation='\\Delta U = U_{\\text{after}} - U_{\\text{before}} &= Q - W \\\\U_{\\text{after}} - U_{\\text{before}} &= 0 ' title="" />
+<DisplayEquation equation='\\begin{aligned}\\Delta U = U_{\\text{after}} - U_{\\text{before}} &= Q - W \\\\U_{\\text{after}} - U_{\\text{before}} &= 0 \\end{aligned}' title="" />
 <p>Though the energy has not changed, the energy has spread out, or dispersed, within the chamber, meaning there are </p>
 <p>more ways for the energy to exist in the chamber, or that the gas has more <strong>microstates</strong> available to it. </p>
 <SubSubSection title="">Directionality</SubSubSection>
@@ -92,32 +92,6 @@ where <InlineEquation equation="R" /> is the gas constant and <InlineEquation eq
 <DisplayEquation equation='S_2 - S_1 = \\left(\\int_1^2 \\frac{\\delta Q}{T}\\right)_{\\text{b}} +\\sigma ' title="eq:Centropy1" />
 <p>where <InlineEquation equation="\\sigma" /> represents the <strong>entropy produced in the system</strong> due to the irreversibilities (Fig.~<OrangeText>fig:EntropyBal</OrangeText>) in the process and the `b' indicates that the heat is transferred across a boundary having temperature <InlineEquation equation="T_b" />. To satisfy the second law, <u><InlineEquation equation="\\sigma \\geq 0" /></u>. Entropy production <InlineEquation equation="\\sigma" /> only equals zero when a process is reversible. </p>
 
-\begin{center}[h]
-\begin{tikzpicture}[auto,every text node part/.style={align=center},
-<p>	declare function={</p>
-<p>        		curve(\x) = \x^2 + 0.875*\x+0.36;</p>
-<p>		curve2(\x) = (1.7-0.3)/(0.8+0.8)*(\x+0.8)+0.3;</p>
-<p>  	}
-	]</p>
-	\node (ref2) at (<InlineEquation equation=" (ref) + (5,0)" />) [draw=none, coordinate] {};
-	\begin{axis} [at={(ref2)},xmin=-1, ymin=0, xmax=1, ymax = 2, samples = 50, 
-<p>			ytick=\empty, yticklabels={}, ylabel style={rotate=-90},</p>
-<p>			xtick=\empty, xticklabels={},</p>
-<p>			width = 6cm, height=6cm, axis y line = left, axis x line = bottom,</p>
-<p>			domain = -0.8:0.8, fill between/on layer={axis background}]</p>
-		
-		\addplot[name path=g, black, very thick,-stealth] {curve(x)};
-		\addplot[name path=h, black, very thick,stealth-,dashed] {curve2(x)};
-		\addplot[draw=none,decoration={text along path, text align=center, text={irreversible process},}, postaction={decorate}]  {curve(x)+0.1};%mark options={decoration={name=none}} <- not needed here, but might be sometimes.
-		\addplot[draw=none,decoration={text along path, text align=center, text={reversible process},}, postaction={decorate}]  {curve2(x)+0.1};
-		\addplot [only marks] coordinates {
-<p>		(-0.8, {curve(-0.8)})</p>
-<p>		(0.8, {curve(0.8)})</p>
-<p>		};</p>
-		\node [above, color=black] at (axis cs:-0.8, {curve(-0.8)}) {\circled{<InlineEquation equation="1" />}};
-		\node [above, color=black] at (axis cs:0.8, {curve(0.8)}) {\circled{<InlineEquation equation="2" />}};
-	\end{axis}
-\end{tikzpicture}\end{center}\label{fig:EntropyBal}
 <h4><strong>Expanded Derivation:</strong></h4>
  
 
@@ -130,10 +104,8 @@ When boundary temperature is constant, and multiple, distinct heat transfers occ
 
 <SubSubSection title="">Rate of Change of Entropy</SubSubSection>
 <p>In the absence of mass flow, the rate of change of the entropy in a system is derived as </p>
-\begin{align}
-\frac{d}{dt}\left(S - S_0\right) &= \frac{d}{dt}\left( \sum_i \frac{Q_i}{T_{\text{b},i}} +\sigma \right) \\
-\frac{dS}{dt} &=\sum_i \frac{\dot{Q}_i}{T_{\text{b},i}} +\dot{\sigma}.
-\end{align}
+<DisplayEquation equation="\\begin{aligned}\\frac{d}{dt}\\left(S - S_0\\right) &= \\frac{d}{dt}\\left( \\sum_i \\frac{Q_i}{T_{\\text{b},i}} +\\sigma \\right) \\\\ \\frac{dS}{dt} &=\\sum_i \\frac{\\dot{Q}_i}{T_{\\text{b},i}} +\\dot{\\sigma}.\\end{aligned}`" />
+
 
 
 <SubSubSection title="">Microstates</SubSubSection>
