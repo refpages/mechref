@@ -1,3 +1,10 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{color}
+
+\begin{document}
+
+
 \section{Solving complex systems}
 \subsection{Composite Thermodynamic Systems}
 Before starting any problem, it is very helpful to familiarize yourself with the elements being addressed and any terminology being used. In approaching \textbf{integrated, multi-device systems}, following steps provide a framework that may avoid simple mistakes:
@@ -35,39 +42,11 @@ Refrigeration and heat pump cycles differ from a power cycle in $3$ ways: 1) hea
 \end{equation}
 For a refrigeration cycle, the required output is heat removed \emph{from} the cold environment and the necessary input is the net work input $|\dot{W}_{\text{cycle}}|$. For a heat pump, the required output is the heat transferred \emph{to} the hot environment. These performance measures are known as the \textbf{coefficient of performance} $\beta$ and $\gamma$ for a refrigeration cycle and heat pump cycle, respectively. 
 
-\begin{figure}
-\begin{center}
-\begin{tikzpicture}[auto,every text node part/.style={align=center}]
 
-	\node (ref) at (0,0) [draw,coordinate]{};
-	% thermal reservoirs
-	\draw [draw=none, bottom color = white, top color = blue!30] (-1.5,-1.6) -- (1.5,-1.6) arc(0:180:1.5) --cycle;
-	\node [draw=none,text=blue!80,xshift=-0.75 cm, yshift=-1cm] at (ref) {\small{cold}\\[-6pt] \small{reservoir}};
-	\draw [draw=none, bottom color = red!30, top color = white] (-1.5,5.6) -- (1.5,5.6) arc(0:-180:1.5) --cycle;
-	\node [draw=none,text=red!80,xshift=-0.75 cm, yshift=5.3cm] at (ref) {\small{hot}\\[-6pt] \small{reservoir}};
 
-	% cycle
-	\node (condenser) at (ref) [draw, rectangle, fill=white,minimum width=2cm, minimum height = 1cm, very thick] {Evaporator};
-	\node (boiler) at ($(condenser) + (0,4)$) [draw, fill=white,rectangle, minimum width=2cm, minimum height = 1cm, very thick] {Condenser};
-	\node (pump) at ($(condenser) + (-2.5,2)$) [draw, circle, minimum width=1.25cm, very thick,label={right:Compressor}] {};
-	\node (valve) at ($(condenser) + (2.5,2)$) [coordinate]{};
-	\node (valveA) [isosceles triangle, draw, isosceles triangle stretches, minimum height=0.3cm, minimum width=0.3cm, shape border rotate=-90, inner sep=0pt,label=right:{expansion\\[-4pt] valve}] at ($(valve) + (0,0.2)$) {};
-	\node (valveB) [isosceles triangle, draw, isosceles triangle stretches, minimum height=0.3cm, minimum width=0.3cm, shape border rotate=90, inner sep=0pt] at ($(valve) - (0,0.2)$) {};
-	
-	% streams
-	\draw [double, ultra thick, -latex] (boiler.east) -| (valveA.north) node[midway]{\circled{1} $p_1$, $T_1$, $\dot{m}$};
-	\draw [double, ultra thick, -latex] (valveB.south) |- (condenser.east) node[midway]{\circled{2} $T_2$};
-	\draw [double, ultra thick, -latex] (condenser.west) -| (pump.south) node[midway]{$p_3$, sat. vapor \circled{3} };
-	\draw [double, ultra thick, -latex] (pump.north) |- (boiler.west) node[midway]{$p_4$ \circled{4} };
+\color{red} FGIRUE HERE
 
-	% energy flows
-	\draw [ultra thick, latex-,color=Dorange] (pump.west) -- ($(pump.west)+(-1.25,0)$) node[above]{$\dot{W_c}$};
-	\draw [ultra thick, -latex,color=blue!80,decorate,decoration={snake,amplitude=.4mm,segment length=2mm, post length=9pt}] (boiler.north) -- ($(boiler.north)+(0,1)$) node[right]{heat flow out};
-	\draw [ultra thick, -latex,color=red!80,decorate,decoration={snake,amplitude=.4mm,segment length=2mm, post length=9pt}] ($(condenser.south)+(0,-1)$) node[right]{heat flow in} -- (condenser.south);
-
-\end{tikzpicture}\end{center}
-\caption{A schematic of a refrigeration cycle or heat pump cycle. All \textbf{known} properties and energy flows are represented with variables. Refrigerant is the working fluid.}\label{fig:RefrigCycle}
-\end{figure}
+\small{A schematic of a refrigeration cycle or heat pump cycle. All \textbf{known} properties and energy flows are represented with variables. Refrigerant is the working fluid.}\label{fig:RefrigCycle}
 
 
 Refrigeration/heat pump cycle consists of the following types of thermal devices:
@@ -86,34 +65,34 @@ Refrigeration/heat pump cycle consists of the following types of thermal devices
 \hfill
 
 \underline{Step 3a:} The coefficient of performance of the refrigeration cycle, $\beta$, requires $Q_\text{in}$. To solve for $Q_\text{in}$, we can define a combined system of evaporator and expansion valve (streams 1 and 3 are known). The energy balance for the combined evaporator and expansion valve system:
-\begin{align*}
+\[\begin{aligned}
 \cancelto{0}{\frac{dU}{dt}} &= \dot{Q} - \cancelto{0}{\dot{W}} + \sum \dot{m}_\text{in} h_\text{in} - \sum \dot{m}_\text{out} h_\text{out} \\
 &= \dot{Q}_\text{in} + \dot{m} (h_\text{1} - h_\text{3}) \\
 \dot{Q}_\text{in} &= \dot{m} (h_\text{3} - h_\text{1})
-\end{align*}
+\end{aligned}\]
 
 The expression for the coefficient of performance, $\beta$, as a function of $|\dot{W}_{cycle}|$, the heat input, and the heat output that corresponds to a refrigeration cycle is therefore:
-\begin{align*}
+\[\begin{aligned}
 \beta &= \frac{\text{required output}}{\text{necessary input}} \\
 &= \frac{\dot{Q}_\text{in}}{\dot{W}_c} \\
 &= \frac{\dot{m}(h_3-h_1)}{\dot{W}_c}
-\end{align*}
+\end{aligned}\]
 
 
 \underline{Step 3b:} For a heat pump cycle, the coefficient of performance, $\gamma$, requires $Q_\text{out}$. To solve for $Q_\text{out}$, we can define a combined system of compressor and condenser (streams 3 and 1 are known). The energy balance for the combined compressor and condenser system:
-\begin{align*}
+\[\begin{aligned}
 \cancelto{0}{\frac{dU}{dt}} &= \dot{Q} - \dot{W} + \sum \dot{m}_\text{in} h_\text{in} - \sum \dot{m}_\text{out} h_\text{out} \\
 &= - \dot{Q}_\text{out} + \dot{W}_c + \dot{m} (h_\text{3} - h_\text{1}) \\
 \dot{Q}_\text{out} &= \dot{W}_c + \dot{m} (h_\text{3} - h_\text{1})
-\end{align*}
+\end{aligned}\]
 
 The expression for the coefficient of performance $\gamma$ as a function of $|\dot{W}_{cycle}|$, the heat input, and the heat output that corresponds to a heat pump cycle is therefore:
-\begin{align*}
+\[\begin{aligned}
 \gamma &= \frac{\text{required output}}{\text{necessary input}} \\
 &= \frac{\dot{Q}_\text{out}}{\dot{W}_c} \\
 &= \frac{\dot{W}_c + \dot{m}(h_3-h_1)}{\dot{W}_c} \\
 &= 1 + \frac{\dot{m}(h_3-h_1)}{\dot{W}_c}
-\end{align*}
+\end{aligned}\]
 
 \subsection{\red{Transient Systems}}
 A transient system is a system in which the time derivative related to the system gain or loss (such as mass or energy) is not zero, which is the opposite of a steady state system.
@@ -132,36 +111,11 @@ A transient system is a system in which the time derivative related to the syste
 \subsubsection{Transient vs. Steady State Example}
 
 Imagine a two-tiered water fountain as depicted below. The maximum mass capacities of tier A and tier B are $m_{A,max}$ and $m_{B,max}$, respectively. Once the mass in the tier crosses its threshold, water will overflow the tier. The inlet mass flow rate is a constant given by $\dot{m}_{in}$. However, the outlet flow rate is proportional to the amount of material in tier B, written as $\dot{m}_{out} = m_B(t)/\mathcal{T}$, where $1/\mathcal{T}$ is a proportionality constant with units of inverse time and $m_B(t)$ is the mass of the fluid in tier B at time $t$. We can fully describe the fountain's operation at a variety of time points and conditions using the mass balance expressions.
-\begin{figure}[h]
-\begin{center}
-\begin{tikzpicture}[auto,>=latex']
-%	\node[coordinate, left=1cm of tierA.west] (start) {};
-%	\node[coordinate, right=1cm of tierB.east] (end) {};
-	% Flow labels
-	\node(2) at (3.5,-2) [draw=none, fill=none] {$\dot{m}_{in}$}; 
-	\node(3) at (-4.5,-1.4) [draw=none, fill=none] {$\dot{m}_{out}=k m_B$};
-	\node(4) at (1.7,-1.5) [draw=none, fill=none ] {Tier B};
-	\node(5) at (1.5,0.5) [draw=none, fill=none] {Tier A};
-	\node(6) at (-3.8,0) [draw=none, fill=none]{$\mathcal{B}_1$};
-	% Fountain
-	\draw [-,line width=4mm, gray!80] (0,-2) -- (0, 0.4); % pedestal
-	\draw [-,line width=1.5mm,gray!100] (-2.5,0) -- (-2.5,-1.5) -- (-3.5, -1.5); % left tier B
-	\draw [-,line width=1.5mm,gray!100] (2.5,0) --(2.5,-2) -- (-3.5,-2); % right tier B
-	\draw [-,line width=1.5mm,gray!100] (-0.75,0.7) -- (-0.75, 0.1) -- (0.75, 0.1) -- (0.75, 0.7); % tier A
-	\draw [-,line width=2mm, white, rounded corners=5pt] (3,-2.3)  -- (0, -2.3) -- (0, 0.5);
-	\draw [-,line width=1mm, Dlblue, rounded corners=5pt] (3,-2.3)  -- (0, -2.3) -- (0, 0.5); % inlet pipe
-	%Fountain water
-	\draw [Dteal, line width=0.5mm] plot [smooth, tension=1] coordinates {(0,0.5) (0.1, 0.9) (0.2, 0.7)};
-	\draw [Dteal, line width=0.5mm] plot [smooth, tension=1] coordinates {(0,0.5) (-0.1, 0.9) (-0.2, 0.7)};
-	% Flow arrows
-	\draw [-latex,double, line width=0.5mm] (3.75,-2.3) -- (3.1, -2.3);
-	\draw [-latex,double, line width=0.5mm] (-3.5,-1.75) -- (-4.25, -1.75);
-	% System Boundary
-	\draw [dashed, thick, rounded corners=5pt] (-3.5,-2.75) rectangle (3,1);
-\end{tikzpicture}
-\end{center}
+
+\color{red} FIGURE HERE
+
 \caption{A two-tiered water fountain.}\label{fig:Waterfountain}
-\end{figure}
+
 
 \paragraph{Steady-State:}
 Drawing a system boundary, $\mathcal{B}_1$, around the entire fountain and considering when the fountain might be operating in steady-state (The diagonal arrow with the `ss' label indicates that this term is eliminated due to a `steady-state' assumption), Eqn.~\eqref{eq:MassBalanceDiff}, simplifies to,
@@ -190,30 +144,9 @@ Similarly, overflow might occur when the timescale $\mathcal{T}$ is increased, f
 \end{equation}
 
 We model the transient process of turning on the fountain from an initially empty state ($m_A(0) = m_B(0) = 0$), by first re-drawing our system in a way that clarifies system boundaries and mass flows. 
-\begin{figure}
-\begin{center}
-\begin{tikzpicture}[auto,>=latex']
-	\node(tierA) [draw, fill=Dlorange, rectangle, rounded corners=10pt, text width=2cm, text height = 0.5cm, text depth = 0.4cm, text centered,thick, text=white] {Tier A};
-	\node(tierB) [draw, right=1.5cm of tierA.east,fill=Dlblue, rectangle, rounded corners=10pt, text width=2.5cm, text height = 0.7cm, text depth = 0.5cm, text centered,thick, text=white] {Tier B};
-	\node[coordinate, left=1cm of tierA.west] (start) {};
-	\node[coordinate, right=1cm of tierB.east] (end) {};
-	% Flow labels
-	\node(2) at (start) [draw=none, fill=none, yshift = -0.3 cm] {$\dot{m}_{in}$}; 
-	\node(3) [draw=none, fill=none, right=0.4cm of tierB.east,yshift=-0.3cm] {$\dot{m}_{out}=k m_B$};
-	\node(4) [draw=none, fill=none, right=0.3cm of tierA.east,yshift=-0.3cm] {$\dot{m}_{A}$};
-	\node(5) at (start) [draw=none, fill=none, yshift = 0.7cm, xshift=0.3cm] {$\mathcal{B}_A$}; 
-	\node(6) [draw=none, right=0.5cm of tierA.east,yshift=0.7cm] {$\mathcal{B}_B$}; 
-	% Flow arrows
-	\draw [-latex,double,line width=0.5mm] (tierA.east) -- (tierB.west);
-	\draw [-latex,double,line width=0.5mm] (start) -- (tierA.west);
-	\draw [-latex,double,line width=0.5mm] (tierB.east) -- (end);
-	% System Boundaries
-	\draw [dashed, thick, rounded corners=5pt] (-1.5,-1) rectangle (1.4,1);
-	\draw [dashed, thick, rounded corners=5pt] (2.3,-1) rectangle (5.7,1);
-\end{tikzpicture}
-\end{center}
+
+\color{red} FIGURE HERE
 \caption{A block diagram depicting mass flow in the two tier water fountain.}\label{fig:FountainSchematic}
-\end{figure}
 
 First, Tier A will fill. Drawing our system boundary around the Tier A block above ($\mathcal{B}_A$) and using Eqn.~\eqref{eq:MassBalanceInt} we obtain the following expression for the mass in Tier A,
 \begin{equation}
@@ -231,25 +164,9 @@ m_B(t)= \cancel{m_B(0)}e^{-t\mathcal{T}} + \mathcal{T}\dot{m}_{A} (-e^{-t/\mathc
 \end{equation}
 As $t\rightarrow\infty$, the mass $m_B(t)$ asymptotically converges to $\dot{m}_A\mathcal{T}$, just as we found in our earlier steady state solution (Eq.~\eqref{eq:SS_mB}). These results are summarized in Figure~\ref{fig:FountainPlot}. 
 
-\begin{figure}
-\begin{center}
-\begin{tikzpicture}[auto,>=latex']
-	\begin{axis} [xmin=0, ymin=0, xmax=6, ymax = 1.2, samples = 50, 
-			ytick={0.5,1, 1.1}, yticklabels={$m_{A,max}$, $\dot{m}_A\mathcal{T}$, $m_{B,max}$},
-			xtick={0.5,6}, xticklabels={$t_{AB}$, $\infty \rightarrow$},
-			ylabel={mass of water in tier, $m$}, xlabel={time, $t$},
-			legend pos=south east,
-			width = 10cm, height=6cm]
-		
-		\addplot[Dlorange, ultra thick, domain=0:0.5] {x};
-		\addplot[Dlblue, ultra thick, domain=0:0.5] {0};
-		\addplot[black, dashed, domain=0:6] {1.1};
-		\addplot[Dlorange, ultra thick, domain=0.5:6] {0.5};
-		\addplot[Dlblue, ultra thick, domain=0.5:6] {(1-exp(-1*(x-0.5)))/1 };
-		\legend{$m_A$, $m_B$, $m_{B,max}$}
-	\end{axis}
-\end{tikzpicture}
-\end{center}
+\color{red} FIGURE HERE
+
 \caption{A plot of the transient response of the water fountain in both tiers assuming that Tier B does not overflow.}\label{fig:FountainPlot}
-\end{figure}
+
+\end{document}
 

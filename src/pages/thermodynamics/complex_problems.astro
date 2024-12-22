@@ -14,8 +14,8 @@ import InlineEquation from "../../components/InlineEquation.astro"
 import DisplayEquation from "../../components/DisplayEquation.astro" 
 ---
 <Layout title="Complex Problems">
-<Section title="">Solving complex systems</Section>
-<SubSection title="">Composite Thermodynamic Systems</SubSection>
+<Section title="Solving complex systems"></Section>
+<SubSection title="Composite Thermodynamic Systems">
 <p>Before starting any problem, it is very helpful to familiarize yourself with the elements being addressed and any terminology being used. In approaching <strong>integrated, multi-device systems</strong>, following steps provide a framework that may avoid simple mistakes:</p>
 <Enumerate>
 
@@ -25,15 +25,20 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
 
 </Enumerate>
 
-<SubSubSection title="">Step 1: Identify Known States</SubSubSection>
+</SubSection>
+
+<SubSubSection title="Step 1: Identify Known States">
 <p>
 The <strong>state principle</strong> is a guide to aid in determining the number of independent properties required to fix the state of a system. When the state of a system is known, it can be plotted as a single point on a <InlineEquation equation="pv" /> diagram. The state of a <strong>simple, compressible</strong> substance is considered known if at least two intensive properties are known. Recall that intensive properties are independent of the total mass of the substance, such as <InlineEquation equation="v" />, <InlineEquation equation="u" />, <InlineEquation equation="h" />, <InlineEquation equation="T" />, <InlineEquation equation="p" />, and <InlineEquation equation="x" />.</p>
 
-<SubSubSection title="">Step 2: Determine Unknowns</SubSubSection>
+</SubSubSection>
+
+<SubSubSection title="Step 2: Determine Unknowns">
 <p>
 We next apply our knowledge of thermodynamic devices to identify other energy flows in the system that might not be given.  Although the primary purpose of this class is tracking the flow of energy, the preliminary step before writing any energy balance should be to identify mass flow streams and write any mass balances. </p>
+</SubSubSection>
 
-<SubSubSection title="">Step 3: Write Energy Balances</SubSubSection>
+<SubSubSection title="Step 3: Write Energy Balances">
 <p>
 After determining the necessary mass rate balances, we can write energy balances.  Depending on the amount of unknown, as variables needing to be determined there are two approaches to writing energy balances.</p>
 <Enumerate>
@@ -42,18 +47,20 @@ After determining the necessary mass rate balances, we can write energy balances
     <Item>Write an energy rate balance for the entire composite system that includes all devices within the entire composite system.</Item>
 
 </Enumerate>
+
 <p>
-The total possible equations are determined by the sum of the number of `devices' that possess at least one unknown value (energy balances) <InlineEquation equation="N_E" /> and the number of `devices' for which mass streams branch (mass balances) <InlineEquation equation="N_M" />.</p>
+The total possible equations are determined by the sum of the number of `devices` that possess at least one unknown value (energy balances) <InlineEquation equation="N_E" /> and the number of `devices` for which mass streams branch (mass balances) <InlineEquation equation="N_M" />.</p>
+
 <DisplayEquation equation='\\text{Total independent equations} = N_E + N_M' title="" />
 
-<SubSubSection title="">Example: Refrigeration and Heat Pump Cycles</SubSubSection>
+</SubSubSection>
+
+<SubSubSection title="Example: Refrigeration and Heat Pump Cycles">
 <p>Refrigeration and heat pump cycles differ from a power cycle in <InlineEquation equation="3" /> ways: 1) heat is transferred from a cold reservoir to a hot reservoir, going in the opposite direction of spontaneous heat transfer, 2) there is a net power input to accomplish this task, and 3) performance is not quantified in terms of thermal efficiency <InlineEquation equation="\\eta" /> since this performance measurement does not reflect the objective of these cycles. Performance is still quantified as</p>
-<DisplayEquation equation='\\text{Performance} \\equiv \\frac{\\textrm{Required Output}}{\\textrm{Necessary Input}}' title="eq:performance" />
+<DisplayEquation equation='\\text{Performance} \\equiv \\frac{\\textrm{Required Output}}{\\textrm{Necessary Input}}' id="performance" title="Performance" background="True"/>
 <p>For a refrigeration cycle, the required output is heat removed <strong>from</strong> the cold environment and the necessary input is the net work input <InlineEquation equation="|\\dot{W}_{\\text{cycle}}|" />. For a heat pump, the required output is the heat transferred <strong>to</strong> the hot environment. These performance measures are known as the <strong>coefficient of performance</strong> <InlineEquation equation="\\beta" /> and <InlineEquation equation="\\gamma" /> for a refrigeration cycle and heat pump cycle, respectively. </p>
 
-
 <p>
-</p><p>
 Refrigeration/heat pump cycle consists of the following types of thermal devices:</p>
 <Itemize>
 
@@ -63,28 +70,38 @@ Refrigeration/heat pump cycle consists of the following types of thermal devices
 
 </Itemize>
 
-<u>Step 1:</u> The streams that have known states are streams 1 and 3. Known energy flow in the cycle is the power input into the compressor, <InlineEquation equation="\\dot{W}_c" />.
+<p>
+    <u>Step 1:</u> The streams that have known states are streams 1 and 3. Known energy flow in the cycle is the power input into the compressor, <InlineEquation equation="\\dot{W}_c" />.
+</p>
 
-\hfill
+<p>
+    <u>Step 2:</u> The unknowns for this cycle are streams 2 and 4, and heat flow in (<InlineEquation equation="Q_\\text{in}" />) and heat flow out (<InlineEquation equation="Q_\\text{out}" />).
+</p>
 
-<u>Step 2:</u> The unknowns for this cycle are streams 2 and 4, and heat flow in (<InlineEquation equation="Q_\\text{in}" />) and heat flow out (<InlineEquation equation="Q_\\text{out}" />).
-
-\hfill
-
+<p>
 <u>Step 3a:</u> The coefficient of performance of the refrigeration cycle, <InlineEquation equation="\\beta" />, requires <InlineEquation equation="Q_\\text{in}" />. To solve for <InlineEquation equation="Q_\\text{in}" />, we can define a combined system of evaporator and expansion valve (streams 1 and 3 are known). The energy balance for the combined evaporator and expansion valve system:
-<DisplayEquation equation='\\cancelto{0}{\\frac{dU}{dt}} &= \\dot{Q} - \\cancelto{0}{\\dot{W}} + \\sum \\dot{m}_\\text{in} h_\\text{in} - \\sum \\dot{m}_\\text{out} h_\\text{out} \\\\&= \\dot{Q}_\\text{in} + \\dot{m} (h_\\text{1} - h_\\text{3}) \\\\\\dot{Q}_\\text{in} &= \\dot{m} (h_\\text{3} - h_\\text{1})' title="" />
+</p>
+
+<DisplayEquation equation='\\begin{aligned}\\cancelto{0}{\\frac{dU}{dt}} &= \\dot{Q} - \\cancelto{0}{\\dot{W}} + \\sum \\dot{m}_\\text{in} h_\\text{in} - \\sum \\dot{m}_\\text{out} h_\\text{out} \\\\&= \\dot{Q}_\\text{in} + \\dot{m} (h_\\text{1} - h_\\text{3}) \\\\\\dot{Q}_\\text{in} &= \\dot{m} (h_\\text{3} - h_\\text{1})\\end{aligned}' title="" />
+
 <p>
 The expression for the coefficient of performance, <InlineEquation equation="\\beta" />, as a function of <InlineEquation equation="|\\dot{W}_{cycle}|" />, the heat input, and the heat output that corresponds to a refrigeration cycle is therefore:</p>
-<DisplayEquation equation='\\beta &= \\frac{\\text{required output}}{\\text{necessary input}} \\\\&= \\frac{\\dot{Q}_\\text{in}}{\\dot{W}_c} \\\\&= \\frac{\\dot{m}(h_3-h_1)}{\\dot{W}_c}' title="" />
+<DisplayEquation equation='\\begin{aligned}\\beta &= \\frac{\\text{required output}}{\\text{necessary input}} \\\\&= \\frac{\\dot{Q}_\\text{in}}{\\dot{W}_c} \\\\&= \\frac{\\dot{m}(h_3-h_1)}{\\dot{W}_c}\\end{aligned}' title="" />
 </p>
 
+<p>
 <u>Step 3b:</u> For a heat pump cycle, the coefficient of performance, <InlineEquation equation="\\gamma" />, requires <InlineEquation equation="Q_\\text{out}" />. To solve for <InlineEquation equation="Q_\\text{out}" />, we can define a combined system of compressor and condenser (streams 3 and 1 are known). The energy balance for the combined compressor and condenser system:
-<DisplayEquation equation='\\cancelto{0}{\\frac{dU}{dt}} &= \\dot{Q} - \\dot{W} + \\sum \\dot{m}_\\text{in} h_\\text{in} - \\sum \\dot{m}_\\text{out} h_\\text{out} \\\\&= - \\dot{Q}_\\text{out} + \\dot{W}_c + \\dot{m} (h_\\text{3} - h_\\text{1}) \\\\\\dot{Q}_\\text{out} &= \\dot{W}_c + \\dot{m} (h_\\text{3} - h_\\text{1})' title="" />
+</p>
+
+<DisplayEquation equation='\\begin{aligned}\\cancelto{0}{\\frac{dU}{dt}} &= \\dot{Q} - \\dot{W} + \\sum \\dot{m}_\\text{in} h_\\text{in} - \\sum \\dot{m}_\\text{out} h_\\text{out} \\\\&= - \\dot{Q}_\\text{out} + \\dot{W}_c + \\dot{m} (h_\\text{3} - h_\\text{1}) \\\\\\dot{Q}_\\text{out} &= \\dot{W}_c + \\dot{m} (h_\\text{3} - h_\\text{1})\\end{aligned}' title="" />
+
 <p>
 The expression for the coefficient of performance <InlineEquation equation="\\gamma" /> as a function of <InlineEquation equation="|\\dot{W}_{cycle}|" />, the heat input, and the heat output that corresponds to a heat pump cycle is therefore:</p>
-<DisplayEquation equation='\\gamma &= \\frac{\\text{required output}}{\\text{necessary input}} \\\\&= \\frac{\\dot{Q}_\\text{out}}{\\dot{W}_c} \\\\&= \\frac{\\dot{W}_c + \\dot{m}(h_3-h_1)}{\\dot{W}_c} \\\\&= 1 + \\frac{\\dot{m}(h_3-h_1)}{\\dot{W}_c}' title="" />
+<DisplayEquation equation='\\begin{aligned}\\gamma &= \\frac{\\text{required output}}{\\text{necessary input}} \\\\&= \\frac{\\dot{Q}_\\text{out}}{\\dot{W}_c} \\\\&= \\frac{\\dot{W}_c + \\dot{m}(h_3-h_1)}{\\dot{W}_c} \\\\&= 1 + \\frac{\\dot{m}(h_3-h_1)}{\\dot{W}_c}\\end{aligned}' title="" />
 </p>
-<SubSection title=""><RedText>Transient Systems</RedText></SubSection>
+</SubSubSection>
+
+<SubSection title="\\(\\color{red} \\textbf{Transient Systems}\\)">
 <p>A transient system is a system in which the time derivative related to the system gain or loss (such as mass or energy) is not zero, which is the opposite of a steady state system.</p>
 <h4><strong>Transient Systems:</strong></h4>
  
@@ -98,18 +115,23 @@ The expression for the coefficient of performance <InlineEquation equation="\\ga
 
 </Enumerate>
 
-<SubSubSection title="">Transient vs. Steady State Example</SubSubSection>
+</SubSection>
+
+<SubSubSection title="Transient vs. Steady State Example">
 <p>
 Imagine a two-tiered water fountain as depicted below. The maximum mass capacities of tier A and tier B are <InlineEquation equation="m_{A,max}" /> and <InlineEquation equation="m_{B,max}" />, respectively. Once the mass in the tier crosses its threshold, water will overflow the tier. The inlet mass flow rate is a constant given by <InlineEquation equation="\\dot{m}_{in}" />. However, the outlet flow rate is proportional to the amount of material in tier B, written as <InlineEquation equation="\\dot{m}_{out} = m_B(t)/\\mathcal{T}" />, where <InlineEquation equation="1/\\mathcal{T}" /> is a proportionality constant with units of inverse time and <InlineEquation equation="m_B(t)" /> is the mass of the fluid in tier B at time <InlineEquation equation="t" />. We can fully describe the fountain's operation at a variety of time points and conditions using the mass balance expressions.</p>
 
 
 <h4><strong>Steady-State:</strong></h4>
-<p><p>Drawing a system boundary, <InlineEquation equation="</p> \\mathcal{B}_1" />, around the entire fountain and considering when the fountain might be operating in steady-state (The diagonal arrow with the `ss' label indicates that this term is eliminated due to a `steady-state' assumption), Eqn.<OrangeText>eq:MassBalanceDiff</OrangeText>, simplifies to,</p>
+<p>Drawing a system boundary, <InlineEquation equation="\\mathcal{B}_1" />, around the entire fountain and considering when the fountain might be operating in steady-state (The diagonal arrow with the `ss' label indicates that this term is eliminated due to a `steady-state' assumption), Eqn.<OrangeText>eq:MassBalanceDiff</OrangeText>, simplifies to,</p>
+
 <DisplayEquation equation='\\begin{split}\\cancelto{ss}{\\frac{dm}{dt}(t)} &= \\dot{m}_{in} - \\dot{m}_{out}(t) \\\\0 &= \\dot{m}_{in} -  m_B(t)/\\mathcal{T}\\end{split}' title="" />
-from which it is clear that the fountain will operate at steady state whenever </p>
-<DisplayEquation equation='m_{B} = \\dot{m}_{in}\\mathcal{T}. ' title="eq:SS_mB" />
+<p>
+from which it is clear that the fountain will operate at steady state whenever 
+</p>
+<DisplayEquation equation='m_{B} = \\dot{m}_{in}\\mathcal{T}. ' id="SS_mB" title="Steady state mass-balance" background="True"/>
 <h4><strong>Transient System:</strong></h4>
-<p><p>If it rains, an additional mass flow rate <InlineEquation equation="</p> \\dot{m}_{rain}" /> into the fountain must also be considered. Eqn.<OrangeText>eq:MassBalanceDiff</OrangeText> then becomes</p>
+<p><p>If it rains, an additional mass flow rate <InlineEquation equation="\\dot{m}_{rain}" /> into the fountain must also be considered. Eqn.<OrangeText>"eq:Mass"BalanceDiff</OrangeText> then becomes</p>
 <DisplayEquation equation='0 = \\dot{m}_{in} + \\dot{m}_{rain}-  m_B(t)/\\mathcal{T},' title="" />
 <p>from which we conclude that steady state occurs when <InlineEquation equation="m_B= \\mathcal{T}(\\dot{m}_{in}+\\dot{m}_{rain})" />. The fountain will overflow when the mass of water in Tier B is larger than its maximum allowable volume, or when <InlineEquation equation="m_B > m_{B,max}" />. Combining these relations, we determine that the fountain will overflow from rain when</p>
 <DisplayEquation equation='\\dot{m}_{rain} > \\frac{m_{B,max}}{\\mathcal{T}} -\\dot{m}_{in}.' title="" />
@@ -127,9 +149,9 @@ Drawing our system boundary around the Tier B block above (<InlineEquation equat
 <DisplayEquation equation='\\frac{dm_B}{dt}(t) = \\dot{m}_{A} - \\frac{m_B(t)}{\\mathcal{T}}.' title="" />
 <p>It follows that the solution to this first-order, linear differential equation is</p>
 <DisplayEquation equation='m_B(t)= \\cancel{m_B(0)}e^{-t\\mathcal{T}} + \\mathcal{T}\\dot{m}_{A} (-e^{-t/\\mathcal{T}})=  \\mathcal{T}\\dot{m}_{in} (1-e^{-t\\mathcal{T}})' title="" />
-<p>As <InlineEquation equation="t\\rightarrow\\infty" />, the mass <InlineEquation equation="m_B(t)" /> asymptotically converges to <InlineEquation equation="\\dot{m}_A\\mathcal{T}" />, just as we found in our earlier steady state solution (Eq.<OrangeText>eq:SS_mB</OrangeText>). These results are summarized in Figure~<OrangeText>fig:FountainPlot</OrangeText>. </p>
+<p>As <InlineEquation equation="t\\rightarrow\\infty" />, the mass <InlineEquation equation="m_B(t)" /> asymptotically converges to <InlineEquation equation="\\dot{m}_A\\mathcal{T}" />, just as we found in our earlier steady state solution (Eq. <a href="#SS_mB">SS_mB</a>). These results are summarized in Figure~<OrangeText>fig:FountainPlot</OrangeText>. </p>
 
 
-
+</SubSubSection>
 
 </Layout>
