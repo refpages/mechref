@@ -68,12 +68,16 @@ import SubSubSection from "../../../components/SubSubSection.astro"
     ` /> 
     Now, if you have the pages locally running on your computer, they should be accessible at http://localhost:4321/&lt;course_abbreviation&gt;/&lt;page_1&gt; (replace &lt;course_abbreviation&gt; and &lt;page_1&gt; with your respective course abbreviation and page names). Note that while the pages have ".astro" as their file extension, the links to those pages do not include it.
 
+    <br>
+    <br>
+
     <p>
         If you plan on adding images or animations to your course, make sure to create a new folder in `public` as well, with your course abbreviation. You should now have the following structure:
         <CodeBox language="plaintext" code=`
         public
         |--> <course_abbreviation>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|--> <image1>.png
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|--> <course_page>_Figs
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|--> <image>.png
         src
         |--> components
         |--> layouts
