@@ -13,12 +13,32 @@ import InlineEquation from "../../components/InlineEquation.astro"
 import DisplayEquation from "../../components/DisplayEquation.astro" 
 ---
 <Layout title="Heat and Work">
-<Section title="Mass and Energy Balances">
+
+    <div slot="navtree">
+        <ul class='list-group list-group-flush py-0'> 
+            <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#closed_system_energy_rate_balance'>Closed System Energy Rate Balance</a></li>
+            <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#closed_system_energy_balance'>Closed System Energy Balance</a></li>
+            <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#energy_transfer_via_mass_flow'>Energy Transfer via Mass Flow</a>
+                <ul class='list-group list-group-flush py-0'>
+                    <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#internal_energy_change_via_mass_flow'>Internal Energy Change via Mass Flow</a></li>
+                    <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#(pv)_work_done_via_mass_flow'>\\(pV\\) Work Done via Mass Flow</a></li>
+                    <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#total_internal_energy_change_via_mass_flow'>Total Internal Energy Change via Mass Flow</a></li>
+                    <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#relative_specific_enthalpy'>Relative Specific Enthalpy</a></li>
+                </ul>
+            </li>
+            <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#internal_energy_rate_balance'>Internal Energy Rate Balance</a></li>
+            <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#total_energy_balance'>Total Energy Balance</a></li>
+            <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#total_energy_rate_balance'>Total Energy Rate Balance</a></li>
+        </ul>
+    </div>
+
+
+<Section title="Mass and Energy Balances" id="mass_and_energy_balances">
 <p>The rate of change of a system's internal energy is due to the net rate of energy input minus the net rate of energy output. </p>
 
 </Section>
 
-<SubSection title="Closed System Energy Rate Balance"> 
+<SubSection title="Closed System Energy Rate Balance" id="closed_system_energy_rate_balance"> 
 <p>In the absence of mass flow, the closed system energy rate balance depends on the net heat flow rate <InlineEquation equation="\\dot{Q}(t)" /> and the net work transfer rate <InlineEquation equation="\\dot{W}(t)" />, as follows,</p>
 <DisplayEquation equation='\\frac{dU}{dt}=\\dot{Q}(t)-\\dot{W}(t),' id="deltaIE" title="Change in internal energy differential eq." background="True"/>
 
@@ -42,13 +62,13 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
 
 </SubSection>
 
-<SubSection title="Closed System Energy Balance">
+<SubSection title="Closed System Energy Balance" id="closed_system_energy_balance">
 <p>The previous expression for the closed system energy balance can be determined by integrating the closed system energy rate balance (Eqn. <a href="#deltaIE">deltaIE</a>) with respect to time,</p>
 <DisplayEquation equation='\\begin{split}U(t)-U(0)&=\\int_0^t \\dot{Q}(\\tau)d\\tau-\\int_0^t \\dot{W}(\\tau)d\\tau\\\\\\Delta U(t)&=Q(t)-W(t).\\end{split}' id="intUdt" title="Change in internal energy result" background="True"/>
 
 </SubSection>
 
-<SubSection title="Energy Transfer via Mass Flow">
+<SubSection title="Energy Transfer via Mass Flow" id="energy_transfer_via_mass_flow">
 <p>Energy also transfers to or from a system during mass flow. For mass flow into a system, energy increases by the addition of both the internal energy of the additional mass <strong>and</strong> the <InlineEquation equation="pV" /> work done by the mass on the system as it enters, and vice versa.</p>
 
 <Image src="/thermodynamics/mass_and_energy_balances/fig2.png" width="6" />
@@ -56,7 +76,7 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
 </SubSection>
 
 
-<SubSubSection title="Internal Energy Change via Mass Flow">
+<SubSubSection title="Internal Energy Change via Mass Flow" id="internal_energy_change_via_mass_flow">
 
 <p>A mass flow having rate <InlineEquation equation="\\dot{m}" /> with cross-sectional area, <InlineEquation equation="A" />, <u>slowly</u> enters a system. The mass is at a pressure <InlineEquation equation="p" />, has a specific volume <InlineEquation equation="v" />, and has a specific internal energy, <InlineEquation equation="u" />, relative to some reference state.</p>
 <p>The mass flowing into the system, over a given time interval <InlineEquation equation="\\Delta t" />, increases by the the internal energy the system as it enters, by:</p>
@@ -64,7 +84,7 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
 
 </SubSubSection>
 
-<SubSubSection title="\\(pV\\) Work Done via Mass Flow">
+<SubSubSection title="\\(pV\\) Work Done via Mass Flow" id="(pv)_work_done_via_mass_flow">
 <p>The volume occupied by the portion of the stream entering a system is defined by,</p>
 <DisplayEquation equation='V_{\\text{in-flow}}=\\dot{m}\\Delta t v=mv' title="Volume in-flow" background="True"/>
 <p>This volume is pushed at constant pressure, <InlineEquation equation="p" />, into the system, doing <InlineEquation equation="pV" /> work on the system,</p>
@@ -76,7 +96,7 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
 
 </SubSubSection>
 
-<SubSubSection title="Total Internal Energy Change via Mass Flow">
+<SubSubSection title="Total Internal Energy Change via Mass Flow" id="total_internal_energy_change_via_mass_flow">
 <p>It follows that the total increase in the internal energy of the system includes the contributions of both Eqn. <a href="#Deltau_dotm">Deltau_dotm</a> and  Eqn. <a href="#massflowPVwork">massflowPVwork</a>.</p>
 
 <DisplayEquation equation='\\begin{split}\\Delta U&=mu+mpv\\\\&=m(u+pv)\\end{split}' title="Change in internal energy due to mass-flow" background="True"/>
@@ -86,14 +106,14 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
 
 </SubSubSection>
 
-<SubSubSection title="Relative Specific Enthalpy">
+<SubSubSection title="Relative Specific Enthalpy" id="relative_specific_enthalpy">
 <p>Recall, that the sum <InlineEquation equation="u+pv" /> appears frequently in thermodynamic discussion so it is conveniently defined as relative specific enthalpy <InlineEquation equation="h" />, consisting of the same atomic and molecular kinetic and potential energies as specific internal energy <InlineEquation equation="u" />, but with the addition of <strong>flow work</strong>, <InlineEquation equation="pv" /></p>
 
 <DisplayEquation equation='h=u+pv.' id="RelativeEnthalpy" title="Relative enthalpy" background="True"/>
 
 </SubSubSection>
 
-<SubSection title="Internal Energy Rate Balance">
+<SubSection title="Internal Energy Rate Balance" id="internal_energy_rate_balance">
 <p>In thermodynamic systems that experience both mass flow rates <InlineEquation equation="\\dot{m}_{\\text{in}}" /> and <InlineEquation equation="\\dot{m}_{\\text{out}}" />, net heat flow rate, <InlineEquation equation="\\dot{Q}" />, into the system, and performs work at a rate <InlineEquation equation="\\dot{W}" /> on its surroundings, a generalized energy rate balance can be used to describe all of these changes at once.</p>
 
 <Image src="/thermodynamics/mass_and_energy_balances/fig4.png" width="6" />
@@ -119,14 +139,14 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
 
 </SubSection>
 
-<SubSection title="Total Energy Balance">
+<SubSection title="Total Energy Balance" id="total_energy_balance">
 <p>The kinetic and potential energy changes contribute to the <strong>total energy</strong> <InlineEquation equation="\\Delta E" /> of the system</p>
 
 <DisplayEquation equation='\\Delta E=\\Delta U+ \\Delta \\text{PE}+ \\Delta \\text{KE}' title="Change in total energy" background="True"/>
 
 </SubSection>
 
-<SubSection title="Total Energy Rate Balance">
+<SubSection title="Total Energy Rate Balance" id="total_energy_rate_balance">
 <p>The most general form of the energy rate balance <InlineEquation equation="\\frac{dE}{dt}" /></p>
 <p>accounts for internal energy effects, along with kinetic and gravitational potential energy effects on the system via the <strong>total energy</strong> <InlineEquation equation="E" />.</p>
 

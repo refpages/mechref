@@ -13,11 +13,29 @@ import InlineEquation from "../../components/InlineEquation.astro"
 import DisplayEquation from "../../components/DisplayEquation.astro" 
 ---
 <Layout title="Cycles">
-<Section title="Power Cycles">
+
+    <div slot="navtree">
+        <ul class='list-group list-group-flush py-0'> 
+            <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#carnot_cycle'>Carnot cycle</a>
+                <ul class='list-group list-group-flush py-0'> 
+                    <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#carnot_cycle_steps'>Carnot Cycle Steps</a></li>
+                    <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#isothermal_processes'>Isothermal Processes</a></li>
+                    <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#adiabatic_processes'>Adiabatic Processes</a></li>
+                    <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#internal_energy_balance_of_the_system'>Internal Energy Balance of the System</a></li>
+                    <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#thermal_efficiency'>Thermal Efficiency</a></li>
+                </ul>
+            </li>
+            <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#a_rankine_cycle'>A Rankine Cycle</a></li>
+            <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#otto_cycle'>Otto Cycle</a></li>
+        </ul>
+    </div>
+
+
+<Section title="Power Cycles" id="power_cycles">
 <p>Much of the power that we use in our daily lives is produced through cycles operating with a working fluid.</p>
 </Section>
 
-<SubSection title="Carnot cycle">
+<SubSection title="Carnot cycle" id="carnot_cycle">
 <p>A <strong>Carnot cycle</strong> is defined as an ideal gas, undergoing a 4-step, reversible, closed thermodynamic cycle. Imagine that an ideal gas contained within a piston-cylinder undergoes the series of processes depicted in Fig. <a href="#CarnotCycle">CarnotCycle</a> below, with the gas starting in state <InlineEquation equation="1" /> before progressing to states <InlineEquation equation="2" />, <InlineEquation equation="3" />, <InlineEquation equation="4" />, and then returning to state <InlineEquation equation="1" /> to complete a cycle. </p>
 
 <Image src="/thermodynamics/cycles/fig1.png" width="6" id="CarnotCycle">
@@ -36,7 +54,7 @@ During the cycle, the system contacts sequentially a hot reservoir and a cold re
 
 </SubSection>
 
-<SubSubSection title="Carnot Cycle Steps">
+<SubSubSection title="Carnot Cycle Steps" id="carnot_cycle_steps">
 <p>
 In processes <InlineEquation equation="2 \\to 3" /> and <InlineEquation equation="3 \\to 4" />, work is done by the gas. Figure <a href="#PVwork1">PVwork1</a> illustrates two potential, monotonic processes corresponding to positive work, or work done by the gas. On the left, pressure is higher in state <InlineEquation equation="b" /> than state <InlineEquation equation="a" />. On the right, pressure is higher in state <InlineEquation equation="a" /> than state <InlineEquation equation="b" />. <InlineEquation equation="V_b > V_a" /> in both cases. When illustrating the magnitude of the work to be determined, the arrow is drawn out of the system as shown in state <InlineEquation equation="1" />. </p>
 
@@ -91,7 +109,7 @@ The work done by the cycle <InlineEquation equation="W" /> is positive and equal
 
 </SubSubSection>
 
-<SubSubSection title="Isothermal Processes">
+<SubSubSection title="Isothermal Processes" id="isothermal_processes">
 
 <p>For isothermal processes <InlineEquation equation="2 \\to 3" /> and <InlineEquation equation="4 \\to 1" /> the work is determined by the <InlineEquation equation="p(V)" /> relation in Eqn. <a href="#IG_eos2">IG_eos2</a>
 which yields</p>
@@ -106,7 +124,7 @@ which yields</p>
 
 </SubSubSection>
 
-<SubSubSection title="Adiabatic Processes">
+<SubSubSection title="Adiabatic Processes" id="adiabatic_processes">
 <p>For adiabatic, reversible processes <InlineEquation equation="1 \\to 2" /> and <InlineEquation equation="3 \\to 4" /> the work is given by</p>
 <DisplayEquation equation='W_{12} = \\int_{V_1}^{V_2} \\frac{C_{12}}{V^{\\gamma}} dV \\text{ and } W_{34} = \\int_{V_3}^{V_4} \\frac{C_{34}}{V^{\\gamma}} dV' title="" />
 <p>which, when integrated yield</p>
@@ -134,7 +152,7 @@ illustrating that the work in these two processes are equal in magnitude but opp
 
 </SubSubSection>
 
-<SubSubSection title="Internal Energy Balance of the System">
+<SubSubSection title="Internal Energy Balance of the System" id="internal_energy_balance_of_the_system">
 <p>The total change in the internal energy of the Carnot cycle <InlineEquation equation="\\Delta U" /> can alternately be determined by an energy balance on the cycle</p>
 
 <DisplayEquation equation="\\begin{aligned}\\Delta U&= Q - W \\label{Ebalance} \\\\&= Q_H - Q_C - W_{12} - \\underbrace{W_{23}}_{=Q_H} - \\underbrace{W_{34}}_{=-W_{12}} - \\underbrace{W_{41}}_{=-Q_C} \\label{Ebaldetailed} \\\\&= 0\\end{aligned}" />
@@ -143,7 +161,7 @@ illustrating that the work in these two processes are equal in magnitude but opp
 
 </SubSubSection>
 
-<SubSubSection title="Thermal Efficiency">
+<SubSubSection title="Thermal Efficiency" id="thermal_efficiency">
 <p>This Carnot cycle turns heat input <InlineEquation equation="Q_H" /> into work output <InlineEquation equation="W" />. The thermal efficiency <InlineEquation equation="\\eta" /> for such a <strong>heat engine</strong> is given by </p>
 <DisplayEquation equation='\\eta = \\frac{\\text{net work output}}{\\text{heat input}} = \\frac{W}{Q_H}' title="Heat engine efficiency" background="True"/>
 
@@ -160,7 +178,7 @@ illustrating that the work in these two processes are equal in magnitude but opp
 
 </SubSubSection>
 
-<SubSection title="A Rankine Cycle">
+<SubSection title="A Rankine Cycle" id="a_rankine_cycle">
 <p>The Rankine cycle is the basis for steam-electric power plants, which produce nearly 90% of all electricity worldwide.  This cycle includes two isentropic processes, and utilizes isobaric heat transfers. </p>
 
 <p>
@@ -187,7 +205,7 @@ For reversible processes, the second law can be written as:</p>
 
 </SubSection>
 
-<SubSection title="Otto Cycle">
+<SubSection title="Otto Cycle" id="otto_cycle">
 <p>The Otto cycle provides an approximation of the internal combustion engines that still make up the largest share of the transportation industry. </p>
 <p>
 An automotive internal combustion engine uses a reciprocating piston-cylinder action to produce work.  In a four-stroke engine</p>

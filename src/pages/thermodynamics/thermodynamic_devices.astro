@@ -11,33 +11,47 @@ import Itemize from "../../components/Itemize.astro"
 import DisplayEquation from "../../components/DisplayEquation.astro" 
 ---
 <Layout title="Thermodynamic devices">
-<Section title="Thermodynamic Devices"></Section>
-<SubSection title="Nozzle">
+
+    <div slot="navtree">
+        <ul class='list-group list-group-flush py-0'>
+            <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#nozzle'>Nozzle</a></li>
+            <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#diffuser'>Diffuser</a></li>
+            <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#turbine'>Turbine</a></li>
+            <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#compressor'>Compressor</a></li>
+            <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#pump'>Pump</a></li>
+            <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#throttling_device'>Throttling device</a></li>
+            <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#heat_exchanger'>Heat Exchanger</a></li>
+        </ul>   
+    </div>
+
+
+<Section title="Thermodynamic Devices" id="thermodynamic_devices"></Section>
+<SubSection title="Nozzle" id="nozzle">
 <p>A flow passage that uses changes in cross-sectional area to increase the velocity (at the expense of pressure) of a fluid in the direction of flow. (narrows)</p>
 
 </SubSection>
 
-<SubSection title="Diffuser">
+<SubSection title="Diffuser" id="diffuser">
 <p>A flow passage that uses changes in cross-sectional area to decrease the velocity of a fluid and increase its pressure in the direction of flow. (narrows)</p>
 </SubSection>
 
-<SubSection title="Turbine">
+<SubSection title="Turbine" id="turbine">
 <p>A device for generating power as a result of the flow of fluid through it. Flow forces a set of blades to rotate a shaft via which work is output.</p>
 </SubSection>
 
-<SubSection title="Compressor">
+<SubSection title="Compressor" id="compressor">
 <p>The reverse of a turbine. Work is input into the device in order to change the state of a gas in such a way as to make it flow (by an increase in its pressure).</p>
 </SubSection>
 
-<SubSection title="Pump">
+<SubSection title="Pump" id="pump">
 <p>Similar to a compressor. Work is input into the device in order to change the state of a liquid in such a way as to make it flow (by an increase in its pressure or elevation).</p>
 </SubSection>
 
-<SubSection title="Throttling device">
+<SubSection title="Throttling device" id="throttling_device">
 <p>A device used to reduce the pressure of a flow. Enthalpy of the working fluid can be approximated as constant.(narrows)</p>
 </SubSection>
 
-<SubSection title="Heat Exchanger">
+<SubSection title="Heat Exchanger" id="heat_exchanger">
 <p>A device for transferring heat from one fluid substance to another.</p>
 </SubSection>
 </Layout>

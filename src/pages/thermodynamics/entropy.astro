@@ -13,12 +13,50 @@ import InlineEquation from "../../components/InlineEquation.astro"
 import DisplayEquation from "../../components/DisplayEquation.astro" 
 ---
 <Layout title="Entropy">
-<Section title="Entropy"></Section>
-<SubSection title="The Second Law: Energy dispersal">
+
+<div slot="navtree">
+    <ul class='list-group list-group-flush py-0'> 
+        <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#the_second_law_energy_dispersal'>The Second Law: Energy dispersal</a></li>
+        <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#clausius_statement_of_the_second_law'>Clausius Statement of the Second Law</a>
+            <ul class='list-group list-group-flush py-0'>
+                <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#expansion'>Expansion</a></li>
+                <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#directionality'>Directionality</a></li>
+            </ul>  
+        </li>
+        <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#kelvin-planck_statement_of_the_second_law'>Kelvin-Planck Statement of the Second Law</a></li>
+        <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#clausius_inequality'>Clausius Inequality</a>
+            <ul class='list-group list-group-flush py-0'>
+                <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#reversible_process'>Reversible Process</a></li>
+                <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#internally_reversible_cycles'>Internally Reversible Cycles</a></li>
+            </ul>
+        </li>
+
+        <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#what_is_entropy?'>What is Entropy?</a>
+            <ul class='list-group list-group-flush py-0'>
+                <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#differential_form_of_the_closed_system_energy_balance'>Differential form of the closed system energy balance</a></li>
+                <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#specific_entropy_of_an_ideal_gas'>Specific Entropy of an Ideal Gas</a></li>
+                <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#differential_form_of_the_enthalpy_equation'>Differential form of the enthalpy equation</a></li>
+            </ul>
+        </li>
+        <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#entropy_balance'>Entropy Balance</a>
+            <ul class='list-group list-group-flush py-0'>
+                <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#entropy_balance_and_multiple_heat_transfer_events'>Entropy Balance and multiple heat transfer events</a></li>
+                <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#rate_of_change_of_entropy'>Rate of Change of Entropy</a></li>
+                <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#microstates'>Microstates</a></li>
+                <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#principal_of_superposition'>Principal of Superposition</a></li>
+                <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#open_system_entropy_rate_balance'>Open System Entropy Rate Balance</a></li>
+            </ul>
+        </li>
+    </ul>
+</div>
+
+
+<Section title="Entropy" id="entropy"></Section>
+<SubSection title="The Second Law: Energy dispersal" id="the_second_law_energy_dispersal">
 <p>All energy spontaneously disperses if it is not prevented from doing so. This fact has been repeatedly deduced from observation and underlies the variety of ways of stating the second law of thermodynamics.</p>
 </SubSection>
 
-<SubSection title="Clausius Statement of the Second Law">
+<SubSection title="Clausius Statement of the Second Law" id="clausius_statement_of_the_second_law">
 <p>Heat <strong>spontaneously</strong> flows from a hot object to a colder object, but not the other way around. It is impossible for any system to operate in such a way that the <u>sole result</u> would be an energy transfer by heat from a cooler to a hotter body.</p>
 
 <Image src="/thermodynamics/entropy/fig1.png" width="5">
@@ -28,7 +66,7 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
 
 
 
-<SubSubSection title="Expansion"> A gas trapped in a rigid chamber will fill this container's volume.  If this chamber is to expand, the gas will <strong>spontaneously</strong> expand to fill the entire chamber.
+<SubSubSection title="Expansion" id="expansion"> A gas trapped in a rigid chamber will fill this container's volume.  If this chamber is to expand, the gas will <strong>spontaneously</strong> expand to fill the entire chamber.
 
 <Image src="/thermodynamics/entropy/fig2.png" width="7">
     <strong>Figure 2:</strong> Spontaneous expansion of a gas.
@@ -43,7 +81,7 @@ A closed system energy balance on the chamber illustrates that the gas experienc
 
 </SubSubSection>
 
-<SubSubSection title="Directionality">
+<SubSubSection title="Directionality" id="directionality">
 
 <Image src="/thermodynamics/entropy/fig3.png" width="6" id="WeightLower">
     <strong>Figure 3:</strong> Spontaneous lowering of a weight on a pulley.
@@ -54,14 +92,14 @@ A closed system energy balance on the chamber illustrates that the gas experienc
 
 </SubSubSection>
 
-<SubSection title="Kelvin-Planck Statement of the Second Law">
+<SubSection title="Kelvin-Planck Statement of the Second Law" id="kelvin-planck_statement_of_the_second_law">
 <h4><strong>Statement:</strong></h4>
 <p>It is impossible for any system to operate in a thermodynamic cycle and deliver a net amount of energy by work to its surroundings while receiving energy by heat transfer from a single thermal reservoir.</p> 
 
 <strong>Any hypothetical system that violates either the first or the second laws of thermodynamics cannot be.</strong>
 </SubSection>
 
-<SubSection title="Clausius Inequality">
+<SubSection title="Clausius Inequality" id="clausius_inequality">
 <p>The <strong>Clausius inequality</strong>, a collary of the second law, states that for <strong>any</strong> thermodynamic cycle</p>
 
 <DisplayEquation equation='\\oint \\left(\\frac{\\delta Q}{T}\\right)_b \\leq 0' id="ClausiusIneq" title="Clausius inequality" background="True"/>
@@ -69,7 +107,7 @@ A closed system energy balance on the chamber illustrates that the gas experienc
 <p>where <InlineEquation equation="\\delta Q" /> is the heat transfer across some part of the system boundary for some portion of the cycle, and <InlineEquation equation="T" /> is the absolute temperature at that part of the system boundary, of which we are reminded by the subscript `b`.</p>
 </SubSection>
 
-<SubSubSection title="Reversible Process">
+<SubSubSection title="Reversible Process" id="reversible_process">
 <Itemize>
 
     <Item>A cycle is reversible when the Clausius inequality becomes equality.</Item>
@@ -79,11 +117,11 @@ A closed system energy balance on the chamber illustrates that the gas experienc
 </Itemize>
 </SubSubSection>
 
-<SubSubSection title="Internally Reversible Cycles">
+<SubSubSection title="Internally Reversible Cycles" id="internally_reversible_cycles">
 <p>Internally reversible processes contain no irreversibilities within the system, but can interact with surroundings that include irreversibilities. Thus the validity of the equality holds, even in surroundings where irreversibilities occur. </p>
 </SubSubSection>
 
-<SubSection title="What is Entropy?">
+<SubSection title="What is Entropy?" id="what_is_entropy?">
 <p>For a reversible processes, the integral of <InlineEquation equation="\\delta Q/T" /> is <strong>path independent</strong>, and this thermodynamic property is called <strong>entropy</strong>.</p>
 <DisplayEquation equation='S_2 - S_1 = \\left(\\int_1^2 \\frac{\\delta Q}{T}\\right)_{\\text{int rev}}.' title="" />
 <Itemize>
@@ -95,7 +133,7 @@ A closed system energy balance on the chamber illustrates that the gas experienc
 </Itemize>
 </SubSection>
 
-<SubSubSection title="Differential form of the closed system energy balance">
+<SubSubSection title="Differential form of the closed system energy balance" id="differential_form_of_the_closed_system_energy_balance">
 
 <p>The differential form of the closed system energy balance for an internally reversible process on a simple, compressible system can be written as,</p>
 
@@ -103,7 +141,7 @@ A closed system energy balance on the chamber illustrates that the gas experienc
 
 </SubSubSection>
 
-<SubSubSection title="Specific Entropy of an Ideal Gas">
+<SubSubSection title="Specific Entropy of an Ideal Gas" id="specific_entropy_of_an_ideal_gas">
 
 <p>For an <strong>ideal gas</strong> with a given, <strong>constant specific heat  <InlineEquation equation="c_v" /></strong>, its change in specific entropy from a state <InlineEquation equation="1" /> to a state <InlineEquation equation="2" /> is given by the expression</p>
 
@@ -118,13 +156,13 @@ where <InlineEquation equation="R" /> is the gas constant and <InlineEquation eq
 
 </SubSubSection>
 
-<SubSubSection title="Differential form of the enthalpy equation">
+<SubSubSection title="Differential form of the enthalpy equation" id="differential_form_of_the_enthalpy_equation">
 <p>This differential equation of enthalpy and Eqn. <a href="#fund">fund</a> are both known as <strong>fundamental equations</strong> of thermodynamics and relate thermodynamic properties between states. We use these expressions and the ideal gas as a model substance to gain some physical insight about entropy. </p>
 <DisplayEquation equation='dh = Tds + v dp.' title="Differential form of enthalpy equation" background="True"/>
 
 </SubSubSection>
 
-<SubSection title="Entropy Balance">
+<SubSection title="Entropy Balance" id="entropy_balance">
 <p>The closed system entropy statement of the second law derives from the Clausius Inequality which in turn derives from the Kelvin-Planck statement. As we have shown, this statement is</p>
 
 <DisplayEquation equation='S_2 - S_1 = \\left(\\int_1^2 \\frac{\\delta Q}{T}\\right)_{\\text{b}} +\\sigma ' id="Centropy1" derivation="True" background="True" title="\\(\\color{red} \\textrm{Title?}\\)">
@@ -138,18 +176,18 @@ where <InlineEquation equation="R" /> is the gas constant and <InlineEquation eq
 
 </SubSection>
 
-<SubSubSection title="Entropy Balance and multiple heat transfer events">
+<SubSubSection title="Entropy Balance and multiple heat transfer events" id="entropy_balance_and_multiple_heat_transfer_events">
 When boundary temperature is constant, and multiple, distinct heat transfers occur, Eqn. <a href="#Centropy1">Centropy1</a> becomes</p>
 <DisplayEquation equation='S_2 - S_1 = \\sum_i \\frac{Q_i}{T_{\\text{b},i}} +\\sigma. ' id="EntropyBalance" title="Entropy balance equation" background="True"/>
 </SubSubSection>
 
-<SubSubSection title="Rate of Change of Entropy">
+<SubSubSection title="Rate of Change of Entropy" id="rate_of_change_of_entropy">
 <p>In the absence of mass flow, the rate of change of the entropy in a system is derived as </p>
 <DisplayEquation equation="\\begin{aligned}\\frac{d}{dt}\\left(S - S_0\\right) &= \\frac{d}{dt}\\left( \\sum_i \\frac{Q_i}{T_{\\text{b},i}} +\\sigma \\right) \\\\ \\frac{dS}{dt} &=\\sum_i \\frac{\\dot{Q}_i}{T_{\\text{b},i}} +\\dot{\\sigma}.\\end{aligned}`" title="Rate of change of entropy with no mass-flow" background="True"/>
 
 </SubSubSection>
 
-<SubSubSection title="Microstates">
+<SubSubSection title="Microstates" id="microstates">
 <p>The sets of possible configurations of the molecules are known as <strong>microstates</strong> and a state has a higher entropy when there are more microstates available to it.</p>
 
  When adding mass to a system (as shown via
@@ -170,7 +208,7 @@ When boundary temperature is constant, and multiple, distinct heat transfers occ
 
 
 
-<SubSubSection title="Principal of Superposition">
+<SubSubSection title="Principal of Superposition" id="principal_of_superposition">
 
 <p>Entropy added to a system thus follows a <strong>principal of superposition</strong> meaning that the total system entropy, <InlineEquation equation="S" />, is the sum of the sub-system entropies.</p>
 <DisplayEquation equation='S = \\sum_i m_is_i,' title="" />
@@ -178,7 +216,7 @@ When boundary temperature is constant, and multiple, distinct heat transfers occ
 
 </SubSubSection>
 
-<SubSubSection title="Open System Entropy Rate Balance">
+<SubSubSection title="Open System Entropy Rate Balance" id="open_system_entropy_rate_balance">
 
 <p>It follows that for an <strong>open system</strong> involving no mixing of substances, the entropy rate balance is simply</p>
 <DisplayEquation equation='\\frac{dS}{dt} =\\sum_i \\frac{\\dot{Q}_i}{T_{\\text{b},i}} + \\sum_{\\text{in}} \\dot{m}_{\\text{in}}s_{\\text{in}} - \\sum_{\\text{out}} \\dot{m}_{\\text{out}}s_{\\text{out}} + \\dot{\\sigma} .' id="EntropyRateBalance" title="Entropy rate of change balance" background="True"/>
