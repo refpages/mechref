@@ -18,9 +18,11 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
 </Section>
 
 <SubSection title="Carnot cycle">
-<p>A <strong>Carnot cycle</strong> is defined as an ideal gas, undergoing a 4-step, reversible, closed thermodynamic cycle. Imagine that an ideal gas contained within a piston-cylinder undergoes the series of processes depicted in Fig.~<OrangeText>fig:CarnotCycle</OrangeText> below, with the gas starting in state <InlineEquation equation="1" /> before progressing to states <InlineEquation equation="2" />, <InlineEquation equation="3" />, <InlineEquation equation="4" />, and then returning to state <InlineEquation equation="1" /> to complete a cycle. </p>
+<p>A <strong>Carnot cycle</strong> is defined as an ideal gas, undergoing a 4-step, reversible, closed thermodynamic cycle. Imagine that an ideal gas contained within a piston-cylinder undergoes the series of processes depicted in Fig. <a href="#CarnotCycle">CarnotCycle</a> below, with the gas starting in state <InlineEquation equation="1" /> before progressing to states <InlineEquation equation="2" />, <InlineEquation equation="3" />, <InlineEquation equation="4" />, and then returning to state <InlineEquation equation="1" /> to complete a cycle. </p>
 
-
+<Image src="/thermodynamics/cycles/fig1.png" width="6" id="CarnotCycle">
+    <strong>Figure 1:</strong> A schematic of a piston-cylinder executing a Carnot cycle between hot and cold thermal reservoirs.
+</Image>
 
 
 <p>
@@ -36,23 +38,33 @@ During the cycle, the system contacts sequentially a hot reservoir and a cold re
 
 <SubSubSection title="Carnot Cycle Steps">
 <p>
-In processes <InlineEquation equation="2 \\to 3" /> and <InlineEquation equation="3 \\to 4" />, work is done by the gas. Figure~<OrangeText>fig:PVwork1</OrangeText> illustrates two potential, monotonic processes corresponding to positive work, or work done by the gas. On the left, pressure is higher in state <InlineEquation equation="b" /> than state <InlineEquation equation="a" />. On the right, pressure is higher in state <InlineEquation equation="a" /> than state <InlineEquation equation="b" />. <InlineEquation equation="V_b > V_a" /> in both cases. When illustrating the magnitude of the work to be determined, the arrow is drawn out of the system as shown in state <InlineEquation equation="1" />. </p>
+In processes <InlineEquation equation="2 \\to 3" /> and <InlineEquation equation="3 \\to 4" />, work is done by the gas. Figure <a href="#PVwork1">PVwork1</a> illustrates two potential, monotonic processes corresponding to positive work, or work done by the gas. On the left, pressure is higher in state <InlineEquation equation="b" /> than state <InlineEquation equation="a" />. On the right, pressure is higher in state <InlineEquation equation="a" /> than state <InlineEquation equation="b" />. <InlineEquation equation="V_b > V_a" /> in both cases. When illustrating the magnitude of the work to be determined, the arrow is drawn out of the system as shown in state <InlineEquation equation="1" />. </p>
 
+<Image src="/thermodynamics/cycles/fig2.png" width="6" id="PVwork1">
+    <strong>Figure 2:</strong> Work done by the gas
+</Image>
 
 
 <p>
-In processes <InlineEquation equation="1 \\to 2" /> and <InlineEquation equation="4 \\to 1" />, work is done on the gas. Figure~<OrangeText>fig:PVwork1</OrangeText> illustrates two potential, monotonic processes corresponding to positive work, or work done by the gas. On the left, pressure is higher in state <InlineEquation equation="b" /> than state <InlineEquation equation="a" />. On the right, pressure is higher in state <InlineEquation equation="a" /> than state <InlineEquation equation="b" />. <InlineEquation equation="V_a > V_b" /> in both cases as shown in Figure~<OrangeText>fig:PVwork2</OrangeText>. Recall the expression for <InlineEquation equation="pV" /> work,</p>
+In processes <InlineEquation equation="1 \\to 2" /> and <InlineEquation equation="4 \\to 1" />, work is done on the gas. Figure <a href="#PVwork1">PVwork1</a> illustrates two potential, monotonic processes corresponding to positive work, or work done by the gas. On the left, pressure is higher in state <InlineEquation equation="b" /> than state <InlineEquation equation="a" />. On the right, pressure is higher in state <InlineEquation equation="a" /> than state <InlineEquation equation="b" />. <InlineEquation equation="V_a > V_b" /> in both cases as shown in Figure <a href="#PVwork2">PVwork2</a>. Recall the expression for <InlineEquation equation="pV" /> work,</p>
 <DisplayEquation equation='W = \\int_{V_a}^{V_b} p(V) dV,' title="" />
-<p>noting that work for these processes is negative as indicated by the right-to-left process curve arrow in each of the <InlineEquation equation="pV" /> diagrams. When illustrating the magnitude of the work to be determined, the arrow is drawn into the system as shown in state <InlineEquation equation="a" /> (Fig.~<OrangeText>fig:PVwork2</OrangeText>). </p>
+<p>noting that work for these processes is negative as indicated by the right-to-left process curve arrow in each of the <InlineEquation equation="pV" /> diagrams. When illustrating the magnitude of the work to be determined, the arrow is drawn into the system as shown in state <InlineEquation equation="a" /> (Fig. <a href="#PVwork2">PVwork2</a>). </p>
 
+<Image src="/thermodynamics/cycles/fig3.png" width="6" id="PVwork2">
+    <strong>Figure 3:</strong> Work done on the gas
+</Image>
 
 <p>
-To plot the processes that make up the cycle in Fig.~<OrangeText>fig:CarnotCycle</OrangeText>, we first observe that processes <InlineEquation equation="2 \\to 3" /> and <InlineEquation equation="4 \\to 1" /> are <strong>isothermal</strong>, meaning the temperature of the working fluid is constant during the process. Given that the working fluid is an ideal gas, <InlineEquation equation="pV = mRT" /> and therefore </p>
+To plot the processes that make up the cycle in Fig. <a href="#CarnotCycle">CarnotCycle</a>, we first observe that processes <InlineEquation equation="2 \\to 3" /> and <InlineEquation equation="4 \\to 1" /> are <strong>isothermal</strong>, meaning the temperature of the working fluid is constant during the process. Given that the working fluid is an ideal gas, <InlineEquation equation="pV = mRT" /> and therefore </p>
 
 <DisplayEquation equation='p = \\frac{mR}{V} T' id="IG_eos2" title="Pressure in an isothermic process" background="True"/>
 
-<p>where <InlineEquation equation="m" /> is the mass of gas and <InlineEquation equation="R" /> is the gas constant. An isothermal process at <InlineEquation equation="T_H" /> or <InlineEquation equation="T_C" />, the temperature of the hot and cold reservoirs, must therefore fall on the dashed lines in Fig.~<OrangeText>fig:CarnotpV</OrangeText>. These lines are known as <strong>isotherms</strong>. </p>
+<p>where <InlineEquation equation="m" /> is the mass of gas and <InlineEquation equation="R" /> is the gas constant. An isothermal process at <InlineEquation equation="T_H" /> or <InlineEquation equation="T_C" />, the temperature of the hot and cold reservoirs, must therefore fall on the dashed lines in Fig. <a href="#CarnotpV">CarnotpV</a>. These lines are known as <strong>isotherms</strong>. </p>
 
+
+<Image src="/thermodynamics/cycles/fig4.png" width="6" id="CarnotpV">
+    <strong>Figure 4:</strong> \(pV\) curves for ideal gas expansion and compression in a Carnot cycle.
+</Image>
 
 <p>
 Processes <InlineEquation equation="1 \\to 2" /> and <InlineEquation equation="3 \\to 4" /> are <strong>adiabatic</strong>, meaning that during the process no heat transfer occurs. We will show later in the class that the adiabatic, reversible expansion or compression of an ideal gas must obey the relation</p>
@@ -63,15 +75,19 @@ Processes <InlineEquation equation="1 \\to 2" /> and <InlineEquation equation="3
 
 <DisplayEquation equation='p(V)=\\frac{C}{V^{\\gamma}},' id="Pexpression" title="Ideal gas law in an adiabatic process" background="True"/>
 
-<p>illustrated for two values of <InlineEquation equation="C" /> by the dash-dot lines in Fig.~<OrangeText>fig:CarnotpV</OrangeText>. </p>
+<p>illustrated for two values of <InlineEquation equation="C" /> by the dash-dot lines in Fig. <a href="#CarnotpV">CarnotpV</a>. </p>
 <p>
-Combining the <InlineEquation equation="p(V)" /> relations for the ideal gas expansion and compression with the directionality of the work shown in Figs.~<OrangeText>fig:PVwork1</OrangeText> and <OrangeText>fig:PVwork2</OrangeText>, we can plot a Carnot cycle for an ideal gas on a <InlineEquation equation="pV" /> diagram as shown in Fig.~<OrangeText>fig:CarnotpVcycle</OrangeText>. </p>
+Combining the <InlineEquation equation="p(V)" /> relations for the ideal gas expansion and compression with the directionality of the work shown in Figs. <a href="#PVwork1">PVwork1</a> and <a href="#PVwork2">PVwork2</a>, we can plot a Carnot cycle for an ideal gas on a <InlineEquation equation="pV" /> diagram as shown in Fig. <a href="#CarnotpVcycle">CarnotpVcycle</a>. </p>
 
 
 <p>
-The work done by the cycle <InlineEquation equation="W" /> is positive and equal to the shaded area in Fig.~<OrangeText>fig:CarnotpVcycle</OrangeText>, where the net work is described as the sum of the work done during each of the processes,</p>
+The work done by the cycle <InlineEquation equation="W" /> is positive and equal to the shaded area in Fig. <a href="#CarnotpVcycle">CarnotpVcycle</a>, where the net work is described as the sum of the work done during each of the processes,</p>
 
 <DisplayEquation equation='W= W_{12} + W_{23} + W_{34} + W_{41}' title="" />
+
+<Image src="/thermodynamics/cycles/fig5.png" width="6" id="CarnotpVcycle">
+    <strong>Figure 5:</strong> A \(pV\) diagram for an ideal gas undergoing a Carnot cycle as depicted in Fig. <a href="#CarnotCycle">CarnotCycle</a>.
+</Image>
 
 </SubSubSection>
 
@@ -83,9 +99,9 @@ which yields</p>
 <DisplayEquation equation='W_{23} =mRT_H\\ln\\left(\\frac{V_3}{V_2}\\right) \\,\\,\\text{ and }\\,\\, W_{41} = mRT_C\\ln\\left(\\frac{V_1}{V_4}\\right)' title="" />
 
 <p>Because temperature is not changing and the fluid is an ideal gas, the change in internal energy for these processes is zero. An energy balance on the gas for each of these processes yields</p>
-<DisplayEquation equation='Q_{23} = Q_{H} = W_{23} = mRT_H\\ln\\left(\\frac{V_3}{V_2}\\right) ' title="eq:QH" />
+<DisplayEquation equation='Q_{23} = Q_{H} = W_{23} = mRT_H\\ln\\left(\\frac{V_3}{V_2}\\right) ' id="QH" />
 <p>where <InlineEquation equation="Q_H" /> refers to the heat transferred into the system from the hot reservoir and </p>
-<DisplayEquation equation='Q_{41} = - Q_{C} = W_{41} = mRT_C\\ln\\left(\\frac{V_1}{V_4}\\right)' title="eq:QC" />
+<DisplayEquation equation='Q_{41} = - Q_{C} = W_{41} = mRT_C\\ln\\left(\\frac{V_1}{V_4}\\right)' id="QC" />
 <p>where <InlineEquation equation="Q_C" /> refers to the heat transferred from the system to the cold reservoir. </p>
 
 </SubSubSection>
@@ -95,7 +111,7 @@ which yields</p>
 <DisplayEquation equation='W_{12} = \\int_{V_1}^{V_2} \\frac{C_{12}}{V^{\\gamma}} dV \\text{ and } W_{34} = \\int_{V_3}^{V_4} \\frac{C_{34}}{V^{\\gamma}} dV' title="" />
 <p>which, when integrated yield</p>
 <DisplayEquation equation='\\begin{gathered}W_{12} =\\frac{-C_{12}}{\\gamma-1}\\left(\\frac{1}{V_2^{\\gamma-1}} - \\frac{1}{V_1^{\\gamma-1}}\\right) \\\\\\text{ and } \\\\ W_{34} = \\frac{-C_{34}}{\\gamma-1}\\left(\\frac{1}{V_4^{\\gamma-1}} - \\frac{1}{V_3^{\\gamma-1}}\\right) \\end{gathered}' title="" />
-<p>Multiplying both sides of the relation in Eqn.<OrangeText>eq:polytropic</OrangeText> by <InlineEquation equation="1/V^{\\gamma-1}" /> and using the resulting relation, <InlineEquation equation="pV = C/V^{\\gamma-1}" />, combined with the ideal gas equation of state, we can express the work in the adiabatic, reversible processes as</p>
+<p>Multiplying both sides of the relation in Eqn. <a href="#polytropic">polytropic</a> by <InlineEquation equation="1/V^{\\gamma-1}" /> and using the resulting relation, <InlineEquation equation="pV = C/V^{\\gamma-1}" />, combined with the ideal gas equation of state, we can express the work in the adiabatic, reversible processes as</p>
 <DisplayEquation equation='W_{12} =\\frac{mR(T_C - T_H)}{\\gamma - 1}  \\,\\,\\text{ and }\\,\\, W_{34} = \\frac{mR(T_H - T_C)}{\\gamma - 1}' title="" />
 illustrating that the work in these two processes are equal in magnitude but opposite in sign. </p>
 <p>It is interesting to determine the relationship between volume and temperature in the end states of processes <InlineEquation equation="1 \\to 2" /> and <InlineEquation equation="3 \\to 4" /> for the ideal gas. For an infinitesimal change in internal energy <InlineEquation equation="dU" /> no heat flow occurs, but an infinitesimal amount of <InlineEquation equation="pV" /> work is done, <InlineEquation equation="\\delta W = p dV" />. We write this infinitesimal form of the energy balance as</p>
@@ -103,17 +119,17 @@ illustrating that the work in these two processes are equal in magnitude but opp
 <p>For an ideal gas, <InlineEquation equation="dU/dT = mc_v" /> and <InlineEquation equation="p = mRT/V" /> so that</p>
 <DisplayEquation equation='c_v dT = -\\frac{RT}{V} dV' title="" />
 <p>Separating the volume <InlineEquation equation="V" /> and temperature <InlineEquation equation="T" /> and integrating, between states <InlineEquation equation="1" /> and <InlineEquation equation="2" /> yields</p>
-<DisplayEquation equation='\\int_{T_C}^{T_H} \\frac{c_v}{RT} dT =  \\ln\\left(\\frac{V_1}{V_2}\\right).' title="eq:VT12" />
+<DisplayEquation equation='\\int_{T_C}^{T_H} \\frac{c_v}{RT} dT =  \\ln\\left(\\frac{V_1}{V_2}\\right).' id="VT12" />
 <p>Integrating between states <InlineEquation equation="4" /> and <InlineEquation equation="3" /> yields </p>
-<DisplayEquation equation='\\int_{T_C}^{T_H} \\frac{c_v}{RT} dT = \\ln\\left(\\frac{V_4}{V_3}\\right).' title="eq:VT43" />
-<p>The left hand side of both Eqns.<OrangeText>eq:VT12</OrangeText> and \eqref eq:VT43 are equal so that </p>
+<DisplayEquation equation='\\int_{T_C}^{T_H} \\frac{c_v}{RT} dT = \\ln\\left(\\frac{V_4}{V_3}\\right).' id="VT43" />
+<p>The left hand side of both Eqns. <a href="#VT12">VT12</a> and <a href="#VT43">VT43</a> are equal so that </p>
 <DisplayEquation equation='\\ln\\left(\\frac{V_1}{V_2}\\right) = \\ln\\left(\\frac{V_4}{V_3}\\right).' title="" />
 <p>or equivalently\sidenote  <InlineEquation equation="\\ln(x/y) = \\ln x - \\ln y" />.
-<DisplayEquation equation='\\ln\\left(\\frac{V_1}{V_4}\\right) = \\ln\\left(\\frac{V_2}{V_3}\\right).' title="eq:V1234" />
-<p>Recalling the results from the energy balances on the isothermal processes (Eqns.<OrangeText>eq:QH</OrangeText> and \eqref eq:QC ) we can show that the ratio of the heat influx <InlineEquation equation="Q_H" /> to heat loss <InlineEquation equation="Q_C" /> is</p>
+<DisplayEquation equation='\\ln\\left(\\frac{V_1}{V_4}\\right) = \\ln\\left(\\frac{V_2}{V_3}\\right).' id="V1234" />
+<p>Recalling the results from the energy balances on the isothermal processes (Eqns. <a href="#QH">QH</a> and <a href="#QC">QC</a>) we can show that the ratio of the heat influx <InlineEquation equation="Q_H" /> to heat loss <InlineEquation equation="Q_C" /> is</p>
 <DisplayEquation equation='\\frac{Q_H}{Q_C} = \\frac{T_H\\ln\\left(\\frac{V_3}{V_2}\\right) }{T_H\\ln\\left(\\frac{V_4}{V_1}\\right)}' title="" />
-<p>Applying Eqn.<OrangeText>eq:V1234</OrangeText>, which defines the relationship between the states before and after the adiabatic processes, we obtain</p>
-<DisplayEquation equation='\\frac{Q_H}{Q_C} = \\frac{T_H}{T_C}' title="eq:HeatTemp" />
+<p>Applying Eqn. <a href="#V1234">V1234</a>, which defines the relationship between the states before and after the adiabatic processes, we obtain</p>
+<DisplayEquation equation='\\frac{Q_H}{Q_C} = \\frac{T_H}{T_C}' id="HeatTemp" title="Heat-temperature relationship" background="True"title="Heat-temperature relationship" background="True"/>
 <p>for an ideal gas undergoing a Carnot cycle. </p>
 
 </SubSubSection>
@@ -121,7 +137,7 @@ illustrating that the work in these two processes are equal in magnitude but opp
 <SubSubSection title="Internal Energy Balance of the System">
 <p>The total change in the internal energy of the Carnot cycle <InlineEquation equation="\\Delta U" /> can alternately be determined by an energy balance on the cycle</p>
 
-<DisplayEquation equation="\\begin{aligned}\\Delta U&= Q - W \\label{eq:Ebalance} \\\\<p>&= Q_H - Q_C - W_{12} - \\underbrace{W_{23}}_{=Q_H} - \\underbrace{W_{34}}_{=-W_{12}} - \\underbrace{W_{41}}_{=-Q_C} \\label{eq:Ebaldetailed} \\\\</p><p>&= 0</p>\\end{aligned}" />
+<DisplayEquation equation="\\begin{aligned}\\Delta U&= Q - W \\label{Ebalance} \\\\&= Q_H - Q_C - W_{12} - \\underbrace{W_{23}}_{=Q_H} - \\underbrace{W_{34}}_{=-W_{12}} - \\underbrace{W_{41}}_{=-Q_C} \\label{Ebaldetailed} \\\\&= 0\\end{aligned}" />
 
 <p>Thus the Carnot cycle is consistent with the energy change for a cycle in general.</p>
 
@@ -129,15 +145,23 @@ illustrating that the work in these two processes are equal in magnitude but opp
 
 <SubSubSection title="Thermal Efficiency">
 <p>This Carnot cycle turns heat input <InlineEquation equation="Q_H" /> into work output <InlineEquation equation="W" />. The thermal efficiency <InlineEquation equation="\\eta" /> for such a <strong>heat engine</strong> is given by </p>
-<DisplayEquation equation='\\eta = \\frac{\\text{net work output}}{\\text{heat input}} = \\frac{W}{Q_H}' title="" />
-<p>Combining <InlineEquation equation="\\Delta U = 0" /> for a cycle, the expression for the energy balance on the cycle (Eqns.<OrangeText>eq:Ebalance</OrangeText> and \eqref eq:Ebaldetailed ), and the temperature-heat transfer relationship found in Eqn.<OrangeText>eq:HeatTemp</OrangeText> yields</p>
-<DisplayEquation equation='\\eta = \\frac{Q_H - Q_C}{Q_H} = 1-\\frac{T_C}{T_H}.' title="" />
+<DisplayEquation equation='\\eta = \\frac{\\text{net work output}}{\\text{heat input}} = \\frac{W}{Q_H}' title="Heat engine efficiency" background="True"/>
+
+<p>Combining <InlineEquation equation="\\Delta U = 0" /> for a cycle, the expression for the energy balance on the cycle (Eqns. <a href="#Ebalance">Ebalance</a> and <a href="#EbalaEbaldetailednce">Ebaldetailed</a>), and the temperature-heat transfer relationship found in Eqn. <a href="#HeatTemp">HeatTemp</a> yields</p>
+<DisplayEquation equation='\\eta = \\frac{Q_H - Q_C}{Q_H} = 1-\\frac{T_C}{T_H}.' title="Heat engine efficiency in terms of temperature only" background="True" />
 <p>A Carnot cycle produces the maximum possible efficiency for any heat engine. The efficiency can only approach <InlineEquation equation="1" /> (equivalent to 100\%) when either <InlineEquation equation="T_C \\to 0" /> or <InlineEquation equation="T_H \\to \\infty" />, neither of which is physically attainable. </p>
+
+<Image src="/thermodynamics/cycles/fig6.png" width="6" id="IdealRankineCycle">
+    <strong>Figure 6:</strong> A schematic of a vapor power plant capable of undergoing a Rankine cycle.
+</Image>
+<Image src="/thermodynamics/cycles/fig7.png" width="6" id="TsDiagramRankine">
+    <strong>Figure 7:</strong> A \(T-s\) diagram of an ideal Rankine cycle.
+</Image>
 
 </SubSubSection>
 
 <SubSection title="A Rankine Cycle">
-<p>The Rankine cycle is the basis for steam-electric power plants, which produce nearly 90\% of all electricity worldwide.  This cycle includes two isentropic processes, and utilizes isobaric heat transfers. </p>
+<p>The Rankine cycle is the basis for steam-electric power plants, which produce nearly 90% of all electricity worldwide.  This cycle includes two isentropic processes, and utilizes isobaric heat transfers. </p>
 
 <p>
 An ideal Rankine cycle consists of the following internally reversible processes: </p>
@@ -150,17 +174,16 @@ An ideal Rankine cycle consists of the following internally reversible processes
 
 </Itemize>
 <p>
-</p><p>
 Instead, the condenser stream is taken to the saturated liquid state, so that only a compressed liquid must be pumped.\sidenote Cavitation is less of an issue in the two phase fluid used in the turbine since the vapor bubbles that form nearer the saturated vapor portion of the vapor dome are less driven to collapse. While state <InlineEquation equation="4" /> could be taken all the way to <InlineEquation equation="T_{\\text{sat}}(p_4 = p_1)" />, this would also lead to practical difficulties since, to maintain an isothermal heat transfer, a large thermal reservoir would be required. Instead, the process from state <InlineEquation equation="4" /> to state <InlineEquation equation="1" /> follows an isobar as shown in the plot below. </p>
 
 
 <p>
 For reversible processes, the second law can be written as:</p>
-<DisplayEquation equation='Q = \\int T dS,' title="" />
+<DisplayEquation equation='Q = \\int T dS,' title="Second law" background="True" />
 <p> meaning that the area under the curve in a <InlineEquation equation="T" />-<InlineEquation equation="s" /> diagram corresponds to heat transferred to or from a system. Thus to approximate a Carnot cycle, an average temperature value at which the same heat transfer <InlineEquation equation="Q_H" /> occurs can be approximated on the diagram.</p>
 <p>Since the Carnot cycle tells us that the maximum thermal efficiency of a power cycle is:</p>
 <DisplayEquation equation='\\eta = 1- Q_C/Q_H = 1-T_C/T_H' title="" /> 
-<p>it is clear from Fig.~<OrangeText>fig:TsDiagramRankine</OrangeText> that a hypothetical Carnot cycle with maximum operating temperature <InlineEquation equation="T_H" /> will always have a greater thermal efficiency than a Rankine cycle with the same maximum operating temperature since the <strong>average</strong> operating temperature of the Rankine cycle is lower. </p>
+<p>it is clear from Fig. <a href="#TsDiagramRankine">TsDiagramRankine</a> that a hypothetical Carnot cycle with maximum operating temperature <InlineEquation equation="T_H" /> will always have a greater thermal efficiency than a Rankine cycle with the same maximum operating temperature since the <strong>average</strong> operating temperature of the Rankine cycle is lower. </p>
 
 </SubSection>
 
@@ -187,7 +210,7 @@ The Otto cycle simplifies this process by ignoring affects associated with the a
 
 </Itemize>
 <p>Note that because it is operating within a piston cylinder, the states the processes operate between are the state of the air in the closed piston cylinder system. This is different from the Rankine cycle, in which the stream states change by going through processes facilitated by different thermodynamics devices. We will show in class that the thermal efficiency of an Otto cycle can be expressed entirely as a function of the compression ratio, <InlineEquation equation="r" />, defined as the ratio of the largest gas volume over the smallest <InlineEquation equation="V_1/V_2" /> according to:</p>
-<DisplayEquation equation='\\eta = 1-\\frac{1}{r^{k-1}}' title="" />
+<DisplayEquation equation='\\eta = 1-\\frac{1}{r^{k-1}}' title="Thermal efficiency of an Otto cycle" background="True" />
 <p>and shows that engine efficiency can be increased by inducing a larger change in piston chamber volume. Of course, further practical considerations, such as the increased weight of such an engine, provide other design constraints. We only touch on a few of these design constraints, but in general thermodynamics provides many of the key principles through which energy systems can be optimized. </p>
 </SubSection>
 
