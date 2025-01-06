@@ -13,8 +13,36 @@ import InlineEquation from "../../components/InlineEquation.astro"
 import DisplayEquation from "../../components/DisplayEquation.astro" 
 ---
 <Layout title="Substances">
-<Section title="Substances"></Section>
-<SubSection title="Phases of matter">
+
+
+    <div slot="navtree">
+        <ul class='list-group list-group-flush py-0'>
+            <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#phases_of_matter'>Phases of matter</a>
+                <ul class='list-group list-group-flush py-0'>
+                    <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#phase_diagrams'>Phase Diagrams</a></li>
+                    <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#critical_values_and_ideal_gases'>Critical Values and Ideal Gases</a></li>
+                </ul>
+            </li>
+            <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#ideal_gases'>Ideal Gases</a>
+                <ul class='list-group list-group-flush py-0'>
+                    <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#ideal_gas_assumptions'>Ideal Gas Assumptions</a></li>
+                    <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#equation_of_state'>Equation of State</a></li>
+                    <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#temperature_effects'>Temperature Effects</a></li>
+                </ul>
+            </li>
+            <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#incompressible_fluids'>Incompressible Fluids</a>
+                <ul class='list-group list-group-flush py-0'>
+                    <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#internal_energy_of_incompressible_fluids'>Internal Energy of Incompressible Fluids</a></li>
+                    <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#specific_heat_of_incompressible_fluids'>Specific Heat of Incompressible Fluids</a></li>
+                    <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#specific_entropy_change_of_incompressible_fluids'>Specific Entropy Change of Incompressible Fluids</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+
+<Section title="Substances" id="substances"></Section>
+<SubSection title="Phases of matter" id="phases_of_matter">
 <p>A phase of matter is homogeneous in both its molecular composition and the structure of its molecules with respect to one another. </p>
 
 <h4><strong>Pure Substance:</strong></h4>
@@ -31,7 +59,7 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
 </TealText> 
 </SubSection>
 
-<SubSubSection title="Phase Diagrams">
+<SubSubSection title="Phase Diagrams" id="phase_diagrams">
 <p>A phase diagram is like a map and predicts the phase of a substance according to its thermodynamic properties: <InlineEquation equation="p" />, <InlineEquation equation="T" />, <InlineEquation equation="v" />, <InlineEquation equation="u" />, and <InlineEquation equation="h" />. An example of a <InlineEquation equation="pv" /> liquid-vapor phase diagram for a pure substance is shown below:</p>
 
 <Image src="/thermodynamics/substances/fig1.png" width="6">
@@ -69,7 +97,7 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
 <p>If any two independent intensive variables are known (<InlineEquation equation="T, v, p, x, h, u" />), they fix the <strong>state</strong> of the substance. (Intensive variables are independent of mass. For example, specific volume <InlineEquation equation="v" /> is intensive. Volume <InlineEquation equation="V=mv" /> is not.)</p>
 
 </SubSubSection>
-<SubSubSection title="Critical Values and Ideal Gases">
+<SubSubSection title="Critical Values and Ideal Gases" id="critical_values_and_ideal_gases">
 <p>Ideal gases are modeled as having internal energy entirely composed of kinetic energy due to the absence of any interactions between the particles of the gas, which occurs when:</p>
 <Enumerate>
 
@@ -92,11 +120,11 @@ define the <strong>reduced pressure</strong>, <strong>reduced temperature</stron
 
 </SubSubSection>
 
-<SubSection title="Ideal Gases">
+<SubSection title="Ideal Gases" id="ideal_gases">
 <p>A gas is a state of matter that has neither independent shape nor volume. When contained, the atoms or molecules that comprise it interact with every boundary of the container.</p>
 </SubSection>
 
-<SubSubSection title="Ideal Gas Assumptions">
+<SubSubSection title="Ideal Gas Assumptions" id="ideal_gas_assumptions">
 <p>An ideal gas is a hypothetical model of a gas that follows the assumptions that</p>
 <Itemize>
 	<Item>molecules are infinitesimally small (just points in space)
@@ -119,7 +147,7 @@ define the <strong>reduced pressure</strong>, <strong>reduced temperature</stron
 
 </SubSubSection>
 
-<SubSubSection title="Equation of State">
+<SubSubSection title="Equation of State" id="equation_of_state">
 <p>It has been shown empirically that an ideal gas obeys the <strong>equation of state</strong> </p>
 <DisplayEquation equation='pV=n\\overline{R}T' title="Ideal-gas law" background="True"/>
 
@@ -127,7 +155,7 @@ define the <strong>reduced pressure</strong>, <strong>reduced temperature</stron
 
 </SubSubSection>
 
-<SubSubSection title="Temperature Effects">
+<SubSubSection title="Temperature Effects" id="temperature_effects">
 <p><InlineEquation equation="\\overline{R}" /> defines the proportionality constant that converts the average translational kinetic energy of a single particle, <InlineEquation equation="\\langle KE\\rangle " />, to temperature (<InlineEquation equation="N_A" /> is Avagadro's number)</p>
 
 <DisplayEquation equation='T = \\frac{2}{3} \\frac{N_A}{\\overline{R}}\\langle KE \\rangle.' title="\\(\\color{red} \\textrm{Title?} \\)" background="True"/>
@@ -142,18 +170,18 @@ Internal energy <u>of an ideal gas</u> depends only on the total molecular kinet
 <DisplayEquation equation='\\Delta U = U_2 - U_1 = m\\int_{T_1}^{T_2} c_v dT.' title="Internal energy-temperature relationship" background="True"/>
 </SubSubSection>
 
-<SubSection title="Incompressible Fluids">
+<SubSection title="Incompressible Fluids" id="incompressible_fluids">
 <p>In the <strong>incompressible substance model</strong>, the volume of a quantity of a substance cannot be compressed or expanded, thus its specific volume is constant. </p>
 </SubSection>
 
-<SubSubSection title="Internal Energy of Incompressible Fluids">
+<SubSubSection title="Internal Energy of Incompressible Fluids" id="internal_energy_of_incompressible_fluids">
 <p>
 Because the specific volume is not changing, the average intermolecular potential energy, which from the average distance between molecules, cannot change. Thus, the only contribution to an incompressible substance's internal energy comes from atomic and molecular kinetic energy, quantified via temperature. It follows that, like the ideal gas model, the <strong>internal energy of an incompressible substance is a function of temperature only</strong> and </p>
     <DisplayEquation equation='        u = u(T)' title="" />
     <DisplayEquation equation='\\frac{du}{dT} = c_v' title="Constant volume specific heat \\(c_v\\) in an incompressible fluid" background="True"/>
 </SubSubSection>
 
-<SubSubSection title="Specific Heat of Incompressible Fluids">
+<SubSubSection title="Specific Heat of Incompressible Fluids" id="specific_heat_of_incompressible_fluids">
 
 <p>For an incompressible substance, <strong>constant pressure specific heat</strong> <InlineEquation equation="c_p" /> equals <strong>constant volume specific heat</strong> <InlineEquation equation="c_v" />. <InlineEquation equation="c_p" /> is defined as the partial derivative of the enthalpy <InlineEquation equation="h" />, while pressure <InlineEquation equation="p" /> is held constant.</p>
 
@@ -168,7 +196,7 @@ Because the specific volume is not changing, the average intermolecular potentia
     <DisplayEquation equation='        c_p = c_v = c' title="\\(c_v\\) & \\(c_p\\) equivalence for incompressible substances" background="True" />
 </SubSubSection>
 
-<SubSubSection title="Specific Entropy Change of Incompressible Fluids">
+<SubSubSection title="Specific Entropy Change of Incompressible Fluids" id="specific_entropy_change_of_incompressible_fluids">
 
 <p>For an <strong>ideal gas</strong> with a given, <strong>constant specific heat  <InlineEquation equation="c_v" /></strong>, its change in specific entropy from a state <InlineEquation equation="1" /> to a state <InlineEquation equation="2" /> is given by the expression</p>
 

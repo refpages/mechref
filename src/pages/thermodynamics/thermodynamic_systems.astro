@@ -16,8 +16,43 @@ import DisplayTable from "../../components/DisplayTable.astro"
 import RedText from "../../components/RedText.astro"
 ---
 <Layout title="Thermodynamic Systems">
-<Section title="Thermodynamic Terminology and Definitions"></Section>
-<SubSection title="System, boundaries and surroundings">
+
+<div slot="navtree">
+  <ul class='list-group list-group-flush py-0'>
+    <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#system,_boundaries_and_surroundings'>System, boundaries and surroundings</a>
+      <ul class='list-group list-group-flush py-0'>
+        <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#types_of_systems_closed,_open,_and_isolated_systems'>Types of Systems: Closed, Open, and Isolated Systems</a></li>
+      </ul>
+    </li>
+    <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#units_of_interest'>Units of Interest</a>
+      <ul class='list-group list-group-flush py-0'>
+        <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#typical_units_in_si_and_english_systems'>Typical Units in SI and English Systems</a></li>
+        <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#useful_conversions'>Useful Conversions</a></li>
+        <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#useful_constants'>Useful Constants</a></li>
+        <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#helpful_math_expressions'>Helpful Math Expressions</a></li>
+      </ul>
+    </li>
+    <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#mass_and_mass_flow'>Mass and Mass Flow</a></li>
+    <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#volume_and_volume_flow'>Volume and Volume Flow</a>
+      <ul class='list-group list-group-flush py-0'>
+        <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#volume_flow'>Volume Flow</a></li>
+      </ul>
+    </li>
+    <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#energy_and_energy_flow'>Energy and Energy Flow</a>
+      <ul class='list-group list-group-flush py-0'>
+          <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#internal_energy'>Internal Energy</a></li>
+          <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#potential_energy'>Potential Energy</a></li>
+          <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#kinetic_energy'>Kinetic Energy</a></li>
+          <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#enthalpy'>Enthalpy</a></li>
+          <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#entropy'>Entropy</a></li>
+      </ul>
+    </li>
+  </ul>
+</div>
+
+
+<Section title="Thermodynamic Terminology and Definitions" id="thermodynamic_terminology_and_definitions"></Section>
+<SubSection title="System, boundaries and surroundings" id="system,_boundaries_and_surroundings">
 <p>Energy and matter flow between a <strong>thermodynamic system</strong> and its <strong>surroundings</strong> that are separated by a <strong>boundary</strong>, lead to changes its internal state. An increase in its mass results when the matter flowing into the system is greater than that flowing out of the system. An increase in its internal energy results when the energy flowing into the system is greater than that flowing out of the system. When the flow rates into and out of the system are equal, the system is in a steady state. </p>
 
 <Image src="/thermodynamics/thermodynamic_systems/fig1.png">
@@ -32,7 +67,7 @@ import RedText from "../../components/RedText.astro"
 <p>The state of a thermodynamic system is <strong>transient</strong> if it is not in steady state.</p> 
 </SubSection>
 
-<SubSubSection title="Types of Systems: Closed, Open, and Isolated Systems">
+<SubSubSection title="Types of Systems: Closed, Open, and Isolated Systems" id="types_of_systems_closed,_open,_and_isolated_systems">
 <h4><strong>Closed System:</strong></h4>
 <p>Mass cannot flow in or out of the system, therefore energy is transferred via only heat or work.</p> 
 
@@ -44,8 +79,8 @@ import RedText from "../../components/RedText.astro"
 
 </SubSubSection> 
 
-<SubSection title="Units of Interest"></SubSection>
-<SubSubSection title="Typical Units in SI and English Systems">
+<SubSection title="Units of Interest" id="units_of_interest"></SubSection>
+<SubSubSection title="Typical Units in SI and English Systems" id="typical_units_in_si_and_english_systems">
 
 
 
@@ -104,7 +139,7 @@ import RedText from "../../components/RedText.astro"
   </DisplayTable>
 </SubSubSection>
 
-<SubSubSection title="Useful Conversions">
+<SubSubSection title="Useful Conversions" id="useful_conversions">
 <h4><strong>Pressure</strong></h4>
  
 
@@ -120,7 +155,7 @@ import RedText from "../../components/RedText.astro"
 <DisplayEquation equation='\\textrm{Btu to ft\\(\\cdot\\)lbf:}~ 1~\\textrm{Btu} = 778.18~ \\textrm{ft}\\cdot\\textrm{lbf}' title="Energy unit conversions" background="True"/>
 
 </SubSubSection>
-<SubSubSection title="Useful Constants">
+<SubSubSection title="Useful Constants" id="useful_constants">
 <h4><strong>Gravity</strong></h4>
  
 
@@ -151,7 +186,7 @@ import RedText from "../../components/RedText.astro"
 </Itemize>
 </SubSubSection>
 
-<SubSubSection title="Helpful Math Expressions">
+<SubSubSection title="Helpful Math Expressions" id="helpful_math_expressions">
 <h4><strong>Integrals:</strong></h4>
  
 
@@ -164,7 +199,7 @@ import RedText from "../../components/RedText.astro"
 <DisplayEquation equation='    e^{aln(b)} = b^a' title="Change of base of exponentials" background="True"/>
 </SubSubSection>
 
-<SubSection title="Mass and Mass Flow">
+<SubSection title="Mass and Mass Flow" id="mass_and_mass_flow">
 <p>As matter flows in and out of a thermodynamic system, the amount of mass in the system at time <InlineEquation equation="t" /> by is defined by <InlineEquation equation="m(t)" />, then </p>
 <DisplayEquation equation='\\frac{dm}{dt}(t) = \\sum_{in}\\dot{m}_{in}(t) - \\sum_{out}\\dot{m}_{out}(t),' title="Mass-balance differential equation" background="True"/>
 <p>refers to 'the rate of change of the mass of the system.' The sums on the right add up all mass flows into and out of the system, respectively. If this quantity is positive, then the mass of the system is increasing. If it is negative, the mass of the system must be decreasing, as long as there is still mass left inside the system. </p>
@@ -184,7 +219,7 @@ Given the thermodynamic system shown in <a href="#SysSchematic">Figure 2</a>, on
 <DisplayEquation equation='\\dot{m}_{in,1} +\\dot{m}_{in,2} - \\dot{m}_{out,1}' title="" />
 </SubSection>
 
-<SubSection title="Volume and Volume Flow">
+<SubSection title="Volume and Volume Flow" id="volume_and_volume_flow">
 <p>The volume <InlineEquation equation="V" /> of a system is an extensive parameter for describing its thermodynamic state. The specific volume <InlineEquation equation="v" />, an intensive property, is the system's volume per unit mass. Volume is a function of state and is interdependent with other thermodynamic properties such as pressure and temperature. </p>
 <h4><strong>Specific Volume</strong></h4>
 <p><p>Specific volume is the volume per unit mass</p></p> 
@@ -192,7 +227,7 @@ Given the thermodynamic system shown in <a href="#SysSchematic">Figure 2</a>, on
 <DisplayEquation equation='    v=\\frac{V}{m}={\\frac{\\textrm{m}^3}{\\textrm{kg}}}' title="Specific volume equation and units" background="True"/>
 </SubSection>
 
-<SubSubSection title="Volume Flow">
+<SubSubSection title="Volume Flow" id="volume_flow">
 As mass flows into a system, energy increases by the addition of both the internal energy of the additional mass <strong>and</strong> the <InlineEquation equation="pV" /> work done by the volume occupied by the mass on the system as it enters, and vice versa.</p>
 
 
@@ -209,8 +244,8 @@ The volume occupied by the portion of the stream entering a system is defined by
 <p>This volume is pushed at constant pressure, <InlineEquation equation="p" />, into the system, is doing <InlineEquation equation="pV" /> work on the system, which will be described further in section <a href="/thermodynamics/heat_and_work#pvwork-section">\(pV\) work</a>.
 </p>
 </SubSubSection>
-<SubSection title="Energy and Energy Flow"></SubSection>
-<SubSubSection title="Internal Energy">
+<SubSection title="Energy and Energy Flow" id="energy_and_energy_flow"></SubSection>
+<SubSubSection title="Internal Energy" id="internal_energy">
 <p>The <strong>internal energy</strong>, <InlineEquation equation="U" />, of a thermodynamic system relative to some <strong>reference state</strong> <InlineEquation equation="U_0" /> is the energy required to set up the positions and motions of the atoms and molecules within the system from their positions and motions in the reference state. When the system is in its reference state, its relative internal energy equals <InlineEquation equation="0" />. </p>
 <DisplayEquation equation='\\Delta U = U - U_0 = \\textrm{energy}_{in} - \\textrm{energy}_{out}' title="External energy balance" background="True"/>
 
@@ -250,7 +285,7 @@ Given the system shown in <a href="#SysSchematic1">Figure 4</a>, the net work do
 <DisplayEquation equation='\\Delta U = Q_1-Q_2-(W_1-W_2).' title="Change in total system energy" background="True" />
 </SubSubSection>
 
-<SubSubSection title="Potential Energy">
+<SubSubSection title="Potential Energy" id="potential_energy">
 <p>A system may find itself subject to a conservative force in a position that differs from a reference position.  In this scenario, work has been done against a conservative force, such as changing the height, <InlineEquation equation="h" />, to change the potential energy.</p>
 
 <Image src="/thermodynamics/thermodynamic_systems/fig7.png"/>
@@ -262,7 +297,7 @@ Given the system shown in <a href="#SysSchematic1">Figure 4</a>, the net work do
 
 </SubSubSection>
 
-<SubSubSection title="Kinetic Energy">
+<SubSubSection title="Kinetic Energy" id="kinetic_energy">
 <p>A system may find itself in motion with respect to a reference frame. In this first case, work has been done to</p>
 <p>accelerate the system to its velocity. Work done is defined by forces acting over a distance, and work <InlineEquation equation="W_{\\text{KE}}" /> can be done to accelerate the system to its velocity,</p>
 
@@ -280,7 +315,7 @@ Given the system shown in <a href="#SysSchematic1">Figure 4</a>, the net work do
 </p>
 </SubSubSection>
 
-<SubSubSection title="Enthalpy">
+<SubSubSection title="Enthalpy" id="enthalpy">
 <p>Enthalpy is a state function that is the sum of a system's internal energy <InlineEquation equation="\\mu" /> and the product of its pressure and volume <InlineEquation equation="pv" />.</p>
 
 <h4><strong>Relative Specific Enthalpy</strong></h4>
@@ -290,7 +325,7 @@ Given the system shown in <a href="#SysSchematic1">Figure 4</a>, the net work do
 <DisplayEquation equation='h=u+pv.' id="RelativeEnthalpy" title="Relative enthalpy" background="True"/>
 </SubSubSection>
 
-<SubSubSection title="Entropy">
+<SubSubSection title="Entropy" id="entropy">
 
   The topic of entropy is discussed on <a href="/entropy">this page.</a>
 </SubSubSection>
