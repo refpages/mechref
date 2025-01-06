@@ -1,0 +1,299 @@
+---
+import Layout from "../../layouts/Layout.astro" 
+import Image from "../../components/Image.astro" 
+import Section from "../../components/Section.astro" 
+import SubSection from "../../components/SubSection.astro" 
+import SubSubSection from "../../components/SubSubSection.astro" 
+import BlueText from "../../components/BlueText.astro" 
+import OrangeText from "../../components/OrangeText.astro" 
+import TealText from "../../components/TealText.astro" 
+import Enumerate from "../../components/Enumerate.astro" 
+import Item from "../../components/Item.astro" 
+import Itemize from "../../components/Itemize.astro" 
+import InlineEquation from "../../components/InlineEquation.astro" 
+import DisplayEquation from "../../components/DisplayEquation.astro" 
+import DisplayTable from "../../components/DisplayTable.astro"
+import RedText from "../../components/RedText.astro"
+---
+<Layout title="Thermodynamic Systems">
+<Section title="Thermodynamic Terminology and Definitions"></Section>
+<SubSection title="System, boundaries and surroundings">
+<p>Energy and matter flow between a <strong>thermodynamic system</strong> and its <strong>surroundings</strong> that are separated by a <strong>boundary</strong>, lead to changes its internal state. An increase in its mass results when the matter flowing into the system is greater than that flowing out of the system. An increase in its internal energy results when the energy flowing into the system is greater than that flowing out of the system. When the flow rates into and out of the system are equal, the system is in a steady state. </p>
+
+<Image src="/thermodynamics/thermodynamic_systems/fig1.png">
+  <span class="fw-bold">Figure1</span>: A schematic representation of a thermodynamic system illustrating its key features including depictions of energy and mass flows.
+</Image>
+ 
+
+<h4><strong>Steady-state:</strong></h4>
+<p>When the flow rates into and out of the system are equal, the system is in a <strong>steady state</strong></p> 
+
+<h4><strong>Transient:</strong></h4>
+<p>The state of a thermodynamic system is <strong>transient</strong> if it is not in steady state.</p> 
+</SubSection>
+
+<SubSubSection title="Types of Systems: Closed, Open, and Isolated Systems">
+<h4><strong>Closed System:</strong></h4>
+<p>Mass cannot flow in or out of the system, therefore energy is transferred via only heat or work.</p> 
+
+<h4><strong>Open System:</strong></h4>
+<p>An open system can exchange both energy and matter with its surroundings.</p> 
+
+<h4><strong>Isolated System:</strong></h4>
+<p>A system is isolated from its environment, meaning neither matter nor energy may flow in or out of the system. </p> 
+
+</SubSubSection> 
+
+<SubSection title="Units of Interest"></SubSection>
+<SubSubSection title="Typical Units in SI and English Systems">
+
+
+
+  <p class="text-center"><em>Typical Units in SI and English Systems: Dimensions</em></p>
+  
+  <DisplayTable id="dim-table">
+    <thead>
+      <tr>
+        <th>Dimension</th><th>SI</th><th>US</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th>Length</th><td>meter (m)</td><td>foot (ft)</td>
+      </tr>
+      <tr>
+        <th>Mass</th><td>kilogram (kg)</td><td>pound mass (lb)</td>
+      </tr>
+      <tr>
+        <th>Time</th><td>second (s)</td><td>second (s)</td>
+      </tr>
+    </tbody>
+  </DisplayTable>
+
+
+  <p class="text-center"><em>Typical Units in SI and English Systems: State properties</em></p>
+  <DisplayTable id="state-table">
+    <thead>
+      <tr>
+        <th>State property</th><th>SI</th><th>US</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th>Pressure</th><td>1 Pa = N/m<InlineEquation equation="^2" /> = J/m<InlineEquation equation="^3" /></td><td></td>
+      </tr>
+      <tr>
+        <th>    Volume</th><td>m<InlineEquation equation="^3" /></td><td>ft<InlineEquation equation="^3" /></td>
+      </tr>
+      <tr>
+        <th>    Temperature</th><td>degrees Celcius (<InlineEquation equation="^{\\circ}" />C)</td><td>degrees Fahrenheit (<InlineEquation equation="^{\\circ}" />F)</td>
+      </tr>
+      <tr>
+        <th>    Absolute Temperature</th><td>Kelvin (K)</td><td>degree Rankine (<InlineEquation equation="^{\\circ}" />R)</td>
+      </tr>
+      <tr>
+        <th rowspan="2">    Internal Energy, Enthalpy</th><td>Joules (J)</td><td>British thermal Unit (Btu)</td>
+      </tr>
+      <tr>
+        <td>Newton-meter (N<InlineEquation equation="\\cdot" />m)</td><td>Foot-pound force (ft<InlineEquation equation="\\cdot" />lbf)</td>
+      </tr>
+      <tr>
+        <th>    Entropy</th><td>(J/K)</td><td>Btu/<InlineEquation equation="^{\\circ}" />R</td>
+      </tr>
+    </tbody>
+  </DisplayTable>
+</SubSubSection>
+
+<SubSubSection title="Useful Conversions">
+<h4><strong>Pressure</strong></h4>
+ 
+
+<DisplayEquation equation='\\begin{aligned}   1~\\textrm{standard atm} &= 1.01325 ~\\textrm{bar} = 1.01325 \\times 10^{5} ~\\textrm{Pa} = 14.696~\\textrm{psi} \\\\ &= 760~\\textrm{mmHg} = 29.92~\\textrm{inHg}\\end{aligned}' title="Pressure unit conversions" background="True"/>
+
+<h4><strong>Temperature</strong></h4>
+ 
+
+<DisplayEquation equation='\\begin{aligned}\\textrm{Fahrenheit to Rankine:}&~ ^{\\circ}\\textrm{R} = ^{\\circ}\\textrm{F} + 459.67 \\\\    \\textrm{Celsius to Kelvin:}&~ ^{\\circ}\\textrm{K} = ^{\\circ}\\textrm{C} + 273.15\\end{aligned}' title="Temperature unit conversions" background="True"/>
+<h4><strong>Energy</strong></h4>
+ 
+
+<DisplayEquation equation='\\textrm{Btu to ft\\(\\cdot\\)lbf:}~ 1~\\textrm{Btu} = 778.18~ \\textrm{ft}\\cdot\\textrm{lbf}' title="Energy unit conversions" background="True"/>
+
+</SubSubSection>
+<SubSubSection title="Useful Constants">
+<h4><strong>Gravity</strong></h4>
+ 
+
+<DisplayEquation equation='\\begin{aligned} 9.8~\\textrm{N} = 1~\\textrm{kg}\\times 9.8~ \\textrm{m}/\\textrm{s}^2 \\\\    1~\\textrm{lbf} = 1~\\textrm{lb}\\times 32~ \\textrm{ft}/\\textrm{s}^2  \\end{aligned}' title="Mass to force conversions (Earth specific)" background="True"/>
+
+<h4><strong>Universal Gas Constant, <InlineEquation equation="\\overline{R}" /></strong></h4> 
+
+<DisplayEquation equation='\\begin{aligned} \\overline {R} = 8.314~\\textrm{kJ/kmol}\\cdot \\textrm{K} \\\\    \\overline {R} = 1545~\\textrm{ft}\\cdot \\textrm{lbf}/\\textrm{lbmol}\\cdot ^{\\circ}\\textrm{R} \\\\    \\overline {R} = 1.986~\\textrm{Btu}/\\textrm{lbmol}\\cdot ^{\\circ}\\textrm{R} \\end{aligned}' title="Universal Gas Constant in different units" background="True" />
+<h4><strong>Molecular weights <InlineEquation equation="M" /> of common substances:</strong></h4> 
+
+<p><strong>Note: </strong>(1 g/mol = 1 kg/kmol = 1 lb/lbmol): <InlineEquation equation="R= \\frac{\\overline{R}}{M}" /></p>
+
+<RedText>Convert this to a table??</RedText>
+
+<Itemize>
+
+    <Item>Air- 28.97 g/mol</Item>
+    <Item>Carbon dioxide CO<InlineEquation equation="_2" />- 44.01 g/mol</Item>
+    <Item>Ethane C<InlineEquation equation="_2" />H<InlineEquation equation="_6" />- 30.07 g/mol</Item>
+    <Item>Hydrogen H<InlineEquation equation="_2" />- 2.01 g/mol</Item>
+    <Item>Methane CH<InlineEquation equation="_4" />- 16.04 g/mol</Item>
+    <Item>Nitrogen N<InlineEquation equation="_2" />- 28.01 g/mol</Item>
+    <Item>Oxygen O<InlineEquation equation="_2" />- 32.00 g/mol</Item>
+    <Item>Refrigerant 22- 86.48 g/mol</Item>
+    <Item>Refrigerant 134a- 102.3 g/mol</Item>
+    <Item>Water H<InlineEquation equation="_2" />O- 18.015 g/mol</Item>
+
+</Itemize>
+</SubSubSection>
+
+<SubSubSection title="Helpful Math Expressions">
+<h4><strong>Integrals:</strong></h4>
+ 
+
+<DisplayEquation equation='\\int_{y_a}^{y_b} \\frac{1}{y}dy = ln(y)|_{y_a}^{y_b}' title="Integral of the inverse function" background="True"/>
+<DisplayEquation equation='\\int_{y_a}^{y_b} \\frac{1}{y^{\\gamma}}dy = - \\left. \\frac{1}{\\gamma -1}\\frac{1}{y^{\\gamma -1}} \\right|_{y_a}^{y_b} ,~\\textrm{for}~\\gamma \\neq 1' title="Power rule with negative exponents \\(\\neq\\) -1" background="True"/>
+<h4><strong>Natural Logs:</strong></h4>
+ 
+
+<DisplayEquation equation='    ln(ab)= ln(a)+ln(b)' title="Additive property of logarithms" background="True"/>
+<DisplayEquation equation='    e^{aln(b)} = b^a' title="Change of base of exponentials" background="True"/>
+</SubSubSection>
+
+<SubSection title="Mass and Mass Flow">
+<p>As matter flows in and out of a thermodynamic system, the amount of mass in the system at time <InlineEquation equation="t" /> by is defined by <InlineEquation equation="m(t)" />, then </p>
+<DisplayEquation equation='\\frac{dm}{dt}(t) = \\sum_{in}\\dot{m}_{in}(t) - \\sum_{out}\\dot{m}_{out}(t),' title="Mass-balance differential equation" background="True"/>
+<p>refers to 'the rate of change of the mass of the system.' The sums on the right add up all mass flows into and out of the system, respectively. If this quantity is positive, then the mass of the system is increasing. If it is negative, the mass of the system must be decreasing, as long as there is still mass left inside the system. </p>
+<p>
+If these flow rates are known functions of time, then this equation implies that</p>
+<DisplayEquation equation='m(t) = m(0) + \\int_0^t \\left( \\sum_{in}\\dot{m}_{in}(\\tau) - \\sum_{out}\\dot{m}_{out}(\\tau)\\right) d\\tau,' title="Mass-balance equation" id="MassBalanceInt" background="True"/>
+<p>where <InlineEquation equation="m(0)" /> is the initial value of the mass in the system at time <InlineEquation equation="t=0" />. Integrating Eqn. <a href="#MassBalanceInt">MassBalanceInt</a> with respect to time yields.</p>
+<DisplayEquation equation='m(t) - m(0) = \\Delta m =  \\sum_{in}m_{in}- \\sum_{out}m_{out}' title="Result of mass-balance equation" id="MassBalanceInt2" background="True" />
+where <InlineEquation equation="m_{in}" /> and <InlineEquation equation="m_{out}" /> are the total quantities of mass transferred in or out of the system for a given set of processes. </p>
+
+<Image src="/thermodynamics/thermodynamic_systems/fig2.png" id="SysSchematic">
+  <span class="fw-bold">Figure2</span>: A system whose state is changing due to mass flow.
+</Image>
+
+<p>
+Given the thermodynamic system shown in <a href="#SysSchematic">Figure 2</a>, one can write the rate of change of mass of the system equals the following quantity,</p>
+<DisplayEquation equation='\\dot{m}_{in,1} +\\dot{m}_{in,2} - \\dot{m}_{out,1}' title="" />
+</SubSection>
+
+<SubSection title="Volume and Volume Flow">
+<p>The volume <InlineEquation equation="V" /> of a system is an extensive parameter for describing its thermodynamic state. The specific volume <InlineEquation equation="v" />, an intensive property, is the system's volume per unit mass. Volume is a function of state and is interdependent with other thermodynamic properties such as pressure and temperature. </p>
+<h4><strong>Specific Volume</strong></h4>
+<p><p>Specific volume is the volume per unit mass</p></p> 
+
+<DisplayEquation equation='    v=\\frac{V}{m}={\\frac{\\textrm{m}^3}{\\textrm{kg}}}' title="Specific volume equation and units" background="True"/>
+</SubSection>
+
+<SubSubSection title="Volume Flow">
+As mass flows into a system, energy increases by the addition of both the internal energy of the additional mass <strong>and</strong> the <InlineEquation equation="pV" /> work done by the volume occupied by the mass on the system as it enters, and vice versa.</p>
+
+
+<Image src="/thermodynamics/thermodynamic_systems/fig3.png" />
+<Image src="/thermodynamics/thermodynamic_systems/fig4.png" />
+
+<p>
+A mass flow having rate <InlineEquation equation="\\dot{m}" /> with cross-sectional area, <InlineEquation equation="A" />, <u>slowly</u> enters a system. The mass is at a pressure <InlineEquation equation="p" />, has a specific volume <InlineEquation equation="v" />, and has a specific internal energy, <InlineEquation equation="u" />, relative to some reference state.</p>
+<p>The mass flows into the system, over a given time interval <InlineEquation equation="\\Delta t" />, increasing the internal energy of the system as it enters, by:</p>
+<DisplayEquation equation='\\dot{m}\\Delta t u=mu.' id="Deltau_dotm" title="Mass-flow & internal energy relationship" background="True"/>
+<p>
+The volume occupied by the portion of the stream entering a system is defined by,</p>
+<DisplayEquation equation='V_{\\text{in-flow}}=\\dot{m}\\Delta t v=mv' title="Volume in-flow" background="True" />
+<p>This volume is pushed at constant pressure, <InlineEquation equation="p" />, into the system, is doing <InlineEquation equation="pV" /> work on the system, which will be described further in section <a href="/thermodynamics/heat_and_work#pvwork-section">\(pV\) work</a>.
+</p>
+</SubSubSection>
+<SubSection title="Energy and Energy Flow"></SubSection>
+<SubSubSection title="Internal Energy">
+<p>The <strong>internal energy</strong>, <InlineEquation equation="U" />, of a thermodynamic system relative to some <strong>reference state</strong> <InlineEquation equation="U_0" /> is the energy required to set up the positions and motions of the atoms and molecules within the system from their positions and motions in the reference state. When the system is in its reference state, its relative internal energy equals <InlineEquation equation="0" />. </p>
+<DisplayEquation equation='\\Delta U = U - U_0 = \\textrm{energy}_{in} - \\textrm{energy}_{out}' title="External energy balance" background="True"/>
+
+<p>
+The addition of energy to a system in its reference state will result in the system having a positive relative internal energy. The removal of energy from a system in its reference state will result in the system having a negative relative internal energy. Eqn.<a href="#MassBalanceInt2">MassBalanceInt2</a>.</p>
+
+<Image src="/thermodynamics/thermodynamic_systems/fig5.png">
+  <span class="fw-bold">Figure 3</span>: A schematic representation of a thermodynamic system illustrating energy flows.
+</Image>
+
+
+
+
+<h4><strong>Internal Energy Contributions</strong></h4>
+<p>The internal energy (<InlineEquation equation="U" />) of a system is affected by the energetic contributions from heat flow (<InlineEquation equation="Q" />) in and out of a system and work (<InlineEquation equation="W" />) done by or on a system.</p> 
+
+<DisplayEquation equation='\\Delta U = Q -  W.' title="Internal energy balance" background="True"/>
+<h4><strong>Sign Convention:</strong></h4>
+<p>These energetic changes affect thermodynamic systems as follows:</p> 
+
+<Enumerate>
+
+    <Item>When heat is transferred to the system, the system energy increases (positive heat transfer).</Item>
+    <Item>When the system does work on its surroundings, the system energy decreases (negative sign in front of work done by system).</Item>
+    <Item>When the system transfers heat to the surroundings, the system energy decreases (negative heat transfer).</Item>
+    <Item>When work is done on to the system, the system energy increases (positive sign in front of work done on system).</Item>
+    
+
+</Enumerate>
+
+<Image src="/thermodynamics/thermodynamic_systems/fig6.png" id="SysSchematic1">
+  <span class="fw-bold">Figure 4</span>: A schematic illustrating the direction of energy flow when heat is transferred to/from the system and work is performed on or by the system.
+</Image>
+
+<p>
+Given the system shown in <a href="#SysSchematic1">Figure 4</a>, the net work done by the system is <InlineEquation equation="W_1-W_2" />. The net heat transferred to the system is <InlineEquation equation="Q_1-Q_2" />. The change in system energy is</p>
+<DisplayEquation equation='\\Delta U = Q_1-Q_2-(W_1-W_2).' title="Change in total system energy" background="True" />
+</SubSubSection>
+
+<SubSubSection title="Potential Energy">
+<p>A system may find itself subject to a conservative force in a position that differs from a reference position.  In this scenario, work has been done against a conservative force, such as changing the height, <InlineEquation equation="h" />, to change the potential energy.</p>
+
+<Image src="/thermodynamics/thermodynamic_systems/fig7.png"/>
+
+ Typical conservative forces include elastic potential energy, <strong>e.g.</strong>, a spring, and electric potential energy. For the particular case of gravity,
+<DisplayEquation equation='\\begin{split}W_{\\text{PE}_g}&=\\int_{z_1}^{z_2}mg\\,dz\\\\&=mg(z_2-z_1)\\end{split}' title="Potential energy" background="True" />
+<p>Thus the change in the gravitational potential energy of the system.</p>
+<DisplayEquation equation='    W_{\\text{PE}_g}=\\Delta \\text{PE}_g 'title="Work done by potential energy" background="True" />
+
+</SubSubSection>
+
+<SubSubSection title="Kinetic Energy">
+<p>A system may find itself in motion with respect to a reference frame. In this first case, work has been done to</p>
+<p>accelerate the system to its velocity. Work done is defined by forces acting over a distance, and work <InlineEquation equation="W_{\\text{KE}}" /> can be done to accelerate the system to its velocity,</p>
+
+<DisplayEquation equation='W_{\\text{KE}}=\\int_{\\vec{x_1}}^{\\vec{x_2}}\\vec{f}\\,d\\vec{x}.' title="Work-force relationship" background="True"/>
+
+<p>Force is determined from Newton's 2nd law:</p>
+
+<DisplayEquation equation='\\vec{f}=m\\frac{d\\vec{v}}{dt}=m\\frac{d\\vec{v}}{d\\vec{x}}\\underbrace{\\frac{d\\vec{x}}{dt}}_{\\vec{v}}=m\\vec{v}\\frac{d\\vec{v}}{d\\vec{x}}' title="Newton's second law" background="True"/>
+
+<p>This results in the following relationship for work done via kinetic energy change (<InlineEquation equation="W_{\\text{KE}}" />)</p>
+
+<DisplayEquation equation='\\begin{split}W_{\\text{KE}}&=\\int_{\\vec{v_1}}^{\\vec{v_2}}m\\vec{v}\\,d\\vec{v}\\\\&=\\frac{1}{2}m(\\vec{v}_2^2-\\vec{v}_1^1).\\end{split}' title="Work-momentum relationship" background="True"/>
+<p>Thus the change in kinetic energy of the system.</p>
+<DisplayEquation equation='    W_{\\text{KE}}=\\Delta \\text{KE}' title="Work done by kinetic energy" background="True"/>
+</p>
+</SubSubSection>
+
+<SubSubSection title="Enthalpy">
+<p>Enthalpy is a state function that is the sum of a system's internal energy <InlineEquation equation="\\mu" /> and the product of its pressure and volume <InlineEquation equation="pv" />.</p>
+
+<h4><strong>Relative Specific Enthalpy</strong></h4>
+
+<p>The sum <InlineEquation equation="u+pv" /> appears frequently in thermodynamic discussion so it is conveniently defined as relative specific enthalpy <InlineEquation equation="h" />, consisting of the same atomic and molecular kinetic and potential energies as specific internal energy <InlineEquation equation="u" />, but with the addition of <strong>flow work</strong>, <InlineEquation equation="pv" /></p>
+
+<DisplayEquation equation='h=u+pv.' id="RelativeEnthalpy" title="Relative enthalpy" background="True"/>
+</SubSubSection>
+
+<SubSubSection title="Entropy">
+
+  The topic of entropy is discussed on <a href="/entropy">this page.</a>
+</SubSubSection>
+
+
+</Layout>

@@ -14,6 +14,9 @@ import CalloutCard from "../../components/CalloutCard.astro";
 import CalloutContainer from "../../components/CalloutContainer.astro";
 import Image from "../../components/Image.astro";
 import DisplayTable from "../../components/DisplayTable.astro";
+import Itemize from "../../components/Itemize.astro";
+import Enumerate from "../../components/Enumerate.astro";
+import Item from "../../components/Item.astro";
 ---
 
 <style>
@@ -25,7 +28,7 @@ import DisplayTable from "../../components/DisplayTable.astro";
 
 <Layout title="Style Guide & Documentation">
 
-<Section title="Mechref Component Docs">
+<Section title="Style Guide & Documentation">
 
 The aim of using components is to maintain a consistant look and feel throughout the website, as well as being able to make changes without having to go through every page.
 
@@ -35,42 +38,51 @@ When relevant, we've tried to maintain the LateX naming scheme for ease of use b
 <li> \itemize =&gt; `Itemize`</li>
 <li> \enumerate =&gt; `Enumerate`</li>
 </ul>
-"Components" and "elements" will be used interchangeably throughout this document.
+<p>
+    "Components" and "elements" will be used interchangeably throughout this document. Use the navigation bar to find the component you are interested in. 
+</p>
 
-I want to:
-<ul>
-<li><a href="#basics">Learn how to add elements to my page, and the nuances when using HTML components</a></li>
-<li><a href="#sections">Create a new section inside my page</a></li>
-<li><a href="#latex">Add an equation</a></li>
-<li><a href="#callout">Add a callout card</a></li>
-<li><a href="#image">Add a image</a></li>
-<li><a href="#utilities">Find elements that simplify my coding</a></li>
-</ul>
+<p>
+    The <a href="/about/examples/example">starter page</a> contains the basics to get you started, such as section content, navigation bar, adding an image, and adding equations. 
+    This syle guide contains indepth information about formatting, branding, and template code for different components. 
+    When clicking on template code blocks, the code in the block will be copied to your clipboard.
+</p>
 
 </Section>
 
-<SubSection id="basics" title="How to import components">
-
-Make sure to import the element at the top of the page before using it. If you get an error like `XXX is not defined`, this is typically what it's refering to. To import an element, use the following syntax.
-<CodeBox code=`import Component from '../../components/Component.astro'` />
-`Component` refers to the name of the component you want to import.
+<SubSection title="Components">
+     
 </SubSection>
 
-<SubSection title="Inserting components into HTML page" >
+<SubSubSection title="Importing Components">
+    Make sure to import the element at the top of the page before using it. If you get an error like `XXX is not defined`, this is typically what it's refering to. To import an element, use the following syntax.
+    <CodeBox code=`import Component from '../../components/Component.astro'` />
+    `Component` refers to the name of the component you want to import.
+</SubSubSection>
 
-All HTML tags must be closed, which means when you add an element to the page, you must close it to indicate the beginning and the end of that element. Elements can be in two states: regular or self-closed. Regular means it follows the following convention:
+<SubSubSection title="Inserting Components" >
+<p>
+All tags must be closed, which means when you add an element to the page, you must close it to indicate the beginning and the end of that element. 
+</p>
+Elements can be in two states: regular or self-closed. Regular means it follows the convention below.
 <CodeBox language="html" code=`
 <Component> Content goes here... </Component>
 ` />
+<p>
 Notice how the component has two tags, one start tag and one end tag with a forward-slash. This allows us to insert content inside the element when supported.
+</p>
 
-Self-closing tags follow another convention:
+Self-closing tags follow another convention.
 <CodeBox language="html" code=`<Component />
 ` />
-
+<p>
 Now, the component only has one tag, essentially combining both the start and end tag. The component will still load, but we cannot insert any content inside it.
+</p> 
 
-Depending on that state, the behavior of the component might be different. For example, let's take the `&ltDisplayEquation&gt` component. When declared with self closing tags, it will simply be displaying an equation that take up the entire width of the screen (or whichever element it's inside of):
+<p>
+Depending on that state, the behavior of the component might be different. 
+</p> 
+For example, let's take the `&ltDisplayEquation&gt` component. When declared with self closing tags, it will simply be displaying an equation that take up the entire width of the screen (or whichever element it's inside of):
 
 <CodeBox language="html" code=`
 <DisplayEquation title="Normalization to unit vector." id="rvv-eu1" background="True" equation="\\\\begin{aligned} \\\\hat{a} =\\\\frac{\\\\vec{a}}{a}\\\\end{aligned}"/>
@@ -91,8 +103,58 @@ But when in regular mode, whatever content we add inside of it will now be displ
 </DisplayEquation>
 
 This concept is very important, and applies to almost every component. The different behaviors will be discussed when explaining the different uses of each component.
+</SubSubSection>
+
+
+<SubSection title ="Branding">
+   <p>
+        For U of I affiliated pages, use the university specified <a href="https://brand.illinois.edu/visual-identity/color">branding</a>. 
+        To change the color to text, you can either enter a hex code, or type in common color names. 
+    </p>    
+    <CodeBox code=`<span style="color: #000000">Text</span>` />
+    
+    <p>
+        For handdrawn figures, use whatever color scheme you prefer, but make it consistent throughout the course.
+    </p>
+     For example, solid mechanics uses the following pallete for images:
+        <Itemize>
+            <Item>Background: white or transparent </Item>
+            <Item>Objects: <span style="color: orange">orange</span> </Item>
+            <Item>Loadings: <span style="color: red">red</span> </Item>
+            <Item>Reactions (ie; stress, strain, displacements, etc.): <span style="color: blue">blue</span></Item>
+            <Item>Axes and dimensions: <span style="color: black">black</span></Item>
+            <Item>Fixed wall or ground: <span style="color: #707372">gray</span></Item>
+            <Item>Other: <span style="color: green">green</span></Item>
+        </Itemize>
+
+
 </SubSection>
 
+<SubSection title="General format of a page">
+   <p>
+    The general format for a page is as follows. Parts can be removed as needed, but try not to rearrange them.
+   </p> 
+<strong> Page section order:</strong>
+    <Enumerate>
+        <Item>Section - Pagle title.</Item>
+        <Item>Page intro/description.</Item>
+        <Item>SubSection - Units. </Item>
+        <Item>SubSection -Notation and sign convention.</Item>
+        <Item>SubSection(s) - Page content.</Item>
+        <Item>SubSection -Applications.</Item>
+    </Enumerate>
+
+<strong> Within page section order:</strong>
+    <Enumerate>
+        <Item>Code for callout card (This will display at the top on mobile and on the right-hand side on desktops).</Item>
+        <Item>Figure.</Item>
+        <Item>Equation(s).</Item>
+        <Item>Text.</Item>
+        <Item>Repeat 2-4 as needed. </Item>
+    </Enumerate>
+
+Remember, these pages are supposed to be reference material, not a textbook. Keep blocks of text to a mimimum and use bullet points and numbering when useful. 
+</SubSection>
 <SubSection id="sections" title="Elements currently added">
 
 <h4 class="h3">Section:</h4> 
@@ -258,7 +320,7 @@ Options:
         <p>Derivation goes here:</p>
     </div>
 </DisplayEquationCustom>
-` />
+` closed_by_default="True" id="test" closed_height="60"/>
 
 <script src="/about/docs.js" is:inline></script>
 

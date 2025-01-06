@@ -1,0 +1,140 @@
+---
+import Layout from "../../layouts/Layout.astro" 
+import Image from "../../components/Image.astro" 
+import Section from "../../components/Section.astro" 
+import SubSection from "../../components/SubSection.astro" 
+import SubSubSection from "../../components/SubSubSection.astro" 
+import OrangeText from "../../components/OrangeText.astro" 
+import TealText from "../../components/TealText.astro" 
+import Enumerate from "../../components/Enumerate.astro" 
+import Item from "../../components/Item.astro" 
+import Itemize from "../../components/Itemize.astro" 
+import InlineEquation from "../../components/InlineEquation.astro" 
+import DisplayEquation from "../../components/DisplayEquation.astro" 
+---
+<Layout title="Heat and Work">
+<Section title="Mass and Energy Balances">
+<p>The rate of change of a system's internal energy is due to the net rate of energy input minus the net rate of energy output. </p>
+
+</Section>
+
+<SubSection title="Closed System Energy Rate Balance"> 
+<p>In the absence of mass flow, the closed system energy rate balance depends on the net heat flow rate <InlineEquation equation="\\dot{Q}(t)" /> and the net work transfer rate <InlineEquation equation="\\dot{W}(t)" />, as follows,</p>
+<DisplayEquation equation='\\frac{dU}{dt}=\\dot{Q}(t)-\\dot{W}(t),' id="deltaIE" title="Change in internal energy differential eq." background="True"/>
+
+<Image src="/thermodynamics/mass_and_energy_balances/fig1.png" width="6" />
+
+
+
+<h4><strong>Net Heat Flow Rate:</strong></h4>
+<p>Comprised of the sum of the heat flow rates into the system minus the flow rates out of the system.</p> 
+
+<DisplayEquation equation='\\dot{Q}(t)=\\dot{Q}_{\\text{in}}(t)-\\dot{Q}_{\\text{out}}(t).' id="dQdt" title="Net heat flow rate" background="True"/>
+<h4><strong>Net Work Transfer Rate:</strong></h4>
+<p>Also known as net <strong>power</strong> transfer, where <InlineEquation equation="\\dot{W}_{\\text{by}}" /> is the net work done by the system and <InlineEquation equation="\\dot{W}_{\\text{on}}" /> is the net work done on the system.</p>
+<DisplayEquation equation='\\dot{W}(t)=\\dot{W}_{\\text{by}}-\\dot{W}_{\\text{on}}.' id="dWdt" title="Net work transfer rate" background="True"/>
+
+<h4><strong>Closed System Energy Rate Balance:</strong></h4>
+<p>Here, <InlineEquation equation="\\dot{Q}_{\\text{in}}" />, <InlineEquation equation="\\dot{Q}_{\\text{out}}" />, <InlineEquation equation="\\dot{W}_{\\text{by}}" /> and <InlineEquation equation="\\dot{W}_{\\text{on}}" /> are explicitly defined as the <strong>magnitude</strong> of energy flow in the direction stated. The rate of change of the internal energy in the system is determined by combining Eqns. <a href="#deltaIE">deltaIE</a>, <a href="#dQdt">dQdt</a>, and <a href="#dWdt">dWdt</a>.</p>
+
+<DisplayEquation equation='\\begin{split}\\frac{dU}{dt}&=\\dot{Q}_{\\text{in}}-\\dot{Q}_{\\text{out}}-(\\dot{W}_{\\text{by}}-\\dot{W}_{\\text{on}})\\\\&=\\dot{Q}_{\\text{in}}-\\dot{Q}_{\\text{out}}-\\dot{W}_{\\text{by}}+\\dot{W}_{\\text{on}}\\end{split}' title="Change in internal energy explicit" background="True"/>
+
+
+</SubSection>
+
+<SubSection title="Closed System Energy Balance">
+<p>The previous expression for the closed system energy balance can be determined by integrating the closed system energy rate balance (Eqn. <a href="#deltaIE">deltaIE</a>) with respect to time,</p>
+<DisplayEquation equation='\\begin{split}U(t)-U(0)&=\\int_0^t \\dot{Q}(\\tau)d\\tau-\\int_0^t \\dot{W}(\\tau)d\\tau\\\\\\Delta U(t)&=Q(t)-W(t).\\end{split}' id="intUdt" title="Change in internal energy result" background="True"/>
+
+</SubSection>
+
+<SubSection title="Energy Transfer via Mass Flow">
+<p>Energy also transfers to or from a system during mass flow. For mass flow into a system, energy increases by the addition of both the internal energy of the additional mass <strong>and</strong> the <InlineEquation equation="pV" /> work done by the mass on the system as it enters, and vice versa.</p>
+
+<Image src="/thermodynamics/mass_and_energy_balances/fig2.png" width="6" />
+<Image src="/thermodynamics/mass_and_energy_balances/fig3.png" width="6" />
+</SubSection>
+
+
+<SubSubSection title="Internal Energy Change via Mass Flow">
+
+<p>A mass flow having rate <InlineEquation equation="\\dot{m}" /> with cross-sectional area, <InlineEquation equation="A" />, <u>slowly</u> enters a system. The mass is at a pressure <InlineEquation equation="p" />, has a specific volume <InlineEquation equation="v" />, and has a specific internal energy, <InlineEquation equation="u" />, relative to some reference state.</p>
+<p>The mass flowing into the system, over a given time interval <InlineEquation equation="\\Delta t" />, increases by the the internal energy the system as it enters, by:</p>
+<DisplayEquation equation='\\dot{m}\\Delta t u=mu.' id="Deltau_dotm" title="Mass-flow & internal energy relationship" background="True"/>
+
+</SubSubSection>
+
+<SubSubSection title="\\(pV\\) Work Done via Mass Flow">
+<p>The volume occupied by the portion of the stream entering a system is defined by,</p>
+<DisplayEquation equation='V_{\\text{in-flow}}=\\dot{m}\\Delta t v=mv' title="Volume in-flow" background="True"/>
+<p>This volume is pushed at constant pressure, <InlineEquation equation="p" />, into the system, doing <InlineEquation equation="pV" /> work on the system,</p>
+<DisplayEquation equation='W_{\\text{in-flow}}=\\int_{0}^{V_{\\text{in-flow}}}p dV=mpv.' id="massflowPVwork" title="Work due to volume in-flow" background="True"/>
+
+<p>For an input stream with a constant specific volume <InlineEquation equation="v" /> and pressure <InlineEquation equation="p" />, taking the derivative of the above expression with respect to time yields the rate of work  done on the system,</p>
+
+<DisplayEquation equation='\\dot{W}=\\dot{m}pv.' title="Change in work due to change in mass-flow" background="True"/>
+
+</SubSubSection>
+
+<SubSubSection title="Total Internal Energy Change via Mass Flow">
+<p>It follows that the total increase in the internal energy of the system includes the contributions of both Eqn. <a href="#Deltau_dotm">Deltau_dotm</a> and  Eqn. <a href="#massflowPVwork">massflowPVwork</a>.</p>
+
+<DisplayEquation equation='\\begin{split}\\Delta U&=mu+mpv\\\\&=m(u+pv)\\end{split}' title="Change in internal energy due to mass-flow" background="True"/>
+
+<p>The rate of internal energy increase is therefore,</p>
+<DisplayEquation equation='\\frac{d U}{dt}=\\dot{m}(u+pv)' id="rateofDeltaU" title="Rate of change of internal energy" background="True"/>
+
+</SubSubSection>
+
+<SubSubSection title="Relative Specific Enthalpy">
+<p>Recall, that the sum <InlineEquation equation="u+pv" /> appears frequently in thermodynamic discussion so it is conveniently defined as relative specific enthalpy <InlineEquation equation="h" />, consisting of the same atomic and molecular kinetic and potential energies as specific internal energy <InlineEquation equation="u" />, but with the addition of <strong>flow work</strong>, <InlineEquation equation="pv" /></p>
+
+<DisplayEquation equation='h=u+pv.' id="RelativeEnthalpy" title="Relative enthalpy" background="True"/>
+
+</SubSubSection>
+
+<SubSection title="Internal Energy Rate Balance">
+<p>In thermodynamic systems that experience both mass flow rates <InlineEquation equation="\\dot{m}_{\\text{in}}" /> and <InlineEquation equation="\\dot{m}_{\\text{out}}" />, net heat flow rate, <InlineEquation equation="\\dot{Q}" />, into the system, and performs work at a rate <InlineEquation equation="\\dot{W}" /> on its surroundings, a generalized energy rate balance can be used to describe all of these changes at once.</p>
+
+<Image src="/thermodynamics/mass_and_energy_balances/fig4.png" width="6" />
+<p>
+<strong>Recall</strong> that the rate of change of the internal energy of a system in the absence of mass flows is given by
+</p>
+<DisplayEquation equation='\\left.\\frac{dU}{dt}\\right|_{\\text{no-flow}}=\\dot{Q}(t)-\\dot{W}(t)' title="ROCofU_woMF" title="Rate of change of internal energy without mass-flow" background="True"/>
+
+<p>
+<strong>Recall</strong> that the the mass flow rate `in` changes the internal energy of the system at a rate
+<DisplayEquation equation='\\left.\\frac{dU}{dt}\\right|_{\\text{in-flow}}=\\dot{m}_{\\text{in}}(u_{\\text{in}}+p_{\\text{in}}v_{\\text{in}})=\\dot{m}_{\\text{in}}h_{\\text{in}}' id="ROCofU_MFin"  title="Rate of change of internal energy due to mass-inflow" background="True"/>
+</p>
+
+<p>
+<strong>Similarly</strong> the mass flow rate `out` changes the internal energy at a rate
+</p>
+
+<DisplayEquation equation='\\left.\\frac{dU}{dt}\\right|_{\\text{out-flow}}=-\\dot{m}_{\\text{out}}(u_{\\text{out}}+p_{\\text{out}}v_{\\text{out}})=-\\dot{m}_{\\text{out}}h_{\\text{out}}' id="ROCofU_MFout" title="Rate of change of internal energy due to mass-outflow" background="True"/>
+
+<p>The total rate of change in the internal energy is the sum of Eqns. <a href="#ROCofU_woMF">ROCofU_woMF</a>, <a href="#ROCofU_MFin">ROCofU_MFin</a>, and <a href="ROCofU_MFout">ROCofU_MFout</a>, yielding a generalized equation to an arbitrary number of input and output streams yields</p>
+
+<DisplayEquation equation='\\frac{dU}{dt}=\\dot{Q}-\\dot{W}+\\sum_{\\text{in}}\\dot{m}_{\\text{in}}h_{\\text{in}}-\\sum_{\\text{out}}\\dot{m}_{\\text{out}}h_{\\text{out}}' title="Rate of change of internal energy with mass-flow" background="True"/>
+
+</SubSection>
+
+<SubSection title="Total Energy Balance">
+<p>The kinetic and potential energy changes contribute to the <strong>total energy</strong> <InlineEquation equation="\\Delta E" /> of the system</p>
+
+<DisplayEquation equation='\\Delta E=\\Delta U+ \\Delta \\text{PE}+ \\Delta \\text{KE}' title="Change in total energy" background="True"/>
+
+</SubSection>
+
+<SubSection title="Total Energy Rate Balance">
+<p>The most general form of the energy rate balance <InlineEquation equation="\\frac{dE}{dt}" /></p>
+<p>accounts for internal energy effects, along with kinetic and gravitational potential energy effects on the system via the <strong>total energy</strong> <InlineEquation equation="E" />.</p>
+
+<DisplayEquation equation='\\frac{dE}{dt}=\\frac{d (\\Delta U + \\Delta KE + \\Delta PE)}{dt} = \\frac{dU}{dt}+\\frac{d\\text{KE}}{dt}+\\frac{d\\text{PE}}{dt}' title="ERateTotal" title="Rate of change of total energy" background="True"/>
+
+<p>This energy rate balance accounts for all energy contributions including kinetic and gravitational potential energy contributions to the system via mass inputs and outputs.</p>
+
+<DisplayEquation equation='\\frac{dE}{dt}=\\dot{Q}-\\dot{W}+\\sum_{\\text{in}}\\dot{m}_\\text{in}(h_\\text{in}+\\frac{1}{2}\\vec{v}_\\text{in}^2+gz_\\text{in})-\\sum_{\\text{out}}\\dot{m}_\\text{out}(h_\\text{out}+\\frac{1}{2}\\vec{v}_\\text{out}^2+gz_\\text{out})' id="ERateTotalGeneral" title="Rate of change of total energy expanded" background="True"/>
+</SubSection>
+
+</Layout>

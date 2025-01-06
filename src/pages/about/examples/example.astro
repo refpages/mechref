@@ -55,6 +55,12 @@ import InlineCanvas from "../../../components/InlineCanvas.astro";
             The goal of these pages is to be referenced and the page is to be written assuming students have already seen the materal and are not learning the material for the first time. 
             AKA don't write a textbook.
         </p>
+
+        <Warning title="Read me if you plan to copy/paste this page into your course!" id="copy-paste">
+            Because of where this page is in github, the insert components section at the top of the code is a little different. After copy/pasting this page into your course, remove one '../' from each component line at the top.
+            All insert components statements in the text here and in the style guide have the correct path structure and do not need to be changed. 
+        </Warning>
+
         <p>
             Good luck!
         </p>
@@ -103,8 +109,9 @@ import InlineCanvas from "../../../components/InlineCanvas.astro";
     </SubSection>
 
     <SubSection id="images" title="Adding Images">
+        
         <p>
-            You can also add images with or without a caption. More info on formatting images is in the <a href="/about/docs"> Style guide & documentation</a>.
+            You can also add images with or without a caption. For info on where images should be saved at, see the <a href="/about/instructions/mechse#setup">setup page</a>. More info on formatting images is in the <a href="/about/docs#images"> Style guide & documentation</a>.
         </p>
         <Image src="/sol/Bending-Figures/Geometry.png" width="4"> Add caption here if you want one </Image>
     </SubSection>
