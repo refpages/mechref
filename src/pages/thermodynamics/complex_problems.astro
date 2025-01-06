@@ -152,7 +152,7 @@ Imagine a two-tiered water fountain as depicted below. The maximum mass capaciti
 
 
 <h4><strong>Steady-State:</strong></h4>
-<p>Drawing a system boundary, <InlineEquation equation="\\mathcal{B}_1" />, around the entire fountain and considering when the fountain might be operating in steady-state (The diagonal arrow with the `ss' label indicates that this term is eliminated due to a `steady-state' assumption), Eqn.<OrangeText>eq:MassBalanceDiff</OrangeText>, simplifies to,</p>
+<p>Drawing a system boundary, <InlineEquation equation="\\mathcal{B}_1" />, around the entire fountain and considering when the fountain might be operating in steady-state (The diagonal arrow with the `ss' label indicates that this term is eliminated due to a `steady-state' assumption), Eqn. <a href="/thermodynamics/thermodynamic_systems#MassBalanceDiff">MassBalanceDiff</a>, simplifies to,</p>
 
 <DisplayEquation equation='\\begin{split}\\cancelto{ss}{\\frac{dm}{dt}(t)} &= \\dot{m}_{in} - \\dot{m}_{out}(t) \\\\0 &= \\dot{m}_{in} -  m_B(t)/\\mathcal{T}\\end{split}' title="" />
 <p>
@@ -165,7 +165,7 @@ from which it is clear that the fountain will operate at steady state whenever
 </Image>
 
 <h4><strong>Transient System:</strong></h4>
-<p><p>If it rains, an additional mass flow rate <InlineEquation equation="\\dot{m}_{rain}" /> into the fountain must also be considered. Eqn.<OrangeText>"eq:Mass"BalanceDiff</OrangeText> then becomes</p>
+<p><p>If it rains, an additional mass flow rate <InlineEquation equation="\\dot{m}_{rain}" /> into the fountain must also be considered. Eqn. <a href="/thermodynamics/thermodynamic_systems#MassBalanceDiff">MassBalanceDiff</a> then becomes</p>
 <DisplayEquation equation='0 = \\dot{m}_{in} + \\dot{m}_{rain}-  m_B(t)/\\mathcal{T},' title="" />
 <p>from which we conclude that steady state occurs when <InlineEquation equation="m_B= \\mathcal{T}(\\dot{m}_{in}+\\dot{m}_{rain})" />. The fountain will overflow when the mass of water in Tier B is larger than its maximum allowable volume, or when <InlineEquation equation="m_B > m_{B,max}" />. Combining these relations, we determine that the fountain will overflow from rain when</p>
 <DisplayEquation equation='\\dot{m}_{rain} > \\frac{m_{B,max}}{\\mathcal{T}} -\\dot{m}_{in}.' title="" />
@@ -175,17 +175,17 @@ from which it is clear that the fountain will operate at steady state whenever
 We model the transient process of turning on the fountain from an initially empty state (<InlineEquation equation="m_A(0) = m_B(0) = 0" />), by first re-drawing our system in a way that clarifies system boundaries and mass flows. </p>
 
 <p>
-First, Tier A will fill. Drawing our system boundary around the Tier A block above (<InlineEquation equation="\\mathcal{B}_A" />) and using Eqn.<OrangeText>eq:MassBalanceInt</OrangeText> we obtain the following expression for the mass in Tier A,</p>
+First, Tier A will fill. Drawing our system boundary around the Tier A block above (<InlineEquation equation="\\mathcal{B}_A" />) and using Eqn. <a href="/thermodynamics/thermodynamic_systems#MassBalanceInt">MassBalanceInt</a> we obtain the following expression for the mass in Tier A,</p>
 <DisplayEquation equation='m_A(t) = \\cancel{m_A(0)} + \\int_0^t \\left( \\dot{m}_{in} - 0\\right) d\\tau = m_{in}t.' title="" />
 <p>Thus, the mass in Tier A increases linearly with time in proportion to the inlet flow rate. Tier A reaches it's capacity when <InlineEquation equation="m_A(t) = m_{A,max} = \\dot{m}_{in}t" /> or at time <InlineEquation equation="t_{AB}= m_{A,max}/\\dot{m}_{in}" />. Afterward, Tier A is in steady-state, <InlineEquation equation="\\dot{m}_A = \\dot{m}_{in}" />, and flow enters Tier B.</p>
 <p>
-Drawing our system boundary around the Tier B block above (<InlineEquation equation="\\mathcal{B}_B" />) and using Eqn.<OrangeText>eq:MassBalanceDiff</OrangeText> we obtain the following expression for the mass in Tier B for <InlineEquation equation="t > t_{AB}" /> as,</p>
-<DisplayEquation equation='\\frac{dm_B}{dt}(t) = \\dot{m}_{A} - \\frac{m_B(t)}{\\mathcal{T}}.' title="" />
+Drawing our system boundary around the Tier B block above (<InlineEquation equation="\\mathcal{B}_B" />) and using Eqn. <a href="/thermodynamics/thermodynamic_systems#MassBalanceDiff">MassBalanceDiff</a> we obtain the following expression for the mass in Tier B for <InlineEquation equation="t > t_{AB}" /> as,</p>
+<DisplayEquation equation='\\frac{dm_B}{dt}(t) = \\dot{m}_{A} - \\frac{mF_B(t)}{\\mathcal{T}}.' title="" />
 <p>It follows that the solution to this first-order, linear differential equation is</p>
 <DisplayEquation equation='m_B(t)= \\cancel{m_B(0)}e^{-t\\mathcal{T}} + \\mathcal{T}\\dot{m}_{A} (-e^{-t/\\mathcal{T}})=  \\mathcal{T}\\dot{m}_{in} (1-e^{-t\\mathcal{T}})' title="" />
-<p>As <InlineEquation equation="t\\rightarrow\\infty" />, the mass <InlineEquation equation="m_B(t)" /> asymptotically converges to <InlineEquation equation="\\dot{m}_A\\mathcal{T}" />, just as we found in our earlier steady state solution (Eq. <a href="#SS_mB">SS_mB</a>). These results are summarized in Figure~<OrangeText>fig:FountainPlot</OrangeText>. </p>
+<p>As <InlineEquation equation="t\\rightarrow\\infty" />, the mass <InlineEquation equation="m_B(t)" /> asymptotically converges to <InlineEquation equation="\\dot{m}_A\\mathcal{T}" />, just as we found in our earlier steady state solution (Eq. <a href="#SS_mB">SS_mB</a>). These results are summarized in Figure <a href="#FountainPlot">FountainPlot</a>. </p>
 
-<Image src="/thermodynamics/complex_problems/fig4.png" width="6">
+<Image src="/thermodynamics/complex_problems/fig4.png" width="6" id="FountainPlot">
     <strong>Figure 4:</strong> A plot of the transient response of the water fountain in both tiers assuming that Tier B does not overflow.
 </Image>
 </SubSubSection>
