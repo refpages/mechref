@@ -17,6 +17,10 @@ import DisplayTable from "../../components/DisplayTable.astro";
 import Itemize from "../../components/Itemize.astro";
 import Enumerate from "../../components/Enumerate.astro";
 import Item from "../../components/Item.astro";
+import Example from "../../components/Example.astro"
+import Row from "../../components/Row.astro"
+import Col from "../../components/Col.astro"
+
 ---
 
 <style>
@@ -155,99 +159,574 @@ This concept is very important, and applies to almost every component. The diffe
 
 Remember, these pages are supposed to be reference material, not a textbook. Keep blocks of text to a mimimum and use bullet points and numbering when useful. 
 </SubSection>
-<SubSection id="sections" title="Elements currently added">
+<SubSection id="sections" title="Section Types">
 
-<h4 class="h3">Section:</h4> 
+<SubSubSection id="section" title="Page Title" >
 
-<p><p>Type: Regular only</p></p>
+    <CodeBox language="html" code=`
+    import Section from "../../components/Section.astro" 
+    ` />
 
-Options:
-<ul>
-<li>title: Displays title of the section.</li>
-<li>id: Gives an id to the section so it can be linked to in the navigation tree or other pages.</li>
-</ul>
+    <p><p>Tag type: Regular</p></p>
 
-Example:
-<CodeBox language="html" code=`
-<Section title="Example Page" id="example_page">
-    <p>Lorem ipsum.</p>
-</Section>
-` />
+    Options:
+    <ul>
+    <li>title: Displays title of the page.</li>
+    <li>id: Gives an id to the top of the page so it can be linked to in the navigation tree or other pages.</li>
+    </ul>
+    
+    Example:
+    <CodeBox language="html" code=`
+    <Section title="Title" id="example-page">
+        <p>TEXT</p>
+    </Section>
+    ` />
 
-<p class="mt-3">Result:</p>
-
-<Section title="Example page">
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce nulla augue, interdum sed sapien non, dictum luctus risus. Maecenas pretium leo orci, condimentum vehicula libero scelerisque vel. Nulla hendrerit nunc a mauris elementum, id molestie augue dictum. Etiam convallis justo eu sem ultricies, sed ultricies tellus commodo. Nunc ac bibendum odio. Etiam non tincidunt mauris, vitae condimentum eros. Fusce id semper arcu, id dictum neque.</p>
-</Section>
-
-<h4 class="h3">SubSection:</h4> 
-
-Same as Section, but with smaller title.
-
-<p><p>Type: Regular only</p></p>
-
-Options:
-<ul>
-<li>title: Displays title of the section.</li>
-<li>id: Gives an id to the section so it can be linked to in the navigation tree or other pages.</li>
-</ul>
-
-Example:
-<CodeBox language="html" code=`
-<SubSection title="Example Subsection" id="example_subsection">
-    <p>Lorem ipsum.</p>
-</SubSection>
-` />
-<p class="mt-3">Result:</p>
-<SubSection title="Example Subsection">
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce nulla augue, interdum sed sapien non, dictum luctus risus. Maecenas pretium leo orci, condimentum vehicula libero scelerisque vel. Nulla hendrerit nunc a mauris elementum, id molestie augue dictum. Etiam convallis justo eu sem ultricies, sed ultricies tellus commodo. Nunc ac bibendum odio. Etiam non tincidunt mauris, vitae condimentum eros. Fusce id semper arcu, id dictum neque.</p>
-</SubSection>
-
-<h4 class="h3">SubSubSection:</h4> 
-
-Same as SubSection, but with smaller title.
-
-<p>Type: Regular only</p>
-
-Options:
-<ul>
-<li>title: Displays title of the section.</li>
-<li>id: Gives an id to the section so it can be linked to in the navigation tree or other pages.</li>
-</ul>
-
-Example:
-<CodeBox language="html" code=`
-<SubSubSection title="Example SubSubsection" id="example_subsubsection">
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce nulla augue, interdum sed sapien non, dictum luctus risus. Maecenas pretium leo orci, condimentum vehicula libero scelerisque vel. Nulla hendrerit nunc a mauris elementum, id molestie augue dictum. Etiam convallis justo eu sem ultricies, sed ultricies tellus commodo. Nunc ac bibendum odio. Etiam non tincidunt mauris, vitae condimentum eros. Fusce id semper arcu, id dictum neque.</p>
-</SubSubSection>
-` />
-<p class="mt-3">Result:</p>
-<SubSubSection title="Example SubSubsection" id="example_subsubsection">
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce nulla augue, interdum sed sapien non, dictum luctus risus. Maecenas pretium leo orci, condimentum vehicula libero scelerisque vel. Nulla hendrerit nunc a mauris elementum, id molestie augue dictum. Etiam convallis justo eu sem ultricies, sed ultricies tellus commodo. Nunc ac bibendum odio. Etiam non tincidunt mauris, vitae condimentum eros. Fusce id semper arcu, id dictum neque.</p>
 </SubSubSection>
 
-<h4 class="h3">SubSubSubSection:</h4> 
+<Section title="Title" id="example-page">
+<p>TEXT</p>
+</Section>
 
-Same as SubSection, but with smaller title.
+<SubSubSection id="sub-section" title="Page Sections" >
 
-<p>Type: Regular only</p>
+    <CodeBox language="html" code=`
+    import SubSection from "../../components/SubSection.astro"
+    ` />
 
-Options:
-<ul>
-<li>title: Displays title of the section.</li>
-<li>id: Gives an id to the section so it can be linked to in the navigation tree or other pages.</li>
-</ul>
+    <p><p>Tag type: Regular</p></p>
 
-Example:
-<CodeBox language="html" code=`
-<SubSubSubSection title="Example SubSubsection" id="example_subsubsubsection">
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce nulla augue, interdum sed sapien non, dictum luctus risus. Maecenas pretium leo orci, condimentum vehicula libero scelerisque vel. Nulla hendrerit nunc a mauris elementum, id molestie augue dictum. Etiam convallis justo eu sem ultricies, sed ultricies tellus commodo. Nunc ac bibendum odio. Etiam non tincidunt mauris, vitae condimentum eros. Fusce id semper arcu, id dictum neque.</p>
+    Options:
+    <ul>
+    <li>title: Displays title of the section.</li>
+    <li>id: Gives an id to the section so it can be linked to in the navigation tree or other pages.</li>
+    </ul>
+    
+    Example:
+    <CodeBox language="html" code=`
+    <SubSection title="Section" id="example-section">
+        <p>TEXT</p>
+    </SubSection>
+    ` />
+
+</SubSubSection>
+
+<SubSection title="Section" id="example-section">
+    <p>TEXT</p>
+</SubSection>
+
+<SubSubSection id="sub-sub-section" title="Page Sub Sections" >
+
+    <CodeBox language="html" code=`
+    import SubSection from "../../components/SubSubSection.astro"
+    ` />
+
+    <p><p>Tag type: Regular</p></p>
+
+    Options:
+    <ul>
+    <li>title: Displays title of the sub section.</li>
+    <li>id: Gives an id to the sub section so it can be linked to in the navigation tree or other pages.</li>
+    </ul>
+    
+    Example:
+    <CodeBox language="html" code=`
+    <SubSubSection title="SubSection" id="example-sub-section">
+        <p>TEXT</p>
+    </SubSubSection>
+    ` />
+
+</SubSubSection>
+
+<SubSubSection title="SubSection" id="example-sub-section">
+    <p>TEXT</p>
+</SubSubSection>
+
+<SubSubSection id="sub-sub-sub-section" title="Page Sub Sub Sections" >
+
+    <CodeBox language="html" code=`
+    import SubSection from "../../components/SubSubSubSection.astro"
+    ` />
+
+    <p><p>Tag type: Regular</p></p>
+
+    Options:
+    <ul>
+    <li>title: Displays title of the sub sub section.</li>
+    <li>id: Gives an id to the sub sub section so it can be linked to in the navigation tree or other pages.</li>
+    </ul>
+    
+    Example:
+    <CodeBox language="html" code=`
+    <SubSubSubSection title="SubSubSection" id="example-sub-sub-section">
+        <p>TEXT</p>
+    </SubSubSubSection>
+    ` />
+
+</SubSubSection>
+
+<SubSubSubSection title="SubSubSection" id="example-sub-sub-section">
+    <p>TEXT</p>
 </SubSubSubSection>
+
+
+    
+<SubSection title="Paragraph and Font Options" id="paragraph-font">
+    <p>TEXT</p>
+</SubSection>
+    
+      
+<SubSubSection title="New Paragraph" id="new-paragraph">
+    <p><p>Tag type: Regular</p></p>
+    
+    Options:
+    <ul>
+    <li>na</li>
+    </ul>
+
+    Example:
+    <CodeBox language="html" code=`
+    <p> TEXT </p>
+    ` />
+    <p>TEXT</p>
+
+</SubSubSection>
+
+<SubSubSection title="Lists" id="lists">
+    <p>Use when 2 or more things need to be listed.</p>
+    
+    <CodeBox language="html" code=`
+    import Itemize from "../../components/Itemize.astro"
+    import Item from "../../components/Item.astro"
+    ` />
+    
+    <p><p>Tag type: Regular</p></p>
+    
+    Options:
+    <ul>
+    <li>na</li>
+    </ul>
+
+    Example:
+    <CodeBox language="html" code=`
+   <Itemize>
+        <Item>TEXT</Item>
+        <Item>TEXT</Item>
+    </Itemize>
+
+    ` />
+    <Itemize>
+        <Item>TEXT</Item>
+        <Item>TEXT</Item>
+    </Itemize>
+
+</SubSubSection>     
+
+
+<SubSubSection title="Numbered Lists" id="numbered-lists">
+    
+    <p>Use when 2 or more things are in a process or order.</p>
+
+    <CodeBox language="html" code=`
+    import Enumerate from "../../components/Enumerate.astro"
+    import Item from "../../components/Item.astro"
+    ` />
+    
+    <p><p>Tag type: Regular</p></p>
+    
+    Options:
+    <ul>
+    <li>na</li>
+    </ul>
+
+    Example:
+    <CodeBox language="html" code=`
+   <Enumerate>
+        <Item>TEXT</Item>
+        <Item>TEXT</Item>
+    </Enumerate>
+
+    ` />
+    <Enumerate>
+        <Item>TEXT</Item>
+        <Item>TEXT</Item>
+    </Enumerate>
+
+</SubSubSection>     
+
+<SubSubSection title="Multi Column" id="multi-column">
+    
+    <p>Generally used in examples to put figures next to the question and tables. Can be used in other situations as needed.</p>
+
+    <CodeBox language="html" code=`
+    import Row from "../../components/Row.astro"
+    import Col from "../../components/Col.astro"
+    ` />
+    
+    <p><p>Tag type: Regular</p></p>
+    
+    Options:
+    <ul>
+    <li>values: value after 'md-' is the midpoint of the column.</li>
+    </ul>
+
+    Example:
+    <CodeBox language="html" code=`
+   <Row>
+      <Col values="12 md-6">
+        <p>
+          Row1Col1
+        </p>
+      </Col>
+      <Col values="12 md-6">
+        	Row1Col2
+      </Col>
+    </Row>
+    ` />
+
+    <Row>
+        <Col values="12 md-6">
+          <p>
+            Row1Col1
+          </p>
+        </Col>
+        <Col values="12 md-6">
+              Row1Col2
+        </Col>
+  </Row>
+  
+</SubSubSection>
+
+<SubSubSection title="Italics" id="italics">
+
+    Typically used in figure and table captions.
+    
+    <p><p>Tag type: Regular</p></p>
+    
+    Options:
+    <ul>
+    <li>na</li>
+    </ul>
+
+    Example:
+    <CodeBox language="html" code=`
+   <em>TEXT</em>
+
+    ` />
+    <em>TEXT</em>
+
+</SubSubSection> 
+
+<SubSubSection title="Bold" id="bold">
+    Generally used to emphasize key words in sentances. 
+    <p><p>Tag type: Regular</p></p>
+    
+    Options:
+    <ul>
+    <li>na</li>
+    </ul>
+
+    Example:
+    <CodeBox language="html" code=`
+   <strong>TEXT</strong>
+
+    ` />
+    <strong>TEXT</strong>
+
+</SubSubSection> 
+
+<SubSubSection title="Underline" id="underline">
+
+    Typically only used for links, which are automatically formatted.
+    <p><p>Tag type: Regular</p></p>
+    
+    Options:
+    <ul>
+    <li>na</li>
+    </ul>
+
+    Example:
+    <CodeBox language="html" code=`
+   <u>TEXT</u>
+
+    ` />
+    <u>TEXT</u>
+
+</SubSubSection> 
+
+<SubSubSection title="Other Font Customizations" id="font-customizations">
+
+    <p><p>Tag type: Regular</p></p>
+    
+    Options:
+    <ul>
+    <li>style: many things can be added here such as color (shown below) and centering text ("text-align: center"). To include multiple style changes, separate them by a semicolon (;). </li>
+    </ul>
+
+    Example:
+    <CodeBox language="html" code=`
+   <span style="color: green;">TEXT</span> 
+
+    ` />
+    <span style="color: green;">TEXT</span> 
+
+</SubSubSection> 
+
+<SubSection title="Navigation Bar" id="nav-bar">
+
+    <p><p>Tag type: Regular</p></p>
+    
+    How to use:
+    <Enumerate>
+        <Item>Insert template code at the top of the page after the 'Layout' component and before the 'Section' component. </Item>
+        <Item>Edit the template code to match the structure of the page.</Item>
+        <Itemize>
+            <Item>If a section has a subsection (or subsection has a subsubsection), add the subsection lines before closing the section line (after closing the 'a' component and before closing the 'li' component).</Item>
+            <Item>Closing the 'ul' component signifies that group of section type. </Item>
+        </Itemize>
+        <Item>Change the id in the 'href=#' to match the 'id=' of the (sub)section.</Item>
+        <Item>Change the (sub)secton title in the 'a' component to match the 'title=' of the (sub)section.</Item>
+        <Item>Check all links work.</Item>
+    </Enumerate>
+
+    Example:
+    <CodeBox language="html" code=`
+   <div slot="navtree">
+    <ul class='list-group list-group-flush py-0'> 
+        <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#id'>PgSectionTitle</a></li>
+        <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#id'> PgSectionTitle </a>
+            <ul class='list-group list-group-flush py-0'> 
+                <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#id'> PgSubSectionTitle </a></li> 
+                <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#id'> PgSubSectionTitle </a>
+  	<ul class='list-group list-group-flush py-0'> 
+               	 <li class='list-group-item py-0'><a class='text-decoration-none subsubsubsection' href='#id'> PgSubSubSectionTitle </a></li> 
+                <li class='list-group-item py-0'><a class='text-decoration-none subsubsubsection' href='#id'> PgSubSubSectionTitle </a></li>  
+    </ul>
+    </li>  
+                </ul>
+            </li>  
+        </ul>
+    </div>
+    ` />
+
+    The <a href="/sol/material_properties/">material properties page</a> in solid mechanics is a good example of multiple subsections being used. 
+</SubSection>
+
+
+<SubSection title="Inserting Links" id="links">
+
+</SubSection>
+ 
+<SubSubSection title="Within a page" id="same-page">
+
+    <p><p>Tag type: Regular</p></p>
+    
+    Options:
+    <ul>
+    <li>href: insert the id of the section you want to link to after the '#'.</li>
+    </ul>
+
+    Example:
+    <CodeBox language="html" code=`
+   <a href="#id ">TEXT</a>
+    ` />
+
+    <a href="#nav-bar ">TEXT</a>
+
+    <p><em>*For demonstration purposes, this actually links to the navigation bar section.</em></p>
+
+</SubSubSection> 
+
+<SubSubSection title="Different page" id="diff-page">
+
+    <p><p>Tag type: Regular</p></p>
+    
+    Options:
+    <ul>
+    <li>href: Change to the course code and page (.astro name) you want to link to. If you want to link to a specific section of the page, add '#id' with the corresponding id after the page name. </li>
+    </ul>
+
+    Example:
+    <CodeBox language="html" code=`
+   <a href="/xxx/CoursePage">TEXT</a> 
+    ` />
+
+    <a href="/dyn/vectors">TEXT</a> 
+
+    <p><em>*For demonstration purposes, this actually links to vectors page in dynamics.</em></p>
+
+</SubSubSection> 
+
+<SubSubSection title="External page" id="ext-page">
+
+    <p><p>Tag type: Regular</p></p>
+    
+    Options:
+    <ul>
+    <li>href: Change to the full link starting with the http:// of the page you wish to direct to. </li>
+    </ul>
+
+    Example:
+    <CodeBox language="html" code=`
+   <a target="_blank" rel="noopener noreferrer" href="LINK">TEXT</a> 
+    ` />
+
+    <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Aprille_Ericsson">TEXT</a>
+
+    <p><em>*For demonstration purposes, this actually links to a wikipedia page.</em></p>
+
+</SubSubSection> 
+
+<SubSubSection title="External video" id="ext-video">
+
+    <p><p>Tag type: Regular</p></p>
+    
+    Options:
+    <ul>
+    <li>src: Change to the full link starting with the http:// of the page you wish to direct to and change the 'watch?v=' section of the link to 'embed/'. </li>
+    <li>class: the number here is the % width of the page that the video takes up.</li>
+    </ul>
+
+    Example:
+    <CodeBox language="html" code=`
+     <p class="m-0"><u>TEXT</u></p>
+        <iframe src="LINK" class="w-100" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 ` />
-<p class="mt-3">Result:</p>
-<SubSubSubSection title="Example SubSubsection" id="example_subsubsubsection">
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce nulla augue, interdum sed sapien non, dictum luctus risus. Maecenas pretium leo orci, condimentum vehicula libero scelerisque vel. Nulla hendrerit nunc a mauris elementum, id molestie augue dictum. Etiam convallis justo eu sem ultricies, sed ultricies tellus commodo. Nunc ac bibendum odio. Etiam non tincidunt mauris, vitae condimentum eros. Fusce id semper arcu, id dictum neque.</p>
-</SubSubSubSection>
+
+    <p class="m-0">TEXT</p>
+        <iframe src="https://www.youtube.com/embed/HEfHFsfGXjs" class="w-50" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+
+    <p><em>*For demonstration purposes, this actually links to a 3blue1brown YouTube video.</em></p>
+
+</SubSubSection>
+
+<SubSection title="Callout Cards" id="callout-cards">
+
+    <p>
+    There are 3 main callout card templates which are all shown here. 
+    </p>
+
+    <CodeBox language="html" code=`
+     import CalloutCard from "../../components/CalloutCard.astro"
+    import CalloutContainer from "../../components/CalloutContainer.astro"
+    ` />
+
+    <p><p>Tag type: Regular</p></p>
+    
+    Options:
+    <ul>
+    <li>slot: should not change. </li>
+    <li>title: title of the card when displayed. f left blank, defaults to "Did you know?".</li>
+    </ul>
+
+    Example: 
+    <p>This card is used to connect back to material prior in the course or potential courses they may have already taken.</p>
+    <em>Note:</em> this information should not be needed to understand the material for the course, this is so students can see how courses connect to each other. Pages should be self-contained and not require links to other material.
+
+    
+    <CodeBox language="html" code=`
+    <CalloutContainer slot="cards">
+        <CalloutCard title="Review?">
+            <p>
+               Need a review of <strong> SubSectionTitle </strong>?
+            </p>
+            <p>
+                This content has also been in <a href="/XXX/CoursePage">CourseName</a> 
+            </p>
+            <p>
+	            CONTENT
+            </p>
+        </CalloutCard>
+    </CalloutContainer>
+    ` />
+
+    <CalloutContainer slot="cards">
+        <CalloutCard title="Review?">
+            <p>
+               Need a review of <strong> SubSectionTitle </strong>?
+            </p>
+            <p>
+                This content has also been in <a href="/XXX/CoursePage">CourseName</a> 
+            </p>
+            <p>
+	            CONTENT
+            </p>
+        </CalloutCard>
+    </CalloutContainer>
+
+    Example: 
+    <p>This card is used to include supplemental material (ie; videos, webpages, open-source textbooks, etc.).</p>
+    
+    <CodeBox language="html" code=`
+    <CalloutContainer slot="cards">
+        <CalloutCard title="Extra!">
+            <p class="m-0"><u>Supplemental video:</u></p>
+                CONTENT
+        </CalloutCard>
+    </CalloutContainer>
+    ` />
+
+    <CalloutContainer slot="cards">
+        <CalloutCard title="Extra!">
+            <p class="m-0"><u>Supplemental MATERIAL:</u></p>
+                CONTENT
+        </CalloutCard>
+    </CalloutContainer>
+
+    Example: 
+    <p>This card is used to connect to future content in the course or other courses students may take in the future.</p>
+    
+    <CodeBox language="html" code=`
+    <CalloutContainer slot="cards">
+        <CalloutCard title="Heads  up!">
+            <p>
+               <strong> SubSectionTitle </strong> builds on this content in COURSE.
+              </p>
+              <p>
+                 CONTENT
+              </p>
+        </CalloutCard>
+    </CalloutContainer>
+    ` />
+
+    <CalloutContainer slot="cards">
+        <CalloutCard title="Heads  up!">
+            <p>
+               <strong> SubSectionTitle </strong> builds on this content in COURSE.
+            </p>
+            <p>
+                CONTENT
+            </p>
+        </CalloutCard>
+    </CalloutContainer>
+
+</SubSection>
+
+<SubSection title="Images" id="images">
+    
+    <CodeBox language="html" code=`
+    import Image from "../../components/Image.astro"
+    ` />
+
+    <p><p>Tag type: Self-closing (no caption) or regular (caption)</p></p>
+    
+    Options:
+    <ul>
+    <li>src: URL to the image.</li>
+    <li>width: A value between 1 and 7. A value of 7 means it will take up the full available width, and otherwise it will take up <InlineEquation equation="n/7\\cdot100\\%" />.</li>
+    <li>id: Gives an id to the image so it can be linked to in within the current page or from other pages. Optional.</li>
+    <li>alt: The text to display in place of the image if it fails to load. Optional but recommended for accessibility reasons.</li>
+    <li>class_: Give the image extra classes for styling. Optional.</li>
+    </ul>
+
+    Example:
+    <CodeBox language="html" code=`
+     <Image src="/COURSE/FigFolder/FIGURE.png" width="7"> CAPTION</Image>
+    ` />
+
+    <Image src="/sol/bending/Geometry.png" width="2"> CAPTION</Image>
+</SubSection>
 
 <SubSubSection id="latex" title="Latex displaying elements" >
 These elements provide a wrapper for LateX equation, since we cannot use {`{}`} directly in the HTML, preventing us from writing complex equations. <red-text>Make sure to double every backslash</red-text>, e.g. \\vec => \\\\vec.
@@ -364,138 +843,6 @@ Example:
 
 <InlineEquation equation=`\\vec{F} = m\\vec{a}` /> is a very important equation you guys need to remember.
 </SubSubSection>
-
-
-<SubSection id="callout" title="Callout card elements">
-
-<h4 class="h3">CalloutContainer:</h4>
-
-To add callout cards, one first needs to add a `CalloutContainer` element within a section element (Section, SubSection, SubSubSection, etc.)
-
-<p>Type: Regular only</p>
-
-This element doesn't have options and follows the exact same naming convention everytime, don't forget to include `slot="cards"`:
-
-<CodeBox language="html" code=`
-<SubSection title="Vectors">
-
-<p>Vectors are really useful, they can be used in many ways and have fun properties.</p>
-
-<CalloutContainer slot="cards">
-    ... cards go here ...
-</CalloutContainer>
-</SubSection>
-` />
-
-<h4 class="h3">CalloutCard:</h4>
-
-Must be within CalloutContainer.
-
-<p>Type: Regular only</p>
-
-Options:
-<ul>
-<li>title: If left blank, defaults to "Did you know?". Otherwise the title will be whatever you declare here.</li>
-</ul>
-
-Example:
-
-<CodeBox language="html" code=`
-<SubSection title="Vectors">
-
-<p>Lorem ipsum.</p>
-
-<CalloutContainer slot="cards">
-    <CalloutCard title="Extras!">
-        <p style="margin-bottom: 0px">Random image:</p>
-        <Image src="https://picsum.photos/200" />
-    </CalloutCard>
-    <CalloutCard>
-        <p style="margin-bottom: 0px">Lorem ipsum.</p>
-    </CalloutCard>
-</CalloutContainer>
-</SubSection>
-` />
-<p class="mt-3">Result:</p>
-
-<div class="fake-subsection">
-    <div class="w-100">
-        <h2 class="fw-bold text-center">Vectors</h2>
-        <p class="px-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce nulla augue, interdum sed sapien non, dictum luctus risus. Maecenas pretium leo orci, condimentum vehicula libero scelerisque vel. Nulla hendrerit nunc a mauris elementum, id molestie augue dictum. Etiam convallis justo eu sem ultricies, sed ultricies tellus commodo. Nunc ac bibendum odio. Etiam non tincidunt mauris, vitae condimentum eros. Fusce id semper arcu, id dictum neque.</p>
-    </div>
-    <div class="example-callout">
-        <CalloutCard title="Extras!">
-            <p style="margin-bottom: 0px">Random image:</p>
-            <Image src="https://picsum.photos/400" />
-        </CalloutCard>
-        <CalloutCard>
-            <p style="margin-bottom: 0px">Lorem ipsum.</p>
-        </CalloutCard>
-    </div>
-</div>
-
-<style>
- .fake-subsection{
-    display: grid;
-    grid-template-columns: 20fr 7fr;
- }
-
- @media (width <= 992px){
-    .fake-subsection{
-    display: grid;
-    grid-template-columns: 1fr;
- }
- }
-</style>
-</SubSection>
-
-<SubSection id="images" title="Images">
-
-The `Image` component is used to display images with optional width and alt text (text displayed in case the image fails to load).
-
-<p>Type: Self-closing & Regular</p>
-
-Options:
-<ul>
-<li>src: URL to the image.</li>
-<li>width: A value between 1 and 7. A value of 7 means it will take up the full available width, and otherwise it will take up <InlineEquation equation="n/7\\cdot100\\%" />.</li>
-<li>id: Gives an id to the image so it can be linked to in within the current page or from other pages. Optional.</li>
-<li>alt: The text to display in place of the image if it fails to load. Optional but recommended for accessibility reasons.</li>
-<li>class_: Give the image extra classes for styling. Optional.</li>
-</ul>
-
-<p class="mt-3"><u>Self-closing:</u></p>
-
-Will just display the image.
-
-Example: 
-
-<CodeBox language="html" code=`
-<Image src="/sol/bending/Geometry.png" width="2"/>
-` />
-
-<p class="mt-3">Result:</p>
-
-<Image src="/sol/bending/Geometry.png" width="2" />
-
-<p class="mt-3"><u>Regular:</u></p>
-
-Anything contained within the `Image` tag will be treated as a caption.
-
-Example: 
-
-<CodeBox language="html" code=`
-<Image src="/sol/torsion/Equilibrium.png" width="3">
-    <p>
-        Wow that's a beautiful image
-    </p>
-</Image>
-` />
-
-<p class="mt-3">Result:</p>
-<Image src="/sol/torsion/Equilibrium.png" width="3">
-    Wow that's a beautiful image
-</Image>
 
 <SubSection id="tables" title="Tables">
     Used to create tables. This element ensures mobile responsiveness, default HTML tables might break the look of the page if they contain a lot of content, or if they feel like it.
