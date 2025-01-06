@@ -57,7 +57,7 @@ import CalloutCard from "../../components/CalloutCard.astro"
 The general state of stress at a point is characterized by three independent normal stress components and three independent shear stress components, and is represented by the <strong>stress tensor</strong>. The combination of the state of stress for every point in the domain is called the <strong>stress field</strong>.
 
 
-<Image src="/Solid_Mechanics/Stress Transformation-Figures/General Stress State.png" width="6"> </Image>
+<Image src="/sol/stress_transformation/General Stress State.png" width="6"> </Image>
 
 <DisplayEquation equation="T = \\begin{bmatrix} \\sigma_{x} & \\tau_{xy} & \\tau_{xz} \\\\ \\tau_{xy} & \\sigma_{y} & \\tau_{yz} \\\\ \\tau_{xz} & \\tau_{yz} & \\sigma_{z} \\end{bmatrix}" title="Stress tensor." background="True" />
 
@@ -70,7 +70,7 @@ The general state of stress at a point is characterized by three independent nor
 
 <SubSection title="Sign Convention" id="sign-convention-general">
 
-<Image src="/Solid_Mechanics/Stress Transformation-Figures/Sign Convention.png" width="7"> Sign conventions on 2D elements</Image>
+<Image src="/sol/stress_transformation/Sign Convention.png" width="7"> Sign conventions on 2D elements</Image>
 
 <Itemize>
     <Item> <strong>Positive</strong> normal stress acts <strong>outward</strong> from all faces.</Item>
@@ -83,7 +83,7 @@ The general state of stress at a point is characterized by three independent nor
 
 <SubSection title="Plane Stress" id="plane-stress">
 
-<Image src="/Solid_Mechanics/Stress Transformation-Figures/Plane Stress.png" width="2.5"></Image>
+<Image src="/sol/stress_transformation/Plane Stress.png" width="2.5"></Image>
 
  Plane stress occurs when two faces of the cube element are stress free.
 
@@ -92,7 +92,7 @@ The general state of stress at a point is characterized by three independent nor
 
 <Example id="thn-plt" title="Thin plates subject to forces acting in the mid-plane of the plate." solution="False">
   <div class="d-flex">
-    <Image src="/Solid_Mechanics/Stress Transformation-Figures/Thin Plate.png" width="3"></Image> 
+    <Image src="/sol/stress_transformation/Thin Plate.png" width="3"></Image> 
   </div>
 </Example>
 
@@ -119,7 +119,7 @@ The general state of stress at a point is characterized by three independent nor
 </CalloutContainer>
 
 
-  <Image src="/Solid_Mechanics/Stress Transformation-Figures/Coord Transformation.png" width="6"></Image>
+  <Image src="/sol/stress_transformation/Coord Transformation.png" width="6"></Image>
 
 
 <p>
@@ -129,7 +129,7 @@ The general state of stress at a point is characterized by three independent nor
 
 <SubSubSection title="Transformation Sign Convention" id="sign-convention-transformation">
 
-  <Image src="/Solid_Mechanics/Stress Transformation-Figures/Plane Transformation.png" width="7"></Image>
+  <Image src="/sol/stress_transformation/Plane Transformation.png" width="7"></Image>
 
 <Itemize>
 	<Item>Both the <InlineEquation equation="x-y" /> (original) and <InlineEquation equation="x’-y’" /> (transformed) systems follow the right-hand rule.</Item>
@@ -162,7 +162,7 @@ The general state of stress at a point is characterized by three independent nor
 
 Normal and shear stresses can be shown graphically as a function of <InlineEquation equation="\\theta" /> to  see how they overlap. 
 
-<Image src="/Solid_Mechanics/Stress Transformation-Figures/normalShearStressRelation.png" width="4">Stresses based on the transformation angle chosen.</Image>
+<Image src="/sol/stress_transformation/normalShearStressRelation.png" width="4">Stresses based on the transformation angle chosen.</Image>
 
 </SubSubSection>
 
@@ -170,7 +170,7 @@ Normal and shear stresses can be shown graphically as a function of <InlineEquat
   <SubSubSection title="2-D Mohr's Circle" id="2d">
     Mohr's circle is a graphical representation of stress transformations. The equations for stress transformations actually describe a circle if we consider the normal stress <InlineEquation equation="\\sigma" /> to be the x-coordinate and the shear stress <InlineEquation equation="\\pi" /> to be the y-coordinate.
 
-   <Image src="/Solid_Mechanics/Stress Transformation-Figures/mohrsCircle.png" width="4"></Image>
+   <Image src="/sol/stress_transformation/mohrsCircle.png" width="4"></Image>
   
   <DisplayEquation equation="C = \\sigma_{avg} = \\frac{\\sigma_x +\\sigma_y}{2} = \\frac{\\sigma_1 +\\sigma_2}{2}\\" title="Circle centroid." background="True"/>
   
@@ -196,7 +196,7 @@ Normal and shear stresses can be shown graphically as a function of <InlineEquat
               </p>
           </Col>
           <Col values="8 md-5">
-            <Image src="/Solid_Mechanics/Stress Transformation-Figures/mohrs_demo.png" width="5"></Image>
+            <Image src="/sol/stress_transformation/mohrs_demo.png" width="5"></Image>
           
           </Col>
         </Row>
@@ -207,7 +207,7 @@ Normal and shear stresses can be shown graphically as a function of <InlineEquat
           <p>
                     
 
-            <Image src="/Solid_Mechanics/Stress Transformation-Figures/mohrs_demo_solution.png" width="7"></Image>
+            <Image src="/sol/stress_transformation/mohrs_demo_solution.png" width="7"></Image>
             
             </p>
       </div>
@@ -434,7 +434,7 @@ Normal and shear stresses can be shown graphically as a function of <InlineEquat
   
   
   <SubSubSection title="3-D Mohr's Circle" id="3d">
-    <Image src="/Solid_Mechanics/Stress Transformation-Figures/3dMohrsCircle.png" width="7"></Image>
+    <Image src="/sol/stress_transformation/3dMohrsCircle.png" width="7"></Image>
     
     <DisplayEquation equation="C = \\sigma_{avg} = \\frac{\\sigma_1 +\\sigma_3}{2}\\" title="Circle centroid." background="True"/>
   
@@ -479,7 +479,7 @@ Normal and shear stresses can be shown graphically as a function of <InlineEquat
 
  A circular shaft under torsion develops <strong>pure shear</strong> on cross-sections between longitudinal planes (the faces of element <InlineEquation equation="a" /> are parallel and perpendicular to the axis of the shaft).
 
-<Image src="/Solid_Mechanics/Stress Transformation-Figures/Circular Shaft Torsion.png" width="7"></Image>
+<Image src="/sol/stress_transformation/Circular Shaft Torsion.png" width="7"></Image>
 
 <DisplayEquation equation="\\begin{align} \\sigma_{x'} = 2\\tau_{max} \\sin\\theta \\cos\\theta = \\tau_{max} \\sin (2\\theta) \\\\ \\tau_{x'y'} = \\tau_{max}(\\cos^2\\theta - \\sin^2\\theta) = \\tau_{max} \\cos(2\\theta) \\end{align}" title="Torsion on inclined planes." background="True" derivation="True" id="tor-inc">
 
@@ -488,7 +488,7 @@ Normal and shear stresses can be shown graphically as a function of <InlineEquat
   <DisplayEquation equation=" \\begin{align} \\sigma_{x'} = \\frac{P}{A_o}(\\cos^2(\\theta)) \\\\ \\tau_{x'y'} = -\\frac{P}{A_o}\\sin(\\theta)\\cos(\\theta) \\end{align} "/> 
 
 
-  <Image src="/Solid_Mechanics/Stress Transformation-Figures/Max Stress.png" width="6"></Image>
+  <Image src="/sol/stress_transformation/Max Stress.png" width="6"></Image>
 
  Maximum normal stress at 90 degrees.
 
@@ -504,7 +504,7 @@ Normal and shear stresses can be shown graphically as a function of <InlineEquat
 
 <SubSection title="Principal Stresses" id="principal-stresses">
 
-  <Image src="/Solid_Mechanics/Stress Transformation-Figures/principalStressesElement.png" width="3"> </Image>
+  <Image src="/sol/stress_transformation/principalStressesElement.png" width="3"> </Image>
 
 
 <InlineEquation equation="\\sigma_{x}'" /> can be maximized to find the principal stresses. 
@@ -600,7 +600,7 @@ We can repeat this procedure for the second eigenvalue, <InlineEquation equation
 
 <SubSection title="Maximum Shear Stress" id="max-shear">
 
-  <Image src="/Solid_Mechanics/Stress Transformation-Figures/maxShearStressState.png" width="2"></Image>
+  <Image src="/sol/stress_transformation/maxShearStressState.png" width="2"></Image>
 
  The orientations for the principal stress element and max shear stress element are <InlineEquation equation="45^o" /> apart.
 
