@@ -20,6 +20,7 @@ import Item from "../../components/Item.astro";
 import Example from "../../components/Example.astro"
 import Row from "../../components/Row.astro"
 import Col from "../../components/Col.astro"
+import Warning from "../../components/Warning.astro"
 
 ---
 
@@ -375,23 +376,27 @@ Remember, these pages are supposed to be reference material, not a textbook. Kee
    <Row>
       <Col values="12 md-6">
         <p>
-          Row1Col1
+            Row1Col1
         </p>
       </Col>
       <Col values="12 md-6">
-        	Row1Col2
+        <p>
+          Row1Col2
+        </p>
       </Col>
     </Row>
-    ` />
+    ` closed_by_default="True" id="test" closed_height="60"/>
 
     <Row>
         <Col values="12 md-6">
           <p>
-            Row1Col1
+                Row1Col1
           </p>
         </Col>
         <Col values="12 md-6">
-              Row1Col2
+            <p>
+                Row1Col2
+            </p>
         </Col>
   </Row>
   
@@ -507,7 +512,7 @@ Remember, these pages are supposed to be reference material, not a textbook. Kee
             </li>  
         </ul>
     </div>
-    ` />
+    ` closed_by_default="True" id="test" closed_height="60"/>
 
     The <a href="/sol/material_properties/">material properties page</a> in solid mechanics is a good example of multiple subsections being used. 
 </SubSection>
@@ -533,7 +538,7 @@ Remember, these pages are supposed to be reference material, not a textbook. Kee
 
     <a href="#nav-bar ">TEXT</a>
 
-    <p><em>*For demonstration purposes, this actually links to the navigation bar section.</em></p>
+    <p><em>*For demonstration purposes, this links to the navigation bar section.</em></p>
 
 </SubSubSection> 
 
@@ -553,7 +558,7 @@ Remember, these pages are supposed to be reference material, not a textbook. Kee
 
     <a href="/dyn/vectors">TEXT</a> 
 
-    <p><em>*For demonstration purposes, this actually links to vectors page in dynamics.</em></p>
+    <p><em>*For demonstration purposes, this links to vectors page in dynamics.</em></p>
 
 </SubSubSection> 
 
@@ -573,7 +578,7 @@ Remember, these pages are supposed to be reference material, not a textbook. Kee
 
     <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Aprille_Ericsson">TEXT</a>
 
-    <p><em>*For demonstration purposes, this actually links to a wikipedia page.</em></p>
+    <p><em>*For demonstration purposes, this links to a wikipedia page.</em></p>
 
 </SubSubSection> 
 
@@ -591,13 +596,13 @@ Remember, these pages are supposed to be reference material, not a textbook. Kee
     <CodeBox language="html" code=`
      <p class="m-0"><u>TEXT</u></p>
         <iframe src="LINK" class="w-100" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-` />
+    ` />
 
     <p class="m-0">TEXT</p>
-        <iframe src="https://www.youtube.com/embed/HEfHFsfGXjs" class="w-50" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/jRn5waE0qfk" class="w-50" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 
-    <p><em>*For demonstration purposes, this actually links to a 3blue1brown YouTube video.</em></p>
+    <p><em>*For demonstration purposes, this links to a YouTube video.</em></p>
 
 </SubSubSection>
 
@@ -620,7 +625,11 @@ Remember, these pages are supposed to be reference material, not a textbook. Kee
     <li>title: title of the card when displayed. f left blank, defaults to "Did you know?".</li>
     </ul>
 
-    Example: 
+    Examples:
+</SubSection>
+
+<SubSubSection title="Review Card" id="review">
+
     <p>This card is used to connect back to material prior in the course or potential courses they may have already taken.</p>
     <em>Note:</em> this information should not be needed to understand the material for the course, this is so students can see how courses connect to each other. Pages should be self-contained and not require links to other material.
 
@@ -639,7 +648,7 @@ Remember, these pages are supposed to be reference material, not a textbook. Kee
             </p>
         </CalloutCard>
     </CalloutContainer>
-    ` />
+    ` closed_by_default="True" id="test" closed_height="60"/>
 
     <CalloutContainer slot="cards">
         <CalloutCard title="Review?">
@@ -655,7 +664,10 @@ Remember, these pages are supposed to be reference material, not a textbook. Kee
         </CalloutCard>
     </CalloutContainer>
 
-    Example: 
+</SubSubSection>
+
+
+<SubSubSection title="Supplemental Material Card" id="supplemental">
     <p>This card is used to include supplemental material (ie; videos, webpages, open-source textbooks, etc.).</p>
     
     <CodeBox language="html" code=`
@@ -665,7 +677,7 @@ Remember, these pages are supposed to be reference material, not a textbook. Kee
                 CONTENT
         </CalloutCard>
     </CalloutContainer>
-    ` />
+    ` closed_by_default="True" id="test" closed_height="60"/>
 
     <CalloutContainer slot="cards">
         <CalloutCard title="Extra!">
@@ -674,7 +686,9 @@ Remember, these pages are supposed to be reference material, not a textbook. Kee
         </CalloutCard>
     </CalloutContainer>
 
-    Example: 
+</SubSubSection>
+
+<SubSubSection title="Extra Info Card" id="extra">
     <p>This card is used to connect to future content in the course or other courses students may take in the future.</p>
     
     <CodeBox language="html" code=`
@@ -688,7 +702,7 @@ Remember, these pages are supposed to be reference material, not a textbook. Kee
               </p>
         </CalloutCard>
     </CalloutContainer>
-    ` />
+    ` closed_by_default="True" id="test" closed_height="60"/>
 
     <CalloutContainer slot="cards">
         <CalloutCard title="Heads  up!">
@@ -701,7 +715,7 @@ Remember, these pages are supposed to be reference material, not a textbook. Kee
         </CalloutCard>
     </CalloutContainer>
 
-</SubSection>
+</SubSubSection>
 
 <SubSection title="Images" id="images">
     
@@ -721,344 +735,533 @@ Remember, these pages are supposed to be reference material, not a textbook. Kee
     </ul>
 
     Example:
-    <CodeBox language="html" code=`
-     <Image src="/COURSE/FigFolder/FIGURE.png" width="7"> CAPTION</Image>
-    ` />
+    <Row>
+        <Col values="12 md-6">
+            <p>
+                <CodeBox language="html" code=`
+                <Image src="/COURSE/FigFolder/FIGURE.png" width="7"> CAPTION</Image>
+                ` />
+            </p>
+        </Col>
+        <Col values="12 md-6">
+            <CodeBox language="html" code=`
+            <Image src="/COURSE/FigFolder/FIGURE.png" width="7"/>
+            ` />
+        </Col>
+    </Row>
 
-    <Image src="/sol/bending/Geometry.png" width="2"> CAPTION</Image>
+    <Row>
+        <Col values="12 md-6">
+            <Image src="/sol/bending/Geometry.png" width="4"> CAPTION</Image>
+        </Col>
+        <Col values="12 md-6">
+            <Image src="/sol/bending/Geometry.png" width="4"/>
+        </Col>
+    </Row>
+
 </SubSection>
 
-<SubSubSection id="latex" title="Latex displaying elements" >
-These elements provide a wrapper for LateX equation, since we cannot use {`{}`} directly in the HTML, preventing us from writing complex equations. <red-text>Make sure to double every backslash</red-text>, e.g. \\vec => \\\\vec.
+<SubSection id="equations" title="Equations">
+    <p>
+        <InlineEquation equation="\\LaTeX"/> can be used inside your pages. Just like in Latex, we differentiate between inline-math and display-math.
+        One difference betweem <InlineEquation equation="\\LaTeX"/> and these pages is when writing math in <InlineEquation equation="\\LaTeX"/>, you use one backslash <InlineEquation equation="(\\backslash)"/>, but in the reference pages you need to use two <InlineEquation equation="(\\backslash \\backslash)"/>.
+    </p>
+</SubSection>
 
-<h4 class="h3 mt-2">DisplayEquation:</h4> 
+<SubSubSection id="inline-eq" title="Inline Equations">
+    This will create an element that goes along with the text it's included with, and is useful for important equations that need to be part of a paragraph.
 
-This will create an element that takes the entire width of the element it's inside of, and is useful for important equations that deserve to be highlighted.
+    <CodeBox language="html" code=`
+   import InlineEquation from "../../components/InlineEquation.astro" 
+    ` />
 
-<p>Type: Self-closing & Regular</p>
+    <p><p>Type: Self-closing</p></p>
+    
+    Options:
+    <ul>
+    <li>equation: Insert your LateX equation here.</li>
+    </ul>
+    
+    Example:
+    <CodeBox language="html" code=`
+        TEXT <InlineEquation equation="eq" /> TEXT.
+        `/> 
+    
+    TEXT <InlineEquation equation="eq" /> TEXT.
+</SubSubSection>
 
-Options:
-<ul>
-<li>equation: Insert your LateX equation here.</li>
-<li>title: Displays a title above the equation.</li>
-<li>id: Gives an id to the equation so it can be linked to in within the current page or from other pages. <red-text>Required when derivation is set to "True"</red-text>. Also allows the proper function of the derivation menu.</li>
-<li>background: Adds the characteristic yellow background and black border around the equation when set to "True".</li>
-<li>derivation: Adds a "Derivation +" button to expand the derivation menu when set to "True".</li>
-</ul>
+<SubSubSection id="display-eq" title="Display Equations">
+    
+    This will create an element that takes the entire width of the element it's inside of, and is useful for important equations that deserve to be highlighted.
 
-<p class="mt-3"><u>Self-closing:</u></p>
+    <CodeBox language="html" code=`
+   import DisplayEquation from "../../components/DisplayEquation.astro" 
+    ` />
 
-Will simply display equation. 
+    <p><p>Type: Self-closing (no derivation) or regular (derivation)</p></p>
 
-Example:
+    Options:
+    <ul>
+    <li>equation: Insert your LateX equation here.</li>
+    <li>title: Displays a title above the equation.</li>
+    <li>id: Gives an id to the equation so it can be linked to in within the current page or from other pages. <strong>Required when derivation is set to "True"</strong>. Also allows the proper function of the derivation menu.</li>
+    <li>background: Adds the characteristic yellow background and black border around the equation when set to "True". This should always be set to True.</li>
+    <li>derivation: Adds a "Derivation +" button to expand the derivation menu when set to "True".</li>
+    </ul>
 
-<CodeBox language="html" code=`
-<DisplayEquation title="Normalization to unit vector." id="rvv-eu" background="True" equation="Equation here"/>
-` />
-<p class="mt-3">Result:</p>
-<DisplayEquation title="Normalization to unit vector." id="rvv-eu" background="True" equation="\\text{Equation here}"/>
+    Examples:
+</SubSubSection>
 
-<p class="mt-3"><u>Regular:</u></p>
+<SubSubSubSection title="Simple equations" id="simple-eq">
+    
+    <CodeBox language="html" code=`
+        <DisplayEquation equation="eq" title="TITLE" background="True" />
+        `/>
 
-But when in regular mode, whatever content we add inside of it will now be displayed inside the derivation menu:
+        <DisplayEquation equation="eq" title="TITLE" background="True" />
 
-<CodeBox language="html" code=`
-<DisplayEquation title="Normalization to unit vector." id="rvv-eu3" background="True" equation="Equation here" derivation="True">
-    <p>Derivation goes here:</p>
-</DisplayEquation>
-` />
-<p class="mt-3">Result:</p>
-<DisplayEquation title="Normalization to unit vector." id="rvv-eu3" background="True"  equation="\\text{Equation here}" derivation="True">
-    <p>Derivation goes here:</p>
-</DisplayEquation>
+</SubSubSubSection>
 
-<h4 class="h3 mt-2">DisplayEquationCustom:</h4>
+<SubSubSubSection title="Multiple equations" id="multiple-eq">
+    
+    <CodeBox language="html" code=`
+        <DisplayEquation equation="\\begin{align} eq1 \\\\ eq2 \\\\ eq3 \\end{align}" title="TITLE" background="True" />
+        `/>
 
-Same as DisplayEquation, but provides a lot more freedom with how everything looks. Made for when equation boxes don't follow the format above.
+        <DisplayEquation equation="\\begin{align} eq1 \\\\ eq2 \\\\ eq3 \\end{align}" title="TITLE" background="True" />
 
-<p>Type: Regular only</p>
+</SubSubSubSection>
 
-Options:
-<ul>
-<li>title: Displays a title above the equation.</li>
-<li>id: Gives an id to the equation so it can be linked to in within the current page or from other pages. <red-text>Required</red-text>. Also allows the proper function of the derivation menu.</li>
-<li>background: Adds the characteristic yellow background and black border around the equation when set to "True".</li>
-</ul>
+<SubSubSubSection title="Derived equations" id="derived-eq">
+    
+    <CodeBox language="html" code=`
+        <DisplayEquation equation="eq" title="TITLE" background="True" derivation="True" id="ID">
+            <DisplayEquation equation="eq" />
+            <DisplayEquation equation="eq" />
+        </DisplayEquation>
+        `/>
 
-<CodeBox language="html" code=`
-<DisplayEquationCustom title="Moment of inertia of prism." id="prism" background="True" derivation="True">
-    <div class="w-100 d-flex flex-row">
-        <div class="w-50">
-            <InlineCanvas id="rcm-er-c" width="300" height="300" show_border="False" />
+        <DisplayEquation equation="eq" title="TITLE" background="True" derivation="True" id="ID">
+            <DisplayEquation equation="eq" />
+            <DisplayEquation equation="eq" />
+        </DisplayEquation>
+            
+</SubSubSubSection>
+
+<SubSubSection id="custom-eq" title="Custom Equations">
+    
+    Same as DisplayEquation, but provides a lot more freedom with how everything looks. Made for when equation boxes don't follow the format above.
+
+    <CodeBox language="html" code=`
+   import DisplayEquationCustom from "../../components/DisplayEquationCustom.astro" 
+    ` />
+
+    <p><p>Type: Regular only</p></p>
+
+    Options:
+    <ul>
+    <li>title: Displays a title above the equation.</li>
+    <li>id: Gives an id to the equation so it can be linked to in within the current page or from other pages. <strong>Required</strong>. Also allows the proper function of the derivation menu.</li>
+    <li>background: Adds the characteristic yellow background and black border around the equation when set to "True". This should always be set to True.</li>
+    <li>derivation: Adds a "Derivation +" button to expand the derivation menu when set to "True". <em>Note:</em> the use of the  `&ltdiv slot="derivation"&gt&lt/div&gt` in the code.</li>    
+    </ul>
+
+    <CodeBox language="html" code=`
+        <DisplayEquationCustom title="TITLE" id="id" background="True" derivation="True">
+            <div class="w-100 d-flex flex-row">
+                <div class="w-50">
+                    <InlineCanvas id="rcm-er-c" width="300" height="300" show_border="False" />
+                </div>
+                <div class="w-50">
+                    <DisplayEquation equation="eq" />
+                </div>
+            </div>
+            <div slot="derivation">
+                <DisplayEquation equation="eq" />
+                <DisplayEquation equation="eq" />
+            </div>
+        </DisplayEquationCustom>
+    ` closed_by_default="True" id="test" closed_height="60"/>
+
+    <DisplayEquationCustom title="TITLE" id="id" background="True" derivation="True">
+        <div class="w-100 d-flex flex-row">
+            <div class="w-50">
+                <InlineCanvas id="rcm-er-c" width="300" height="300" show_border="False" />
+            </div>
+            <div class="w-50">
+                <DisplayEquation equation="eq" />
+            </div>
         </div>
-        <div class="w-50">
-            <DisplayEquation equation="\\\\vec{r}_C = \\\\frac{\\\\ell_x}{2}\\\\hat{\\\\imath} + \\\\frac{\\\\ell_y}{2}\\\\hat{\\\\jmath}" />
+        <div slot="derivation">
+            <DisplayEquation equation="eq" />
+            <DisplayEquation equation="eq" />
         </div>
-    </div>
-    <div slot="derivation">
-        <p>Derivation goes here:</p>
-    </div>
-</DisplayEquationCustom>
-` closed_by_default="True" id="test" closed_height="60"/>
+    </DisplayEquationCustom>
 
-<script src="/about/docs.js" is:inline></script>
-
-<red-text>Important:</red-text> Note the use of the `&ltdiv slot="derivation"&gt&lt/div&gt`. This is required when adding a derivation inside a `DisplayEquationCustom` element.
-
-<p class="mt-3">Result:</p>
-
-<DisplayEquationCustom title="Moment of inertia of prism." id="prism" background="True" derivation="True">
-    <div class="w-100 d-flex flex-row align-items-center">
-        <div class="w-50">
-            <InlineCanvas id="rcm-er-c" width="300" height="300" show_border="False" />
-        </div>
-        <div class="w-50">
-            <DisplayEquation equation="\\vec{r}_C = \\frac{\\ell_x}{2}\\hat{\\imath} + \\frac{\\ell_y}{2}\\hat{\\jmath}" />
-        </div>
-    </div>
-    <div slot="derivation">
-        <p>Derivation goes here:</p>
-    </div>
-</DisplayEquationCustom>
-
-<h4 class="h3">InlineEquation:</h4>
-
-This will create an element that goes along with the text it's included with, and is useful for important equations that need to be part of a paragraph.
-
-<p>Type: Self-closing only</p>
-
-Options:
-<ul>
-<li>equation: Insert your LateX equation here.</li>
-</ul>
-
-Example:
-
-<CodeBox language="html" code=`
-<p>
-    <InlineEquation equation="\\\\vec{F} = m\\\\vec{a}" /> is a very important equation you guys need to remember.
-</p>
-` />
-<p class="mt-3">Result:</p>
-
-<InlineEquation equation=`\\vec{F} = m\\vec{a}` /> is a very important equation you guys need to remember.
 </SubSubSection>
 
 <SubSection id="tables" title="Tables">
     Used to create tables. This element ensures mobile responsiveness, default HTML tables might break the look of the page if they contain a lot of content, or if they feel like it.
+    Components such as figures and equations can be used inside of tables.
+    
+    <CodeBox language="html" code=`
+   import DisplayTable from "../../components/DisplayTable.astro" 
+    ` />
+    
+    <p></p><p>Type: Regular only</p></p>
 
-    <p>Type: Regular only</p>
+    Options:
+    <ul>
+        <li>id: Gives an id to the table to ensure proper responsiveness. <strong>Required.</strong></li>
+        <li>class_: Give the table extra classes for styling. Optional.</li>
+        <li>class (in 'th', 'tr', or 'td'): customizations for the formatting. Optional. </li>
+        <li>style (in 'th', 'tr', or 'td'): customizations for the formatting. Optional. </li>
+    </ul>
 
-Options:
-<ul>
-    <li>id: Gives an id to the table to ensure proper responsiveness. <red-text>Required.</red-text></li>
-    <li>class_: Give the table extra classes for styling. Optional.</li>
-</ul>
-
-<p>
-    <red-text>Accessibility note:</red-text> The header content should be wrapped within the `thead` element, and the body content should be wrapped within a `tbody` element. There should only be one of each in your table. This allows for proper styling on our end, and is the HTML standard browsers expect, therefore deviating from this might break the look of your tables.
-</p>
+    <p>
+        <em>Note:</em> The header content should be wrapped within the `thead` element, and the body content should be wrapped within a `tbody` element. There should only be one of each in your table. This allows for proper styling on our end, and is the HTML standard browsers expect, therefore deviating from this might break the look of your tables.
+    </p>
 
 
-Example: 
+    Example: 
 
-<CodeBox language="html" code=`
-<DisplayTable id="rvp-tc" class_="mb-3">
-          <thead>
-            <tr>
-              <th noborder>coordinate</th>
-              <th>name</th>
-              <th>range</th>
-              <th>definition</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>\\(x\\)</td>
-              <td>horizontal</td>
-              <td>\\(-\\infty \\lt x \\lt \\infty\\)</td>
-              <td>horizontal distance from the \\(y\\)-axis</td>
-          </tr>
-          <tr>
-              <td>\\(y\\)</td>
-              <td>vertical</td>
-              <td>\\(-\\infty \\lt y \\lt \\infty\\)</td>
-              <td>vertical distance from the \\(x\\)-axis</td>
-          </tr>
-          </tbody>
-        </DisplayTable>
-` />
-
-<p class="mt-3">Result:</p>
-
-<DisplayTable id="rvp-tc" class_="mb-3">
-    <thead>
-      <tr>
-        <th noborder>coordinate</th>
-        <th>name</th>
-        <th>range</th>
-        <th>definition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>\(x\)</td>
-        <td>horizontal</td>
-        <td>\(-\infty \lt x \lt \infty\)</td>
-        <td>horizontal distance from the \(y\)-axis</td>
-    </tr>
-    <tr>
-        <td>\(y\)</td>
-        <td>vertical</td>
-        <td>\(-\infty \lt y \lt \infty\)</td>
-        <td>vertical distance from the \(x\)-axis</td>
-    </tr>
-    </tbody>
-  </DisplayTable>
-
-We have added a few utilies to customize the look of your tables while maintaining a consistent look and feel in the pages. For example, add the `table-shaded` class to add a grey background to each cell. For example, this can be used in the header to contrast it with the rest of the page. Example:
-
-<CodeBox code=`
-<DisplayTable id="shapes_table">
-    <thead>
+    <CodeBox language="html" code=`
+    <DisplayTable id="id" class_="mb-3">
+        <thead>
         <tr>
-            <th class="table-shaded" noborder>
-                <strong>Shape</strong>
-            </th>
-            <th class="table-shaded" style="width:50%">
-                <strong>Diagram</strong>
-            </th>
-            <th class="table-shaded"> 
-                <strong>MoI about the centroid (centroidal axis)</strong>
-            </th>	
-            <th class="table-shaded"> 
-                <strong>MoI about the origin</strong>
-            </th>
+            <th class="table-shaded" noborder>Title1</th>
+            <th class="table-shaded">Title2</th>
+            <th class="table-shaded">Title3</th>
+            <th class="table-shaded">Title4</th>
         </tr>
-    </thead>
-    <tbody>
+        </thead>
+        <tbody>
         <tr>
-            <th noborder>Circle</th>
-            <td>
-            <Image src='/sol/bending/CommonShapes_Circle.png' width='5'/>
-            </td>
-            <td style="vertical-align: middle">
-            <DisplayEquation equation="\\\\bar{I_{x'}} = \\\\bar{I_{y'}}  = \\\\frac{1}{4} \\\\pi r^4" />
-            </td>
-            <td style="vertical-align: middle">
-            <DisplayEquation equation="J_O= \\\\frac{1}{2} \\\\pi r^4"/>
-            </td>
-        </tr>
-    </tbody>
-</DisplayTable>`
-/>
-<p class="mt-3">Result:</p>
-
-<DisplayTable id="shapes_table">
-    <thead>
-        <tr>
-            <th class="table-shaded" noborder><strong>Shape</strong>
-            </th>
-            <th class="table-shaded" style="width:50%">
-                <strong>Diagram</strong>
-            </th>
-            <th class="table-shaded"> 
-                <strong>MoI about the centroid (centroidal axis)</strong>
-            </th>	
-            <th class="table-shaded"> 
-                <strong>MoI about the origin</strong>
-            </th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <th noborder>
-                Circle
-            </th>
-            <td>
-                <Image src='/sol/bending/CommonShapes_Circle.png' width='5'> </Image>
-            </td>
-        <td style="vertical-align: middle">
-            <DisplayEquation equation="\\bar{I_{x'}} = \\bar{I_{y'}}  = \\frac{1}{4} \\pi r^4" />
-        </td>
-        <td style="vertical-align: middle">
-            <DisplayEquation equation="J_O= \\frac{1}{2} \\pi r^4"/>    
-        </td>
-        </tr>
-    </tbody>
-</DisplayTable>
-
-It can also be used to emphasize a particular part of the table. Example:
-
-<CodeBox code=`
-<DisplayTable id="moi_table" class_="mt-3">
-    <thead>
-        <tr>
-            <th></th>
-            <th>
-                <strong>Mass moment of inertia</strong>
-            </th>
-            <th class="table-shaded"> 
-                <strong>Area moment of inertia (used in Statics!)</strong>
-            </th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <th>Equations</th>
-            <td>
-                <DisplayEquation equation='I_{P,\\\\hat{a}} = \\\\iiint_\\\\mathcal{B} \\\\rho r^2 \\\\,dV\\\\' /> 
-            </td>
-            <td class="table-shaded">
-                <DisplayEquation equation='I_x = \\\\int_{A}^{} y^2 \\\\,dA \\\\' />
-                <DisplayEquation equation='I_y = \\\\int_{A}^{} x^2 \\\\,dA \\\\' />
-                <DisplayEquation equation='\\\\begin{aligned} J_O &= \\\\int_{A}^{} r^2 \\\\,dA \\\\\\\\ &= \\\\int_{A}^{} (x^2+y^2) \\\\,dA\\\\ \\\\end{aligned}' />
-            </td>
+            <td>row1col1</td>
+            <td>row1col2</td>
+            <td>row1col3</td>
+            <td>row1col4</td>
         </tr>
         <tr>
-            <th>Courses</th>
-            <td>TAM 212</td>
-            <td class="table-shaded">TAM 210, TAM 251</td>
+            <td>row2col1</td>
+            <td>row2col2</td>
+            <td>row2col3</td>
+            <td>row2col4</td>
         </tr>
-    </tbody>
-</DisplayTable>` />
-<p class="mt-3">Result:</p>
+        </tbody>
+    </DisplayTable>
+    ` closed_by_default="True" id="test" closed_height="60"/>
 
-<DisplayTable id="moi_table">
-    <thead>
+    <DisplayTable id="id" class_="mb-3">
+        <thead>
         <tr>
-            <th></th>
-            <th>
-                <strong>Mass moment of inertia</strong>
-            </th>
-            <th class="table-shaded"> 
-                <strong>Area moment of inertia (used in Statics!)</strong>
-            </th>
+            <th class="table-shaded" noborder>Title1</th>
+            <th class="table-shaded">Title2</th>
+            <th class="table-shaded">Title3</th>
+            <th class="table-shaded">Title4</th>
         </tr>
-    </thead>
-    <tbody>
+        </thead>
+        <tbody>
         <tr>
-            <th>Equations</th>
-            <td>
-                <DisplayEquation equation='I_{P,\\hat{a}} = \\iiint_\\mathcal{B} \\rho r^2 \\,dV\\' /> 
-            </td>
-            <td class="table-shaded">
-                <DisplayEquation equation='I_x = \\int_{A}^{} y^2 \\,dA \\' />
-                <DisplayEquation equation='I_y = \\int_{A}^{} x^2 \\,dA \\' />
-                <DisplayEquation equation='\\begin{aligned} J_O &= \\int_{A}^{} r^2 \\,dA \\\\ &= \\int_{A}^{} (x^2+y^2) \\,dA\\ \\end{aligned}' />
-            </td>
+            <td>row1col1</td>
+            <td>row1col2</td>
+            <td>row1col3</td>
+            <td>row1col4</td>
         </tr>
         <tr>
-            <th>Courses</th>
-            <td>TAM 212</td>
-            <td class="table-shaded">TAM 210, TAM 251</td>
+            <td>row2col1</td>
+            <td>row2col2</td>
+            <td>row2col3</td>
+            <td>row2col4</td>
         </tr>
-    </tbody>
-</DisplayTable>
-
-Notice how using a `th` element as the first element of each row in the `tbody` section bolds the text and aligns it vertically? Use this behavior as desired.
+        </tbody>
+    </DisplayTable>
 
 </SubSection>
 
+<SubSubSection title="Table Customizations" id="table-customizations">
+
+    We have added a few utilies to customize the look of your tables while maintaining a consistent look and feel in the pages.
+
+    <p>
+    The default settings will auto-adjust the column widths to fit the content placed in the cell. 
+    To specify a width for a given column, use 'style="width:##%" ' in appropriate the header component.
+    </p>
+
+    Example: 
+    <CodeBox language="html" code=`
+        <DisplayTable id="id" class_="mb-3">
+            <thead>
+            <tr>
+                <th class="table-shaded" noborder>Title1</th>
+                <th class="table-shaded" style="width:50%">Title2</th>
+                <th class="table-shaded">Title3</th>
+                <th class="table-shaded">Title4</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>row1col1</td>
+                <td>row1col2</td>
+                <td>row1col3</td>
+                <td>row1col4</td>
+            </tr>
+            <tr>
+                <td>row2col1</td>
+                <td>row2col2</td>
+                <td>row2col3</td>
+                <td>row2col4</td>
+            </tr>
+            </tbody>
+        </DisplayTable>
+    ` closed_by_default="True" id="test" closed_height="60"/>
+
+    <DisplayTable id="id" class_="mb-3">
+        <thead>
+        <tr>
+            <th class="table-shaded" noborder>Title1</th>
+            <th class="table-shaded" style="width:50%">Title2</th>
+            <th class="table-shaded">Title3</th>
+            <th class="table-shaded">Title4</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>row1col1</td>
+            <td>row1col2</td>
+            <td>row1col3</td>
+            <td>row1col4</td>
+        </tr>
+        <tr>
+            <td>row2col1</td>
+            <td>row2col2</td>
+            <td>row2col3</td>
+            <td>row2col4</td>
+        </tr>
+        </tbody>
+    </DisplayTable>
+
+    It can also be used to emphasize a particular part of the table. 
+
+    <p>Example:</p>
+
+    <CodeBox code=`
+        <DisplayTable id="id" class_="mb-3">
+            <thead>
+            <tr>
+            <th noborder>Title1</th>
+            <thclass="table-shaded">Title2</th>
+            <th>Title3</th>
+            <th>Title4</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+            <td>row1col1</td>
+            <td class="table-shaded">row1col2</td>
+            <td>row1col3</td>
+            <td>row1col4</td>
+            </tr>
+            <tr>
+            <td>row2col1</td>
+            <td class="table-shaded">row2col2</td>
+            <td>row2col3</td>
+            <td>row2col4</td>
+            </tr>
+            </tbody>
+        </DisplayTable>
+    ` closed_by_default="True" id="test" closed_height="60"/>
+
+    
+    <DisplayTable id="id" class_="mb-3">
+        <thead>
+        <tr>
+        <th noborder>Title1</th>
+        <th class="table-shaded">Title2</th>
+        <th>Title3</th>
+        <th>Title4</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+        <td>row1col1</td>
+        <td class="table-shaded">row1col2</td>
+        <td>row1col3</td>
+        <td>row1col4</td>
+        </tr>
+        <tr>
+        <td>row2col1</td>
+        <td class="table-shaded">row2col2</td>
+        <td>row2col3</td>
+        <td>row2col4</td>
+        </tr>
+        </tbody>
+    </DisplayTable>
+    
+</SubSubSection>
+
+<SubSection title="Examples" id="examples">
+
+    <CodeBox language="html" code=`
+        import Example from "../../components/Example.astro"
+        import Row from "../../components/Row.astro"
+        import Col from "../../components/Col.astro"
+    ` />
+
+    <p><p>Tag type: Regular</p></p>
+    
+    Options:
+    <ul>
+    <li>title: Displays a title before the example is expanded.</li>
+    <li>id: Gives an id to the equation so it can be linked to in within the current page or from other pages. Required when solution is set to "True". Also allows the proper function of the derivation menu.</li>
+    <li>solution: Adds a "Solution +" button to expand the solution menu when set to "True".</li>
+    </ul>
+
+    Example:
+    <CodeBox language="html" code=`
+    <Example id="ID" title="TITLE" solution="True">
+        <div class="d-flex flex-row">
+            <Row>
+            <Col values="12 md-4">
+                <p>
+                QUESTION
+                </p>
+            </Col>
+            <Col values="12 md-8">
+                <Image src="IMAGE " width="7"></Image>
+            </Col>
+            </Row>
+        </div>
+        <div slot="solution">
+            <p>
+                CONTENT
+            </p>
+        </div>
+    </Example>
+    ` closed_by_default="True" id="test" closed_height="60"/>
+
+    <Example id="ID" title="TITLE" solution="True">
+        <div class="d-flex flex-row">
+          <Row>
+            <Col values="12 md-4">
+              <p>
+                QUESTION
+                </p>
+            </Col>
+            <Col values="12 md-8">
+                <Image src="/sol/bending/Geometry.png " width="3"></Image>
+            </Col>
+          </Row>
+        </div>
+        <div slot="solution">
+            <p>
+               Solution
+            </p>
+        </div>
+      </Example>
+      
+    
+</SubSection> 
+
+<SubSection title="Notes" id="notes">
+
+
+    <p><p>Tag type: none</p></p>
+    
+    Options:
+    <ul>
+    <li>na</li>
+    </ul>
+
+    Example:
+    <CodeBox language="html" code=`
+   <em>Note: </em> TEXT.
+    ` />
+
+    <em>Note: </em> TEXT.
+
+</SubSection> 
+
+<SubSection title="Warnings" id="warnings">
+
+    <CodeBox language="html" code=`
+        import Warning from "../../components/Warning.astro"
+    ` />
+
+
+    <p><p>Tag type: Self-closing (does not expand) or regular (expands)</p></p>
+    
+    Options:
+    <ul>
+    <li>title: Displays a title before the warning is expanded.</li>
+    <li>id: Gives an id to the equation so it can be linked to in within the current page or from other pages. Required when rem,ove_button is not present or set to "False". Also allows the proper function of the derivation menu.</li>
+    <li>remove_button: Removes the + button if the warning does not require more details</li>
+    </ul>
+
+    Example:
+    <p>Expands.</p>
+    <CodeBox language="html" code=`
+    <Warning title="TITLE" id="id">
+        CONTENT
+    </Warning>
+
+    ` />
+
+    <Warning title="TITLE" id="ID">
+        CONTENT
+    </Warning>
+
+    <p>Does not expand.</p>
+
+    <CodeBox language="html" code=`
+    <Warning title="TITLE" id="ID" remove_button="True"/>
+    ` />
+
+    <Warning title="TITLE" id="ID" remove_button="true"/>
+        
+
+</SubSection> 
+
+<!-- <SubSection title="Code box" id="code-box">
+
+    Code boxes usually aren't needed. Any code box can be clicked on and the code will be copied into the users clipboard.
+    
+    <CodeBox language="html" code=`
+   import CodeBox from "../../components/CodeBox.astro"
+    ` />
+    
+    <p><p>Tag type: Self closing</p></p>
+    
+    Options:
+    <ul>
+    <li>language: The language of the code used in the box.</li>
+    <li>code: Insert the code here. </li>
+    <li>closed_by_default: Will close the box whenset to "True". Optional.</li>
+    <li>id: Gives an id to the equation so it can be linked to in within the current page or from other pages. Required when closed_by_default is set to "True". Also allows the proper function of the expanded menu.</li>
+    <li>closed_height: Sets the height of the box when closed.</li>
+    </ul>
+
+    Example:
+    <p>Open</p>
+    <CodeBox language="html" code=`
+        <CodeBox language="html" code=`
+        CODE
+        ` />
+    ` />
+
+    <CodeBox language="html" code=`CODE` />
+
+    <p>Closed</p>
+    <CodeBox language="html" code=`
+        <CodeBox language="html" code=`
+        CODE
+        ` closed_by_default="True" id="test" closed_height="60" />
+    ` />
+
+    <CodeBox language="html" code=`
+    CODE
+    ` closed_by_default="True" id="test" closed_height="60" />
+
+</SubSection>  -->
 
 </Layout>
