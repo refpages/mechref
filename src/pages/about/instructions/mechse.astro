@@ -17,7 +17,7 @@ import SubSubSection from "../../../components/SubSubSection.astro"
     Mechref uses <a href="https://github.com/IllinoisRef/mechref" target="_blank" rel="noopener noreferrer">GitHub</a> as a version-control and collaboration platform. While the project's files are public, only those with access can edit them. To gain access, email Professor <a href="mailto:mwest@illinois.edu" target="_blank" rel="noopener noreferrer">Matt West</a> (mwest@illinois.edu) to be added as a collaborator. Once granted, use <a href="https://github.com/IllinoisRef/mechref/blob/main/README.md" target="_blank" rel="noopener noreferrer">this guide</a> to set up a local version of the website, allowing you to quickly make and visualize your changes before they are published online.
 </SubSection>
 
-<SubSection title="Setup your course">
+<SubSection title="Setup your course" id="setup">
     Before adding your page, decide on a name and abbreviation for your course. This abbreviation will be used in all links referring to your course's pages, e.g., the abbreviation for Solid Mechanics is "sol", therefore the link to the "Bending" page will be "/sol/bending". Ideally, the abbreviation should be short but distinct, and cannot contain any spaces or special characters. Here is a table with all existing courses and their abbreviated names:
 
     <DisplayTable id="course-names">
@@ -68,12 +68,16 @@ import SubSubSection from "../../../components/SubSubSection.astro"
     ` /> 
     Now, if you have the pages locally running on your computer, they should be accessible at http://localhost:4321/&lt;course_abbreviation&gt;/&lt;page_1&gt; (replace &lt;course_abbreviation&gt; and &lt;page_1&gt; with your respective course abbreviation and page names). Note that while the pages have ".astro" as their file extension, the links to those pages do not include it.
 
+    <br>
+    <br>
+
     <p>
         If you plan on adding images or animations to your course, make sure to create a new folder in `public` as well, with your course abbreviation. You should now have the following structure:
         <CodeBox language="plaintext" code=`
         public
         |--> <course_abbreviation>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|--> <image1>.png
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|--> <course_page>_Figs
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|--> <image>.png
         src
         |--> components
         |--> layouts

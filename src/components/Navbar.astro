@@ -448,7 +448,7 @@ import Searchbar from "./Searchbar.astro";
     </div>
 </nav>
 
-<div id="scrollToTopDiv" class=" d-lg-none flex-column align-items-center position-fixed w-100 z-3" style="bottom: 10px; cursor: pointer;" onclick="scrollToTop()">
+<div id="scrollToTopDiv" class=" d-lg-none flex-column align-items-center position-fixed w-100" style="bottom: 10px; cursor: pointer; z-index: 1000;" onclick="scrollToTop()" >
     <div class="d-flex flex-row align-items-center justify-content-center px-2 bg-white" style="border-radius: 1000px; border: 2px solid black;">
         <i class="bi bi-arrow-up-short m-0 text-black" style="font-size: 32px;"></i>
         <p class="m-0 text-black prevent-select">Scroll back to top</p>

@@ -32,7 +32,7 @@ import Itemize from "../../components/Itemize.astro"
 
 <strong>Buckling</strong> is the sudden change in shape of a structural component under a compressive load
 
-<Image src='/Solid_Mechanics/Buckling-Figures/BuckleVSDeflect.png' width='5'></Image>
+<Image src='/sol/buckling/BuckleVSDeflect.png' width='5'></Image>
 
  The beam is still able to withstand normal loads, but buckling causes an <strong>instability</strong>. Small perturbations make the structure unstable. 
 
@@ -43,7 +43,7 @@ import Itemize from "../../components/Itemize.astro"
 
 <SubSubSection title="Single Column" id="single-column">
 
-<Image src='/Solid_Mechanics/Buckling-Figures/Stability of Structures.png' width='3'></Image>
+<Image src='/sol/buckling/Stability of Structures.png' width='3'></Image>
 
  Column <InlineEquation equation='AB' /> is supporting uniaxial compressive load <InlineEquation equation='P' />. To properly design this column, the cross-section must satisfy two equations.
 
@@ -54,7 +54,7 @@ import Itemize from "../../components/Itemize.astro"
 
 <SubSubSection title="Two Rods and a Torsional Spring" id="two-rods-spring">
 
-<Image src='/Solid_Mechanics/Buckling-Figures/TwoRods.png' width='3.5'></Image>
+<Image src='/sol/buckling/TwoRods.png' width='3.5'></Image>
 
  Rods <InlineEquation equation='AC' /> and <InlineEquation equation='CB' /> are perfectly aligned and a torsional spring connects them at point <InlineEquation equation='C' />. For small perturbations, point <InlineEquation equation='C' /> moves to the right.
 
@@ -63,7 +63,7 @@ import Itemize from "../../components/Itemize.astro"
 	<Item>If <InlineEquation equation="C"/> <strong>moves farther away</strong> from the original position, then the system is <strong>unstable</strong></Item>
 </Itemize>
 
-<Image src='/Solid_Mechanics/Buckling-Figures/TopRodFBD.png' width='1.5'></Image>
+<Image src='/sol/buckling/TopRodFBD.png' width='1.5'></Image>
 
 
 <DisplayEquation equation='M_s = K(2\\Delta\\theta)= \\text{restoring moment}\\' title="Spring restoring moment." background="True" />
@@ -95,7 +95,7 @@ Euler's formula can be used to solve for the critical load of a uniaxially loade
 
 <SubSubSection title="Pinned-end Columns" id="pinned-end">
 
-<Image src='/Solid_Mechanics/Buckling-Figures/Pinned.png' width='3.5'></Image>
+<Image src='/sol/buckling/Pinned.png' width='3.5'></Image>
 
  Rod <InlineEquation equation='AB' /> is pinned on each end. After a small perturbation, the system reaches equilibrium.
 
@@ -140,7 +140,7 @@ Euler's formula can be used to solve for the critical load of a uniaxially loade
 </SubSubSection>
 <SubSubSection title="Other Boundary Conditions" id="other-boundary-conditions">
 
-<Image src='/Solid_Mechanics/Buckling-Figures/EulerConditions.png' width='7'></Image>
+<Image src='/sol/buckling/EulerConditions.png' width='7'></Image>
 
 
 Different boundary conditions change the length used in the critical load formula resulting in an effective length (<InlineEquation equation='L_e' />).

@@ -1,0 +1,211 @@
+\section{Mass and Energy Balances}
+The rate of change of a system's internal energy is due to the net rate of energy input minus the net rate of energy output. 
+
+\subsection{Closed System Energy Rate Balance} 
+In the absence of mass flow, the closed system energy rate balance depends on the net heat flow rate $\dot{Q}(t)$ and the net work transfer rate $\dot{W}(t)$, as follows,
+\begin{equation}\label{eqn:deltaIE}
+\frac{dU}{dt}=\dot{Q}(t)-\dot{W}(t),
+\end{equation}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{figure}[h]
+\begin{center}
+\begin{tikzpicture}[auto, node distance=1.75cm,>=latex']
+	\node(1) [draw, fill=Mteal, rectangle, rounded corners=15pt, minimum width=3cm, minimum height = 2cm, text centered,thick] {system};
+	\node(100) [draw=none, fill=none, text width=2cm, text height=0.5cm, text depth=0.5cm]{};
+	% Flow labels
+	\node(2) [draw=none, fill=none, left of=1,yshift=0.5cm, xshift=-1cm]{$\dot{Q}_{\text{in}}$};
+	\node(5) [draw=none, fill=none, left of=1,yshift=-0.7cm, xshift=-1cm]{$\dot{W}_{\text{by}}$};
+	\node(3) [draw=none, fill=none, right of=1,yshift=0.7cm, xshift=1cm]{$\dot{W}_{\text{on}}$};
+	\node(4) [draw=none, fill=none, right of=1,yshift=-0.7cm, xshift=1cm]{$\dot{Q}_{\text{out}}$};
+	% Flow arrows
+	\draw [-latex,decorate,decoration={snake,amplitude=.4mm,segment length=2mm, post length=9pt}, ultra thick] (2) -- (100);
+	\draw[-latex,decorate,decoration={snake,amplitude=.4mm,segment length=2mm ,post length=9pt}, ultra thick] (100) -- (4);
+	\draw [-latex, ultra thick] (3) -- (100);
+	\draw [-latex, ultra thick] (100) -- (5);
+\end{tikzpicture}
+\end{center}
+\end{figure}
+
+\paragraph{Net Heat Flow Rate:} Comprised of the sum of the heat flow rates into the system minus the flow rates out of the system. 
+\begin{equation}
+\label{eqn:dQdt}
+\dot{Q}(t)=\dot{Q}_{\text{in}}(t)-\dot{Q}_{\text{out}}(t).
+\end{equation}
+\paragraph{Net Work Transfer Rate:} Also known as net \textbf{power} transfer, where $\dot{W}_{\text{by}}$ is the net work done by the system and $\dot{W}_{\text{on}}$ is the net work done on the system.
+\begin{equation}
+\label{eqn:dWdt}
+\dot{W}(t)=\dot{W}_{\text{by}}-\dot{W}_{\text{on}}.
+\end{equation}
+
+\paragraph{Closed System Energy Rate Balance:} Here, $\dot{Q}_{\text{in}}$, $\dot{Q}_{\text{out}}$, $\dot{W}_{\text{by}}$ and $\dot{W}_{\text{on}}$ are explicitly defined as the \emph{magnitude} of energy flow in the direction stated. The rate of change of the internal energy in the system is determined by combining Eqns.~\ref{eqn:deltaIE}, ~\ref{eqn:dQdt}, and ~\ref{eqn:dWdt}.
+
+\begin{equation}
+\begin{split}
+\frac{dU}{dt}&=\dot{Q}_{\text{in}}-\dot{Q}_{\text{out}}-(\dot{W}_{\text{by}}-\dot{W}_{\text{on}})\\
+&=\dot{Q}_{\text{in}}-\dot{Q}_{\text{out}}-\dot{W}_{\text{by}}+\dot{W}_{\text{on}}
+\end{split}
+\end{equation}
+
+
+\subsection{Closed System Energy Balance}
+The previous expression for the closed system energy balance can be determined by integrating the closed system energy rate balance (Eqn.~\ref{eqn:deltaIE}) with respect to time,
+\begin{equation}
+\begin{split}
+\label{eqn:intUdt}
+U(t)-U(0)&=\int_0^t \dot{Q}(\tau)d\tau-\int_0^t \dot{W}(\tau)d\tau\\
+\Delta U(t)&=Q(t)-W(t).
+\end{split}
+\end{equation}
+
+\subsection{Energy Transfer via Mass Flow}
+Energy also transfers to or from a system during mass flow. For mass flow into a system, energy increases by the addition of both the internal energy of the additional mass \emph{and} the $pV$ work done by the mass on the system as it enters, and vice versa.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{figure}[h]
+\begin{center}
+\begin{tikzpicture}[auto, node distance=1.75cm,>=latex']
+	\node(1) [draw, fill=Mteal, rectangle, rounded corners=15pt, minimum width=3cm, minimum height = 2cm, text centered,thick] {system};
+	\node(100) [draw=none, fill=none, text width=2cm, text height=0.5cm, text depth=0.5cm]{};
+	% Flow labels
+	\node(2) [draw=none, fill=none, left of=1,xshift=-1cm]{$\dot{m}_{\text{in}}$};
+	\node(4) [draw=none, fill=none, right of=1,xshift=1cm]{$\dot{m}_{\text{out}}$};
+	% Flow arrows
+	\draw [-latex, double, ultra thick] (2) -- (100);
+	\draw[-latex,double, ultra thick] (100) -- (4);t
+	\draw[->] ($ (1) + (2.5,1)$) node[right]{boundary} -- (1);
+\end{tikzpicture}
+\end{center}
+\end{figure}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{figure}
+\begin{center}
+\begin{tikzpicture}[auto, node distance=1.75cm,>=latex']
+	\node(1) [draw, fill=Mteal, rectangle, rounded corners=10pt, text width=2.5cm, text height = 0.5cm, text depth = 3cm, text centered,thick] {system};
+	\node(100) [draw=none, fill=none, text width=2cm, text height=0.5cm, text depth=0.5cm]{};
+	\node (2) [cylinder,thick,aspect=1.3,cylinder uses custom fill, cylinder body fill=Dlblue!30,cylinder end fill=Dlblue,shape border rotate=0, draw,minimum height=2.5cm,
+	minimum width=1cm,xshift=-0.8cm,left of=1] { };
+	\node(200) [draw=none, fill=none, right=0.3cm of 2.west]{$p$, $v$, $u$};
+	\node (3) [cylinder,thick,aspect=1.3, fill=Dorange!40,opacity=0.6, dashed,shape border rotate=0, draw,minimum height=1cm,minimum width=1cm,left of=1,xshift=0.65cm]{};
+	% Flow labels
+	\node(201) [draw=none, fill=none, left of=2, xshift=0.3cm]{$\dot{m}$};
+	\node(301) [draw=none, fill=none, below of=3, xshift=-1.0cm, yshift=0.7cm]{$A$};
+	\node(101) [draw=none, fill=none, above of=1, xshift=-2.5cm, yshift=0.5cm]{boundary};
+	% Flow arrows
+	\draw [double,->, line width=0.5mm] ([xshift=0.2cm]3.east) -- ([xshift=-0.5cm]1.east);
+	\draw [->, line width=0.5mm] (101) .. controls +(down:0.5cm) and +(left:0cm) .. ([yshift=-0.5cm]1.north west);
+	\draw [-, line width=0.5mm] ([yshift=0.2cm,xshift=-0.1cm]301.east) .. controls +(up:0.2cm) and +(right:0.1cm) .. ([xshift=-0.2cm]2.east);
+\end{tikzpicture}
+\end{center}
+\end{figure}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Internal Energy Change via Mass Flow}
+A mass flow having rate $\dot{m}$ with cross-sectional area, $A$, \underline{slowly} enters a system. The mass is at a pressure $p$, has a specific volume $v$, and has a specific internal energy, $u$, relative to some reference state.
+The mass flowing into the system, over a given time interval $\Delta t$, increases by the the internal energy the system as it enters, by:
+\begin{equation}
+\label{eqn:Deltau_dotm}
+\dot{m}\Delta t u=mu.
+\end{equation}
+
+\subsubsection{$pV$ Work Done via Mass Flow}\label{sec:pvwork}
+The volume occupied by the portion of the stream entering a system is defined by,
+\begin{equation}
+V_{\text{in-flow}}=\dot{m}\Delta t v=mv
+\end{equation}
+This volume is pushed at constant pressure, $p$, into the system, doing $pV$ work on the system,
+\begin{equation}
+\label{eqn:massflowPVwork}
+W_{\text{in-flow}}=\int_{0}^{V_{\text{in-flow}}}p dV=mpv.
+\end{equation}
+For an input stream with a constant specific volume $v$ and pressure $p$, taking the derivative of the above expression with respect to time yields the rate of work  done on the system,
+\begin{equation}
+    \dot{W}=\dot{m}pv.
+\end{equation}
+
+\subsubsection{Total Internal Energy Change via Mass Flow}
+It follows that the total increase in the internal energy of the system includes the contributions of both Eqn.~\ref{eqn:Deltau_dotm} and  Eqn.~\ref{eqn:massflowPVwork}.
+\begin{equation}
+\begin{split}
+\Delta U&=mu+mpv\\
+&=m(u+pv)
+\end{split}
+\end{equation}
+The rate of internal energy increase is therefore,
+\begin{equation}
+\label{eqn:rateofDeltaU}
+\frac{d U}{dt}=\dot{m}(u+pv)
+\end{equation}
+\subsubsection{Relative Specific Enthalpy}
+Recall, that the sum $u+pv$ appears frequently in thermodynamic discussion so it is conveniently defined as relative specific enthalpy $h$, consisting of the same atomic and molecular kinetic and potential energies as specific internal energy $u$, but with the addition of \emph{flow work}, $pv$
+\begin{equation}
+\label{eqn:RelativeEnthalpy}
+h=u+pv.
+\end{equation}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Internal Energy Rate Balance}
+In thermodynamic systems that experience both mass flow rates $\dot{m}_{\text{in}}$ and $\dot{m}_{\text{out}}$, net heat flow rate, $\dot{Q}$, into the system, and performs work at a rate $\dot{W}$ on its surroundings, a generalized energy rate balance can be used to describe all of these changes at once.
+\begin{figure}[h]
+\begin{center}
+\begin{tikzpicture}[auto, node distance=1.75cm,>=latex']
+	\node(1) [draw, fill=Mteal, rectangle, rounded corners=10pt, text width=3cm, text height = 1cm, text depth = 1cm, text centered,thick] {system};
+	\node(100) [draw=none, fill=none, text width=2cm, text height=0.5cm, text depth=0.5cm]{};
+	% Flow labels
+	\node(2) [draw=none, fill=none, left of=1,yshift=0.5cm, xshift=-1.2cm]{$\dot{m}_{\text{in}}$};
+	\node(3) [draw=none, fill=none, left of=1,yshift=-1cm, xshift=-1cm]{$\dot{Q}$};
+	\node(4) [draw=none, fill=none, right of=1,yshift=1.5cm, xshift=1cm]{$\dot{W}$};
+	\node(5) [draw=none, fill=none, right of=1,yshift=-0.7cm, xshift=1.2cm]{$\dot{m}_{\text{out}}$};
+	% Flow arrows
+	\draw [double,->, line width=0.3mm] (2) -- (2-|1.west);
+	\draw[->, line width=0.5mm] (100) -- (4);
+	\draw [->,decorate,decoration={snake,amplitude=.4mm,segment length=2mm ,post length=9pt}, line width=0.5mm] (3) -- (100);
+	\draw [double,->, line width=0.3mm] (5-|1.east) -- (5);
+\end{tikzpicture}
+\end{center}
+\caption{A schematic of an open system for which a net heat transfer rate $\dot{Q}$, a net power output $\dot{W}$, and mass flowrates into $\dot{m}_{\text{in}}$ and out of $\dot{m}_{\text{out}}$ the system occur.} \label{fig:OpenSystemQW}
+\end{figure}
+\vspace{12pt}
+
+\textbf{Recall} that the rate of change of the internal energy of a system in the absence of mass flows is given by
+\begin{equation}
+\label{eqn:ROCofU_woMF}
+\left.\frac{dU}{dt}\right|_{\text{no-flow}}=\dot{Q}(t)-\dot{W}(t)
+\end{equation}
+\vspace{12 pt}
+
+\textbf{Recall} that the the mass flow rate `in' changes the internal energy of the system at a rate
+\begin{equation}
+\label{eqn:ROCofU_MFin}
+\left.\frac{dU}{dt}\right|_{\text{in-flow}}=\dot{m}_{\text{in}}(u_{\text{in}}+p_{\text{in}}v_{\text{in}})=\dot{m}_{\text{in}}h_{\text{in}}
+\end{equation}
+\vspace{12 pt}
+
+\textbf{Similarly} the mass flow rate `out' changes the internal energy at a rate
+\begin{equation}
+\label{eqn:ROCofU_MFout}
+\left.\frac{dU}{dt}\right|_{\text{out-flow}}=-\dot{m}_{\text{out}}(u_{\text{out}}+p_{\text{out}}v_{\text{out}})=-\dot{m}_{\text{out}}h_{\text{out}}
+\end{equation}
+The total rate of change in the internal energy is the sum of Eqns.~\ref{eqn:ROCofU_woMF}, \ref{eqn:ROCofU_MFin}, and \ref{eqn:ROCofU_MFout}, yielding a generalized equation
+to an arbitrary number of input and output streams yields
+\begin{equation}
+  \frac{dU}{dt}=\dot{Q}-\dot{W}+\sum_{\text{in}}\dot{m}_{\text{in}}h_{\text{in}}-\sum_{\text{out}}\dot{m}_{\text{out}}h_{\text{out}}  
+\end{equation}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Total Energy Balance}
+The kinetic and potential energy changes contribute to the \textbf{total energy} $\Delta E$ of the system
+\begin{equation}
+\Delta E=\Delta U+ \Delta \text{PE}+ \Delta \text{KE}
+\end{equation}
+
+\subsection{Total Energy Rate Balance}
+The most general form of the energy rate balance $\frac{dE}{dt}$
+accounts for internal energy effects, along with kinetic and gravitational potential energy effects on the system via the \textbf{total energy} $E$.
+\begin{equation}
+\frac{dE}{dt}=\frac{d (\Delta U + \Delta KE + \Delta PE)}{dt} = \frac{dU}{dt}+\frac{d\text{KE}}{dt}+\frac{d\text{PE}}{dt}
+\end{equation}
+This energy rate balance accounts for all energy contributions including kinetic and gravitational potential energy contributions to the system via mass inputs and outputs.
+\begin{equation}
+\label{eqn:ERateTotalGeneral}
+\frac{dE}{dt}=\dot{Q}-\dot{W}
++\sum_{\text{in}}\dot{m}_\text{in}(h_\text{in}+\frac{1}{2}\vec{v}_\text{in}^2+gz_\text{in})
+-\sum_{\text{out}}\dot{m}_\text{out}(h_\text{out}+\frac{1}{2}\vec{v}_\text{out}^2+gz_\text{out})
+\end{equation}
+
