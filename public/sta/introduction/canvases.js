@@ -2,7 +2,7 @@ $(document).ready(function() {
 
     /********************************************************************************/
 
-    var rep_ff_c = new PrairieDrawAnim("rep-ff-c", function(t) {
+    rep_ff_c = new PrairieDrawAnim("rep-ff-c", function(t) {
 
         var xViewMax = 3;
         var yViewMax = 2;

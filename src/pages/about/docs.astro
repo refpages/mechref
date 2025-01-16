@@ -12,6 +12,7 @@ import InlineEquation from "../../components/InlineEquation.astro";
 import InlineCanvas from "../../components/InlineCanvas.astro";
 import CalloutCard from "../../components/CalloutCard.astro";
 import CalloutContainer from "../../components/CalloutContainer.astro";
+import CalloutContainerContainer from "../../components/special/CalloutContainerContainer.astro";
 import Image from "../../components/Image.astro";
 import DisplayTable from "../../components/DisplayTable.astro";
 import Itemize from "../../components/Itemize.astro";
@@ -29,6 +30,8 @@ import Warning from "../../components/Warning.astro"
         background-color: red;
         color: black;
     }
+
+
 </style>
 
 <Layout title="Style Guide & Documentation">
@@ -160,15 +163,15 @@ This concept is very important, and applies to almost every component. The diffe
 
 Remember, these pages are supposed to be reference material, not a textbook. Keep blocks of text to a mimimum and use bullet points and numbering when useful. 
 </SubSection>
-<SubSection id="sections" title="Section Types">
+<SubSection id="sections" title="Section Types"></SubSection>
 
 <SubSubSection id="section" title="Page Title" >
 
-    <CodeBox language="html" code=`
+    <CodeBox language="javascript" code=`
     import Section from "../../components/Section.astro" 
     ` />
 
-    <p><p>Tag type: Regular</p></p>
+    <p>Tag type: Regular</p>
 
     Options:
     <ul>
@@ -191,11 +194,11 @@ Remember, these pages are supposed to be reference material, not a textbook. Kee
 
 <SubSubSection id="sub-section" title="Page Sections" >
 
-    <CodeBox language="html" code=`
+    <CodeBox language="javascript" code=`
     import SubSection from "../../components/SubSection.astro"
     ` />
 
-    <p><p>Tag type: Regular</p></p>
+    <p>Tag type: Regular</p>
 
     Options:
     <ul>
@@ -218,11 +221,11 @@ Remember, these pages are supposed to be reference material, not a textbook. Kee
 
 <SubSubSection id="sub-sub-section" title="Page Sub Sections" >
 
-    <CodeBox language="html" code=`
+    <CodeBox language="javascript" code=`
     import SubSection from "../../components/SubSubSection.astro"
     ` />
 
-    <p><p>Tag type: Regular</p></p>
+    <p>Tag type: Regular</p>
 
     Options:
     <ul>
@@ -245,11 +248,11 @@ Remember, these pages are supposed to be reference material, not a textbook. Kee
 
 <SubSubSection id="sub-sub-sub-section" title="Page Sub Sub Sections" >
 
-    <CodeBox language="html" code=`
+    <CodeBox language="javascript" code=`
     import SubSection from "../../components/SubSubSubSection.astro"
     ` />
 
-    <p><p>Tag type: Regular</p></p>
+    <p>Tag type: Regular</p>
 
     Options:
     <ul>
@@ -278,7 +281,7 @@ Remember, these pages are supposed to be reference material, not a textbook. Kee
     
       
 <SubSubSection title="New Paragraph" id="new-paragraph">
-    <p><p>Tag type: Regular</p></p>
+    <p>Tag type: Regular</p>
     
     Options:
     <ul>
@@ -296,12 +299,12 @@ Remember, these pages are supposed to be reference material, not a textbook. Kee
 <SubSubSection title="Lists" id="lists">
     <p>Use when 2 or more things need to be listed.</p>
     
-    <CodeBox language="html" code=`
+    <CodeBox language="javascript" code=`
     import Itemize from "../../components/Itemize.astro"
     import Item from "../../components/Item.astro"
     ` />
     
-    <p><p>Tag type: Regular</p></p>
+    <p>Tag type: Regular</p>
     
     Options:
     <ul>
@@ -328,12 +331,12 @@ Remember, these pages are supposed to be reference material, not a textbook. Kee
     
     <p>Use when 2 or more things are in a process or order.</p>
 
-    <CodeBox language="html" code=`
+    <CodeBox language="javascript" code=`
     import Enumerate from "../../components/Enumerate.astro"
     import Item from "../../components/Item.astro"
     ` />
     
-    <p><p>Tag type: Regular</p></p>
+    <p>Tag type: Regular</p>
     
     Options:
     <ul>
@@ -359,12 +362,12 @@ Remember, these pages are supposed to be reference material, not a textbook. Kee
     
     <p>Generally used in examples to put figures next to the question and tables. Can be used in other situations as needed.</p>
 
-    <CodeBox language="html" code=`
+    <CodeBox language="javascript" code=`
     import Row from "../../components/Row.astro"
     import Col from "../../components/Col.astro"
     ` />
     
-    <p><p>Tag type: Regular</p></p>
+    <p>Tag type: Regular</p>
     
     Options:
     <ul>
@@ -385,7 +388,7 @@ Remember, these pages are supposed to be reference material, not a textbook. Kee
         </p>
       </Col>
     </Row>
-    ` closed_by_default="True" id="test" closed_height="60"/>
+    ` closed_by_default="True" id="colmd" closed_height="60"/>
 
     <Row>
         <Col values="12 md-6">
@@ -406,7 +409,7 @@ Remember, these pages are supposed to be reference material, not a textbook. Kee
 
     Typically used in figure and table captions.
     
-    <p><p>Tag type: Regular</p></p>
+    <p>Tag type: Regular</p>
     
     Options:
     <ul>
@@ -424,7 +427,7 @@ Remember, these pages are supposed to be reference material, not a textbook. Kee
 
 <SubSubSection title="Bold" id="bold">
     Generally used to emphasize key words in sentances. 
-    <p><p>Tag type: Regular</p></p>
+    <p>Tag type: Regular</p>
     
     Options:
     <ul>
@@ -443,7 +446,7 @@ Remember, these pages are supposed to be reference material, not a textbook. Kee
 <SubSubSection title="Underline" id="underline">
 
     Typically only used for links, which are automatically formatted.
-    <p><p>Tag type: Regular</p></p>
+    <p>Tag type: Regular</p>
     
     Options:
     <ul>
@@ -461,7 +464,7 @@ Remember, these pages are supposed to be reference material, not a textbook. Kee
 
 <SubSubSection title="Other Font Customizations" id="font-customizations">
 
-    <p><p>Tag type: Regular</p></p>
+    <p>Tag type: Regular</p>
     
     Options:
     <ul>
@@ -479,7 +482,7 @@ Remember, these pages are supposed to be reference material, not a textbook. Kee
 
 <SubSection title="Navigation Bar" id="nav-bar">
 
-    <p><p>Tag type: Regular</p></p>
+    <p>Tag type: Regular</p>
     
     How to use:
     <Enumerate>
@@ -512,7 +515,7 @@ Remember, these pages are supposed to be reference material, not a textbook. Kee
             </li>  
         </ul>
     </div>
-    ` closed_by_default="True" id="test" closed_height="60"/>
+    ` closed_by_default="True" id="navtree" closed_height="60"/>
 
     The <a href="/sol/material_properties/">material properties page</a> in solid mechanics is a good example of multiple subsections being used. 
 </SubSection>
@@ -524,7 +527,7 @@ Remember, these pages are supposed to be reference material, not a textbook. Kee
  
 <SubSubSection title="Within a page" id="same-page">
 
-    <p><p>Tag type: Regular</p></p>
+    <p>Tag type: Regular</p>
     
     Options:
     <ul>
@@ -544,7 +547,7 @@ Remember, these pages are supposed to be reference material, not a textbook. Kee
 
 <SubSubSection title="Different page" id="diff-page">
 
-    <p><p>Tag type: Regular</p></p>
+    <p>Tag type: Regular</p>
     
     Options:
     <ul>
@@ -564,7 +567,7 @@ Remember, these pages are supposed to be reference material, not a textbook. Kee
 
 <SubSubSection title="External page" id="ext-page">
 
-    <p><p>Tag type: Regular</p></p>
+    <p>Tag type: Regular</p>
     
     Options:
     <ul>
@@ -584,7 +587,7 @@ Remember, these pages are supposed to be reference material, not a textbook. Kee
 
 <SubSubSection title="External video" id="ext-video">
 
-    <p><p>Tag type: Regular</p></p>
+    <p>Tag type: Regular</p>
     
     Options:
     <ul>
@@ -612,12 +615,12 @@ Remember, these pages are supposed to be reference material, not a textbook. Kee
     There are 3 main callout card templates which are all shown here. 
     </p>
 
-    <CodeBox language="html" code=`
+    <CodeBox language="javascript" code=`
      import CalloutCard from "../../components/CalloutCard.astro"
     import CalloutContainer from "../../components/CalloutContainer.astro"
     ` />
 
-    <p><p>Tag type: Regular</p></p>
+    <p>Tag type: Regular</p>
     
     Options:
     <ul>
@@ -633,59 +636,61 @@ Remember, these pages are supposed to be reference material, not a textbook. Kee
     <p>This card is used to connect back to material prior in the course or potential courses they may have already taken.</p>
     <em>Note:</em> this information should not be needed to understand the material for the course, this is so students can see how courses connect to each other. Pages should be self-contained and not require links to other material.
 
+    <CalloutContainerContainer>
+        <CodeBox language="html" code=`
+        <CalloutContainer slot="cards">
+            <CalloutCard title="Review?">
+                <p>
+                   Need a review of <strong> SubSectionTitle </strong>?
+                </p>
+                <p>
+                    This content has also been in <a href="/XXX/CoursePage">CourseName</a> 
+                </p>
+                <p>
+                    CONTENT
+                </p>
+            </CalloutCard>
+        </CalloutContainer>
+        ` closed_by_default="True" id="review" closed_height="60"/>
+        
+        <CalloutContainer slot="cards">
+            <CalloutCard title="Review?">
+                <p>
+                   Need a review of <strong> SubSectionTitle </strong>?
+                </p>
+                <p>
+                    This content has also been in <a href="/XXX/CoursePage">CourseName</a> 
+                </p>
+                <p>
+                    CONTENT
+                </p>
+            </CalloutCard>
+        </CalloutContainer>
+    </CalloutContainerContainer>
     
-    <CodeBox language="html" code=`
-    <CalloutContainer slot="cards">
-        <CalloutCard title="Review?">
-            <p>
-               Need a review of <strong> SubSectionTitle </strong>?
-            </p>
-            <p>
-                This content has also been in <a href="/XXX/CoursePage">CourseName</a> 
-            </p>
-            <p>
-	            CONTENT
-            </p>
-        </CalloutCard>
-    </CalloutContainer>
-    ` closed_by_default="True" id="test" closed_height="60"/>
-
-    <CalloutContainer slot="cards">
-        <CalloutCard title="Review?">
-            <p>
-               Need a review of <strong> SubSectionTitle </strong>?
-            </p>
-            <p>
-                This content has also been in <a href="/XXX/CoursePage">CourseName</a> 
-            </p>
-            <p>
-	            CONTENT
-            </p>
-        </CalloutCard>
-    </CalloutContainer>
 
 </SubSubSection>
 
 
 <SubSubSection title="Supplemental Material Card" id="supplemental">
     <p>This card is used to include supplemental material (ie; videos, webpages, open-source textbooks, etc.).</p>
-    
-    <CodeBox language="html" code=`
-    <CalloutContainer slot="cards">
-        <CalloutCard title="Extra!">
-            <p class="m-0"><u>Supplemental video:</u></p>
-                CONTENT
-        </CalloutCard>
-    </CalloutContainer>
-    ` closed_by_default="True" id="test" closed_height="60"/>
+    <CalloutContainerContainer>
+        <CodeBox language="html" code=`
+        <CalloutContainer slot="cards">
+            <CalloutCard title="Extra!">
+                <p class="m-0"><u>Supplemental video:</u></p>
+                    CONTENT
+            </CalloutCard>
+        </CalloutContainer>
+        ` closed_by_default="True" id="video" closed_height="60"/>
 
-    <CalloutContainer slot="cards">
-        <CalloutCard title="Extra!">
-            <p class="m-0"><u>Supplemental MATERIAL:</u></p>
-                CONTENT
-        </CalloutCard>
-    </CalloutContainer>
-
+        <CalloutContainer slot="cards">
+            <CalloutCard title="Extra!">
+                <p class="m-0"><u>Supplemental MATERIAL:</u></p>
+                    CONTENT
+            </CalloutCard>
+        </CalloutContainer>
+    </CalloutContainerContainer>
 </SubSubSection>
 
 <SubSubSection title="Extra Info Card" id="extra">
@@ -702,7 +707,7 @@ Remember, these pages are supposed to be reference material, not a textbook. Kee
               </p>
         </CalloutCard>
     </CalloutContainer>
-    ` closed_by_default="True" id="test" closed_height="60"/>
+    ` closed_by_default="True" id="headsup" closed_height="60"/>
 
     <CalloutContainer slot="cards">
         <CalloutCard title="Heads  up!">
@@ -719,11 +724,11 @@ Remember, these pages are supposed to be reference material, not a textbook. Kee
 
 <SubSection title="Images" id="images">
     
-    <CodeBox language="html" code=`
+    <CodeBox language="javascript" code=`
     import Image from "../../components/Image.astro"
     ` />
 
-    <p><p>Tag type: Self-closing (no caption) or regular (caption)</p></p>
+    <p>Tag type: Self-closing (no caption) or regular (caption)</p>
     
     Options:
     <ul>
@@ -771,11 +776,11 @@ Remember, these pages are supposed to be reference material, not a textbook. Kee
 <SubSubSection id="inline-eq" title="Inline Equations">
     This will create an element that goes along with the text it's included with, and is useful for important equations that need to be part of a paragraph.
 
-    <CodeBox language="html" code=`
+    <CodeBox language="javascript" code=`
    import InlineEquation from "../../components/InlineEquation.astro" 
     ` />
 
-    <p><p>Type: Self-closing</p></p>
+    <p>Type: Self-closing</p>
     
     Options:
     <ul>
@@ -794,11 +799,11 @@ Remember, these pages are supposed to be reference material, not a textbook. Kee
     
     This will create an element that takes the entire width of the element it's inside of, and is useful for important equations that deserve to be highlighted.
 
-    <CodeBox language="html" code=`
+    <CodeBox language="javascript" code=`
    import DisplayEquation from "../../components/DisplayEquation.astro" 
     ` />
 
-    <p><p>Type: Self-closing (no derivation) or regular (derivation)</p></p>
+    <p>Type: Self-closing (no derivation) or regular (derivation)</p>
 
     Options:
     <ul>
@@ -852,11 +857,11 @@ Remember, these pages are supposed to be reference material, not a textbook. Kee
     
     Same as DisplayEquation, but provides a lot more freedom with how everything looks. Made for when equation boxes don't follow the format above.
 
-    <CodeBox language="html" code=`
+    <CodeBox language="javascript" code=`
    import DisplayEquationCustom from "../../components/DisplayEquationCustom.astro" 
     ` />
 
-    <p><p>Type: Regular only</p></p>
+    <p>Type: Regular only</p>
 
     Options:
     <ul>
@@ -881,7 +886,7 @@ Remember, these pages are supposed to be reference material, not a textbook. Kee
                 <DisplayEquation equation="eq" />
             </div>
         </DisplayEquationCustom>
-    ` closed_by_default="True" id="test" closed_height="60"/>
+    ` closed_by_default="True" id="decustom" closed_height="60"/>
 
     <DisplayEquationCustom title="TITLE" id="id" background="True" derivation="True">
         <div class="w-100 d-flex flex-row">
@@ -904,11 +909,11 @@ Remember, these pages are supposed to be reference material, not a textbook. Kee
     Used to create tables. This element ensures mobile responsiveness, default HTML tables might break the look of the page if they contain a lot of content, or if they feel like it.
     Components such as figures and equations can be used inside of tables.
     
-    <CodeBox language="html" code=`
+    <CodeBox language="javascript" code=`
    import DisplayTable from "../../components/DisplayTable.astro" 
     ` />
     
-    <p></p><p>Type: Regular only</p></p>
+    <p></p><p>Type: Regular only</p>
 
     Options:
     <ul>
@@ -950,7 +955,7 @@ Remember, these pages are supposed to be reference material, not a textbook. Kee
         </tr>
         </tbody>
     </DisplayTable>
-    ` closed_by_default="True" id="test" closed_height="60"/>
+    ` closed_by_default="True" id="table" closed_height="60"/>
 
     <DisplayTable id="id" class_="mb-3">
         <thead>
@@ -1014,7 +1019,7 @@ Remember, these pages are supposed to be reference material, not a textbook. Kee
             </tr>
             </tbody>
         </DisplayTable>
-    ` closed_by_default="True" id="test" closed_height="60"/>
+    ` closed_by_default="True" id="tablecustom" closed_height="60"/>
 
     <DisplayTable id="id" class_="mb-3">
         <thead>
@@ -1070,7 +1075,7 @@ Remember, these pages are supposed to be reference material, not a textbook. Kee
             </tr>
             </tbody>
         </DisplayTable>
-    ` closed_by_default="True" id="test" closed_height="60"/>
+    ` closed_by_default="True" id="tableshaded" closed_height="60"/>
 
     
     <DisplayTable id="id" class_="mb-3">
@@ -1102,13 +1107,13 @@ Remember, these pages are supposed to be reference material, not a textbook. Kee
 
 <SubSection title="Examples" id="examples">
 
-    <CodeBox language="html" code=`
+    <CodeBox language="javascript" code=`
         import Example from "../../components/Example.astro"
         import Row from "../../components/Row.astro"
         import Col from "../../components/Col.astro"
     ` />
 
-    <p><p>Tag type: Regular</p></p>
+    <p>Tag type: Regular</p>
     
     Options:
     <ul>
@@ -1138,7 +1143,7 @@ Remember, these pages are supposed to be reference material, not a textbook. Kee
             </p>
         </div>
     </Example>
-    ` closed_by_default="True" id="test" closed_height="60"/>
+    ` closed_by_default="True" id="exampleproblem" closed_height="60"/>
 
     <Example id="ID" title="TITLE" solution="True">
         <div class="d-flex flex-row">
@@ -1166,7 +1171,7 @@ Remember, these pages are supposed to be reference material, not a textbook. Kee
 <SubSection title="Notes" id="notes">
 
 
-    <p><p>Tag type: none</p></p>
+    <p>Tag type: none</p>
     
     Options:
     <ul>
@@ -1184,12 +1189,12 @@ Remember, these pages are supposed to be reference material, not a textbook. Kee
 
 <SubSection title="Warnings" id="warnings">
 
-    <CodeBox language="html" code=`
+    <CodeBox language="javascript" code=`
         import Warning from "../../components/Warning.astro"
     ` />
 
 
-    <p><p>Tag type: Self-closing (does not expand) or regular (expands)</p></p>
+    <p>Tag type: Self-closing (does not expand) or regular (expands)</p>
     
     Options:
     <ul>
@@ -1222,7 +1227,7 @@ Remember, these pages are supposed to be reference material, not a textbook. Kee
 
 </SubSection> 
 
-<!-- <SubSection title="Code box" id="code-box">
+<SubSection title="Code box" id="code-box">
 
     Code boxes usually aren't needed. Any code box can be clicked on and the code will be copied into the users clipboard.
     
@@ -1230,7 +1235,7 @@ Remember, these pages are supposed to be reference material, not a textbook. Kee
    import CodeBox from "../../components/CodeBox.astro"
     ` />
     
-    <p><p>Tag type: Self closing</p></p>
+    <p>Tag type: Self closing</p>
     
     Options:
     <ul>
@@ -1243,25 +1248,15 @@ Remember, these pages are supposed to be reference material, not a textbook. Kee
 
     Example:
     <p>Open</p>
-    <CodeBox language="html" code=`
-        <CodeBox language="html" code=`
-        CODE
-        ` />
-    ` />
+    <CodeBox language="html" code={`<CodeBox language="html" code=\`\nCODE\n\` id="test1" />`}/>
 
     <CodeBox language="html" code=`CODE` />
 
     <p>Closed</p>
-    <CodeBox language="html" code=`
-        <CodeBox language="html" code=`
-        CODE
-        ` closed_by_default="True" id="test" closed_height="60" />
-    ` />
+    <CodeBox language="html" code={`<CodeBox language="html" code=\`\nfunction lorem(ipsum, dolor = 1) {\nconst sit = ipsum == null ? 0 : ipsum.sit;\ndolor = sit - amet(dolor);\nreturn sit ? consectetur(ipsum, 0, dolor < 0 ? 0 : dolor) : [];\n}\n\` closed_by_default="True" id="test2" closed_height="30" />`}/>
 
-    <CodeBox language="html" code=`
-    CODE
-    ` closed_by_default="True" id="test" closed_height="60" />
+    <CodeBox language="javascript" code=`function lorem(ipsum, dolor = 1) {\nconst sit = ipsum == null ? 0 : ipsum.sit;\ndolor = sit - amet(dolor);\nreturn sit ? consectetur(ipsum, 0, dolor < 0 ? 0 : dolor) : [];\n}` closed_by_default="True" id="codebox-example" closed_height="60" />
 
-</SubSection>  -->
+</SubSection>
 
 </Layout>
