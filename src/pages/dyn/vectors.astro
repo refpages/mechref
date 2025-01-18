@@ -158,7 +158,7 @@ import InlineCanvas from "../../components/InlineCanvas.astro"
                 coordinate system we are using, and which order the
                 coordinates are in. We will typically write the coordinate
                 values explicitly to avoid confusion. This also applies to
-                <a href="rvv.html#rvv-ic">vector components</a>.
+                vector components.
               </p>
         </CalloutCard>
 
@@ -215,8 +215,8 @@ import InlineCanvas from "../../components/InlineCanvas.astro"
 
     <p>
         The two common extensions of polar coordinates to 3D are
-        <a href="rvy.html">cylindrical coordinates</a> and <a
-        href="rvs.html">spherical coordinates</a>.
+        <a href="#cylindrical_coordinates">cylindrical coordinates</a> and <a
+        href="#spherical_coordinates">spherical coordinates</a>.
       </p>
 
     <Center>
@@ -232,7 +232,7 @@ import InlineCanvas from "../../components/InlineCanvas.astro"
         To define polar coordinates, we relate them to another known
         coordinate system, typically Cartesian coordinates as
         follows, where we use the <a
-        href="rvp.html#rvp-it">atan2</a> function.
+        href="http://en.wikipedia.org/wiki/Atan2"  target="_blank">atan2</a> function.
       </p>
 
     <DisplayEquation title="Conversion between polar and Cartesian coordinates" id="rvp-ep" equation = "\\begin{aligned}x &amp;= r \\cos\\theta&amp; r &amp;= \\sqrt{x^2 + y^2} \\\\y &amp;= r \\sin\\theta&amp; \\theta &amp;= \\operatorname{atan2}(y, x)\\end{aligned}" background="True"/>
@@ -450,8 +450,8 @@ import InlineCanvas from "../../components/InlineCanvas.astro"
     <CalloutContainer slot=cards>
       <CalloutCard title="Notation note">
         <p>
-          Just <a href="rvp.html#rvp-ic">as for position
-          coordinates</a>, we can write the vector components
+          Just as for position
+          coordinates, we can write the vector components
           \(3\hat\imath + 2\hat\jmath\) as the ordered list \((3, 2)\)
           if we know which basis we are using. Because we often will
           be using several bases simultaneously, we will generally
@@ -745,8 +745,8 @@ import InlineCanvas from "../../components/InlineCanvas.astro"
       <p>
         Compute the cross product <InlineEquation equation="\\vec{a} \\times \\vec{b}" />
         using: (1) the angle formula <a
-        href="#rvv-el">#rvv-el</a>; (2) the component formula
-        <a href="#rvv-ex">#rvv-ex</a> with <InlineEquation equation="\\vec{a}, \\vec{b}" />
+        href="/dyn/vector_calculus#rvv-el">#rvv-el</a>; (2) the component formula
+        <a href="/dyn/vector_calculus#rvv-ex">#rvv-ex</a> with <InlineEquation equation="\\vec{a}, \\vec{b}" />
         both in the <InlineEquation equation="\\hat\\imath,\\hat\\jmath" /> basis, both in the
         <InlineEquation equation="\\hat{u}, \\hat{v}" /> basis, and with <InlineEquation equation="\\vec{a}" /> in the
         <InlineEquation equation="\\hat\\imath,\\hat\\jmath" /> basis and <InlineEquation equation="\\vec{b}" /> in the
@@ -758,13 +758,13 @@ import InlineCanvas from "../../components/InlineCanvas.astro"
           (1) The dot product is <InlineEquation equation="\\vec{a} \\cdot \\vec{b} = 7" />
           and the vector lengths are \(a = 3.6\) and \(b = 3.2\),
           so \(\cos\theta = 7 / (ab)\) and \(\theta \approx
-          53^\circ\). Now using <a href="#rvv-el">#rvv-el</a>
+          53^\circ\). Now using <a href="/dyn/vector_calculus#rvv-el">#rvv-el</a>
           gives:
 
           <DisplayEquation equation="\\begin{aligned}          \\vec{a} \\times \\vec{b} &amp;= a b \\sin\\theta ( -\\hat{k}) \\\\          &amp;\\approx -9 \\hat{k}.          \\end{aligned}" />
 
           (2) Using the component formula <a
-          href="#rvv-ex">#rvv-ex</a> gives:
+          href="/dyn/vector_calculus#rvv-ex">#rvv-ex</a> gives:
 
           <DisplayEquation equation="\\begin{aligned}          (3\\hat\\imath + 2\\hat\\jmath) \\times (3\\hat\\imath - \\hat\\jmath)          &amp;= -3 \\hat\\imath \\times \\hat\\jmath + 6 \\hat\\jmath \\times \\hat\\imath \\\\          &amp;= -3 \\hat{k} - 6 \\hat{k} \\\\          &amp;= -9 \\hat{k} \\\\          (3.5 \\hat{u} - 0.7 \\hat{v}) \\times (1.4 \\hat{u} - 2.8 \\hat{v})          &amp;= - (3.5 \\times 2.8) \\hat{u} \\times \\hat{v}          - (0.7 \\times 1.4) \\hat{v} \\times \\hat{u} \\\\          &amp;= -10 \\hat{k} + \\hat{k} \\\\          &amp;= -9 \\hat{k} \\\\          (3\\hat\\imath + 2\\hat\\jmath) \\times (1.4\\hat{u} - 2.8\\hat{v})          &amp;= (3 \\times 1.4) \\hat\\imath \\times \\hat{u}          - (3 \\times 2.8) \\hat\\imath \\times \\hat{v} \\\\          &amp;\\quad + (2 \\times 1.4) \\hat\\jmath \\times \\hat{u}          - (2 \\times 2.8) \\hat\\jmath \\times \\hat{v} \\\\          &amp;= 4.2 \\sin 53^\\circ \\, \\hat{k}          - 8.5 \\sin 143^\\circ \\, \\hat{k} \\\\          &amp;\\quad - 2.8 \\sin 53^\\circ \\, \\hat{k}          - 5.7 \\sin 53^\\circ \\, \\hat{k} \\\\          &amp;= - 9 \\hat{k}.          \\end{aligned}" />
         </p>
@@ -773,7 +773,7 @@ import InlineCanvas from "../../components/InlineCanvas.astro"
 
     <Example id="rvv-xd" title="Dot product is independent of basis." solution=false>
       <p>
-        Equation <a href="#rvv-ed">#rvv-ed</a> makes
+        Equation <a href="/dyn/vector_calculus#rvv-ed">#rvv-ed</a> makes
         it clear that the dot product does not depend on
         which basis we use to write <InlineEquation equation="\\vec{a}" /> and
         <InlineEquation equation="\\vec{b}" />, so long as we use the same
@@ -785,14 +785,14 @@ import InlineCanvas from "../../components/InlineCanvas.astro"
       </p>
       <p>
         However, we can also verify directly that the component
-        equation <a href="#rvv-es">#rvv-es</a> for the dot
+        equation <a href="/dyn/vector_calculus#rvv-es">#rvv-es</a> for the dot
         product does not depend on which basis we use. To keep
         the algebra short, we will only do this in 2D.
       </p>
       <p>
         We compute the dot product using <a
-        href="#rvv-es">#rvv-es</a> in the
-        $\hat\imath,\hat\jmath$ basis and substitute in the
+        href="/dyn/vector_calculus#rvv-es">#rvv-es</a> in the
+        \(\hat\imath,\hat\jmath\) basis and substitute in the
         change-of-basis expressions <a
         href="#rvv-eg">#rvv-eg</a>, giving:
       </p>
@@ -872,7 +872,7 @@ import InlineCanvas from "../../components/InlineCanvas.astro"
 
       <p>
         We start with the dot product expression <a
-        href="rvv.html#rvv-ed">#rvv-ed</a> for length and
+        href="/dyn/vector_calculus#rvv-ed">#rvv-ed</a> for length and
         differentiate it:
       </p>
       <DisplayEquation equation="\\begin{aligned} a &amp;= \\sqrt{\\vec{a} \\cdot        \\vec{a}} \\\\ \\frac{d}{dt} a &amp;= \\frac{d}{dt}        \\big( (\\vec{a} \\cdot \\vec{a})^{1/2}        \\big) \\\\ \\dot{a} &amp;= \\frac{1}{2} (\\vec{a}        \\cdot \\vec{a})^{-1/2} (\\dot{\\vec{a}}        \\cdot \\vec{a} + \\vec{a} \\cdot        \\dot{\\vec{a}}) \\\\ &amp;= \\frac{1}{2\\sqrt{a^2}}        (2 \\dot{\\vec{a}} \\cdot \\vec{a}) \\\\        &amp;= \\dot{\\vec{a}} \\cdot        \\hat{a}.\\end{aligned}" />
@@ -881,14 +881,14 @@ import InlineCanvas from "../../components/InlineCanvas.astro"
     <DisplayEquation title="Derivative of vector direction." background="True" id="rvc-eu" equation="\\dot{\\hat{a}} = \\frac{1}{a}\\operatorname{Comp}(\\dot{\\vec{a}}, \\vec{a})" derivation=True>
       <p>
         We take the definition <a
-        href="rvv.html#rvv-eu">#rvv-eu</a> for the unit vector
+        href="/dyn/vector_calculus#rvv-eu">#rvv-eu</a> for the unit vector
         and differentiate it:
       </p>
       <p>
         <DisplayEquation equation="\\begin{aligned} \\hat{a} &amp;=        \\frac{\\vec{a}}{a} \\\\ \\frac{d}{dt} \\hat{a}        &amp;=        \\frac{d}{dt}\\left(\\frac{\\vec{a}}{a}\\right) \\\\        \\dot{\\hat{a}} &amp;= \\frac{\\dot{\\vec{a}} a -        \\vec{a} \\dot{a}}{a^2} \\\\ &amp;=        \\frac{\\dot{\\vec{a}}}{a} -        \\frac{\\dot{\\vec{a}} \\cdot \\hat{a}}{a^2}        \\vec{a} \\\\ &amp;= \\frac{1}{a} \\big(        \\dot{\\vec{a}} - (\\dot{\\vec{a}} \\cdot        \\hat{a}) \\hat{a} \\big)\\\\ &amp;= \\frac{1}{a}        \\operatorname{Comp}(\\dot{\\vec{a}},        \\vec{a}).\\end{aligned}" />
 
         Here we observed at the end that we had the expression
-        <a href="rvv.html#rvv-em">#rvv-em</a> for the
+        <a href="/dyn/vector_calculus#rvv-em">#rvv-em</a> for the
         complementary projection of the derivative
         <InlineEquation equation="\\dot{\\vec{a}}" /> with respect to <InlineEquation equation="\\vec{a}" />  itself.
       </p>
@@ -905,14 +905,14 @@ import InlineCanvas from "../../components/InlineCanvas.astro"
         From <a href="#rvc-eu">#rvc-eu</a> we know that
         <InlineEquation equation="\\dot{\\hat{a}}" /> is in the direction of <InlineEquation equation="\\operatorname{Comp}(\\dot{\\vec{a}}, \\vec{a})" />
         , and from
-        <a href="rvv.html#rvv-er">#rvv-er</a> we know that this
+        <a href="/dyn/vector_calculus#rvv-er">#rvv-er</a> we know that this
         is orthogonal to <InlineEquation equation="\\vec{a}" /> (and also <InlineEquation equation="\\hat{a}" />).
       </p>
     </DisplayEquation>
 
     <p>
       Recall that we can always write a vector as the <a
-      href="rvv.html#rvv-ei">product of its length and
+      href="/dyn/vector_calculus#rvv-ei">product of its length and
       direction</a>, so <InlineEquation equation="\\vec{a} = a \\hat{a}" />. This gives the
       following decomposition of the derivative of <InlineEquation equation="\\vec{a}" />.
     </p>
@@ -920,7 +920,7 @@ import InlineCanvas from "../../components/InlineCanvas.astro"
     <DisplayEquation title="Vector derivative decomposition." background="True" id="rvc-em2" equation="\\begin{aligned} \\dot{\\vec{a}} &amp;=\\underbrace{\\dot{a}\\hat{a}}_{\\operatorname{Proj}(\\dot{\\vec{a}},\\vec{a})} + \\underbrace{a\\dot{\\hat{a}}}_{\\operatorname{Comp}(\\dot{\\vec{a}},\\vec{a})}\\end{aligned}" derivation=True>
       <p>
         Differentiating <InlineEquation equation="\\vec{a} = a \\hat{a}" /> and substituting
-        in <a href="#rvv-el">#rvv-el</a> and <a
+        in <a href="/dyn/vector_calculus#rvv-el">#rvv-el</a> and <a
         href="#rvv-eu">#rvv-eu</a> gives
 
         <DisplayEquation equation="\\begin{aligned}        \\dot{\\vec{a}}        &amp;= \\dot{a} \\hat{a} + a \\dot{\\hat{a}} \\\\        &amp;= ( \\dot{\\vec{a}} \\cdot \\hat{a} ) \\hat{a} + a        \\frac{1}{a} \\operatorname{Comp}(\\dot{\\vec{a}}, \\hat{a}) \\\\        &amp;= \\operatorname{Proj}(\\dot{\\vec{a}}, \\vec{a})        + \\operatorname{Comp}(\\dot{\\vec{a}}, \\vec{a}).        \\end{aligned}" />
@@ -943,7 +943,7 @@ import InlineCanvas from "../../components/InlineCanvas.astro"
           Vector derivatives can be decomposed into length changes
           (projection onto <InlineEquation equation="\\vec{a}" />) and direction changes
           (complementary projection). Compare to Figure <a
-          href="rvv.html#rvv-fu">#rvv-fu</a>.
+          href="/dyn/vector_calculus#rvv-fu">#rvv-fu</a>.
         </p>
       </PrairieDrawCanvas>
     </Center>
@@ -1059,7 +1059,7 @@ import InlineCanvas from "../../components/InlineCanvas.astro"
     Spherical coordinates are defined with respect to a set of
     Cartesian coordinates, and can be converted to and from
     these coordinates using the <a
-    href="rvp.html#rvp-it">atan2</a> function as follows.
+    href="http://en.wikipedia.org/wiki/Atan2"  target="_blank">atan2</a> function as follows.
   </p>
 
   <DisplayEquation title="Conversion between spherical and Cartesian coordinates." background="True" id="rvs-ec" equation="\\begin{aligned}x &amp;= r \\cos\\theta \\sin\\phi &amp; r &amp;= \\sqrt{x^2 + y^2 + z^2} \\\\y &amp;= r \\sin\\theta \\sin\\phi &amp; \\theta &amp;= \\operatorname{atan2}(y, x) \\\\z &amp;= r \\cos\\phi &amp; \\phi &amp;= \\operatorname{arccos}(z / r)\\end{aligned}" derivation=True>
@@ -1074,7 +1074,7 @@ import InlineCanvas from "../../components/InlineCanvas.astro"
           To convert from Cartesian coordinates, we use the same
           projection and read off the expressions for the
           spherical coordinates. This uses the <a
-          href="rvp.html#rvp-it">atan2</a> function to handle the
+          href="http://en.wikipedia.org/wiki/Atan2"  target="_blank">atan2</a> function to handle the
           different quadrants for \(\theta\).
         </p>
       </Col>
@@ -1449,7 +1449,7 @@ import InlineCanvas from "../../components/InlineCanvas.astro"
 
     <p>
       Geographic coordinates are typically given
-      in <a href="rvs.html">spherical coordinates</a>, but without
+      in <a href="#spherical_coordinates">spherical coordinates</a>, but without
       the radius and with the angles given
       in <a target="_blank" rel="noopener noreferrer" href="http://en.wikipedia.org/wiki/Arcminute">degrees,
       minutes, and seconds</a>, with the latitude first, and the
@@ -1481,8 +1481,8 @@ import InlineCanvas from "../../components/InlineCanvas.astro"
     <CalloutContainer slot="cards">
       <CalloutCard title="Reference material">
         <ul>
-          <li><a href="rvv.html#rvv-sd">Dot product</a></li>
-          <li><a href="rvs.html">Spherical coordinates</a></li>
+          <li><a href="/dyn/vector_calculus#dot_product">Dot product</a></li>
+          <li><a href="#spherical_coordinates">Spherical coordinates</a></li>
         </ul>
       </CalloutCard>
       <CalloutCard>
@@ -1517,8 +1517,8 @@ import InlineCanvas from "../../components/InlineCanvas.astro"
     the origin. The shortest distance calculation thus reduces
     to finding the angle between the vectors <InlineEquation equation="\\vec{OA}" /> and
     <InlineEquation equation="\\vec{OB}" />, which can be easily done by finding their <a
-    href="rvv.html#rvv-sd">dot product</a> after changing them
-    to <a href="rvs.html#rvs-ec">rectangular coordinates</a>.
+    href="/sta/vector_calculus#rvv-sd">dot product</a> after changing them
+    to <a href="#cartesian_coordinates">rectangular coordinates</a>.
   </p>
   <Center>
   <PrairieDrawCanvas id="aos-fd-c" width="600" height="600">
@@ -1633,7 +1633,7 @@ import InlineCanvas from "../../components/InlineCanvas.astro"
   <p>
     Given any two points <InlineEquation equation="A" /> and <InlineEquation equation="B" /> on the surface of the
     Earth, we choose coordinate axes and use <a
-    href="rvs.html">spherical coordinates</a> so that <InlineEquation equation="A" /> is at
+    href="#spherical_coordinates">spherical coordinates</a> so that <InlineEquation equation="A" /> is at
     <InlineEquation equation="(r = r_0, \\theta = 0, \\phi = \\pi - \\phi_0)" /> and <InlineEquation equation="B" /> is at
     <InlineEquation equation="(r = r_0, \\theta = 0, \\phi = \\pi + \\phi_0)" />. Here <InlineEquation equation="r_0" /> is
     the radius of the Earth and <InlineEquation equation="0 \\le \\phi_0 \\le \\pi/2" />. The
@@ -1658,14 +1658,14 @@ import InlineCanvas from "../../components/InlineCanvas.astro"
   </p>
   <p>
     To switch from rectangular to spherical coordinates we use
-    the <a href="rvs.html#rvs-ec">conversion</a>:
+    the <a href="#rvs-ec">conversion</a>:
   </p>
   <p>
     <DisplayEquation equation="\\begin{aligned}    x &amp;= r \\cos\\theta \\sin\\phi \\\\    y &amp;= r \\sin\\theta \\sin\\phi \\\\    z &amp;= r \\cos\\phi.    \\end{aligned}" />
   </p>
   <p>
     Differentiating these expressions and substituting (or using
-    the <a href="rvs.html#rvs-ep">spherical velocity
+    the <a href="#rvs-ep">spherical velocity
     expression</a>) gives the path length expression:
   </p>
   <p>

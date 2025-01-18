@@ -63,7 +63,7 @@ import InlineCanvas from "../../components/InlineCanvas.astro"
         product</em> or <em>scalar product</em>) is defined by
       </p>
 
-    <DisplayEquation equation="\\vec{a} \\cdot \\vec{b}= a_1 b_1 + a_2 b_2 + a_3 b_3" title="Dot product from components." background="True"/>
+    <DisplayEquation equation="\\vec{a} \\cdot \\vec{b}= a_1 b_1 + a_2 b_2 + a_3 b_3" title="Dot product from components." background="True" id="rvv-es"/>
 
     <p>
         An alternative expression for the dot product can be
@@ -177,7 +177,7 @@ import InlineCanvas from "../../components/InlineCanvas.astro"
   <DisplayEquation id="rvi-ed" title="Dot product symmetry." equation="\\vec{a} \\cdot \\vec{b} = \\vec{b} \\cdot \\vec{a}" background="true" derivation="true">
     <p>
       Using the coordinate expression <a
-      href="rvv.html#rvv-es">#rvv-es</a> gives:
+      href="#rvv-es">#rvv-es</a> gives:
 
       <DisplayEquation equation="      \\vec{a} \\cdot \\vec{b}      = a_1 b_1 + a_2 b_2 + a_3 b_3      = b_1 a_1 + b_2 a_2 + b_3 a_3      = \\vec{b} \\cdot \\vec{a}." />
     </p>
@@ -186,7 +186,7 @@ import InlineCanvas from "../../components/InlineCanvas.astro"
   <DisplayEquation id="rvi-eg" title="Dot product vector length." equation="\\vec{a} \\cdot \\vec{a} = \\|a\\|^2" background="true" derivation="true">
     <p>
       Using the coordinate expression <a
-      href="rvv.html#rvv-es">#rvv-es</a> gives:
+      href="#rvv-es">#rvv-es</a> gives:
 
       <DisplayEquation equation="      \\vec{a} \\cdot \\vec{a}      = a_1 a_1 + a_2 a_2 + a_3 a_3 = \\|a\\|^2." />
     </p>
@@ -195,7 +195,7 @@ import InlineCanvas from "../../components/InlineCanvas.astro"
   <DisplayEquation id="rvi-ei" title="Dot product bi-linearity." equation="\\begin{aligned} \\vec{a} \\cdot(\\vec{b} + \\vec{c}) &amp;=\\vec{a} \\cdot \\vec{b} + \\vec{a}\\cdot \\vec{c} \\\\ (\\vec{a} +\\vec{b}) \\cdot \\vec{c} &amp;=\\vec{a} \\cdot \\vec{c} + \\vec{b}\\cdot \\vec{c} \\\\ \\vec{a} \\cdot (\\beta\\vec{b}) &amp;= \\beta (\\vec{a} \\cdot\\vec{b}) = (\\beta \\vec{a}) \\cdot\\vec{b}\\end{aligned}" background="true" derivation="true">
     <p>
       Using the coordinate expression <a
-      href="rvv.html#rvv-es">#rvv-es</a> gives:
+      href="#rvv-es">#rvv-es</a> gives:
 
       <DisplayEquation equation="\\begin{aligned}      \\vec{a} \\cdot (\\vec{b} + \\vec{c})      &amp;= a_1 (b_1 + c_1) + a_2 (b_2 + c_2) + a_3 (b_3 + c_3) \\\\      &amp;= (a_1 b_1 + a_2 b_2 + a_3 b_3) + (a_1 c_1 + a_2 c_2 + a_3 c_3) \\\\      &amp;= \\vec{a} \\cdot \\vec{b} + \\vec{a} \\cdot \\vec{c} \\\\      (\\vec{a} + \\vec{b}) \\cdot \\vec{c}      &amp;= (a_1 + b_1) c_1 + (a_2 + b_2) c_2 + (a_3 + b_3) c_3 \\\\      &amp;= (a_1 c_1 + a_2 c_2 + a_3 c_3) + (b_1 c_1 + a_2 c_2 + a_3 c_3) \\\\      &amp;= \\vec{a} \\cdot \\vec{c} + \\vec{b} \\cdot \\vec{c} \\\\      \\vec{a} \\cdot (\\beta \\vec{b})      &amp;= a_1 (\\beta b_1) + a_2 (\\beta b_2) + a_3 (\\beta b_3) \\\\      &amp;= \\beta (a_1 b_1 + a_2 b_2 + a_3 b_3) \\\\      &amp;= \\beta (\\vec{a} \\cdot \\vec{b}) \\\\      &amp;= (\\beta a_1) b_1 + (\\beta a_2) b_2 + (\\beta a_3) b_3 \\\\      &amp;= (\\beta \\vec{a}) \\cdot \\vec{b}.      \\end{aligned}" />
     </p>
@@ -273,7 +273,7 @@ import InlineCanvas from "../../components/InlineCanvas.astro"
 
     <DisplayEquation id="rvv-el2" title="Cross product length." equation="\\| \\vec{a} \\times \\vec{b} \\| = a b \\sin\\theta" background="true" derivation="true">
       <p>
-        Using <a href="rvi.html#rvi-el">Lagrange's identity</a> we can calculate:
+        Using <a href="https://en.wikipedia.org/wiki/Lagrange%27s_identity"  target="_blank">Lagrange's identity</a> we can calculate:
 
         <DisplayEquation equation="\\begin{aligned}        \\| \\vec{a} \\times \\vec{b} \\|^2        &amp;= \\|\\vec{a}\\|^2 \\|\\vec{b}\\|^2        - (\\vec{a} \\cdot \\vec{b})^2 \\\\        &amp;= a^2 b^2 - (a b \\cos\\theta)^2 \\\\        &amp;= a^2 b^2 (1 - \\cos^2\\theta) \\\\        &amp;= a^2 b^2 \\sin^2\\theta.        \\end{aligned}" />
 
@@ -317,7 +317,7 @@ import InlineCanvas from "../../components/InlineCanvas.astro"
   <DisplayEquation id="rvi-ea" title="Cross product anti-symmetry." equation="\\begin{aligned} \\vec{a} \\times\\vec{b} = - \\vec{b} \\times\\vec{a}\\end{aligned}" background="true" derivation="true">
     <p>
       Writing the component expression <a
-      href="rvv.html#rvv-ex">#rvv-ex</a> gives:
+      href="#rvv-ex">#rvv-ex</a> gives:
 
       <DisplayEquation equation="\\begin{aligned}      \\vec{a} \\times \\vec{b}      &amp;= (a_2 b_3 - a_3 b_2) \\,\\hat{\\imath}      + (a_3 b_1 - a_1 b_3) \\,\\hat{\\jmath}      + (a_1 b_2 - a_2 b_1) \\,\\hat{k} \\\\      &amp;= -(a_3 b_2 - a_2 b_3) \\,\\hat{\\imath}      - (a_1 b_3 - a_3 b_1) \\,\\hat{\\jmath}      - (a_2 b_1 - a_1 b_2) \\,\\hat{k} \\\\      &amp;= -\\vec{b} \\times \\vec{a}.      \\end{aligned}" />
     </p>
@@ -335,7 +335,7 @@ import InlineCanvas from "../../components/InlineCanvas.astro"
   <DisplayEquation id="rvi-eb2" title="Cross product bi-linearity." equation="\\begin{aligned}\\vec{a} \\times (\\vec{b} + \\vec{c})&amp;= \\vec{a} \\times \\vec{b} + \\vec{a} \\times \\vec{c} \\\\(\\vec{a} + \\vec{b}) \\times \\vec{c}&amp;= \\vec{a} \\times \\vec{c} + \\vec{b} \\times \\vec{c} \\\\\\vec{a} \\times (\\beta \\vec{b})&amp;= \\beta (\\vec{a} \\times \\vec{b})= (\\beta \\vec{a}) \\times \\vec{b}\\end{aligned}" background="true" derivation="true">
     <p>
       Writing the component expression <a
-      href="rvv.html#rvv-ex">#rvv-ex</a> for the first
+      href="#rvv-ex">#rvv-ex</a> for the first
       equation gives:
 
       <DisplayEquation equation="\\begin{aligned}      \\vec{a} \\times (\\vec{b} + \\vec{c})      &amp;= (a_2 (b_3 + c_3) - a_3 (b_2 + c_2)) \\,\\hat{\\imath} \\\\      &amp;\\quad + (a_3 (b_1 + c_1) - a_1 (b_3 + c_3)) \\,\\hat{\\jmath} \\\\      &amp;\\quad + (a_1 (b_2 + c_2) - a_2 (b_1 + c_1)) \\,\\hat{k} \\\\      &amp;= \\Big((a_2 b_3 - a_3 b_2) \\,\\hat{\\imath}      + (a_3 b_1 - a_1 b_3) \\,\\hat{\\jmath}      + (a_1 b_2 - a_2 b_1) \\,\\hat{k} \\Big) \\\\      &amp;\\quad + \\Big((a_2 c_3 - a_3 c_2) \\,\\hat{\\imath}      + (a_3 c_1 - a_1 c_3) \\,\\hat{\\jmath}      + (a_1 c_2 - a_2 c_1) \\,\\hat{k} \\Big) \\\\      &amp;= \\vec{a} \\times \\vec{b} + \\vec{a} \\times \\vec{c}. \\\\      \\end{aligned}" />
@@ -581,8 +581,8 @@ import InlineCanvas from "../../components/InlineCanvas.astro"
         When we differentiate a vector by differentiating each
         component and leaving the basis vectors unchanged, we
         are assuming that the basis vectors themselves are not
-        changing with time. If they are, then we need to <a
-        href="rkv.html#rkv-sb">take this into account</a> as
+        changing with time. If they are, then we need to
+        take this into account as
         well.
       </p>
     </Warning>

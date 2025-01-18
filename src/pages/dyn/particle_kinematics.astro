@@ -278,7 +278,7 @@ import InlineCanvas from "../../components/InlineCanvas.astro"
       </table>
       <p class="figureCaption mt-2">
         Velocity and acceleration in the polar basis. Compare to
-        Figure <a href="#rkv-fa">#rkv-fa</a>. Observe that
+        Figure <a href="#rkv-fa-c">#rkv-fa</a>. Observe that
         <InlineEquation equation="\\hat{e}_r,\\hat{e}_\\theta" /> are not related to the path
         (not tangent, not in the direction of movement), but
         rather are defined only by the position vector. Note also
@@ -456,12 +456,12 @@ import InlineCanvas from "../../components/InlineCanvas.astro"
     <DisplayEquation title="Derivative of general vectors." id="rkr-ed" background="True" derivation="True" equation="\\begin{aligned}\\dot{\\vec{a}} = \\underbrace{\\dot{a}\\hat{a}}_{\\operatorname{Proj}(\\dot{\\vec{a}}, \\vec{a})} +\\underbrace{\\vec{\\omega} \\times\\vec{a}}_{\\operatorname{Comp}(\\dot{\\vec{a}}, \\vec{a})}\\end{aligned}">
         <p>
             Using the same approach as <a
-            href="rvc.html#rvc-em">#rvc-em</a> we write <InlineEquation equation="\\vec{a} =a\\hat{a}" /> and differentiate this and use <a
+            href="/dyn/vectors#rvc-em2">#rvc-em</a> we write <InlineEquation equation="\\vec{a} =a\\hat{a}" /> and differentiate this and use <a
             href="#rkr-ew">rkr-ew</a> to find:
 
             <DisplayEquation equation="\\begin{aligned}\\dot{\\vec{a}} &amp;= \\frac{d}{dt} \\big( a \\hat{a} \\big) \\\\&amp;= \\dot{a} \\hat{a} + a \\dot{\\hat{a}} \\\\&amp;= \\dot{a} \\hat{a} + a (\\vec\\omega \\times \\hat{a}) \\\\&amp;= \\dot{a} \\hat{a} + \\vec\\omega \\times (a \\hat{a}) \\\\&amp;= \\dot{a} \\hat{a} + \\vec\\omega \\times \\vec{a}.\\end{aligned}" />
 
-            Comparing this to <a href="rvc.html#rvc-em">#rvc-em</a>
+            Comparing this to <a href="/dyn/vectors#rvc-em2">#rvc-em</a>
             shows that the two components are the projection and the
             complementary projection, respectively.
           </p>
@@ -617,7 +617,7 @@ import InlineCanvas from "../../components/InlineCanvas.astro"
         <p>
             Using <a href="#rkr-el">#rkr-el</a> and the scalar
             triple product formula <a
-            href="rvi.html#rvi-es">#rvi-es</a> gives:
+            href="https://en.wikipedia.org/wiki/Triple_product">#rvi-es</a> gives:
 
             <DisplayEquation equation="\\begin{aligned}\\vec{a} \\cdot \\dot{\\vec{a}}&amp;= \\vec{a} \\cdot \\big( \\vec{\\omega} \\times \\vec{a} \\big) \\\\&amp;= \\vec{\\omega} \\cdot \\big( \\vec{a} \\times \\vec{a} \\big) \\\\&amp;= 0.\\end{aligned}" /> 
           </p>
@@ -627,7 +627,7 @@ import InlineCanvas from "../../components/InlineCanvas.astro"
         <p>
             We first consider the dot product <InlineEquation equation="\\vec{a} \\cdot \\vec{b}" /> and show that this is not changing with
             time. We do this by using the scalar triple product
-            formula <a href="rvi.html#rvi-es">#rvi-es</a> to find:
+            formula <a href="https://en.wikipedia.org/wiki/Triple_product" target="_blank">#rvi-es</a> to find:
 
             <DisplayEquation equation="\\begin{aligned}\\frac{d}{dt} \\big( \\vec{a} \\cdot \\vec{b} \\big)&amp;= \\dot{\\vec{a}} \\cdot \\vec{b} + \\vec{a} \\cdot \\dot{\\vec{b}} \\\\&amp;= (\\vec{\\omega} \\times \\vec{a}) \\cdot \\vec{b} + \\vec{a} \\cdot (\\vec{\\omega} \\times \\vec{b}) \\\\&amp;= \\vec{b} \\cdot (\\vec{\\omega} \\times \\vec{a}) + \\vec{b} \\cdot (\\vec{a} \\times \\vec{\\omega}) \\\\&amp;= \\vec{b} \\cdot (\\vec{\\omega} \\times \\vec{a}) - \\vec{b} \\cdot (\\vec{\\omega} \\times \\vec{a}) \\\\&amp;= 0.\\end{aligned}" />
 
@@ -722,7 +722,7 @@ import InlineCanvas from "../../components/InlineCanvas.astro"
         These equations are definitions of the basis vectors, so
         the only thing to derive is the alternative formula for
         <InlineEquation equation="\\hat{e}_n" />. Using the definition of <InlineEquation equation="\\hat{e}_t" /> above
-        and <a href="rvc.html#rvc-eu">#rvc-eu</a>, we see that
+        and <a href="/dyn/vectors#rvc-eu">#rvc-eu</a>, we see that
 
         <DisplayEquation equation="\\dot{\\hat{e}}_t = \\dot{\\hat{v}}        = \\frac{1}{v} \\operatorname{Comp}(\\dot{\\vec{v}}, \\vec{v})        = \\frac{1}{v} \\operatorname{Comp}(\\vec{a}, \\vec{v})." />
 
@@ -824,7 +824,7 @@ import InlineCanvas from "../../components/InlineCanvas.astro"
 
       Now the basis vector derivatives are given by the cross
       product by <InlineEquation equation="\\vec{\\omega}" /> from <a
-      href="rkr.html#rkr-ew">#rkr-ew</a>, so we can evaluate
+      href="#rkr-ew">#rkr-ew</a>, so we can evaluate
       the expressions <a href="#rkt-ek">#rkt-ek</a> for
       curvature and torsion to give:
 
@@ -857,7 +857,7 @@ import InlineCanvas from "../../components/InlineCanvas.astro"
     <p>
       We can use the expression <a href="#rkt-ew">#rkt-ew</a>
       for <InlineEquation equation="\\vec{\\omega}" /> together with <a
-      href="rkr.html#rkr-ew">#rkr-ew</a> to find the basis
+      href="#rkr-ew">#rkr-ew</a> to find the basis
       vector derivatives:
 
       <DisplayEquation equation="\\begin{aligned}\\dot{\\hat{e}}_t &amp;= \\vec{\\omega} \\times \\hat{e}_t= (v\\tau \\,\\hat{e}_t + v \\kappa \\,\\hat{e}_b) \\times \\hat{e}_t= v \\kappa \\,\\hat{e}_n \\\\\\dot{\\hat{e}}_n &amp;= \\vec{\\omega} \\times \\hat{e}_n= (v\\tau \\,\\hat{e}_t + v \\kappa \\,\\hat{e}_b) \\times \\hat{e}_n= - v \\kappa \\,\\hat{e}_t + v \\tau \\,\\hat{e}_b \\\\\\dot{\\hat{e}}_b &amp;= \\vec{\\omega} \\times \\hat{e}_b= (v\\tau \\,\\hat{e}_t + v \\kappa \\,\\hat{e}_b) \\times \\hat{e}_b= -v \\tau \\,\\hat{e}_n.\\end{aligned}" />
@@ -945,7 +945,7 @@ import InlineCanvas from "../../components/InlineCanvas.astro"
         direction of <InlineEquation equation="\\vec{v}" />, that
         <InlineEquation equation="\\operatorname{Comp}(\\vec{a},\\vec{v})" /> does not depend
         on the magnitude of <InlineEquation equation="\\vec{v}" />, and equation <a
-        href="rvv.html#rvv-em">#rvv-em</a> for the magnitude of
+        href="#rvv-em">#rvv-em</a> for the magnitude of
         the complementary projection.
       </p>
     </DisplayEquation>
@@ -1086,7 +1086,7 @@ import InlineCanvas from "../../components/InlineCanvas.astro"
   <InlineEquation equation="\\hat{e}_b" />. At the current instant when the particles
   are at the same position, this means that <InlineEquation equation="\\hat{e}_r =  -\\hat{e}_n" /> and <InlineEquation equation="\\hat{e}_\\theta = \\hat{e}_t" />. Using the
   circular motion expressions <a
-  href="rke.html#rke-ep">#rke-ec</a> we have that the
+  href="https://en.wikipedia.org/wiki/Circular_motion" target="_blank">#rke-ec</a> we have that the
   velocity of \(Q\) is:
 
   <DisplayEquation equation="\\begin{aligned}  \\vec{v}_Q &amp;= v_Q \\,\\hat{e}_\\theta \\\\  &amp;= \\dot{s}_Q \\,\\hat{e}_\\theta \\\\  &amp;= \\dot{s}_P \\,\\hat{e}_t = \\vec{v}_P. \\\\  \\end{aligned}" />
@@ -1179,7 +1179,7 @@ import InlineCanvas from "../../components/InlineCanvas.astro"
         <DisplayEquation equation="\\begin{aligned}\\|\\vec{r}'' \\times \\vec{r}'\\| &amp;= \\|\\vec{a} \\times \\vec{v}\\| \\\\&amp;= a v \\sin\\theta \\\\&amp;= \\frac{v^3}{\\rho},\\end{aligned}" />
 
         where we used the cross product length formula <a
-        href="rvv.html#rvv-el">#rvv-el</a> and equation <a
+        href="/dyn/vector_calculus#rvv-el">#rvv-el</a> and equation <a
         href="#rkt-er">#rkt-er</a> for the radius of curvature
         <InlineEquation equation="\\rho" />. By definition <a href="#rkt-ek">#rkt-ek</a> the
         curvature is <InlineEquation equation="\\kappa = 1/\\rho" />, so
@@ -1218,12 +1218,12 @@ import InlineCanvas from "../../components/InlineCanvas.astro"
     <DisplayEquation title="Curvature of an explicitly defined function \\(y = f(x).\\)" id="rkt-e3" background="True" derivation="True" equation="\\kappa = \\frac{|y''(x)|}{(1 + y'(x)^2)^{3/2}}">
       <p>
         Use equation <a
-        href="rkt.html#rkt-e2">#rkt‑e2</a> and parametrize the curve using \(x\) as the parametrization variable. Namely:
+        href="#rkt-e2">#rkt‑e2</a> and parametrize the curve using \(x\) as the parametrization variable. Namely:
 
         <DisplayEquation equation="\\begin{aligned}x = u, \\quad \\quad y = y(u) = y(x)\\end{aligned}" />
 
         This yields a very elegant expression, as <InlineEquation equation="x'(u) = 1" /> and <InlineEquation equation="x''(u) = 0" />, which lets us arrive at the desired expression <a
-        href="rkt.html#rkt-e3">#rkt‑e3</a>.
+        href="#rkt-e3">#rkt‑e3</a>.
       </p>
     </DisplayEquation>
 </SubSubSection>
@@ -1595,8 +1595,8 @@ import InlineCanvas from "../../components/InlineCanvas.astro"
     <CalloutContainer slot="cards">
       <CalloutCard title="Reference material">
         <ul>
-          <li><a href="rkv.html">Position, velocity, and acceleration</a></li>
-          <li><a href="rkt.html">Tangential/normal coordinates</a></li>
+          <li><a href="#velocity_acceleration_vectors">Position, velocity, and acceleration</a></li>
+          <li><a href="#tangential_normal_basis">Tangential/normal coordinates</a></li>
         </ul>
       </CalloutCard>
     </CalloutContainer>
