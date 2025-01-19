@@ -270,6 +270,20 @@ import Searchbar from "./Searchbar.astro";
         -ms-user-select: none;
         user-select: none;
     }
+
+    .dropdown-toggle span {
+        font-size: 1.1rem !important;
+        line-height: 26.4px;
+    }
+
+    .fontsize-11{
+        font-size: 1.1rem !important;
+        line-height: 26.4px;
+    }
+
+    .dropdown-toggle::after{
+        font-size: 1.2rem !important;
+    }
 </style>
 
 <header >
@@ -430,10 +444,10 @@ import Searchbar from "./Searchbar.astro";
             </li>
             <!-- ADD YOUR COURSE HERE -->
         </ul>
-        <span class="navbar-text d-flex flex-row justify-content-center align-items-center" style="padding: 8px 10px 10px 10px;"><a class="me-2 fw-bold nav-link" href="/about">About</a></span>
+        <span class="navbar-text d-flex flex-row justify-content-center align-items-center" style="padding: 8px 10px 10px 10px;"><a class="me-2 fw-bold nav-link fontsize-11" href="/about">About</a></span>
         <span class="navbar-text d-flex flex-row justify-content-center align-items-center theme-toggler" style="padding: 8px 10px 10px 10px;" onclick="toggle_theme();" >
             <i class="bi ps-1 pe-2 m-0" id="theme-icon"></i>
-            <p class="nav-link active pe-1 m-0 fw-bold" style="text-wrap: nowrap;">Toggle theme</p>
+            <p class="nav-link active pe-1 m-0 fw-bold fontsize-11" style="text-wrap: nowrap;">Toggle theme</p>
          
             <script is:inline>
                 const theme_icon = document.querySelector("#theme-icon");

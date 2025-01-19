@@ -66,6 +66,7 @@ import search_contents from "../search.json"
           <option value="sta">Statics</option>
           <option value="dyn">Dynamics</option>
           <option value="sol">Solid Mechanics</option>
+          <option value="thermodynamics">Thermodynamics</option>
         </select>
       </div>
       <i class="bi bi-x" id="clear" onclick="searchbox.blur();"></i>
@@ -2093,7 +2094,8 @@ import search_contents from "../search.json"
     const course_tags = {
       "sta": 'Statics',
       'dyn': 'Dynamics',
-      'sol': 'Solid Mechanics'
+      'sol': 'Solid Mechanics',
+      'thermodynamics': 'Thermodynamics'
     };
 
     const index = Fuse.createIndex(['title', 'text'], search_contents)
@@ -2212,6 +2214,7 @@ import search_contents from "../search.json"
           <option value="sta">Statics</option>
           <option value="dyn">Dynamics</option>
           <option value="sol">Sol. Mech.</option>
+          <option value="thermodynamics">Thermo.</option>
           `;
         }else{
           course_selector.innerHTML = `
@@ -2219,6 +2222,7 @@ import search_contents from "../search.json"
           <option value="sta">Statics</option>
           <option value="dyn">Dynamics</option>
           <option value="sol">Solid Mechanics</option>
+          <option value="thermodynamics">Thermodynamics</option>
           `;
         }
     }

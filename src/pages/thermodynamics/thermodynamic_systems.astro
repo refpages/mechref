@@ -168,22 +168,56 @@ import RedText from "../../components/RedText.astro"
 
 <p><strong>Note: </strong>(1 g/mol = 1 kg/kmol = 1 lb/lbmol): <InlineEquation equation="R= \\frac{\\overline{R}}{M}" /></p>
 
-<RedText>Convert this to a table??</RedText>
-
-<Itemize>
-
-    <Item>Air- 28.97 g/mol</Item>
-    <Item>Carbon dioxide CO<InlineEquation equation="_2" />- 44.01 g/mol</Item>
-    <Item>Ethane C<InlineEquation equation="_2" />H<InlineEquation equation="_6" />- 30.07 g/mol</Item>
-    <Item>Hydrogen H<InlineEquation equation="_2" />- 2.01 g/mol</Item>
-    <Item>Methane CH<InlineEquation equation="_4" />- 16.04 g/mol</Item>
-    <Item>Nitrogen N<InlineEquation equation="_2" />- 28.01 g/mol</Item>
-    <Item>Oxygen O<InlineEquation equation="_2" />- 32.00 g/mol</Item>
-    <Item>Refrigerant 22- 86.48 g/mol</Item>
-    <Item>Refrigerant 134a- 102.3 g/mol</Item>
-    <Item>Water H<InlineEquation equation="_2" />O- 18.015 g/mol</Item>
-
-</Itemize>
+<DisplayTable id="molecules" class_="table-striped">
+  <thead>
+    <tr>
+      <th style="border-right: 0px solid white !important;">Substance</th>
+      <th>Molecular weight (\(g/mol\))</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Air</td>
+      <td>28.97</td>
+    </tr>
+    <tr>
+      <td>Carbon dioxide CO<InlineEquation equation="_2" /></td>
+      <td>44.01</td>
+    </tr>
+    <tr>
+      <td>Ethane C<InlineEquation equation="_2" />H<InlineEquation equation="_6" /></td>
+      <td>30.07</td>
+    </tr>
+    <tr>
+      <td>Hydrogen H<InlineEquation equation="_2" /></td>
+      <td>2.01</td>
+    </tr>
+    <tr>
+      <td>Methane CH<InlineEquation equation="_4" /></td>
+      <td>16.04</td>
+    </tr>
+    <tr>
+      <td>Nitrogen N<InlineEquation equation="_2" /></td>
+      <td>28.01</td>
+    </tr>
+    <tr>
+      <td>Oxygen O<InlineEquation equation="_2" /></td>
+      <td>32.00</td>
+    </tr>
+    <tr>
+      <td>Refrigerant 22</td>
+      <td>86.48</td>
+    </tr>
+    <tr>
+      <td>Refrigerant 134a</td>
+      <td>102.3</td>
+    </tr>
+    <tr>
+      <td>Water H<InlineEquation equation="_2" />O</td>
+      <td>18.015</td>
+    </tr>
+  </tbody>
+</DisplayTable>
 </SubSubSection>
 
 <SubSubSection title="Helpful Math Expressions" id="helpful_math_expressions">
@@ -231,8 +265,8 @@ Given the thermodynamic system shown in <a href="#SysSchematic">Figure 2</a>, on
 As mass flows into a system, energy increases by the addition of both the internal energy of the additional mass <strong>and</strong> the <InlineEquation equation="pV" /> work done by the volume occupied by the mass on the system as it enters, and vice versa.</p>
 
 
-<Image src="/thermodynamics/thermodynamic_systems/fig3.png" />
-<Image src="/thermodynamics/thermodynamic_systems/fig4.png" />
+<Image src="/thermodynamics/thermodynamic_systems/fig3.png" width="4"/>
+<Image src="/thermodynamics/thermodynamic_systems/fig4.png" width="4"/>
 
 <p>
 A mass flow having rate <InlineEquation equation="\\dot{m}" /> with cross-sectional area, <InlineEquation equation="A" />, <u>slowly</u> enters a system. The mass is at a pressure <InlineEquation equation="p" />, has a specific volume <InlineEquation equation="v" />, and has a specific internal energy, <InlineEquation equation="u" />, relative to some reference state.</p>
