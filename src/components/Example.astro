@@ -19,9 +19,9 @@ const { id, title, solution="True" } = Astro.props;
 <div class="my-2 text-black">
     <div class="background-green d-flex flex-column">
         <div id={id} class='overflow-auto d-flex flex-row align-items-center'>
-            <button class="btn btn-secondary" id={'example_btn_'+id}>+</button>
+            <button class="btn btn-secondary fw-bold" id={'example_btn_'+id}>+</button>
             <div class="px-2">
-                {solution == 'True' ? "Example Problem: " + title : 'Example: ' + title}{<small>{` #${id}`}</small>}
+                <span set:html={solution == 'True' ? "<strong>Example Problem:</strong> " + title : '<strong>Example:</strong> ' + title}></span> {<small>{` #${id}`}</small>}
             </div>
         </div>
 
@@ -31,7 +31,7 @@ const { id, title, solution="True" } = Astro.props;
             </div>
              
            { solution == 'True' && 
-            <button class="btn btn-secondary" id={'solution_btn_'+id}>Solution +</button>
+            <button class="btn btn-secondary fw-bold" id={'solution_btn_'+id}>Solution +</button>
             <div id={'solution_menu_'+id}>
                 <div class="background-green p-2">
                     <slot name="solution"/>
