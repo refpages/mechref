@@ -1,0 +1,17 @@
+---
+import Layout from "../layouts/Layout.astro"
+import Section from "../components/Section.astro"
+import SubSection from "../components/SubSection.astro"
+import PrairieDrawCanvas from "../components/PrairieDrawCanvas.astro"
+---
+
+<Layout title="About">
+    <Section title="About">
+        <PrairieDrawCanvas id="test" height="600" width="600">
+            <button onclick="test.toggleAnim()">Toggle animation</button>
+        </PrairieDrawCanvas>
+    </Section>
+
+</Layout>
+
+<script src="/me371/canvases.js" is:inline></script>

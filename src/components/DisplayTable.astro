@@ -3,7 +3,7 @@ const { id, class_="" } = Astro.props;
 ---
 
 <div id={id + '_container'}>
-    <table id={id} class={class_ + ' table w-100'} style="table-layout: auto;" >
+    <table id={'table_'+id} class={class_ + ' table w-100'} style="table-layout: auto;" >
         <slot/>
     </table>
 </div>
