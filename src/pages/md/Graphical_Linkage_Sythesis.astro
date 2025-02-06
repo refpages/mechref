@@ -1,0 +1,52 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Section from "../../components/Section.astro";
+import SubSection from "../../components/SubSection.astro";
+import SubSubSection from "../../components/SubSubSection.astro";
+import SubSubSubSection from "../../components/SubSubSubSection.astro";
+import CalloutContainer from "../../components/CalloutContainer.astro";
+import CalloutCard from "../../components/CalloutCard.astro";
+import InlineEquation from "../../components/InlineEquation.astro";
+import DisplayEquation from "../../components/DisplayEquation.astro";
+import Image from "../../components/Image.astro"
+import DisplayTable from "../../components/DisplayTable.astro";
+import Warning from "../../components/Warning.astro";
+import InlineCanvas from "../../components/InlineCanvas.astro";
+
+
+---
+
+<Layout title="Mechref Example Skeleton">
+
+    <div slot="navtree">
+        <ul class='list-group list-group-flush py-0'> 
+            <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#secondary-section'>Page Section Title</a>
+                <ul class='list-group list-group-flush py-0'> 
+                    <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#tertiary-section'>Page Subsection Title</a>
+                        <ul class='list-group list-group-flush py-0'> 
+                            <li class='list-group-item py-0'><a class='text-decoration-none subsubsubsection' href='#quaternary-section'>Page Subsubsection Title</a></li> 
+                        </ul>
+                    </li> 
+                </ul>
+            </li>
+            <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#navbar'>NavBar</a></li>
+            <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#images'>Adding Images</a></li>
+            <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#math-section'>Math in Mechref</a>
+                <ul class='list-group list-group-flush py-0'> 
+                    <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#inline-math'>Inline Math</a></li> 
+                    <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#display-math'>Display Math</a></li>  
+                </ul>
+            </li>  
+        </ul>
+    </div>
+
+
+
+    <Section id="main-section" title="Coming Soon!">
+        <p>
+            This page will soon be populated with content related to Graphical Linkage Syntheis        </p>
+
+    </Section>
+
+
+</Layout>
