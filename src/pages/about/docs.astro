@@ -22,6 +22,7 @@ import Example from "../../components/Example.astro"
 import Row from "../../components/Row.astro"
 import Col from "../../components/Col.astro"
 import Warning from "../../components/Warning.astro"
+import Plotly from "../../components/Plotly.astro";
 
 ---
 
@@ -359,49 +360,181 @@ Remember, these pages are supposed to be reference material, not a textbook. Kee
 </SubSubSection>     
 
 <SubSubSection title="Multi Column" id="multi-column">
-    
-    <p>Generally used in examples to put figures next to the question and tables. Can be used in other situations as needed.</p>
-
     <CodeBox language="javascript" code=`
     import Row from "../../components/Row.astro"
     import Col from "../../components/Col.astro"
     ` />
-    
+
     <p>Tag type: Regular</p>
     
     Options:
     <ul>
-    <li>values: value after 'md-' is the midpoint of the column.</li>
+    <li>values: list of breakpoints</li>
     </ul>
+
+    Table of breakpoints:
+
+    <DisplayTable id="breakpoints">
+        <thead>
+            <th></th>
+            <th>xs</th>
+            <th>sm</th>
+            <th>md</th>
+            <th>lg</th>
+            <th>xl</th>
+            <th>xxl</th>
+        </thead>
+        <tbody>
+            <tr>
+                <th>
+                    Size of screen
+                </th>
+                <td>
+                    &lt;576px
+                </td>
+                <td>
+                    &ge;576px
+                </td>
+                <td>
+                    &ge;768px
+                </td>
+                <td>
+                    &ge;992px
+                </td>
+                <td>
+                    &ge;1200px
+                </td>
+                <td>
+                    &ge;1400px
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    Prefix
+                </th>
+                <td>
+                    None
+                </td>
+                <td>
+                    sm-
+                </td>
+                <td>
+                    md-
+                </td>
+                <td>
+                    lg-
+                </td>
+                <td>
+                    xl-
+                </td>
+                <td>
+                    xxl-
+                </td>
+            </tr>
+        </tbody>
+    </DisplayTable>
+
+
+    <p>A really powerful tool to create a responsive grid. These elements follow the same naming convention as the `Bootstrap` package. More details <a href="https://getbootstrap.com/docs/5.3/layout/grid/">HERE</a>. These elements treat the full width of the page as 12 units wide, and each `Col` can be defined to take however many units are necessary. Different values can be set for depending on the size of the screen. For example:</p>
+
 
     Example:
     <CodeBox language="html" code=`
    <Row>
-      <Col values="12 md-6">
+      <Col values="12 lg-6">
         <p>
             Row1Col1
         </p>
       </Col>
-      <Col values="12 md-6">
+      <Col values="12 lg-6">
         <p>
           Row1Col2
         </p>
       </Col>
     </Row>
-    ` closed_by_default="True" id="colmd" closed_height="60"/>
+    ` id="colmd"/>
+
+    <p>This means that by default, each column will be 12 units wide (full-screen), and if the screen is bigger than the `lg` value (in this case &gt;992px), then it will only be 6 units wide (half-screen). Try reducing the size of your browser window, and notice how past a certain point, both elements below stack on top of each other.</p>
 
     <Row>
-        <Col values="12 md-6">
-          <p>
-                Row1Col1
-          </p>
+        <Col values="12 lg-6">
+            <div class="border border-primary p-2 mb-2">
+                <p class="text-center">
+                    Row1Col1
+                </p>
+            </div>
+          
         </Col>
-        <Col values="12 md-6">
-            <p>
-                Row1Col2
-            </p>
+        <Col values="12 lg-6">
+            <div class="border border-primary p-2 mb-2">
+                <p class="text-center">
+                    Row1Col2
+                </p>
+            </div>
         </Col>
   </Row>
+
+  <p>This can be extended to many more `Col` elements. For example, </p>
+
+  <CodeBox language="html" code=`
+   <Row>
+      <Col values="12 sm-6 md-4 lg-3">
+        <p>
+            Row1Col1
+        </p>
+      </Col>
+      <Col values="12 sm-6 md-4 lg-3">
+        <p>
+          Row1Col2
+        </p>
+      </Col>
+      <Col values="12 sm-6 md-4 lg-3">
+        <p>
+            Row1Col3
+        </p>
+      </Col>
+      <Col values="12 sm-6 md-4 lg-3">
+        <p>
+            Row1Col4
+        </p>
+      </Col>
+    </Row>
+    ` id="colmd2" closed_by_default="True" closed_height="100"/>
+
+    <p>
+        The above code means that when the screen is bigger than `lg` each element will occupy 1/4th of the screen. When between `lg` and `md`, it will occupy 1/3rd. When between `md` and `sm`, it will occupy 1/2, and below that will take up the entire screen. Resize your browser to see this behavior.
+    </p>
+
+    <Row>
+        <Col values="12 sm-6 md-4 lg-3">
+            <div class="border border-primary p-2 mb-2">
+                <p class="text-center">
+                    Row1Col1
+                </p>
+            </div>
+        </Col>
+        <Col values="12 sm-6 md-4 lg-3">
+            <div class="border border-primary p-2 mb-2">
+                <p class="text-center">
+                    Row1Col2
+                </p>
+            </div>
+        </Col>
+        <Col values="12 sm-6 md-4 lg-3">
+            <div class="border border-primary p-2 mb-2">
+                <p class="text-center">
+                    Row1Col3
+                </p>
+            </div>
+        </Col>
+        <Col values="12 sm-6 md-4 lg-3">
+            <div class="border border-primary p-2 mb-2">
+                <p class="text-center">
+                    Row1Col4
+                </p>
+            </div>
+        </Col>
+      </Row>
   
 </SubSubSection>
 
@@ -476,7 +609,27 @@ Remember, these pages are supposed to be reference material, not a textbook. Kee
    <span style="color: green;">TEXT</span> 
 
     ` />
-    <span style="color: green;">TEXT</span> 
+    <span style="color: green;" >TEXT</span> 
+
+    <p class="mt-2">
+        Mechref has three U of I specific colors defined as variables:
+    </p>
+    <ul>
+        <li>--illini-blue: Illinois blue</li>
+        <li>--illini-orange: Illinois orange</li>
+        <li>--altgeld-orange: A darker version of orange, having more contrast than Illinois orange, meant to be more accessible.</li>
+    </ul>
+
+    Example:
+    <CodeBox language="html" code=`
+   <span style="color: var(--illini-blue);">Text, </span><span style="color: var(--altgeld-orange);">and more text</span> 
+
+    ` />
+    <span style="color: var(--illini-blue);">Text, </span><span style="color: var(--altgeld-orange);">and more text</span> 
+    
+    <p class="my-2">
+        Make sure to wrap the variable with `var()`, and to not forget the `--`.
+    </p>   
 
 </SubSubSection> 
 
@@ -739,14 +892,14 @@ Remember, these pages are supposed to be reference material, not a textbook. Kee
     <li>class_: Give the image extra classes for styling. Optional.</li>
     </ul>
 
-    Example:
+    <p class="m-0">Example:</p>
     <Row>
         <Col values="12 md-6">
-            <p>
+            
                 <CodeBox language="html" code=`
                 <Image src="/COURSE/FigFolder/FIGURE.png" width="7"> CAPTION</Image>
                 ` />
-            </p>
+            
         </Col>
         <Col values="12 md-6">
             <CodeBox language="html" code=`
@@ -764,6 +917,56 @@ Remember, these pages are supposed to be reference material, not a textbook. Kee
         </Col>
     </Row>
 
+</SubSection>
+
+<SubSection title="Graphs" id="graphs">
+    <CodeBox language="javascript" code=`
+    import Plotly from "../../components/Plotly.astro"
+    ` />
+
+    Options:
+    <ul>
+    <li>file_path: Links to the file containing the graph data. <strong>Required.</strong></li>
+    <li>id: Gives an id to the graph to ensure responsiveness, and proper loading of the graph. <strong>Required.</strong></li>
+    </ul>
+
+    <p>Mechref has support for integrating <strong>Plotly</strong> graphs. This very powerful library allows you to create interactive graphs in Python, and export them to a `.json` file, which can be loaded by Mechref. Plotly can be used to generate many types of graphs: line-charts, scatter plots, bar charts, histograms, etc. If you have never used this library before, we recommend starting with <a href="https://plotly.com/python/line-charts/">this page</a>, which will show you how to make a basic line-chart. ChatGPT has also been a surprisingly reliable source of information on the many options one can add to a graph to make it look and feel exactly as desired.</p>
+
+    <Warning title="Do not use fixed widths when making your graphs" id="plotly-warning">
+        <p>Plotly has to option to define a set height and width when making your graphs, as an example:</p>
+        <CodeBox language="python" code=`
+   fig.update_layout(
+        # Options ...
+        height=500, 
+        width=1200,
+        # ... more options ...
+    )
+    ` />
+    <p>Make sure that the `width` option is <strong>NOT</strong> included. Mechref takes care of deciding the width based on the type of device used (laptop, mobile, etc.), and width of the screen. A fixed width interferes with that process.</p>
+    </Warning>
+
+    <p>Once you have exported your graph data, place it in the same folder that you would an image. For example, if you wanted to add your graph to your first page, you would get:</p>
+
+    <CodeBox language="python" code=`
+        public
+        |--> <course_abbreviation>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|--> <page_1>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|--> <graph_name>.json
+        src
+        |--> components
+        |--> layouts
+        |--> pages
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|--> <course_abbreviation>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|--> <page_1>.astro
+    ` />
+
+    <p>And in this case, you would load your graph using in the following way:</p>
+
+    <CodeBox language="html" code=`
+        <Plotly id="graph" file_path="<course_abbreviation>/<page_1>/<graph_name>.json"/>
+    ` />
+    <p>Result:</p>
+    <Plotly id="failure-criteria-container" file_path="sol/plotly_graphs/FailureCriteria.json"/>
 </SubSection>
 
 <SubSection id="equations" title="Equations">
@@ -1046,7 +1249,7 @@ Remember, these pages are supposed to be reference material, not a textbook. Kee
         </tbody>
     </DisplayTable>
 
-    It can also be used to emphasize a particular part of the table. 
+    The `table-shaded` class can be used to emphasize a particular row, column, or cell of the table. 
 
     <p>Example:</p>
 
@@ -1109,8 +1312,6 @@ Remember, these pages are supposed to be reference material, not a textbook. Kee
 
     <CodeBox language="javascript" code=`
         import Example from "../../components/Example.astro"
-        import Row from "../../components/Row.astro"
-        import Col from "../../components/Col.astro"
     ` />
 
     <p>Tag type: Regular</p>
@@ -1219,10 +1420,10 @@ Remember, these pages are supposed to be reference material, not a textbook. Kee
     <p>Does not expand.</p>
 
     <CodeBox language="html" code=`
-    <Warning title="TITLE" id="ID" remove_button="True"/>
+    <Warning title="TITLE" id="ID_2" remove_button="True"/>
     ` />
 
-    <Warning title="TITLE" id="ID" remove_button="true"/>
+    <Warning title="TITLE" id="ID_2" remove_button="true"/>
         
 
 </SubSection> 
@@ -1231,7 +1432,7 @@ Remember, these pages are supposed to be reference material, not a textbook. Kee
 
     Code boxes usually aren't needed. Any code box can be clicked on and the code will be copied into the users clipboard.
     
-    <CodeBox language="html" code=`
+    <CodeBox language="javascript" code=`
    import CodeBox from "../../components/CodeBox.astro"
     ` />
     
@@ -1248,15 +1449,17 @@ Remember, these pages are supposed to be reference material, not a textbook. Kee
 
     Example:
     <p>Open</p>
-    <CodeBox language="html" code={`<CodeBox language="html" code=\`\nCODE\n\` id="test1" />`}/>
+    <CodeBox language="javascript" code={`<CodeBox language="html" code=\`\nCODE\n\` id="test1" />`}/>
 
     <CodeBox language="html" code=`CODE` />
 
     <p>Closed</p>
-    <CodeBox language="html" code={`<CodeBox language="html" code=\`\nfunction lorem(ipsum, dolor = 1) {\nconst sit = ipsum == null ? 0 : ipsum.sit;\ndolor = sit - amet(dolor);\nreturn sit ? consectetur(ipsum, 0, dolor < 0 ? 0 : dolor) : [];\n}\n\` closed_by_default="True" id="test2" closed_height="30" />`}/>
+    <CodeBox language="javascript" code={`<CodeBox language="javascript" code=\`\nfunction lorem(ipsum, dolor = 1) {\nconst sit = ipsum == null ? 0 : ipsum.sit;\ndolor = sit - amet(dolor);\nreturn sit ? consectetur(ipsum, 0, dolor < 0 ? 0 : dolor) : [];\n}\n\` closed_by_default="True" id="test2" closed_height="30" />`}/>
 
     <CodeBox language="javascript" code=`function lorem(ipsum, dolor = 1) {\nconst sit = ipsum == null ? 0 : ipsum.sit;\ndolor = sit - amet(dolor);\nreturn sit ? consectetur(ipsum, 0, dolor < 0 ? 0 : dolor) : [];\n}` closed_by_default="True" id="codebox-example" closed_height="60" />
 
 </SubSection>
 
 </Layout>
+
+<script src="/about/docs.js" is:inline></script>

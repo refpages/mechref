@@ -18,7 +18,7 @@ const { id, title, solution="True" } = Astro.props;
 
 <div class="my-2 text-black">
     <div class="background-green d-flex flex-column">
-        <div id={id} class='overflow-auto d-flex flex-row align-items-center'>
+        <div id={'example_'+id} class='overflow-auto d-flex flex-row align-items-center'>
             <button class="btn btn-secondary fw-bold" id={'example_btn_'+id}>+</button>
             <div class="px-2">
                 <span set:html={solution == 'True' ? "<strong>Example Problem:</strong> " + title : '<strong>Example:</strong> ' + title}></span> {<small>{` #${id}`}</small>}
