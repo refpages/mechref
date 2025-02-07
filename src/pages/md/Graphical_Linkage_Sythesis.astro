@@ -12,41 +12,184 @@ import Image from "../../components/Image.astro"
 import DisplayTable from "../../components/DisplayTable.astro";
 import Warning from "../../components/Warning.astro";
 import InlineCanvas from "../../components/InlineCanvas.astro";
+import Item from "../../components/Item.astro";
+import Itemize from "../../components/Itemize.astro";
+import Enumerate from "../../components/Enumerate.astro";
 
 
 ---
 
-<Layout title="Mechref Example Skeleton">
+<Layout title="Graphical Linkage Sythesis">
 
     <div slot="navtree">
         <ul class='list-group list-group-flush py-0'> 
-            <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#secondary-section'>Page Section Title</a>
+            <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#GLS'>Graphical Linkage Synthesis Intro</a>
+            <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Path_generation'>Path Generation</a>
+            <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Position_generation'>Position Generation</a>
                 <ul class='list-group list-group-flush py-0'> 
-                    <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#tertiary-section'>Page Subsection Title</a>
-                        <ul class='list-group list-group-flush py-0'> 
-                            <li class='list-group-item py-0'><a class='text-decoration-none subsubsubsection' href='#quaternary-section'>Page Subsubsection Title</a></li> 
-                        </ul>
-                    </li> 
+                    <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#Bisecting_line'>Bisecting A Line</a></li>
+                    <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#2Position_v1'>Two Position synthesis: Crank Output</a></li>
+                    <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#2Position_v2'>Two Position synthesis: Coupler Output</a></li>
+                    <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#Rotopole'>Rotopole Synthesis</a></li>
+                    <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#Dyad_Driver'>Dyad Driver</a></li>
                 </ul>
             </li>
-            <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#navbar'>NavBar</a></li>
-            <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#images'>Adding Images</a></li>
-            <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#math-section'>Math in Mechref</a>
-                <ul class='list-group list-group-flush py-0'> 
-                    <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#inline-math'>Inline Math</a></li> 
-                    <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#display-math'>Display Math</a></li>  
-                </ul>
-            </li>  
         </ul>
     </div>
 
 
 
-    <Section id="main-section" title="Coming Soon!">
+    <SubSection id="GLS" title="Graphical Linkage Sythesis Intro">
         <p>
-            This page will soon be populated with content related to Graphical Linkage Syntheis        </p>
+            Kinematic synthesis (also known as mechanism synthesis) is the act if designing mechanisms with a specified motion to perform a specific task. Kinematic synthesis often follows this procedure:
+        </p>
+        <Enumerate>
+            <Item>Define desired <strong>motion</strong>. Does your mechanism need to open and close a lid or mimic the way an animal walks? What is motion you are trying to achieve? </Item>
+            <Item>Choose the <strong>mechanism type</strong>. Will it consist of a crank-rocker, a slider-crank, or some other type of mechanism?</Item>
+            <Item>Specify the <strong>geometry</strong>. How long will the links be? What types of joints will be present and how many?</Item>
+            <Item> Check for <strong>undesirable behaviors</strong>. Is there a toggle position or a change point in the motion of the mechanism?</Item>
+        </Enumerate>
 
-    </Section>
+        <p>
+        Before starting to design a mechanism, it is always encouraged to research existing solutions. One can often adapt an existing design to fit the given specifications by understanding similar problems and the mechanisms used to solve them. There are two main ways to generate or adapt linkages: path and position generation.
+        </p>
+            <!--
+        <Image src="/md/Graphical_Linkage_Sythesis/two_position_v1.gif" width="7">
+            Figure 2: Diagram of Stress Redistribution </Image>
+        -->
+    </SubSection>
+
+    <SubSection id="Path_generation" title="Path Generation">
+        <p>
+            The goal of path generation is to make a point follow a predefined path.
+            The point of interest is almost always on a coupler linkage. Cranks will always trace circles,
+            rockers will trace arcs, and sliders trace straight lines which are uninteresting when trying to
+            create a mechanism that follows a complex path.
+        </p>
+        <p>
+            There are two approaches to path generation: the algebraic approach and using lookup tables.
+            The algebraic approach is very labor intensive and involves finding the zeros of a multidimensional
+            high order polynomial that increases in order as the number of linkages increases.
+            This approach is beyond the scope of this course. A far better approach is to utilize
+            lookup tables that show the path traveled by a coupler point and how the path changes
+            as each linkage changes in length.
+        </p>
+
+        <p>
+            The four bar linkage shown below is a simple model that is used to show how lookup
+            tables can be used. In this linkage <InlineEquation equation="\L_1" /> is the ground linkage
+            while <InlineEquation equation="\L_2" /> is the
+            crank. <InlineEquation equation="\ BP" /> represents the measurement from one joint to the coupler
+            point <InlineEquation equation="\P" />.
+            The angle between the coupler <InlineEquation equation="\L_3" /> and link <InlineEquation equation="\BP" /> is
+            represented as <InlineEquation equation="\\gamma" />, which
+            is known as the offset angle. By changing link lengths and angle gamma, there are many
+            position paths that the coupler point <InlineEquation equation="\P" /> can travel.
+        </p>
+        <Image src="/md/Graphical_Linkage_Sythesis/Path_gen_coupler_curve_linkage.png" width="7"> </Image>
+        <p>
+        To simplify coupler curve tables, common ratios between linkage lengths are established. <InlineEquation equation="\L_1/L_2" />
+            is known as the ground link ratio and <InlineEquation equation="\L_3/L_2" /> is the coupler link ratio.
+            <InlineEquation equation="\L_4/L_2" /> is the output link ratio and <InlineEquation equation="\BP/L_2" /> is
+            called the offset link ratio. The table below shows different coupler curves for four-bar linkages where the
+            coupler link, output link, and offset link ratios are all equal. The x-axis shows the offset angle
+            (also known as the coupler angle), while the y-axis shows the common link ratio. Once you choose a desired
+            path, you can read the coupler angle and common link ratio to build a mechanism that follows that exact path.
+        </p>
+        <p>
+            If you want to change the length of a single link, there are additional tables for different links that
+            can be used to  select different types of motion.
+        </p>
+        <Image src="/md/Graphical_Linkage_Sythesis/Path_gen_coupler_curve_sym_clr.png" width="7"> </Image>
+    </SubSection>
+    <SubSection id="Position_generation" title="Position Generation">
+        Position generation focuses on a link following a prescribed position. In this case, the orientation of the link
+        is also considered when generating the system. This is a very visual process of synthesis which involves drawing
+        out your system. This section will go into a few different methods for using position generation. In order to
+        follow along, you will need a compass, straight edge, and writing device. More complex mechanisms may also
+        require a protractor.
+    </SubSection>
+
+    <SubSubSection id="Bisecting_line" title="Bisecting a Line with a Compass">
+        One of the most important fundamental skills for position generation is the ability to construct a perpendicular
+        bisector for a line.
+
+        <Enumerate>
+            <Item>Draw two points. Using your compass, draw a circle with a radius that is a little larger than halfway between the two points. </Item>
+            <Image src="/md/Graphical_Linkage_Sythesis/Bisect_line_1.png" width="3"> </Image>
+            <Item>Carefully pick up your compass and move it to rest on the other point without changing the radius. Draw another circle between the two points. If you did it right, there should be two intersecting points on the arcs.</Item>
+            <Image src="/md/Graphical_Linkage_Sythesis/Bisect_line_2.png" width="3"> </Image>
+            <Item> Line up a ruler with the two intersecting points and draw a straight line.</Item>
+            <Image src="/md/Graphical_Linkage_Sythesis/Bisect_line_3.png" width="3"> </Image>
+            <Item> Erase your arcs and you are left with a line that perfectly bisects the two points.</Item>
+            <Image src="/md/Graphical_Linkage_Sythesis/Bisect_line_4.png" width="3"> </Image>
+        </Enumerate>
+    </SubSubSection>
+
+    <SubSubSection id="2Position_v1" title="Two Position synthesis: Crank Output">
+        One of the most common position generation problems is two-position synthesis. In this problem, the goal is to select link lengths and point positions that will move the rocker in a crank-rocker linkage from one position to another. Crank output position synthesis is a good choice if you desire your linkage to follow the path of an arc.
+
+        <Enumerate>
+            <Item>Draw the desired start and end position for a rocker. </Item>
+            <Image src="/md/Graphical_Linkage_Sythesis/Rocker_output_1.png" width="3"> </Image>
+            <Item>Bisect the start and end points. This will represent the rocker's middle position.</Item>
+            <Image src="/md/Graphical_Linkage_Sythesis/Rocker_output_2.png" width="3"> </Image>
+            <Item> Draw a straight line connecting the start and end point of the rocker. Choose a point where you want the ground position of your crank to be.</Item>
+            <Image src="/md/Graphical_Linkage_Sythesis/Rocker_output_3.png" width="3"> </Image>
+            <Item> Using the distance between the start and the bisecting line as your radius, draw a circle around the ground position of your crank. Place a joint on the circle and connect the ground to your new joint to create your crank.</Item>
+            <Image src="/md/Graphical_Linkage_Sythesis/Rocker_output_4.png" width="3"> </Image>
+            <Item>Once you draw in your rocker, you are finished!</Item>
+            <Image src="/md/Graphical_Linkage_Sythesis/Rocker_output_5.png" width="3"> </Image>
+            <Image src="/md/Graphical_Linkage_Sythesis/two_position_v1.gif" width="3"> </Image>
+        </Enumerate>
+    </SubSubSection>
+
+
+
+    <SubSubSection id="2Position_v2" title="Two Position synthesis: Coupler Output">
+        A slightly more complex challenge arises when the goal is to create a mechanism that will move the coupler of a four bar linkage from one position to another.
+        <Enumerate>
+            <Item>Choose the start and end position of your coupler. In this instance, the start position is labeled with the subscript 1 while the end position is labeled with the subscript 2. Therefore, joint <InlineEquation equation="\C_1"/> is the start position while joint <InlineEquation equation="\C_2"/> is the end position. </Item>
+            <Image src="/md/Graphical_Linkage_Sythesis/Coupler_output_1.png" width="3"> </Image>
+            <Item>Bisect one of the start and end pairs of joints (in this case <InlineEquation equation="\C_1"/> and <InlineEquation equation="\C_2"/>). Choose a position along this line to place a ground joint. This will form one of the linkages connecting to the coupler.</Item>
+            <Image src="/md/Graphical_Linkage_Sythesis/Coupler_output_2.png" width="3"> </Image>
+            <Item>Bisect the other pair of start and end joints. Draw another ground point anywhere along the line. This will be the last joint in the four bar linkage. </Item>
+            <Image src="/md/Graphical_Linkage_Sythesis/Coupler_output_3.png" width="3"> </Image>
+            <Item>Erase all bisecting lines and draw your linkages. You have now completed coupler output synthesis! </Item>
+            <Image src="/md/Graphical_Linkage_Sythesis/Coupler_output_4.png" width="3"> </Image>
+            <Image src="/md/Graphical_Linkage_Sythesis/Coupler_output.GIF" width="3"> </Image>
+        </Enumerate>
+    </SubSubSection>
+
+    <SubSubSection id="Rotopole" title="Rotopole Synthesis">
+        Another approach to the previous two position synthesis problem is to extend the rocker and use it to move between the two positions. This type of mechanism is called a Rotopole.
+        <Enumerate>
+            <Item> Start with your two desired linkage positions.</Item>
+            <Image src="/md/Graphical_Linkage_Sythesis/Rotopole_1.png" width="3"> </Image>
+            <Item>Similar to coupler output synthesis, bisect one of the start and end pairs of joints (in this case <InlineEquation equation="\C_1"/> and <InlineEquation equation="\C_2"/>).</Item>
+            <Image src="/md/Graphical_Linkage_Sythesis/Rotopole_2.png" width="3"> </Image>
+            <Item> Bisect the other pair of start and end joints. The place where the two bisecting lines intersect is where the ground joint will be placed.</Item>
+            <Image src="/md/Graphical_Linkage_Sythesis/Rotopole_3.png" width="3"> </Image>
+            <Item> Connect your linkage to your ground joint using one linkage and you are left with a rotopole.</Item>
+            <Image src="/md/Graphical_Linkage_Sythesis/Rotopole_4.png" width="3"> </Image>
+        </Enumerate>
+    </SubSubSection>
+
+    <SubSubSection id="Dyad_Driver" title="Dyad Driver">
+        When designing the rotopole, we did not consider the crank or coupler. Fortunately, we can design these links to move the rocker the proper amount. The process of adding a crank and coupler to an existing mechanism (Whether it is a rotopole or other rocker) to move it the proper amount is called adding a "dyad driver".
+        <Enumerate>
+            <Item>Start with your rotopole or rocker mechanism and choose a point on the already existing linkage. This has been labeled <InlineEquation equation="\B_1"/> for the starting position and <InlineEquation equation="\B_2"/> for the ending position. </Item>
+            <Image src="/md/Graphical_Linkage_Sythesis/Dyad_1.png" width="3"> </Image>
+            <Item>Draw a straight line connecting the start and end position of the chosen point. Extend this line out of the way of the mechanism's motion. Choose a point on this line to place the ground joint for the crank.</Item>
+            <Image src="/md/Graphical_Linkage_Sythesis/Dyad_2.png" width="3"> </Image>
+            <Item> Bisect the two chosen points (<InlineEquation equation="\B_1"/> and <InlineEquation equation="\B_2"/>). Use the distance between one of the points as the radius of the crank.</Item>
+            <Image src="/md/Graphical_Linkage_Sythesis/Dyad_3.png" width="3"> </Image>
+            <Item>Create the crank linkage and add a linkage to attach the coupler to the mechanism. Your dyad driver is now complete. </Item>
+            <Image src="/md/Graphical_Linkage_Sythesis/Dyad_4.png" width="3"> </Image>
+        </Enumerate>
+    </SubSubSection>
+
+
 
 
 </Layout>
