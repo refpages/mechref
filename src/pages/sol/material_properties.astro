@@ -112,8 +112,8 @@ Loading in this region results <strong>elastic behavior</strong>, meaning the ma
 
 <DisplayEquation equation="\\tau_{xy} = G\\gamma_{xy}\\" title="Hooke's law." background="True" />
 
-<DisplayEquation equation="G = \\frac{E}{2(1+\\nu)}\\" title="Shear modulus." background="True"/>
- Only two of the three material constants (ie; <InlineEquation equation="G" />, <InlineEquation equation="E" />, <InlineEquation equation="\\nu" />) are independent in isotropic materials.
+<DisplayEquation equation="G = \\frac{E}{2(1+\\nu)}\\" title="Shear modulus." background="True" id="v_modulus"/>
+In the above equation, \(\nu\) refers to <strong>Poisson's ratio</strong>, further explained in a <a href="#poissons_ratio">subsequent section</a>. Only two of the three material constants (ie; <InlineEquation equation="G" />, <InlineEquation equation="E" />, <InlineEquation equation="\\nu" />) are independent in isotropic materials.
 
 </SubSubSection>
 
@@ -236,11 +236,47 @@ Stresses above the plastic limit (<InlineEquation equation="\\sigma_Y < \\sigma"
 
 <Image src="/sol/material_properties/Poisson's Ratio.png" width='4'>Poisson's ratio</Image>
 
-<DisplayEquation equation="\\varepsilon_{x} = \\frac{\\delta}{L}\\" title="Axial (normal) strain." background="True" />
+<p>
+    As illustrated in the figure above, when an object is being compressed it expands outward, and when stretched it will become thinner. Depending on the material, it may experience more or less lateral deformation for a given amount of axial deformation. The ratio that governs the amount of lateral strain per unit of axial strain is called <strong>Poisson's ratio</strong>.
+</p>
 
- <DisplayEquation equation="\\nu = -\\frac{\\text{lateral strain}}{\\text{axial strain}}" title=" Poisson's ratio \\(\\nu\\)." background="True" />
+<DisplayEquation equation="\\varepsilon_{x} = \\frac{\\delta_x}{L}\\" title="Axial (normal) strain." background="True" />
 
-<DisplayEquation equation="0 < \\nu < 0.5\\" title="Typical range." background="True" /> 
+ <DisplayEquation equation="\\nu = -\\frac{\\text{lateral strain}}{\\text{axial strain}} = -\\frac{\\varepsilon_y}{\\varepsilon_x}" title=" Poisson's ratio \\(\\nu\\)." background="True" />
+
+<DisplayEquation equation="0 < \\nu < 0.5\\" title="Typical range." background="True" derivation="True" id="poisson_range">
+    <p class="m-0">Consider a cylinder with volume <InlineEquation equation="V = A\\cdot L" />. We know that <InlineEquation equation="A = \\frac{\\pi}{4}d^2" />. Since the diameter is dependant on the change in length \(dx\) due to Poisson's ratio, we get </p> 
+    <DisplayEquation equation=" \\frac{\\partial A}{\\partial x} = 2d\\frac{\\partial d}{\\partial x}\\frac{\\pi}{4} = \\frac{\\partial d}{\\partial x}\\frac{\\pi d}{2}" />
+    <p class="m-0">We use the chain rule to find the change in volume</p>
+
+    <DisplayEquation equation=`\\begin{aligned}
+    \\frac{\\partial V}{\\partial x} &= \\frac{\\partial A}{\\partial x}L + \\frac{\\partial L}{\\partial x} A \\\\
+    &= \\frac{\\partial d}{\\partial x}\\frac{\\pi d}{2}L + L \\frac{\\pi d^2}{4}
+    \\end{aligned}` />
+
+    <p class="m-0">
+        By definition, 
+    </p>
+
+    <DisplayEquation equation="\\nu = -\\frac{\\varepsilon_y}{\\varepsilon_x} = -\\frac{\\frac{\\partial d}{d}}{\\frac{\\partial L}{L}} = -\\frac{\\partial d}{d}\\frac{L}{\\partial L}= -\\frac{\\partial d}{d}\\frac{L}{L\\partial x} = -\\frac{1}{d}\\frac{\\partial d}{\\partial x} \\implies \\frac{\\partial d}{\\partial x} = -\\nu d" />
+
+    <p class="m-0">
+        Returning to our first equation, 
+    </p>
+
+    <DisplayEquation equation=`\\begin{aligned}
+    \\frac{\\partial V}{\\partial x} &= \\frac{\\partial d}{\\partial x}\\frac{\\pi d}{2}L + L \\frac{\\pi d^2}{4} \\\\
+    &= -\\nu d \\frac{\\pi d}{2}L + L \\frac{\\pi d^2}{4} \\\\
+    &= -\\nu \\frac{\\pi d^2}{2}L + L \\frac{\\pi d^2}{4} \\\\
+    &= \\frac{\\pi d^2L}{2}\\left( 1- 2\\nu \\right) \\\\
+    &= 2V\\left( 1- 2\\nu \\right) \\\\
+    \\end{aligned}` />
+
+    <p>
+        Since \(\partial V \geq 0\) and \(\nu &gt; 0\) in nicely behaved materials, \( 0 &lt; \nu \leq 0.5\). In practice \(\nu = 0.5\) only if the material is incompressible, thus in most materials \(\nu &lt; 0.5\).
+    </p>
+    
+</DisplayEquation> 
 
 <DisplayEquation equation="\\varepsilon_{z} = \\varepsilon_{y} = -\\nu\\varepsilon_{x}\\" title="Lateral strain." background="True" />
 
