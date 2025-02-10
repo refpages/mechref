@@ -17,28 +17,27 @@ import Item from "../../components/Item.astro";
 
 ---
 
-<Layout title="Mechref Example Skeleton">
+<Layout title="Stress Concentrations">
 
-    <!--TODO: fix this-->
     <div slot="navtree">
         <ul class='list-group list-group-flush py-0'> 
-            <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#main-section'>Introduction to Stress Concentrations</a>
+            <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Intro'>Introduction to Stress Concentrations</a>
                 <ul class='list-group list-group-flush py-0'> 
-                    <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#subsection1_1'>Actual Stress Distribution vs Nominal Stress</a></li>
-                    <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#subsection1_2'>Example Problem</a></li>
+                    <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#Actual_vs_Nominal'>Actual Stress Distribution vs Nominal Stress</a></li>
+                    <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#Example_Problem'>Example Problem</a></li>
                 </ul>
             </li>
-            <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#main-section2'>Application of Stress Concentrations</a>
+            <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Applications'>Application of Stress Concentrations</a>
                 <ul class='list-group list-group-flush py-0'>
-                    <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#subsection2_1'>Residual Stresses After Unloading</a></li>
+                    <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#Residual_Stress'>Residual Stresses After Unloading</a></li>
                 </ul>
-            <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#main-section3'>Design Considerations</a></li>
+            <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Design_Considerations'>Design Considerations</a></li>
         </ul>
     </div>
 
 
 
-    <Section id="main-section" title="Introduction to Stress Concentrations">
+    <SubSection id="Intro" title="Introduction to Stress Concentrations">
         <p>
             In mechanical engineering, "stress concentration" refers to the increase in stress around small features
             like holes, notches, or sharp corners in a material.
@@ -48,8 +47,8 @@ import Item from "../../components/Item.astro";
             you make a small cut (a notch) first, the tear spreads easily from there. This happens because stress
             (force per unit area) gets concentrated around sharp edges or holes.
         </p>
-    </Section>
-        <SubSection id="subsection1_1" title="Actual Stress Distribution vs Nominal Stress">
+    </SubSection>
+        <SubSubSection id="Actual_vs_Nominal" title="Actual Stress Distribution vs Nominal Stress">
             <p>
                 Imagine a metal plate like the one shown in Figure 1, with a hole in the middle, being pulled from both ends.
                 The stress (force per area) is not evenly spread across the plate. Instead, it is concentrated near the edges of the hole.
@@ -68,9 +67,9 @@ import Item from "../../components/Item.astro";
                 For example, if <InlineEquation equation="\K_t=3"/> , then the highest stress (Located at the edge of the hole, crack, or notch) is
                 <strong>three times</strong>  the applied stress.
             </p>
-        </SubSection>
+        </SubSubSection>
 
-        <SubSection id="subsubsection1_2" title="Example Problem">
+        <SubSubSection id="Example_Problem" title="Example Problem">
             <p>
                 Consider the steel plate below, with a width of <InlineEquation equation="100 \\; mm"/> and a thickness of
                 <InlineEquation equation="10 \\; mm"/> is subjected to a tensile
@@ -88,13 +87,13 @@ import Item from "../../components/Item.astro";
                 Step 1: Compute the Nominal Stress
             </p>
             <p>
-                <InlineEquation equation="\A= (W-d) \\times t= (100 - 20) \\times 10 = 800 \\text{ mm}^2">
+                <InlineEquation equation="\A= (W-d) \\times t= (100 - 20) \\times 10 = 800 \\text{ mm}^2"/>
             </p>
             <p>
                 Thus, the nominal stress is:
             </p>
             <p>
-                <InlineEquation equation="\\sigma_{\\text{nom}} = \\frac{20,000 \\text{ N}}{800 \\text{ mm}^2} = 25 \\text{ MPa}">
+                <InlineEquation equation="\\sigma_{\\text{nom}} = \\frac{20,000 \\text{ N}}{800 \\text{ mm}^2} = 25 \\text{ MPa}"/>
             </p>
 
             <Warning title="Computing Cross Sectional Area" id="stress_concentration_warning">
@@ -104,16 +103,16 @@ import Item from "../../components/Item.astro";
                 Step 2: Compute the Maximum Stress
             </p>
             <p>
-                The maximum stress <InlineEquation equation="\\sigma_{\\text{max}}"> at the edge of the hole is given by:
+                The maximum stress <InlineEquation equation="\\sigma_{\\text{max}}"/> at the edge of the hole is given by:
             </p>
             <p>
-                <InlineEquation equation="\\sigma_{\\text{max}} = K_t \\times \\sigma_{\\text{nom}}">
+                <InlineEquation equation="\\sigma_{\\text{max}} = K_t \\times \\sigma_{\\text{nom}}"/>
             </p>
             <p>
-                <InlineEquation equation="\\sigma_{\\text{max}} = 3  \\times 25 \\text{ MPa} = 75 \\text{ MPa}">
+                <InlineEquation equation="\\sigma_{\\text{max}} = 3  \\times 25 \\text{ MPa} = 75 \\text{ MPa}"/>
             </p>
-        </SubSection>
-    <Section id="main-section2" title="Application of Stress Concentrations">
+        </SubSubSection>
+    <SubSection id="Applications" title="Application of Stress Concentrations">
         <p>
         <strong>What happens if the stress exceeds the yield strength of the material? Plastic Deformation</strong>
         </p>
@@ -153,20 +152,20 @@ import Item from "../../components/Item.astro";
             </Itemize>
         </p>
         
-    </Section>
-        <SubSection id="subsection2_1" title="Residual Stresses After Unloading">
+    </SubSection>
+        <SubSubSubSection id="Residual_Stress" title="Residual Stresses After Unloading">
             <p>
                 After the external force is removed, the object will try to return to its original shape.
                 Elastic deformation will be recovered but the plastically deformed regions cannot return to their original form.
                 Due to this, some stresses remain inside the material. These are called residual stresses, and it can be
                 calculated by subtracting the elastic stress (shown in orange) from the actual stress (shown in blue).
             </p>
-        </SubSection>
+        </SubSubSubSection>
 
 
     
 
-        <Section id="main-section3" title="Design Considerations">
+        <SubSection id="Design_Considerations" title="Design Considerations">
             <p>
                 As an engineer, it is important to know when we should consider the effects of stress concentrations,
                 as well as times that the effects of stress concentrations can be safely ignored.
@@ -186,7 +185,7 @@ import Item from "../../components/Item.astro";
                 </Itemize>
             </p>
 
-    </Section>
+    </SubSection>
 
 
 
