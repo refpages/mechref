@@ -341,7 +341,7 @@ import Searchbar from "./Searchbar.astro";
 
 <nav class="navbar navbar-expand-lg py-0 d-flex w-100" aria-label="Main Menu">
     <div class="navbar-collapse collapse pt-2 pb-2 pb-lg-0" id="mainnav">
-        <ul class="navbar-nav w-100">
+        <ul class="navbar-nav w-100 overflow-hidden" id="course-menu-container" style="position: relative;">
             <li class="dropdown mega nav-item">
                 <a class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false" aria-label="About" class-value="sta">
                     <span>Statics</span>
@@ -475,12 +475,13 @@ import Searchbar from "./Searchbar.astro";
                     </div>
                 </div>
             </li>
-
+            <img src="/icons/menu-arrow.png" class="h-100 d-none d-lg-block" style="padding: .75rem 0 1rem  .75rem ; background-color: var(--nav-bg); cursor: pointer; box-shadow: -10px 0px 20px 0px var(--nav-bg);  position: absolute; left: 0; transform: rotate(180deg); display: none !important;" onclick="scrollMenu(-100);" id="arrow-icon-left">
+            <img src="/icons/menu-arrow.png" class="h-100 d-none d-lg-block" style="padding: .75rem .75rem  1rem 0; background-color: var(--nav-bg); cursor: pointer; box-shadow: -10px 0px 20px 0px var(--nav-bg);  position: absolute; right: 0; " onclick="scrollMenu(100);" id="arrow-icon-right">
 
             <!-- ADD YOUR COURSE HERE -->
         </ul>
-        <span class="navbar-text d-flex flex-row justify-content-center align-items-center" style="padding: 8px 10px 10px 10px;"><a class="me-2 fw-bold nav-link fontsize-11" href="/about">About</a></span>
-        <span class="navbar-text d-flex flex-row justify-content-center align-items-center theme-toggler" style="padding: 8px 10px 10px 10px;" onclick="toggle_theme();" >
+        <span class="navbar-text d-flex flex-row justify-content-center align-items-center" style="padding: 8px 10px 10px 10px;" id="about-navbar"><a class="me-2 fw-bold nav-link fontsize-11" href="/about">About</a></span>
+        <span class="navbar-text d-flex flex-row justify-content-center align-items-center theme-toggler" style="padding: 8px 10px 10px 10px;" onclick="toggle_theme();" id="theme-navbar">
             <i class="bi ps-1 pe-2 m-0" id="theme-icon"></i>
             <p class="nav-link active pe-1 m-0 fw-bold fontsize-11" style="text-wrap: nowrap;">Toggle theme</p>
          
@@ -505,6 +506,31 @@ import Searchbar from "./Searchbar.astro";
 </div>
 
 <script is:inline>
+
+    function scrollMenu(amount){
+        const menu = document.querySelector("#course-menu-container");
+        const arrow_icon_right = document.querySelector("#arrow-icon-right");
+        const arrow_icon_left = document.querySelector("#arrow-icon-left");
+
+        menu.scrollBy({left: amount, top: 0})
+        actual_scroll_pos = menu.scrollLeft;
+
+        if(actual_scroll_pos % 100 != 0){
+            arrow_icon_right.style = `padding: .75rem .75rem 1rem 0; background-color: var(--nav-bg); cursor: pointer; box-shadow: -10px 0px 20px 0px var(--nav-bg);  position: absolute; right: ${-actual_scroll_pos}px; display:none !important;`;
+        }else{
+            arrow_icon_right.style = `padding: .75rem .75rem 1rem 0; background-color: var(--nav-bg); cursor: pointer; box-shadow: -10px 0px 20px 0px var(--nav-bg);  position: absolute; right: ${-actual_scroll_pos}px; `;
+        }
+
+        if(actual_scroll_pos > 0){
+            arrow_icon_left.style = `padding: 1rem  0 .75rem .75rem; background-color: var(--nav-bg); cursor: pointer; box-shadow: -10px 0px 20px 0px var(--nav-bg);  position: absolute; left: ${actual_scroll_pos}px; ; transform: rotate(180deg);`
+        }else{
+            arrow_icon_left.style = `padding: 1rem 0 .75rem .75rem ; background-color: var(--nav-bg); cursor: pointer; box-shadow: -10px 0px 20px 0px var(--nav-bg);  position: absolute; left: ${actual_scroll_pos}px; ; transform: rotate(180deg); display: none !important; `
+        }
+
+
+        
+        
+    }
 
     window.onscroll = function(){showHideScrollDiv()};
 
