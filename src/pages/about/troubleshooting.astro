@@ -19,6 +19,16 @@ import Warning from "../../components/Warning.astro"
         </p>
     </Warning>
 
+    <Warning title="Section formatting not properly aligned on the right." id="section-alignment">
+        <p>
+            This looks like a subsection being narrower than the section above it, and occurs when the subsection has been nested inside of the section. 
+            All section types should be aligned on both the left and right sides of the page. 
+        </p>
+        <p>
+            Ensure a section is closed before starting a new section, including going between section types. 
+        </p>
+    </Warning>
+
     <Warning title="Component not properly behaving." id="component-misbehaving">
         <p> 
             This can look like an equation derivation not staying open when clicked, and ususally means the component needs an 'id=' added to the component or the id needs to be unique.
