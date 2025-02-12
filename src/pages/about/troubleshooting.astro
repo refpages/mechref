@@ -1,7 +1,44 @@
 ---
 import Layout from "../../layouts/Layout.astro"
+import Section from "../../components/Section.astro";
+import Warning from "../../components/Warning.astro"
 ---
 
 <Layout title="Troubleshooting & Common Problems">
-<h1 class="fw-bold text-center">Test title</h1>
+<Section title="Troubleshooting & Common Problems" id="troubleshooting">
+
+    The following are common problems, and most likely solutions, that can occur when working with these pages. If the problem is unsolvable, please submit an official issue on the github. 
+
+    <Warning title="Content in incorrect place or format." id="incorrect-place-format">
+        <p>
+            This can sometimes look like a font change extending further or text being placed in an unintended location, and usually means an element is not closed. 
+        </p>
+        <p>
+            There are online <a target="_blank" rel="noopener noreferrer" href="https://www.aliciaramirez.com/closing-tags-checker/">closing tag checkers</a> that can help identify the issue if you are unable to find it.
+            These are generally not foolproof as there are some situations it will miss, but it is a helpful starting point.
+        </p>
+    </Warning>
+
+    <Warning title="Component not properly behaving." id="component-misbehaving">
+        <p> 
+            This can look like an equation derivation not staying open when clicked, and ususally means the component needs an 'id=' added to the component or the id needs to be unique.
+        </p>
+        <p>
+            Check the corresponding section in the <a href="/about/docs">Style Guide</a> for what line the id should be located at in the code. 
+        <strong>Expandable components</strong> and <strong>all sections</strong> require an id to work properly.
+        </p>
+    </Warning>
+
+    <Warning title="Error occured: component is not defined." id="component-not-defined">
+        <p>
+            When this occurs, the reloaded page will display an error saying a component is not defined. 
+            This means that the component listed has not been imported at the top of the page or is inccorectly imported.
+        </p>
+        <p>
+            If it is not present, add the import statement.
+            If it is present, the most common issue is an incorrect number of '../' included or a typo.  
+        </p>
+    </Warning>
+
+</Section>
 </Layout>
