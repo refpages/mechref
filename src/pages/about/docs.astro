@@ -39,75 +39,79 @@ import Plotly from "../../components/Plotly.astro";
 
 <Layout title="Style Guide & Documentation">
 
-<!-- 
 <div slot="navtree">
     <ul class='list-group list-group-flush py-0'>
-    <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#components'>Components</a>
-        <ul class='list-group list-group-flush py-0'>
-            <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#importing'>Importing</a></li>
-            <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#inserting'> Inserting </a></li>
-    </li>
-    <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#branding'> Branding </a></li>
-    <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#general-page-format'> General Page Format </a></li>
-    <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#section-types'> Section Types </a>
-        <ul class='list-group list-group-flush py-0'>
-        <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#section'> Page Title </a></li>
-        <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#sub-section'> Page Sections </a></li>
-        <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#sub-sub-section'> Page Sub Sections </a></li>
-        <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#sub-sub-sub-section'> Page Sub Sub Sections </a></li>
-    </li>
-    <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#paragraph-font'>Paragraph and Font Options</a>
-        <ul class='list-group list-group-flush py-0'>
-        <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#new-paragraph'> New Patagraph </a></li>
-        <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#lists'> Lists </a></li>
-        <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#numbered-lists'> Numbered Lists </a></li>
-        <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#multi-column'> Multi Column </a></li>
-        <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#italics'> Italics </a></li>
-        <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#bold'> Bold </a></li>
-        <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#underline'> Underline </a></li>
-        <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#font-customizations'> Other </a></li>
-    </li>
-    <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#nav-bar'> Navigation Bar </a></li>
-    <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#links'> Inserting Links </a>
-        <ul class='list-group list-group-flush py-0'>
-        <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#same-page'> Within Page </a></li>
-        <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#int-page'> Interal Page </a></li>
-        <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#ext-page'> External Page </a></li>
-        <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#ext-video'> External Video </a></li>
-    </li>
-    <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#callout-cards'> Callout Cards </a>
-        <ul class='list-group list-group-flush py-0'>
-        <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#review'> Review </a></li>
-        <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#supplemental'> Supplemental Material </a></li>
-        <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#extra'> Extra Info</a></li>
-    </li>
-    <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#images'> Images </a></li> 
--->
-    <!-- <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#animations'> Animations </a></li> -->
-<!-- 
-    <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#graphs'> Graphs </a></li>
-    <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#equations'> Equations </a>
-        <ul class='list-group list-group-flush py-0'>
-        <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#inline-eq'> Inline </a></li>
-        <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#display-eq'> Display </a>
+        <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#components'>Components</a>
             <ul class='list-group list-group-flush py-0'>
-                <li class='list-group-item py-0'><a class='text-decoration-none subsubsubsection' href='#single-eq'> Single </a></li>
-                <li class='list-group-item py-0'><a class='text-decoration-none subsubsubsection' href='#multiple-eq'> Multiple </a></li>
-                <li class='list-group-item py-0'><a class='text-decoration-none subsubsubsection' href='#derived-eq'> Derived </a></li>
-                </ul>
-            </li>
-        <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#custom-eq'> Custom </a></li>
-    <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#tables'> Tables </a>
-        <ul class='list-group list-group-flush py-0'>
-        <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#table-customizations'> Customizations </a></li>
-    </li>
-    <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#examples'> Examples </a></li>
-    <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#notes'> Notes </a></li>
-    <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#warnings'> Warnings </a></li>
-    <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#code-box'> Codebox </a></li>
+                <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#importing'>Importing</a></li>
+                <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#inserting'> Inserting </a></li>
+            </ul>
+        </li>
+        <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#branding'> Branding </a></li>
+        <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#general-page-format'> General Page Format </a></li>
+        <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#section-types'> Section Types </a>
+            <ul class='list-group list-group-flush py-0'>
+                <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#section'> Page Title </a></li>
+                <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#sub-section'> Page Sections </a></li>
+                <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#sub-sub-section'> Page Sub Sections </a></li>
+                <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#sub-sub-sub-section'> Page Sub Sub Sections </a></li>
+            </ul>
+        </li>
+        <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#paragraph-font'>Paragraph and Font Options</a>
+            <ul class='list-group list-group-flush py-0'>
+                <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#new-paragraph'> New Patagraph </a></li>
+                <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#lists'> Lists </a></li>
+                <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#numbered-lists'> Numbered Lists </a></li>
+                <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#multi-column'> Multi Column </a></li>
+                <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#italics'> Italics </a></li>
+                <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#bold'> Bold </a></li>
+                <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#underline'> Underline </a></li>
+                <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#font-customizations'> Other </a></li>
+            </ul>
+        </li>
+        <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#nav-bar'> Navigation Bar </a></li>
+        <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#links'> Inserting Links </a>
+            <ul class='list-group list-group-flush py-0'>
+                <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#same-page'> Within Page </a></li>
+                <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#int-page'> Interal Page </a></li>
+                <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#ext-page'> External Page </a></li>
+                <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#ext-video'> External Video </a></li>
+            </ul>
+        </li>
+        <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#callout-cards'> Callout Cards </a>
+            <ul class='list-group list-group-flush py-0'>
+                <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#review'> Review </a></li>
+                <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#supplemental'> Supplemental Material </a></li>
+                <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#extra'> Extra Info</a></li>
+            </ul>
+        </li>
+        <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#images'> Images </a></li> 
+        <!-- <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#animations'> Animations </a></li> -->
+        <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#graphs'> Graphs </a></li>
+        <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#equations'> Equations </a>
+            <ul class='list-group list-group-flush py-0'>
+                <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#inline-eq'> Inline </a></li>
+                <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#display-eq'> Display </a>
+                    <ul class='list-group list-group-flush py-0'>
+                        <li class='list-group-item py-0'><a class='text-decoration-none subsubsubsection' href='#single-eq'> Single </a></li>
+                        <li class='list-group-item py-0'><a class='text-decoration-none subsubsubsection' href='#multiple-eq'> Multiple </a></li>
+                        <li class='list-group-item py-0'><a class='text-decoration-none subsubsubsection' href='#derived-eq'> Derived </a></li>
+                        </ul>
+                </li>
+                <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#custom-eq'> Custom </a></li>
+            </ul>
+        </li>
+        <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#tables'> Tables </a>
+            <ul class='list-group list-group-flush py-0'>
+                <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#table-customizations'> Customizations </a></li>
+            </ul>
+        </li>
+        <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#examples'> Examples </a></li>
+        <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#notes'> Notes </a></li>
+        <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#warnings'> Warnings </a></li>
+        <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#code-box'> Codebox </a></li>
     </ul>
 </div>
--->
     
 
 <Section title="Style Guide & Documentation" id="style-guide">

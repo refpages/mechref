@@ -1,8 +1,16 @@
 ---
 import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
+import NavtreeContainer from '../components/NavtreeContainer.astro';
 
 const { title } = Astro.props;
+
+const current_path = Astro.url;
+const split_ = current_path.pathname.split('/')
+const cleaned = split_.slice(1, split_.length)
+
+const course = cleaned[0]
+const pagename = cleaned[1]
 ---
 
 <!doctype html>
@@ -59,8 +67,13 @@ const { title } = Astro.props;
 	</head>
 	<body style="width: 100%;">
 		<Navbar />
-		<div class="container-xxl max-width1160 my-5">
-			<slot />
+		<div class="container-xxl max-width1160 content mb-5">
+			<NavtreeContainer page={pagename} course={course}>
+				<slot name="navtree" />
+			</NavtreeContainer>
+			<div class="w-100 pt-0 pt-xl-3"> 
+				<slot />
+			</div>
 		</div>
 		<Footer />
 	</body>
@@ -143,6 +156,29 @@ const { title } = Astro.props;
 			width: 100%;
 			padding-right: 1rem;
 			padding-left: 1rem;
+		}
+	}
+
+	.content{
+		display: grid;
+		grid-template-columns: 1fr;
+	}
+
+	.subsection{
+        color: var(--text-main);
+    }
+
+    .subsubsection{
+        color:var(--text-secondary);
+    }
+
+	.subsubsubsection{
+        color:var(--text-tertiary);
+    }
+
+	@media (min-width: 1200px){
+		.content{
+			grid-template-columns: 1fr 5fr;
 		}
 	}
 </style>
