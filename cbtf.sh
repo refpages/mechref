@@ -10,11 +10,11 @@ declare -a courses=("210" "212" "251")
 for c in "${courses[@]}"
 do
     echo "TAM $c"
-    cd "$HOME/Documents/GitHub/pl-tam$c"
+    cd "$1/pl-tam$c"
     git switch master
     git stash
     git pull --rebase
-    scp -r "$HOME/mechref/dist" "$HOME/Documents/GitHub/pl-tam$c/clientFilesCourse/"
+    scp -r "$1/mechref/dist" "$1/pl-tam$c/clientFilesCourse/"
     rm -rf "clientFilesCourse/mechref"
     mv "clientFilesCourse/dist" "clientFilesCourse/mechref" 
     git add -A
@@ -22,4 +22,4 @@ do
     git push
 done
 
-cd "$HOME/mechref"
+cd "$1/mechref"
