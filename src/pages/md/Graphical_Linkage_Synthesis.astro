@@ -19,7 +19,7 @@ import Enumerate from "../../components/Enumerate.astro";
 
 ---
 
-<Layout title="Graphical Linkage Sythesis">
+<Layout title="Graphical Linkage Synthesis">
 
     <div slot="navtree">
         <ul class='list-group list-group-flush py-0'> 
@@ -39,7 +39,7 @@ import Enumerate from "../../components/Enumerate.astro";
 
 
 
-    <SubSection id="GLS" title="Graphical Linkage Sythesis Intro">
+    <SubSection id="GLS" title="Graphical Linkage Synthesis Intro">
         <p>
             Kinematic synthesis (also known as mechanism synthesis) is the act of designing mechanisms with a specified motion to perform a specific task. Kinematic synthesis often follows this procedure:
         </p>
@@ -54,7 +54,7 @@ import Enumerate from "../../components/Enumerate.astro";
         Before starting to design a mechanism, it is always encouraged to research existing solutions. One can often adapt an existing design to fit the given specifications by understanding similar problems and the mechanisms used to solve them. There are two main ways to generate or adapt linkages: path and position generation.
         </p>
             <!--
-        <Image src="/md/Graphical_Linkage_Sythesis/two_position_v1.gif" width="7">
+        <Image src="/md/Graphical_Linkage_Synthesis/two_position_v1.gif" width="7">
             Figure 2: Diagram of Stress Redistribution </Image>
         -->
     </SubSection>
@@ -86,7 +86,7 @@ import Enumerate from "../../components/Enumerate.astro";
             is known as the offset angle. By changing link lengths and angle gamma, there are many
             position paths that the coupler point <InlineEquation equation="\P" /> can travel.
         </p>
-        <Image src="/md/Graphical_Linkage_Sythesis/Path_gen_coupler_curve_linkage.png" width="7"> </Image>
+        <Image src="/md/Graphical_Linkage_Synthesis/Path_gen_coupler_curve_linkage.png" width="7"> </Image>
         <p>
         To simplify coupler curve tables, common ratios between linkage lengths are established. <InlineEquation equation="\L_1/L_2" />
             is known as the ground link ratio and <InlineEquation equation="\L_3/L_2" /> is the coupler link ratio.
@@ -100,7 +100,7 @@ import Enumerate from "../../components/Enumerate.astro";
             If you want to change the length of a single link, there are additional tables for different links that
             can be used to  select different types of motion.
         </p>
-        <Image src="/md/Graphical_Linkage_Sythesis/Path_gen_coupler_curve_sym_clr.png" width="7"> </Image>
+        <Image src="/md/Graphical_Linkage_Synthesis/Path_gen_coupler_curve_sym_clr.png" width="7"> </Image>
     </SubSection>
     <SubSection id="Position_generation" title="Position Generation">
         Position generation focuses on a link following a prescribed position. In this case, the orientation of the link
@@ -116,13 +116,13 @@ import Enumerate from "../../components/Enumerate.astro";
 
         <Enumerate>
             <Item>Draw two points. Using your compass, draw a circle with a radius that is a little larger than halfway between the two points. </Item>
-            <Image src="/md/Graphical_Linkage_Sythesis/Bisect_line_1.png" width="3"> </Image>
+            <Image src="/md/Graphical_Linkage_Synthesis/Bisect_line_1.png" width="3"> </Image>
             <Item>Carefully pick up your compass and move it to rest on the other point without changing the radius. Draw another circle between the two points. If you did it right, there should be two intersecting points on the arcs.</Item>
-            <Image src="/md/Graphical_Linkage_Sythesis/Bisect_line_2.png" width="3"> </Image>
+            <Image src="/md/Graphical_Linkage_Synthesis/Bisect_line_2.png" width="3"> </Image>
             <Item> Line up a ruler with the two intersecting points and draw a straight line.</Item>
-            <Image src="/md/Graphical_Linkage_Sythesis/Bisect_line_3.png" width="3"> </Image>
+            <Image src="/md/Graphical_Linkage_Synthesis/Bisect_line_3.png" width="3"> </Image>
             <Item> Erase your arcs and you are left with a line that perfectly bisects the two points.</Item>
-            <Image src="/md/Graphical_Linkage_Sythesis/Bisect_line_4.png" width="3"> </Image>
+            <Image src="/md/Graphical_Linkage_Synthesis/Bisect_line_4.png" width="3"> </Image>
         </Enumerate>
     </SubSubSection>
 
@@ -131,16 +131,16 @@ import Enumerate from "../../components/Enumerate.astro";
 
         <Enumerate>
             <Item>Draw the desired start and end position for a rocker. </Item>
-            <Image src="/md/Graphical_Linkage_Sythesis/Rocker_output_1.png" width="3"> </Image>
+            <Image src="/md/Graphical_Linkage_Synthesis/Rocker_output_1.png" width="3"> </Image>
             <Item>Bisect the start and end points. This will represent the rocker's middle position.</Item>
-            <Image src="/md/Graphical_Linkage_Sythesis/Rocker_output_2.png" width="3"> </Image>
+            <Image src="/md/Graphical_Linkage_Synthesis/Rocker_output_2.png" width="3"> </Image>
             <Item> Draw a straight line connecting the start and end point of the rocker. Choose a point where you want the ground position of your crank to be.</Item>
-            <Image src="/md/Graphical_Linkage_Sythesis/Rocker_output_3.png" width="3"> </Image>
+            <Image src="/md/Graphical_Linkage_Synthesis/Rocker_output_3.png" width="3"> </Image>
             <Item> Using the distance between the start and the bisecting line as your radius, draw a circle around the ground position of your crank. Place a joint on the circle and connect the ground to your new joint to create your crank.</Item>
-            <Image src="/md/Graphical_Linkage_Sythesis/Rocker_output_4.png" width="3"> </Image>
+            <Image src="/md/Graphical_Linkage_Synthesis/Rocker_output_4.png" width="3"> </Image>
             <Item>Once you draw in your rocker, you are finished!</Item>
-            <Image src="/md/Graphical_Linkage_Sythesis/Rocker_output_5.png" width="3"> </Image>
-            <Image src="/md/Graphical_Linkage_Sythesis/two_position_v1.gif" width="3"> </Image>
+            <Image src="/md/Graphical_Linkage_Synthesis/Rocker_output_5.png" width="3"> </Image>
+            <Image src="/md/Graphical_Linkage_Synthesis/two_position_v1.gif" width="3"> </Image>
         </Enumerate>
     </SubSubSection>
 
@@ -150,14 +150,14 @@ import Enumerate from "../../components/Enumerate.astro";
         A slightly more complex challenge arises when the goal is to create a mechanism that will move the coupler of a four bar linkage from one position to another.
         <Enumerate>
             <Item>Choose the start and end position of your coupler. In this instance, the start position is labeled with the subscript 1 while the end position is labeled with the subscript 2. Therefore, joint <InlineEquation equation="\C_1"/> is the start position while joint <InlineEquation equation="\C_2"/> is the end position. </Item>
-            <Image src="/md/Graphical_Linkage_Sythesis/Coupler_output_1.png" width="3"> </Image>
+            <Image src="/md/Graphical_Linkage_Synthesis/Coupler_output_1.png" width="3"> </Image>
             <Item>Bisect one of the start and end pairs of joints (in this case <InlineEquation equation="\C_1"/> and <InlineEquation equation="\C_2"/>). Choose a position along this line to place a ground joint. This will form one of the linkages connecting to the coupler.</Item>
-            <Image src="/md/Graphical_Linkage_Sythesis/Coupler_output_2.png" width="3"> </Image>
+            <Image src="/md/Graphical_Linkage_Synthesis/Coupler_output_2.png" width="3"> </Image>
             <Item>Bisect the other pair of start and end joints. Draw another ground point anywhere along the line. This will be the last joint in the four bar linkage. </Item>
-            <Image src="/md/Graphical_Linkage_Sythesis/Coupler_output_3.png" width="3"> </Image>
+            <Image src="/md/Graphical_Linkage_Synthesis/Coupler_output_3.png" width="3"> </Image>
             <Item>Erase all bisecting lines and draw your linkages. You have now completed coupler output synthesis! </Item>
-            <Image src="/md/Graphical_Linkage_Sythesis/Coupler_output_4.png" width="3"> </Image>
-            <Image src="/md/Graphical_Linkage_Sythesis/Coupler_output.GIF" width="3"> </Image>
+            <Image src="/md/Graphical_Linkage_Synthesis/Coupler_output_4.png" width="3"> </Image>
+            <Image src="/md/Graphical_Linkage_Synthesis/Coupler_output.GIF" width="3"> </Image>
         </Enumerate>
     </SubSubSection>
 
@@ -165,13 +165,13 @@ import Enumerate from "../../components/Enumerate.astro";
         Another approach to the previous two position synthesis problem is to extend the rocker and use it to move between the two positions. This type of mechanism is called a Rotopole.
         <Enumerate>
             <Item> Start with your two desired linkage positions.</Item>
-            <Image src="/md/Graphical_Linkage_Sythesis/Rotopole_1.png" width="3"> </Image>
+            <Image src="/md/Graphical_Linkage_Synthesis/Rotopole_1.png" width="3"> </Image>
             <Item>Similar to coupler output synthesis, bisect one of the start and end pairs of joints (in this case <InlineEquation equation="\C_1"/> and <InlineEquation equation="\C_2"/>).</Item>
-            <Image src="/md/Graphical_Linkage_Sythesis/Rotopole_2.png" width="3"> </Image>
+            <Image src="/md/Graphical_Linkage_Synthesis/Rotopole_2.png" width="3"> </Image>
             <Item> Bisect the other pair of start and end joints. The place where the two bisecting lines intersect is where the ground joint will be placed.</Item>
-            <Image src="/md/Graphical_Linkage_Sythesis/Rotopole_3.png" width="3"> </Image>
+            <Image src="/md/Graphical_Linkage_Synthesis/Rotopole_3.png" width="3"> </Image>
             <Item> Connect your linkage to your ground joint using one linkage and you are left with a rotopole.</Item>
-            <Image src="/md/Graphical_Linkage_Sythesis/Rotopole_4.png" width="3"> </Image>
+            <Image src="/md/Graphical_Linkage_Synthesis/Rotopole_4.png" width="3"> </Image>
         </Enumerate>
     </SubSubSection>
 
@@ -179,13 +179,13 @@ import Enumerate from "../../components/Enumerate.astro";
         When designing the rotopole, we did not consider the crank or coupler. Fortunately, we can design these links to move the rocker the proper amount. The process of adding a crank and coupler to an existing mechanism (Whether it is a rotopole or other rocker) to move it the proper amount is called adding a "dyad driver".
         <Enumerate>
             <Item>Start with your rotopole or rocker mechanism and choose a point on the already existing linkage. This has been labeled <InlineEquation equation="\B_1"/> for the starting position and <InlineEquation equation="\B_2"/> for the ending position. </Item>
-            <Image src="/md/Graphical_Linkage_Sythesis/Dyad_1.png" width="3"> </Image>
+            <Image src="/md/Graphical_Linkage_Synthesis/Dyad_1.png" width="3"> </Image>
             <Item>Draw a straight line connecting the start and end position of the chosen point. Extend this line out of the way of the mechanism's motion. Choose a point on this line to place the ground joint for the crank.</Item>
-            <Image src="/md/Graphical_Linkage_Sythesis/Dyad_2.png" width="3"> </Image>
+            <Image src="/md/Graphical_Linkage_Synthesis/Dyad_2.png" width="3"> </Image>
             <Item> Bisect the two chosen points (<InlineEquation equation="\B_1"/> and <InlineEquation equation="\B_2"/>). Use the distance between one of the points as the radius of the crank.</Item>
-            <Image src="/md/Graphical_Linkage_Sythesis/Dyad_3.png" width="3"> </Image>
+            <Image src="/md/Graphical_Linkage_Synthesis/Dyad_3.png" width="3"> </Image>
             <Item>Create the crank linkage and add a linkage to attach the coupler to the mechanism. Your dyad driver is now complete. </Item>
-            <Image src="/md/Graphical_Linkage_Sythesis/Dyad_4.png" width="3"> </Image>
+            <Image src="/md/Graphical_Linkage_Synthesis/Dyad_4.png" width="3"> </Image>
         </Enumerate>
     </SubSubSection>
 

@@ -1,0 +1,182 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Section from "../../components/Section.astro";
+import SubSection from "../../components/SubSection.astro";
+import SubSubSection from "../../components/SubSubSection.astro";
+import SubSubSubSection from "../../components/SubSubSubSection.astro";
+import CalloutContainer from "../../components/CalloutContainer.astro";
+import CalloutCard from "../../components/CalloutCard.astro";
+import InlineEquation from "../../components/InlineEquation.astro";
+import DisplayEquation from "../../components/DisplayEquation.astro";
+import Image from "../../components/Image.astro"
+import DisplayTable from "../../components/DisplayTable.astro";
+import Warning from "../../components/Warning.astro"
+import InlineCanvas from "../../components/InlineCanvas.astro";
+import Itemize from "../../components/Itemize.astro";
+import Item from "../../components/Item.astro";
+
+---
+
+<Layout title="Failure Theories">
+
+    <div slot="navtree">
+        <ul class='list-group list-group-flush py-0'> 
+            <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Intro'>Introduction to Failure Theories</a></li>
+            <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Max_Normal'>Maximum Normal Stress Theory</a>
+            <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Max_Shear'>Maximum Shear Stress Theory (Tresca Theory)</a></li>
+            <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Max_Distortion'>Maximum Distortion Energy Theory (Von Mises Theory)</a></li>
+            <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Fracture_Mechanics'>Fracture Mechanics and Crack Propagation</a></li>
+            <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Conclusion'>Conclusion</a></li>
+        </ul>
+    </div>
+
+
+
+    <SubSection id="Intro" title="Introduction to Failure Theories">
+        <p>
+            Failure theories are essential in predicting whether a material will fail under a given load. These theories help engineers
+            design safe structures by considering different stress conditions. This document covers the most commonly used
+            failure theories along with their mathematical formulations.
+        </p>
+    </SubSection>
+        <SubSubSection id="Max_Normal" title="Maximum Normal Stress Theory">
+            <p>
+                <strong>Principle:</strong> failure occurs when the maximum normal stress exceeds the material's ultimate tensile or compressive strength.
+            </p>
+            <p>
+                <strong>Failure Condition:</strong>
+                <InlineEquation equation="\\sigma_{1} > S_{ut} \\quad \\text{or} \\quad \\sigma_{3} < -S_{uc}"/>
+            </p>
+            <p>
+                Where:
+                <Itemize>
+                    <Item><InlineEquation equation="\S_{ut}"/>: Ultimate tensile strength</Item>
+                    <Item> <InlineEquation equation="\S_{uc}"/>: Ultimate compressive strength</Item>
+                    <Item> <InlineEquation equation="\\sigma_{1}, \\sigma_{3}"/>: Maximum and minimum principal stresses</Item>
+                </Itemize>
+            </p>
+            <!-- TODO: Figure? -->
+            <p>
+                <strong>Applications</strong>
+                <Itemize>
+                    <Item>Suitable for brittle materials like ceramics and cast iron.</Item>
+                    <Item>Not applicable for ductile materials due to plastic deformation.</Item>
+                </Itemize>
+            </p>
+        </SubSubSection>
+
+        <SubSubSection id="Max_Shear" title="Maximum Shear Stress Theory (Tresca Theory)">
+            <p>
+            <strong>Principle:</strong> Failure occurs when the maximum shear stress exceeds the shear yield strength <InlineEquation equation="\S_{sy}"/>.
+        </p>
+            <p>
+                <strong>Failure Condition:</strong>
+                <InlineEquation equation="\\tau_{\\text{max}} = \\frac{|\\sigma_1 - \\sigma_3|}{2} > \S_{sy}"/>
+            </p>
+            <p>
+                Since <InlineEquation equation="\S_{sy}"/> = <InlineEquation equation="\\frac{S_{yt}}{2}"/>, we can write:
+            </p>
+            <p>
+                <InlineEquation equation=" |\\sigma_1 - \\sigma_3| > \S_{yt}"/>
+            </p>
+            <p>
+                Where:
+                <Itemize>
+                    <Item><InlineEquation equation="\S_{yt}"/>: Tensile yield strength</Item>
+                    <Item> <InlineEquation equation="\S_{ys}"/>: Shear yield strength</Item>
+                    <Item> <InlineEquation equation="\\sigma_{1}, \\sigma_{3}"/>: Maximum and minimum principal stresses</Item>
+                </Itemize>
+            </p>
+            <!-- TODO: Figure? -->
+            <p>
+                <strong>Applications</strong>
+                <Itemize>
+                    <Item>Best suited for ductile materials like steel and aluminum.</Item>
+                    <Item>Used in mechanical and structural engineering design.</Item>
+                </Itemize>
+            </p>
+        </SubSubSection>
+    <SubSubSection id="Max_Distortion" title="Maximum Distortion Energy Theory (Von Mises Theory)">
+        <p>
+            <strong>Principle:</strong> Yielding occurs when the distortion energy per unit volume reaches a critical value.
+        </p>
+        <p>
+            <strong>Failure Condition:</strong>
+            <InlineEquation equation="\\sigma_{VM} = \\sqrt{\\frac{(\\sigma_x - \\sigma_y)^2 + (\\sigma_y - \\sigma_z)^2 + (\\sigma_x - \\sigma_z)^2 + 6(\\tau_xy^2 + \\tau_yz^2 + \\tau_xz^2)}{2}}"/>
+        </p>
+        <p>
+            or <InlineEquation equation="\\sigma_{VM} = \\sqrt{\\frac{(\\sigma_1 - \\sigma_2)^2 + (\\sigma_2 - \\sigma_3)^2 + (\\sigma_3 - \\sigma_1)^2}{2}}"/>
+        </p>
+        <p>
+            Failure occurs if:
+            <InlineEquation equation=" \\sigma_{VM} > S_{yt}"/>
+        </p>
+        <p>
+            For a 2D stress state <InlineEquation equation=" \\sigma_3 = 0"/>
+        </p>
+        <p>
+            <InlineEquation equation="\\sigma_{VM} = \\sqrt{\\sigma_1^2 - \\sigma_1\\sigma_2 + \\sigma_2^2}=\\sqrt{ \\sigma_x^2 - \\sigma_x\\sigma_y + \\sigma_y^2 + 3\\tau_{xy}^2}"/>
+        </p>
+        <!-- TODO: Figure? -->
+        <p>
+            <strong>Applications</strong>
+            <Itemize>
+                <Item>Preferred for ductile materials.</Item>
+                <Item>Used in finite element analysis (FEA) and plasticity theory.</Item>
+            </Itemize>
+        </p>
+    </SubSubSection>
+
+    <SubSubSection id="Fracture_Mechanics" title="Fracture Mechanics and Crack Propagation">
+        <p>
+            <strong>Principle:</strong> Materials can fail when a crack propagates through them.
+        </p>
+        <p>
+            <strong>Failure Condition:</strong>
+            <InlineEquation equation="\K \geq K_c"/>
+        </p>
+        <p>
+            Failure due to brittle fracture occurs when the <strong>Stress Intensity Factor</strong> <InlineEquation equation="K"/> exceeds a material's <strong>Fracture Toughness</strong><InlineEquation equation="K_c"/>
+        </p>
+        <p>
+            We can compute the stress intensity factor according to
+        </p>
+        <p>
+            <InlineEquation equation=" K = Y \\sigma \\sqrt{\pi a}"/>
+        </p>
+        <p>
+            Where:
+            <Itemize>
+                <Item><InlineEquation equation="K"/>:  Stress intensity factor</Item>
+                <Item> <InlineEquation equation="Y"/>: Geometric factor</Item>
+                <Item> <InlineEquation equation="\\sigma"/>: Applied stress</Item>
+                <Item> <InlineEquation equation="a"/>: Crack length</Item>
+            </Itemize>
+        </p>
+        <p>
+            Let us now walk through how to determine the value of each of these terms. <InlineEquation equation=" \\sigma"/>
+            will depend on the specific loading condition that is applied to the material. <InlineEquation equation="a"/>
+            is a geometric parameter that should be directly measured. <InlineEquation equation="K"/> can be directly computed
+            from <InlineEquation equation=" \\sigma"/> and <InlineEquation equation="a"/>. This leaves <InlineEquation equation="Y"/>,
+            the geometry factor. Identification of this value will usually be done with the use of lookup tables that contain
+            the values of <InlineEquation equation="Y"/> for a wide variety of geometries and loading conditions.
+        </p>
+        <p>
+            It is also valuable to recall that <InlineEquation equation=" \K_c"/> is a material property that will often be listed along with other material properties.
+        </p>
+        <p>
+            <strong>Applications</strong>
+            <Itemize>
+                <Item>Used in failure predictions for materials with cracks.</Item>
+                <Item>Important in aerospace, nuclear, and structural applications.</Item>
+            </Itemize>
+        </p>
+        <!-- TODO: Figure? -->
+    </SubSubSection>
+    <SubSubSection id="Conclusion" title="Conclusion">
+        <p>
+            Each failure theory provides unique insights into material behavior. While von Mises theory is best for
+            ductile materials, brittle materials require normal stress theory or fracture mechanics.
+        </p>
+    </SubSubSection>
+</Layout>
