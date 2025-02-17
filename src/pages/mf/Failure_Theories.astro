@@ -55,7 +55,14 @@ import Item from "../../components/Item.astro";
                     <Item> <InlineEquation equation="\\sigma_{1}, \\sigma_{3}"/>: Maximum and minimum principal stresses</Item>
                 </Itemize>
             </p>
-            <!-- TODO: Figure? -->
+            <p>
+               The image below is a plot of "safe" region according to maximum normal
+                stress theory. By plotting the maximum and minimum principal stresses, the shaded region shows where the
+                object will not fail. If a material is exposed to a stress that exceeds the tensile strength, that point would lie to the right, or above the shaded region.
+                A stress that exceed the compressive strength would lie to the left or below the shaded region.
+            </p>
+            <Image src="/mf/Failure Theories/Max_normal.png" width="5">  </Image>
+            <!-- TODO: Figure cleanup -->
             <p>
                 <strong>Applications</strong>
                 <Itemize>
@@ -87,7 +94,14 @@ import Item from "../../components/Item.astro";
                     <Item> <InlineEquation equation="\\sigma_{1}, \\sigma_{3}"/>: Maximum and minimum principal stresses</Item>
                 </Itemize>
             </p>
-            <!-- TODO: Figure? -->
+            <p>
+                The image below is a plot of "safe" region according to maximum shear
+                stress theory. By plotting the maximum and minimum principal stresses, the shaded region shows where the
+                object will not fail. Since shear stress is proportional to the difference in the maximum and minimum principal stresses,
+                we modify the safe region from the maximum normal stress theory to limit the maximum difference between the maximum and minimum principal stresses.
+            </p>
+            <Image src="/mf/Failure Theories/Max_Shear.png" width="5"> </Image>
+            <!-- TODO: Figure cleanup -->
             <p>
                 <strong>Applications</strong>
                 <Itemize>
@@ -117,7 +131,13 @@ import Item from "../../components/Item.astro";
         <p>
             <InlineEquation equation="\\sigma_{VM} = \\sqrt{\\sigma_1^2 - \\sigma_1\\sigma_2 + \\sigma_2^2}=\\sqrt{ \\sigma_x^2 - \\sigma_x\\sigma_y + \\sigma_y^2 + 3\\tau_{xy}^2}"/>
         </p>
-        <!-- TODO: Figure? -->
+        <p>
+            The image below is a plot of "safe" region according to maximum distortion energy
+             theory. By plotting the maximum and minimum principal stresses, the shaded region shows where the
+            object will not fail. For a 2D object, this region will appear as a rotated ellipse.
+        </p>
+        <Image src="/mf/Failure Theories/Von_Mises.png" width="5"> </Image>
+        <!-- TODO: Figure cleanup -->
         <p>
             <strong>Applications</strong>
             <Itemize>
@@ -133,7 +153,7 @@ import Item from "../../components/Item.astro";
         </p>
         <p>
             <strong>Failure Condition:</strong>
-            <InlineEquation equation="\K \geq K_c"/>
+            <InlineEquation equation="\K \\geq K_c"/>
         </p>
         <p>
             Failure due to brittle fracture occurs when the <strong>Stress Intensity Factor</strong> <InlineEquation equation="K"/> exceeds a material's <strong>Fracture Toughness</strong><InlineEquation equation="K_c"/>
