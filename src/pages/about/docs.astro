@@ -48,34 +48,34 @@ import Plotly from "../../components/Plotly.astro";
             </ul>
         </li>
         <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#branding'> Branding </a></li>
-        <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#general-page-format'> General Page Format </a></li>
+        <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#general-page-format'> General Format </a></li>
         <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#section-types'> Section Types </a>
             <ul class='list-group list-group-flush py-0'>
-                <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#section'> Page Title </a></li>
-                <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#sub-section'> Page Sections </a></li>
-                <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#sub-sub-section'> Page Sub Sections </a></li>
-                <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#sub-sub-sub-section'> Page Sub Sub Sections </a></li>
+                <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#section'> Title </a></li>
+                <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#sub-section'> Sections </a></li>
+                <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#sub-sub-section'> Sub Sections </a></li>
+                <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#sub-sub-sub-section'> Sub Sub Sections </a></li>
             </ul>
         </li>
         <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#paragraph-font'>Paragraph and Font Options</a>
             <ul class='list-group list-group-flush py-0'>
-                <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#new-paragraph'> New Patagraph </a></li>
+                <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#new-paragraph'> New Paragraph </a></li>
                 <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#lists'> Lists </a></li>
                 <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#numbered-lists'> Numbered Lists </a></li>
-                <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#multi-column'> Multi Column </a></li>
+                <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#multi-column'> Multicolumn </a></li>
                 <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#italics'> Italics </a></li>
                 <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#bold'> Bold </a></li>
                 <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#underline'> Underline </a></li>
                 <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#font-customizations'> Other </a></li>
             </ul>
         </li>
-        <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#nav-bar'> Navigation Bar </a></li>
+        <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#nav-tree'> Navigation Tree </a></li>
         <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#links'> Inserting Links </a>
             <ul class='list-group list-group-flush py-0'>
-                <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#same-page'> Within Page </a></li>
-                <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#int-page'> Interal Page </a></li>
-                <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#ext-page'> External Page </a></li>
-                <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#ext-video'> External Video </a></li>
+                <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#same-page'> Within </a></li>
+                <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#int-page'> MechRef </a></li>
+                <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#ext-page'> External </a></li>
+                <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#ext-video'> Video </a></li>
             </ul>
         </li>
         <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#callout-cards'> Callout Cards </a>
@@ -134,6 +134,11 @@ When relevant, we've tried to maintain the LateX naming scheme for ease of use b
     When clicking on template code blocks, the code in the block will be copied to your clipboard.
 </p>
 
+<p>
+    Potential solutions to common problems when creating pages are on the <a href="/about/troubleshooting">troubleshooting page</a>.
+    If a problem is still unsolvable after consulting the troubleshooting page, please submit an official issue on the github. 
+</p>
+    
 </Section>
 
 <SubSection title="Components" id="components">
@@ -266,9 +271,13 @@ Remember, these pages are supposed to be reference material, not a textbook. Kee
 
 </SubSubSection>
 
+<hr>
+
 <Section title="Title" id="example-page">
 <p>TEXT</p>
 </Section>
+
+<hr>
 
 <SubSubSection id="sub-section" title="Page Sections" >
 
@@ -293,9 +302,13 @@ Remember, these pages are supposed to be reference material, not a textbook. Kee
 
 </SubSubSection>
 
+<hr>
+
 <SubSection title="Section" id="example-section">
     <p>TEXT</p>
 </SubSection>
+
+<hr>
 
 <SubSubSection id="sub-sub-section" title="Page Sub Sections" >
 
@@ -320,9 +333,13 @@ Remember, these pages are supposed to be reference material, not a textbook. Kee
 
 </SubSubSection>
 
+<hr>
+
 <SubSubSection title="SubSection" id="example-sub-section">
     <p>TEXT</p>
 </SubSubSection>
+
+<hr>
 
 <SubSubSection id="sub-sub-sub-section" title="Page Sub Sub Sections" >
 
@@ -347,11 +364,13 @@ Remember, these pages are supposed to be reference material, not a textbook. Kee
 
 </SubSubSection>
 
+<hr>
+
 <SubSubSubSection title="SubSubSection" id="example-sub-sub-section">
     <p>TEXT</p>
 </SubSubSubSection>
 
-
+<hr>
     
 <SubSection title="Paragraph and Font Options" id="paragraph-font">
     <p>TEXT</p>
@@ -436,7 +455,7 @@ Remember, these pages are supposed to be reference material, not a textbook. Kee
 
 </SubSubSection>     
 
-<SubSubSection title="Multi Column" id="multi-column">
+<SubSubSection title="Multicolumn" id="multi-column">
     <CodeBox language="javascript" code=`
     import Row from "../../components/Row.astro"
     import Col from "../../components/Col.astro"
@@ -710,7 +729,7 @@ Remember, these pages are supposed to be reference material, not a textbook. Kee
 
 </SubSubSection> 
 
-<SubSection title="Navigation Bar" id="nav-bar">
+<SubSection title="Navigation Tree" id="nav-tree">
 
     <p>Tag type: Regular</p>
     
