@@ -46,6 +46,7 @@ import Item from "../../components/Item.astro";
             <p>
                 <strong>Failure Condition:</strong>
                 <InlineEquation equation="\\sigma_{1} > S_{ut} \\quad \\text{or} \\quad \\sigma_{3} < -S_{uc}"/>
+                <!-- TODO: There is a mismatch between the sigmas here and in the figures. -->
             </p>
             <p>
                 Where:
@@ -156,13 +157,14 @@ import Item from "../../components/Item.astro";
             <InlineEquation equation="\K \\geq K_c"/>
         </p>
         <p>
-            Failure due to brittle fracture occurs when the <strong>Stress Intensity Factor</strong> <InlineEquation equation="K"/> exceeds a material's <strong>Fracture Toughness</strong><InlineEquation equation="K_c"/>
+            Failure due to brittle fracture occurs when the <strong>Stress Intensity Factor</strong> <InlineEquation equation="K"/>
+            exceeds a material's <strong>Fracture Toughness </strong><InlineEquation equation="K_c"/>
         </p>
         <p>
             We can compute the stress intensity factor according to
         </p>
         <p>
-            <InlineEquation equation=" K = Y \\sigma \\sqrt{\pi a}"/>
+            <InlineEquation equation=" K = Y \\sigma \\sqrt{\\pi a}"/>
         </p>
         <p>
             Where:
@@ -197,7 +199,7 @@ import Item from "../../components/Item.astro";
         <p>
             Each failure theory provides unique insights into material behavior. While von Mises theory is best for
             ductile materials, brittle materials require normal stress theory or fracture mechanics. Altogether, it is
-            the responsibility of an engineer to identify the most appropriate theory and apply it to determine if a component will work as intended. 
+            the responsibility of an engineer to identify the most appropriate theory and apply it to determine if a component will work as intended.
         </p>
     </SubSubSection>
 </Layout>
