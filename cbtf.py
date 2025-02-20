@@ -126,7 +126,7 @@ all_content_pages = os.listdir(os.path.join(home, 'sta')) + os.listdir(os.path.j
 
 all_content_pages = [p for p in all_content_pages if p[-5:] == '.html']
 
-hrefs ={'/'+p.replace('.html', ''): '/'+p for p in all_content_pages}
+hrefs ={'/'+p.replace('.html"', ''): '/'+p+'"' for p in all_content_pages}
 
 for dir in ['dyn', 'sta', 'sol']:
     pages = [p for p in os.listdir(os.path.join(home, dir)) if p[-5:] == '.html']

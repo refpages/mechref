@@ -6,7 +6,7 @@ tsconfig.json
 
 # build output
 dist/
-
+old_cbtf.sh
 # generated types
 .astro/
 .vscode
