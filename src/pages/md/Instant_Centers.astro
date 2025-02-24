@@ -1,0 +1,218 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Section from "../../components/Section.astro";
+import SubSection from "../../components/SubSection.astro";
+import SubSubSection from "../../components/SubSubSection.astro";
+import SubSubSubSection from "../../components/SubSubSubSection.astro";
+import CalloutContainer from "../../components/CalloutContainer.astro";
+import CalloutCard from "../../components/CalloutCard.astro";
+import InlineEquation from "../../components/InlineEquation.astro";
+import DisplayEquation from "../../components/DisplayEquation.astro";
+import Image from "../../components/Image.astro"
+import DisplayTable from "../../components/DisplayTable.astro";
+import Warning from "../../components/Warning.astro";
+import InlineCanvas from "../../components/InlineCanvas.astro";
+import Item from "../../components/Item.astro";
+import Itemize from "../../components/Itemize.astro";
+import Enumerate from "../../components/Enumerate.astro";
+
+
+---
+
+<Layout title="Instant Centers">
+
+    <div slot="navtree">
+        <ul class='list-group list-group-flush py-0'> 
+            <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#IC_intro'>Instant Centers Intro</a>
+            <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Finding_IC'>Finding Instant Centers</a>
+                <ul class='list-group list-group-flush py-0'> 
+                    <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#r1'>Rule 1</a></li>
+                    <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#r2'>Rule 2</a></li>
+                    <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#r3'>Rule 3</a></li>
+                    <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#r4'>Rule 4</a></li>
+                    <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#r5'>Rule 5</a></li>
+                </ul>
+            </li>
+            <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Using_IC'>Using Instant Centers</a>
+        </ul>
+    </div>
+
+
+
+    <SubSection id="IC" title="Instant Centers Intro">
+        <p>
+            From previous experiences with mechanisms, one may recall that any rigid body has an angular velocity.
+            Furthermore, one may recall that an angular velocity can create a linear velocity according to the equation:
+
+        </p>
+
+
+        <DisplayEquation title="Velocity Calculation for Rigid Body" id="IC_1" background="True"
+                         equation="\ v_a=v_b + r_{b \\rightarrow a} \\times \\omega"/>
+
+
+        <Image src="/md/Instant Centers/Rigid_body_velocity_3_1.png" width="5">
+            Figure 1: Velocity Calculation for Rigid Body </Image>
+
+
+        <p>
+        In this figure Where <InlineEquation equation="\A" /> is the velocity of the point attached to the rigid body that we are interested in,
+            <InlineEquation equation="\B" /> is another point that we know the velocity of on the rigid body, <InlineEquation equation="\ r_{b \\rightarrow a}" />
+            is the position vector from point <InlineEquation equation="\A" /> to <InlineEquation equation="\B" />, and
+            <InlineEquation equation="\\omega" /> is the angular velocity of the rigid body.
+        </p>
+
+        <p>
+            If we look closer at the above equation, we can see that by changing the position of point <InlineEquation equation="\A" />,
+            we will change <InlineEquation equation="\ r_{b \\rightarrow a}" />, which will change <InlineEquation equation="\ v_a" />. This means that for <strong>any</strong>
+            value of <InlineEquation equation="\ v_a" /> we can find a position <InlineEquation equation="\A" /> that will make the equation hold true.
+            <strong>Note: This point may not be on the rigid body.</strong>  This is okay, we just need to treat the point
+            <InlineEquation equation="\A" /> as if it were connected to the same rigid body, even if it is not.
+
+        </p>
+
+        <p>
+            Lets now consider a <strong>pair</strong> of two rigid bodies. We know that each of these rigid bodies may
+            have its own <InlineEquation equation="\\omega" />. However, since we know we can select a point <InlineEquation equation="\A" /> so that it can have any velocity,
+            that means that we can find a point where the velocities of both rigid bodies are the same. More precisely,
+            if we know the velocity of point <InlineEquation equation="\B" /> on rigid body <InlineEquation equation="\ 1" />,
+            and the velocity of point <InlineEquation equation="\C" /> on rigid body <InlineEquation equation="\ 2" />,
+            we can find point <InlineEquation equation="\A" /> such that:
+        </p>
+
+        <DisplayEquation title="Equal Velocities at Instant Center" id="IC_2" background="True"
+                         equation="\ v_b + r_{b \\rightarrow a} \\times \\omega_1= v_c + r_{c \\rightarrow a} \\times \\omega_2"/>
+
+        <Image src="/md/Instant Centers/Rigid_body_velocity_3.1_2.png" width="5">
+            Figure 2: Equal Velocities at Point A </Image>
+
+        <Image src="/md/Instant Centers/Rigid_body_velocity_3.2_2.png" width="5">
+            Figure 3: Velocity at A relative to B </Image>
+        <Image src="/md/Instant Centers/Rigid_body_velocity_3.3_2.png" width="5">
+            Figure 4: Velocity at A relative to C </Image>
+
+        <p>
+            We call point <InlineEquation equation="\A" /> where the linear velocities of both rigid bodies are the same the
+            <strong>Instant Center</strong>, or IC, of these two rigid bodies. This is because at a given
+                <strong>instant</strong>, we can treat point <InlineEquation equation="\A" /> as the <strong>center</strong> or axis of rotation.
+            The unique properties of instant centers allow us to quickly compute the velocities of different elements in a mechanism.
+        </p>
+
+    </SubSection>
+
+    <SubSection id="Finding_IC" title="Finding Instant Centers">
+        <p>
+            The first step in using instant centers to compute velocity information in a mechanism is to identify where
+            the instant centers are. We can find an instant center for each pair of rigid bodies in a mechanism.
+            This means that for a mechanism with <InlineEquation equation="\n" /> links, the total number of instant centers can be computed
+            using the following equation.
+        </p>
+        <DisplayEquation title="Number of Instant Centers" id="IC_3" background="True"
+                         equation="\ \\text{Number of IC's}=\\frac{n(n-1)}{2}"/>
+        <p>
+            Thus, a 4 bar mechanism would have 6 IC's, and a 6 bar mechanism would have 15. It can be easy to overlook
+            or miss an IC. One useful way of keeping track of these IC's is to make use of a simple circle diagram.
+            Begin by drawing a circle, and label points along the circumference, one point for each rigid body in the
+            mechanism. As each instant center is identified, draw a line that connects the two rigid bodies that define
+            that instant center. This creates an easy method to keep track of IC's and ensure that none are missed.
+        </p>
+        <Image src="/md/Instant Centers/IC_intro_2.png" width="5">
+            Figure 5: Circle Diagram Method for Tracking IC's </Image>
+
+        <p>
+            Once we know the number of instant centers we are looking for, there are a few simple rules that will help us find all of them.
+        </p>
+    </SubSection>
+
+        <SubSubSection id="r1" title="Rule 1: Each pin joint is an IC">
+
+            <p>
+                A pin joint constraints two or more rigid bodies to have the exact same linear
+                velocity at a point, even if they have different angular velocities. Thus, a pin joint creates an
+                instant center between those two objects
+            </p>
+            <Image src="/md/Instant Centers/IC_rule_3_1.png" width="5"> </Image>
+        </SubSubSection>
+
+
+        <SubSubSection id="r2" title="Rule 2: Kennedy's Theorem">
+
+            <p>
+                3 bodies that are in the same plane will have their instant centers lie along a line.
+            </p>
+            <p>
+                Commonly called Kennedy's theorem, this rule is often used to find the instant centers between rigid bodies that are not in contact with one another. From our number of instant centers equation, we know that 3 bodies will have <InlineEquation equation="\ \\frac{3(3-1)}{2}=3" />   IC's. If we can find two of them, then we know that the third instant center must also be on the line that passes through the previous two.
+            </p>
+            <p>
+                If we are able to do this process with another set of instant centers, we can get two different lines that the instant center must lie on. Since the instant center must be on both of these lines, it must exist at the intersection of the two lines.
+            </p>
+            <Image src="/md/Instant Centers/IC_rule_3_2.png" width="5"> </Image>
+        </SubSubSection>
+
+        <SubSubSection id="r3" title="Rule 3: Sliding Joints">
+
+            <p>
+                The IC for a sliding joint is located at an infinite distance away from the mechanism, perpendicular to the sliding direction.
+            </p>
+            <p>
+                In a sliding joint, there is no rotation, so how can two objects ever have the same linear velocity? By placing the instant center at infinity, we can treat the motion of the slider as a having a very small omega, and a very large radius, giving us an approximately linear motion. As the radius goes to infinity, the velocity will approach perfectly linear motion.
+            </p>
+            <Image src="/md/Instant Centers/IC_rule_4_3.png" width="5"> </Image>
+        </SubSubSection>
+
+        <SubSubSection id="r4" title="Rule 4: Rolling without Slipping">
+
+            <p>
+                For two bodies in rolling contact without slipping, the contact point is their IC.
+            </p>
+            <p>
+                If two bodies are rolling without slipping, they must have the same velocity at the contact point, meaning that this point is an instant center.
+            </p>
+            <Image src="/md/Instant Centers/IC_rule_4.png" width="5"> </Image>
+        </SubSubSection>
+
+        <SubSubSection id="r5" title="Rule 5: Rolling without Slipping">
+
+            <p>
+                For two bodies in rolling contact with slipping, which we can think of as a combination of rolling (IC at contact point) and sliding (IC at infinity). As a result, we can deduce that the IC lies on a line normal to their plane of contact. Additionally, the IC lies on the same line as their common centers of rotation according to Kennedy's theorem. The third body can be thought of as the ground link, hence the pivots are two instant centers.
+            </p>
+            <Image src="/md/Instant Centers/IC_rule_5.png" width="5"> </Image>
+        </SubSubSection>
+
+
+
+    <SubSection id="Using_IC" title="Using Instant Centers">
+        <p>
+        Now that we have a method to reliably find the instant centers of a mechanism, we can use these instant centers to find the velocities of different elements of the mechanism.
+        </p>
+        <p>
+            We can use instant centers to easily find the ratio of velocities between different elements. Any given point <InlineEquation equation="\ p" /> can only have one translational velocity, <InlineEquation equation="\ v_p" />. However, at an instant center, we know that these translational velocities are equivalent for two different rigid bodies.
+        </p>
+        <p>
+            Thus, if we have velocity information for one element in a mechanism (angular or translational) we can use that to find velocity information for other elements.
+        </p>
+        <p>
+            We can look at the following example to see this in more detail
+            <Enumerate>
+                <Item> Begin by listing known information. In this case, we know the link lengths of a mechanism, as well as the angular velocity of the crank.<Image src="/md/Instant Centers/IC_example_1.1.png" width="5"> </Image></Item>
+                <Item>Next, compute all of the instant centers on the mechanism.</Item>
+                <Item>We then can consider the crank of the mechanism. We know that the pin between the crank and ground is an instant center. Since the ground link has a velocity of 0 everywhere, the crank will have a velocity of 0 at that location. Let's call the crank body 2, and the ground link body 1.</Item>
+                <Item>Then, select another grounded linkage. This is the link that we will analyze. Let's call that body 3. Body 1 and body 3 will share an instant center, which we will call <InlineEquation equation="\ A" />.</Item>
+                <Item>
+                    Using <InlineEquation equation="\ v_a=v_{IC_{1,2}}+r_{IC_{1,2} \\rightarrow a} \\times \\omega_2" /> we can substitute in for <InlineEquation equation="\ v_{IC_{1,2}}$, $r_{IC_{1,2} \\rightarrow a}" /> and <InlineEquation equation="\ \\omega_2" /> to find <InlineEquation equation="\ v_a" />.<Image src="/md/Instant Centers/IC_example_1.2.png" width="5"> </Image>
+                </Item>
+                <Item>We can reuse the above equation, but instead consider that point <InlineEquation equation="\ A" /> is also attached to body 3. Thus, we could consider the velocity of point <InlineEquation equation="\ A" /> as coming from the rotation of body 3 rather than the rotation of body 2. We would write this equation as <InlineEquation equation="\ v_a=v_c+r_{c \\rightarrow a} \\times \\omega_3" />. </Item>
+                <Item>The biggest issue here is that we do not know where to place point <InlineEquation equation="\ C" /> so that we know its velocity. If we place it at point <InlineEquation equation="\ A" />, the radius will be 0, and we will be unable to compute <InlineEquation equation="\ \\omega_3" />. However, there is another location where we know the velocity of a point on body 3. If we consider <InlineEquation equation="\ IC_{1,3}" /> we know that the ground has a velocity of 0 everywhere. Thus, at <InlineEquation equation="\ IC_{1,3}" />, the ground and body 3 have the same speed, 0. </Item>
+                <Item>This allows us to write <InlineEquation equation="\ v_a=0+r_{IC_{1,3} \\rightarrow a} \\times \\omega_3" />. Since we know all of these values except <InlineEquation equation="\ \\omega_3" />, we can then solve for <InlineEquation equation="\ \\omega_3" />. </Item>
+                <Item>Now that <InlineEquation equation="\ \\omega_3" /> is known, we can compute <InlineEquation equation="\ V_b" />, and <InlineEquation equation="\ \\omega_4" />. Additionally, this procedure can be repeated to find the velocities of all links in a mechanism.<Image src="/md/Instant Centers/IC_example_2.3.png" width="5"> </Image></Item>
+            </Enumerate>
+            Using this style of procedure, we can use instant centers to compute the velocities of different elements of any mechanism.
+        </p>
+    </SubSection>
+
+
+
+
+
+
+</Layout>
