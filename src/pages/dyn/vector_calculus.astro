@@ -738,18 +738,18 @@ import InlineCanvas from "../../components/InlineCanvas.astro"
     <b>Polar:</b>
   </p>
 
-    <DisplayEquation equation= "\\vec{v} = \\dot{r} \\hat{e}_r + \\dot{r} \\dot{\\theta} \\hat{e}_\\theta"/>
+    <DisplayEquation equation= "\\vec{v} = \\dot{r} \\hat{e}_r + r \\dot{\\theta} \\hat{e}_\\theta"/>
 
 
 <ul>
-   <li> Reduce <InlineEquation equation="\\dot{r} , r\\dot{\\theta}" />  to just <InlineEquation equation="\\dot{r}" /> and <InlineEquation equation="\\dot{\\theta}" /> before integrating. </li>
-   <li> Integrate scalars <InlineEquation equation="(\\dot{r} , r\\dot{\\theta})" /> rather than vector <InlineEquation equation="\\vec{v}" />. </li>
+   <li> Rearrange <InlineEquation equation="\\dot{r} , r\\dot{\\theta}" />  to just obtain expressions for <InlineEquation equation="\\dot{r}" /> and <InlineEquation equation="\\dot{\\theta}" /> before integrating. </li>
+   <li> Integrate scalars <InlineEquation equation="(\\dot{r} , \\theta)" /> rather than vector <InlineEquation equation="\\vec{v}" />. </li>
 </ul>
  <p>
     Basic idea:
   </p>
     <ol>
-      <li>Reduce the vector equations to scalae equations.</li>
+      <li>Reduce the vector equations to scalar equations.</li>
       <li>Integrate coordinates</li>
       <li>Reconstruct position vector</li>
     </ol>
