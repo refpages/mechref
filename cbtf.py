@@ -104,9 +104,11 @@ links_to_replace = {
     "href=\"/sta\"": "href=\"../sta.html\"",
     "href=\"/sol\"": "href=\"../sol.html\"",
     "href=\"/dyn\"": "href=\"../dyn.html\"",
+    "href=\"/thermodynamics\"": "href=\"../thermodynamics\"",
     "href=\"/sta/": "href=\"../sta/",
     "href=\"/sol/": "href=\"../sol/",
     "href=\"/dyn/": "href=\"../dyn/",
+    "href=\"/thermodynamics/": "href=\"../thermodynamics/",
     "\"link\":\"/sta": "\"link\":\"../sta",
     "\"link\":\"/dyn": "\"link\":\"../dyn",
     "\"link\":\"/sol": "\"link\":\"../sol",
@@ -115,6 +117,7 @@ links_to_replace = {
     "src=\"/sta/": "src=\"../sta/",
     "src=\"/sol/": "src=\"../sol/",
     "src=\"/dyn/": "src=\"../dyn/",
+    "src=\"/thermodynamics/": "src=\"../thermodynamics/",
     "href=\"${e['item']['link']}\"": "href=\"..${e['item']['link']}\"",
     "url(/fonts/source-sans-pro/SourceSansPro-Regular.otf": "url(../fonts/source-sans-pro/SourceSansPro-Regular.otf",
     "url(/fonts/source-sans-pro/SourceSansPro-Semibold.otf": "url(../fonts/source-sans-pro/SourceSansPro-Semibold.otf",
@@ -122,13 +125,13 @@ links_to_replace = {
     "url(/fonts/Montserrat-Bold.ttf": "url(../fonts/Montserrat-Bold.ttf"
 }
 
-all_content_pages = os.listdir(os.path.join(home, 'sta')) + os.listdir(os.path.join(home, 'sol')) + os.listdir(os.path.join(home, 'dyn'))
+all_content_pages = os.listdir(os.path.join(home, 'sta')) + os.listdir(os.path.join(home, 'sol')) + os.listdir(os.path.join(home, 'dyn'))+ os.listdir(os.path.join(home, 'thermodynamics'))
 
 all_content_pages = [p for p in all_content_pages if p[-5:] == '.html']
 
 hrefs ={'/'+p.replace('.html"', ''): '/'+p+'"' for p in all_content_pages}
 
-for dir in ['dyn', 'sta', 'sol']:
+for dir in ['dyn', 'sta', 'sol', 'thermodynamics']:
     pages = [p for p in os.listdir(os.path.join(home, dir)) if p[-5:] == '.html']
     for page in pages:
         print(page)
@@ -178,15 +181,18 @@ links_to_replace = {
     "href=\"/sta\"": "href=\"./sta.html\"",
     "href=\"/sol\"": "href=\"./sol.html\"",
     "href=\"/dyn\"": "href=\"./dyn.html\"",
+    "href=\"/thermodynamics\"": "href=\"./thermodynamics.html\"",
     "href=\"/sta/": "href=\"./sta/",
     "href=\"/sol/": "href=\"./sol/",
     "href=\"/dyn/": "href=\"./dyn/",
+    "href=\"/thermodynamics/": "href=\"./thermodynamics/",
     "\"link\":\"/sta": "\"link\":\"./sta",
     "\"link\":\"/dyn": "\"link\":\"./dyn",
     "\"link\":\"/sol": "\"link\":\"./sol",
     "src=\"/sta/": "src=\"./sta/",
     "src=\"/sol/": "src=\"./sol/",
     "src=\"/dyn/": "src=\"./dyn/",
+    "src=\"/thermodynamics/": "src=\"./thermodynamics/",
     "href=\"${e['item']['link']}\"": "href=\".${e['item']['link']}\"",
     "src=\"/light-menu.png\"": "src=\"./light-menu.png\"",
     "src=\"/dark-menu.png\"": "src=\"./dark-menu.png\"",
@@ -199,13 +205,13 @@ links_to_replace = {
     "url(/fonts/Montserrat-Bold.ttf": "url(./fonts/Montserrat-Bold.ttf"
 }
 
-all_content_pages = os.listdir(os.path.join(home, 'sta')) + os.listdir(os.path.join(home, 'sol')) + os.listdir(os.path.join(home, 'dyn'))
+all_content_pages = os.listdir(os.path.join(home, 'sta')) + os.listdir(os.path.join(home, 'sol')) + os.listdir(os.path.join(home, 'dyn')) + os.listdir(os.path.join(home, 'thermodynamics'))
 
 all_content_pages = [p for p in all_content_pages if p[-5:] == '.html']
 
 hrefs ={'/'+p.replace('.html', ''): '/'+p for p in all_content_pages}
 
-for page in ['index.html', 'dyn.html', 'sta.html', 'sol.html', "about.html"]:
+for page in ['index.html', 'dyn.html', 'sta.html', 'sol.html', "about.html", 'thermodynamics.html']:
     print(page)
     with open(os.path.join(home, page), 'r') as file:
         data = file.read()
@@ -227,7 +233,7 @@ special_rewrites = {
     "<script src=\./static/js/themes.js\">": "<script src=\"./static/js/themes.js\">"
 }
 
-for dir in ['dyn', 'sta', 'sol']:
+for dir in ['dyn', 'sta', 'sol','thermodynamics']:
     pages = [p for p in os.listdir(os.path.join(home, dir)) if p[-5:] == '.html']
     for page in pages:
         print(page)
@@ -240,7 +246,7 @@ for dir in ['dyn', 'sta', 'sol']:
         with open(os.path.join(home, os.path.join(dir, page)), 'w') as file:
             file.write(data)
 
-for page in ['index.html', 'dyn.html', 'sta.html', 'sol.html', "about.html"]:
+for page in ['index.html', 'dyn.html', 'sta.html', 'sol.html', "about.html", 'thermodynamics.html']:
     print(page)
     with open(os.path.join(home, page), 'r') as file:
         data = file.read()

@@ -43,7 +43,7 @@
     <div class="d-flex flex-column align-items-left mb-0 mb-xl-4 ps-3 mt-3 w-100" id="hideable-container">
         {(page && course) &&
         <p class="mb-2 fw-bold h5 text-decoration-underline themed-text">Current page:</p> 
-        <button class="btn d-inline-flex align-items-center rounded collapsed sidebar-btn p-0 mb-1" data-bs-toggle="collapse" data-bs-target="#navtree-collapse">
+        <button class="btn d-inline-flex align-items-center rounded sidebar-btn p-0 mb-1" data-bs-toggle="collapse" data-bs-target="#navtree-collapse">
             
             <p class='text-start themed-text my-0 h5 fw-bold text-wrap '>{name}</p>
         </button>
@@ -56,3 +56,25 @@
     </div>
     
 </div>
+
+<script is:inline>
+    let untouched = true;
+
+    if ($('body').width() >= 1200){
+        document.querySelector('#navtree-collapse').classList.add('show');
+    }else{
+        document.querySelector('#navtree-collapse').classList.remove('show');
+    }
+
+    $(window).on('resize', function(){
+        if (untouched){
+            if ($('body').width() >= 1200){
+                document.querySelector('#navtree-collapse').classList.add('show');
+            }else{
+                document.querySelector('#navtree-collapse').classList.remove('show');
+            }
+        }
+    })
+
+    $('.sidebar-btn').on('click', function(){untouched = false})
+</script>
