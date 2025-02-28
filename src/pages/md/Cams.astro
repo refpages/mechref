@@ -1,0 +1,265 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Section from "../../components/Section.astro";
+import SubSection from "../../components/SubSection.astro";
+import SubSubSection from "../../components/SubSubSection.astro";
+import SubSubSubSection from "../../components/SubSubSubSection.astro";
+import CalloutContainer from "../../components/CalloutContainer.astro";
+import CalloutCard from "../../components/CalloutCard.astro";
+import InlineEquation from "../../components/InlineEquation.astro";
+import DisplayEquation from "../../components/DisplayEquation.astro";
+import Image from "../../components/Image.astro"
+import DisplayTable from "../../components/DisplayTable.astro";
+import Warning from "../../components/Warning.astro";
+import InlineCanvas from "../../components/InlineCanvas.astro";
+import Item from "../../components/Item.astro";
+import Itemize from "../../components/Itemize.astro";
+import Enumerate from "../../components/Enumerate.astro";
+
+
+---
+
+<Layout title="Cams">
+
+    <div slot="navtree">
+        <ul class='list-group list-group-flush py-0'> 
+            <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Cam_intro'>Cams  Intro</a>
+            <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Motion_programing'> Motion Programing</a>
+            <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Cam_profiles'>Cam Profiles</a>
+            <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Profile_selection'>Cam Profile Selection</a>
+            <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Function_transformation'>Function Transformation</a>
+        </ul>
+    </div>
+
+
+
+    <SubSection id="Cam_intro" title="Introduction to Cams">
+
+        <p>
+            Cams are mechanical devices that allow a design to convert an input motion into pre-programmed output motion. A cam mechanism is comprised of two main components: the <strong>cam</strong> and the <strong>follower</strong>. The follower is in constant contact with the cam and, as the cam moves, it follows the geometry of the cam to produce an output motion.
+        </p>
+        <p>
+            Cams come in all shapes and sizes, resulting in many useful characterizations of their form and function. Cam geometries can be split into three categories:
+        </p>
+        <Itemize>
+            <Item>Radial - The follower's motion is perpendicular to the cam's axis of rotation.</Item>
+            <Item>Cylindrical - The follower's motion is parallel to the cam's axis of rotation.</Item>
+            <Item>Axial - The cam itself slides on a linear path.</Item>
+        </Itemize>
+
+        <!--<Image src="/md/Cams/Three_Cam_Types.png" width="5">
+            Figure 1: Cam Geometries </Image>-->
+        <Image src="/md/Cams/GIF/Radial Cam gif.gif" width="3">
+             Radial Cam</Image>
+        <Image src="/md/Cams/GIF/Cylindrical Cam2.gif" width="3">Cylindrical Cam
+        </Image>
+        <Image src="/md/Cams/GIF/Axial Cam gif3.gif" width="3">Axial Cam
+        </Image>
+
+        <p>
+            Followers are ideally 1-DOF mechanisms. Two methods to restrict the follower's degree of freedom are:
+        </p>
+        <Itemize>
+            <Item>Rotating - The follower is restricted to rotate about an axis.</Item>
+            <Item>Translating - The follower is restricted to slide inside a channel.</Item>
+        </Itemize>
+
+
+        <Image src="/md/Cams/Rotating_vs_Translating_Follower.png" width="5">
+            Figure 2: Follower Motion Types </Image>
+
+        <p>
+            Followers must be in constant contact with the cam to ensure it follows the cam's geometry. Two methods of achieving constant contact are:
+        </p>
+        <Itemize>
+            <Item>Force closed - The follower is pressed into the cam by a force, e.g. from a spring or gravity.</Item>
+            <Item> Form closed - The follower is held in place by the geometry of the cam.</Item>
+        </Itemize>
+
+        <Image src="/md/Cams/Force_vs_Form_Closed.png" width="5">
+            Figure 3: Follower Closure Types </Image>
+
+        <p>
+            The point of contact between the follower and the cam is a major source of friction and wear, making the design of the follower is extremely important. The follower's shape can be generally placed in two categories:
+        </p>
+        <Itemize>
+            <Item>Roller - A small wheel on the follower rolls along the cam's profile. This has the least friction, but is expensive to manufacture and maintain.</Item>
+            <Item> Static - There are no moving parts on the follower, and the follower simply slides along the cam's profile. There are multiple static geometries to choose from, such as mushroom, flat-faced, and knife-edge.</Item>
+        </Itemize>
+
+        <Image src="/md/Cams/Roller_vs_Static_Follower.png" width="5">
+            Figure 4: Follower Shapes</Image>
+        <p>
+            The pressure angle <InlineEquation equation="\\phi" /> is defined as the angle between the velocity of the follower and the direction of the axis of transmission. A high pressure angle can cause excessive friction and wear and can even jam the mechanism. The pressure angle should not exceed <InlineEquation equation="\ 30^\\circ" /> for translating followers and <InlineEquation equation="\ 35^\\circ" /> for rotating followers.
+        </p>
+
+        <Image src="/md/Cams/Pressure_Angle3.png" width="5">
+            Figure 5: Pressure Angle</Image>
+
+    </SubSection>
+
+    <SubSection id="Motion_programing" title="Motion Programing">
+        <p>
+            The easiest way to design a cam profile is to divide the follower's motion into a piecewise function <InlineEquation equation="\ s (\\theta)" />, whose domain is <InlineEquation equation="\ [0^\\circ,360^\\circ)" />. Each subdomain is assigned one of the following three functions:
+        </p>
+
+        <Itemize>
+            <Item>Dwell - The follower is maintained at a constant position.</Item>
+            <Item> Rise - The follower is raised to desired position.</Item>
+            <Item> Fall - The follower is lowered to a desired position.</Item>
+        </Itemize>
+
+        <Image src="/md/Cams/Polynomial/s_4567_polynom_Annotated.PNG" width="7">
+            Figure 6: Demonstration of Parts of Motion Program </Image>
+        <p>
+            When designing a cam, the following variables must be considered:
+        </p>
+
+        <Itemize>
+            <Item>Displacement - <InlineEquation equation="\ s (\\theta)" /></Item>
+            <Item>Velocity - <InlineEquation equation="\ v (\\theta) =\\dot{s}(\\theta)" /></Item>
+            <Item>Acceleration - <InlineEquation equation="\ a (\\theta) =\\ddot{s}(\\theta)" /></Item>
+            <Item>Jerk - <InlineEquation equation="\ j (\\theta) =\\dddot{s}(\\theta)" /></Item>
+        </Itemize>
+
+        <p>
+            These variables can be represented by plotting their values across the entire surface of the CAM. Since we are plotting Displacement (S), Velocity (V), Acceleration (A), and Jerk (J) we call this an SVAJ plot.
+        </p>
+        <p>
+            <strong>Fundamental Law of Cam Design</strong>: When designing a cam, it is critical that the position, velocity, and acceleration of the follower motion are continuous. Additionally, the jerk must be finite because rapid changes in jerk can excite harmonics in the cam system, causing vibrations.
+        </p>
+    </SubSection>
+    <SubSection id="Cam_profiles" title="Cam Profiles">
+        <p>
+            The Fundamental Law of Cam Design helps us define boundary conditions for the rise or fall segment. Afterwards, each section can be pieced together to from a whole rotation.
+        </p>
+        <p>
+            This section includes several cam profile examples, but is by no means an exhaustive list. Each example assumes a rise-dwell-fall-swell cam profile with <InlineEquation equation="\ 90^\\circ" /> for each section. Let us first look at a trapezoidal profile to see why linear functions, though simple, are not a good idea. Think of a trapezoidal rise or fall section as a simple ramp, so the entire <InlineEquation equation="\ s (\\theta)" /> graph looks like a trapezoid. We call this the <strong>trapezoidal</strong> profile. (Note that in the below equations <InlineEquation equation="\h" /> is how high the cam rises and falls)
+        </p>
+
+
+        <DisplayEquation equation="\ s(\\theta)= \\begin{cases} 0 & 0^\\circ \\leq \\theta < 90^\\circ \\\\ \\frac{h}{90^\\circ}(\\theta-90^\\circ)& 90^\\circ \\leq \\theta < 180^\\circ  \\\\  h  & 180^\\circ \\leq \\theta < 270^\\circ \\\\ h-\\frac{h}{90^\\circ}(\\theta-270^\\circ)  & 270^\\circ\\leq \\theta < 360^\\circ  \\end{cases}" title="Trapezoidal Position" background="True" />
+
+        <Image src="/md/Cams/Linear/s_linear.png" width="7">
+            Figure 7: Trapezoidal Position </Image>
+
+        <p>
+            The position function is continuous. But taking the derivative of <InlineEquation equation="\ s(\\theta)"/>, we can see that the velocity function is not.
+        </p>
+
+        <DisplayEquation equation="\ v(\\theta)= \\begin{cases} 0                    & 0^\\circ \\leq \\theta < 90^\\circ \\\\\\frac{h}{90^\\circ}  & 90^\\circ \\leq \\theta < 180^\\circ \\\\ 0                   & 180^\\circ \\leq \\theta < 270^\\circ \\\\-\\frac{h}{90^\\circ} & 270^\\circ\\leq \\theta < 360^\\circ  \\end{cases}" title="Trapezoidal Velocity" background="True" />
+
+        <Image src="/md/Cams/Linear/v_linear.png" width="7">
+            Figure 8: Trapezoidal Velocity </Image>
+
+        <p>
+            This will result in spikes of infinite acceleration.
+        </p>
+        <Image src="/md/Cams/Linear/a_linear.png" width="7">
+            Figure 9: Trapezoidal Acceleration </Image>
+        <p>
+            Now, let's enforce continuous velocity boundary conditions where the rise and fall sections meet with the dwell section. One equation that satisfies this is a sine function similar to that of simple harmonic motion, hence we call this the <strong>simple harmonic</strong> profile. (Note that <InlineEquation equation="\\beta"/> is the angular interval of the function. For all following examples, <InlineEquation equation="\\beta=90^\\circ"/>.)
+        </p>
+
+        <DisplayEquation equation="\ v(\\theta)=\\frac{\\pi}{\\beta}\\frac{h}{2}\\sin\\left({\\frac{\\pi\\theta}{\\beta}}\\right)" title="Harmonic  Velocity" background="True" />
+
+        <Image src="/md/Cams/Harmonic/v_harmonic.png" width="7">
+            Figure 10: Harmonic Velocity </Image>
+
+        <p>
+            We can find <InlineEquation equation="\ s(\\theta)"/> for the rise section by integrating <InlineEquation equation="\ v(\\theta)"/> and enforcing the boundary conditions <InlineEquation equation="\ s(\\theta)=0"/> and <InlineEquation equation="\ s(\\theta)=h"/>, as shown below. We can also get the profile for the fall section by reflecting the rise portion by reflecting the rise portion across the horizontal axis, then shifting it upwards by <InlineEquation equation="h"/>.
+        </p>
+
+        <DisplayEquation equation="\s(\\theta)=\\frac{h}{2}\\left[1-\\cos\\left({\\frac{\\pi\\theta}{\\beta}}\\right)\\right]" title="Harmonic  Position" background="True" />
+
+        <Image src="/md/Cams/Harmonic/s_harmonic.png" width="7">
+            Figure 11: Harmonic Position </Image>
+        <p>
+            Both <InlineEquation equation="\ s(\\theta)"/> and <InlineEquation equation="\ v(\\theta)"/> are continuous. But when we consider its acceleration function, we can see that it is discontinuous at the section transitions, meaning jerk is infinite at these locations.
+        </p>
+
+        <DisplayEquation equation="\a(\\theta)=\\frac{\\pi^2}{\\beta^2}\\frac{h}{2}\\cos\\left({\\frac{\\pi\\theta}{\\beta}}\\right)" title="Harmonic  Acceleration" background="True" />
+
+        <Image src="/md/Cams/Harmonic/a_harmonic.png" width="7">
+            Figure 12: Harmonic Acceleration </Image>
+
+
+        <p>
+            Thus, a better approach to this problem is to design an acceleration function that is continuous and then integrate and apply boundary conditions to get the position and velocity equations. Let's start by prescribing a continuous sinusoidal acceleration function. The coefficient <InlineEquation equation="\ 2\\pi\\frac{h}{\\beta^2}"/> was found by integrating <InlineEquation equation="\ a(\\theta)"/> with an unknown coefficient then applying boundary conditions <InlineEquation equation="\ s(0)=0"/>, <InlineEquation equation="\ s(\\beta)=h"/>, <InlineEquation equation="\ v(\\theta)=0"/>, <InlineEquation equation="\ v(\\beta)=0"/>, <InlineEquation equation="\ a()=0"/>, <InlineEquation equation="\ a(\\beta)=0"/>. We call this a <strong>Cycloidal</strong> profile.
+        </p>
+
+        <DisplayEquation equation="\ a(\\theta)=2\\pi\\frac{h}{\\beta^2}\\sin(2\\pi\\frac{\\theta}{\\beta})" title="Cycloidal Acceleration"background="True" />
+
+        <Image src="/md/Cams/Sinusoidal/a_sinusoidal.png" width="7">
+            Figure 13: Cycloidal Acceleration </Image>
+        <p>
+            We can integrate to get the velocity and position function and differentiate to get the jerk function.
+        </p>
+
+        <DisplayEquation equation="\ s(\\theta)=h\\left[\\frac{\\theta}{\\beta}-\\frac{1}{2\\pi}\\sin\\left(2\\pi\\frac{\\theta}{\\beta}\\right)\\right]" title="Cycloidal Position"background="True" />
+
+        <Image src="/md/Cams/Sinusoidal/s_sinusoidal.png" width="7">
+            Figure 14: Cycloidal Position </Image>
+
+        <DisplayEquation equation="\ v(\\theta)=\\frac{h}{\\beta}\\left[1-\\cos\\left(2\\pi\\frac{\\theta}{\\beta}\\right)\\right]" title="Cycloidal Velocity"background="True" />
+
+        <Image src="/md/Cams/Sinusoidal/v_sinusoidal.png" width="7">
+            Figure 14: Cycloidal Velocity </Image>
+
+        <DisplayEquation equation="\ j(\\theta)=4\\pi^2\\frac{h}{\\beta^3}\\cos\\left(2\\pi\\frac{\\theta}{\\beta}\\right)" title="Cycloidal Jerk"background="True" />
+
+        <Image src="/md/Cams/Sinusoidal/j_sinusoidal.png" width="7">
+            Figure 14: Cycloidal Jerk </Image>
+
+        <p>
+            Note that the position, velocity, and acceleration functions are all continuous and the jerk is finite. However, there is still room for improvement. A steep acceleration function can still create large jumps in jerk.
+        </p>
+        InlineEquation equation="\ a(\\theta)"/>
+        <p>
+            Instead of using trigonometric functions, we can construct a polynomial position function that has continuous jerk and enforce position, velocity, acceleration, and jerk boundary conditions on it. In total, there are 8 boundary conditions <InlineEquation equation="\ s(0)=0"/>, <InlineEquation equation="\ s(\\beta)=h"/>, <InlineEquation equation="\ v(\\theta)=0"/>, <InlineEquation equation="\ v(\\beta)=0"/>, <InlineEquation equation="\ a()=0"/>, <InlineEquation equation="\ a(\\beta)=0"/>,<InlineEquation equation="\ j(j)=0"/>,<InlineEquation equation="\ j(\\beta)=0"/> so our polynomial will be degree 7 (therefore, 8 unknown coefficients).
+        </p>
+
+        <DisplayEquation equation="\ s(\\theta)=h\\sum_{k=0}^7 C_k\\left(\\frac{\\theta}{\\beta}\\right)^k" title="Polynomial Position "background="True" />
+
+        <p>
+            Solving for coefficients <InlineEquation equation="\ C_0...C_7"/> gives us:
+        </p>
+
+        <DisplayEquation equation="\ s(\\theta)=h\\left(35\\left(\\frac{\\theta}{\\beta}\\right)^4-84\\left(\\frac{\\theta}{\\beta}\\right)^5+70\\left(\\frac{\\theta}{\\beta}\\right)^6-20\\left(\\frac{\\theta}{\\beta}\\right)^7\\right)" title="4-5-6-7 Polynomial Position "background="True" />
+
+        <Image src="/md/Cams/Polynomial/s_4567 polynom.png" width="7"> Figure 15: Polynomial Position</Image>
+        <Image src="/md/Cams/Polynomial/v_4567 polynom.png" width="7"> Figure 16: Polynomial Velocity</Image>
+        <Image src="/md/Cams/Polynomial/a_4567 polynom.png" width="7"> Figure 17: Polynomial Acceleration</Image>
+        <Image src="/md/Cams/Polynomial/j_4567 polynom.png" width="7"> Figure 18: Polynomial Jerk</Image>
+
+        <p>
+            This is known as the <strong>4-5-6-7 polynomial</strong> profile. We can also use a similar process to create other profile shapes given a set of boundary conditions.
+        </p>
+
+    </SubSection>
+
+    <SubSection id="Profile_selection" title="Cam Profile Selection">
+        <p>
+            Selecting the right cam profile for your application doesn't depend solely on continuous jerk. For example, if your mechanism has weak joints but is not susceptible to vibrations, you may want to select a cam profile with low peak acceleration (e.g. modified trapezoidal). If you want to smooth out your follower motion, you may want to select a cam profile with lower peak velocity (e.g. sinusoidal). If you want to decrease the pressure angle, you may want to select a cam profile with a less aggressive slope (i.e. harmonic).
+        </p>
+        <p>
+            The following is a comparison of the rise SVAJ plots of the four profiles covered so far.
+        </p>
+        <Image src="/md/Cams/svaj.png" width="7"> Figure 19: Polynomial Jerk</Image>
+    </SubSection>
+
+    <SubSection id="Function_transformation" title="Function Transformation">
+
+        <p>
+            You may have noticed that the vertical scale has been omitted and the horizontal scale for the rise and fall sections is set arbitrarily at <InlineEquation equation="\\beta=90^\\circ"/> for all graphs so far. This is because you can achieve <strong>any</strong> vertical and horizontal scaling from a normalized rise function.
+        </p>
+
+        <p>
+            Suppose that we have a normalized rise function, <InlineEquation equation="\ s_0(\\theta)"/>, where <InlineEquation equation="\ s_0(0)=0"/> and <InlineEquation equation="\ s_0(1)=1"/>. Using function transformations, we can transform <InlineEquation equation="\ s_0(\\theta)"/> to go from any <InlineEquation equation="\ s_0(\\theta_i)=h_i"/> to <InlineEquation equation="\ s_0(\\theta_f)=h_f"/>, where <InlineEquation equation="\ \\theta_f=\\theta_i+\\beta"/>.
+        </p>
+        <DisplayEquation equation="\ s(\\theta)=(h_f-h_i)s_0\\left(\\frac{\\theta}{\\beta}-\\theta_i\\right)+h_i" title="4-5-6-7 Polynomial Position "background="True" />
+    </SubSection>
+
+
+
+</Layout>
