@@ -1,0 +1,705 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta charset="UTF-8"/>
+<title>PrairieDraw.js User Manual</title>
+<script src="sylvester.js"></script>
+<script src="sha1.js"></script>
+<script src="PrairieDraw.js"></script>
+<style>
+canvas {
+    border: 1px solid black;
+}
+</style>
+</head>
+<body>
+
+<h1>PrairieDraw.js User Manual</h1>
+
+<p>Other sources of information are the <a
+href="jsdoc-toolkit/out/jsdoc/index.html">Reference Manual</a>, the <a
+href="developerManual.html">Developer Manual</a>, and the <a
+href="http://sylvester.jcoglan.com/docs.html">Sylvester Docs</a> for
+vectors. See the <a
+href="https://developer.mozilla.org/en/JavaScript">Mozilla Developer
+Network JavaScript documentation</a> for JavaScript guides and
+references.</p>
+
+<h2>Quick-start</h2>
+
+<p>Include both <code>sylvester.js</code> (for vector and matrix
+routines) and <code>PrairieDraw.js</code>:</p>
+<pre>
+&lt;script src="sylvester.js"&gt;&lt;/script&gt;
+&lt;script src="PrairieDraw.js"&gt;&lt;/script&gt;
+</pre>
+<p>Then in the HTML body, create a canvas and a
+<code>PrairieDraw()</code> object:</p>
+<pre>
+&lt;canvas id="test" width="200" height="200"&gt;&lt;/canvas&gt;
+&lt;script type="application/javascript"&gt;
+new PrairieDraw("test", function() {
+    this.setUnits(2, 2);
+    this.line($V([0, 0]), $V([1, 1]));
+});
+&lt;/script&gt;
+</pre>
+
+<p>The <code>PrairieDraw(canvas, drawFcn)</code> constructor takes the
+canvas ID as the first argument, and a function with drawing commands
+as the second argument.</p>
+
+<h2>Coordinate systems</h2>
+
+<p>There are three different coordinate systems in use by
+PrairieDraw:</p>
+<ol>
+<li>The <em>pixel coordinates</em> used by the canvas object, with
+distances measures in pixels (technically the HTML <code>px</code> unit),
+the origin in the upper left corner, the x-axis going right and the
+y-axis going down.</li>
+<li>The <em>drawing coordinates</em> used for PrairieDraw commands,
+with the origin in the center of the canvas, the x-axis going right,
+and the y-axis going up.</li>
+<li>The <em>normalized coordinates</em> for the viewport, ranging from
+0 (left/bottom) to 1 (right/top).</li>
+</ol>
+<p>To set the horizontal and vertical canvas dimensions in drawing
+coordinates, call <code>this.setUnits(xSize, ySize)</code>. The canvas
+will be shrunk horizontally or vertically to match the requested
+aspect ratio, as necessary. The coordinates below are the result of
+calling <code>this.setUnits(6,6)</code>.</p>
+
+<p><canvas id="coords" width="200" height="200"></canvas></p>
+<script type="application/javascript">
+/* <![CDATA[ */
+new PrairieDraw("coords", function() {
+    this.setUnits(6, 6);
+    this.save();
+    for (i = -2; i <= 2; i++) {
+        this.line($V([i, -2.3]), $V([i, 2.3]), "grid");
+        this.line($V([-2.3, i]), $V([2.3, i]), "grid");
+        this.text($V([i, 0]), $V([1, 1]), String(i));
+        if (i != 0) {
+            this.text($V([0, i]), $V([1, 1]), String(i));
+        }
+    }
+    this.restore();
+    this.arrow($V([-2.8, 0]), $V([2.8, 0]));
+    this.arrow($V([0, -2.8]), $V([0, 2.8]));
+});
+/* ]]> */
+</script>
+
+<p>All vectors in PrairieDraw have drawing coordinate units, while
+quantities like line widths are generally measured in pixel
+coordinates. Each PrairieDraw command argument specifies whether it is
+drawing coordinates or pixel coordinates.</p>
+
+<h2>Vectors and drawing commands</h2>
+
+<p>Vectors in PrairieDraw use the <a
+href="http://sylvester.jcoglan.com/">Sylvester</a> library. These can
+be created with the notation <code>$V([4,3])</code>, and operated on
+like:</p>
+<pre>
+var a = $V([1, 2]);
+var b = $V([3, -1]);
+
+var c = a.e(1);     // first element, c = 1
+var d = a.add(b);   // d is a + b = (4, 1)
+var e = a.x(4);     // e is 4 * a = (4, 8)
+var f = a.dot(b);   // f is 1
+var g = a.cross(b); // g is (0, 0, 5)
+</pre>
+<p>Note that 2D vectors are automatically extended to 3D with zero
+z-component when necessary, such as for taking cross products.</p>
+
+<p>Drawing commands take vectors as arguments to describe positions, such as:</p>
+<table><tr><td>
+<canvas id="vectors" width="200" height="200"></canvas>
+<script type="application/javascript">
+/* <![CDATA[ */
+new PrairieDraw("vectors", function() {
+    this.setUnits(6, 6);
+    var O = $V([0, 0]);
+    var P = $V([2, 1]);
+    var V = $V([-1, -2]);
+
+    this.line(O, P);
+    this.line(P, P.add(V));
+});
+/* ]]> */
+</script>
+</td><td>
+<pre>
+new PrairieDraw("vectors", function() {
+    this.setUnits(6, 6);
+    var O = $V([0, 0]);
+    var P = $V([2, 1]);
+    var V = $V([-1, -2]);
+
+    this.line(O, P);
+    this.line(P, P.add(V));
+});
+</pre>
+</td></tr></table>
+
+<h2>Arrows</h2>
+
+<p>Arrows show vectors with <code>arrow(start, end, type)</code>,
+where <code>start</code> and <code>end</code> are vectors and
+<code>type</code> is an optional string indicating the meaning of the
+arrow, which determines its color (e.g., "position", "velocity",
+etc.). If <code>type</code> is not given then the arrow is drawn in
+black.</p>
+
+<p>Circle arrows show angles with <code>circleArrow(center, radius,
+startAngle, endAngle, type)</code>. The specified radius of a circle
+arrow is the radius at the center of the arrow, and the actual radius
+increases along the arrow. This means that even if the angle is
+greater than a full circle, the arrow can still represent the angle
+accurately.</p>
+
+<table><tr><td>
+<canvas id="circleArrow" width="200" height="200"></canvas>
+<script type="application/javascript">
+/* <![CDATA[ */
+new PrairieDraw("circleArrow", function() {
+    this.setUnits(6, 6);
+    var O = $V([0, 0]);
+
+    this.arrow(O, this.vector2DAtAngle(0).x(2.7), "position");
+    this.arrow(O, this.vector2DAtAngle(3/4 * Math.PI).x(2.7));
+    this.circleArrow(O, 2, 0, 3/4 * Math.PI, "angMom");
+    this.circleArrow(O, 1, 0, 11/4 * Math.PI);
+});
+/* ]]> */
+</script>
+</td><td>
+<pre>
+new PrairieDraw("circleArrow", function() {
+    this.setUnits(6, 6);
+    var O = $V([0, 0]);
+
+    this.arrow(O, this.vector2DAtAngle(0).x(2.7), "position");
+    this.arrow(O, this.vector2DAtAngle(3/4 * Math.PI).x(2.7));
+    this.circleArrow(O, 2, 0, 3/4 * Math.PI, "angMom");
+    this.circleArrow(O, 1, 0, 11/4 * Math.PI);
+});
+</pre>
+</td></tr></table>
+
+<h2>Drawing properties</h2>
+
+<p>In addition to color, there are other properties that control the
+style and thickness of lines, arrows, and other objects. These can be
+set with <code>setProp("lineWidth", 3)</code> and the current value
+can be retrieved with <code>getProp("lineWidth")</code>. The available
+properties include <code>arrowLineWidth</code>,
+<code>arrowheadLength</code>, <code>arrowheadWidthRatio</code>,
+<code>arrowheadOffsetRatio</code>, and
+<code>circleArrowWrapOffsetRatio</code>.</p>
+
+<table><tr><td>
+<canvas id="props" width="200" height="200"></canvas>
+<script type="application/javascript">
+/* <![CDATA[ */
+new PrairieDraw("props", function() {
+    this.setUnits(6, 6);
+    var O = $V([0, 0]);
+
+    this.setProp("arrowLineWidthPx", 5);
+    this.arrow(O, $V([2,2]));
+    this.setProp("arrowLineWidthPx", 10);
+    this.arrow(O, $V([2,-2]));
+});
+/* ]]> */
+</script>
+</td><td>
+<pre>
+new PrairieDraw("props", function() {
+    this.setUnits(6, 6);
+    var O = $V([0, 0]);
+
+    this.setProp("arrowLineWidthPx", 5);
+    this.arrow(O, $V([2,2]));
+    this.setProp("arrowLineWidthPx", 10);
+    this.arrow(O, $V([2,-2]));
+});
+</pre>
+</td></tr></table>
+
+<h2>Transformations</h2>
+
+<p>The action of future drawing commands can be transformed by
+<code>translate(pos)</code>, <code>rotate(ang)</code>, or
+<code>scale(factor)</code>, where both <code>pos</code> and
+<code>factor</code> are vectors.</p>
+
+<table><tr><td>
+<canvas id="trans" width="200" height="200"></canvas>
+<script type="application/javascript">
+/* <![CDATA[ */
+new PrairieDraw("trans", function() {
+    this.setUnits(6, 6);
+    var O = $V([0, 0]);
+    var P = $V([2, 2]);
+
+    this.arrow(O, P);
+    this.translate($V([1, 1]));
+    this.rotate(Math.PI/2);
+    this.arrow(O, P);
+    this.translate($V([1, 1]));
+    this.rotate(Math.PI/2);
+    this.arrow(O, P);
+});
+/* ]]> */
+</script>
+</td><td>
+<pre>
+new PrairieDraw("trans", function() {
+    this.setUnits(6, 6);
+    var O = $V([0, 0]);
+    var P = $V([2, 2]);
+
+    this.arrow(O, P);
+    this.translate($V([1, 1]));
+    this.rotate(Math.PI/2);
+    this.arrow(O, P);
+    this.translate($V([1, 1]));
+    this.rotate(Math.PI/2);
+    this.arrow(O, P);
+});
+</pre>
+</td></tr></table>
+
+<p>Transformations are accumulated, so <code>translate(p1);
+translate(p2)</code> is equivalent to
+<code>translate(p1.add(p2))</code>, for example.</p>
+
+<p>The mechanism for transformation accumulation is multiplication of
+a <em>current transformation</em> matrix <code>T</code> on the right
+by the applied transformation <code>A</code>, to give <code>M' =
+TA</code>. This transforms subsequent drawing positions <code>x</code>
+by <code>M'x = TAx</code>, so the most recently applied transformation
+acts on the position first. That is, the transformations are applied
+in the <em>reverse</em> order that they were specified. The
+alternative way to think about transformations is that they transform
+the drawing canvas, in which case we can think of them being applied
+in <em>forward</em> order.</p>
+
+<h2>Saving and restoring graphics state</h2>
+
+<p>To avoid having to remember and undo property changes and
+transformations, the graphics state (properties and transformations)
+can be saved and restored with <code>save()</code> and
+<code>restore()</code>. This uses a stack model, so many levels of
+save/restore can be nested.</p>
+
+<table><tr><td>
+<canvas id="save" width="200" height="200"></canvas>
+<script type="application/javascript">
+/* <![CDATA[ */
+new PrairieDraw("save", function() {
+    this.setUnits(6, 6);
+    var O = $V([0, 0]);
+    var P = $V([2, 2]);
+
+    this.save();
+    this.setProp("arrowLineWidthPx", 5);
+    this.translate($V([1, 1]));
+    this.rotate(Math.PI/2);
+    this.arrow(O, P);
+    this.restore();
+
+    this.arrow(O, P);
+});
+/* ]]> */
+</script>
+</td><td>
+<pre>
+new PrairieDraw("save", function() {
+    this.setUnits(6, 6);
+    var O = $V([0, 0]);
+    var P = $V([2, 2]);
+
+    this.save();
+    this.setProp("arrowLineWidthPx", 5);
+    this.translate($V([1, 1]));
+    this.rotate(Math.PI/2);
+    this.arrow(O, P);
+    this.restore();
+
+    this.arrow(O, P);
+});
+</pre>
+</td></tr></table>
+
+<h2>Text</h2>
+
+<p>Text can be drawn using <code>this.text(position, anchor,
+textString)</code>, which provides the position in 2D to draw the
+text, and the anchor point relative to the text. If
+<code>textString</code> starts with <code>TEX:</code> then the rest of
+the string is interpreted as LaTeX. To support this, the
+<code>generate_text.py</code> script must be run on the JavaScript
+file to generate the required images.</p>
+
+<table><tr><td>
+<canvas id="text" width="200" height="200"></canvas>
+<script type="application/javascript">
+/* <![CDATA[ */
+new PrairieDraw("text", function() {
+    this.setUnits(6, 6);
+    var O = $V([0, 0]);
+    var P = $V([2, 2]);
+    this.arrow(O, P);
+    this.text(O, $V([0, 1]), "TEX:$O$");
+    this.text(P, $V([0, -1]), "TEX:$P$");
+});
+/* ]]> */
+</script>
+</td><td>
+<pre>
+new PrairieDraw("text", function() {
+    this.setUnits(6, 6);
+    var O = $V([0, 0]);
+    var P = $V([2, 2]);
+    this.arrow(O, P);
+    this.text(O, $V([0, 1]), "TEX:$O$");
+    this.text(P, $V([0, -1]), "TEX:$P$");
+});
+</pre>
+</td></tr></table>
+
+<p>The anchor point coordinates are in the range -1 to 1 and specify
+the anchor point on the text bounding-box. This point is located at
+the given position. Some common anchor points are:</p>
+
+<table><tr><td>
+<canvas id="anchors" width="200" height="200"></canvas>
+<script type="application/javascript">
+/* <![CDATA[ */
+new PrairieDraw("anchors", function() {
+this.setUnits(6, 6);
+
+var xnn = $V([-1, -1]);
+var xn0 = $V([-1,  0]);
+var xnp = $V([-1,  1]);
+var x0n = $V([ 0, -1]);
+var x0p = $V([ 0,  1]);
+var xpn = $V([ 1, -1]);
+var xp0 = $V([ 1,  0]);
+var xpp = $V([ 1,  1]);
+this.point(xnn); this.text(xnn, xpp, "TEX:$(-1,-1)$");
+this.point(xn0); this.text(xn0, xp0, "TEX:$(-1, 0)$");
+this.point(xnp); this.text(xnp, xpn, "TEX:$(-1, 1)$");
+this.point(x0n); this.text(x0n, x0p, "TEX:$( 0,-1)$");
+this.point(x0p); this.text(x0p, x0n, "TEX:$( 0, 1)$");
+this.point(xpn); this.text(xpn, xnp, "TEX:$( 1,-1)$");
+this.point(xp0); this.text(xp0, xn0, "TEX:$( 1, 0)$");
+this.point(xpp); this.text(xpp, xnn, "TEX:$( 1, 1)$");
+});
+/* ]]> */
+</script>
+</td><td>
+<pre>
+</pre>
+</td></tr></table>
+
+<h2>Drawing options and PrairieDraw objects</h2>
+
+<p>User-settable options can be created with
+<code>this.addOption(name, defaultValue)</code> and then later
+accessed with <code>this.getOption(name, value)</code> and set with
+<code>this.setOption(name, value)</code> or
+<code>this.toggleOption(name)</code>. To use options, it is necessary
+to save the <code>PrairieDraw</code> object in a variable (the
+<code>optionPD</code> variable below) which can then be accessed from
+the button onclick handlers or other scripts.</p>
+
+<table><tr><td>
+<p><canvas id="options" width="200" height="200"></canvas></p>
+<script type="application/javascript">
+/* <![CDATA[ */
+optionPD = new PrairieDraw("options", function() {
+    this.addOption("drawLabels", true);
+    this.addOption("Px", 2);
+    this.setUnits(6, 6);
+    var O = $V([0, 0]);
+    var P = $V([this.getOption("Px"), 2]);
+    this.arrow(O, P);
+    if (this.getOption("drawLabels")) {
+        this.text(O, $V([0, 1]), "TEX:$O$");
+        this.text(P, $V([0, -1]), "TEX:$P$");
+    }
+});
+/* ]]> */
+</script>
+<p><button onclick="optionPD.toggleOption('drawLabels');">Toggle labels</button>
+<button onclick="optionPD.setOption('Px', -2);">Set <code>Px</code> to -2</button>
+<button onclick="optionPD.setOption('Px', 2);">Set <code>Px</code> to 2</button></p>
+</td><td>
+<pre>
+optionPD = new PrairieDraw("options", function() {
+    this.addOption("drawLabels", true);
+    this.addOption("Px", 2);
+    this.setUnits(6, 6);
+    var O = $V([0, 0]);
+    var P = $V([this.getOption("Px"), 2]);
+    this.arrow(O, P);
+    if (this.getOption("drawLabels")) {
+        this.text(O, $V([0, 1]), "TEX:$O$");
+        this.text(P, $V([0, -1]), "TEX:$P$");
+    }
+});
+</pre>
+</td></tr></table>
+
+<p>In the above drawing, the button code is:</p>
+<pre>
+&lt;button onclick="optionPD.toggleOption('drawLabels');"&gt;Toggle labels&lt;/button&gt;
+&lt;button onclick="optionPD.setOption('Px', 2);"&gt;Set &lt;code&gt;Px&lt;/code&gt; to 2&lt;/button&gt;
+&lt;button onclick="optionPD.setOption('Px', -2);"&gt;Set &lt;code&gt;Px&lt;/code&gt; to -2&lt;/button&gt;
+</pre>
+
+<h2>Animation</h2>
+
+<p>Animations have almost exactly the same form as regular drawings,
+except that a <code>PrairieDrawAnim</code> object is used instead of a
+<code>PrairieDraw</code> object, and the drawing function takes a
+parameter <code>t</code>. The parameter <code>t</code> is the
+simulation time in seconds at which the system should be drawn.</p>
+
+<table><tr><td>
+<p><canvas id="anim" width="200" height="200"></canvas></p>
+<script type="application/javascript">
+/* <![CDATA[ */
+animPD = new PrairieDrawAnim("anim", function(t) {
+    this.addOption("drawLabels", true);
+    this.setUnits(6, 6);
+    var O = $V([0, 0]);
+    var P = $V([2 * Math.cos(t), 2 * Math.sin(t)]);
+    this.arrow(O, P);
+    if (this.getOption("drawLabels")) {
+        this.labelLine(O, P, $V([-1,0]), "TEX:$O$");
+        this.labelLine(O, P, $V([1,0]), "TEX:$P$");
+        this.labelLine(O, P, $V([0,1]), "TEX:$\\vec{v}$");
+    }
+});
+/* ]]> */
+</script>
+<p><button onclick="animPD.toggleOption('drawLabels');">Toggle labels</button>
+<button onclick="animPD.toggleAnim();">Toggle animation</button></p>
+</td><td>
+<pre>
+animPD = new PrairieDrawAnim("anim", function(t) {
+    this.addOption("drawLabels", true);
+    this.setUnits(6, 6);
+    var O = $V([0, 0]);
+    var P = $V([2 * Math.cos(t), 2 * Math.sin(t)]);
+    this.arrow(O, P);
+    if (this.getOption("drawLabels")) {
+        this.labelLine(O, P, $V([-1,0]), "TEX:$O$");
+        this.labelLine(O, P, $V([1,0]), "TEX:$P$");
+        this.labelLine(O, P, $V([0,1]), "TEX:$\\vec{v}$");
+    }
+});
+</pre>
+</td></tr></table>
+
+<p>The <code>PrairieDrawAnim</code> object should be saved in a
+variable like <code>animPD</code> above, so that we can call
+<code>animPD.startAnim()</code>, <code>animPD.stopAnim()</code>, or
+<code>animPD.toggleAnim()</code>. The buttons above have code:</p>
+
+<pre>
+&lt;button onclick="animPD.toggleOption('drawLabels');"&gt;Toggle labels&lt;/button&gt;
+&lt;button onclick="animPD.toggleAnim();"&gt;Toggle animation&lt;/button&gt;
+</pre>
+
+<h2>Sequenced animations</h2>
+
+<p>For animations with several different motions in a sequence we can
+interpolate between different states with <code>state =
+this.sequence(states, transTimes, holdTimes, t)</code>. The
+<code>states</code> argument is an array of dictionaries, each
+describing the state variables. The arrays <code>transTimes</code> and
+<code>holdTimes</code> must be of the same length as
+<code>states</code>, where <code>transTimes[i]</code> is the
+transition time between state <code>i</code> and <code>i+1</code> and
+<code>holdTimes[i]</code> is the holding time at state
+<code>i</code>.</p>
+
+<p>The returned value <code>state</code> is an object with
+interpolated values the same as the state values, and
+<code>state.t</code> is the time within the current transition,
+<code>state.alpha</code> is the scaled transition proportion (between
+0 and 1), and <code>state.index</code> is the current state hold index
+(if <code>state.t == 0</code>) or the previous index for the current
+transition.</p>
+
+<table><tr><td>
+<p><canvas id="seq" width="300" height="300"></canvas></p>
+<script type="application/javascript">
+/* <![CDATA[ */
+seqPD = new PrairieDrawAnim("seq", function(t) {
+    var sStart =  {th1:  0.5, th2:   -2, th3:   -Math.PI, d: 1};
+    var sGround = {th1:  0.7, th2:    2, th3:    Math.PI, d: 0};
+    var sShelf =  {th1: -0.2, th2: -1.1, th3: -Math.PI/2, d: 0};
+    var sRest =   {th1:    1, th2:   -1, th3: -Math.PI/2, d: -1};
+    var states = [sStart, sGround, sShelf, sRest, sShelf, sGround];
+    var transTimes = [5, 5, 2, 2, 5, 5];
+    var holdTimes = [2, 2, 2, 2, 2, 2];
+    var state = this.sequence(states, transTimes, holdTimes, t);
+
+    this.setUnits(9, 7);
+    this.translate($V([0,-2]));
+    var L1 = 2, L2 = 1.8, L3 = 0.2, L4 = 0.2;
+    var G = $V([0, -0.5]);
+    var O = $V([0, 0]);
+    var OP = this.vector2DAtAngle(Math.PI/2 - state.th1).x(L1);
+    var PQ = this.vector2DAtAngle(Math.PI/2 - state.th2).x(L2);
+    var QR = this.vector2DAtAngle(Math.PI/2 - state.th3).x(L3);
+    var P = O.add(OP);
+    var Q = P.add(PQ);
+    var R = Q.add(QR);
+    var A, B;
+    var AGround = this.vector2DAtAngle(Math.PI/2 - sGround.th1).x(L1).add(
+                  this.vector2DAtAngle(Math.PI/2 - sGround.th2).x(L2)).add(
+                  this.vector2DAtAngle(Math.PI/2 - sGround.th3).x(L3));
+    var AShelf = this.vector2DAtAngle(Math.PI/2 - sShelf.th1).x(L1).add(
+                 this.vector2DAtAngle(Math.PI/2 - sShelf.th2).x(L2)).add(
+                 this.vector2DAtAngle(Math.PI/2 - sShelf.th3).x(L3));
+    var L4 = (AGround.e(2) - G.e(2)) / 2;
+    if (state.d > 0) {
+        A = AGround;
+        B = A.add($V([0, -L4]));
+    } else if (state.d < 0) {
+        A = AShelf;
+        B = A.add($V([-L4, 0]));
+    } else {
+        A = R;
+        B = A.add(QR.toUnitVector().x(L4));
+    }
+    var L5 = (AShelf.e(2) - L4 - G.e(2)) / 2;
+    var C = $V([AShelf.e(1) + 0.2, G.e(2) + L5]);
+    var D = C.add($V([-L5, 0]));
+    this.pivot(G, O, 0.5);
+    this.rod(P, Q, 0.2);
+    this.rod(O, P, 0.3);
+    this.pivot(R, Q, 0.3);
+    this.square(A, B);
+    this.square(C, D);
+    this.point(O);
+    this.point(P);
+    this.point(Q);
+    this.ground(G, $V([0, 1]), 10);
+    if (state.t == 0) {
+        this.text($V([-4.3, 5.3]), $V([-1, 1]),
+                  "state " + String(state.index) + " hold");
+    } else {
+        var ip = (state.index + 1) % states.length;
+        this.text($V([-4.3, 5.3]), $V([-1, 1]),
+                  "state " + String(state.index) + " to state " + String(ip));
+    }
+});
+/* ]]> */
+</script>
+<p><button onclick="seqPD.toggleAnim();">Toggle animation</button></p>
+</td><td>
+<pre>
+seqPD = new PrairieDrawAnim("seq", function(t) {
+    this.setUnits(9, 7);
+
+    var sStart =  {th1:  0.5, th2:   -2, th3:   -Math.PI, d: 1};
+    var sGround = {th1:  0.7, th2:    2, th3:    Math.PI, d: 0};
+    var sShelf =  {th1: -0.2, th2: -1.1, th3: -Math.PI/2, d: 0};
+    var sRest =   {th1:    1, th2:   -1, th3: -Math.PI/2, d: -1};
+    var states = [sStart, sGround, sShelf, sRest, sShelf, sGround];
+    var transTimes = [5, 5, 2, 2, 5, 5];
+    var holdTimes = [2, 2, 2, 2, 2, 2];
+    var state = this.sequence(states, transTimes, holdTimes, t);
+
+    // draw with variables state.th1, state.th2, state.th3, etc.
+});
+</pre>
+</td></tr></table>
+
+<p>There is also an externally controllable variant of sequence
+animation, accessed by <code>state = this.controlSequence(name,
+states, transTimes, t)</code>. This requires a <code>name</code> (a
+string) but does not have <code>holdTimes</code>. Instead of holding
+for a given time when it reaches a new state, a controlled sequence
+holds indefinitely until <code>this.stepSequence(name)</code> is
+called to begin the transition to the next state. Controlled sequences
+require a <code>name</code> so that the correct sequence can be
+stepped.</p>
+
+<h2>Numerical differentiation</h2>
+
+<p>Numerical differentiation is provided by the <code>data =
+this.numDiff(fcn, t)</code> function. Here <code>t</code> is the time
+at which the derivative is desired, and <code>fcn</code> is a function
+that takes time <code>t</code> and returns an object
+<code>dataNow</code> with properties (like <code>dataNow.O</code>,
+<code>dataNow.P</code>) that are numbers or vectors at time
+<code>t</code>. Then <code>data.P</code> will access the current value
+of <code>P</code>, while <code>data.diff.P</code> and
+<code>data.ddiff.P</code> will be the first and second
+derivatives.</p>
+
+<table><tr><td>
+<p><canvas id="diff" width="200" height="200"></canvas></p>
+<script type="application/javascript">
+/* <![CDATA[ */
+diffPD = new PrairieDrawAnim("diff", function(t) {
+    var computePos = function(t) {
+        var dataNow = {};
+        dataNow.O = $V([0, 0]);
+        dataNow.P = this.vector2DAtAngle(-Math.PI/2 + Math.sin(t)).x(2);
+        return dataNow;
+    }
+    var data = this.numDiff(computePos.bind(this), t);
+
+    this.setUnits(6, 5);
+    this.translate($V([0, 0.7]));
+    var G = data.O.add($V([0, 0.5]));
+    this.ground(G, $V([0, -1]), 1);
+    this.pivot(G, data.O, 0.5);
+    this.rod(data.O, data.P, 0.3);
+    this.point(data.O);
+    this.point(data.P);
+    this.text(data.O.add($V([-0.3, 0])), $V([1, 0]), "TEX:$O$");
+    this.text(data.P.add($V([0, -0.2])), $V([0, 1]), "TEX:$P$");
+
+    this.arrow(data.O, data.P, "position");
+    this.arrow(data.P, data.P.add(data.diff.P), "velocity");
+    this.arrow(data.P, data.P.add(data.ddiff.P), "acceleration");
+});
+/* ]]> */
+</script>
+<p><button onclick="diffPD.toggleAnim();">Toggle animation</button></p>
+</td><td>
+<pre>
+diffPD = new PrairieDrawAnim("diff", function(t) {
+    var computePos = function(t) {
+        var dataNow = {};
+        dataNow.O = $V([0, 0]);
+        dataNow.P = this.vector2DAtAngle(-Math.PI/2 + Math.sin(t)).x(2);
+        return dataNow;
+    }
+    var data = this.numDiff(computePos.bind(this), t);
+
+    // draw the rod and pivot
+
+    this.arrow(data.O, data.P, "position");
+    this.arrow(data.P, data.P.add(data.diff.P), "velocity");
+    this.arrow(data.P, data.P.add(data.ddiff.P), "acceleration");
+});
+</pre>
+</td></tr></table>
+
+</body>
+</html>
