@@ -184,6 +184,99 @@ import { idText } from "typescript";
         });
           ` />
   </SubSubSection>
+  <SubSubSection title="Text">
+
+    <p>
+      Text can be drawn using <code>this.text(position, anchor, textString)</code>, which provides the position in 2D to draw the text, and the anchor point relative to the text. If
+      <code>textString</code> starts with <code>TEX:</code> then the rest of the string is interpreted as LaTeX. To support this, the
+      <code>generate_text.py</code> script must be run on the JavaScript file to generate the required images.
+    </p>
+    
+    <PrairieDrawCanvas id="text" width="300" height="300" />
+    <script type="application/javascript">
+      /* <![CDATA[ */
+      new PrairieDraw("text", function () {
+        this.setUnits(6, 6);
+        var O = $V([0, 0]);
+        var P = $V([2, 2]);
+        this.arrow(O, P);
+        this.text(O, $V([0, 1]), "TEX:$O$");
+        this.text(P, $V([0, -1]), "TEX:$P$");
+      });
+      /* ]]> */
+    </script>
+    
+    <CodeBox language="javascript" code=`
+    new PrairieDraw("text", function() {
+        this.setUnits(6, 6);
+        var O = $V([0, 0]);
+        var P = $V([2, 2]);
+        this.arrow(O, P);
+        this.text(O, $V([0, 1]), "TEX:$O$");
+        this.text(P, $V([0, -1]), "TEX:$P$");
+    });
+    ` />
+    
+    <p>The anchor point coordinates are in the range -1 to 1 and specify the anchor point on the text bounding-box. This point is located at the given position. Some common anchor points are:</p>
+    
+    <PrairieDrawCanvas id="anchors" width="300" height="300" />
+    <script type="application/javascript">
+      /* <![CDATA[ */
+      new PrairieDraw("anchors", function () {
+        this.setUnits(6, 6);
+    
+        var xnn = $V([-1, -1]);
+        var xn0 = $V([-1, 0]);
+        var xnp = $V([-1, 1]);
+        var x0n = $V([0, -1]);
+        var x0p = $V([0, 1]);
+        var xpn = $V([1, -1]);
+        var xp0 = $V([1, 0]);
+        var xpp = $V([1, 1]);
+        this.point(xnn);
+        this.text(xnn, xpp, "(-1,-1)");
+        this.point(xn0);
+        this.text(xn0, xp0, "(-1, 0)");
+        this.point(xnp);
+        this.text(xnp, xpn, "(-1, 1)");
+        this.point(x0n);
+        this.text(x0n, x0p, "( 0,-1)");
+        this.point(x0p);
+        this.text(x0p, x0n, "( 0, 1)");
+        this.point(xpn);
+        this.text(xpn, xnp, "( 1,-1)");
+        this.point(xp0);
+        this.text(xp0, xn0, "( 1, 0)");
+        this.point(xpp);
+        this.text(xpp, xnn, "( 1, 1)");
+      });
+      /* ]]> */
+    </script>
+    
+    <CodeBox language="javascript" code=`
+    new PrairieDraw("anchors", function() {
+    this.setUnits(6, 6);
+    
+    var xnn = $V([-1, -1]);
+    var xn0 = $V([-1,  0]);
+    var xnp = $V([-1,  1]);
+    var x0n = $V([ 0, -1]);
+    var x0p = $V([ 0,  1]);
+    var xpn = $V([ 1, -1]);
+    var xp0 = $V([ 1,  0]);
+    var xpp = $V([ 1,  1]);
+    this.point(xnn); this.text(xnn, xpp, "(-1,-1)");
+    this.point(xn0); this.text(xn0, xp0, "(-1, 0)");
+    this.point(xnp); this.text(xnp, xpn, "(-1, 1)");
+    this.point(x0n); this.text(x0n, x0p, "( 0,-1)");
+    this.point(x0p); this.text(x0p, x0n, "( 0, 1)");
+    this.point(xpn); this.text(xpn, xnp, "( 1,-1)");
+    this.point(xp0); this.text(xp0, xn0, "( 1, 0)");
+    this.point(xpp); this.text(xpp, xnn, "( 1, 1)");
+    });
+    /* ]]> */
+    ` />
+    </SubSubSection>
   <SubSubSection title="Lines">
     <p>Lines can be drawn with <code>line(start, end)</code>. <code>start</code> and <code>end</code> should be vectors. Use <code >setProp("shapeStrokePattern", type);</code> to change the type of line. For example, <code>setProp("shapeStrokePattern", "dashed");</code> will make subsequent lines dashed, and use <code>setProp("shapeStrokePattern", "solid");</code> to revert them to solid lines.</p>
 
@@ -440,100 +533,6 @@ new PrairieDraw("save", function() {
 
     this.arrow(O, P);
 });
-` />
-</SubSection>
-
-<SubSection title="Text">
-
-<p>
-  Text can be drawn using <code>this.text(position, anchor, textString)</code>, which provides the position in 2D to draw the text, and the anchor point relative to the text. If
-  <code>textString</code> starts with <code>TEX:</code> then the rest of the string is interpreted as LaTeX. To support this, the
-  <code>generate_text.py</code> script must be run on the JavaScript file to generate the required images.
-</p>
-
-<PrairieDrawCanvas id="text" width="300" height="300" />
-<script type="application/javascript">
-  /* <![CDATA[ */
-  new PrairieDraw("text", function () {
-    this.setUnits(6, 6);
-    var O = $V([0, 0]);
-    var P = $V([2, 2]);
-    this.arrow(O, P);
-    this.text(O, $V([0, 1]), "TEX:$O$");
-    this.text(P, $V([0, -1]), "TEX:$P$");
-  });
-  /* ]]> */
-</script>
-
-<CodeBox language="javascript" code=`
-new PrairieDraw("text", function() {
-    this.setUnits(6, 6);
-    var O = $V([0, 0]);
-    var P = $V([2, 2]);
-    this.arrow(O, P);
-    this.text(O, $V([0, 1]), "TEX:$O$");
-    this.text(P, $V([0, -1]), "TEX:$P$");
-});
-` />
-
-<p>The anchor point coordinates are in the range -1 to 1 and specify the anchor point on the text bounding-box. This point is located at the given position. Some common anchor points are:</p>
-
-<PrairieDrawCanvas id="anchors" width="300" height="300" />
-<script type="application/javascript">
-  /* <![CDATA[ */
-  new PrairieDraw("anchors", function () {
-    this.setUnits(6, 6);
-
-    var xnn = $V([-1, -1]);
-    var xn0 = $V([-1, 0]);
-    var xnp = $V([-1, 1]);
-    var x0n = $V([0, -1]);
-    var x0p = $V([0, 1]);
-    var xpn = $V([1, -1]);
-    var xp0 = $V([1, 0]);
-    var xpp = $V([1, 1]);
-    this.point(xnn);
-    this.text(xnn, xpp, "(-1,-1)");
-    this.point(xn0);
-    this.text(xn0, xp0, "(-1, 0)");
-    this.point(xnp);
-    this.text(xnp, xpn, "(-1, 1)");
-    this.point(x0n);
-    this.text(x0n, x0p, "( 0,-1)");
-    this.point(x0p);
-    this.text(x0p, x0n, "( 0, 1)");
-    this.point(xpn);
-    this.text(xpn, xnp, "( 1,-1)");
-    this.point(xp0);
-    this.text(xp0, xn0, "( 1, 0)");
-    this.point(xpp);
-    this.text(xpp, xnn, "( 1, 1)");
-  });
-  /* ]]> */
-</script>
-
-<CodeBox language="javascript" code=`
-new PrairieDraw("anchors", function() {
-this.setUnits(6, 6);
-
-var xnn = $V([-1, -1]);
-var xn0 = $V([-1,  0]);
-var xnp = $V([-1,  1]);
-var x0n = $V([ 0, -1]);
-var x0p = $V([ 0,  1]);
-var xpn = $V([ 1, -1]);
-var xp0 = $V([ 1,  0]);
-var xpp = $V([ 1,  1]);
-this.point(xnn); this.text(xnn, xpp, "(-1,-1)");
-this.point(xn0); this.text(xn0, xp0, "(-1, 0)");
-this.point(xnp); this.text(xnp, xpn, "(-1, 1)");
-this.point(x0n); this.text(x0n, x0p, "( 0,-1)");
-this.point(x0p); this.text(x0p, x0n, "( 0, 1)");
-this.point(xpn); this.text(xpn, xnp, "( 1,-1)");
-this.point(xp0); this.text(xp0, xn0, "( 1, 0)");
-this.point(xpp); this.text(xpp, xnn, "( 1, 1)");
-});
-/* ]]> */
 ` />
 </SubSection>
 
