@@ -29,6 +29,7 @@ import Image from "../../../components/Image.astro";
           <li class="list-group-item py-0"><a class="text-decoration-none subsubsection" href="#lines">Lines</a></li>
           <li class="list-group-item py-0"><a class="text-decoration-none subsubsection" href="#circles">Circles</a></li>
           <li class="list-group-item py-0"><a class="text-decoration-none subsubsection" href="#rectangles">Rectangles</a></li>
+          <li class="list-group-item py-0"><a class="text-decoration-none subsubsection" href="#images">Images</a></li>
         </ul>
         <li class="list-group-item py-0"><a class="text-decoration-none subsection" href="#drawing_properties">Drawing properties</a></li>
         <li class="list-group-item py-0"><a class="text-decoration-none subsection" href="#transformations">Transformations</a></li>
@@ -114,10 +115,10 @@ import Image from "../../../components/Image.astro";
 
         <p>Drawing commands take vectors as arguments to describe positions, such as:</p>
 
-        <PrairieDrawCanvas id="vectors" width="300" height="300" />
+        <PrairieDrawCanvas id="vectors_pdc" width="300" height="300" />
         <script type="application/javascript">
           /* <![CDATA[ */
-          new PrairieDraw("vectors", function () {
+          new PrairieDraw("vectors_pdc", function () {
             this.setUnits(6, 6);
             var O = $V([0, 0]);
             var P = $V([2, 1]);
@@ -419,6 +420,33 @@ import Image from "../../../components/Image.astro";
             this.rectangle(3, 4, O.add($V([-2.5, 0])), Math.PI/4, false);
             this.rectangle(4, 2, O.add($V([2.5, 0])), 0, true);
         });
+          ` />
+      </SubSubSection>
+
+      <SubSubSection title="Images" id="images">
+        <p>Images can be drawn with <code>drawImage(src, position, anchor, width)</code>. <code>src</code> is a string representing the path to the image file, <code>position</code> and  <code>anchor</code> are vectors, and <code>width</code> a float.</p> 
+        
+        <p><u>Note:</u> While using relative paths is technically possible, it is not recommended. In practice, it has been observed that depending on the environment (dev vs. production), the same relative path can be resolved to different places. Thus it is recommended to use absolute paths.</p>
+
+        <PrairieDrawCanvas id="image" width="600" height="300" />
+        <script type="application/javascript">
+          /* <![CDATA[ */
+          new PrairieDraw("image", function () {
+            this.setUnits(12, 6);
+            var O = $V([0, 0]);
+
+            this.drawImage('/about/documentation/alma.jpg', O, $V([0, 0]), 12)
+          });
+          /* ]]> */
+        </script>
+
+        <CodeBox language="javascript" code=`
+          new PrairieDraw("image", function () {
+            this.setUnits(12, 6);
+            var O = $V([0, 0]);
+
+            this.drawImage('/about/documentation/alma.jpg', O, $V([0, 0]), 12)
+          });
           ` />
       </SubSubSection>
 
