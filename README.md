@@ -18,7 +18,7 @@ Index:
 
 # Running the pages locally
 
-## <a id="windows">Windows2</a>
+## <a id="windows">Windows</a>
 
 ### Installing required programs
 
