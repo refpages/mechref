@@ -104,7 +104,7 @@ links_to_replace = {
     "href=\"/sta\"": "href=\"../sta.html\"",
     "href=\"/sol\"": "href=\"../sol.html\"",
     "href=\"/dyn\"": "href=\"../dyn.html\"",
-    "href=\"/thermodynamics\"": "href=\"../thermodynamics\"",
+    "href=\"/thermodynamics\"": "href=\"../thermodynamics.html\"",
     "href=\"/sta/": "href=\"../sta/",
     "href=\"/sol/": "href=\"../sol/",
     "href=\"/dyn/": "href=\"../dyn/",
