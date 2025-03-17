@@ -1,0 +1,222 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Section from "../../components/Section.astro";
+import SubSection from "../../components/SubSection.astro";
+import SubSubSection from "../../components/SubSubSection.astro";
+import SubSubSubSection from "../../components/SubSubSubSection.astro";
+import CalloutContainer from "../../components/CalloutContainer.astro";
+import CalloutCard from "../../components/CalloutCard.astro";
+import InlineEquation from "../../components/InlineEquation.astro";
+import DisplayEquation from "../../components/DisplayEquation.astro";
+import Image from "../../components/Image.astro"
+import DisplayTable from "../../components/DisplayTable.astro";
+import Warning from "../../components/Warning.astro"
+import InlineCanvas from "../../components/InlineCanvas.astro";
+import Itemize from "../../components/Itemize.astro";
+import Item from "../../components/Item.astro";
+
+---
+
+<Layout title="Threaded Components">
+
+    <div slot="navtree">
+        <ul class='list-group list-group-flush py-0'> 
+            <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Intro'>Introduction to Threaded Components</a></li>
+            <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#power_screws'>Power Screws</a></li>
+            <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#bolted_connections'>Bolted Connections</a></li>
+            <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#thread_stripping'>Thread Stripping</a></li>
+
+
+        </ul>
+    </div>
+
+
+
+    <SubSection id="Intro" title="Introduction to Threaded Components">
+        <p>
+            Threaded components are any mechanical device that has spiral ridges (threads) that form a helical shape around a central cylinder. One of the most common examples of a threaded components is a screw, which uses the angled threads to create a large force along the length of the screw when a modest input torque is used to tighten the screw. However, screws are not the only mechanical components that use threads. Threads are also present in the feet used to level household appliances, in nuts, as well as bolts.  In this page, we will highlight a few tools that can be used to analyze the behavior of any threaded component.
+        </p>
+        <p>
+            While screws and bolts are often used to create a mechanical advantage, threaded components can also be used in a wide variety of other applications. Some of these other applications include:
+            <Itemize>
+                <Item><strong>Converting Motion</strong> – turning rotation into straight-line movement</Item>
+                <Item><strong>Distributing Force</strong> – sharing a load across multiple threads</Item>
+                <Item><strong>Acting as a Spring</strong> – handling force and stretching slightly under pressure</Item>
+            </Itemize>
+        </p>
+    </SubSection>
+    <SubSection id="power_screws" title="Power Screws">
+        <p>
+            <strong>Power Screws</strong> turn rotation into straight-line motion. This happens because threads form an inclined plane around the cylinder. An input torque can cause the screw to revolve around its axis. As the screw revolves, the threads can move an object along the length of the screw.
+        </p>
+
+    </SubSection>
+
+    <SubSubSection id="Lead_Angle" title="Lead Angle">
+        <p>
+        One of the most important parameters governing the behavior of a power screw is its "Lead Angle" <InlineEquation equation="\\lambda"/>. This angle represents the angle between the thread and a cross sectional cut of the threaded component. The lead angle can be found with the following equation:
+        </p>
+        <DisplayEquation title="Lead Angle Derivation" id="LA" background="True" equation="\\tan \\lambda = \\frac{L}{\\pi d_m}"/>
+    <p>
+        <Itemize>
+            <Item><strong>Pitch (p):</strong> The distance between two threads</Item>
+            <Item><strong>Lead (L):</strong> The vertical distance a screw travels in 1 full rotation (an integer multiple of the pitch if there is more than 1 thread)</Item>
+            <Item><strong>Mean diameter (<InlineEquation equation="\ d_m"/>):</strong> The average of the diameters of the threads and the diameter of the shaft of the screw</Item>
+        </Itemize>
+    </p>
+        <!--
+
+        Figure here- is it too close to textbook?
+
+        -->
+
+
+    </SubSubSection>
+
+    <SubSubSection id="Thread_Angle" title="Thread Angle">
+        <p>
+            Another key angle to consider when working with threaded components is the "Thread Angle" <InlineEquation equation="\\alpha_n"/>. This represents the angle between two adjacent threads. However, when analyzing the forces on a threaded component, it is often most useful to find the
+        </p>
+        <DisplayEquation title="Lead Angle Derivation" id="LA" background="True" equation="\\tan \\lambda = \\frac{L}{\\pi d_m}"/>
+        <p>
+            <Itemize>
+                <Item><strong>Pitch (p):</strong> The distance between two threads</Item>
+                <Item><strong>Lead (L):</strong> The vertical distance a screw travels in 1 full rotation (an integer multiple of the pitch if there is more than 1 thread)</Item>
+                <Item><strong>Mean diameter (<InlineEquation equation="\ d_m"/>):</strong> The average of the diameters of the threads and the diameter of the shaft of the screw</Item>
+            </Itemize>
+        </p>
+        <!--
+
+        Figure here- is it too close to textbook?
+
+        -->
+
+
+    </SubSubSection>
+
+
+
+        <SubSubSection id="Example_Problem" title="Example Problem">
+            <p>
+                Consider the steel plate below, with a width of <InlineEquation equation="100 \\; mm"/> and a thickness of
+                <InlineEquation equation="10 \\; mm"/> is subjected to a tensile
+                force of <InlineEquation equation="20 \\; Kn"/>. The plate has a circular hole with a diameter of <InlineEquation equation="20 \\; mm"/> at its center. The stress
+                concentration factor for this geometry is given as <InlineEquation equation="\K_t = 3"/>.
+
+                <Itemize>
+                    <Item>What is the Nominal stress <InlineEquation equation="\\sigma_{nom}"/>?</Item>
+                    <Item>What is the Maximum Stress <InlineEquation equation="\\sigma_{max}"/>?</Item>
+                </Itemize>
+
+            </p>
+                <Image src="/mf/Stress Concentrations/Stress Concentrations Diagram Problem 1.png" width="7"> Figure 1: Sample stress concentration problem </Image>
+            <p>
+                Step 1: Compute the Nominal Stress
+            </p>
+            <p>
+                <InlineEquation equation="\A= (W-d) \\times t= (100 - 20) \\times 10 = 800 \\text{ mm}^2"/>
+            </p>
+            <p>
+                Thus, the nominal stress is:
+            </p>
+            <p>
+                <InlineEquation equation="\\sigma_{\\text{nom}} = \\frac{20,000 \\text{ N}}{800 \\text{ mm}^2} = 25 \\text{ MPa}"/>
+            </p>
+
+            <Warning title="Computing Cross Sectional Area" id="stress_concentration_warning">
+                The diameter of the hole must be subtracted from the height of the plate to calculate the correct cross sectional area.
+            </Warning>
+            <p>
+                Step 2: Compute the Maximum Stress
+            </p>
+            <p>
+                The maximum stress <InlineEquation equation="\\sigma_{\\text{max}}"/> at the edge of the hole is given by:
+            </p>
+            <p>
+                <InlineEquation equation="\\sigma_{\\text{max}} = K_t \\times \\sigma_{\\text{nom}}"/>
+            </p>
+            <p>
+                <InlineEquation equation="\\sigma_{\\text{max}} = 3  \\times 25 \\text{ MPa} = 75 \\text{ MPa}"/>
+            </p>
+        </SubSubSection>
+    <SubSection id="Applications" title="Application of Stress Concentrations">
+        <p>
+        <strong>What happens if the stress exceeds the yield strength of the material? Plastic Deformation</strong>
+        </p>
+        <p>
+            As we increase the stress on an object, we know that the the stress can’t keep increasing past a certain limit,
+            called the yield strength <InlineEquation equation="\S_y"/> of the material.
+        </p>
+        <p>
+            If stress exceeds the yield strength of the material, plastic deformation will occur.
+            If the stress is evenly distributed across the entire object,
+            this plastic deformation will often cause the object to fail.
+        </p>
+        <p>
+            However, if a stress concentration is present, it is possible for the <strong>maximum</strong> stress to exceed the
+            yield strength of the material, while the nominal stress remains below the material's yield strength.
+        </p>
+        <p>
+            Once yeilding occurs:
+            <Itemize>
+                <Item>Some areas reach their maximum stress limit and start deforming permanently.
+                    This means that these areas cannot bear any additional stress. </Item>
+                <Item>As a result, the stress that was supposed to be born by these area is instead redistributed to
+                    other areas in a process called load redistribution.</Item>
+                <Item>This makes the stress spread out.</Item>
+            </Itemize>
+            <Image src="/mf/Stress Concentrations/Stress Concentrations Diagram Stress Redistribution.png" width="7">
+                Figure 2: Diagram of Stress Redistribution </Image>
+            In figure 2 we can see this process in a little more detail:
+            <Itemize>
+                <Item>The orange curve shows the stress that is applied to the object assuming the material stays elastic (no permanent deformation). </Item>
+                <Item>The vertical dashed lines, <InlineEquation equation="\\sigma_{nom}"/>,<InlineEquation equation="\S_y"/>,and <InlineEquation equation="\\sigma_{max}"/> represent the nominal stress,
+                    the yield strength and the maximum stress respectively</Item>
+                <Item>he blue curve shows the redistributed stress that the material experiences after plastically
+                    deforming and redistributing the stress. Note that the nominal stress is the same, as the decrease
+                    in stress near the stress concentration is offset by an increase in the stress further away from
+                    the stress concentration. </Item>
+            </Itemize>
+        </p>
+        
+    </SubSection>
+        <SubSubSubSection id="Residual_Stress" title="Residual Stresses After Unloading">
+            <p>
+                After the external force is removed, the object will try to return to its original shape.
+                Elastic deformation will be recovered but the plastically deformed regions cannot return to their original form.
+                Due to this, some stresses remain inside the material. These are called residual stresses, and it can be
+                calculated by subtracting the elastic stress (shown in orange) from the actual stress (shown in blue).
+            </p>
+        </SubSubSubSection>
+
+
+    
+
+        <SubSection id="Design_Considerations" title="Design Considerations">
+            <p>
+                As an engineer, it is important to know when we should consider the effects of stress concentrations,
+                as well as times that the effects of stress concentrations can be safely ignored.
+            </p>
+            <p>
+                In general, stress concentrations can be safely ignored when the material in question is ductile.
+                This is because the material can yield locally, and redistribute stresses. Even if local plastic
+                deformation does occur, it is unlikely to cause the object as a whole to fail.
+            </p>
+            <p>
+                However, there are several situations were it is imperative to consider the impact of stress concentrations.
+                <Itemize>
+                    <Item>Brittle materials may fracture rather than yield locally, so a stress concentration can cause catastrophic failure. </Item>
+                    <Item>Impact or dynamic loading may cause stresses to be applied so quickly that they cannot be adequately redistributed, causing failure.</Item>
+                    <Item>Repeated loading can cause fatigue failure due to cyclic loading. In these scenarios the
+                        presence of stress concentrations can accelerate the process of fatigue failure and should be considered.  </Item>
+                </Itemize>
+            </p>
+
+    </SubSection>
+
+
+
+
+
+
+</Layout>
