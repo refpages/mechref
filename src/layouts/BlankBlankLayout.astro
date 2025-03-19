@@ -1,0 +1,174 @@
+---
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+
+const { title } = Astro.props;
+
+const current_path = Astro.url;
+const split_ = current_path.pathname.split('/')
+const cleaned = split_.slice(1, split_.length)
+
+const course = cleaned[0]
+const pagename = cleaned[1]
+---
+
+<!doctype html>
+<html lang="en" class="w-100">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="Astro description" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="icon" type="image" href="/favicon2.png" />
+		<meta name="generator" content={Astro.generator} />
+		
+		<title>{title}</title>
+
+		<link href="/bootstrap.min.css" rel="stylesheet">
+		<link href="/bootstrap-icons.min.css" rel="stylesheet">
+		
+		<script src="/bootstrap.min.js" is:inline></script>
+		
+		<script id="MathJax-script" src="/mathjax/tex-chtml.js" is:inline></script>
+		
+
+		
+		<script src="/jquery-2.1.4.min.js" is:inline></script>
+		<script src="/sha1.js" is:inline></script>
+		<script src="/sylvester.js" is:inline></script>
+		<script src="/PrairieGeom.js" is:inline></script>
+		<script src="/PrairieDraw.js" is:inline></script>
+		
+		
+		<script src="/static/js/simplified_view.js" is:inline></script>
+
+		<link rel="stylesheet" href="/static/css/lightTheme.css" id="lightTheme">
+		<link rel="stylesheet" href="/static/css/darkTheme.css" id="darkTheme" disabled>
+
+		<link rel="stylesheet" href="/static/css/tables.css">
+		<script src="/highlight.js" is:inline></script>
+		
+		<script src="/static/js/themes.js" is:inline></script>
+		<link rel="stylesheet" href="/static/css/themes.css">
+		
+		<link rel="stylesheet" href="/static/css/main.css">
+		<link rel="stylesheet" href="/static/css/sidebar.css">
+
+
+		<!-- Google tag (gtag.js) -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=G-2YD4TR8K2S"></script>
+		<script is:inline>
+			window.dataLayer = window.dataLayer || [];
+			function gtag(){dataLayer.push(arguments);}
+			gtag('js', new Date());
+
+			gtag('config', 'G-2YD4TR8K2S');
+		</script>
+	</head>
+	<body style="width: 100%;">
+		<Navbar />
+		<div class="container-xxl max-width1160 content mb-5">
+			<div class="w-100 pt-0 pt-xl-3"> 
+				<slot />
+			</div>
+		</div>
+		<Footer />
+	</body>
+</html>
+
+<style is:global>
+	@font-face {
+		font-family: 'SourceSansPro';
+		font-style: normal;
+  		font-weight: 400;
+		src: url('/fonts/source-sans-pro/SourceSansPro-Regular.otf');
+	}
+
+	@font-face {
+		font-family: 'SourceSansPro';
+		font-style: semibold;
+		font-weight: 600;
+		src: url('/fonts/source-sans-pro/SourceSansPro-Semibold.otf');
+	}
+
+	@font-face {
+		font-family: 'SourceSansPro';
+		font-style: bold;
+		font-weight: 700;
+		src: url('/fonts/source-sans-pro/SourceSansPro-Bold.otf');
+	}
+	
+	@font-face {
+		font-family: 'Montserrat';
+		font-style: bold;
+		font-weight: 700;
+		src: url('/fonts/Montserrat-Bold.ttf');
+	}
+
+	@font-face {
+		font-family: 'Font Awesome 6';
+		src: url('/fonts/pro-fa-brands-400-1.woff2');
+	}
+
+	.fa-brands{
+		font-family: "Font Awesome 6 Brands";
+		-webkit-font-smoothing: antialiased;
+		display: inline-block;
+		font-style: normal;
+		font-variant: normal;
+		line-height: 1;
+		text-rendering: auto;
+	}
+
+	:root {
+		--illini-orange: #ff5f05;
+		--illini-blue: #13294B;
+		--altgeld-orange: #c84113;
+		--accent: 136, 58, 234;
+		--accent-light: 224, 204, 250;
+		--accent-dark: 49, 10, 101;
+		--accent-gradient: linear-gradient(
+			45deg,
+			rgb(var(--accent)),
+			rgb(var(--accent-light)) 30%,
+			white 60%
+		);
+
+	}
+
+	mjx-container{
+		max-width: 90vw;
+	}
+
+	body {
+		font-size: 1.1rem;
+	}
+
+	.max-width1160{
+		width: 1140px;
+	}
+
+	@media (width <= calc(1140px + 2rem)){
+		.max-width1160{
+			width: 100%;
+			padding-right: 1rem;
+			padding-left: 1rem;
+		}
+	}
+
+	.content{
+		display: grid;
+		grid-template-columns: 1fr;
+	}
+
+	.subsection{
+        color: var(--text-main);
+    }
+
+    .subsubsection{
+        color:var(--text-secondary);
+    }
+
+	.subsubsubsection{
+        color:var(--text-tertiary);
+    }
+</style>
