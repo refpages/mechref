@@ -75,8 +75,7 @@ import Image from "../../../components/Image.astro";
 
       <PrairieDrawCanvas id="coords" width="300" height="300" />
 
-      <script type="application/javascript">
-        import { idText } from "typescript";
+      <script type="application/javascript" is:inline>
 
         /* <![CDATA[ */
         new PrairieDraw("coords", function () {
@@ -309,7 +308,7 @@ import Image from "../../../components/Image.astro";
           new PrairieDraw("line", function () {
             this.setUnits(6, 6);
             var O = $V([0, 0]);
-
+            this.text()
             const points = {
               0: [-1.5, -2],
               1: [1.5, -2],

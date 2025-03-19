@@ -3060,37 +3060,50 @@ PrairieDraw.prototype.text = function(posDw, anchor, text, boxed, angle) {
     angle = (angle === undefined) ? 0 : angle;
     var posPx = this.pos2Px(this.pos3To2(posDw));
     if (text.slice(0,4) === "TEX:") {
+
+        
+
         var tex_text = text.slice(4);
-        var hash = Sha1.hash(tex_text);
-        this._texts = this._texts || {};
-        if (hash in this._texts) {
-            var img = this._texts[hash];
-            var xPx =  - (anchor.e(1) + 1) / 2 * img.width;
-            var yPx = (anchor.e(2) - 1) / 2 * img.height;
-            //var offsetPx = anchor.toUnitVector().x(Math.abs(anchor.max()) * this._props.textOffsetPx);
-            var offsetPx = anchor.x(this._props.textOffsetPx);
-            var textBorderPx = 5;
+        
+        let svg;
+        var width = 20;
+        var height = 20;
+
+        window.MathJax.tex2svgPromise(text.slice(4))
+        .then((node) => {
+        
+        svg = node.querySelector("svg");
+        let svgString = new XMLSerializer().serializeToString(svg);
+        let blob = new Blob([svgString], { type: "image/svg+xml;charset=utf-8" });
+        let url = URL.createObjectURL(blob);
+        console.log(url)
+        
+        var xPx =  - (anchor.e(1) + 1) / 2 * width;
+        var yPx = (anchor.e(2) - 1) / 2 * height;
+        //var offsetPx = anchor.toUnitVector().x(Math.abs(anchor.max()) * this._props.textOffsetPx);
+        var offsetPx = anchor.x(this._props.textOffsetPx);
+        var textBorderPx = 5;
+        this._ctx.save();
+        this._ctx.translate(posPx.e(1), posPx.e(2));
+        this._ctx.rotate(angle);
+        if (boxed) {
             this._ctx.save();
-            this._ctx.translate(posPx.e(1), posPx.e(2));
-            this._ctx.rotate(angle);
-            if (boxed) {
-                this._ctx.save();
-                this._ctx.fillStyle = "white";
-                this._ctx.fillRect(xPx - offsetPx.e(1) - textBorderPx,
-                                   yPx + offsetPx.e(2) - textBorderPx,
-                                   img.width + 2 * textBorderPx,
-                                   img.height + 2 * textBorderPx);
-                this._ctx.restore();
-            }
-            this._ctx.drawImage(img, xPx - offsetPx.e(1), yPx + offsetPx.e(2));
+            this._ctx.fillStyle = "white";
+            this._ctx.fillRect(xPx - offsetPx.e(1) - textBorderPx,
+                            yPx + offsetPx.e(2) - textBorderPx,
+                            width + 2 * textBorderPx,
+                            height + 2 * textBorderPx);
             this._ctx.restore();
-        } else {
-            var imgSrc = "text/" + hash + ".png";
-            var img = new Image();
-            img.onload = this.redraw.bind(this);
-            img.src = imgSrc;
-            this._texts[hash] = img;
         }
+
+        var img = new Image();
+        img.onload = this.redraw.bind(this);
+        img.src = url;
+
+        this._ctx.drawImage(img, xPx - offsetPx.e(1), yPx + offsetPx.e(2));
+        this._ctx.restore();
+        })
+        .catch((err) => console.error(err));
     } else {
         var align, baseline, bbRelOffset;
         switch (this.sign(anchor.e(1))) {
@@ -4010,7 +4023,7 @@ PrairieDrawAnim.prototype.resetAllSequences = function() {
 /*****************************************************************************/
 
 PrairieDraw.prototype.drawImage = function(imgSrc, posDw, anchor, widthDw) {
-    if (imgSrc in this._images) {
+    /*if (imgSrc in this._images) {
         // FIXME: should check that the image is really loaded, in case we are fired beforehand (also for text images).
         var img = this._images[imgSrc];
         var posPx = this.pos2Px(posDw);
@@ -4031,12 +4044,12 @@ PrairieDraw.prototype.drawImage = function(imgSrc, posDw, anchor, widthDw) {
         this._ctx.translate(xPx, yPx);
         this._ctx.drawImage(img, 0, 0);
         this._ctx.restore();
-    } else {
+    } else {*/
         var img = new Image();
         img.onload = this.redraw.bind(this);
         img.src = imgSrc;
         this._images[imgSrc] = img;
-    }
+    //}
 };
 
 /*****************************************************************************/
