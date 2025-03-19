@@ -1,10 +1,32 @@
 ---
 import Searchbar from "./Searchbar.astro";
+
+const path = Astro.url.pathname;
 ---
+<script define:vars={{path}} is:inline>
+    path_components = path.split("/")
+    console.log(path_components)
+
+    $(document).ready(function(){
+        class_values = document.querySelectorAll("li[class-value]")
+
+        Array.from(class_values).forEach(e => {
+            class_name = e.getAttribute("class-value")
+            if(path_components.includes(class_name)){
+                e.classList.add('d-block')
+            }
+        })
+    })
+</script>
+
 
 <style>
     :root{
         --nav-bg: #e8e9eb;
+    }
+
+    li[class-value]{
+        display: none;
     }
 
     .illini-blue{
@@ -343,6 +365,11 @@ import Searchbar from "./Searchbar.astro";
     <div class="navbar-collapse collapse pt-2 pb-2 pb-lg-0" id="mainnav">
         <ul class="navbar-nav w-100">
             <li class="dropdown mega nav-item">
+                <a class="nav-link" href="/" style="font-size: 1.1rem !important; line-height: 26.4px;">
+                    <span>Home</span>
+                </a>
+            </li>
+            <li class="dropdown mega nav-item"  class-value="sta">
                 <a class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false" aria-label="About" class-value="sta">
                     <span>Statics</span>
                 </a>
@@ -369,7 +396,7 @@ import Searchbar from "./Searchbar.astro";
                     </section>
                 </div>
             </li>
-            <li class="dropdown mega nav-item ">
+            <li class="dropdown mega nav-item " class-value="dyn">
                 <a class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false" aria-label="About" class-value="dyn">
                     <span>Dynamics</span>
                 </a>
@@ -391,7 +418,7 @@ import Searchbar from "./Searchbar.astro";
                     </div>
                 </div>
             </li>
-            <li class="dropdown mega nav-item ">
+            <li class="dropdown mega nav-item " class-value="sol">
                 <a class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false" aria-label="About" class-value="sol">
                     <span>Solid Mechanics</a></span>
                 </a>
@@ -419,7 +446,7 @@ import Searchbar from "./Searchbar.astro";
                     </div>
                 </div>
             </li>
-            <li class="dropdown mega nav-item ">
+            <li class="dropdown mega nav-item " class-value="thermodynamics">
                 <a class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false" aria-label="About" class-value="thermodynamics">
                     <span>Thermodynamics</a></span>
                 </a>
@@ -441,7 +468,7 @@ import Searchbar from "./Searchbar.astro";
                     </div>
                 </div>
             </li>
-            <li class="dropdown mega nav-item ">
+            <li class="dropdown mega nav-item " class-value="md">
                 <a class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false" aria-label="About" class-value="md">
                     <span>Mechanism Design</span>
                 </a>
@@ -459,7 +486,7 @@ import Searchbar from "./Searchbar.astro";
                 </div>
             </li>
 
-            <li class="dropdown mega nav-item ">
+            <li class="dropdown mega nav-item" class-value="mf">
                 <a class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false" aria-label="About" class-value="mf">
                     <span>Machine Failure</span>
                 </a>
@@ -613,4 +640,7 @@ $("*").focus(function (e) {
         }
     }
 });
+
+
 </script>
+
