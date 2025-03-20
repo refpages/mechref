@@ -84,6 +84,7 @@ $(document).ready(function(){
             this.labelCircleLine(O, rw, a1, a2, $V([0, 1]), label, true);
             this.restore();
         }.bind(this);
+        this.setProp("shapeOutlineColor", "#c84113");
 
         this.save();
         this.translate(rP1);
@@ -98,6 +99,8 @@ $(document).ready(function(){
         this.rectangle(0.8, 0.8 / this.goldenRatio, O, 0, false);
         this.text($V([0.33, -0.18]), $V([0, 0]), "TEX:$\\mathcal{B}_2$");
         this.restore();
+
+        this.setProp("shapeOutlineColor", "rgb(0, 0, 0)");
 
         drawAxes(rP1, theta1, "TEX:$\\theta_1$");
         drawAxes(rQ1, theta1, "TEX:$\\theta_1$");
