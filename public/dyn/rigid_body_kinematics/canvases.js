@@ -84,23 +84,23 @@ $(document).ready(function(){
             this.labelCircleLine(O, rw, a1, a2, $V([0, 1]), label, true);
             this.restore();
         }.bind(this);
-        this.setProp("shapeOutlineColor", "#c84113");
+        this.setProp("shapeInsideColor", "#ff5f05");
 
         this.save();
         this.translate(rP1);
         this.rotate(theta1);
-        this.rectangle(0.8, 0.8 / this.goldenRatio, O, 0, false);
+        this.rectangle(0.8, 0.8 / this.goldenRatio, O, 0, true);
         this.text($V([0.33, -0.18]), $V([0, 0]), "TEX:$\\mathcal{B}_1$");
         this.restore();
 
         this.save();
         this.translate(rP2);
         this.rotate(theta2);
-        this.rectangle(0.8, 0.8 / this.goldenRatio, O, 0, false);
+        this.rectangle(0.8, 0.8 / this.goldenRatio, O, 0, true);
         this.text($V([0.33, -0.18]), $V([0, 0]), "TEX:$\\mathcal{B}_2$");
         this.restore();
 
-        this.setProp("shapeOutlineColor", "rgb(0, 0, 0)");
+        this.setProp("shapeInsideColor", "rgb(255, 255, 255)");
 
         drawAxes(rP1, theta1, "TEX:$\\theta_1$");
         drawAxes(rQ1, theta1, "TEX:$\\theta_1$");
