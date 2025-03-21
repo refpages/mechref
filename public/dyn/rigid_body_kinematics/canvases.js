@@ -84,7 +84,7 @@ $(document).ready(function(){
             this.labelCircleLine(O, rw, a1, a2, $V([0, 1]), label, true);
             this.restore();
         }.bind(this);
-        this.setProp("shapeInsideColor", "#ff5f05");
+        this.setProp("shapeInsideColor", "#FDC066");
 
         this.save();
         this.translate(rP1);
