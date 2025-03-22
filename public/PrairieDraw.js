@@ -1,4 +1,3 @@
-
 /*****************************************************************************/
 
 /** Creates a PrairieDraw object.
@@ -1328,6 +1327,7 @@ PrairieDraw.prototype.setUnits = function(xSize, ySize, canvasWidth, preserveCan
         this.scale($V([yScale, yScale]));
     }
     this._saveTrans = this._trans;
+
 }
 
 /*****************************************************************************/
@@ -3052,7 +3052,7 @@ PrairieDraw.prototype.rightAngleImproved = function(p0Dw, p1Dw, p2Dw) {
     @param {string} text The text to draw. If text begins with "TEX:" then it is interpreted as LaTeX.
     @param {bool} boxed (Optional) Whether to draw a white box behind the text (default: false).
 */
-PrairieDraw.prototype.text = function(posDw, anchor, text, boxed, angle) {
+PrairieDraw.prototype.text = function(posDw, anchor, text, boxed, angle, height, width) {
     if (text === undefined) {
         return;
     }
@@ -3085,9 +3085,18 @@ PrairieDraw.prototype.text = function(posDw, anchor, text, boxed, angle) {
             this._ctx.drawImage(img, xPx - offsetPx.e(1), yPx + offsetPx.e(2));
             this._ctx.restore();
         } else {
-            window.MathJax.tex2svgPromise(tex_text, { display: true }).then((node) => {
-                console.log(node.firstChild)
-                const xml = new XMLSerializer().serializeToString(node.firstChild);
+            window.MathJax.tex2svgPromise(tex_text, { display: true}).then((node) => {
+                svg = node.firstChild;
+                if (height != undefined){
+                    svg.setAttribute("height", `${height}px`);
+                }
+
+                if (width != undefined){
+                    svg.setAttribute("width", `${width}px`);
+                }
+
+                
+                const xml = new XMLSerializer().serializeToString(svg);
                 const svg64 = btoa(unescape(encodeURIComponent(xml)));
                 const imgSrc = 'data:image/svg+xml;base64,' + svg64;
                 const img = new Image();
