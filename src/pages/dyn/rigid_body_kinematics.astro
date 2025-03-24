@@ -1236,7 +1236,7 @@ import DisplayTable from "../../components/DisplayTable.astro"
           <div class="d-flex  align-items-baseline">
             <p class="m-0 flex-shrink-1">Vehicle offset:</p>
               <div class="flex-grow-1 d-flex align-items-baseline">
-                  <input type="range" min="0" max="4.56885" value="0" step=".01" class="data-input:avs-ft-c:vehicleoffset flex-grow-1 mx-2" onchange="avs_ft_c.setOption('offset', this.value); document.querySelector('span[class*=vehicleoffset]').innerText = Math.round(Math.exp(Number(this.value))+Number(this.value))-1;" oninput="avs_ft_c.setOption('offset', this.value); document.querySelector('span[class*=vehicleoffset]').innerText = Math.round(Math.exp(Number(this.value))+Number(this.value))-1;"/>
+                  <input type="range" min="-100" max="100" value="0" step="1" class="data-input:avs-ft-c:vehicleoffset flex-grow-1 mx-2" onchange="avs_ft_c.setOption('offset', this.value); document.querySelector('span[class*=vehicleoffset]').innerText = this.value;" oninput="avs_ft_c.setOption('offset', this.value); document.querySelector('span[class*=vehicleoffset]').innerText = this.value;"/>
                       \(d = \; \) <span class="data-option:avb-fp-c:vehicleoffset">0</span>%
               </div>
           </div>
