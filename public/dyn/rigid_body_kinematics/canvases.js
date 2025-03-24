@@ -980,7 +980,9 @@ $(document).ready(function(){
             var theta = 0.5 * t;
             var velocityScale = 0.55;
             var r = Number(this.getOption("radius"));
-            var dPerc = this.getOption("offset");
+            var offset_raw = Number(this.getOption("offset"));
+            var dPerc = Math.exp(offset_raw) + offset_raw-1;
+            console.log(offset_raw)
             var d = length / 2 * dPerc / 100;
     
             var rP = $V([r, 0]).rotate(theta, $V([0, 0]));
