@@ -1,0 +1,259 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Section from "../../components/Section.astro";
+import SubSection from "../../components/SubSection.astro";
+import SubSubSection from "../../components/SubSubSection.astro";
+import SubSubSubSection from "../../components/SubSubSubSection.astro";
+import CalloutContainer from "../../components/CalloutContainer.astro";
+import CalloutCard from "../../components/CalloutCard.astro";
+import InlineEquation from "../../components/InlineEquation.astro";
+import DisplayEquation from "../../components/DisplayEquation.astro";
+import Image from "../../components/Image.astro"
+import DisplayTable from "../../components/DisplayTable.astro";
+import Warning from "../../components/Warning.astro";
+import InlineCanvas from "../../components/InlineCanvas.astro";
+import Item from "../../components/Item.astro";
+import Itemize from "../../components/Itemize.astro";
+import Enumerate from "../../components/Enumerate.astro";
+
+
+---
+
+<Layout title="Position Velocity Acceleration (PVA)">
+
+    <div slot="navtree">
+        <ul class='list-group list-group-flush py-0'>
+            <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#PVA_Intro'>PVA Intro</a>
+            <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Vector_calculus'>Vector Calculus</a>
+            <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Vector_loops'> Vector Loops</a>
+            <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Position_analysis'>Position Analysis</a>
+            <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Velocity_analysis'>Velocity Analysis</a>
+            <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Acceleration_analysis'>Acceleration Analysis</a>
+            <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Application_notes'>Application Notes</a>
+        </ul>
+    </div>
+
+
+
+    <SubSection id="PVA_Intro" title="PVA Intro">
+
+        <p>
+            Position, Velocity, Acceleration (PVA) analysis is used to <em>analytically</em> determine the motion of a mechanism. Position determines the configuration of the mechanism. Velocity is used to understand the kinetic energy and momentum of the system. Finally, acceleration is used to understand the forces in the system. PVA takes the known geometry, initial configurations, and PVA data of one link (the inputs) and determines the PVA data for the other links (the outputs).
+        </p>
+    </SubSection>
+
+    <SubSection id="Vector_calculus" title="Vector Calculus">
+
+        <p>
+            In PVA analysis, links are represented using vectors. Using complex vectors is the easiest way to represent the link data as it utilizes the link length <InlineEquation equation="\ |R|" /> and starting link angle <InlineEquation equation="\\theta" /> to create a vector. There are two forms of complex vectors that we will be focusing on: complex number form and polar form. Complex number form takes a Cartesian approach to complex numbers. Meanwhile polar form takes a polar approach (as the name suggests).
+        </p>
+        <p><DisplayEquation equation="\\overrightarrow R = |R|cos(\\theta) + j|R|sin(\\theta)" title="Complex Number Form" background="True" /></p>
+        <p><Image src="/md/Position_Velocity_Acceleration/Cartesian.png" width="5"></Image></p>
+        <p><DisplayEquation equation="\\overrightarrow R=|R| e^{j\\theta}" title="Polar Form" background="True" /></p>
+        <p><Image src="/md/Position_Velocity_Acceleration/Polar.png" width="5"></Image></p>
+
+        <p>
+            The <InlineEquation equation="\ j" /> in each vector represents the imaginary number <InlineEquation equation="\ \sqrt{-1" />. The Euler formula can be used to break the polar form into the complex form.
+        </p>
+
+        <p><DisplayEquation equation="\e^{\\pm j\\theta} = cos(\\theta) + jsin(\\theta)" title="Euler Formula Form" background="True" /></p>
+
+        <p>
+            Let's look at the polar vector form. Angle <InlineEquation equation="\\theta" /> depends on time because the system is not static. This means that taking the derivative of the angle with respect to time will give the angular velocity <InlineEquation equation="\\omega" />.
+        </p>
+        <p><DisplayEquation equation="\\frac{d}{dt}(e^{j\\theta}) = je^{j\\theta}\\frac{d\\theta}{dt} = je^{j\\theta}\\omega" title="Time Derivative of Polar Form" background="True" /></p>
+
+        <p>
+            Also note that when you rotate a vector <InlineEquation equation="\\overrightarrow R_{AB}" /> by 180 degrees, it becomes <InlineEquation equation="\ -\\overrightarrow R_{AB}" />. Upon inspection, we can see that <InlineEquation equation="\ -\\overrightarrow R_{AB}" /> is also equal to <InlineEquation equation="\\overrightarrow R_{BA}" />. This can be a useful transformation to use when creating vector loops.
+        </p>
+
+        <p><Image src="/md/Position_Velocity_Acceleration/180_deg_rotation.png" width="5"></Image></p>
+    </SubSection>
+
+    <SubSection id="Vector_loops" title="Vector Loops">
+        <p>
+            Vector loops are used to create equations that can be used to solve complex linkage problems. Vector loops work by creating a "loop" of vectors that start and end in the same location. This also means that the sum of these vectors is equal to zero. For example, take a look at a four bar linkage. If you choose a joint and trace around the links in one direction (making position vectors along the way) you end up creating a vector loop.
+        </p>
+        <p><Image src="/md/Position_Velocity_Acceleration/Vector_loop_1.png" width="5"></Image></p>
+        <p>You can start the vector loop at any joint and go in any direction to finish the loop.</p>
+        <p><Image src="/md/Position_Velocity_Acceleration/Vector_loop_2.png" width="5"></Image></p>
+        <p>Alternatively, you can start at one point and go two different directions to end at a different point. As long as the two paths start and end at the same point, a vector loop can be created.</p>
+        <p><Image src="/md/Position_Velocity_Acceleration/Vector_loop_3.png" width="5"></Image></p>
+
+        <p>
+            Since position, velocity, and acceleration are all path-independent vectors, we can usually write an equation in the form of <InlineEquation equation="\\\Sigma_0^n \\overrightarrow R_n=0" />. This gives us an equation we are able to solve.
+        </p>
+    </SubSection>
+
+
+    <SubSection id="Position_analysis" title="Position Analysis">
+
+            Taking the same four bar linkage example as shown above, let us walk through position analysis.
+            <Enumerate>
+                <Item> Identify known and unknown variables. In the four-bar linkage example, the linkage lengths (<InlineEquation equation="\ a"/>, <InlineEquation equation="\ b"/>, <InlineEquation equation="\ c"/>, and <InlineEquation equation="\ d"/>) and the initial angle of the crank <InlineEquation equation="\ (\\theta_2)"/> is known. The angle of the grounded link <InlineEquation equation="\ (\\theta_1)"/> is known to be zero. The initial angle of the coupler <InlineEquation equation="\ (\\theta_3)"/> and rocker <InlineEquation equation="\ (\\theta_4)"/> are unknown.</Item>
+
+                <Image src="/md/Position_Velocity_Acceleration/Position_A_1.png" width="5"></Image>
+
+                <Item> Establish a vector loop and write out the vectors in polar form. Recall that the polar form of a vector is in the form of <InlineEquation equation="\\overrightarrow R=|R| e^{j\\theta}"/>. Since the vector loop we established uses two different paths to get from the same starting point to the same ending point, we have to set the sum of the two paths equal to each other.</Item>
+
+                <Image src="/md/Position_Velocity_Acceleration/Position_A_2.png" width="5"> </Image>
+
+                <DisplayEquation equation="\\begin{gather} \\overrightarrow R_2+\\overrightarrow R_3=\\overrightarrow R_4+\\overrightarrow R_1 \\\\ \\overrightarrow R_2+\\overrightarrow R_3-\\overrightarrow R_4-\\overrightarrow R_1 = 0 \\\\  \\overrightarrow R_{AO_2}+\\overrightarrow R_{BA}-\\overrightarrow R_{BO_4}-\\overrightarrow R_{O_4O_2} = 0 \\\\ ae^{j\\theta _2}+be^{j\\theta _3}-ce^{j\\theta _4}-de^{j\\theta _1} = 0  \\end{gather}" title="Position Vector Loop Equaitons " background="True" />
+
+                <Item>Break vector loop equation into real and imaginary parts. This can be done by using the Euler formula above.
+
+                <DisplayEquation equation="\\begin{gather} \ae^{j\\theta_2}+be^{j\\theta_3}-ce^{j\\theta _4}-de^{j\\theta _1} = 0 \\\\ a(cos\\theta _2+jsin\\theta _2)+b(cos\\theta _3+jsin\\theta _3)-c(cos\\theta _4+jsin\\theta _4)-d(cos\\theta _1+jsin\\theta _1) = 0 \\end{gather}" title="Position Vector Loop Equaitons in Cartesian Form" background="True" />
+
+                 Remember that <InlineEquation equation="\\theta_1"/> is equal to zero. This means that <InlineEquation equation="\ d(cos\\theta_1+jsin\\theta_1)"/> simplifies to just <InlineEquation equation="\ d+0j"/>. Now we can easily break up the vector loop equation into its real and imaginary components.
+
+                    <DisplayEquation equation="\ a(cos\\theta _2)+b(cos\\theta _3)-c(cos\\theta _4) - d = 0" title="Real Compoenent " background="True" />
+                    <DisplayEquation equation="\ a(sin\\theta _2)+b(sin\\theta _3)-c(sin\\theta _4) +0= 0" title="Imaginary Compoenent" background="True" />
+                </Item>
+                <Item>
+                    Solve for unknown positions and/or angles. Since lengths <InlineEquation equation="\ a"/>, <InlineEquation equation="\ b"/>, <InlineEquation equation="\ c"/>, and <InlineEquation equation="\ d"/> are given along with angles <InlineEquation equation="\ (\\theta_1)"/> and <InlineEquation equation="\ (\\theta_2)"/>, the unknowns are <InlineEquation equation="\ (\\theta_3)"/> and <InlineEquation equation="\ (\\theta_4)"/>. Since there are two equations and two unknowns, this system can be solved using an equation solver.
+                </Item>
+            </Enumerate>
+
+    </SubSection>
+
+    <SubSection id="Velocity_analysis" title="Velocity Analysis">
+
+        Before starting velocity analysis, you must complete position analysis. Now, we can walk through velocity analysis.
+        <Enumerate>
+            <Item> Identify known and unknown variables. All of the variables found in position analysis are known (including <InlineEquation equation="\ (\\theta_3)"/> and <InlineEquation equation="\ (\\theta_4)"/> as those were solved for in the last step of position analysis). In addition to these variables, <InlineEquation equation="\\omega_2"/> is given. This leaves us with <InlineEquation equation="\\omega_3"/> and <InlineEquation equation="\\omega_4"/> as unknowns. Also, recall the position vector loop.
+
+            <DisplayEquation equation="\ae^{j\\theta _2}+be^{j\\theta _3}-ce^{j\\theta _4}-d = 0" title="Position Vector Loop" background="True" />
+
+
+            <Image src="/md/Position_Velocity_Acceleration/Velocity_A_1.png" width="5"></Image></Item>
+
+            <Item> Take the time derivative of the position vector loop to get the velocity vector loop.
+            <DisplayEquation equation="\\begin{gather} \\frac{d}{dt}(ae^{j\\theta _2}+be^{j\\theta _3}-ce^{j\\theta _4}-de^{j\\theta _1})=0 \\\\ ja\\frac{d\\theta _2}{dt}e^{j\\theta _2}+jb\\frac{d\\theta _3}{dt}e^{j\\theta _3}-jc\\frac{d\\theta _4}{dt}e^{j\\theta _4}-jd\\frac{d\\theta _1}{dt}e^{j\\theta _1} = 0 \\end{gather}" title="Velocity Vector Loop Equaitons " background="True" />
+            <p>
+                Because linkage 1 is grounded, we also know that <InlineEquation equation="\\frac{d\\theta _1}{dt}=\\omega _1 = 0"/>
+            </p>
+                <DisplayEquation equation="j\\omega _2ae^{j\\theta _2} + j\\omega _3be^{j\\theta _3}-j\\omega _3ce^{j\\theta _4}=0" title="Simplified Vector Loop Equaiton " background="True" />
+            <p>
+                Or more specifically,
+            </p>
+                <DisplayEquation equation="\\overrightarrow V_A + \\overrightarrow V_{BA} - \\overrightarrow V_B = 0 " title="Reduced Vector Loop Equaiton "background="True" />
+            <p>
+                In this velocity vector loop <InlineEquation equation="\\overrightarrow V_{AB}"/> represents the velocity of joint <InlineEquation equation="\ B"/> with respect to <InlineEquation equation="\ A"/>.
+            </p>
+                <Image src="/md/Position_Velocity_Acceleration/Velocity_A_2.png" width="5"></Image></Item>
+
+
+            <Item>Break vector loop equation into real and imaginary parts.
+
+                <DisplayEquation equation="\\begin{gather} j\\omega _2ae^{j\\theta _2} + j\\omega _3be^{j\\theta _3}-j\\omega _3ce^{j\\theta _4}=0 \\\\ j\\omega _2a(cos\\theta _2+jsin\\theta _2) + j\\omega _3b(cos\\theta _3+jsin\\theta _3)-j\\omega _3c(cos\\theta _4+jsin\\theta _4)=0 \\end{gather}" title="Velocity Vector Loop Equaitons in Cartesian Form" background="True" />
+
+
+                <DisplayEquation equation="\ -a\\omega _2 sin(\\theta _2)-b\\omega _3 sin(\\theta _3) + c\\omega _4 sin(\\theta _4) = 0" title="Real Compoenent " background="True" />
+                <DisplayEquation equation="\ a\\omega _2 cos(\\theta _2)+b\\omega _3 cos(\\theta _3) - c\\omega _4 cos(\\theta _4) = 0" title="Imaginary Compoenent" background="True" />
+            </Item>
+            <Item>
+                Solve for the unknown velocities. Using trigonometric identities, we can use the two above equations to solve for <InlineEquation equation="\\omega_3"/> and <InlineEquation equation="\\omega_4"/> using an equation solver.
+            </Item>
+
+            <Warning title="Computing Velocities" id="warn1">
+                Note that it is possible to solve for for <InlineEquation equation="\\omega_3"/> and <InlineEquation equation="\\omega_4"/> analytically. However this can be time consuming and depends on the exact nature of the mechanism that is being analyzed. For a standard 4-bar linkage with pin joints the solution is:
+                <DisplayEquation equation="\\begin{gather} \\omega_3 = \\frac{a\\omega _2 sin(\\theta _4-\\theta _2)}{bsin(\\theta _3-\\theta _4)} \\\\ \\omega_4 = \\frac{a\omega _2 sin(\\theta _2-\\theta _3)}{bsin(\\theta _4-\\theta _3)} \\end{gather}" title="Velocity Solutions for 4-bar Linkage with Pin Joints" background="True" />
+            </Warning>
+
+
+        </Enumerate>
+
+    </SubSection>
+
+    <SubSection id="Acceleration_analysis" title="Acceleration Analysis">
+
+        Before starting acceleration analysis, velocity analysis must be completed. Now we can walk through acceleration analysis.
+        <Enumerate>
+            <Item>Identify known and unknown variables. In addition to the known values from the position and velocity analyses, <InlineEquation equation="\\alpha_2"/> is given. That leaves <InlineEquation equation="\\alpha_3"/> and <InlineEquation equation="\\alpha_4"/> as unknowns. Also, recall the velocity vector loop.</Item>
+
+            <DisplayEquation equation="\j \\omega _2ae^{j\\theta _2} + j\\omega _3be^{j\\theta _3}-j\\omega _3ce^{j\\theta _4}=0" title="Velocity Vector Loop" background="True" />
+
+
+            <Image src="/md/Position_Velocity_Acceleration/Acceleration_A_1.png" width="5"></Image>
+
+            <Item> Take time derivative of velocity vector loop to get acceleration vector loop.
+                <DisplayEquation equation="\\begin{gather} \\frac{d}{dt}(j\\omega _2ae^{j\\theta _2} + j\\omega _3be^{j\\theta _3}-j\\omega _3ce^{j\\theta _4})=0 \\\\ j\\frac{d\\omega _2}{dt}ae^{j\\theta _2} + j^2\\omega _2\\frac{d\\theta _2}{dt}ae^{j\\theta _2} +j\\frac{d\\omega _3}{dt}be^{j\\theta _3} + j^2\\omega _3\\frac{d\\theta _3}{dt}be^{j\\theta _3} - j\\frac{d\\omega _3}{dt}ce^{j\\theta _4} - j^2\\omega _4\\frac{d\\theta _4}{dt}ce^{j\\theta _4}=0 \\\\ j\\alpha _2 ae^{j\\theta _2} - \\omega _2^2ae^{j\\theta _2} +j\\alpha _3be^{j\\theta _3} - \\omega _3^2be^{j\\theta _3} - j\\alpha _4ce^{j\\theta _4} + \\omega _3^2ce^{j\\theta _4}=0\\end{gather}" title="Acceleration Vector Loop Equaitons " background="True" />
+                <p>
+                    Now we can see terms with <InlineEquation equation="\\alpha"/> and <InlineEquation equation="\\omega^2"/> appearing for each linkage. The angular acceleration term <InlineEquation equation="\\alpha"/> appears due to tangential, acceleration of the linkage while the <InlineEquation equation="\\omega^2"/> term appears due to the centripetal acceleration of the linkage. In total, four different types of acceleration can appear in acceleration analysis. For a refresher on these terms, refer to the particle kinematics page on the dynamics reference page. With this information, we can simplify the equation further to focus on the different acceleration terms:
+                </p>
+                <DisplayEquation equation="(j\\alpha _2\overrightarrow R_2 - \\omega _2^2 \\overrightarrow R_2) + (j\\alpha _3 \\overrightarrow R_3 - \\omega _3^2\\overrightarrow R_3) - (j\\alpha _4\\overrightarrow R_4 - \\omega _4^2\\overrightarrow R_4) = 0" title="Simplified Acceleration Loop Equaiton " background="True" />
+                <p>
+                    Or more specifically,
+                </p>
+                <DisplayEquation equation="\\begin{gather}(\\overrightarrow A_A^t + \\overrightarrow A_A^n) + (\\overrightarrow A_{BA}^t+\\overrightarrow A_{BA}^n) - (\\overrightarrow A_B^t+ \\overrightarrow A_B^n) = 0 \\\\ \\overrightarrow A_A + \\overrightarrow A_{BA} - \\overrightarrow A_B = 0 \\end{gather}" title="Reduced Acceleration Loop Equaiton "background="True" />
+
+                <Image src="/md/Position_Velocity_Acceleration/Acceleration_A_2.png" width="5"></Image></Item>
+
+
+            <Item>Break vector loop equation into real and imaginary parts.
+
+                <DisplayEquation equation="\\begin{gather} j\\alpha _2 ae^{j\\theta _2} - \\omega _2^2ae^{j\\theta _2} +j\\alpha _3be^{j\\theta _3} - \\omega _3^2be^{j\\theta _3} - j\\alpha _4ce^{j\\theta _4} + \\omega _3^2ce^{j\\theta _4}=0 \\\\ (j\\alpha _2-\\omega _2^2)ae^{j\\theta _2} +(j\\alpha _3-\\omega _3^2)be^{j\\theta _3}-(j\\alpha _4-\\omega _4^2)ce^{j\\theta _4} =0 \\\\ (j\\alpha _2-\\omega _2^2)a(cos\\theta _2+jsin\\theta _2) +(j\\alpha _3-\\omega _3^2)b(cos\\theta _3+jsin\\theta _3)-(j\\alpha _4-\\omega _4^2)c(cos\\theta _4+jsin\\theta _4) =0 \\end{gather}" title="Acceleration Vector Loop Equaitons in Cartesian Form" background="True" />
+
+
+                <DisplayEquation equation="\ -a\\alpha _2sin\\theta _2-a\\omega _2^2cos\\theta _2-b\\alpha _3sin\\theta _3-b\\omega _3^2cos\\theta _3+c\\alpha _4sin\\theta _4+c\\omega _4^2cos\\theta _4 = 0" title="Real Compoenent " background="True" />
+                <DisplayEquation equation="\ a\\alpha _2cos\\theta _2-a\\omega _2^2sin\\theta _2+b\\alpha _3cos\\theta _3-b\\omega _3^2sin\\theta _3-c\\alpha _4cos\\theta _4+c\\omega _4^2sin\\theta _4 = 0" title="Imaginary Compoenent" background="True" />
+            </Item>
+            <Item>
+                Solve for the unknown accelerations. Using trigonometric identities, we can use the two above equations to solve for <InlineEquation equation="\\alpha_3"/> and <InlineEquation equation="\\alpha_4"/> using an equation solver.
+            </Item>
+
+            <Warning title="Computing Acceleartions" id="warn2">
+                <p> Note that it is possible to solve for for <InlineEquation equation="\\alpha_3"/> and <InlineEquation equation="\\alpha_4"/> analytically. However this can be time consuming and depends on the exact nature of the mechanism that is being analyzed. For a standard 4-bar linkage with pin joints the solution is:</p>
+
+                <p><InlineEquation equation="\\alpha _3= \\frac{CD-AF}{AE-BD}"/></p>
+                <p><InlineEquation equation="\\alpha _4 = \\frac{CE-BF}{AE-BD}"/></p>
+
+                <p>Where</p>
+                <DisplayEquation equation="\\begin{gather} A = csin\\theta _4 \\\\ B = bsin\\theta _3 \\\\ C = a\\alpha _2sin\\theta _2 + \\alpha \\omega _2^2 cos\\theta _2+b\\omega _3^2 cos\\theta _3 - c\\omega _4^2 cos\\theta _4 \\\\ D = ccos\\theta _4 \\\\ E = bcos\\theta _3 \\\\ F = a\\alpha _2cos\\theta _2 - a\\omega _2^2sin\\theta _2 - b\\omega _3^2sin\\theta _3+c\\omega _4^2sin \\theta _4 \\end{gather}" title="Acceleration Analytic Solution" background="True" />
+
+                <p>
+                    While acceleration analysis is possible to do by hand, it is <em>highly</em> recommended that code or a computer based solver is used to assist solving for the unknown variables.
+                </p>
+            </Warning>
+        </Enumerate>
+
+    </SubSection>
+    <SubSection id="Application_notes" title="Application Notes">
+        <p>
+            If you have more unknowns than equations, you can likely create more vector loops. If this is the case, think carefully about the constraints on your problems.
+        </p>
+
+        <p>For example, take a look at this slider-crank example. If you create a position loop with three vectors, this leads to three unknowns (<InlineEquation equation="\\theta_3"/>, <InlineEquation equation="\ s(t)"/>, and <InlineEquation equation="\\beta (t)"/>).  </p>
+
+        <Image src="/md/Position_Velocity_Acceleration/Crank_slider_pva_1.png" width="5"></Image>
+
+        <p>By breaking up the position loop into four position vectors, it makes it clear that there are only two unknowns (<InlineEquation equation="\\theta_3"/> and <InlineEquation equation="\d(t)"/>).</p>
+
+        <Image src="/md/Position_Velocity_Acceleration/Crank_slider_pva_2.png" width="5"></Image>
+
+        <p>This leads to the following position vector loop:</p>
+        <DisplayEquation equation="ae^{j\\theta _2} - be^{j\\theta _3}-ce^{j\\theta _4}-de^{j\\theta _1}=0" title="Position Vector Loop for Crank Slider" background="True" />
+        <p>Since <InlineEquation equation="\\theta_4"/> equals 90 degrees and <InlineEquation equation="\\theta_1"/> equals zero degrees, the equation can be simplified to:</p>
+        <DisplayEquation equation="ae^{j\\theta _2} - be^{j\\theta _3}-jc-d=0" title="Simplified Position Vector Loop for Crank Slider" background="True" />
+
+        <DisplayEquation equation="\ acos\\theta _2-bcos\\theta _3 -d =0" title="Real Compoenent " background="True" />
+        <DisplayEquation equation="\ asin\\theta _2 - bsin\\theta _3-c=0" title="Imaginary Compoenent" background="True" />
+
+        <p>When taking the time derivative of this equation, keep in mind that <InlineEquation equation="\d=d(t)"/> is still a value that changes with respect to time. This will result in the terms <InlineEquation equation="\\dot(d) \\ddot(d)"/>, which represents the change and rate of change in length of the link with respect to time. </p>
+
+        <p>Similarly, if you set up a three-position vector loop for an inverted crank-slider, you will see three unknowns (<InlineEquation equation="\\theta_3"/>, <InlineEquation equation="\ s(t)"/>, and <InlineEquation equation="\\beta (t)"/>).</p>
+
+        <Image src="/md/Position_Velocity_Acceleration/Inverted_crank_slider_pva_1.png" width="5"></Image>
+        <p>
+            By breaking up the inverted crank-slider into four position vector loops, there are still three unknown variables (<InlineEquation equation="\\theta_3"/>, <InlineEquation equation="\\beta (t)"/>,  and <InlineEquation equation="\\theta_4"/>), but another equation appears due to geometry of the four-bar linkage. The angle <InlineEquation equation="\\gamma"/> is constant because link four and the slider are fixed in an inverted crank-slider. This reveals the equation:
+        </p>
+
+        <p>
+            <DisplayEquation equation="\\theta _3 = \\gamma + \\theta _4" title="Extra Equation for Inverted Crank-Slider" background="True" />
+        </p>
+        <p>With three unknown variables and three equations, we can use a solver to obtain the values of all unknown variables.</p>
+        <Image src="/md/Position_Velocity_Acceleration/Inverted_crank_slider_pva_2.png" width="5"></Image>
+    </SubSection>
+
+
+</Layout>

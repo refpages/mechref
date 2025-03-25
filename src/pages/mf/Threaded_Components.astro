@@ -14,6 +14,7 @@ import Warning from "../../components/Warning.astro"
 import InlineCanvas from "../../components/InlineCanvas.astro";
 import Itemize from "../../components/Itemize.astro";
 import Item from "../../components/Item.astro";
+import Enumerate from "../../components/Enumerate.astro";
 
 ---
 
@@ -89,11 +90,19 @@ import Item from "../../components/Item.astro";
         </p>
         <DisplayEquation title="Lead Angle Derivation" id="LA" background="True" equation="\\tan \\lambda = \\frac{L}{\\pi d_m}"/>
         <p>
-            <Itemize>
-                <Item><strong>Pitch (p):</strong> The distance between two threads</Item>
-                <Item><strong>Lead (L):</strong> The vertical distance a screw travels in 1 full rotation (an integer multiple of the pitch if there is more than 1 thread)</Item>
-                <Item><strong>Mean diameter (<InlineEquation equation="\ d_m"/>):</strong> The average of the diameters of the threads and the diameter of the shaft of the screw</Item>
-            </Itemize>
+            <Enumerate>
+            <Item> Begin by listing known information. In this case, we know the link lengths of a mechanism, as well as the angular velocity of the crank.<Image src="/md/Instant Centers/IC_example_1.1.png" width="5"> </Image></Item>
+            <Item>Next, compute all of the instant centers on the mechanism.</Item>
+            <Item>We then can consider the crank of the mechanism. We know that the pin between the crank and ground is an instant center. Since the ground link has a velocity of 0 everywhere, the crank will have a velocity of 0 at that location. Let's call the crank body 2, and the ground link body 1.</Item>
+            <Item>Then, select another grounded linkage. This is the link that we will analyze. Let's call that body 3. Body 1 and body 3 will share an instant center, which we will call <InlineEquation equation="\ A" />.</Item>
+            <Item>
+                Using <InlineEquation equation="\ v_a=v_{IC_{1,2}}+r_{IC_{1,2} \\rightarrow a} \\times \\omega_2" /> we can substitute in for <InlineEquation equation="\ v_{IC_{1,2}}, r_{IC_{1,2} \\rightarrow a}" /> and <InlineEquation equation="\ \\omega_2" /> to find <InlineEquation equation="\ v_a" />.<Image src="/md/Instant Centers/IC_example_1.2.png" width="5"> </Image>
+            </Item>
+            <Item>We can reuse the above equation, but instead consider that point <InlineEquation equation="\ A" /> is also attached to body 3. Thus, we could consider the velocity of point <InlineEquation equation="\ A" /> as coming from the rotation of body 3 rather than the rotation of body 2. We would write this equation as <InlineEquation equation="\ v_a=v_c+r_{c \\rightarrow a} \\times \\omega_3" />. </Item>
+            <Item>The biggest issue here is that we do not know where to place point <InlineEquation equation="\ C" /> so that we know its velocity. If we place it at point <InlineEquation equation="\ A" />, the radius will be 0, and we will be unable to compute <InlineEquation equation="\ \\omega_3" />. However, there is another location where we know the velocity of a point on body 3. If we consider <InlineEquation equation="\ IC_{1,3}" /> we know that the ground has a velocity of 0 everywhere. Thus, at <InlineEquation equation="\ IC_{1,3}" />, the ground and body 3 have the same speed, 0. </Item>
+            <Item>This allows us to write <InlineEquation equation="\ v_a=0+r_{IC_{1,3} \\rightarrow a} \\times \\omega_3" />. Since we know all of these values except <InlineEquation equation="\ \\omega_3" />, we can then solve for <InlineEquation equation="\ \\omega_3" />. </Item>
+            <Item>Now that <InlineEquation equation="\ \\omega_3" /> is known, we can compute <InlineEquation equation="\ V_b" />, and <InlineEquation equation="\ \\omega_4" />. Additionally, this procedure can be repeated to find the velocities of all links in a mechanism.<Image src="/md/Instant Centers/IC_example_2.3.png" width="5"> </Image></Item>
+            </Enumerate>
         </p>
         <!--
 
