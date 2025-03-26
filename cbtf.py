@@ -149,7 +149,7 @@ for dir in ['dyn', 'sta', 'sol', 'thermodynamics']:
         data = data.replace(f"?origin=sidebar", f'.html')
 
         data = data.replace('.html/canvases', '')
-        data = data.replace(f'{page.replace(".html", '')}/canvases.js', f'{page.replace(".html", '')}.js')
+        data = data.replace(f"{page.replace('.html', '')}/canvases.js", f"{page.replace('.html', '')}.js")
         data = data.replace("../dyn/particle_kinetics.html/particle_kinetics.html.js", "../dyn/particle_kinetics.js")
         data = data.replace("../dyn/vectors.html/worldCoastlineCompressed.js", './worldCoastlineCompressed.js')
         data = data.replace("../dyn/vectors.html/py_triples.js", "./py_triples.js",)
