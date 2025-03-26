@@ -11,15 +11,15 @@ $(document).ready(function(){
 
         this.setProp("shapeOutlineColor", "rgb(230, 230, 230)");
         
-        /// VERTICAL LINES
-        for (let i = 0; i < width*frequency; i++){
-            this.line($V([i/frequency, -height]), $V([i/frequency, height]));
-        }
+        // /// VERTICAL LINES
+        // for (let i = 0; i < width*frequency; i++){
+        //     this.line($V([i/frequency, -height]), $V([i/frequency, height]));
+        // }
         
-        /// HORIZONTAL LINES
-        for (let i = 0; i < height*frequency; i++){
-            this.line($V([-width, i/frequency]), $V([width, i/frequency]));
-        }
+        // /// HORIZONTAL LINES
+        // for (let i = 0; i < height*frequency; i++){
+        //     this.line($V([-width, i/frequency]), $V([width, i/frequency]));
+        // }
         
         this.setProp("shapeOutlineColor", "rgb(0, 0, 0)");
 
@@ -84,7 +84,7 @@ $(document).ready(function(){
             this.labelCircleLine(O, rw, a1, a2, $V([0, 1]), label, true);
             this.restore();
         }.bind(this);
-        this.setProp("shapeInsideColor", "#FDC066");
+        this.setProp("shapeInsideColor", "#FFF1DB");
 
         this.save();
         this.translate(rP1);
