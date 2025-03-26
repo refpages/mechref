@@ -98,11 +98,11 @@ import Enumerate from "../../components/Enumerate.astro";
 
                 <Image src="/md/Position_Velocity_Acceleration/Position_A_2.png" width="5"> </Image>
 
-                <DisplayEquation equation="\\begin{gather} \\overrightarrow R_2+\\overrightarrow R_3=\\overrightarrow R_4+\\overrightarrow R_1 \\\\ \\overrightarrow R_2+\\overrightarrow R_3-\\overrightarrow R_4-\\overrightarrow R_1 = 0 \\\\  \\overrightarrow R_{AO_2}+\\overrightarrow R_{BA}-\\overrightarrow R_{BO_4}-\\overrightarrow R_{O_4O_2} = 0 \\\\ ae^{j\\theta _2}+be^{j\\theta _3}-ce^{j\\theta _4}-de^{j\\theta _1} = 0  \\end{gather}" title="Position Vector Loop Equaitons " background="True" />
+                <DisplayEquation equation="\\begin{gather} \\overrightarrow R_2+\\overrightarrow R_3=\\overrightarrow R_4+\\overrightarrow R_1 \\\\ \\overrightarrow R_2+\\overrightarrow R_3-\\overrightarrow R_4-\\overrightarrow R_1 = 0 \\\\  \\overrightarrow R_{AO_2}+\\overrightarrow R_{BA}-\\overrightarrow R_{BO_4}-\\overrightarrow R_{O_4O_2} = 0 \\\\ ae^{j\\theta _2}+be^{j\\theta _3}-ce^{j\\theta _4}-de^{j\\theta _1} = 0  \\end{gather}" title="Position Vector Loop Equations " background="True" />
 
                 <Item>Break vector loop equation into real and imaginary parts. This can be done by using the Euler formula above.
 
-                <DisplayEquation equation="\\begin{gather} \ae^{j\\theta_2}+be^{j\\theta_3}-ce^{j\\theta _4}-de^{j\\theta _1} = 0 \\\\ a(cos\\theta _2+jsin\\theta _2)+b(cos\\theta _3+jsin\\theta _3)-c(cos\\theta _4+jsin\\theta _4)-d(cos\\theta _1+jsin\\theta _1) = 0 \\end{gather}" title="Position Vector Loop Equaitons in Cartesian Form" background="True" />
+                <DisplayEquation equation="\\begin{gather} \ae^{j\\theta_2}+be^{j\\theta_3}-ce^{j\\theta _4}-de^{j\\theta _1} = 0 \\\\ a(cos\\theta _2+jsin\\theta _2)+b(cos\\theta _3+jsin\\theta _3)-c(cos\\theta _4+jsin\\theta _4)-d(cos\\theta _1+jsin\\theta _1) = 0 \\end{gather}" title="Position Vector Loop Equations in Cartesian Form" background="True" />
 
                  Remember that <InlineEquation equation="\\theta_1"/> is equal to zero. This means that <InlineEquation equation="\ d(cos\\theta_1+jsin\\theta_1)"/> simplifies to just <InlineEquation equation="\ d+0j"/>. Now we can easily break up the vector loop equation into its real and imaginary components.
 
@@ -128,15 +128,15 @@ import Enumerate from "../../components/Enumerate.astro";
             <Image src="/md/Position_Velocity_Acceleration/Velocity_A_1.png" width="5"></Image></Item>
 
             <Item> Take the time derivative of the position vector loop to get the velocity vector loop.
-            <DisplayEquation equation="\\begin{gather} \\frac{d}{dt}(ae^{j\\theta _2}+be^{j\\theta _3}-ce^{j\\theta _4}-de^{j\\theta _1})=0 \\\\ ja\\frac{d\\theta _2}{dt}e^{j\\theta _2}+jb\\frac{d\\theta _3}{dt}e^{j\\theta _3}-jc\\frac{d\\theta _4}{dt}e^{j\\theta _4}-jd\\frac{d\\theta _1}{dt}e^{j\\theta _1} = 0 \\end{gather}" title="Velocity Vector Loop Equaitons " background="True" />
+            <DisplayEquation equation="\\begin{gather} \\frac{d}{dt}(ae^{j\\theta _2}+be^{j\\theta _3}-ce^{j\\theta _4}-de^{j\\theta _1})=0 \\\\ ja\\frac{d\\theta _2}{dt}e^{j\\theta _2}+jb\\frac{d\\theta _3}{dt}e^{j\\theta _3}-jc\\frac{d\\theta _4}{dt}e^{j\\theta _4}-jd\\frac{d\\theta _1}{dt}e^{j\\theta _1} = 0 \\end{gather}" title="Velocity Vector Loop Equations " background="True" />
             <p>
                 Because linkage 1 is grounded, we also know that <InlineEquation equation="\\frac{d\\theta _1}{dt}=\\omega _1 = 0"/>
             </p>
-                <DisplayEquation equation="j\\omega _2ae^{j\\theta _2} + j\\omega _3be^{j\\theta _3}-j\\omega _3ce^{j\\theta _4}=0" title="Simplified Vector Loop Equaiton " background="True" />
+                <DisplayEquation equation="j\\omega _2ae^{j\\theta _2} + j\\omega _3be^{j\\theta _3}-j\\omega _3ce^{j\\theta _4}=0" title="Simplified Vector Loop Equation " background="True" />
             <p>
                 Or more specifically,
             </p>
-                <DisplayEquation equation="\\overrightarrow V_A + \\overrightarrow V_{BA} - \\overrightarrow V_B = 0 " title="Reduced Vector Loop Equaiton "background="True" />
+                <DisplayEquation equation="\\overrightarrow V_A + \\overrightarrow V_{BA} - \\overrightarrow V_B = 0 " title="Reduced Vector Loop Equation "background="True" />
             <p>
                 In this velocity vector loop <InlineEquation equation="\\overrightarrow V_{AB}"/> represents the velocity of joint <InlineEquation equation="\ B"/> with respect to <InlineEquation equation="\ A"/>.
             </p>
@@ -145,7 +145,7 @@ import Enumerate from "../../components/Enumerate.astro";
 
             <Item>Break vector loop equation into real and imaginary parts.
 
-                <DisplayEquation equation="\\begin{gather} j\\omega _2ae^{j\\theta _2} + j\\omega _3be^{j\\theta _3}-j\\omega _3ce^{j\\theta _4}=0 \\\\ j\\omega _2a(cos\\theta _2+jsin\\theta _2) + j\\omega _3b(cos\\theta _3+jsin\\theta _3)-j\\omega _3c(cos\\theta _4+jsin\\theta _4)=0 \\end{gather}" title="Velocity Vector Loop Equaitons in Cartesian Form" background="True" />
+                <DisplayEquation equation="\\begin{gather} j\\omega _2ae^{j\\theta _2} + j\\omega _3be^{j\\theta _3}-j\\omega _3ce^{j\\theta _4}=0 \\\\ j\\omega _2a(cos\\theta _2+jsin\\theta _2) + j\\omega _3b(cos\\theta _3+jsin\\theta _3)-j\\omega _3c(cos\\theta _4+jsin\\theta _4)=0 \\end{gather}" title="Velocity Vector Loop Equations in Cartesian Form" background="True" />
 
 
                 <DisplayEquation equation="\ -a\\omega _2 sin(\\theta _2)-b\\omega _3 sin(\\theta _3) + c\\omega _4 sin(\\theta _4) = 0" title="Real Compoenent " background="True" />
@@ -177,22 +177,22 @@ import Enumerate from "../../components/Enumerate.astro";
             <Image src="/md/Position_Velocity_Acceleration/Acceleration_A_1.png" width="5"></Image>
 
             <Item> Take time derivative of velocity vector loop to get acceleration vector loop.
-                <DisplayEquation equation="\\begin{gather} \\frac{d}{dt}(j\\omega _2ae^{j\\theta _2} + j\\omega _3be^{j\\theta _3}-j\\omega _3ce^{j\\theta _4})=0 \\\\ j\\frac{d\\omega _2}{dt}ae^{j\\theta _2} + j^2\\omega _2\\frac{d\\theta _2}{dt}ae^{j\\theta _2} +j\\frac{d\\omega _3}{dt}be^{j\\theta _3} + j^2\\omega _3\\frac{d\\theta _3}{dt}be^{j\\theta _3} - j\\frac{d\\omega _3}{dt}ce^{j\\theta _4} - j^2\\omega _4\\frac{d\\theta _4}{dt}ce^{j\\theta _4}=0 \\\\ j\\alpha _2 ae^{j\\theta _2} - \\omega _2^2ae^{j\\theta _2} +j\\alpha _3be^{j\\theta _3} - \\omega _3^2be^{j\\theta _3} - j\\alpha _4ce^{j\\theta _4} + \\omega _3^2ce^{j\\theta _4}=0\\end{gather}" title="Acceleration Vector Loop Equaitons " background="True" />
+                <DisplayEquation equation="\\begin{gather} \\frac{d}{dt}(j\\omega _2ae^{j\\theta _2} + j\\omega _3be^{j\\theta _3}-j\\omega _3ce^{j\\theta _4})=0 \\\\ \\\\ j\\frac{d\\omega _2}{dt}ae^{j\\theta _2} + j^2\\omega _2\\frac{d\\theta _2}{dt}ae^{j\\theta _2} +j\\frac{d\\omega _3}{dt}be^{j\\theta _3}+ \\\\ j^2\\omega _3\\frac{d\\theta _3}{dt}be^{j\\theta _3} - j\\frac{d\\omega _3}{dt}ce^{j\\theta _4} - j^2\\omega _4\\frac{d\\theta _4}{dt}ce^{j\\theta _4}=0 \\\\ \\\\ j\\alpha _2 ae^{j\\theta _2} - \\omega _2^2ae^{j\\theta _2} +j\\alpha _3be^{j\\theta _3} - \\omega _3^2be^{j\\theta _3} - j\\alpha _4ce^{j\\theta _4} + \\omega _3^2ce^{j\\theta _4}=0\\end{gather}" title="Acceleration Vector Loop Equations " background="True" />
                 <p>
                     Now we can see terms with <InlineEquation equation="\\alpha"/> and <InlineEquation equation="\\omega^2"/> appearing for each linkage. The angular acceleration term <InlineEquation equation="\\alpha"/> appears due to tangential, acceleration of the linkage while the <InlineEquation equation="\\omega^2"/> term appears due to the centripetal acceleration of the linkage. In total, four different types of acceleration can appear in acceleration analysis. For a refresher on these terms, refer to the particle kinematics page on the dynamics reference page. With this information, we can simplify the equation further to focus on the different acceleration terms:
                 </p>
-                <DisplayEquation equation="(j\\alpha _2\overrightarrow R_2 - \\omega _2^2 \\overrightarrow R_2) + (j\\alpha _3 \\overrightarrow R_3 - \\omega _3^2\\overrightarrow R_3) - (j\\alpha _4\\overrightarrow R_4 - \\omega _4^2\\overrightarrow R_4) = 0" title="Simplified Acceleration Loop Equaiton " background="True" />
+                <DisplayEquation equation="(j\\alpha _2\overrightarrow R_2 - \\omega _2^2 \\overrightarrow R_2) + (j\\alpha _3 \\overrightarrow R_3 - \\omega _3^2\\overrightarrow R_3) - (j\\alpha _4\\overrightarrow R_4 - \\omega _4^2\\overrightarrow R_4) = 0" title="Simplified Acceleration Loop Equation " background="True" />
                 <p>
                     Or more specifically,
                 </p>
-                <DisplayEquation equation="\\begin{gather}(\\overrightarrow A_A^t + \\overrightarrow A_A^n) + (\\overrightarrow A_{BA}^t+\\overrightarrow A_{BA}^n) - (\\overrightarrow A_B^t+ \\overrightarrow A_B^n) = 0 \\\\ \\overrightarrow A_A + \\overrightarrow A_{BA} - \\overrightarrow A_B = 0 \\end{gather}" title="Reduced Acceleration Loop Equaiton "background="True" />
+                <DisplayEquation equation="\\begin{gather}(\\overrightarrow A_A^t + \\overrightarrow A_A^n) + (\\overrightarrow A_{BA}^t+\\overrightarrow A_{BA}^n) - (\\overrightarrow A_B^t+ \\overrightarrow A_B^n) = 0 \\\\ \\overrightarrow A_A + \\overrightarrow A_{BA} - \\overrightarrow A_B = 0 \\end{gather}" title="Reduced Acceleration Loop Equation "background="True" />
 
                 <Image src="/md/Position_Velocity_Acceleration/Acceleration_A_2.png" width="5"></Image></Item>
 
 
             <Item>Break vector loop equation into real and imaginary parts.
 
-                <DisplayEquation equation="\\begin{gather} j\\alpha _2 ae^{j\\theta _2} - \\omega _2^2ae^{j\\theta _2} +j\\alpha _3be^{j\\theta _3} - \\omega _3^2be^{j\\theta _3} - j\\alpha _4ce^{j\\theta _4} + \\omega _3^2ce^{j\\theta _4}=0 \\\\ (j\\alpha _2-\\omega _2^2)ae^{j\\theta _2} +(j\\alpha _3-\\omega _3^2)be^{j\\theta _3}-(j\\alpha _4-\\omega _4^2)ce^{j\\theta _4} =0 \\\\ (j\\alpha _2-\\omega _2^2)a(cos\\theta _2+jsin\\theta _2) +(j\\alpha _3-\\omega _3^2)b(cos\\theta _3+jsin\\theta _3)-(j\\alpha _4-\\omega _4^2)c(cos\\theta _4+jsin\\theta _4) =0 \\end{gather}" title="Acceleration Vector Loop Equaitons in Cartesian Form" background="True" />
+                <DisplayEquation equation="\\begin{gather} j\\alpha _2 ae^{j\\theta _2} - \\omega _2^2ae^{j\\theta _2} +j\\alpha _3be^{j\\theta _3} - \\omega _3^2be^{j\\theta _3} - j\\alpha _4ce^{j\\theta _4} + \\omega _3^2ce^{j\\theta _4}=0 \\\\ \\\\(j\\alpha _2-\\omega _2^2)ae^{j\\theta _2} +(j\\alpha _3-\\omega _3^2)be^{j\\theta _3}-(j\\alpha _4-\\omega _4^2)ce^{j\\theta _4} =0 \\\\ \\\\ (j\\alpha _2-\\omega _2^2)a(cos\\theta _2+jsin\\theta _2) +(j\\alpha _3-\\omega _3^2)b(cos\\theta _3+jsin\\theta _3)- \\\\ (j\\alpha _4-\\omega _4^2)c(cos\\theta _4+jsin\\theta _4) =0 \\end{gather}" title="Acceleration Vector Loop Equations in Cartesian Form" background="True" />
 
 
                 <DisplayEquation equation="\ -a\\alpha _2sin\\theta _2-a\\omega _2^2cos\\theta _2-b\\alpha _3sin\\theta _3-b\\omega _3^2cos\\theta _3+c\\alpha _4sin\\theta _4+c\\omega _4^2cos\\theta _4 = 0" title="Real Compoenent " background="True" />
