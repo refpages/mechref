@@ -106,8 +106,8 @@ import Enumerate from "../../components/Enumerate.astro";
 
                  Remember that <InlineEquation equation="\\theta_1"/> is equal to zero. This means that <InlineEquation equation="\ d(cos\\theta_1+jsin\\theta_1)"/> simplifies to just <InlineEquation equation="\ d+0j"/>. Now we can easily break up the vector loop equation into its real and imaginary components.
 
-                    <DisplayEquation equation="\ a(cos\\theta _2)+b(cos\\theta _3)-c(cos\\theta _4) - d = 0" title="Real Compoenent " background="True" />
-                    <DisplayEquation equation="\ a(sin\\theta _2)+b(sin\\theta _3)-c(sin\\theta _4) +0= 0" title="Imaginary Compoenent" background="True" />
+                    <DisplayEquation equation="\ a(cos\\theta _2)+b(cos\\theta _3)-c(cos\\theta _4) - d = 0" title="Real Component " background="True" />
+                    <DisplayEquation equation="\ a(sin\\theta _2)+b(sin\\theta _3)-c(sin\\theta _4) +0= 0" title="Imaginary Component" background="True" />
                 </Item>
                 <Item>
                     Solve for unknown positions and/or angles. Since lengths <InlineEquation equation="\ a"/>, <InlineEquation equation="\ b"/>, <InlineEquation equation="\ c"/>, and <InlineEquation equation="\ d"/> are given along with angles <InlineEquation equation="\ (\\theta_1)"/> and <InlineEquation equation="\ (\\theta_2)"/>, the unknowns are <InlineEquation equation="\ (\\theta_3)"/> and <InlineEquation equation="\ (\\theta_4)"/>. Since there are two equations and two unknowns, this system can be solved using an equation solver.
@@ -148,8 +148,8 @@ import Enumerate from "../../components/Enumerate.astro";
                 <DisplayEquation equation="\\begin{gather} j\\omega _2ae^{j\\theta _2} + j\\omega _3be^{j\\theta _3}-j\\omega _3ce^{j\\theta _4}=0 \\\\ j\\omega _2a(cos\\theta _2+jsin\\theta _2) + j\\omega _3b(cos\\theta _3+jsin\\theta _3)-j\\omega _3c(cos\\theta _4+jsin\\theta _4)=0 \\end{gather}" title="Velocity Vector Loop Equations in Cartesian Form" background="True" />
 
 
-                <DisplayEquation equation="\ -a\\omega _2 sin(\\theta _2)-b\\omega _3 sin(\\theta _3) + c\\omega _4 sin(\\theta _4) = 0" title="Real Compoenent " background="True" />
-                <DisplayEquation equation="\ a\\omega _2 cos(\\theta _2)+b\\omega _3 cos(\\theta _3) - c\\omega _4 cos(\\theta _4) = 0" title="Imaginary Compoenent" background="True" />
+                <DisplayEquation equation="\ -a\\omega _2 sin(\\theta _2)-b\\omega _3 sin(\\theta _3) + c\\omega _4 sin(\\theta _4) = 0" title="Real Component " background="True" />
+                <DisplayEquation equation="\ a\\omega _2 cos(\\theta _2)+b\\omega _3 cos(\\theta _3) - c\\omega _4 cos(\\theta _4) = 0" title="Imaginary Component" background="True" />
             </Item>
             <Item>
                 Solve for the unknown velocities. Using trigonometric identities, we can use the two above equations to solve for <InlineEquation equation="\\omega_3"/> and <InlineEquation equation="\\omega_4"/> using an equation solver.
@@ -181,7 +181,7 @@ import Enumerate from "../../components/Enumerate.astro";
                 <p>
                     Now we can see terms with <InlineEquation equation="\\alpha"/> and <InlineEquation equation="\\omega^2"/> appearing for each linkage. The angular acceleration term <InlineEquation equation="\\alpha"/> appears due to tangential, acceleration of the linkage while the <InlineEquation equation="\\omega^2"/> term appears due to the centripetal acceleration of the linkage. In total, four different types of acceleration can appear in acceleration analysis. For a refresher on these terms, refer to the particle kinematics page on the dynamics reference page. With this information, we can simplify the equation further to focus on the different acceleration terms:
                 </p>
-                <DisplayEquation equation="(j\\alpha _2\overrightarrow R_2 - \\omega _2^2 \\overrightarrow R_2) + (j\\alpha _3 \\overrightarrow R_3 - \\omega _3^2\\overrightarrow R_3) - (j\\alpha _4\\overrightarrow R_4 - \\omega _4^2\\overrightarrow R_4) = 0" title="Simplified Acceleration Loop Equation " background="True" />
+                <DisplayEquation equation="(j\\alpha _2\\overrightarrow R_2 - \\omega _2^2 \\overrightarrow R_2) + (j\\alpha _3 \\overrightarrow R_3 - \\omega _3^2\\overrightarrow R_3) - (j\\alpha _4\\overrightarrow R_4 - \\omega _4^2\\overrightarrow R_4) = 0" title="Simplified Acceleration Loop Equation " background="True" />
                 <p>
                     Or more specifically,
                 </p>
@@ -195,14 +195,14 @@ import Enumerate from "../../components/Enumerate.astro";
                 <DisplayEquation equation="\\begin{gather} j\\alpha _2 ae^{j\\theta _2} - \\omega _2^2ae^{j\\theta _2} +j\\alpha _3be^{j\\theta _3} - \\omega _3^2be^{j\\theta _3} - j\\alpha _4ce^{j\\theta _4} + \\omega _3^2ce^{j\\theta _4}=0 \\\\ \\\\(j\\alpha _2-\\omega _2^2)ae^{j\\theta _2} +(j\\alpha _3-\\omega _3^2)be^{j\\theta _3}-(j\\alpha _4-\\omega _4^2)ce^{j\\theta _4} =0 \\\\ \\\\ (j\\alpha _2-\\omega _2^2)a(cos\\theta _2+jsin\\theta _2) +(j\\alpha _3-\\omega _3^2)b(cos\\theta _3+jsin\\theta _3)- \\\\ (j\\alpha _4-\\omega _4^2)c(cos\\theta _4+jsin\\theta _4) =0 \\end{gather}" title="Acceleration Vector Loop Equations in Cartesian Form" background="True" />
 
 
-                <DisplayEquation equation="\ -a\\alpha _2sin\\theta _2-a\\omega _2^2cos\\theta _2-b\\alpha _3sin\\theta _3-b\\omega _3^2cos\\theta _3+c\\alpha _4sin\\theta _4+c\\omega _4^2cos\\theta _4 = 0" title="Real Compoenent " background="True" />
-                <DisplayEquation equation="\ a\\alpha _2cos\\theta _2-a\\omega _2^2sin\\theta _2+b\\alpha _3cos\\theta _3-b\\omega _3^2sin\\theta _3-c\\alpha _4cos\\theta _4+c\\omega _4^2sin\\theta _4 = 0" title="Imaginary Compoenent" background="True" />
+                <DisplayEquation equation="\ -a\\alpha _2sin\\theta _2-a\\omega _2^2cos\\theta _2-b\\alpha _3sin\\theta _3-b\\omega _3^2cos\\theta _3+c\\alpha _4sin\\theta _4+c\\omega _4^2cos\\theta _4 = 0" title="Real Component " background="True" />
+                <DisplayEquation equation="\ a\\alpha _2cos\\theta _2-a\\omega _2^2sin\\theta _2+b\\alpha _3cos\\theta _3-b\\omega _3^2sin\\theta _3-c\\alpha _4cos\\theta _4+c\\omega _4^2sin\\theta _4 = 0" title="Imaginary Component" background="True" />
             </Item>
             <Item>
                 Solve for the unknown accelerations. Using trigonometric identities, we can use the two above equations to solve for <InlineEquation equation="\\alpha_3"/> and <InlineEquation equation="\\alpha_4"/> using an equation solver.
             </Item>
 
-            <Warning title="Computing Acceleartions" id="warn2">
+            <Warning title="Computing Accelerations" id="warn2">
                 <p> Note that it is possible to solve for for <InlineEquation equation="\\alpha_3"/> and <InlineEquation equation="\\alpha_4"/> analytically. However this can be time consuming and depends on the exact nature of the mechanism that is being analyzed. For a standard 4-bar linkage with pin joints the solution is:</p>
 
                 <p><InlineEquation equation="\\alpha _3= \\frac{CD-AF}{AE-BD}"/></p>
@@ -236,8 +236,8 @@ import Enumerate from "../../components/Enumerate.astro";
         <p>Since <InlineEquation equation="\\theta_4"/> equals 90 degrees and <InlineEquation equation="\\theta_1"/> equals zero degrees, the equation can be simplified to:</p>
         <DisplayEquation equation="ae^{j\\theta _2} - be^{j\\theta _3}-jc-d=0" title="Simplified Position Vector Loop for Crank Slider" background="True" />
 
-        <DisplayEquation equation="\ acos\\theta _2-bcos\\theta _3 -d =0" title="Real Compoenent " background="True" />
-        <DisplayEquation equation="\ asin\\theta _2 - bsin\\theta _3-c=0" title="Imaginary Compoenent" background="True" />
+        <DisplayEquation equation="\ acos\\theta _2-bcos\\theta _3 -d =0" title="Real Component " background="True" />
+        <DisplayEquation equation="\ asin\\theta _2 - bsin\\theta _3-c=0" title="Imaginary Component" background="True" />
 
         <p>When taking the time derivative of this equation, keep in mind that <InlineEquation equation="\d=d(t)"/> is still a value that changes with respect to time. This will result in the terms <InlineEquation equation="\\dot(d) \\ddot(d)"/>, which represents the change and rate of change in length of the link with respect to time. </p>
 
