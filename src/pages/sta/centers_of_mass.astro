@@ -108,12 +108,23 @@ The center of mass, center of gravity, and center of volume are all represented 
     </tbody>
 </DisplayTable>
 
-  <DisplayEquation title="When are Centers of Gravity, Mass, and Volume the same?" id="com" background="True" equation="" derivation="True">
-    
-      	<p> The center of gravity, center of mass, and center of volume of an object are the same when that object has a constant density (is homogeneous) and gravity is constant along the object. </p>
-	<Image src='/sta/centers_of_mass/CoGMVDerivation.jpg' width='5'> </Image>
-
-  </DisplayEquation>
+<DisplayEquation title="When are Centers of Gravity, Mass, and Volume the same?" id="com" background="True" equation="" derivation="True">
+    <p>
+        The center of gravity, center of mass, and center of volume of an object are the same when that object has a constant density (is homogeneous) and gravity is constant along the object.
+        <div style = "text-align: center; margin-bottom: 10px;">Center of gravity:<InlineEquation equation = "\\ \\bar{x}, \\bar{y}"/></div>
+	    <div style = "text-align: center; margin-bottom: 10px;"><InlineEquation equation = "\\bar{y} = \\frac{\\int \\tilde{y} \\ d \\ W}{\\int \\ d \\ W} \\ \\ \\ \\bar{x} = \\frac{\\int \\tilde{x} \\ d \\ W}{\\int \\ d \\ W}"/></div>
+        <div style = "text-align: center; margin-bottom: 10px;">We know that:<InlineEquation equation = "\\ w = m \\ g"/></div>
+        <div style = "padding-left: 290px; margin-bottom: 10px;"><InlineEquation equation = "d \\ w = m \\cancel{d \\ g} + d \\ m \\ g \\ \\ \\ \\ \\"/>assume that gravity = constant</div>
+        <div style = "padding-left: 313px; margin-bottom: 10px;"><InlineEquation equation = "d \\ w = g \\ d \\ m"/><span style = "color: gray"><InlineEquation equation = "\\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ d \\ g = 0"/></span></div>
+        <div style = "text-align: center; margin-bottom: 10px;"><InlineEquation equation = "\\bar{y} = \\frac{\\int \\tilde{y} \\cancel{g} \\ d \\ m}{\\int \\cancel{g}\\ d \\ m}"/></div>
+        <div style = "padding-left: 290px; margin-bottom: 10px;"><InlineEquation equation = "\\bar{y} = \\frac{\\int \\tilde{y} \\ d \\ m}{\\int \\ d \\ m} \\ \\ \\ \\bar{x} = \\frac{\\int \\tilde{x} \\ d \\ m}{\\int \\ d \\ m} \\ \\ \\ \\ \\"/>center of mass</div>
+        <div style = "text-align: center; margin-bottom: 10px;">We know that mass = <InlineEquation equation = "\\rho \\ V"/></div>
+        <div style = "padding-left: 290px; margin-bottom: 10px;"><InlineEquation equation = "d \\ m = \\rho \\ V \\ d + V \\cancel{d} \\rho \\ \\ \\ \\ \\"/>assuming <InlineEquation equation = "\\rho"/> = constant</div>
+        <div style = "padding-left: 313px; margin-bottom: 10px;"><InlineEquation equation = "d \\ m = \\rho \\ V \\ d"/><span style = "color: gray"><InlineEquation equation = "\\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\  \\ \\ d \\ \\rho = 0"/></span></div>
+        <div style = "text-align: center; margin-bottom: 10px;"><InlineEquation equation = "\\bar{y} = \\frac{\\int \\tilde{y} \\cancel{\\rho} \\ d \\ V}{\\int \\cancel{\\rho}\\ d \\ V}"/></div>
+        <div style = "padding-left: 290px; margin-bottom: 10px;"><InlineEquation equation = "\\bar{y} = \\frac{\\int \\tilde{y} \\ d \\ V}{\\int \\ d \\ V} \\ \\ \\ \\bar{x} = \\frac{\\int \\tilde{x} \\ d \\ V}{\\int \\ d \\ V} \\ \\ \\ \\ \\"/>center of volume (centroid)</div>
+    </p>
+</DisplayEquation>
 
 </Section>
 
