@@ -32,6 +32,7 @@ import Enumerate from "../../components/Enumerate.astro";
                     <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#2Position_v2'>Two Position synthesis: Coupler Output</a></li>
                     <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#Rotopole'>Rotopole Synthesis</a></li>
                     <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#Dyad_Driver'>Dyad Driver</a></li>
+                    <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#Quick_Return'>Quick Return</a></li>
                 </ul>
             </li>
         </ul>
@@ -86,7 +87,7 @@ import Enumerate from "../../components/Enumerate.astro";
             is known as the offset angle. By changing link lengths and angle gamma, there are many
             position paths that the coupler point <InlineEquation equation="\P" /> can travel.
         </p>
-        <Image src="/md/Graphical_Linkage_Synthesis/Path_gen_coupler_curve_linkage.png" width="7"> </Image>
+        <Image src="/md/Graphical_Linkage_Synthesis/Path_gen_coupler_curve_linkage_2.png" width="7"> </Image>
         <p>
         To simplify coupler curve tables, common ratios between linkage lengths are established. <InlineEquation equation="\L_1/L_2" />
             is known as the ground link ratio and <InlineEquation equation="\L_3/L_2" /> is the coupler link ratio.
@@ -100,7 +101,7 @@ import Enumerate from "../../components/Enumerate.astro";
             If you want to change the length of a single link, there are additional tables for different links that
             can be used to  select different types of motion.
         </p>
-        <Image src="/md/Graphical_Linkage_Synthesis/Path_gen_coupler_curve_sym_clr.png" width="7"> </Image>
+        <Image src="/md/Graphical_Linkage_Synthesis/Path_gen_coupler_curve_sym_clr_2.png" width="7"> </Image>
     </SubSection>
     <SubSection id="Position_generation" title="Position Generation">
         Position generation focuses on a link following a prescribed position. In this case, the orientation of the link
@@ -139,7 +140,6 @@ import Enumerate from "../../components/Enumerate.astro";
             <Item> Using the distance between the start and the bisecting line as your radius, draw a circle around the ground position of your crank. Place a joint on the circle and connect the ground to your new joint to create your crank.</Item>
             <Image src="/md/Graphical_Linkage_Synthesis/Rocker_output_4.png" width="3"> </Image>
             <Item>Once you draw in your rocker, you are finished!</Item>
-            <Image src="/md/Graphical_Linkage_Synthesis/Rocker_output_5.png" width="3"> </Image>
             <Image src="/md/Graphical_Linkage_Synthesis/two_position_v1.gif" width="3"> </Image>
         </Enumerate>
     </SubSubSection>
@@ -156,7 +156,6 @@ import Enumerate from "../../components/Enumerate.astro";
             <Item>Bisect the other pair of start and end joints. Draw another ground point anywhere along the line. This will be the last joint in the four bar linkage. </Item>
             <Image src="/md/Graphical_Linkage_Synthesis/Coupler_output_3.png" width="3"> </Image>
             <Item>Erase all bisecting lines and draw your linkages. You have now completed coupler output synthesis! </Item>
-            <Image src="/md/Graphical_Linkage_Synthesis/Coupler_output_4.png" width="3"> </Image>
             <Image src="/md/Graphical_Linkage_Synthesis/Coupler_output.GIF" width="3"> </Image>
         </Enumerate>
     </SubSubSection>
@@ -179,16 +178,52 @@ import Enumerate from "../../components/Enumerate.astro";
         When designing the rotopole, we did not consider the crank or coupler. Fortunately, we can design these links to move the rocker the proper amount. The process of adding a crank and coupler to an existing mechanism (Whether it is a rotopole or other rocker) to move it the proper amount is called adding a "dyad driver".
         <Enumerate>
             <Item>Start with your rotopole or rocker mechanism and choose a point on the already existing linkage. This has been labeled <InlineEquation equation="\B_1"/> for the starting position and <InlineEquation equation="\B_2"/> for the ending position. </Item>
-            <Image src="/md/Graphical_Linkage_Synthesis/Dyad_1.png" width="3"> </Image>
+            <Image src="/md/Graphical_Linkage_Synthesis/Dyad_2_2.png" width="3"> </Image>
             <Item>Draw a straight line connecting the start and end position of the chosen point. Extend this line out of the way of the mechanism's motion. Choose a point on this line to place the ground joint for the crank.</Item>
-            <Image src="/md/Graphical_Linkage_Synthesis/Dyad_2.png" width="3"> </Image>
+            <Image src="/md/Graphical_Linkage_Synthesis/Dyad_2_3.png" width="3"> </Image>
             <Item> Bisect the two chosen points (<InlineEquation equation="\B_1"/> and <InlineEquation equation="\B_2"/>). Use the distance between one of the points as the radius of the crank.</Item>
-            <Image src="/md/Graphical_Linkage_Synthesis/Dyad_3.png" width="3"> </Image>
+            <Image src="/md/Graphical_Linkage_Synthesis/Dyad_2_4.png" width="3"> </Image>
             <Item>Create the crank linkage and add a linkage to attach the coupler to the mechanism. Your dyad driver is now complete. </Item>
-            <Image src="/md/Graphical_Linkage_Synthesis/Dyad_4.png" width="3"> </Image>
+            <Image src="/md/Graphical_Linkage_Synthesis/Dyad_2_5.png" width="3"> </Image>
         </Enumerate>
     </SubSubSection>
 
+    <SubSubSection id="Quick_Return" title="Quick Return">
+        <p>Quick return mechanisms are used to vary the speed of a mechanism throughout its motion while still utilizing a constant input angular velocity. For example, a crank rocker with a quick-return mechanism will move faster in one direction than in the other. By changing the direction of the crank rotation, the direction of faster rotation will also change.</p>
+
+        <p>
+            The most important parameter of a quick return mechanism is its "time ratio" which is the ratio of the time it takes to move in one direction divided by the time it takes to move in the opposite direction. For example, a time ratio of 1.5 would mean that if it takes 1 second to move the mechanism forward, it would take 1.5 seconds to move it back.
+        </p>
+
+        <p>
+            To achieve a time ratio other than 1 with a constant angular velocity crank input, the arc of the crank that it takes to move in one direction, <InlineEquation equation="\\alpha"/> needs to be smaller than the arc that it takes to move in the other, <InlineEquation equation="\\beta"/>. This gives rise to the following system of equations.
+        </p>
+        <DisplayEquation title="Alpha Beta" id="AB" background="True" equation="\\alpha +\\beta= 2\\pi"/>
+        <DisplayEquation title="Delta" id="D" background="True" equation="\\delta=\\frac{\\beta-\\alpha}{2}"/>
+        <DisplayEquation title="Time Ratio" id="TR" background="True" equation="\\text{Time Ratio}= \\frac{\\alpha}{\\beta}"/>
+
+        <p>
+            Given a time ratio, this system of equations can be solved for the 3 unknown parameters <InlineEquation equation="\\alpha"/>, <InlineEquation equation="\\beta"/>, and <InlineEquation equation="\\delta"/>. However, delta can also be solved directly using the following equation.
+        </p>
+        <DisplayEquation title="Time Ratio 2" id="TR2" background="True" equation="\ \\text{Time Ratio}=\\frac{\\pi+\\delta}{\\pi-\\delta}"/>
+
+        <p>
+            Regardless of the method, once the value of <InlineEquation equation="\\delta"/> for a given time ratio has been calculated, the synthesis can be preformed.
+        </p>
+
+        <Enumerate>
+            <Item>Start with the desired start (<InlineEquation equation="\B_1"/>) and ending (<InlineEquation equation="\B_2"/>) position of a rocker. Draw a line anywhere through the starting position at any convenient angle. </Item>
+            <Image src="/md/Graphical_Linkage_Synthesis/Quick_1.png" width="3"> </Image>
+            <Item>Draw a line through the end position (<InlineEquation equation="\B_2"/>) and extend it until it intersects with your initial line at an angle <InlineEquation equation="\\delta"/>. This intersection will become the ground joint for the crank.</Item>
+            <Image src="/md/Graphical_Linkage_Synthesis/Quick_2.png" width="3"> </Image>
+            <Item> Center your compass around the new ground joint and extend the radius until it reaches the end position. Draw an arc that intersects with both of the lines. Label this intersection point <InlineEquation equation="\P"/>.</Item>
+            <Image src="/md/Graphical_Linkage_Synthesis/Quick_3.png" width="3"> </Image>
+            <Item>The distance between <InlineEquation equation="\P"/> and <InlineEquation equation="\B_1"/> is will become the diameter of the crank. If you are using a compass, bisect points <InlineEquation equation="\P"/> and <InlineEquation equation="\B_1"/> to get the radius of the crank.</Item>
+            <Image src="/md/Graphical_Linkage_Synthesis/Quick_4.png" width="3"> </Image>
+            <Item>Draw the links in and a quick return crank rocker is left over.</Item>
+            <Image src="/md/Graphical_Linkage_Synthesis/Quick_5.png" width="3"> </Image>
+        </Enumerate>
+    </SubSubSection>
 
 
 

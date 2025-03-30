@@ -1,5 +1,5 @@
 ---
-import Layout from '../layouts/BlankLayout.astro';
+import Layout from '../layouts/BlankBlankLayout.astro';
 import Section from '../components/Section.astro';
 import SubSection from '../components/SubSection.astro';
 import Searchbar from '../components/Searchbar.astro';
@@ -10,18 +10,216 @@ import Row from '../components/Row.astro';
 import Col from '../components/Col.astro';
 ---
 
-<Layout title="Mechanics Reference">
+<style>
+    :root{
+    --card-size: 180px;
+}
 
-<Row>
-    <Col values="12 md-7">
-        <Image src='/MainFig.png' class_=""></Image>
-    </Col>
-    <Col values="12 md-5">
+#courses .title-section{
+    margin-top: 1rem;
+}
+
+#courses .title-section h3{
+    font-weight: bold;
+}
+
+ul a{
+    font-size: 1.2rem;
+    color: var(--bs-text-color);
+    transition: font-size linear .2s;
+}
+
+ul a:hover{
+    color: var(--altgeld-orange);
+}
+
+div.grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, var(--card-size));
+    grid-auto-rows: 1fr;
+    gap: 10px;
+    justify-content: center;
+}
+
+.main-cards{
+    padding: .5rem;
+    width: 100%;
+    background-color: #f0f0d0;
+    border: 2px solid var(--bs-border-color); 
+    border-radius: 10px;
+    text-decoration: none;
+    color: black;
+    transition: all linear .1s;
+}
+
+.main-cards a{
+    color: black;
+    text-decoration: none;
+}
+.main-cards p:first-of-type{
+    margin-top: .5rem;
+    margin-bottom: 0;
+
+    font-weight: bold;
+    text-align: center;
+}
+
+.main-cards a div{
+    padding: .5rem; 
+    border-radius: .5rem;
+    height: calc(var(--card-size) - 1rem);
+}
+
+.main-cards:hover{
+    transform: scale(1.05);
+    margin-bottom: .5rem;
+}
+
+.main-cards img{
+    height: calc(var(--card-size) - 1rem);
+    display: block;
+    object-fit: contain;
+    width: 100%;
+    border-radius: .5rem;
+}
+
+.simp-switch{
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    margin-left: 2rem;
+}
+
+.simp-btn{
+    margin-right: .5rem;
+}
+
+@media(width >= 768px){
+    ul a:hover{
+        transform: scale(1.05);
+        font-size: 1.17rem;
+    }
+
+    div.grid{
+        justify-content: start;
+    }
+}
+</style>
+
+<Layout title="Mechanics Reference">
+<div class="row mt-3">
+    <div class="col-12 col-md-7" id="courses">
+        <div id="tam2xx">
+            <div class="d-flex justify-content-between flex-row title-section mt-0">
+                <h3 class="flex-shrink-1">Introductory Mechanics</h3>
+                <div class="form-check form-switch simp-switch flex-grow-1">
+                    <input class="form-check-input simp-btn" type="checkbox" role="switch" onchange="toggle_simplified_view(this);">
+                    <label class="form-check-label" style="text-wrap: nowrap;">Simplified view:</label>
+                </div>
+            </div>
+    
+            <div class="grid card-grid-fancy">
+                <div class="main-cards">
+                    <a href="/sta">
+                        <img src="/home_page/StaticsCoverPic.png" style="background-color: white"  alt="Statics logo" />
+                        <p>Statics</p>
+                    </a>
+                </div>
+                <div class="main-cards">
+                    <a href="/dyn">
+                        <img src="/home_page/DynamicsCoverPic.png" style="background-color: white"  alt="Dynamics logo" />
+                        <p>Dynamics</p>
+                    </a>
+                </div>
+                <div class="main-cards">
+                    <a href="/sol">
+                        <img src="/home_page/SolidMechanicsCoverPic.png" style="background-color: white"  alt="Solid Mechanics logo" />
+                        <p>Solid Mechanics</p>
+                    </a>
+                </div>	
+            </div>
+        
+            <ul class="mt-0 card-grid-simple">
+                <li><a href="/sta">Statics</a></li>
+                <li><a href="/dyn">Dynamics</a></li>
+                <li><a href="/sol">Solid Mechanics</a></li>
+            </ul>
+        </div>
+        <div id="fundamentals">
+            <div class="d-flex justify-content-between flex-row title-section">
+                <h3 class="">MechSE Fundamentals</h3>
+                <div class="form-check form-switch simp-switch">
+                    <input class="form-check-input simp-btn" type="checkbox" role="switch" onchange="toggle_simplified_view(this);">
+                    <label class="form-check-label" style="text-wrap: nowrap;">Simplified view:</label>
+                </div>
+            </div>
+    
+            <div class="grid card-grid-fancy">
+                <div class="main-cards">
+                    <a href="/thermodynamics">
+                        <img src="/home_page/thermodynamics.png" alt="Thermodynamics logo" />
+                        <p>Thermodynamics</p>
+                    </a>
+                </div>
+            </div>
+        
+            <ul class="mt-0 card-grid-simple">
+                <li><a href="/thermodynamics">Thermodynamics</a></li>
+            </ul>
+        </div>
+        <div id="design">
+            <div class="d-flex justify-content-between flex-row title-section">
+                <h3 class="">Mechanical Design</h3>
+                <div class="form-check form-switch simp-switch">
+                    <input class="form-check-input simp-btn" type="checkbox" role="switch" onchange="toggle_simplified_view(this);">
+                    <label class="form-check-label" style="text-wrap: nowrap;">Simplified view:</label>
+                </div>
+            </div>
+    
+            <div class="grid card-grid-fancy">
+                <div class="main-cards">
+                    <a href="/md">
+                        <img src="/home_page/Mechanism%20Design.png" style="background-color: white" alt="Mechansim Design Logo" />
+                        <p>Mechanism Design</p>
+                    </a>
+                </div>
+                <div class="main-cards">
+                    <a href="/mf">
+                        <div style="background-color: #fff;"></div>
+                        <p>Mechanism Failure</p>
+                    </a>
+                </div>
+            </div>
+        
+            <ul class="mt-0 card-grid-simple">
+                <li><a href="/md">Mechanism Design</a></li>
+                <li><a href="/mf">Mechanism Failure</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="col-12 col-md-5 col-lg-5" id="info">
         <p>Welcome to the reference pages for some of the courses taught in Mechanical Science and Engineering at the University of Illinois at Urbana-Champaign.</p>
 
         <p>You can navigate directly to a course listed above or learn more about the reference pages including information for students and instructors by clicking on the about page to the right of the top menu bar.</p>
-    </Col>
-</Row>
+    </div>
+</div>
 
+<script is:inline>
+    function proper_ordering(){
+        if (window.innerWidth <= 768){
+            document.querySelector("#courses").classList.add('order-last')
+        }else{
+            document.querySelector("#courses").classList.remove('order-last')
+        }
+    }
+
+    proper_ordering()
     
+    
+    $(window).on('resize', function(){
+        proper_ordering()
+    })
+</script>
+<script src="/static/js/simplified_view.js" is:inline></script>
 </Layout>
