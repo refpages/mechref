@@ -57,6 +57,7 @@ Force X distance [lb-in or N-m]
 <SubSection title="Notation and Convention" id="notation_and_convention">
 
 <Image src="/sol/torsion/Convention.png" width="5">  Sign convention </Image>
+
  <Itemize>
      <Item><InlineEquation equation="\\phi > 0" /> : counter clockwise </Item>
      <Item><InlineEquation equation="\\phi < 0" /> : clockwise </Item>
@@ -148,7 +149,15 @@ The shear stress in the elastic range varies linearly with the radial position i
     </CalloutCard>
 </CalloutContainer>
 
-<DisplayEquation equation="J = \\int_0^R{\\rho^2dA} = \\int_0^R{\\rho^2(2\\pi\\rho d\\rho)dA} =2\\pi \\int_0^R{\\rho^3d\\rho} = \\frac{\\pi R^4}{2} = \\frac{\\pi D^4}{32}\\" title="Solid shaft (radius and diameter)." background="True"/>
+<DisplayEquation equation='J = \\frac{\\pi R^4}{2} = \\frac{\\pi D^4}{32}' title="Solid shaft (radius and diameter)." background="True" derivation="True" id="tor-pmi">
+    
+    <DisplayEquation equation=`\\begin{aligned}J &= \\int_A{\\rho^2dA}\\\\ 
+     &= \\int_{0}^{2\\pi}{\\int_0^R{\\rho^2(\\rho d\\rho d\\theta)}}\\\\ 
+    &= \\int_{0}^{2\\pi}{d\\theta}\\int_0^R{\\rho^3d\\rho}\\\\ 
+    &= 2\\pi\\left[\\frac{1}{4} p^4\\right]_0^R\\\\ 
+    &= \\frac{\\pi R^4}{2} = \\frac{\\pi D^4}{32}\\end{aligned}` />
+
+</DisplayEquation>
 
 <DisplayEquation equation="J = \\frac{\\pi}{2}(R_o^4-R_i^4) = \\frac{\\pi}{32}(D_o^4-D_i^4)\\" title="Hollow shaft (inner and outer radius)." background="True"/>
 </SubSubSection>
@@ -230,6 +239,7 @@ From observation:
             <p>
                 <DisplayEquation equation="\\tau = \\frac{P c}{\\omega J}\\" title="Maximum shear stress:"/>
             </p>
+	<em>Note:</em>  1 hp = 550 ft.lb/s
     </CalloutCard>
 </CalloutContainer>
 
@@ -261,8 +271,6 @@ The angle of twist between two mating gears is related through the gear ratio.
 <DisplayEquation equation="GR = d_B:d_A\\" title="Gear ratio." background="True" />
 
 <DisplayEquation equation="\\phi_A = GR \\text{  } \\phi_B\\" title="Angle of twist" background="True" />
-
-<em>Note:</em>  1 hp = 550 ft.lb/s
 
 </SubSubSection>
 
