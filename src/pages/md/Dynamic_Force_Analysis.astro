@@ -27,7 +27,7 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
 
     <SubSection title="Dynamic Force Analysis Intro"id="DFA_intro">
     <p>
-        Dynamic Force Analysis (commonly called DFA)  is closely connected to PVA analysis. After obtaining the motion of a system through PVA analysis, DFA obtains the forces acting on each link and joint in the system. This process of going from a known motion to the forces that would have caused such motion is called <strong>inverse kinematics</strong>. This is opposed to <strong>forward kinematics</strong>, where the motion of a system is determined given the external loading. In real life applications, both methods are used to analyze mechanisms.</p>
+        Dynamic Force Analysis (commonly called DFA)  is closely connected to <a href="/md/Position_Velocity_Acceleration">PVA Analysis</a>. After obtaining the motion of a system through PVA analysis, DFA obtains the forces acting on each link and joint in the system. This process of going from a known motion to the forces that would have caused such motion is called <strong>inverse kinematics</strong>. This is opposed to <strong>forward kinematics</strong>, where the motion of a system is determined given the external loading. In real life applications, both methods are used to analyze mechanisms.</p>
     <p>
         Most of the time, the largest loads will be external forces and torques, as well as inertial forces and torques. To simplify our analysis, we will neglect the influence of gravity. However, in cases where gravitational loads contribute significantly to the total loads on a system, it is important to include them. </p>
     </SubSection>
@@ -45,18 +45,13 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
     <p>
         In practice, the center of mass of many common shapes has already been solved and tabulated in look-up tables. Such tables can be readily found online or in textbooks. If the object is placed in a uniform gravitational field, then the object's <strong>center of gravity</strong> will be at the same location. Additionally, a free object will always rotate about an axis that goes through its center of mass. Additional information about centers of mass, and a table of centers of masses for common objects is located on the <a href="/dyn/rigid_body_kinetics">Rigid Body Kinetics</a> page.</p>
 
-    <!--link to the Dynamics Rigid Body Kinetics reference page for more more detailed info and table-->
-
-
-
-
 
         <strong>Moment of inertia</strong> is the second moment of mass. This tells us about an object's resistance to changes in angular acceleration. An object's moment of inertia is always considered around an axis of rotation. For example, the z-axis moment of inertia of a planar object can be calculated as such:
     <p><DisplayEquation background="True" title="Moment of Inertia" equation="\ I_z=\\int_A{\\vec{r}^2dm}" /></p>
 
     <p>Similar to the center of mass, the moment of inertia of common shapes about an object's center of mass have already been solved around the <InlineEquation equation="\ x" />, <InlineEquation equation="\ y" />, and <InlineEquation equation="\ z" /> axes and tabulated. Additional information about moments of inertia of mass, and a table of moments of inertia for common objects is located on the <a href="/dyn/rigid_body_kinetics">Rigid Body Kinetics</a> page.</p>
 
-    <!--link to the Dynamics Rigid Body Kinetics reference page for more more detailed info and table-->
+
         <Image src="/md/Dynamic_Force_Analysis/Parallel Axis Thm.png" width="5"></Image>
         <p>
             The <strong>parallel axis theorem</strong> allows us to calculate the moment of inertia of an object about any axis away from the center of mass. Objects rarely rotate around their center of mass in reality, especially when the object is part of a linkage. As such, having a method to calculate an object's moment of inertia about an arbitrary axis (without redoing the integral) is useful. The parallel axis theorem states that given the moment of inertia, <InlineEquation equation="\ I_{CM}" />, about an axis through the center of mass of an object of mass <InlineEquation equation="\ M" />, the moment of inertia about a <strong>parallel</strong> axis that is distance <InlineEquation equation="\ d" /> away from the center of mass is given by:</p>
@@ -202,7 +197,7 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
 
 
         <p>We can now gather the 8 equations into matrix form <InlineEquation equation="[A]\\{B\\}=\\{C\\}" />.</p>
-        <p><DisplayEquation background="True" title="Matrix Definitions" equation=" \\begin{gather} [A]=\\begin{bmatrix}1 & 0 & 1 & 0 & 0 & 0 & 0 & 0\\\\0 & 1 & 0 & 1 & 0 & 0 & 0 & 0\\\\-R_{12y} & R_{12x} & -R_{32y} & R_{32x} & 0 & 0 & 0 & 1\\\\0 & 0 & -1 & 0 & 1 & 0 & 0 & 0\\\\0 & 0 & 0 & -1 & 0 & 1 & 0 & 0\\\\0 & 0 & R_{23y} & -R_{23x} & -R_{43y} & R_{43x} & 0 & 0\\\\0 & 0 & 0 & 0 & -1 & 0 & \\pm\\mu & 0\\\\0 & 0 & 0 & 0 & 0 & -1 & 1 & 0\\end{bmatrix} \\\\ \\{B\\}=\\begin{Bmatrix}F_{12x}\\\\F_{12y}\\\\F_{32x}\\\\F_{32y}\\\\F_{43y}\\\\F_{43y}\\\\F_{14y}\\\\T_{12}\\end{Bmatrix} \\\\ [C]= \\begin{Bmatrix}m_{2}A_{CG2x}\\\\m_{2}A_{CG2y}\\\\I_{CG2}\alpha_{2}\\\\m_{3}A_{CG3x}-F_{Px}\\\\m_{3}A_{CG3y}-F_{Py}\\\\I_{CG3}\\alpha_{3}-(R_{Px}F_{Py}-{R_{Py}F_{Px}})\\\\m_{4}A_{CG4x}\\\\0\\end{Bmatrix} \\end{gather}" /></p>
+        <p><DisplayEquation background="True" title="Matrix Definitions" equation=" \\begin{gather} [A]=\\begin{bmatrix}1 & 0 & 1 & 0 & 0 & 0 & 0 & 0\\\\0 & 1 & 0 & 1 & 0 & 0 & 0 & 0\\\\-R_{12y} & R_{12x} & -R_{32y} & R_{32x} & 0 & 0 & 0 & 1\\\\0 & 0 & -1 & 0 & 1 & 0 & 0 & 0\\\\0 & 0 & 0 & -1 & 0 & 1 & 0 & 0\\\\0 & 0 & R_{23y} & -R_{23x} & -R_{43y} & R_{43x} & 0 & 0\\\\0 & 0 & 0 & 0 & -1 & 0 & \\pm\\mu & 0\\\\0 & 0 & 0 & 0 & 0 & -1 & 1 & 0\\end{bmatrix} \\\\ \\{B\\}=\\begin{Bmatrix}F_{12x}\\\\F_{12y}\\\\F_{32x}\\\\F_{32y}\\\\F_{43y}\\\\F_{43y}\\\\F_{14y}\\\\T_{12}\\end{Bmatrix} \\\\ [C]= \\begin{Bmatrix}m_{2}A_{CG2x}\\\\m_{2}A_{CG2y}\\\\I_{CG2}\\alpha_{2}\\\\m_{3}A_{CG3x}-F_{Px}\\\\m_{3}A_{CG3y}-F_{Py}\\\\I_{CG3}\\alpha_{3}-(R_{Px}F_{Py}-{R_{Py}F_{Px}})\\\\m_{4}A_{CG4x}\\\\0\\end{Bmatrix} \\end{gather}" /></p>
 
 
         <p>  The final step is to solve for <InlineEquation equation="\\{B\\}" /> by plugging in all known values, then taking the inverse of <InlineEquation equation="[A]" /> and multiplying it by <InlineEquation equation="\\{C\\}" />. i.e., <InlineEquation equation="\\{B\\}=[A]^{-1}\\{C\\}" />.</p>
