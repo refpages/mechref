@@ -204,19 +204,41 @@ This concept is very important, and applies to almost every component. The diffe
     </p>    
     <CodeBox code=`<span style="color: #000000">Text</span>` />
     
-    <p>
-        For handdrawn figures, use whatever color scheme you prefer, but make it consistent throughout the course.
-    </p>
-     For example, solid mechanics uses the following pallete for images:
+    <p>All content figures should have the following components colored the same so there is continuity between courses. </p>
+
         <Itemize>
-            <Item>Background: white or transparent </Item>
-            <Item>Objects: <span style="color: orange">orange</span> </Item>
-            <Item>Loadings: <span style="color: red">red</span> </Item>
-            <Item>Reactions (ie; stress, strain, displacements, etc.): <span style="color: blue">blue</span></Item>
-            <Item>Axes and dimensions: <span style="color: black">black</span></Item>
-            <Item>Fixed wall or ground: <span style="color: #707372">gray</span></Item>
-            <Item>Other: <span style="color: green">green</span></Item>
+            <Item>Background: White (#FFFFFF) or light gray (#FCF9F3) </Item>
+                <Itemize>
+                    <Item> Hand drawn: gray (#C5C3BB) grid </Item>
+                    <Item> Computer generated: No grid </Item>
+                </Itemize>
+            <Item>Objects: <span style="color: var(--illini-orange)">orange (#FFF1DB)</span> with a black (#000000) boarder/details </Item>
+            
+            <Item>Axes and dimensions: <span style="color: black">black (#000000)</span></Item>
+            <Item>Fixed wall or ground: <span style="color: #747371">gray (#969696)</span></Item>
         </Itemize>
+
+    <p> Other colors to use on figures are as follows with how they are reccomended to be used. 
+        These do not need to be consistent between courses, but they should be consistent within a course. </p>
+
+        <Itemize>
+            <Item>Loadings: <span style="color: #ed3624">red (#ED3624)</span> </Item>
+            <Item>Reactions (ie; stress, displacements, accelerations, etc.): <span style="color: #006FFF">blue (#006FFF)</span></Item>
+            <Item>Other: <span style="color: #60BA46">green (#60BA46)</span> and <span style="color: #A400C7">purple (#A400C7)</span> </Item>
+        </Itemize>
+
+    Example: 
+
+        <Row>
+            <Col values="12 md-6">
+                <Image src="/sol/axial_loading/Notation.png" width="7"></Image>
+            </Col>
+            <Col values="12 md-6">
+                <PrairieDrawCanvas id="rkg-fw-c" height="300" width="300">
+                    
+                  </PrairieDrawCanvas>
+            </Col>
+        </Row>
 
 
 </SubSection>
@@ -273,7 +295,7 @@ Remember, these pages are supposed to be reference material, not a textbook. Kee
 
 <hr>
 
-<Section title="Title" id="example-page">
+<Section title="Example Page Title" id="example-page">
 <p>TEXT</p>
 </Section>
 
@@ -304,7 +326,7 @@ Remember, these pages are supposed to be reference material, not a textbook. Kee
 
 <hr>
 
-<SubSection title="Section" id="example-section">
+<SubSection title="Example Section" id="example-section">
     <p>TEXT</p>
 </SubSection>
 
@@ -335,7 +357,7 @@ Remember, these pages are supposed to be reference material, not a textbook. Kee
 
 <hr>
 
-<SubSubSection title="SubSection" id="example-sub-section">
+<SubSubSection title="Example SubSection" id="example-sub-section">
     <p>TEXT</p>
 </SubSubSection>
 
@@ -366,7 +388,7 @@ Remember, these pages are supposed to be reference material, not a textbook. Kee
 
 <hr>
 
-<SubSubSubSection title="SubSubSection" id="example-sub-sub-section">
+<SubSubSubSection title="Example SubSubSection" id="example-sub-sub-section">
     <p>TEXT</p>
 </SubSubSubSection>
 
@@ -835,6 +857,8 @@ Remember, these pages are supposed to be reference material, not a textbook. Kee
 </SubSubSection> 
 
 <SubSubSection title="External Video" id="ext-video">
+
+    <p> For safety purposes, please only embed YouTube videos. <p>
 
     <p>Tag type: Regular</p>
     

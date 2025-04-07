@@ -1227,7 +1227,7 @@ import DisplayTable from "../../components/DisplayTable.astro"
           <div class="d-flex  align-items-baseline">
               <p class="m-0 flex-shrink-1">Turn radius:</p>
               <div class="flex-grow-1 d-flex align-items-baseline">
-                  <input type="range" min="1" max="5" value="5" step="0.1" class="data-input:avs-ft-c:radiusTurning flex-grow-1 mx-2" onchange="avs_ft_c.setOption('radius', this.value); document.querySelector('span[class*=radiusTurning]').innerText = this.value; console.log(this.value);" oninput="avs_ft_c.setOption('radius', this.value); document.querySelector('span[class*=radiusTurning]').innerText = this.value;"/>
+                  <input type="range" min="1" max="5" value="5" step="0.1" class="data-input:avs-ft-c:radiusTurning flex-grow-1 mx-2" onchange="avs_ft_c.setOption('radius', this.value); document.querySelector('span[class*=radiusTurning]').innerText = this.value;;" oninput="avs_ft_c.setOption('radius', this.value); document.querySelector('span[class*=radiusTurning]').innerText = this.value;"/>
                       \(r = \; \) <span class="data-option:avb-fp-c:radiusTurning">5</span>m
               </div>
           </div>
@@ -1236,7 +1236,7 @@ import DisplayTable from "../../components/DisplayTable.astro"
           <div class="d-flex  align-items-baseline">
             <p class="m-0 flex-shrink-1">Vehicle offset:</p>
               <div class="flex-grow-1 d-flex align-items-baseline">
-                  <input type="range" min="-4" max="7" value="0" step="1" class="data-input:avs-ft-c:vehicleoffset flex-grow-1 mx-2" onchange="avs_ft_c.setOption('offset', this.value); document.querySelector('span[class*=vehicleoffset]').innerText = this.value; console.log(this.value);" oninput="avs_ft_c.setOption('offset', this.value); document.querySelector('span[class*=vehicleoffset]').innerText = this.value;"/>
+                  <input type="range" min="-100" max="100" value="0" step="1" class="data-input:avs-ft-c:vehicleoffset flex-grow-1 mx-2" onchange="avs_ft_c.setOption('offset', this.value); document.querySelector('span[class*=vehicleoffset]').innerText = this.value;" oninput="avs_ft_c.setOption('offset', this.value); document.querySelector('span[class*=vehicleoffset]').innerText = this.value;"/>
                       \(d = \; \) <span class="data-option:avb-fp-c:vehicleoffset">0</span>%
               </div>
           </div>

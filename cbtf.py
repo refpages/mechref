@@ -86,7 +86,7 @@ links_to_replace = {
     "href=\"/favicon2.png\"":"href=\"../favicon2.png\"",
     "href=\"/bootstrap.min.css\"": "href=\"../bootstrap.min.css\"",
     "src=\"/bootstrap.min.js\"": "src=\"../bootstrap.min.js\"",
-    "src=\"/mathjax/tex-chtml.js\"": "src=\"../mathjax/tex-chtml.js\"",
+    "src=\"/mathjax/tex-svg.js\"": "src=\"../mathjax/tex-svg.js\"",
     "src=\"/jquery-2.1.4.min.js\"": "src=\"../jquery-2.1.4.min.js\"",
     "src=\"/PrairieDraw.js\"": "src=\"../PrairieDraw.js\"",
     "src=\"/PrairieGeom.js\"": "src=\"../PrairieGeom.js\"",
@@ -104,7 +104,7 @@ links_to_replace = {
     "href=\"/sta\"": "href=\"../sta.html\"",
     "href=\"/sol\"": "href=\"../sol.html\"",
     "href=\"/dyn\"": "href=\"../dyn.html\"",
-    "href=\"/thermodynamics\"": "href=\"../thermodynamics\"",
+    "href=\"/thermodynamics\"": "href=\"../thermodynamics.html\"",
     "href=\"/sta/": "href=\"../sta/",
     "href=\"/sol/": "href=\"../sol/",
     "href=\"/dyn/": "href=\"../dyn/",
@@ -149,7 +149,7 @@ for dir in ['dyn', 'sta', 'sol', 'thermodynamics']:
         data = data.replace(f"?origin=sidebar", f'.html')
 
         data = data.replace('.html/canvases', '')
-        data = data.replace(f'{page.replace(".html", '')}/canvases.js', f'{page.replace(".html", '')}.js')
+        data = data.replace(f"{page.replace('.html', '')}/canvases.js", f"{page.replace('.html', '')}.js")
         data = data.replace("../dyn/particle_kinetics.html/particle_kinetics.html.js", "../dyn/particle_kinetics.js")
         data = data.replace("../dyn/vectors.html/worldCoastlineCompressed.js", './worldCoastlineCompressed.js')
         data = data.replace("../dyn/vectors.html/py_triples.js", "./py_triples.js",)
@@ -163,7 +163,7 @@ links_to_replace = {
     "href=\"/favicon2.png\"":"href=\"./favicon2.png\"",
     "href=\"/bootstrap.min.css\"": "href=\"./bootstrap.min.css\"",
     "src=\"/bootstrap.min.js\"": "src=\"./bootstrap.min.js\"",
-    "src=\"/mathjax/tex-chtml.js\"": "src=\"./mathjax/tex-chtml.js\"",
+    "src=\"/mathjax/tex-svg.js\"": "src=\"./mathjax/tex-svg.js\"",
     "src=\"/jquery-2.1.4.min.js\"": "src=\"./jquery-2.1.4.min.js\"",
     "src=\"/PrairieDraw.js\"": "src=\"./PrairieDraw.js\"",
     "src=\"/PrairieGeom.js\"": "src=\"./PrairieGeom.js\"",

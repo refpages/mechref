@@ -1,0 +1,233 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Section from "../../components/Section.astro";
+import SubSection from "../../components/SubSection.astro";
+import SubSubSection from "../../components/SubSubSection.astro";
+import SubSubSubSection from "../../components/SubSubSubSection.astro";
+import CalloutContainer from "../../components/CalloutContainer.astro";
+import CalloutCard from "../../components/CalloutCard.astro";
+import InlineEquation from "../../components/InlineEquation.astro";
+import DisplayEquation from "../../components/DisplayEquation.astro";
+import Image from "../../components/Image.astro"
+import DisplayTable from "../../components/DisplayTable.astro";
+import Warning from "../../components/Warning.astro"
+import InlineCanvas from "../../components/InlineCanvas.astro";
+import Itemize from "../../components/Itemize.astro";
+import Item from "../../components/Item.astro";
+import Enumerate from "../../components/Enumerate.astro";
+
+---
+
+<Layout title="Threaded Components">
+
+    <div slot="navtree">
+        <ul class='list-group list-group-flush py-0'> 
+            <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Intro'>Introduction to Threaded Components</a></li>
+            <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#power_screws'>Power Screws</a></li>
+                <ul>
+                    <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Lead_Angle'>Lead Angle</a></li>
+                    <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Thread_Angle'>Thread Angle</a></li>
+                    <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Efficiency'>Efficiency of Power Screws</a></li>
+                    <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Forces'>Power Screw Forces</a></li>
+                    <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Locking'>Power Screw Self Locking and Overhauling</a></li>
+                </ul>
+            <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Bolted'>Bolts and Bolted Connections</a></li>
+                <ul>
+                    <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#thread_stripping'>Thread Stripping</a></li>
+                </ul>
+            <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Extra'>Additional Considerations</a></li>
+
+
+        </ul>
+    </div>
+
+
+
+    <SubSection id="Intro" title="Introduction to Threaded Components">
+        <p>
+            Threaded components are any mechanical device that has spiral ridges (threads) that form a helical shape around a central cylinder. One of the most common examples of a threaded components is a screw, which uses the angled threads to create a large force along the length of the screw when a modest input torque is used to tighten the screw. However, screws are not the only mechanical components that use threads. Threads are also present in the feet used to level household appliances, in nuts, as well as bolts.  In this page, we will highlight a few tools that can be used to analyze the behavior of any threaded component.
+        </p>
+        <p>
+            While screws and bolts are often used to create a mechanical advantage, threaded components can also be used in a wide variety of other applications. Some of these other applications include:
+            <Itemize>
+                <Item><strong>Converting Motion</strong> – turning rotation into straight-line movement</Item>
+                <Item><strong>Distributing Force</strong> – sharing a load across multiple threads</Item>
+                <Item><strong>Acting as a Spring</strong> – handling force and stretching slightly under pressure</Item>
+            </Itemize>
+        </p>
+    </SubSection>
+    <SubSection id="power_screws" title="Power Screws">
+        <p>
+            <strong>Power Screws</strong> turn rotation into straight-line motion. This happens because threads form an inclined plane around the cylinder. An input torque can cause the screw to revolve around its axis. As the screw revolves, the threads can move an object along the length of the screw.
+        </p>
+
+    </SubSection>
+
+    <SubSubSection id="Lead_Angle" title="Lead Angle">
+        <p>
+        One of the most important parameters governing the behavior of a power screw is its "Lead Angle" <InlineEquation equation="\\lambda"/>. This angle represents the angle between the thread and a cross sectional cut of the threaded component. The lead angle can be found with the following equation:
+        </p>
+        <DisplayEquation title="Lead Angle Derivation" id="LA" background="True" equation="\\tan \\lambda = \\frac{L}{\\pi d_m}"/>
+    <p>
+        <Itemize>
+            <Item><strong>Pitch (p):</strong> The distance between two threads</Item>
+            <Item><strong>Lead (L):</strong> The vertical distance a screw travels in 1 full rotation (an integer multiple of the pitch if there is more than 1 thread)</Item>
+            <Item><strong>Mean diameter (<InlineEquation equation="\ d_m"/>):</strong> The average of the diameters of the threads and the diameter of the shaft of the screw</Item>
+        </Itemize>
+    </p>
+        <!--
+
+        Figure here- is it too close to textbook?
+
+        -->
+
+
+    </SubSubSection>
+
+    <SubSubSection id="Thread_Angle" title="Thread Angle">
+        <p>
+            Another key angle to consider when working with threaded components is the "Thread Angle" <InlineEquation equation="\\alpha_n"/>. This represents the angle between two adjacent threads. However, when analyzing the forces on a threaded component, it is often most useful to find the
+        </p>
+        <DisplayEquation title="Lead Angle Derivation" id="LA" background="True" equation="\\tan \\lambda = \\frac{L}{\\pi d_m}"/>
+        <p>
+            <Enumerate>
+            <Item> Begin by listing known information. In this case, we know the link lengths of a mechanism, as well as the angular velocity of the crank.<Image src="/md/Instant Centers/IC_example_1.1.png" width="5"> </Image></Item>
+            <Item>Next, compute all of the instant centers on the mechanism.</Item>
+            <Item>We then can consider the crank of the mechanism. We know that the pin between the crank and ground is an instant center. Since the ground link has a velocity of 0 everywhere, the crank will have a velocity of 0 at that location. Let's call the crank body 2, and the ground link body 1.</Item>
+            <Item>Then, select another grounded linkage. This is the link that we will analyze. Let's call that body 3. Body 1 and body 3 will share an instant center, which we will call <InlineEquation equation="\ A" />.</Item>
+            <Item>
+                Using <InlineEquation equation="\ v_a=v_{IC_{1,2}}+r_{IC_{1,2} \\rightarrow a} \\times \\omega_2" /> we can substitute in for <InlineEquation equation="\ v_{IC_{1,2}}, r_{IC_{1,2} \\rightarrow a}" /> and <InlineEquation equation="\ \\omega_2" /> to find <InlineEquation equation="\ v_a" />.<Image src="/md/Instant Centers/IC_example_1.2.png" width="5"> </Image>
+            </Item>
+            <Item>We can reuse the above equation, but instead consider that point <InlineEquation equation="\ A" /> is also attached to body 3. Thus, we could consider the velocity of point <InlineEquation equation="\ A" /> as coming from the rotation of body 3 rather than the rotation of body 2. We would write this equation as <InlineEquation equation="\ v_a=v_c+r_{c \\rightarrow a} \\times \\omega_3" />. </Item>
+            <Item>The biggest issue here is that we do not know where to place point <InlineEquation equation="\ C" /> so that we know its velocity. If we place it at point <InlineEquation equation="\ A" />, the radius will be 0, and we will be unable to compute <InlineEquation equation="\ \\omega_3" />. However, there is another location where we know the velocity of a point on body 3. If we consider <InlineEquation equation="\ IC_{1,3}" /> we know that the ground has a velocity of 0 everywhere. Thus, at <InlineEquation equation="\ IC_{1,3}" />, the ground and body 3 have the same speed, 0. </Item>
+            <Item>This allows us to write <InlineEquation equation="\ v_a=0+r_{IC_{1,3} \\rightarrow a} \\times \\omega_3" />. Since we know all of these values except <InlineEquation equation="\ \\omega_3" />, we can then solve for <InlineEquation equation="\ \\omega_3" />. </Item>
+            <Item>Now that <InlineEquation equation="\ \\omega_3" /> is known, we can compute <InlineEquation equation="\ V_b" />, and <InlineEquation equation="\ \\omega_4" />. Additionally, this procedure can be repeated to find the velocities of all links in a mechanism.<Image src="/md/Instant Centers/IC_example_2.3.png" width="5"> </Image></Item>
+            </Enumerate>
+        </p>
+        <!--
+
+        Figure here- is it too close to textbook?
+
+        -->
+
+
+    </SubSubSection>
+
+    <SubSubSection id="Efficiency" title="Efficiency of Power Screws">
+        <p>
+            A key performance metric for power screws is their efficiency, which is the output work divided by the input work.
+        </p>
+        <DisplayEquation title="Power Screw Efficiency" id="PSE" background="True" equation="\ e = \\frac{W L}{2\\pi T}"/>
+        <p>
+            Where
+            <Itemize>
+                <Item><strong>W: </strong> Is the weight being lifted</Item>
+                <Item><strong>L: </strong> Is the lead of the screw, which is how far the weight is lifted in one revolution of the screw</Item>
+                <Item><strong>T: </strong> Is the torque applied to the screw</Item>
+            </Itemize>
+        </p>
+
+
+    </SubSubSection>
+
+    <SubSubSection id="Forces" title="Power Screw Forces">
+        <p>
+            When a power a screw lifts a weight, different forces act on the weight itself
+        </p>
+
+        <p>
+            <Itemize>
+                <Item><strong>Normal force (N): </strong> is the force from the inclined surface of the thread.</Item>
+                <Item><strong>Friction force <InlineEquation equation="\ f \\cdot n"/> : </strong> is the force resisting motion.</Item>
+                <Item><strong>Input force (Q): </strong> Is the force applied to lift the weight, usually from an input torque. </Item>
+            </Itemize>
+
+            Balancing these forces gives the following equation:
+        </p>
+            <DisplayEquation title="Power Screw Forces" id="PSF" background="True" equation="\  Q = W \\frac{\\cos \\lambda + f \\cos \\alpha_n}{\\cos \\alpha_n - f \\sin \\lambda}"/>
+
+    </SubSubSection>
+
+    <SubSubSection id="Locking" title="Power Screw Self Locking and Overhauling">
+        <p>
+            When the external force or torque is removed from a power screw, the weight may fall down if the force from gravity exceeds the friction force. However, if friction is sufficiently high, no motion will occur, even in the absence of an external force.
+        </p>
+
+        <p>
+            <Itemize>
+                <Item><strong>Self-locking: </strong> A mass lifted by a power screw stays in place when no force is applied.</Item>
+                <Item><strong>Overhauling:  </strong> A mass lifted by a power screw moves on its own when the force is removed.</Item>
+            </Itemize>
+
+           Whether a power screw is self locking or overhauling is dependent of the geometry of the screw as well as the friction coefficient. For a screw to be self locking the friciton coefficient must satisfy the equation shown below.
+
+            <DisplayEquation title="Power Screw Self Locking" id="PSLock" background="True" equation="\  f\\geq \\frac{L \\cos(\\alpha_n)}{\\pi d_m}"/>
+        </p>
+    </SubSubSection>
+
+
+        <SubSection id="Bolted" title="Bolts and Bolted Connections">
+            <p>
+                Bolted connections clamp things together using a <strong>bolt</strong> and <strong>nut</strong>. The bolt is stretched (tension), while the material being clamped is squeezed (compression).
+
+                <Itemize>
+                    <Item><strong>Pre-load force <InlineEquation equation="\ F_i"/>: </strong> The force applied when tightening a bolt.</Item>
+                    <Item><strong>External force <InlineEquation equation="\ F_e"/>:  </strong> The extra force trying to separate the joint.</Item>
+                </Itemize>
+            </p>
+
+            <p>
+                This gives us two equations for the force on the bolt <InlineEquation equation="\ F_b"/> and the clamping force <InlineEquation equation="\ F_c"/>
+            </p>
+
+            <DisplayEquation title="Bolt Force" id="FB" background="True" equation="\ F_b = F_i + \\frac{k_b}{k_b + k_c} F_e"/>
+
+            <DisplayEquation title="Clamping Force" id="FC" background="True" equation="\  F_c = F_i - \\frac{k_c}{k_b + k_c} F_e"/>
+            <p>
+                Where
+                <Itemize>
+                    <Item><strong> <InlineEquation equation="\ k_b"/>: </strong> stiffness of bolt</Item>
+                    <Item><strong><InlineEquation equation="\ k_c"/>:  </strong>  stiffness of clamped material</Item>
+                </Itemize>
+            </p>
+
+
+        </SubSection>
+
+        <SubSubSection id="thread_stripping" title="Thread Stripping">
+            <p>
+                One of the most common methods for threaded components to fail is due the the threads shearing off. In order to strip a thread, the applied force must cause the stress to exceed the Von Mises yield strength of the material, <InlineEquation equation="\ S_{sy}=0.58 S_y"/> . For a component with standard threads of width <InlineEquation equation="\ .75 p"/> the area that must be sheared, <InlineEquation equation="\ A_s"/> is:
+
+                <DisplayEquation title="Nut Shear Area" id="SA" background="True" equation="\ A_s = 0.75 \\pi d t"/>
+
+                Where
+                <Itemize>
+                    <Item><strong> <InlineEquation equation="\ d"/>: </strong> outer diameter of the bolt</Item>
+                    <Item><strong><InlineEquation equation="\ t"/>:  </strong>  height of the nut </Item>
+                </Itemize>
+
+                This means that the force required to shear the threads is:
+
+                <DisplayEquation title="Nut Shear Force" id="SF" background="True" equation="\  F = A_s S_{sy}"/>
+            </p>
+
+        </SubSubSection>
+
+        <SubSubSection id="Extra" title="Additional Considerations">
+            <p>
+                <Itemize>
+                    <Item>Bolt sizes and grades are highly standardized, meaning that it is often far cheaper to use an existing threaded component rather than creating a customized one </Item>
+                    <Item>It is often advantageous for a nut to fail in a bolted connection before the bolt, as the bolt can still restrict some directions of motion, even if the nut has failed</Item>
+
+                    <Item> Screws convert <strong>rotation into straight-line motion</strong>.</Item>
+                    <Item> Power screws provide mechanical advantage to <strong>lift heavy loads</strong>.</Item>
+                    <Item>Bolted connections use <strong>pre-load force</strong> to hold parts together.</Item>
+                    <Item> Threads can <strong>fail by shearing</strong> if overloaded.</Item>
+                </Itemize>
+            </p>
+
+        </SubSubSection>
+
+
+
+</Layout>

@@ -1,4 +1,10 @@
 #!/bin/bash 
+
+if [ -z "$1" ]; then
+    echo -e "Specify location of GitHub repo. Example: . cbtf.sh \$HOME/Documents/GitHub"
+    return 1
+fi
+
 # BUILD PAGES AND MODIFY LINKS
 npm run astro build
 python3 cbtf.py

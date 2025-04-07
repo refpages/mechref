@@ -26,7 +26,7 @@ $(document).ready(function() {
         this.line($V([0, 0]), $V([2, 0]));
         this.line($V([2, 0]), $V([2, 1]));
         this.point($V([2, 1]));
-        this.text($V([2, 1]), $V([-1.2, 0]), "TEX:\\noindent $x = 2$ \\\\ $y = 1$");
+        this.text($V([2, 1]), $V([-1.2, 0]), "TEX: $x = 2$ \\\\ $y = 1$");
         this.restore();
 
         this.save();
@@ -35,7 +35,7 @@ $(document).ready(function() {
         this.line($V([0, 0]), $V([-3, 0]));
         this.line($V([-3, 0]), $V([-3, 2]));
         this.point($V([-3, 2]));
-        this.text($V([-3, 2]), $V([-1.2, 0]), "TEX:\\noindent $x = -3$ \\\\ $y = 2$");
+        this.text($V([-3, 2]), $V([-1.2, 0]), "TEX: $x = -3$ \\\\ $y = 2$");
         this.restore();
 
         this.save();
@@ -43,7 +43,7 @@ $(document).ready(function() {
         this.setProp("pointRadiusPx", 4);
         this.line($V([0, 0]), $V([0, -2]));
         this.point($V([0, -2]));
-        this.text($V([0, -2]), $V([-1.2, 0]), "TEX:\\noindent $x = 0$ \\\\ $y = -2$");
+        this.text($V([0, -2]), $V([-1.2, 0]), "TEX: $x = 0$ \\\\ $y = -2$");
         this.restore();
     });
 

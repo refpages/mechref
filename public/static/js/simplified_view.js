@@ -1,4 +1,4 @@
-/*function toggle_simplified_view(obj){
+function toggle_simplified_view(obj){
 
     if (obj.hasAttribute('checked')){
         simp_view_off();
@@ -9,12 +9,9 @@
     
 }
 
-
-
 function simp_view_off(){
     Array.from(document.querySelectorAll('.simp-btn')).forEach(e =>{
         e.removeAttribute('checked');
-        console.log(e)
     });
 
     Array.from(document.querySelectorAll('.card-grid-fancy')).forEach(e =>{
@@ -28,9 +25,7 @@ function simp_view_off(){
     localStorage.setItem('simple', JSON.stringify('false'))
 }
 
-function load_view(){
-
-    
+function load_view(){    
     console.log(localStorage.getItem('simple'));
 
     if (JSON.parse(localStorage.getItem('simple')) == 'true'){
@@ -38,12 +33,14 @@ function load_view(){
     }else{
         simp_view_off()
     }
-}*/
+}
 
 function simp_view_on(){
+    
+
+    
     Array.from(document.querySelectorAll('.simp-btn')).forEach(e =>{
         e.setAttribute('checked', '');
-        console.log(e)
     });
 
     Array.from(document.querySelectorAll('.card-grid-fancy')).forEach(e =>{
@@ -58,5 +55,5 @@ function simp_view_on(){
 }
 
 $(document).ready(function(){
-    simp_view_on();
+    load_view();
 })
