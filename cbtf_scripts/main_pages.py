@@ -2,7 +2,7 @@ import os
 
 def change_links(home, scripts, links, courses, special_rewrites):
     all_content_pages = []
-    links_to_replace = {}
+    links_to_replace = {'\"/\"': '\"./index.html\"', '?origin=coursemenu': '.html'}
 
     for l in links:
         links_to_replace[f"href=\"{l['href']}\""] = f"href=\".{l['href']}\""
@@ -17,13 +17,12 @@ def change_links(home, scripts, links, courses, special_rewrites):
         links_to_replace[f"href=\"/{c}/"] = f"href=\"./{c}/"
 
         for p in os.listdir(os.path.join(home, c)):
-            if p[-5:] == '.html': all_content_pages.append(p)
+            if p[-5:] == '.html': all_content_pages.append(os.path.join(c, p))
 
     for k, v in special_rewrites.items():
         links_to_replace[k] = v
 
     # UPDATE LINKS THAT REDIRECT TO ANOTHER MECHREF PAGE
-    internal_pages ={'/'+p.replace('.html"', ''): '/'+p+'"' for p in all_content_pages}
 
     for page in ['index.html'] + [f'{c}.html' for c in courses]:
         with open(os.path.join(home, page), 'r') as file:
@@ -31,11 +30,21 @@ def change_links(home, scripts, links, courses, special_rewrites):
 
         for wrong, correct in links_to_replace.items():
             data = data.replace(wrong, correct)
-
-        for wrong, correct in internal_pages.items():
-            data = data.replace(wrong, correct)
         
         with open(os.path.join(home, page), 'w') as file:
-            file.write(data)        
+            file.write(data)  
+
+    ## REPLACING HOME PAGE LOGOS AND LINKS TO OTHER PAGES
+    with open(os.path.join(home, 'index.html'), 'r') as file:
+        data = file.read()  
+
+    for c in courses:
+        data = data.replace(f'\"/{c}\"', f'\"./{c}.html\"')
+
+    for logo in os.listdir(os.path.join(home, 'home_page')):
+        data = data.replace(f'\"/home_page/{logo}\"', f'\"./home_page/{logo}\"')
+
+    with open(os.path.join(home, 'index.html'), 'w') as file:
+        file.write(data) 
 
     return

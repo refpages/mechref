@@ -2,7 +2,7 @@ import os
 
 def change_links(home, scripts, links, courses, special_rewrites):
     all_content_pages = []
-    links_to_replace = {}
+    links_to_replace = {'\"/\"': '\"../index.html\"'}
 
     for l in links:
         links_to_replace[f"href=\"{l['href']}\""] = f"href=\"..{l['href']}\""
@@ -17,22 +17,20 @@ def change_links(home, scripts, links, courses, special_rewrites):
         links_to_replace[f"href=\"/{c}/"] = f"href=\"../{c}/"
 
         for p in os.listdir(os.path.join(home, c)):
-            if p[-5:] == '.html': all_content_pages.append(p)
+            if p[-5:] == '.html': all_content_pages.append(os.path.join(c, p))
 
     for k, v in special_rewrites.items():
         links_to_replace[k] = v
 
     # UPDATE LINKS THAT REDIRECT TO ANOTHER MECHREF PAGE
-    internal_pages ={'/'+p.replace('.html"', ''): '/'+p+'"' for p in all_content_pages}
+    internal_pages ={'href="../'+p.replace('.html', '')+'"': 'href="../'+p+'"' for p in all_content_pages}
+    print(internal_pages)
 
     for dir in courses:
         pages = [p for p in os.listdir(os.path.join(home, dir)) if p[-5:] == '.html']
         for page in pages:
-            print(page)
             with open(os.path.join(home, os.path.join(dir, page)), 'r') as file:
                 data = file.read()
-
-            
 
             for wrong, correct in links_to_replace.items():
                 data = data.replace(wrong, correct)

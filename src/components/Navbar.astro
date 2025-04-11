@@ -560,7 +560,7 @@ showHideScrollDiv();
 $("a.nav-link").on('click', function(e){
     if (window.innerWidth >= 992) {
         $(location).prop('href', "/"+$(this).attr("class-value"));
-        console.log($(this).attr("class-value"))
+        console.log('href', "/"+$(this).attr("class-value"))
     }
 
     

@@ -16,16 +16,6 @@ with open('./src/layouts/Layout.astro', 'r') as f:
 scripts =  soup.find_all('script', src=True)
 links = soup.find_all('link', href=True)
 
-home = os.path.join(os.getcwd(), 'dist')
-
-utils.explore_dir_and_move(home, '')
-
-## NAVBAR
-_astro = os.listdir('./dist/_astro')
-
-css = [c for c in _astro if c[-4:] == '.css']
-js = [j for j in _astro if j[-3:] == '.js']
-
 banned_dirs = [
     'Dynamics',
     'Solid_Mechanics',
@@ -34,6 +24,14 @@ banned_dirs = [
     'static',
     '_astro'
 ]
+home = os.path.join(os.getcwd(), 'dist')
+utils.explore_dir_and_move(home, '', banned_dirs)
+
+## NAVBAR
+_astro = os.listdir('./dist/_astro')
+
+css = [c for c in _astro if c[-4:] == '.css']
+js = [j for j in _astro if j[-3:] == '.js']
 
 navbar.change_links(css)
 
@@ -55,11 +53,13 @@ special_rewrites = {
     "vectors.html_scalars.js": "vectors_scalars.js",
     "stress.html_transformation": "stress_transformation.html",
     "stress_transformation.html.html": "stress_transformation.html",
-    "<script src=\"/static/js/themes.js\">": "<script src=\"../static/js/themes.js\">"
+    "<script src=\"/static/js/themes.js\">": "<script src=\"../static/js/themes.js\">",
+    'path_components = path.split("../index.html")': 'path_components = path.split("/")',
+    "$(location).prop(\'href\', \"../index.html\"+$(this).attr(\"class-value\"));":"$(location).prop(\'href\', \"../\"+$(this).attr(\"class-value\")+\".html\");"
 }
 
 for cs in css:
-    special_rewrites[f"href=\"/_astro/{cs}\""] = f"href=\"../_astro/{cs}\"",
+    special_rewrites[f"href=\"/_astro/{cs}\""] = f"href=\"../_astro/{cs}\""
 
 content_pages.change_links(home, scripts, links, courses, special_rewrites)
 
@@ -74,11 +74,13 @@ special_rewrites = {
     "url(/fonts/source-sans-pro/SourceSansPro-Bold.otf": "url(./fonts/source-sans-pro/SourceSansPro-Bold.otf",
     "url(/fonts/Montserrat-Bold.ttf": "url(./fonts/Montserrat-Bold.ttf",
     "?origin=sidebar": f'.html',
-    "<script src=\"/static/js/themes.js\">": "<script src=\"./static/js/themes.js\">"
+    "<script src=\"/static/js/themes.js\">": "<script src=\"./static/js/themes.js\">",
+    'path_components = path.split("./index.html")': 'path_components = path.split("/")',
+    "$(location).prop(\'href\', \"./index.html\"+$(this).attr(\"class-value\"));":"$(location).prop(\'href\', \"./\"+$(this).attr(\"class-value\")+\".html\");"
 }
 
 for cs in css:
-    special_rewrites[f"href=\"/_astro/{cs}\""] = f"href=\"./_astro/{cs}\"",
+    special_rewrites[f"href=\"/_astro/{cs}\""] = f"href=\"./_astro/{cs}\""
 
 main_pages.change_links(home, scripts, links, courses, special_rewrites)
 
