@@ -132,12 +132,12 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
         <Image src="/md/Dynamic_Force_Analysis/Example 1.2.png" width="5"></Image>
 
         <p> Writing out each equation of motion gives:</p>
-        <p><DisplayEquation background="True" title="Equations of Motion" equation="\\begin{matrix}    x: & F_{12x}=m_{2}A_{CG2x}-F_{Px}\\\\y: & F_{12y}=m_{2}A_{CG2y}-F_{Py}\\\\T: & -R_{12y}F_{12x}+R_{12x}F_{12y}+T_{12}=I_{12}\alpha_{2}-R_{Px}F_{Py}+R_{Py}F_{Px}\\end{matrix}" /></p>
+        <p><DisplayEquation background="True" title="Equations of Motion" equation="\\begin{matrix}    x: & F_{12x}=m_{2}A_{CG2x}-F_{Px}\\\\y: & F_{12y}=m_{2}A_{CG2y}-F_{Py}\\\\T: & -R_{12y}F_{12x}+R_{12x}F_{12y}+T_{12}=I_{12}\\alpha_{2}-R_{Px}F_{Py}+R_{Py}F_{Px}\\end{matrix}" /></p>
 
 
         <p>
             Next, group the known and unknown into <InlineEquation equation="[A]" />, <InlineEquation equation="\\{B\\}" />, and <InlineEquation equation="\\{C\\}" />:</p>
-        <p><DisplayEquation background="True" title="Matrix Forms" equation=" \\begin{gather} \[A]=\\begin{bmatrix}1 & 0 & 0\\\\ 0 & 1 & 0\\\\ -R_{12y} & R_{12x} & 1 \\end{bmatrix} \\\\ \B=\\begin{Bmatrix}F_{12x}\\\\ F_{12y}\\\\ T_{12}\\end{Bmatrix} \\\\ \C=\\begin{Bmatrix}m_{2}A_{CG2x}-F_{Px}\\\\m_{2}A_{CG2y}-F_{Py}\\\\I_{CG2}\alpha_{2}-R_{Px}F_{Py}+R_{Py}F_{Px}\\end{Bmatrix} \\end{gather}" /></p>
+        <p><DisplayEquation background="True" title="Matrix Forms" equation=" \\begin{gather} \[A]=\\begin{bmatrix}1 & 0 & 0\\\\ 0 & 1 & 0\\\\ -R_{12y} & R_{12x} & 1 \\end{bmatrix} \\\\ \\{B\\} =\\begin{Bmatrix}F_{12x}\\\\ F_{12y}\\\\ T_{12}\\end{Bmatrix} \\\\ \\{C\\} =\\begin{Bmatrix}m_{2}A_{CG2x}-F_{Px}\\\\m_{2}A_{CG2y}-F_{Py}\\\\I_{CG2}\alpha_{2}-R_{Px}F_{Py}+R_{Py}F_{Px}\\end{Bmatrix} \\end{gather}" /></p>
 
 
         <p>Putting the matrix equation together:</p>
