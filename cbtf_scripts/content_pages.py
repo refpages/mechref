@@ -1,3 +1,9 @@
+###
+# THIS CORRECTS LINKS FOR COURSE CONTENT PAGES
+# INCLUDES LINKS TO .js FILES, .css FILES, 
+# LINKS TO INTERNAL MECHREF PAGES
+###
+
 import os
 
 def change_links(home, scripts, links, courses, special_rewrites):
@@ -24,11 +30,11 @@ def change_links(home, scripts, links, courses, special_rewrites):
 
     # UPDATE LINKS THAT REDIRECT TO ANOTHER MECHREF PAGE
     internal_pages ={'href="../'+p.replace('.html', '')+'"': 'href="../'+p+'"' for p in all_content_pages}
-    print(internal_pages)
 
     for dir in courses:
         pages = [p for p in os.listdir(os.path.join(home, dir)) if p[-5:] == '.html']
         for page in pages:
+            print(os.path.join(dir, page))
             with open(os.path.join(home, os.path.join(dir, page)), 'r') as file:
                 data = file.read()
 

@@ -24,6 +24,10 @@ banned_dirs = [
     'static',
     '_astro'
 ]
+
+# MOVES AND RENAMES FILES FROM <course>/<page>/index.html TO <course>/<page>.html
+# AND <course>/<page>/canvases.js TO <course>/<page>.js 
+
 home = os.path.join(os.getcwd(), 'dist')
 utils.explore_dir_and_move(home, '', banned_dirs)
 
