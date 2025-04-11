@@ -125,9 +125,9 @@ Shear stress can also be evaluated at any given point (<InlineEquation equation=
 
  <DisplayEquation equation="I_z = \\frac{1}{12} bh^3\\" /> 
  <DisplayEquation equation="t=b\\" /> 
- <DisplayEquation equation="Q = A\\bar{y}\\" /> 
- <DisplayEquation equation="Q = b(\\frac{1}{2}h-y)[y+\\frac{1}{2}(\\frac{1}{2}h-y)]\\" /> 
- <DisplayEquation equation="Q = \\frac{1}{2}b(\\frac{1}{4}h^2-y^2)\\" /> 
+ <DisplayEquation equation=`\\begin{aligned}Q &= A\\bar{y}\\\\
+ &= b(\\frac{1}{2}h-y)[y+\\frac{1}{2}(\\frac{1}{2}h-y)]\\\\
+ &= \\frac{1}{2}b(\\frac{1}{4}h^2-y^2)\\end{aligned}` /> 
 
 </DisplayEquation>
  
@@ -192,6 +192,8 @@ Shear flow is the a measure of force per length.
 
 Shear flow is most applicable in design situations such as built-up beams.
 Built-up beams are beams that have been put together with either an adhesive (glue, epoxy, etc) or fasteners (nails, bolts, etc). Calculating shear flow allows for determining how much adhesive or how often a fastener is needed.
+
+<DisplayEquation equation="F = q\\Delta s" title="For uniformly spaced fasteners:" background="True" />
 
 <Image src="/sol/transverse_shear/BuiltUpBeams.png" width="5"></Image>
 
