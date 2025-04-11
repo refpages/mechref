@@ -5,6 +5,11 @@ import os
 import difflib
 import pprint
 
+
+#Usage: Run this file to convert a .tex file into a .astro file
+#tex files are read from tex/course/page.tex
+#astro files are written to Astro/coursetags[course]/page.astro
+
 coursetags = {
     'md':'Machine Design',
 }
@@ -16,13 +21,9 @@ tex_files = list(sorted([file[:-4] for file in os.listdir(f'tex/{course}') if fi
 
 print(tex_files)
 
-
-
 if not os.path.exists(f'Astro/{coursetags[course]}'):
      os.mkdir(f'Astro/{coursetags[course]}')
 
-# if not os.path.exists(f'Astro/src/pages/{coursetags[course]}/{page}.astro'):
-#      os.mkdir(f'Astro/src/pages/{coursetags[course]}/{page}.astro')
 
 replacements = {
     'section': 'Section',
