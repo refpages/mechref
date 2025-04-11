@@ -137,11 +137,11 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
 
         <p>
             Next, group the known and unknown into <InlineEquation equation="[A]" />, <InlineEquation equation="\\{B\\}" />, and <InlineEquation equation="\\{C\\}" />:</p>
-        <p><DisplayEquation background="True" title="Matrix Forms" equation=" \\begin{gather} \[A]=\\begin{bmatrix}1 & 0 & 0\\\\ 0 & 1 & 0\\\\ -R_{12y} & R_{12x} & 1 \\end{bmatrix} \\\\ \\{B\\} =\\begin{Bmatrix}F_{12x}\\\\ F_{12y}\\\\ T_{12}\\end{Bmatrix} \\\\ \\{C\\} =\\begin{Bmatrix}m_{2}A_{CG2x}-F_{Px}\\\\m_{2}A_{CG2y}-F_{Py}\\\\I_{CG2}\alpha_{2}-R_{Px}F_{Py}+R_{Py}F_{Px}\\end{Bmatrix} \\end{gather}" /></p>
+        <p><DisplayEquation background="True" title="Matrix Forms" equation=" \\begin{gather} \[A]=\\begin{bmatrix}1 & 0 & 0\\\\ 0 & 1 & 0\\\\ -R_{12y} & R_{12x} & 1 \\end{bmatrix} \\\\ \\{B\\} =\\begin{Bmatrix}F_{12x}\\\\ F_{12y}\\\\ T_{12}\\end{Bmatrix} \\\\ \\{C\\} =\\begin{Bmatrix}m_{2}A_{CG2x}-F_{Px}\\\\m_{2}A_{CG2y}-F_{Py}\\\\I_{CG2}\\alpha_{2}-R_{Px}F_{Py}+R_{Py}F_{Px}\\end{Bmatrix} \\end{gather}" /></p>
 
 
         <p>Putting the matrix equation together:</p>
-        <p><DisplayEquation background="True" title="Matrix Equation 1" equation="\\begin{bmatrix}1 & 0 & 0\\\\ 0 & 1 & 0\\\\ -R_{12y} & R_{12x} & 1 \\end{bmatrix}\\begin{Bmatrix}F_{12x}\\\\ F_{12y}\\\\ T_{12}\\end{Bmatrix}=\\begin{Bmatrix}m_{2}A_{CG2x}-F_{Px}\\\\m_{2}A_{CG2y}-F_{Py}\\\\I_{CG2}\alpha_{2}-R_{Px}F_{Py}+R_{Py}F_{Px}\\end{Bmatrix}" /></p>
+        <p><DisplayEquation background="True" title="Matrix Equation 1" equation="\\begin{bmatrix}1 & 0 & 0\\\\ 0 & 1 & 0\\\\ -R_{12y} & R_{12x} & 1 \\end{bmatrix}\\begin{Bmatrix}F_{12x}\\\\ F_{12y}\\\\ T_{12}\\end{Bmatrix}=\\begin{Bmatrix}m_{2}A_{CG2x}-F_{Px}\\\\m_{2}A_{CG2y}-F_{Py}\\\\I_{CG2}\\alpha_{2}-R_{Px}F_{Py}+R_{Py}F_{Px}\\end{Bmatrix}" /></p>
 
          <p>   Substitute in all known values:</p>
         <p><DisplayEquation background="True" title="Matrix Equation 2" equation="        \\begin{bmatrix}1 & 0 & 0\\\\0 & 1 & 0\\\\3 & -1 & 1\\end{bmatrix}\\begin{Bmatrix}F_{12x}\\\\F_{12y}\\\\T_{12}\\end{Bmatrix}=\\begin{Bmatrix}1.5*4-5\\\\1.5*1-2\\\\0.3*0.3-1*1.5+3*5\\end{Bmatrix}" /></p>
