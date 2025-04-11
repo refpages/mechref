@@ -1560,16 +1560,16 @@ import Row from "../../components/Row.astro"
         down, giving backward forces on both wheels and causing the
         car to decelerate to a stop.
         </p>
-        <p>
-            <PrairieDrawCanvas id="ava-fr-c" width="400" height="400" show_border="False" />
-        </p>
-        <p>
-        <button class="seq-step:ava-fr-c:motion:stationary" onclick="ava_fr_c.stepSequence('motion', 'stationary');">accelerate</button>
-        <button class="seq-step:ava-fr-c:motion:cruising" onclick="ava_fr_c.stepSequence('motion', 'cruising');">brake</button>
-        <button class="seq-toggle:ava-fr-c:fbd" onclick="ava_fr_c.stepSequence('fbd');">free body diagram</button>
-        <button class="option-toggle:ava-fr-c:components" onclick="ava_fr_c.toggleOption('components');">components</button>
-        <button class="anim-toggle:ava-fr-c" onclick="ava_fr_c.toggleAnim();">animation</button>
-        </p>
+
+            <PrairieDrawCanvas id="ava-fr-c" width="600" height="400" show_border="False">
+                <button class="seq-step:ava-fr-c:motion:stationary" onclick="ava_fr_c.stepSequence('motion', 'stationary');">accelerate</button>
+                <button class="seq-step:ava-fr-c:motion:cruising" onclick="ava_fr_c.stepSequence('motion', 'cruising');">brake</button>
+                <button class="seq-toggle:ava-fr-c:fbd" onclick="ava_fr_c.stepSequence('fbd');">free body diagram</button>
+                <button class="option-toggle:ava-fr-c:components" onclick="ava_fr_c.toggleOption('components');">components</button>
+                <button class="anim-toggle:ava-fr-c" onclick="ava_fr_c.toggleAnim();">animation</button>
+            </PrairieDrawCanvas>
+
+        
         <p>
         Repeat the <button
         class="seq-step:ava-fr-c:motion:stationary" onclick="ava_fr_c.stepSequence('motion', 'stationary');">acceleration</button>/<button
@@ -1714,18 +1714,13 @@ import Row from "../../components/Row.astro"
         balance means that the weight of the car is transferred
         primarily to the rear wheels.
         </p>
-        <p>
-            <Center>
-                <PrairieDrawCanvas id="ava-fm-c" width="400" height="400" show_border="False" />
-            </Center>
-        </p>
-        <p>
-        <button class="seq-step:ava-fm-c:motion:stationary" onclick="ava_fm_c.stepSequence('motion', 'stationary');">accelerate</button>
-        <button class="seq-step:ava-fm-c:motion:cruising" onclick="ava_fm_c.stepSequence('motion', 'cruising');">brake</button>
-        <button class="seq-toggle:ava-fm-c:fbd" onclick="ava_fm_c.stepSequence('fbd');">free body diagram</button>
-        <button class="option-toggle:ava-fm-c:components" onclick="ava_fm_c.toggleOption('components');">components</button>
-        <button class="anim-toggle:ava-fm-c" onclick="ava_fm_c.toggleAnim();">animation</button>
-        </p>
+        <PrairieDrawCanvas id="ava-fm-c" width="600" height="400" show_border="False">
+            <button class="seq-step:ava-fm-c:motion:stationary" onclick="ava_fm_c.stepSequence('motion', 'stationary');">accelerate</button>
+            <button class="seq-step:ava-fm-c:motion:cruising" onclick="ava_fm_c.stepSequence('motion', 'cruising');">brake</button>
+            <button class="seq-toggle:ava-fm-c:fbd" onclick="ava_fm_c.stepSequence('fbd');">free body diagram</button>
+            <button class="option-toggle:ava-fm-c:components" onclick="ava_fm_c.toggleOption('components');">components</button>
+            <button class="anim-toggle:ava-fm-c" onclick="ava_fm_c.toggleAnim();">animation</button>
+        </PrairieDrawCanvas>
         <p>
         <button
         class="seq-step:ava-fm-c:motion:cruising" onclick="ava_fm_c.stepSequence('motion', 'cruising');">Braking</button>
