@@ -266,8 +266,13 @@ Vectors can be written as a magnitude (length) multiplied by the unit vector in 
 The direction of a vector can be written as a unit vector by dividing the vector components by the vector magnitude. 
 </p>
 
-<Image src='/sta/vectors_scalars/UnitVec.jpg' width='4'></Image>
-
+<DisplayEquation equation = "\\hat{u}_A = \\frac{A_x}{|A|} * \\hat{\\imath} + \\frac{A_y}{|A|} * \\hat{\\jmath} + \\frac{A_z}{|A|} * \\hat{k}" title = "The unit vector can be written as" background = "True" derivation = "True" id = "uv">
+  <DisplayEquation equation = `\\begin{align} \\hat{u}_A &= \\frac{A_x}{|A|} * \\hat{\\imath} + \\frac{A_y}{|A|} * \\hat{\\jmath} + \\frac{A_z}{|A|} * \\hat{k} \\\\
+  &= \\frac{1}{|A|} * [A_x * \\hat{\\imath} + A_y * \\hat{\\jmath} + A_z * \\hat{k}] \\\\
+  &= \\frac{1}{|A|} * \\vec{A} \\\\
+  &= \\frac{1}{\\cancel{|A|}} * \\cancel{|A|} * \\hat{u}_A \\\\
+  &= \\hat{u}_A \\end{align}`/>
+</DisplayEquation>
 <p>
 Alternatively, the vector components can be determined geometrically via the angles of each component with respect to the Cartesian Axes. 
 </p>
@@ -275,6 +280,13 @@ Alternatively, the vector components can be determined geometrically via the ang
 <!-- There's a picture from the Overleaf document that needs to get inserted here - it's figure 7 in the 210 Overleaf File -->
 
 <Image src='/sta/vectors_scalars/UnitVecAngles.jpg' width='6'></Image>
+
+<DisplayEquation equation = "\\vec{A} = |A| * \\cos \\alpha * \\hat{\\imath} + |A| * \\cos \\beta * \\hat{\\jmath} + |A| * \\cos \\gamma * \\hat{k}" title = "The vector can be written as" background = "True" derivation = "True" id = "sc">
+  <DisplayEquation equation = `\\begin{align} \\vec{A} &= A_x * \\hat{\\imath} + |A| * \\hat{\\jmath} * |A| * \\hat{k} \\\\
+  &= |A| * \\cos \\alpha * \\hat{\\imath} + |A| * \\cos \\beta * \\hat{\\jmath} + |A| * \\cos \\gamma * \\hat{k} \\\\
+  &= |A| * [\\cos \\alpha * \\hat{\\imath} + \\cos \\beta * \\hat{\\jmath} + \\cos \\gamma * \\hat{k}] \\\\
+  &= |A| * \\hat{u}_A \\end{align}`/>
+</DisplayEquation>
 
 </SubSection>
 
