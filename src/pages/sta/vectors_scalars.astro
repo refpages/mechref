@@ -600,7 +600,19 @@ Alternatively, the vector components can be determined geometrically via the ang
 
 <!-- There's a picture from the Overleaf document that needs to get inserted here - it's figure 8 in the 210 Overleaf File -->
 
-<Image src='/sta/vectors_scalars/CrossProduct.jpg' width='6'></Image>
+<DisplayEquation title = "The cross product can be written as" equation = "\\vec{A} \\times \\vec{B} = (B_z * A_y - A_z * B_y) * \\hat{\\imath} - (A_x * B_z - A_z * B_x) * \\hat{\\jmath} + (A_x * B_y - A_y * B_x) * \\hat{k}" background = "True" derivation = "True" id = "cp">
+  <DisplayEquation equation = `\\begin{align} \\vec{A} \\times \\vec{B} &= \\begin{vmatrix}
+      \\hat{\\imath} & \\hat{\\jmath} & \\hat{k} \\\\
+      A_x & A_y & A_z \\\\
+      B_x & B_y & B_z \\end{vmatrix} \\\\
+    &= \\begin{vmatrix} A_y & A_z \\\\
+      B_y & B_z \\end{vmatrix} * \\hat{\\imath} - \\begin{vmatrix} A_x & A_z \\\\
+      B_x & B_z \\end{vmatrix} * \\hat{\\jmath} + \\begin{vmatrix} A_x & A_y \\\\
+      B_x & B_y \\end{vmatrix} * \\hat{k} \\end{align}`/>
+  <DisplayEquation equation = `\\text{where} \\begin{vmatrix} a & b \\\\
+    c & d \\end{vmatrix} = a * d - b * c`/>
+  <DisplayEquation equation = "\\vec{A} \\times \\vec{B} = (B_z * A_y - A_z * B_y) * \\hat{\\imath} - (A_x * B_z - A_z * B_x) * \\hat{\\jmath} + (A_x * B_y - A_y * B_x) * \\hat{k}"/>
+</DisplayEquation>
 
 </SubSubSubSection>
 
