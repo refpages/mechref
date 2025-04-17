@@ -47,7 +47,7 @@ import Enumerate from "../../components/Enumerate.astro";
         <p>
             In PVA analysis, links are represented using vectors. Using complex vectors is the easiest way to represent the link data as it utilizes the link length <InlineEquation equation="\ |R|" /> and starting link angle <InlineEquation equation="\\theta" /> to create a vector. There are two forms of complex vectors that we will be focusing on: complex number form and polar form. Complex number form takes a Cartesian approach to complex numbers. Meanwhile polar form takes a polar approach (as the name suggests).
         </p>
-        <p><DisplayEquation equation="\\overrightarrow R = |R|cos(\\theta) + j|R|sin(\\theta)" title="Complex Number Form" background="True" /></p>
+        <p><DisplayEquation equation="\\overrightarrow R = |R|\\cos(\\theta) + j|R|\\sin(\\theta)" title="Complex Number Form" background="True" /></p>
         <p><Image src="/md/Position_Velocity_Acceleration/Cartesian.png" width="5"></Image></p>
         <p><DisplayEquation equation="\\overrightarrow R=|R| e^{j\\theta}" title="Polar Form" background="True" /></p>
         <p><Image src="/md/Position_Velocity_Acceleration/Polar.png" width="5"></Image></p>
@@ -56,7 +56,7 @@ import Enumerate from "../../components/Enumerate.astro";
             The <InlineEquation equation="\ j" /> in each vector represents the imaginary number <InlineEquation equation="\ \sqrt{-1} " />. The Euler formula can be used to break the polar form into the complex form.
         </p>
 
-        <p><DisplayEquation equation="\e^{\\pm j\\theta} = cos(\\theta) + jsin(\\theta)" title="Euler Formula Form" background="True" /></p>
+        <p><DisplayEquation equation="\e^{\\pm j\\theta} = \\cos(\\theta) + j\\sin(\\theta)" title="Euler Formula Form" background="True" /></p>
 
         <p>
             Let's look at the polar vector form. Angle <InlineEquation equation="\\theta" /> depends on time because the system is not static. This means that taking the derivative of the angle with respect to time will give the angular velocity <InlineEquation equation="\\omega" />.
@@ -102,12 +102,12 @@ import Enumerate from "../../components/Enumerate.astro";
 
                 <Item>Break vector loop equation into real and imaginary parts. This can be done by using the Euler formula above.
 
-                <DisplayEquation equation="\\begin{gather} \ae^{j\\theta_2}+be^{j\\theta_3}-ce^{j\\theta _4}-de^{j\\theta _1} = 0 \\\\ a(cos\\theta _2+jsin\\theta _2)+b(cos\\theta _3+jsin\\theta _3)-c(cos\\theta _4+jsin\\theta _4)-d(cos\\theta _1+jsin\\theta _1) = 0 \\end{gather}" title="Position Vector Loop Equations in Cartesian Form" background="True" />
+                <DisplayEquation equation="\\begin{gather} \ae^{j\\theta_2}+be^{j\\theta_3}-ce^{j\\theta _4}-de^{j\\theta _1} = 0 \\\\ a(\\cos\\theta _2+j\\sin\\theta _2)+b(\\cos\\theta _3+j\\sin\\theta _3)-c(\\cos\\theta _4+j\\sin\\theta _4)-d(\\cos\\theta _1+j\\sin\\theta _1) = 0 \\end{gather}" title="Position Vector Loop Equations in Cartesian Form" background="True" />
 
-                 Remember that <InlineEquation equation="\\theta_1"/> is equal to zero. This means that <InlineEquation equation="\ d(cos\\theta_1+jsin\\theta_1)"/> simplifies to just <InlineEquation equation="\ d+0j"/>. Now we can easily break up the vector loop equation into its real and imaginary components.
+                 Remember that <InlineEquation equation="\\theta_1"/> is equal to zero. This means that <InlineEquation equation="\ d(\\cos\\theta_1+j\\sin\\theta_1)"/> simplifies to just <InlineEquation equation="\ d+0j"/>. Now we can easily break up the vector loop equation into its real and imaginary components.
 
-                    <DisplayEquation equation="\ a(cos\\theta _2)+b(cos\\theta _3)-c(cos\\theta _4) - d = 0" title="Real Component " background="True" />
-                    <DisplayEquation equation="\ a(sin\\theta _2)+b(sin\\theta _3)-c(sin\\theta _4) +0= 0" title="Imaginary Component" background="True" />
+                    <DisplayEquation equation="\ a(\\cos\\theta _2)+b(\\cos\\theta _3)-c(\\cos\\theta _4) - d = 0" title="Real Component " background="True" />
+                    <DisplayEquation equation="\ a(\\sin\\theta _2)+b(\\sin\\theta _3)-c(\\sin\\theta _4) +0= 0" title="Imaginary Component" background="True" />
                 </Item>
                 <Item>
                     Solve for unknown positions and/or angles. Since lengths <InlineEquation equation="\ a"/>, <InlineEquation equation="\ b"/>, <InlineEquation equation="\ c"/>, and <InlineEquation equation="\ d"/> are given along with angles <InlineEquation equation="\ (\\theta_1)"/> and <InlineEquation equation="\ (\\theta_2)"/>, the unknowns are <InlineEquation equation="\ (\\theta_3)"/> and <InlineEquation equation="\ (\\theta_4)"/>. Since there are two equations and two unknowns, this system can be solved using an equation solver.
@@ -145,11 +145,11 @@ import Enumerate from "../../components/Enumerate.astro";
 
             <Item>Break vector loop equation into real and imaginary parts.
 
-                <DisplayEquation equation="\\begin{gather} j\\omega _2ae^{j\\theta _2} + j\\omega _3be^{j\\theta _3}-j\\omega _3ce^{j\\theta _4}=0 \\\\ j\\omega _2a(cos\\theta _2+jsin\\theta _2) + j\\omega _3b(cos\\theta _3+jsin\\theta _3)-j\\omega _3c(cos\\theta _4+jsin\\theta _4)=0 \\end{gather}" title="Velocity Vector Loop Equations in Cartesian Form" background="True" />
+                <DisplayEquation equation="\\begin{gather} j\\omega _2ae^{j\\theta _2} + j\\omega _3be^{j\\theta _3}-j\\omega _3ce^{j\\theta _4}=0 \\\\ j\\omega _2a(\\cos\\theta _2+j\\sin\\theta _2) + j\\omega _3b(\\cos\\theta _3+j\\sin\\theta _3)-j\\omega _3c(\\cos\\theta _4+j\\sin\\theta _4)=0 \\end{gather}" title="Velocity Vector Loop Equations in Cartesian Form" background="True" />
 
 
-                <DisplayEquation equation="\ -a\\omega _2 sin(\\theta _2)-b\\omega _3 sin(\\theta _3) + c\\omega _4 sin(\\theta _4) = 0" title="Real Component " background="True" />
-                <DisplayEquation equation="\ a\\omega _2 cos(\\theta _2)+b\\omega _3 cos(\\theta _3) - c\\omega _4 cos(\\theta _4) = 0" title="Imaginary Component" background="True" />
+                <DisplayEquation equation="\ -a\\omega _2 \\sin(\\theta _2)-b\\omega _3 \\sin(\\theta _3) + c\\omega _4 \\sin(\\theta _4) = 0" title="Real Component " background="True" />
+                <DisplayEquation equation="\ a\\omega _2 \\cos(\\theta _2)+b\\omega _3 \\cos(\\theta _3) - c\\omega _4 \\cos(\\theta _4) = 0" title="Imaginary Component" background="True" />
             </Item>
             <Item>
                 Solve for the unknown velocities. Using trigonometric identities, we can use the two above equations to solve for <InlineEquation equation="\\omega_3"/> and <InlineEquation equation="\\omega_4"/> using an equation solver.
@@ -157,7 +157,7 @@ import Enumerate from "../../components/Enumerate.astro";
 
             <Warning title="Computing Velocities" id="warn1">
                 Note that it is possible to solve for for <InlineEquation equation="\\omega_3"/> and <InlineEquation equation="\\omega_4"/> analytically. However this can be time consuming and depends on the exact nature of the mechanism that is being analyzed. For a standard 4-bar linkage with pin joints the solution is:
-                <DisplayEquation equation="\\begin{gather} \\omega_3 = \\frac{a\\omega _2 sin(\\theta _4-\\theta _2)}{bsin(\\theta _3-\\theta _4)} \\\\ \\omega_4 = \\frac{a\\omega _2 sin(\\theta _2-\\theta _3)}{bsin(\\theta _4-\\theta _3)} \\end{gather}" title="Velocity Solutions for 4-bar Linkage with Pin Joints" background="True" />
+                <DisplayEquation equation="\\begin{gather} \\omega_3 = \\frac{a\\omega _2 \\sin(\\theta _4-\\theta _2)}{b\\sin(\\theta _3-\\theta _4)} \\\\ \\omega_4 = \\frac{a\\omega _2 \\sin(\\theta _2-\\theta _3)}{b\\sin(\\theta _4-\\theta _3)} \\end{gather}" title="Velocity Solutions for 4-bar Linkage with Pin Joints" background="True" />
             </Warning>
 
 
@@ -192,11 +192,11 @@ import Enumerate from "../../components/Enumerate.astro";
 
             <Item>Break vector loop equation into real and imaginary parts.
 
-                <DisplayEquation equation="\\begin{gather} j\\alpha _2 ae^{j\\theta _2} - \\omega _2^2ae^{j\\theta _2} +j\\alpha _3be^{j\\theta _3} - \\omega _3^2be^{j\\theta _3} - j\\alpha _4ce^{j\\theta _4} + \\omega _3^2ce^{j\\theta _4}=0 \\\\ \\\\(j\\alpha _2-\\omega _2^2)ae^{j\\theta _2} +(j\\alpha _3-\\omega _3^2)be^{j\\theta _3}-(j\\alpha _4-\\omega _4^2)ce^{j\\theta _4} =0 \\\\ \\\\ (j\\alpha _2-\\omega _2^2)a(cos\\theta _2+jsin\\theta _2) +(j\\alpha _3-\\omega _3^2)b(cos\\theta _3+jsin\\theta _3)- \\\\ (j\\alpha _4-\\omega _4^2)c(cos\\theta _4+jsin\\theta _4) =0 \\end{gather}" title="Acceleration Vector Loop Equations in Cartesian Form" background="True" />
+                <DisplayEquation equation="\\begin{gather} j\\alpha _2 ae^{j\\theta _2} - \\omega _2^2ae^{j\\theta _2} +j\\alpha _3be^{j\\theta _3} - \\omega _3^2be^{j\\theta _3} - j\\alpha _4ce^{j\\theta _4} + \\omega _3^2ce^{j\\theta _4}=0 \\\\ \\\\(j\\alpha _2-\\omega _2^2)ae^{j\\theta _2} +(j\\alpha _3-\\omega _3^2)be^{j\\theta _3}-(j\\alpha _4-\\omega _4^2)ce^{j\\theta _4} =0 \\\\ \\\\ (j\\alpha _2-\\omega _2^2)a(\\cos\\theta _2+j\\sin\\theta _2) +(j\\alpha _3-\\omega _3^2)b(\\cos\\theta _3+j\\sin\\theta _3)- \\\\ (j\\alpha _4-\\omega _4^2)c(\\cos\\theta _4+j\\sin\\theta _4) =0 \\end{gather}" title="Acceleration Vector Loop Equations in Cartesian Form" background="True" />
 
 
-                <DisplayEquation equation="\ -a\\alpha _2sin\\theta _2-a\\omega _2^2cos\\theta _2-b\\alpha _3sin\\theta _3-b\\omega _3^2cos\\theta _3+c\\alpha _4sin\\theta _4+c\\omega _4^2cos\\theta _4 = 0" title="Real Component " background="True" />
-                <DisplayEquation equation="\ a\\alpha _2cos\\theta _2-a\\omega _2^2sin\\theta _2+b\\alpha _3cos\\theta _3-b\\omega _3^2sin\\theta _3-c\\alpha _4cos\\theta _4+c\\omega _4^2sin\\theta _4 = 0" title="Imaginary Component" background="True" />
+                <DisplayEquation equation="\ -a\\alpha _2\\sin\\theta _2-a\\omega _2^2\\cos\\theta _2-b\\alpha _3\\sin\\theta _3-b\\omega _3^2\\cos\\theta _3+c\\alpha _4\\sin\\theta _4+c\\omega _4^2\\cos\\theta _4 = 0" title="Real Component " background="True" />
+                <DisplayEquation equation="\ a\\alpha _2\\cos\\theta _2-a\\omega _2^2\\sin\\theta _2+b\\alpha _3\\cos\\theta _3-b\\omega _3^2\\sin\\theta _3-c\\alpha _4\\cos\\theta _4+c\\omega _4^2\\sin\\theta _4 = 0" title="Imaginary Component" background="True" />
             </Item>
             <Item>
                 Solve for the unknown accelerations. Using trigonometric identities, we can use the two above equations to solve for <InlineEquation equation="\\alpha_3"/> and <InlineEquation equation="\\alpha_4"/> using an equation solver.
@@ -209,7 +209,7 @@ import Enumerate from "../../components/Enumerate.astro";
                 <p><InlineEquation equation="\\alpha _4 = \\frac{CE-BF}{AE-BD}"/></p>
 
                 <p>Where</p>
-                <DisplayEquation equation="\\begin{gather} A = csin\\theta _4 \\\\ B = bsin\\theta _3 \\\\ C = a\\alpha _2sin\\theta _2 + \\alpha \\omega _2^2 cos\\theta _2+b\\omega _3^2 cos\\theta _3 - c\\omega _4^2 cos\\theta _4 \\\\ D = ccos\\theta _4 \\\\ E = bcos\\theta _3 \\\\ F = a\\alpha _2cos\\theta _2 - a\\omega _2^2sin\\theta _2 - b\\omega _3^2sin\\theta _3+c\\omega _4^2sin \\theta _4 \\end{gather}" title="Acceleration Analytic Solution" background="True" />
+                <DisplayEquation equation="\\begin{gather} A = c\\sin\\theta _4 \\\\ B = b\\sin\\theta _3 \\\\ C = a\\alpha_2\\sin\\theta_2 + \\alpha \\omega _2^2 \\cos\\theta _2+b\\omega _3^2\\cos\\theta _3 - c\\omega _4^2\\cos\\theta _4 \\\\ D = c\\cos\\theta _4 \\\\ E = b\\cos\\theta _3 \\\\ F = a\\alpha _2\\cos\\theta _2 - a\\omega _2^2\\sin\\theta _2 - b\\omega _3^2\\sin\\theta _3+c\\omega _4^2\\sin \\theta _4 \\end{gather}" title="Acceleration Analytic Solution" background="True" />
 
                 <p>
                     While acceleration analysis is possible to do by hand, it is <em>highly</em> recommended that code or a computer based solver is used to assist solving for the unknown variables.
@@ -236,7 +236,7 @@ import Enumerate from "../../components/Enumerate.astro";
         <p>Since <InlineEquation equation="\\theta_4"/> equals 90 degrees and <InlineEquation equation="\\theta_1"/> equals zero degrees, the equation can be simplified to:</p>
         <DisplayEquation equation="ae^{j\\theta _2} - be^{j\\theta _3}-jc-d=0" title="Simplified Position Vector Loop for Crank Slider" background="True" />
 
-        <DisplayEquation equation="\ acos\\theta _2-bcos\\theta _3 -d =0" title="Real Component " background="True" />
+        <DisplayEquation equation="\ a\\cos\\theta _2-b\\cos\\theta _3 -d =0" title="Real Component " background="True" />
         <DisplayEquation equation="\ asin\\theta _2 - bsin\\theta _3-c=0" title="Imaginary Component" background="True" />
 
         <p>When taking the time derivative of this equation, keep in mind that <InlineEquation equation="\d=d(t)"/> is still a value that changes with respect to time. This will result in the terms <InlineEquation equation="\\dot(d) \\ddot(d)"/>, which represents the change and rate of change in length of the link with respect to time. </p>
