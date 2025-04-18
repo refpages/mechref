@@ -1,0 +1,34 @@
+---
+const {id, title="Title", title_style="", style="itemize"} = Astro.props;
+---
+
+<div class="w-100" id={id}>
+    <div class="d-flex justify-content-between flex-row title-section mt-0">
+        <h3 class=`${title_style}`>{title}</h3>
+        <div class="form-check form-switch simp-switch ">
+            <input class="form-check-input simp-btn" type="checkbox" role="switch" onchange="toggle_simplified_view(this);">
+            <label class="form-check-label" style="text-wrap: nowrap;">Simplified view:</label>
+        </div>
+    </div>
+
+    <div class="grid card-grid-fancy">
+        <slot />
+    </div>
+
+
+    {style == "itemize"  &&
+    <ul class="mt-0 card-grid-simple">
+        <slot name="list" />
+    </ul>
+    }
+
+    {style == "enumerate"  &&
+    <ol class="mt-0 card-grid-simple">
+        <slot name="list" />
+    </ol>
+    }
+</div>
+
+<style>
+    
+</style>

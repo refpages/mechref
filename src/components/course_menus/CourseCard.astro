@@ -1,0 +1,80 @@
+---
+const { href, img_src, title} = Astro.props;
+
+const unique_id = (href+img_src+title).replaceAll('/', '').toLowerCase().replaceAll(' ', '').replaceAll('"', '')
+
+console.log(unique_id)
+---
+
+<div class="card-container">
+    <div class="main-cards">
+        <a href=`${href}?origin=coursemenu`>
+            <img src={img_src} style="background-color: white; object-fit: cover"  alt="" />
+            <p>{title}</p>
+        </a>
+    </div>
+    <div id="hideable-container">
+        <button class="btn d-inline-flex align-items-center rounded sidebar-btn p-0 mb-1" data-bs-toggle="collapse" data-bs-target={`#${unique_id}`}>
+            <p class='text-start themed-text my-0 h5 fw-bold text-wrap '>Sections</p>
+        </button>
+        <div id={unique_id} class="collapse">
+            <ul class='list-group list-group-flush py-0 mb-3' id=`${unique_id}_container}`>
+                <slot />
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+<style>
+    #hideable-container{
+        display: flex;
+        flex-direction: column;
+    }
+    
+.card-container{
+    align-self: start;
+}
+
+    .main-cards{
+    padding: .5rem;
+    width: 100%;
+    background-color: #f0f0d0;
+    border: 2px solid var(--bs-border-color); 
+    border-radius: 10px;
+    text-decoration: none;
+    color: black;
+    transition: all linear .1s;
+}
+
+.main-cards a{
+    color: black;
+    text-decoration: none;
+}
+.main-cards p:first-of-type{
+    margin-top: .5rem;
+    margin-bottom: 0;
+
+    font-weight: bold;
+    text-align: center;
+}
+
+.main-cards a div{
+    padding: .5rem; 
+    border-radius: .5rem;
+    height: calc(var(--card-size) - 1rem);
+}
+
+.main-cards:hover{
+    transform: scale(1.05);
+    margin-bottom: .5rem;
+}
+
+.main-cards img{
+    height: calc(var(--card-size) - 1rem);
+    display: block;
+    object-fit: contain;
+    width: 100%;
+    border-radius: .5rem;
+}
+</style>

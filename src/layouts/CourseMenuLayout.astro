@@ -144,4 +144,65 @@ const { title } = Astro.props;
 			padding-left: 1rem;
 		}
 	}
+
+    :root{
+    --card-size: 180px;
+}
+
+#courses .title-section{
+    margin-top: 1rem;
+}
+
+#courses .title-section h3{
+    font-weight: bold;
+}
+
+ol.card-grid-simple, ul.card-grid-simple a{
+    font-size: 1.2rem;
+    color: var(--bs-text-color);
+    transition: font-size linear .2s;
+}
+
+div.grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, var(--card-size));
+    gap: 10px;
+    justify-content: center;
+	align-items: start;
+}
+
+
+.simp-switch{
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    margin-left: 2rem;
+}
+
+.simp-btn{
+    margin-right: .5rem;
+}
+
+@media(width >= 768px){
+    ol.card-grid-simple, ul.card-grid-simple a:hover{
+        transform: scale(1.05);
+        font-size: 1.17rem;
+    }
+
+    div.grid{
+        justify-content: start;
+    }
+}
+
+.subsection{
+        color: var(--text-main);
+    }
+
+    .subsubsection{
+        color:var(--text-secondary);
+    }
+
+	.subsubsubsection{
+        color:var(--text-tertiary);
+    }
 </style>
