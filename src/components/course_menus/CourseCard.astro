@@ -6,15 +6,15 @@ const unique_id = (href+img_src+title).replaceAll('/', '').toLowerCase().replace
 console.log(unique_id)
 ---
 
-<div>
+<div class="card-container">
     <div class="main-cards">
         <a href=`${href}?origin=coursemenu`>
-            <img src={img_src} style="background-color: white"  alt="" />
+            <img src={img_src} style="background-color: white; object-fit: cover"  alt="" />
             <p>{title}</p>
         </a>
     </div>
     <div id="hideable-container">
-        <button class="btn d-inline-flex align-items-center rounded sidebar-btn p-0 mb-1" data-bs-toggle="collapse" data-bs-target=`#${unique_id}`>
+        <button class="btn d-inline-flex align-items-center rounded sidebar-btn p-0 mb-1" data-bs-toggle="collapse" data-bs-target={`#${unique_id}`}>
             <p class='text-start themed-text my-0 h5 fw-bold text-wrap '>Sections</p>
         </button>
         <div id={unique_id} class="collapse">
@@ -32,6 +32,10 @@ console.log(unique_id)
         flex-direction: column;
     }
     
+.card-container{
+    align-self: start;
+}
+
     .main-cards{
     padding: .5rem;
     width: 100%;

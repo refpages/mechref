@@ -165,10 +165,10 @@ ol.card-grid-simple, ul.card-grid-simple a{
 
 div.grid{
     display: grid;
-    grid-template-columns: repeat(auto-fit, 180px);
-    grid-auto-rows: 1fr;
+    grid-template-columns: repeat(auto-fill, var(--card-size));
     gap: 10px;
     justify-content: center;
+	align-items: start;
 }
 
 
