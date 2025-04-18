@@ -5,7 +5,7 @@ import SidebarContainer from '../components/SidebarContainer.astro';
 import Searchbar from '../components/Searchbar.astro';
 import NavtreeContainer from '../components/NavtreeContainer.astro';
 
-const { title } = Astro.props;
+const { title, description="" } = Astro.props;
 
 const current_path = Astro.url;
 const split_ = current_path.pathname.split('/')
@@ -19,7 +19,7 @@ const pagename = cleaned[1]
 <html lang="en" class="w-100">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="description" content="Astro description" />
+		<meta name="description" content={description} />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="icon" type="image" href="/favicon2.png" />
 		<meta name="generator" content={Astro.generator} />
