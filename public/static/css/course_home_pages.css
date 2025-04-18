@@ -1,8 +1,8 @@
-li:hover{
+section > ol > li:hover{
     font-weight: bold;
 }
 
-li a{
+section > ol > li a{
     color: var(--bs-text-body);
     text-decoration: none;
 }

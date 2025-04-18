@@ -158,9 +158,9 @@ To determine which of these scenarios will occur, you should write the equations
 </p>
 <!-- From Lecture 27 -->
 
-  <DisplayEquation title="Location of Normal Force: Derivation" id="nfl" background="True" equation="" derivation="True">
+  <DisplayEquation title="Location of Normal Force: Derivation" id="nfl" background="True" equation="\\begin{align} &\\sum F_x = P - F_f = 0 \\\\ &\\sum F_y = N - W = 0 \\\\ &\\sum M_O = -Py \\neq 0 \\end{align}" derivation="True">
     
-      <Image src='/sta/friction/NLocation.jpg' width='5'></Image>
+      <Image src='/sta/friction/NLocation.jpg' width='3'></Image>
 
         <p>
           If the normal force <i>N</i> acted at the middle of the box (at the center of mass), we would write the three equations of equilibrium as follows: 
@@ -173,7 +173,7 @@ To determine which of these scenarios will occur, you should write the equations
           So far, so good! However, we run into a problem when we write the sum of moments equation:  
 	</p>
 
-	  <DisplayEquation equation="\\sum M_O = -Py = 0" />
+	  <DisplayEquation equation="\\sum M_O = -Py \\neq 0" />
 
 	<p>
 	The sum of moments equation about point O results in an expression that is not possible: we know that <i>P</> cannot be zero, so there must be some sort of moment about the center of the box from the normal force acting offset from the center of mass of the box. 
@@ -203,11 +203,11 @@ To determine which of these scenarios will occur, you should write the equations
 				<DisplayEquation equation="P = F = \\mu_s \\ N = \\mu_s \\ W = 0.4 \\ (250 \\ lb) = 100 \\ lb" /> 
 		</li>
 		<li> Check to see if it is tipping at <InlineEquation equation="P = 100 \\ lb" />, solve for <InlineEquation equation="x" /> 
-			<DisplayEquation equation="\\begin{aligned}  \\sum{M_o} &amp;= P_y  - N_x = 0  \\\\  x &amp;= \\frac{P_y}{N} = \\frac{P_y}{W} = \\frac{100 \\ lb \\ (40 \\ in)}{250 \\ lb}  = 16'' \\end{aligned}"   /> 
+			<DisplayEquation equation="\\begin{aligned}  \\sum{M_o} &amp;= Py  - Nx = 0  \\\\  x &amp;= \\frac{Py}{N} = \\frac{Py}{W} = \\frac{100 \\ lb \\ (40 \\ in)}{250 \\ lb}  = 16'' \\end{aligned}"   /> 
 			<p> If  <InlineEquation equation=" x = 18 '' " /> , the fridge would tip. Because <InlineEquation equation=" x = 16 '' " /> , the fridge is not tipping!  </p>
 		</li>
 		<li> Assume tipping, solve for <InlineEquation equation="P" />  
-			<DisplayEquation equation=" \\begin{aligned}  \\sum{F_x} &amp;= 0   \\\\   P - F &amp;= 0  \\\\  P &amp;= F  \\\\ \\sum{F_y} &amp;= 0   \\\\   N - W &amp;= 0  \\\\  N &amp;= W   \\\\  \\sum{M_o} &amp;= 0  \\\\   P_y  - N_x &amp;= 0  \\\\ P &amp;= \\frac{N_x}{y}  = \\frac{W_x}{y}  =  \\frac{250 \\ lb \\ (18 \\ in)}{40 \\ in}  \\\\ P &amp;= 112.5 \\ lb \\quad \\text{for tipping} \\end{aligned}"   /> 
+			<DisplayEquation equation=" \\begin{aligned}  \\sum{F_x} &amp;= 0   \\\\   P - F &amp;= 0  \\\\  P &amp;= F  \\\\ \\sum{F_y} &amp;= 0   \\\\   N - W &amp;= 0  \\\\  N &amp;= W   \\\\  \\sum{M_o} &amp;= 0  \\\\   Py  - Nx &amp;= 0  \\\\ P &amp;= \\frac{Nx}{y}  = \\frac{Wx}{y}  =  \\frac{250 \\ lb \\ (18 \\ in)}{40 \\ in}  \\\\ P &amp;= 112.5 \\ lb \\quad \\text{for tipping} \\end{aligned}"   /> 
 		</li>
 	</ol>
 	

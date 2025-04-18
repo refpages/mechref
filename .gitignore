@@ -4,6 +4,8 @@ svelte.config.json
 astro.config.mjs
 tsconfig.json
 
+__pycache__
+
 # build output
 dist/
 # generated types

@@ -86,6 +86,13 @@ Frame and machine analysis involves the following steps:
 
 	<Image src='/sta/frames_and_machines/FBD_GE.jpg' width='5'></Image>
 
+	<p class = "text-center"><u>Unknowns:</u> <InlineEquation equation = "G_x, G_y, F_{DE}"/></p>
+	<DisplayEquation equation = `\\begin{align} &\\sum F_x = G_x + F_{DE} * \\cos \\theta = 0 \\\\
+	&\\sum F_y = G_y + F_{DE} * \\sin \\theta + F = 0 \\\\
+	&\\sum M_G = F * (145 \\text{ mm}) + (F_{DE} * \\sin \\theta) * (33 \\text{ mm}) = 0 \\end{align}`/>
+	<DisplayEquation equation = "\\text{where } \\theta = \\arctan \\frac{17}{16} = 46.7357 ^ \\circ"/>
+	<DisplayEquation equation = "F_{DE} = -F * \\frac{(145 \\text{ mm})}{(33 \\text{ mm}) * \\sin \\theta} = -362.038 \\text{ N}"/>
+
 	<p> Taking the sum of force in the x and y direction and the sum of moments about G, we can solve for <InlineEquation equation='F_{DE}'/>, which is -362.038 N. </p>
 
 	<p> We can then draw a FBD for member ACD: 
@@ -93,6 +100,11 @@ Frame and machine analysis involves the following steps:
 	Note that the force <InlineEquation equation='F_{DE}'/>, which was in the FBD for member GE, is facing the opposite direction in this FBD. </p>
 
 	<Image src='/sta/frames_and_machines/FBD_ACD.jpg' width='5'></Image>
+
+	<p class = "text-center"><u>Unknowns:</u> <InlineEquation equation = "F_A, C_x, C_y"/></p>
+	<DisplayEquation equation = "\\sum M_C = 0"/>
+	<DisplayEquation equation = "= -(F_{DE} * \\sin \\theta) * (49 \\text{ mm}) - (F_{DE} * \\cos{\\theta}) * (14 \\text{ mm}) -F_A * (61 \\text{ mm})"/>
+	<DisplayEquation equation = "F_A = 268.692 \\text{ N}"/>
 
 	<p> Writing the sum of moments about point C allows us to solve for the force at A, which is 268.692 N. </p>
 

@@ -2,10 +2,29 @@ $(document).ready(function(){
     rkg_fw_c = new PrairieDrawAnim("rkg-fw-c", function(t) {
         this.setUnits(3, 3 / this.goldenRatio);
 
-        this.addOption("showAngles", false);
-        this.addOption("showAngVels", false);
+        var height = 3 / this.goldenRatio;
+        var width = 3;
+
+        var frequency = 2;
 
         this.translate($V([-1.2, -0.7]));
+
+        this.setProp("shapeOutlineColor", "rgb(230, 230, 230)");
+        
+        // /// VERTICAL LINES
+        // for (let i = 0; i < width*frequency; i++){
+        //     this.line($V([i/frequency, -height]), $V([i/frequency, height]));
+        // }
+        
+        // /// HORIZONTAL LINES
+        // for (let i = 0; i < height*frequency; i++){
+        //     this.line($V([-width, i/frequency]), $V([width, i/frequency]));
+        // }
+        
+        this.setProp("shapeOutlineColor", "rgb(0, 0, 0)");
+
+        this.addOption("showAngles", false);
+        this.addOption("showAngVels", false);
 
         var O = $V([0, 0]);
         var ei = $V([1, 0]);
@@ -65,20 +84,23 @@ $(document).ready(function(){
             this.labelCircleLine(O, rw, a1, a2, $V([0, 1]), label, true);
             this.restore();
         }.bind(this);
+        this.setProp("shapeInsideColor", "#FFF1DB");
 
         this.save();
         this.translate(rP1);
         this.rotate(theta1);
-        this.rectangle(0.8, 0.8 / this.goldenRatio);
+        this.rectangle(0.8, 0.8 / this.goldenRatio, O, 0, true);
         this.text($V([0.33, -0.18]), $V([0, 0]), "TEX:$\\mathcal{B}_1$");
         this.restore();
 
         this.save();
         this.translate(rP2);
         this.rotate(theta2);
-        this.rectangle(0.8, 0.8 / this.goldenRatio);
+        this.rectangle(0.8, 0.8 / this.goldenRatio, O, 0, true);
         this.text($V([0.33, -0.18]), $V([0, 0]), "TEX:$\\mathcal{B}_2$");
         this.restore();
+
+        this.setProp("shapeInsideColor", "rgb(255, 255, 255)");
 
         drawAxes(rP1, theta1, "TEX:$\\theta_1$");
         drawAxes(rQ1, theta1, "TEX:$\\theta_1$");
@@ -958,7 +980,7 @@ $(document).ready(function(){
             var theta = 0.5 * t;
             var velocityScale = 0.55;
             var r = Number(this.getOption("radius"));
-            var dPerc = this.getOption("offset");
+            var dPerc = Number(this.getOption("offset"));
             var d = length / 2 * dPerc / 100;
     
             var rP = $V([r, 0]).rotate(theta, $V([0, 0]));

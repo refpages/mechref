@@ -1,0 +1,210 @@
+---
+import Layout from "../../layouts/Layout.astro"
+import Image from "../../components/Image.astro"
+import Section from "../../components/Section.astro"
+import SubSection from "../../components/SubSection.astro"
+import OrangeText from "../../components/OrangeText.astro"
+import TealText from "../../components/TealText.astro"
+import Enumerate from "../../components/Enumerate.astro"
+import Item from "../../components/Item.astro"
+import Itemize from "../../components/Itemize.astro"
+import InlineEquation from "../../components/InlineEquation.astro"
+import DisplayEquation from "../../components/DisplayEquation.astro"
+---
+<Layout title="Dynamic Force Analysis">
+
+    <div slot="navtree">
+        <ul class='list-group list-group-flush py-0'>
+            <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#DFA_intro'>Dynamic Force Analysis Intro</a></li>
+            <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Dynamics_review'> Review of Dynamics Concepts</a></li>
+            <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#DFA_procedure'>DFA Procedure</a></li>
+            <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#DFA_Walkthrough'>DFA Walkthrough</a></li>
+            <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Application_Notes'>Application Notes</a></li>
+        </ul>
+    </div>
+
+
+
+    <SubSection title="Dynamic Force Analysis Intro"id="DFA_intro">
+    <p>
+        Dynamic Force Analysis (commonly called DFA)  is closely connected to <a href="/md/Position_Velocity_Acceleration">PVA Analysis</a>. After obtaining the motion of a system through PVA analysis, DFA obtains the forces acting on each link and joint in the system. This process of going from a known motion to the forces that would have caused such motion is called <strong>inverse kinematics</strong>. This is opposed to <strong>forward kinematics</strong>, where the motion of a system is determined given the external loading. In real life applications, both methods are used to analyze mechanisms.</p>
+    <p>
+        Most of the time, the largest loads will be external forces and torques, as well as inertial forces and torques. To simplify our analysis, we will neglect the influence of gravity. However, in cases where gravitational loads contribute significantly to the total loads on a system, it is important to include them. </p>
+    </SubSection>
+
+    <SubSection title="Review of Dynamics Concepts"id="Dynamics_review">
+    <p>There are a couple of applicable dynamics concepts that are worth reviewing.</p>
+
+    <p><strong>Total mass</strong> tells us the resistance of an object to changes in linear acceleration given an external force. We can use <strong>Newton's second law</strong> to relate force, mass, and linear acceleration.</p>
+
+    <p><strong>Center of mass</strong> is the first moment of mass. This is essentially the weighted sum of masses times their distances from a reference point. For a discrete set of point masses, we can use summation.</p>
+    <DisplayEquation background="True" title="Center Of Mass 1" equation="\\vec{r}_{CG}=\\frac{\\sum{\\vec{r}_i m_i}}{\\sum{m}_i}"/>
+    <p>
+        For continuous objects, we integrate over the entire volume to calculate the weighted sum.</p>
+    <p><DisplayEquation background="True" title="Center Of Mass 2" equation="\\vec{r}_{CG}=\\frac{\\int{\\vec{r}dm}}{\\int{dm}}" /></p>
+    <p>
+        In practice, the center of mass of many common shapes has already been solved and tabulated in look-up tables. Such tables can be readily found online or in textbooks. If the object is placed in a uniform gravitational field, then the object's <strong>center of gravity</strong> will be at the same location. Additionally, a free object will always rotate about an axis that goes through its center of mass. Additional information about centers of mass, and a table of centers of masses for common objects is located on the <a href="/dyn/rigid_body_kinetics">Rigid Body Kinetics</a> page.</p>
+
+
+        <strong>Moment of inertia</strong> is the second moment of mass. This tells us about an object's resistance to changes in angular acceleration. An object's moment of inertia is always considered around an axis of rotation. For example, the z-axis moment of inertia of a planar object can be calculated as such:
+    <p><DisplayEquation background="True" title="Moment of Inertia" equation="\ I_z=\\int_A{\\vec{r}^2dm}" /></p>
+
+    <p>Similar to the center of mass, the moment of inertia of common shapes about an object's center of mass have already been solved around the <InlineEquation equation="\ x" />, <InlineEquation equation="\ y" />, and <InlineEquation equation="\ z" /> axes and tabulated. Additional information about moments of inertia of mass, and a table of moments of inertia for common objects is located on the <a href="/dyn/rigid_body_kinetics">Rigid Body Kinetics</a> page.</p>
+
+
+        <Image src="/md/Dynamic_Force_Analysis/Parallel Axis Thm.png" width="5"></Image>
+        <p>
+            The <strong>parallel axis theorem</strong> allows us to calculate the moment of inertia of an object about any axis away from the center of mass. Objects rarely rotate around their center of mass in reality, especially when the object is part of a linkage. As such, having a method to calculate an object's moment of inertia about an arbitrary axis (without redoing the integral) is useful. The parallel axis theorem states that given the moment of inertia, <InlineEquation equation="\ I_{CM}" />, about an axis through the center of mass of an object of mass <InlineEquation equation="\ M" />, the moment of inertia about a <strong>parallel</strong> axis that is distance <InlineEquation equation="\ d" /> away from the center of mass is given by:</p>
+        <p><DisplayEquation background="True" title="Parallel Axis Theorem" equation="\ I=I_{CM}+Md^2" /></p>
+
+        <Image src="/md/Dynamic_Force_Analysis/Radius of Gyration.png" width="5"></Image>
+
+        <strong>Radius of gyration</strong> is the distance, <InlineEquation equation="\ k" />, is the distance from the axis of rotation at which the entire mass of the body, <InlineEquation equation="\ M" />, would be concentrated to give the same moment of inertia. That is, <InlineEquation equation="\I=Mk^2" />. Solving for <InlineEquation equation="\ k" /> gives:
+        <p><DisplayEquation background="True" title="Radius Of Gryration" equation="\k=\\sqrt{\\frac{I}{M}}" /></p>
+
+
+        <p>
+            The <strong>cross product</strong> is a useful mathematical operation that takes two vectors as input and returns a vector as output, denoted by the <InlineEquation equation="\\times" /> operator. Qualitatively, the magnitude of <InlineEquation equation="\\vec{a}\\times\\vec{b}" /> has the same length as the area of the parallelogram formed by <InlineEquation equation="\\vec{a}" /> and <InlineEquation equation="\\vec{b}" />, and the direction is determined by the <strong>right hand rule</strong>. Point your right hand's index finger in the direction of <InlineEquation equation="\\vec{a}" /> and the middle finger in the direction of <InlineEquation equation="\\vec{b}" />, then straightening your thumb will give the direction of <InlineEquation equation="\\vec{a}\\times\\vec{b}" />. This also shows that the cross product is <strong>not</strong> communicative, i.e., <InlineEquation equation="\\vec{b}\\times\\vec{a}=-(\\vec{a}\\times\\vec{b})" />.</p>
+        <p>
+            Quantitatively, we have two methods to easily calculate the magnitude of the cross product of two 2D vectors, <InlineEquation equation="\\vec{a}=a_x\\hat{i}+a_y\\hat{j}" /> and <InlineEquation equation="\\vec{b}=b_x\\hat{i}+b_y\\hat{j}" />. The first method takes the determinant of a matrix containing the components of <InlineEquation equation="\\vec{a}" /> and <InlineEquation equation="\\vec{b}" />, as shown below:</p>
+
+        <p><DisplayEquation background="True" title="2D Cross Product Magnitude 1" equation="\ ||\\vec{a}\\times\\vec{b}||=\\det\\begin{bmatrix}a_x & a_y\\\\b_x & b_y\\end{bmatrix} = a_xb_y-a_yb_x" /></p>
+        <p>The second method calculates the area of the parallelogram bounded by <InlineEquation equation="\\vec{a}" /> and <InlineEquation equation="\\vec{b}" />, where <InlineEquation equation="\\theta" /> is the angle between <InlineEquation equation="\\vec{a}" /> and <InlineEquation equation="\\vec{b}" />:</p>
+        <p><DisplayEquation background="True" title="2D Cross Product Magnitude 2" equation="\ ||\\vec{a}\\times\\vec{b}||=||\\vec{a}|| ||\\vec{b}||\\sin{\\theta}" /></p>
+
+
+        <p>
+        3D cross products are more challenging and require solving the determinant shown below. This is less useful in the context of DFA, since most linkages studied here operates in a plane.</p>
+
+
+        <p><DisplayEquation background="True" title="3D Cross Product" equation="\ \\vec{a}\\times\\vec{b}=\\det\\begin{bmatrix}\\hat{i} & \\hat{j} & \\hat{k} \\\\ a_x & a_y & a_z \\\\ b_x & b_y & b_z\\end{bmatrix}" /></p>
+
+
+        <p>Note that setting <InlineEquation equation="\ a_z=b_z=0" /> will yield the same result as the 2D case.</p>
+
+
+    </SubSection>
+        <SubSection title="DFA procedure", id="DFA_procedure">
+        <p>Because we are dealing with multiple links, each applying forces and having forces applied onto it, we need a way to keep track of all the various forces. As such, the following notation will be used:</p>
+
+        <Itemize>
+
+            <Item><InlineEquation equation="\\vec{F}_{ij}" />: Force link <InlineEquation equation="i" /> exerts on link <InlineEquation equation="j" />. From Newton's Third Law, <InlineEquation equation="\\vec{F}_{ij}=-\\vec{F}_{ji}" />.</Item>
+            <Item><InlineEquation equation="T_{ij}" />: Torque link <InlineEquation equation="i" /> exerts on link <InlineEquation equation="j" />. Fron Newton's Third law, <InlineEquation equation="T_{ij}=-T_{ji}" />.</Item>
+            <Item><InlineEquation equation="\\vec{R}_{ij}" />: Position of <InlineEquation equation="\\vec{F}_{ij}" /> relative to the CG of link <InlineEquation equation="j" />. Note that unlike forces,  <InlineEquation equation="\\vec{R}_{ij}\\neq\\vec{R}_{ji}" /> for this notation.</Item>
+
+        </Itemize>
+        <p>
+            Here is a brief overview of the DFA procedure:</p>
+        <Enumerate>
+
+            <Item><strong>Draw the complete system.</strong> Label points, dimensions, external forces and torques, and kinematics.</Item>
+            <Item><strong>Create free-body diagram for each segment.</strong> Each free-body diagram should include a labeled coordinate system, external joint forces and torques, kinematics, internal forces and torques, and position vectors. It is highly recommended to follow the notation shown above for ease of bookkeeping.</Item>
+            <Item><strong>Symbolically write out equations of motion for each link.</strong> For planar mechanisms, this will involve two force equations and one torque equation, for a total of three equations of motion:</Item>
+
+            <p>    <DisplayEquation background="True" title="Equations of Motion" equation="\\begin{gather}\\sum{\\vec{F}_{ix}}=m_i\\vec{a}_{CGix} \\\\ \\sum{\\vec{F}_{iy}}=m_i\\vec{a}_{CGiy} \\\\ \\sum{T}_{iz}=I_{CGi}\\alpha_i \\end{gather}" /></p>
+            <Item><strong>Convert equations to matrix format  <InlineEquation equation="[A]\\{B\\}=\\{C\\}" /> .</strong></Item>
+            <Itemize>
+
+                <Item>Matrix <InlineEquation equation="[A]" /> contains all geometric information (e.g. position vectors).</Item>
+                <Item>Vector <InlineEquation equation="\\{B\\}" /> contains all unknown forces and torques.</Item>
+                <Item>Vector <InlineEquation equation="\\{C\\}" /> contains all dynamic information (e.g. external forces and torques, PVA analysis results, mass, moments of inertia).</Item>
+
+            </Itemize>
+            <Item><strong>Insert known values</strong> into the matrix equation.</Item>
+            <Item><strong>Invert matrix  <InlineEquation equation="[A]" />  to solve for  <InlineEquation equation="\\{B\\}" /></strong> using a computational tool of your choice (e.g. MATLAB or Python).</Item>
+
+        </Enumerate>
+        </SubSection>
+
+
+        <SubSection title="DFA Walkthrough" id="DFA_Walkthrough">
+        <p>Let's first apply DFA on a simple two-link system to see how it works. Link 1 is the ground link, while link 2 rotates around point <InlineEquation equation="O_2" /> and is acted on by an external force <InlineEquation equation="\\vec{F}_P" />. Link 2 has mass <InlineEquation equation="m" />, length <InlineEquation equation="l" />, and a uniform cross section. We want to find the reaction force <InlineEquation equation="\\vec{F}_{12}" /> at <InlineEquation equation="O_2" /> and the driving torque <InlineEquation equation="T_{12}" />. </p>
+
+        <Image src="/md/Dynamic_Force_Analysis/Example 1.1.png" width="5"></Image>
+        <p>
+            At this instant in time, the following parameters are known:</p>
+        <p>
+            <DisplayEquation background="True" title="Known Values" equation="\\begin{matrix}  m=1.5kg & I=0.3kg\\cdot{}m^2 \\\\F_p=(5,2)N & \\vec{A}_{CG2}=(4,1)\\frac{m}{s^2}\\\\ \\vec{R}_{12}=(-1,-3)m & \\vec{R}_{P2}=(1,3)m \\end{matrix}" /></p>
+        <p>
+            The equations of motion will be easier to visualize if we isolate link 2 and draw its free-body diagram:</p>
+
+        <Image src="/md/Dynamic_Force_Analysis/Example 1.2.png" width="5"></Image>
+
+        <p> Writing out each equation of motion gives:</p>
+        <p><DisplayEquation background="True" title="Equations of Motion" equation="\\begin{matrix}    x: & F_{12x}=m_{2}A_{CG2x}-F_{Px}\\\\y: & F_{12y}=m_{2}A_{CG2y}-F_{Py}\\\\T: & -R_{12y}F_{12x}+R_{12x}F_{12y}+T_{12}=I_{12}\\alpha_{2}-R_{Px}F_{Py}+R_{Py}F_{Px}\\end{matrix}" /></p>
+
+
+        <p>
+            Next, group the known and unknown into <InlineEquation equation="[A]" />, <InlineEquation equation="\\{B\\}" />, and <InlineEquation equation="\\{C\\}" />:</p>
+        <p><DisplayEquation background="True" title="Matrix Forms" equation=" \\begin{gather} \[A]=\\begin{bmatrix}1 & 0 & 0\\\\ 0 & 1 & 0\\\\ -R_{12y} & R_{12x} & 1 \\end{bmatrix} \\\\ \\{B\\} =\\begin{Bmatrix}F_{12x}\\\\ F_{12y}\\\\ T_{12}\\end{Bmatrix} \\\\ \\{C\\} =\\begin{Bmatrix}m_{2}A_{CG2x}-F_{Px}\\\\m_{2}A_{CG2y}-F_{Py}\\\\I_{CG2}\\alpha_{2}-R_{Px}F_{Py}+R_{Py}F_{Px}\\end{Bmatrix} \\end{gather}" /></p>
+
+
+        <p>Putting the matrix equation together:</p>
+        <p><DisplayEquation background="True" title="Matrix Equation 1" equation="\\begin{bmatrix}1 & 0 & 0\\\\ 0 & 1 & 0\\\\ -R_{12y} & R_{12x} & 1 \\end{bmatrix}\\begin{Bmatrix}F_{12x}\\\\ F_{12y}\\\\ T_{12}\\end{Bmatrix}=\\begin{Bmatrix}m_{2}A_{CG2x}-F_{Px}\\\\m_{2}A_{CG2y}-F_{Py}\\\\I_{CG2}\\alpha_{2}-R_{Px}F_{Py}+R_{Py}F_{Px}\\end{Bmatrix}" /></p>
+
+         <p>   Substitute in all known values:</p>
+        <p><DisplayEquation background="True" title="Matrix Equation 2" equation="        \\begin{bmatrix}1 & 0 & 0\\\\0 & 1 & 0\\\\3 & -1 & 1\\end{bmatrix}\\begin{Bmatrix}F_{12x}\\\\F_{12y}\\\\T_{12}\\end{Bmatrix}=\\begin{Bmatrix}1.5*4-5\\\\1.5*1-2\\\\0.3*0.3-1*1.5+3*5\\end{Bmatrix}" /></p>
+
+
+<p>Invert and solve:</p>
+<p><DisplayEquation background="True" title="Matrix Equation 3" equation="\\begin{Bmatrix}F_{12x}\\\\F_{12y}\\\\T_{12}\\end{Bmatrix}=\\begin{bmatrix}1 & 0 & 0\\\\0 & 1 & 0\\\\3 & -1 & 1\\end{bmatrix}^{-1}\\begin{Bmatrix}1\\\\-0.5\\\\14.4 \\end{Bmatrix}=\\begin{Bmatrix}1\\\\-0.5\\\\10.9 \\end{Bmatrix}" /></p>
+
+
+        <p>
+            Now we can move on to a more complex example with multiple moving links. Below is a crank slider mechanism with an external force <InlineEquation equation="\\vec{F}_p" /> applied at point <InlineEquation equation="P" />. A motor drives link 2. The slider (link 4) slides along a horizontal surface with friction coefficient <InlineEquation equation="\\mu" />. Assume that all kinematic and geometric information is known.</p>
+
+        <Image src="/md/Dynamic_Force_Analysis/Example 2.1.png" width="5"></Image>
+        <p>
+            The unknowns are:</p>
+        <p><DisplayEquation background="True" title="Unknowns" equation="\\begin{gather} T_{12} \\\\ \\vec{F}_{12}=(F_{12x},F_{12y})\\\\ \\vec{F}_{32}=(F_{32x},F_{32y})\\\\ \\vec{F}_{23}=(F_{23x},F_{23y})\\\\ \\vec{F}_{43}=(F_{43x},F_{43y})\\\\ \\vec{F}_{34}=(F_{34x},F_{34y})\\\\ \\vec{F}_{14}=(F_{14x},F_{14y}) \\end{gather}" /></p>
+        <p>
+            Note that we have the following redundant values:</p>
+        <p><DisplayEquation background="True" title="Redundant Equations" equation=" \\begin{gather} -\\vec{F}_{23}=\\vec{F}_{32} \\\\ -\\vec{F}_{34}=\\vec{F}_{43} \\end{gather}" /></p>
+        <p>
+            Furthermore, we can use the friction coefficient to relate <InlineEquation equation="F_{14}" /> and <InlineEquation equation="F_{14y}" />. The sign of <InlineEquation equation="F_{14y}" /> depends on the direction in which the slider is moving (that is, always opposite to the the velocity's direction).</p>
+        <p><DisplayEquation background="True" title="Slider Equations" equation="\F_{14x}=-sign(V_{CG4x}){\\mu}F_{14y}=\\pm{\\mu}F_{14y}" /></p>
+        <p>
+            Thus, we can reduce the unknowns down to 8 independent unknowns, which will require 8 equations to solve:</p>
+        <p><DisplayEquation background="True" title="Unknowns" equation="F_{12x},F_{12x},F_{32x},F_{32y},F_{43x},F_{43y},F_{14y},T_{12}" /></p>
+        <p>
+            Next, draw the free body diagram for each link and write the respective equations of motion.</p>
+        <p>
+            For link 2:</p>
+        <p>
+            (Note that link 2 is identical to the link that was analyzed in the previous example.)</p>
+
+        <Image src="/md/Dynamic_Force_Analysis/Example 2.2.png" width="5"></Image>
+
+        <p><DisplayEquation background="True" title="Equations Link 2" equation="\\begin{matrix}x: & F_{12x}+F_{32x}=m_{2}A_{CG2x}\\\\y: & F_{12y}+F_{32y}=m_{2}A_{CG2y}\\\\T: & (R_{12x}F_{12y}-R_{12y}F_{12x})+(R_{32x}F_{32y}-R_{32y}F_{32x})+T_{12}=I_{CG2}\\alpha_{2}\\end{matrix}" /></p>
+
+        <p>For link 3:</p>
+
+        <Image src="/md/Dynamic_Force_Analysis/Example 2.3.png" width="5"></Image>
+
+        <p><DisplayEquation background="True" title="Equations Link 3" equation="\\begin{matrix}x: & F_{23x}+F_{43x}+F_{Px}=m_{3}A_{CG3x}\\\\y: & F_{23y}+F_{43y}+F_{Py}=m_{3}A_{CG3y}\\\\T: & (R_{23x}F_{23y}-R_{23y}F_{23x})+(R_{43x}F_{43y}-R_{43y}F_{43x})+(R_{Px}F_{Py}-R_{Py}F_{Px})=I_{CG3}\\alpha_{3}\\end{matrix}" /></p>
+
+
+        <p>Recall that <InlineEquation equation="\\vec{F}_{23}=-\\vec{F}_{32}" />.</p>
+        <p><DisplayEquation background="True" title="Modified Equations Link 2" equation="        \\begin{matrix}x: & -F_{32x}+F_{43x}+F_{Px}=m_{3}A_{CG3x}\\\\y: & -F_{32y}+F_{43y}+F_{Py}=m_{3}A_{CG3y}\\\\T: & (-R_{23x}F_{32y}+R_{23y}F_{32x})+(R_{43x}F_{43y}-R_{43y}F_{43x})+(R_{Px}F_{Py}-R_{Py}F_{Px})=I_{CG3}\\alpha_{3}\\end{matrix}" /></p>
+
+        <p>For link 4: </p>
+
+        <Image src="/md/Dynamic_Force_Analysis/Example 2.4.png" width="5"></Image>
+
+        <p>Note that torque balance is unnecessary because we assume that all forces are assumed to act through the CG.</p>
+        <p><DisplayEquation background="True" title="Equations Link 4" equation="\\begin{matrix}x: & F_{14x}+F_{34x}=\\pm{\\mu}F_{14y}-F_{43x}=m_{4}A_{CG4x}\\\\y: & F_{14y}+F_{34y}=F_{14y}-F_{43y}=0\\end{matrix}" /></p>
+
+
+        <p>We can now gather the 8 equations into matrix form <InlineEquation equation="[A]\\{B\\}=\\{C\\}" />.</p>
+        <p><DisplayEquation background="True" title="Matrix Definitions" equation=" \\begin{gather} [A]=\\begin{bmatrix}1 & 0 & 1 & 0 & 0 & 0 & 0 & 0\\\\0 & 1 & 0 & 1 & 0 & 0 & 0 & 0\\\\-R_{12y} & R_{12x} & -R_{32y} & R_{32x} & 0 & 0 & 0 & 1\\\\0 & 0 & -1 & 0 & 1 & 0 & 0 & 0\\\\0 & 0 & 0 & -1 & 0 & 1 & 0 & 0\\\\0 & 0 & R_{23y} & -R_{23x} & -R_{43y} & R_{43x} & 0 & 0\\\\0 & 0 & 0 & 0 & -1 & 0 & \\pm\\mu & 0\\\\0 & 0 & 0 & 0 & 0 & -1 & 1 & 0\\end{bmatrix} \\\\ \\{B\\}=\\begin{Bmatrix}F_{12x}\\\\F_{12y}\\\\F_{32x}\\\\F_{32y}\\\\F_{43y}\\\\F_{43y}\\\\F_{14y}\\\\T_{12}\\end{Bmatrix} \\\\ \\{C\\} = \\begin{Bmatrix}m_{2}A_{CG2x}\\\\m_{2}A_{CG2y}\\\\I_{CG2}\\alpha_{2}\\\\m_{3}A_{CG3x}-F_{Px}\\\\m_{3}A_{CG3y}-F_{Py}\\\\I_{CG3}\\alpha_{3}-(R_{Px}F_{Py}-{R_{Py}F_{Px}})\\\\m_{4}A_{CG4x}\\\\0\\end{Bmatrix} \\end{gather}" /></p>
+
+
+        <p>  The final step is to solve for <InlineEquation equation="\\{B\\}" /> by plugging in all known values, then taking the inverse of <InlineEquation equation="[A]" /> and multiplying it by <InlineEquation equation="\\{C\\}" />. i.e., <InlineEquation equation="\\{B\\}=[A]^{-1}\\{C\\}" />.</p>
+        </SubSection>
+        <SubSection title="Application Notes" id="Application_Notes">
+        <p>If you have a mismatch between your number of equations and unknowns, there is likely a constraint on the problem that reduces the number of unknowns, or an equation that should not be included (sometimes this occurs with equations of the form <InlineEquation equation="0=0" />).</p>
+        </SubSection>
+
+
+</Layout>

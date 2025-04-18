@@ -1,0 +1,96 @@
+---
+import Layout from "../../layouts/Layout.astro"
+import Image from "../../components/Image.astro"
+import Section from "../../components/Section.astro"
+import SubSection from "../../components/SubSection.astro"
+import OrangeText from "../../components/OrangeText.astro"
+import TealText from "../../components/TealText.astro"
+import Enumerate from "../../components/Enumerate.astro"
+import Item from "../../components/Item.astro"
+import Itemize from "../../components/Itemize.astro"
+import InlineEquation from "../../components/InlineEquation.astro"
+import DisplayEquation from "../../components/DisplayEquation.astro"
+---
+<Layout title="Virtual Work">
+
+    <div slot="navtree">
+        <ul class='list-group list-group-flush py-0'>
+            <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#VW_intro'>Virtual Work Intro</a></li>
+            <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#VW_Theory'> Theory of Virtual Work</a></li>
+        </ul>
+    </div>
+
+
+
+
+
+    <SubSection id="VW_intro" title="Virtual Work Intro">
+
+    <p>
+        In the previous section, we discussed how to analyze a mechanism using <a href="/md/Dynamic_Force_Analysis">DFA</a>. As you may have noticed, it is a complicated process. Moreover, often we are not interested in the intermediate forces in a linkage; we are only interested in how the input forces affect the output forces. Virtual work gives us a relatively easy way to analyze the input and output forces of a linkage, focusing solely on external forces. A quick refresher of concepts applying to work and energy can be found <a href="/dyn/work_and_energy">here</a>.</p>
+    <p>
+        Let's first review the <a href="/dyn/vector_calculus#dot_product">Dot Product</a>. The dot product is a vector that takes two vectors and returns a scalar. The dot product between two 2D vectors, <InlineEquation equation="\\vec{a}" /> and <InlineEquation equation="\\vec{b}" />, can be evaluated as:</p>
+    <p><DisplayEquation background="True" title="Dot Product" equation="\\begin{gather} \\vec{a}=a_x\\hat{i}+a_y\\hat{j} \\\\ \\vec{b}=b_x\\hat{i}+b_y\\hat{j}  \\\\ \\vec{a}\\cdot\\vec{b}=a_xb_x+a_yb_y=||\\vec{a}||\\,||\\vec{b}||\\cos{\\theta}\\end{gather}" /></p>
+    <p>Note that <InlineEquation equation="\\theta" /> is the angle between the two vectors.</p>
+    </SubSection>
+
+    <SubSection id="VW_Theory" title="Virtual work method">
+    <p>Let's first start with the definition of work and power. Work for linear movement is defined as:</p>
+    <p><DisplayEquation background="True" title="Linear Work" equation="\ W=\\vec{F}\\cdot\\vec{d}" /></p>
+    <p>and work for rotational movement is defined as:</p>
+    <p><DisplayEquation background="True" title="Rotational Work" equation="\ W=\\vec{\\tau}\\cdot\\vec{\\theta}" /></p>
+    <p>
+        Power is the time-derivative of work. Thus, the power for linear movement is:</p>
+    <p><DisplayEquation background="True" title="Linear Power" equation="\ P=\\frac{d}{dt}W=\\vec{F}\\cdot\\frac{d}{dt}\\vec{d}=\\vec{F}\\cdot\\vec{v}" /></p>
+    <p>and power for rotational movement is:</p>
+    <p><DisplayEquation background="True" title="Rotational Power" equation="\ P=\\frac{d}{dt}W=\\vec{\\tau}\\cdot\\frac{d}{dt}\\vec{\\theta}=\\vec{\\tau}\\cdot\\vec{\\omega}" /></p>
+    <p>
+        If energy is conserved in a system, then we can write the following energy balance:</p>
+    <p>
+        <DisplayEquation background="True" title="Energy Balance" equation="\ P_{in}=P_{out}+\\frac{\\partial}{\\partial t}E_{system}" /></p>
+    <p>
+        A good way to think about this is a bucket with a hole at the bottom. We can fill the bucket with water, which is analogous to energy. The rate of water entering the bucket is equal to the rate of water leaving the bucket, plus the rate of change of the total amount of water in the bucket. </p>
+
+        <Image src="/md/Virtual_Work/Water_bucket.png" width="7" >Water bucket analogy for energy balance</Image>
+
+
+    <p>
+        Moving back to mechanisms, we can compute the input power of a system by looking at the driving torque and angular velocity, which gives us the first term of the equation above. Then, if we know the rate of change in energy of the system, we can calculate the output power.</p>
+    <p>
+        First, two assumptions will be made to simplify analysis:</p>
+    <Enumerate>
+
+        <Item>The system's energy is composed only of kinetic and potential energy. i.e., there is no friction or other sources of energy loss.</Item>
+        <Item>The system's kinetic energy is far greater than potential energy, so potential energy will be neglected. i.e., <InlineEquation equation="E_{system}=K_{system}" />.</Item>
+
+    </Enumerate>
+    <p>
+        Thus, the energy conservation equation becomes:</p>
+    <p><DisplayEquation background="True" title="Energy Conservation" equation="\ P_{in}=P_{out}+\\frac{\\partial}{\\partial t} K_{system}" /></p>
+    <p>
+        Expanding the kinetic energy term gives:</p>
+    <p><DisplayEquation background="True" title="Expanded Kinetic Energy" equation="\\frac{\\partial}{\\partial t} K_{system}=\\frac{\\partial}{\\partial t}\\sum_{i=0}^{n}\\frac{1}{2} m_n v_n ^2= \\sum_{i=0}^{n}m_n v_n \\cdot a_n" /></p>
+    <p>
+        Rewriting the equation gives:</p>
+    <p><DisplayEquation background="True" title="VW Equation" equation="P_{out}=P_{in}-\\sum_{i=0}^n m_n v_n \\cdot a_n" /> </p>
+        <!--
+    \textcolor{red}{add back in what Pout and Pin are equal to in terms of torque and force}
+        -->
+    <p>
+        With this in mind, if we know the input power and the velocity and acceleration of each component in the system, we can compute the output force or torque. </p>
+    <p>
+        In summary, the virtual work methods allow us to skip over the <a href="/md/Dynamic_Force_Analysis">DFA</a> process. Using only information about the input forces and the <a href="/md/Position_Velocity_Acceleration">PVA</a> data of a system, we can compute its output force and torque.</p>
+    </SubSection>
+
+    <!--
+    <SubSection title="">VW example</SubSection>
+    <p>Go through a VW problem step by step. </p>
+    <p>
+        Be sure to include</p>
+    <p>- Key equation for each step</p>
+    <p>- A labeled diagram or figure</p>
+    <p>- An explanation of what is happening. </p>
+    -->
+
+
+</Layout>

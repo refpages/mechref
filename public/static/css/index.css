@@ -1,0 +1,89 @@
+:root{
+    --card-size: 180px;
+}
+
+ul a{
+    color: var(--bs-text-color);
+    transition: font-size linear .2s;
+}
+
+ul a:hover{
+    color: var(--altgeld-orange);
+}
+
+#ref-pages-ad{
+    transition: all linear .2s;
+}
+
+#ref-pages-ad a{
+    color: var(--bs-body-color);
+    text-decoration: none;
+}
+
+@media(width >= 992px){
+    #ref-pages-ad:hover{
+        transform: scale(1.05);
+        margin-left: .5rem;
+        margin-bottom: .5rem;
+    }
+}
+
+div.grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, var(--card-size));
+    grid-auto-rows: 1fr;
+    gap: 10px;
+    justify-content: center;
+}
+
+.main-cards{
+    padding: .5rem;
+    width: 100%;
+    background-color: #f0f0d0;
+    border: 2px solid var(--bs-border-color); 
+    border-radius: 10px;
+    text-decoration: none;
+    color: black;
+    transition: all linear .1s;
+}
+
+.main-cards a{
+    color: black;
+    text-decoration: none;
+}
+
+
+
+.main-cards:hover{
+    transform: scale(1.05);
+    margin-bottom: .5rem;
+}
+
+.main-cards img{
+    height: calc(var(--card-size) - 1rem);
+    display: block;
+    object-fit: contain;
+    width: 100%;
+}
+
+.simp-switch{
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    margin-left: 2rem;
+}
+
+.simp-btn{
+    margin-right: .5rem;
+}
+
+@media(width >= 768px){
+    ul a:hover{
+        transform: scale(1.05);
+        font-size: 1.17rem;
+    }
+
+    div.grid{
+        justify-content: start;
+    }
+}

@@ -30,9 +30,9 @@ $(document).ready(function(){
             
             var msg;
             if (sameVecs) {
-                msg = "TEX:\\sf $\\vec{a}$ is the same as $\\vec{b}$";
+                msg = "TEX:\\vec{a} \\text{ is the same as } $\\vec{b}$";
             } else {
-                msg = "TEX:\\sf $\\vec{a}$ is different to $\\vec{b}$";
+                msg = "TEX:\\vec{a} \\text{ is different to } \\vec{b}$";
             }
             var T = this.posNm2Dw($V([0.5, 0]));
             this.text(T, $V([0, -1]), msg);
@@ -63,7 +63,7 @@ $(document).ready(function(){
             this.line($V([0, 0]), $V([2, 0]));
             this.line($V([2, 0]), $V([2, 1]));
             this.point($V([2, 1]));
-            this.text($V([2, 1]), $V([-1.2, 0]), "TEX:\\noindent $x = 2$ \\\\ $y = 1$");
+            this.text($V([2, 1]), $V([-1.2, 0]), "TEX: $x = 2$ \\\\ $y = 1$");
             this.restore();
     
             this.save();
@@ -72,7 +72,7 @@ $(document).ready(function(){
             this.line($V([0, 0]), $V([-3, 0]));
             this.line($V([-3, 0]), $V([-3, 2]));
             this.point($V([-3, 2]));
-            this.text($V([-3, 2]), $V([-1.2, 0]), "TEX:\\noindent $x = -3$ \\\\ $y = 2$");
+            this.text($V([-3, 2]), $V([-1.2, 0]), "TEX: $x = -3$ \\\\ $y = 2$");
             this.restore();
     
             this.save();
@@ -80,7 +80,7 @@ $(document).ready(function(){
             this.setProp("pointRadiusPx", 4);
             this.line($V([0, 0]), $V([0, -2]));
             this.point($V([0, -2]));
-            this.text($V([0, -2]), $V([-1.2, 0]), "TEX:\\noindent $x = 0$ \\\\ $y = -2$");
+            this.text($V([0, -2]), $V([-1.2, 0]), "TEX: $x = 0$ \\\\ $y = -2$");
             this.restore();
         });
 
@@ -118,7 +118,7 @@ $(document).ready(function(){
             this.arc(O, 1.6, 0, Math.PI / 6);
             this.line(O, P);
             this.point(P);
-            this.text(P, $V([0, -1.2]), "TEX:\\noindent $r = 2$ \\\\ $\\theta = \\frac{\\pi}{6}$");
+            this.text(P, $V([0, -1.2]), "TEX: $r = 2$ \\\\ $\\theta = \\frac{\\pi}{6}$");
             this.restore();
     
             this.save();
@@ -128,7 +128,7 @@ $(document).ready(function(){
             this.arc(O, 1.2, 0, Math.PI);
             this.line(O, P);
             this.point(P);
-            this.text(P, $V([0, -1.2]), "TEX:\\noindent $r = 3$ \\\\ $\\theta = \\pi$");
+            this.text(P, $V([0, -1.2]), "TEX: $r = 3$ \\\\ $\\theta = \\pi$");
             this.restore();
     
             this.save();
@@ -138,7 +138,7 @@ $(document).ready(function(){
             this.arc(O, 1.4, -Math.PI / 4, 0);
             this.line(O, P);
             this.point(P);
-            this.text(P, $V([0, 1.2]), "TEX:\\noindent $r = 2$ \\\\ $\\theta = -\\frac{\\pi}{4}$");
+            this.text(P, $V([0, 1.2]), "TEX: $r = 2$ \\\\ $\\theta = -\\frac{\\pi}{4}$");
             this.restore();
         });
     

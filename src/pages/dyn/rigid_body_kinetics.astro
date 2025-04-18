@@ -20,6 +20,8 @@ import Warning from "../../components/Warning.astro"
 import CalloutCard from "../../components/CalloutCard.astro"
 import CalloutContainer from "../../components/CalloutContainer.astro"
 import DisplayTable from "../../components/DisplayTable.astro"
+import Col from "../../components/Col.astro"
+import Row from "../../components/Row.astro"
 ---
 <Layout title="Rigid Body Kinetics">
 
@@ -1558,16 +1560,16 @@ import DisplayTable from "../../components/DisplayTable.astro"
         down, giving backward forces on both wheels and causing the
         car to decelerate to a stop.
         </p>
-        <p>
-            <PrairieDrawCanvas id="ava-fr-c" width="400" height="400" show_border="False" />
-        </p>
-        <p>
-        <button class="seq-step:ava-fr-c:motion:stationary" onclick="ava_fr_c.stepSequence('motion', 'stationary');">accelerate</button>
-        <button class="seq-step:ava-fr-c:motion:cruising" onclick="ava_fr_c.stepSequence('motion', 'cruising');">brake</button>
-        <button class="seq-toggle:ava-fr-c:fbd" onclick="ava_fr_c.stepSequence('fbd');">free body diagram</button>
-        <button class="option-toggle:ava-fr-c:components" onclick="ava_fr_c.toggleOption('components');">components</button>
-        <button class="anim-toggle:ava-fr-c" onclick="ava_fr_c.toggleAnim();">animation</button>
-        </p>
+
+            <PrairieDrawCanvas id="ava-fr-c" width="600" height="400" show_border="False">
+                <button class="seq-step:ava-fr-c:motion:stationary" onclick="ava_fr_c.stepSequence('motion', 'stationary');">accelerate</button>
+                <button class="seq-step:ava-fr-c:motion:cruising" onclick="ava_fr_c.stepSequence('motion', 'cruising');">brake</button>
+                <button class="seq-toggle:ava-fr-c:fbd" onclick="ava_fr_c.stepSequence('fbd');">free body diagram</button>
+                <button class="option-toggle:ava-fr-c:components" onclick="ava_fr_c.toggleOption('components');">components</button>
+                <button class="anim-toggle:ava-fr-c" onclick="ava_fr_c.toggleAnim();">animation</button>
+            </PrairieDrawCanvas>
+
+        
         <p>
         Repeat the <button
         class="seq-step:ava-fr-c:motion:stationary" onclick="ava_fr_c.stepSequence('motion', 'stationary');">acceleration</button>/<button
@@ -1712,18 +1714,13 @@ import DisplayTable from "../../components/DisplayTable.astro"
         balance means that the weight of the car is transferred
         primarily to the rear wheels.
         </p>
-        <p>
-            <Center>
-                <PrairieDrawCanvas id="ava-fm-c" width="400" height="400" show_border="False" />
-            </Center>
-        </p>
-        <p>
-        <button class="seq-step:ava-fm-c:motion:stationary" onclick="ava_fm_c.stepSequence('motion', 'stationary');">accelerate</button>
-        <button class="seq-step:ava-fm-c:motion:cruising" onclick="ava_fm_c.stepSequence('motion', 'cruising');">brake</button>
-        <button class="seq-toggle:ava-fm-c:fbd" onclick="ava_fm_c.stepSequence('fbd');">free body diagram</button>
-        <button class="option-toggle:ava-fm-c:components" onclick="ava_fm_c.toggleOption('components');">components</button>
-        <button class="anim-toggle:ava-fm-c" onclick="ava_fm_c.toggleAnim();">animation</button>
-        </p>
+        <PrairieDrawCanvas id="ava-fm-c" width="600" height="400" show_border="False">
+            <button class="seq-step:ava-fm-c:motion:stationary" onclick="ava_fm_c.stepSequence('motion', 'stationary');">accelerate</button>
+            <button class="seq-step:ava-fm-c:motion:cruising" onclick="ava_fm_c.stepSequence('motion', 'cruising');">brake</button>
+            <button class="seq-toggle:ava-fm-c:fbd" onclick="ava_fm_c.stepSequence('fbd');">free body diagram</button>
+            <button class="option-toggle:ava-fm-c:components" onclick="ava_fm_c.toggleOption('components');">components</button>
+            <button class="anim-toggle:ava-fm-c" onclick="ava_fm_c.toggleAnim();">animation</button>
+        </PrairieDrawCanvas>
         <p>
         <button
         class="seq-step:ava-fm-c:motion:cruising" onclick="ava_fm_c.stepSequence('motion', 'cruising');">Braking</button>
@@ -1920,21 +1917,36 @@ import DisplayTable from "../../components/DisplayTable.astro"
             coefficient, the bus may either slide or roll first as
             \(\theta\) increases.
           </p>
-          <p>
-            <PrairieDrawCanvas id="avb-fr-c" width="600" height="600" />
-          </p>
-          <p>
-            <button class="seq-toggle:avb-fr-c:fbd" onclick="avb_fr_c.stepSequence('fbd');">free body diagram</button>
-            <button class="option-toggle:avb-fr-c:components" onclick="avb_fr_c.toggleOption('components');">components</button>
-          </p>
-          <p>
-            Road bank angle: <input type="range" min="0" max="85" value="45" class="data-input:avb-fr-c:thetaDeg" onchange="avb_fr_c.setOption('thetaDeg', this.value); document.querySelector('span[class*=thetaDeg]').innerText = this.value;"/>
-            \(\theta = \) <span class="data-option:avb-fr-c:thetaDeg" >45</span>\(^\circ\)
-          </p>
-          <p >
-            Bus speed: <input type="range" min="0" max="40" value="30" class="data-input:avb-fr-c:velocity" onchange="avb_fr_c.setOption('velocity', this.value); document.querySelector('span[class*=velocity]').innerText = this.value;"/>
-            \(v = \) <span class="data-option:avb-fr-c:velocity">30</span> \(\rm m/s\)
-          </p>
+
+            <PrairieDrawCanvas id="avb-fr-c" width="600" height="600">
+                <p>
+                    <button class="seq-toggle:avb-fr-c:fbd" onclick="avb_fr_c.stepSequence('fbd')">free body diagram</button>
+                    <button class="option-toggle:avb-fr-c:components" onclick="avb_fr_c.toggleOption('components')">components</button>
+                  </p>
+                <Row> 
+                    <Col values="12">
+                        <div class="d-flex  align-items-baseline">
+                            <p class="m-0 flex-shrink-1">Road bank angle:</p>
+                            <div class="flex-grow-1 d-flex align-items-baseline">
+            
+                            
+                                <input type="range" min="0" max="85" value="45" class="data-input:avb-fr-c:thetaDeg flex-grow-1 mx-2" onchange="avb_fr_c.setOption('thetaDeg', this.value); document.querySelector('span[class*=thetaDegBus1]').innerText = this.value; console.log(this.value);" oninput="avb_fr_c.setOption('thetaDeg', this.value); document.querySelector('span[class*=thetaDegBus1]').innerText = this.value;"/>
+                                    \(\theta = \; \) <span class="data-option:avb-fr-c:thetaDegBus1">45</span>\(^\circ\)
+                            </div>
+                        </div>
+                    </Col>
+                    <Col values="12">
+                        <div class="d-flex  align-items-baseline">
+                            <p class="m-0 flex-shrink-1">Bus speed: </p>
+                            <div class="flex-grow-1 d-flex align-items-baseline">
+                                <input type="range" min="0" max="40" value="30" class="data-input:avb-fr-c:velocity flex-grow-1 mx-2" onchange="avb_fr_c.setOption('velocity', this.value); document.querySelector('span[class*=velocityBus1]').innerText = this.value; console.log(this.value);" oninput="avb_fr_c.setOption('velocity', this.value); document.querySelector('span[class*=velocityBus1]').innerText = this.value;" />
+                                \(v = \; \) <span class="data-option:avb-fr-c:velocityBus1">30</span> \(\rm m/s\)
+                            </div>
+                        </div>
+                    </Col>
+                </Row>
+            </PrairieDrawCanvas>
+          
           <p>
             If we now set the bank angle \(\theta\) back to zero, we
             can start to increase the speed \(v\). Now we see that the

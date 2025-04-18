@@ -128,7 +128,7 @@ import DisplayEquationCustom from "../../components/DisplayEquationCustom.astro"
                     <p class="mb-1 caption-heading">\(P\) velocity</p>
                     <p class="mb-1"><input type="radio" name="rko-fr-c-velField" value="none" class="data-input:rko-fr-c:velField" onchange="rko_fr_c.setOption('velField', this.value)" checked/> none</p>
                     <p class="mb-1"><input type="radio" name="rko-fr-c-velField" value="base" class="data-input:rko-fr-c:velField" onchange="rko_fr_c.setOption('velField', this.value)"/> <InlineEquation equation="\\vec{v}_C" /> (trans.)</p>
-                    <p class="mb-1"><input type="radio" name="rko-fr-c-velField" value="omega" class="data-input:rko-fr-c:velField" /> <InlineEquation equation="\\vec{\\omega} \\times \\vec{r}_{CP}" onchange="rko_fr_c.setOption('velField', this.value)"/> (rot.)</p>
+                    <p class="mb-1"><input type="radio" name="rko-fr-c-velField" value="omega" class="data-input:rko-fr-c:velField" onchange="rko_fr_c.setOption('velField', this.value)"/> <InlineEquation equation="\\vec{\\omega} \\times \\vec{r}_{CP}" /> (rot.)</p>
                     <p class="mb-1"><input type="radio" name="rko-fr-c-velField" value="total" class="data-input:rko-fr-c:velField" onchange="rko_fr_c.setOption('velField', this.value)"/> <InlineEquation equation="\\vec{v}_P" /> (total)</p>
                     <p class="mb-1"><button class="option-toggle:rko-fr-c:showVelField" onclick="rko_fr_c.toggleOption('showVelField')">all points</button></p>
                 </div>
