@@ -3,38 +3,175 @@ import Layout from "../layouts/CourseMenuLayout.astro"
 import Section from "../components/Section.astro"
 import SubSection from "../components/SubSection.astro"
 import Image from "../components/Image.astro"
+import SimplifiedView from "../components/course_menus/SimplifiedView.astro"
+import CourseCard from "../components/course_menus/CourseCard.astro"
 
 import "../../public/static/css/course_home_pages.css"
 ---
 
 <Layout title="Solid Mechanics">
 
-<h1>
-    <strong>Solid Mechanics</strong>
-</h1>
-  <section class="mt-sm-4 mt-2">
-    <ol>
-      <li><a href="/sol/stress?origin=coursemenu">Stress</a></li>
-      <li><a href="/sol/strain?origin=coursemenu">Strain</a></li>
-      <li><a href="/sol/material_properties?origin=coursemenu">Material Properties</a></li>
-      <li><a href="/sol/axial_loading?origin=coursemenu">Axial Loading</a></li>
-      <li><a href="/sol/torsion?origin=coursemenu">Torsion</a></li>
-      <li><a href="/sol/shear_moment_diagrams?origin=coursemenu">Shear Moment Diagrams</a></li>
-      <li><a href="/sol/bending?origin=coursemenu">Bending</a></li>
-      <li><a href="/sol/transverse_shear?origin=coursemenu">Transverse Shear</a></li>
-      <li><a href="/sol/pressure_vessels?origin=coursemenu">Pressure Vessels</a></li>
-      <li><a href="/sol/combined_loading?origin=coursemenu">Combined Loading</a></li>
-      <li><a href="/sol/stress_transformation?origin=coursemenu">Stress Transformation</a></li>
-      <li><a href="/sol/failure_theories?origin=coursemenu">Failure Theories</a></li>
-      <li><a href="/sol/beam_deflection?origin=coursemenu">Beam Deflection</a></li>
-      <li><a href="/sol/buckling?origin=coursemenu">Buckling</a></li>
-    </ol>
-  </section>
-  <section class="mt-sm-4 mt-2">
-    <h3 class="fw-bold w-100">Helpful links:</h3>
-    <ul>
-      <li><a href="/sta/pltips">PrairieLearn tips</a></li>
-    </ul>
-  </section>
-</div>
+  <div class="mt-sm-4 mt-2">
+    <SimplifiedView id="here" title="Solid Mechanics" title_style="h1 fw-bold" style="enumerate">
+      <CourseCard href="/sol/stress" img_src="/home_page.png" title="Stress">
+        <ul class='list-group list-group-flush py-0'> 
+          <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#units'>Units</a></li>
+          <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#stress_under_general_loading_conditions'>Stress under general loading conditions</a>
+              <ul class='list-group list-group-flush py-0'> 
+                  <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#average_normal_stress_-_axial_loading'>Average Normal Stress - Axial Loading</a></li> 
+                  <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#average_shear_stress'>Average Shear Stress</a></li> 
+                  <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#stress_tensor'>Stress Tensor</a></li> 
+              </ul>
+          </li> 
+          
+          <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#support_reactions'>Support Reactions</a></li>
+          <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#allowable_strength_design'>Allowable Strength Design</a></li> 
+        </ul>
+      </CourseCard>
+      <CourseCard href="/sol/strain" img_src="/home_page.png" title="Strain">
+        <ul class='list-group list-group-flush py-0'> 
+          <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#units'>Units</a></li>
+          <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#normal_strain'>Normal Strain</a>
+              <ul class='list-group list-group-flush py-0'> 
+                  <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#average_normal_(extensional)_strain'>Average Normal (extensional) Strain</a></li> 
+              </ul>
+          </li> 
+          <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#shear_strain'>Shear Strain</a>
+              <ul class='list-group list-group-flush py-0'> 
+                  <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#average_normal_(extensional)_strain'>Average Shear Strain</a></li> 
+              </ul>
+          </li> 
+          <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#strain_tensor'>Strain Tensor</a></li> 
+          
+          <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#measurement_of_strain'>Measurement of Strain</a>
+              <ul class='list-group list-group-flush py-0'> 
+                  <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#direct_measurement'>Direct Measurement</a></li>
+                  <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#contact_extensometer'>Contact Extensometer</a></li>
+                  <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#electrical_resistance_strain_gauges'>Electrical Resistance Strain Gauges</a></li>
+                  <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#vibrating_wire_strain_gauge'>Vibrating Wire Strain Gauge</a></li>
+                  <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#digital_image_correlation_(dic)'>Digital Image Correlation (DIC)</a></li>
+              </ul>
+          </li>
+        </ul>
+      </CourseCard>
+      <CourseCard href="/sol/material_properties" img_src="/home_page.png" title="Material Properties">
+        <ul class='list-group list-group-flush py-0'> 
+          <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#stress-strain_diagram'>Stress-Strain Diagram</a>
+              <ul class='list-group list-group-flush py-0'> 
+                  <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#elastic_behavior'>Elastic Behavior</a></li> 
+                  <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#plastic_behavior'>Plastic Behavior</a></li> 
+              </ul>
+          </li> 
+          <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#other_derived_properties'>Other Derived Properties</a>
+              <ul class='list-group list-group-flush py-0'> 
+                  <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#directional_materials'>Directional Materials</a></li>
+                  <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href="#poissons_ratio">Poisson's Ratio</a></li>
+              </ul>
+          </li> 
+        </ul>
+      </CourseCard> 
+      <CourseCard href="/sol/axial_loading" img_src="/home_page.png" title="Axial Loading">
+        <ul class='list-group list-group-flush py-0'> 
+          <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#notation_and_convention'>Notation and Convention</a></li>
+          <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#saint-venants_principle_slender_beam_case'>Saint-Venant's Principle: slender beam case</a>
+          <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#force-deformation_relation'>Force-Deformation Relation</a>
+          <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#axially_varying_properties'>Axially Varying Properties</a>
+          <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#principle_of_superposition_'>Principle of Superposition</a>
+          <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#general_solving_procedure'>General Solving Procedure</a>
+          <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#statically_indeterminate_problems'>Statically Indeterminate Problems</a>
+          <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#general_solving_procedure'>General Solving Procedure</a>
+              <ul class='list-group list-group-flush py-0'> 
+                  <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#thermal_effects_temperature_changes'>Thermal Effects: Temperature Changes</a></li> 
+                  <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#misfit_problems'>Misfit Problems</a></li>  
+              </ul>
+          </li>  
+        </ul>
+      </CourseCard> 
+      <CourseCard href="/sol/torsion" img_src="/home_page.png" title="Torsion">
+        <ul class='list-group list-group-flush py-0'> 
+          <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#units'>Units</a></li>
+          <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#notation_and_convention'>Notation and Convention</a></li>
+          <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#equilibrium'>Equilibrium</a>
+          <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#assuptions'>Assumptions</a>
+          <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#shear_stress_and_strain'>Shear Stress and Strain</a>
+              <ul class='list-group list-group-flush py-0'> 
+                  <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#geometry_of_deformation'>Shear Strain: Geometry of Deformation</a></li> 
+                  <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#torsion_formula'>Shear Stress: Torsion Formula</a></li> 
+                  <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#polar_moment_of_inertia'>Shear Stress: Polar Moment of Inertia</a></li> 
+                  <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#angle_of_twist'>Shear Stress: Angle of Twist</a></li> 
+              </ul>
+          </li> 
+          
+          <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#miscellaneous'>Miscellaneous</a></li>
+              <ul class='list-group list-group-flush py-0'> 
+                  <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#types_of_material_failure'>Types of Material Failure</a></li> 
+                  <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#gear_systems'>Gear Systems</a></li> 
+              </ul>
+          </li> 
+        </ul>
+      </CourseCard> 
+      <CourseCard href="/sol/shear_moment_diagrams" img_src="/home_page.png" title="Shear Moment Diagrams">
+        <ul class='list-group list-group-flush py-0'>
+          <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#shear_moment_diagrams'>Internal Forces</a></li>  
+          <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#sign_conventions'>Sign Conventions</a></li> 
+          <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#general_procedure'>General Procedure</a></li>
+          <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#general_rules'>General Rules</a></li>
+        </ul>
+      </CourseCard> 
+      <CourseCard href="/sol/bending" img_src="/home_page.png" title="Bending">
+        <ul class='list-group list-group-flush py-0'> 
+          <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#sign-conventions'>Sign Conventions</a></li>
+          <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#boundary-conditions'>Boundary Conditions</a></li> 
+          <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#pure-bending'>Pure Bending</a></li> 
+          <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#geom-deform'>Geometry of Deformation</a></li> 
+          <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#stress-strain-variations'>Stress-Strain Variations</a></li> 
+          <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#linear-elastic-beams'>Material Behavior: linear elastic beams</a>
+              <ul class='list-group list-group-flush py-0'> 
+                  <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#first-moi'>First Moment of Area: Centroid of an Area</a></li> 
+                  <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#second-moi'>Second Moment or Area Moment of Inertia</a></li>
+                  <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#summary-moi'>Summary: Moment of Inertia</a></li>
+                  <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#max-normal-stress'>Maximum Normal Stress</a></li>
+                  <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#eccentric-loading'>Eccentric Axial Loading in a Plane of Symmetry</a></li>  
+              </ul>
+          </li>  
+        </ul>
+      </CourseCard> 
+
+      <CourseCard href="/sol/transverse_shear" img_src="/home_page.png" title="Transverse Shear">
+        <ul class='list-group list-group-flush py-0'> 
+          <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#shear_in_beams'>Shear Stress in Beams</a></li>
+          <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#avg_shear_stress'>Average Shear Stress</a>
+              <ul class='list-group list-group-flush py-0'> 
+                  <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#rect_beam'>Rectangular Beam Cross-Section</a></li> 
+                  <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#i_beam'>I-Shaped Beam Cross-Section</a></li>  
+              </ul>
+          <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#shear_flow'>Built-up Members/Beams: Shear Flow</a></li> 
+        </ul>
+      </CourseCard> 
+      <CourseCard href="/sol" img_src="/home_page.png" title="">
+      
+      </CourseCard> 
+      <CourseCard href="/sol" img_src="/home_page.png" title="">
+      
+      </CourseCard> 
+      <CourseCard href="/sol" img_src="/home_page.png" title="">
+      
+      </CourseCard> 
+
+      <li slot="list"><a href="/sol/stress?origin=coursemenu">Stress</a></li>
+      <li slot="list"><a href="/sol/strain?origin=coursemenu">Strain</a></li>
+      <li slot="list"><a href="/sol/material_properties?origin=coursemenu">Material Properties</a></li>
+      <li slot="list"><a href="/sol/axial_loading?origin=coursemenu">Axial Loading</a></li>
+      <li slot="list"><a href="/sol/torsion?origin=coursemenu">Torsion</a></li>
+      <li slot="list"><a href="/sol/shear_moment_diagrams?origin=coursemenu">Shear Moment Diagrams</a></li>
+      <li slot="list"><a href="/sol/bending?origin=coursemenu">Bending</a></li>
+      <li slot="list"><a href="/sol/transverse_shear?origin=coursemenu">Transverse Shear</a></li>
+      <li slot="list"><a href="/sol/pressure_vessels?origin=coursemenu">Pressure Vessels</a></li>
+      <li slot="list"><a href="/sol/combined_loading?origin=coursemenu">Combined Loading</a></li>
+      <li slot="list"><a href="/sol/stress_transformation?origin=coursemenu">Stress Transformation</a></li>
+      <li slot="list"><a href="/sol/failure_theories?origin=coursemenu">Failure Theories</a></li>
+      <li slot="list"><a href="/sol/beam_deflection?origin=coursemenu">Beam Deflection</a></li>
+      <li slot="list"><a href="/sol/buckling?origin=coursemenu">Buckling</a></li>
+    </SimplifiedView>
+  </div>
 </Layout>
