@@ -17,11 +17,11 @@ import Col from "../../components/Col.astro"
 
     <div slot="navtree">
         <ul class='list-group list-group-flush py-0'> 
-          <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#assumptions'>Truss Assumptions</a></li> 
-          <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#two_force_member'>Two Force Member</a></li>
-          <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#zero_force_member'>Zero Force Member</a></li>
-		  <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#joints'>Truss Analysis: Joints</a></li>
-		  <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#sections'>Truss Analysis: Sections</a></li>
+          <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#assumptions'>Truss assumptions</a></li> 
+          <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#two_force_member'>Two force member</a></li>
+          <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#zero_force_member'>Zero force member</a></li>
+		  <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#joints'>Truss analysis: joints</a></li>
+		  <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#sections'>Truss analysis: sections</a></li>
       </ul>
       </div>
 <Section title="Trusses" id="trusses">
@@ -35,7 +35,7 @@ import Col from "../../components/Col.astro"
 
 <!-- Definition of a truss -->
 
-<SubSection title="Truss Assumptions" id="assumptions">
+<SubSection title="Truss assumptions" id="assumptions">
 
 The main assumptions for trusses and truss structures are:
 <Enumerate>
@@ -61,7 +61,7 @@ In our class, we'll assume that members are <strong>always in tension</strong>. 
 
 <!-- good summary in lecture 17, slide 5 -->
 
-<SubSection title="Two Force Member" id="two_force_member">
+<SubSection title="Two force member" id="two_force_member">
 <p>
 A two force member is a rigid body that has two forces (no moments) acting on it in two locations, say \(A\) and \(B\). Equilibrium of the two-force member implies</p>
 	
@@ -83,7 +83,7 @@ Specifically, the two forces act <strong>along the line between the two points w
 </SubSection>
 
 <!-- Lecture 16 -->
-<SubSection title="Zero Force Member" id="zero_force_member">
+<SubSection title="Zero force member" id="zero_force_member">
 
 Zero force members are members in a truss structure that experience no force. They act as support trusses to add stability, but are not load bearing. There are 2 cases where zero force members occur: 
 <Enumerate>
@@ -121,7 +121,7 @@ Zero force members are members in a truss structure that experience no force. Th
 
 <!-- lecture 18 -->
 
-<SubSection title="Truss Analysis: Method of Joints" id="joints">
+<SubSection title="Truss analysis: method of joints" id="joints">
 
 Method of joints for truss analysis: 
 <Enumerate>
@@ -139,7 +139,7 @@ Method of joints for truss analysis:
 
 </SubSection>
 
-<SubSection title="Truss Analysis: Method of Sections" id="sections">
+<SubSection title="Truss analysis: method of sections" id="sections">
 
 <p> 
 The method of sections is helpful for determining the internal forces inside a truss member. The first step for the method of sections is the same as the firts step for the method of joints: Draw a FBD for the entire truss and solve for the external forces at the supports. 
