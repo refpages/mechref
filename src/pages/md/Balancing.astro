@@ -1,0 +1,156 @@
+---
+import Layout from "../../layouts/Layout.astro"
+import Image from "../../components/Image.astro"
+import Section from "../../components/Section.astro"
+import SubSection from "../../components/SubSection.astro"
+import OrangeText from "../../components/OrangeText.astro"
+import TealText from "../../components/TealText.astro"
+import Enumerate from "../../components/Enumerate.astro"
+import Item from "../../components/Item.astro"
+import Itemize from "../../components/Itemize.astro"
+import InlineEquation from "../../components/InlineEquation.astro"
+import DisplayEquation from "../../components/DisplayEquation.astro"
+import CalloutCard from "../../components/CalloutCard.astro"
+import CalloutContainer from "../../components/CalloutContainer.astro"
+
+---
+<Layout title="Balancing">
+
+    <div slot="navtree">
+        <ul class='list-group list-group-flush py-0'>
+            <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Balancing_intro'>Balancing Intro</a></li>
+            <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Single_plane' >Single Plane Balance</a></li>
+            <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Two_plane' >Two Plane Balance</a></li>
+        </ul>
+    </div>
+
+    <SubSection  id="Balancing_intro" title="Balancing">
+
+    <p>
+        We normally treat the ground as an immovable object when considering the forces that mechanisms might apply to it. However, in practice this is not always the case. For many mechanisms, it is advantageous to try to minimize the forces and moments that are applied to the ground. </p>
+    <p>
+        Shaking force (<InlineEquation equation="\\overrightarrow F_s" />) is the <strong>total</strong> force acting on the ground plane. Similarly, shaking torque (<InlineEquation equation="\\overrightarrow T_s" />) is the reaction torque and shaking moment (<InlineEquation equation="\\overrightarrow M_s" />) is the <strong>total</strong> moment both of which are felt <strong>by</strong> the ground plane. These shaking forces and moments often occur in rotating machinery and mechanisms such as gas turbines, electric motors, and piston engines. This shaking can cause vibration, noise, failure, and more in a given system. </p>
+
+        <Image src="/md/Balancing/Shaking_force_moment_torque.png" width="5"></Image>
+
+        <CalloutContainer slot="cards">
+            <CalloutCard title="Balancing Applications">
+                <p class="m-0">When mechanisms are unbalanced, they often fail, sometimes catastrophically</p>
+
+                <p class="m-0"><u>Washing Machine vs Brick</u></p>
+                <iframe src="https://www.youtube.com/embed/3mqy5uWXvzM" class="w-100" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+
+                <p class="m-0"><u>Spinning Lego Wheels FAST</u></p>
+                <iframe src="https://www.youtube.com/embed/zJ3TABb1MRY" class="w-100" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+            </CalloutCard>
+        </CalloutContainer>
+
+
+
+        <!--Put washing machine video or some other eye catching video in side bar</p>
+
+        \textcolor{green}{Wind turbine failing video} %https://www.youtube.com/watch?v=D2KCVzdpQ_E
+
+        \textcolor{green}{Washing machine vs brick video} %https://www.youtube.com/watch?v=3mqy5uWXvzM
+
+        \textcolor{green}{Lego Wheel Spinning progressively faster video} %https://www.youtube.com/watch?v=zJ3TABb1MRY
+        <p>
+            %Assume that there are no external forces or gravity- it is difficult to balance these things. Instead, we work to balance the inertial forces that come from accelerating a body's center of mass. </p>
+        -->
+    <strong>Key Assumptions:</strong> We assume that there are no external or gravitational forces. Furthermore, the motor driving link 2 creates the torque felt on the link and the pin joint. As there is no motor controlling the ground joint supporting link 4, there is no added torque to the free body diagram.
+    <p>
+        To balance a system, it is assumed that there are no unbalanced forces due to external forces or gravity, as it is difficult to balance these things. Instead, we work to balance the internal forces that come from accelerating a body's center of mass.</p>
+    <p>
+        %High level strategy: Add some small balancing masses to reduce or eliminate the net forces and moments. This does not eliminate these loads, but rather adds additional forces to counteract these so that the net load is zero. </p>
+    <p>
+        Balancing is achieved by adding some small balancing masses to reduce or eliminate the net forces and moments. This does not eliminate these loads, but rather adds additional forces to counteract these so that the net load is zero.</p>
+    </SubSection>
+
+    <SubSection id="Single_plane" title="''Single Plane'' Balance">
+    <p>
+        Consider the pin joint in the figure below. The angular momentum is constant, so there is no torque acting on the pin joint. The forces on this pin joint come from accelerating the center of mass of a crank so that it moves in a circle. This cyclical loading can cause fatigue or change the behavior of the motor. </p>
+
+        <Image src="/md/Balancing/Pin_joint_unbalanced_2.png" width="5"></Image>
+
+    <p>
+        This force is:</p>
+        <DisplayEquation equation="\\overrightarrow F_{21}=m_2a=-m_2 \\omega_2^2 \\overrightarrow R_2" title="Single Plane Balancing Force" background="True"/>
+
+    <p>
+        To eliminate it, we have a few options: </p>
+    <Enumerate>
+
+        <Item>Reduce <InlineEquation equation="m_2" /> to <InlineEquation equation="0" />. This is not realistic, as the linkage would no longer exist.</Item>
+        <Item>Reduce <InlineEquation equation="\\omega_2" /> to <InlineEquation equation="0" />. This means that our mechanism cannot move, which defeats its purpose. </Item>
+        <Item>Reduce <InlineEquation equation="\\overrightarrow R_2" /> to <InlineEquation equation="0" />. This is feasible. We just need to move the center of mass to align with the axis of rotation. </Item>
+
+    </Enumerate>
+    <p>
+        To do this, we need to add an additional mass to move the center of mass. We will call this ``mass b'' to represent the balancing mass.</p>
+
+        <Image src="/md/Balancing/Pin_joint_balanced_2.png" width="5"></Image>
+
+    <p>
+        Recall that the center of mass is:
+    </p>
+        <DisplayEquation equation="\\sum_{i=0}^n m_ir_i" title="Center of Mass" background="True"/>
+
+    <p>
+        Since we want the center of mass to be located at the position of the axis, we can make the axis the origin. This means that the balancing mass <InlineEquation equation="m_b" /> and the balancing distance <InlineEquation equation="r_b" /> should fulfill</p>
+    <p>
+        <DisplayEquation equation=" \\sum_{i=0}^n (m_ir_i)+m_br_b=0" title="Single Plane Balancing Equation" background="True"/>
+
+    <p>
+        Essentially, we need the sum of the masses times their distance from the axis to be 0. This will result in no net inertial force on the pin joint. We also note that we have 2 unknowns, <InlineEquation equation="m_b" /> and  <InlineEquation equation="r_b" />. However, this is actually a good thing, as it allows for designers to decide whether they prefer a large heavy mass close to the axis, or a smaller one that is further away. </p>
+
+    </SubSection>
+    <SubSection id="Two_plane" title="''Two Plane'' Balance">
+    <p>The previous procedure effectively eliminates the forces arising from the rotation of masses in a single plane. However, if all of the masses are not in a single plane, the forces from these masses can cause a moment on the shaft. This leads us to the idea of two plane (or dynamic) balance. </p>
+    <p>
+        In this case, we add two masses in different planes with the goal of eliminating the net inertial force, as well as the moment arising from these inertial forces. </p>
+    <p>
+        To compute the moment</p>
+    <p>
+
+    <p><DisplayEquation equation="\M=r \\times F = l \\times F = l \\times (m \\omega^2\\overrightarrow R)" title="Moment From Inertial Force" background="True"/></p>
+
+    <p>
+        Where <InlineEquation equation="l" /> is the position vector along the axis or shaft, whereas <InlineEquation equation="\\overrightarrow R" /> is the vector pointing from the shaft to the mass. </p>
+    <p>
+        Our goal is to make it such that the sum of all of these moments is 0. To do this, set up two different correction planes to put masses in. Take the moment around one plane. </p>
+    <p>
+        Simultaneously solve 4 equations</p>
+
+    <Enumerate>
+
+        <Item>x component of 1 plane</Item>
+        <Item>y component of 1 plane</Item>
+        <Item>x component of 2 plane</Item>
+        <Item>y component of 2 plane</Item>
+
+    </Enumerate>
+    <p>
+    </p><p>
+    we have 6 unknowns. (2 masses, two x positions, 2 y positions). Again this is okay because it gives design freedom. </p>
+    </SubSection>
+    <!--
+    <SubSection title="">Did you know?</SubSection>
+    <p>
+    </p><p>
+    </p><p>
+    %\subsection{blancing a 4 bar linkage}
+    %we could include this section if we want</p>
+    <p>
+        %\subsection{flywheels}
+        %we could include this section if we want</p>
+    <p>%How big do you need to make the fly wheel to balance any imbalances?</p>
+
+    \end{document}
+    <p>
+        %Two plane balancing of tires (very common) -> maybe some application videos</p>
+    <p>%CT scanner is a good example of balancing</p>
+    %We want vibrations in some things (such as electric toothbrush and hex bugs)
+    -->
+</Layout>
