@@ -1,41 +1,80 @@
 ---
-
 import Layout from "../layouts/CourseMenuLayout.astro"
+import Section from "../components/Section.astro"
+import SubSection from "../components/SubSection.astro"
+import Image from "../components/Image.astro"
+import SimplifiedView from "../components/course_menus/SimplifiedView.astro"
+import CourseCard from "../components/course_menus/CourseCard.astro"
+import Item from "../components/Item.astro"
+import Itemize from "../components/Itemize.astro"
+
 import "../../public/static/css/course_home_pages.css"
 ---
 
-<Layout title="Machine Failure">
-    <!-- Change the above and below to your couse name-->
+    <Layout title="Machine failure">
+        <div class="mt-sm-4 mt-2 row">
+            <div class="col-md-12 col-12">
+                <SimplifiedView id="here" title="Machine failure" title_style="h1 fw-bold" style="enumerate">
+                    
+        
+        
+        <CourseCard href="/mf/Stress_Concentrations" img_src="/mf/home_page/sc.png" title="Stress concentrations">
+            <ul class='list-group list-group-flush py-0'> 
+            <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='/mf/Stress_Concentrations#Intro'>Introduction to Stress Concentrations</a>
+                <ul class='list-group list-group-flush py-0'> 
+                    <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='/mf/Stress_Concentrations#Actual_vs_Nominal'>Actual Stress Distribution vs Nominal Stress</a></li>
+                    <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='/mf/Stress_Concentrations#Example_Problem'>Example Problem</a></li>
+                </ul>
+            </li>
+            <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='/mf/Stress_Concentrations#Applications'>Application of Stress Concentrations</a>
+                <ul class='list-group list-group-flush py-0'>
+                    <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='/mf/Stress_Concentrations#Residual_Stress'>Residual Stresses After Unloading</a></li>
+                </ul>
+            <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='/mf/Stress_Concentrations#Design_Considerations'>Design Considerations</a></li>
+        </ul>
+        </CourseCard>
+
+        <CourseCard href="/mf/Failure_Theories" img_src="/mf/home_page/ft.png" title="Failure theories">
+            <ul class='list-group list-group-flush py-0'> 
+            <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='/mf/Failure_Theories#Intro'>Introduction to Failure Theories</a></li>
+            <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='/mf/Failure_Theories#Max_Normal'>Maximum Normal Stress Theory</a>
+            <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='/mf/Failure_Theories#Max_Shear'>Maximum Shear Stress Theory (Tresca Theory)</a></li>
+            <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='/mf/Failure_Theories#Max_Distortion'>Maximum Distortion Energy Theory (Von Mises Theory)</a></li>
+            <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='/mf/Failure_Theories#Fracture_Mechanics'>Fracture Mechanics and Crack Propagation</a></li>
+            <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='/mf/Failure_Theories#Conclusion'>Conclusion</a></li>
+        </ul>
+        </CourseCard>
+        
+        <CourseCard href="/mf/Threaded_Components" img_src="/mf/home_page/tc.png" title="Threaded components">
+            <ul class='list-group list-group-flush py-0'> 
+            <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='/mf/Threaded_Components#Intro'>Introduction to Threaded Components</a></li>
+            <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='/mf/Threaded_Components#power_screws'>Power Screws</a></li>
+                <ul>
+                    <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='/mf/Threaded_Components#Lead_Angle'>Lead Angle</a></li>
+                    <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='/mf/Threaded_Components#Thread_Angle'>Thread Angle</a></li>
+                    <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='/mf/Threaded_Components#Efficiency'>Efficiency of Power Screws</a></li>
+                    <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='/mf/Threaded_Components#Forces'>Power Screw Forces</a></li>
+                    <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='/mf/Threaded_Components#Locking'>Power Screw Self Locking and Overhauling</a></li>
+                </ul>
+            <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='/mf/Threaded_Components#Bolted'>Bolts and Bolted Connections</a></li>
+                <ul>
+                    <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='/mf/Threaded_Components#thread_stripping'>Thread Stripping</a></li>
+                </ul>
+            <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='/mf/Threaded_Components#Extra'>Additional Considerations</a></li>
 
 
+        </ul>
+        </CourseCard>
+        
+                   
+                    <li slot="list"><a href="/mf/Stress_Concentrations?origin=coursemenu">Stress concentrations</a></li>
+                    <li slot="list"><a href="/mf/Failure_Theories?origin=coursemenu">Failure theories</a></li>
+                    <li slot="list"><a href="/mf/Threaded_Components?origin=coursemenu">Threaded components</a></li>
 
-  <h1>
-    <strong>Machine failure</strong>
-  </h1>
-  <section class="mt-sm-4 mt-2">
-    <ol>
-      <!-- <li><a href="/mf/Loads_on_Machines?origin=coursemenu">Loads on machines</a></li>-->
-      <!--<li><a href="/mf/Clutches_and_Brakes?origin=coursemenu">Clutches and brakes</a></li>-->
-      <!--<li><a href="/mf/Stress?origin=coursemenu">Stress</a></li>-->
-      <li><a href="/mf/Stress_Concentrations?origin=coursemenu">Stress concentrations</a></li>
-      <li><a href="/mf/Failure_Theories?origin=coursemenu">Failure theories</a></li>
-      <!--<li><a href="/mf/Fatigue?origin=coursemenu">Fatigue</a></li>-->
-      <li><a href="/mf/Threaded_Components?origin=coursemenu">Threaded components</a></li>
-      <!--<li><a href="/mf/Buckling?origin=coursemenu">Buckling</a></li>-->
-      <!--<li><a href="/mf/Gears?origin=coursemenu">Gears</a></li>-->
-      <!--<li><a href="/mf/Impact?origin=coursemenu">Impact</a></li>-->
-      <!--<li><a href="/mf/Springs?origin=coursemenu">Springs</a></li>-->
-      <!--<li><a href="/mf/Bearings?origin=coursemenu">Bearings</a></li>-->
-    </ol>
-  </section>
-  <section class="mt-sm-4 mt-2">
+                </SimplifiedView>
+            </div>
+            <div class="col-md-0 col-0">
+            </div>
+        </div>    
+    </Layout>
     
-    <h3 class="fw-bold w-100">Helpful links:</h3>
-    <p>Add any useful links to your course, can remove this section if there are none, e.g:</p>
-    <ul>
-      <li><a href="/sta/pltips">PrairieLearn tips</a></li>
-      <li><a href="/sta/pltips">Other cool thing</a></li>
-    </ul>
-  </section>
-</div>
-</Layout>
