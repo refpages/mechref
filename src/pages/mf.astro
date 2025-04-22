@@ -13,21 +13,12 @@ import "../../public/static/css/course_home_pages.css"
 
     <Layout title="Machine failure">
         <div class="mt-sm-4 mt-2 row">
-            <div class="col-md-7 col-12">
+            <div class="col-md-12 col-12">
                 <SimplifiedView id="here" title="Machine failure" title_style="h1 fw-bold" style="enumerate">
                     
-        <CourseCard href="/mf/Failure_Theories" img_src="/mf/Failure_Theories/src" title="Failure theories">
-            <ul class='list-group list-group-flush py-0'> 
-            <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='/mf/Failure_Theories#Intro'>Introduction to Failure Theories</a></li>
-            <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='/mf/Failure_Theories#Max_Normal'>Maximum Normal Stress Theory</a>
-            <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='/mf/Failure_Theories#Max_Shear'>Maximum Shear Stress Theory (Tresca Theory)</a></li>
-            <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='/mf/Failure_Theories#Max_Distortion'>Maximum Distortion Energy Theory (Von Mises Theory)</a></li>
-            <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='/mf/Failure_Theories#Fracture_Mechanics'>Fracture Mechanics and Crack Propagation</a></li>
-            <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='/mf/Failure_Theories#Conclusion'>Conclusion</a></li>
-        </ul>
-        </CourseCard>
         
-        <CourseCard href="/mf/Stress_Concentrations" img_src="/mf/Stress_Concentrations/src" title="Stress concentrations">
+        
+        <CourseCard href="/mf/Stress_Concentrations" img_src="/mf/home_page/sc.png" title="Stress concentrations">
             <ul class='list-group list-group-flush py-0'> 
             <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='/mf/Stress_Concentrations#Intro'>Introduction to Stress Concentrations</a>
                 <ul class='list-group list-group-flush py-0'> 
@@ -42,8 +33,19 @@ import "../../public/static/css/course_home_pages.css"
             <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='/mf/Stress_Concentrations#Design_Considerations'>Design Considerations</a></li>
         </ul>
         </CourseCard>
+
+        <CourseCard href="/mf/Failure_Theories" img_src="/mf/home_page/ft.png" title="Failure theories">
+            <ul class='list-group list-group-flush py-0'> 
+            <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='/mf/Failure_Theories#Intro'>Introduction to Failure Theories</a></li>
+            <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='/mf/Failure_Theories#Max_Normal'>Maximum Normal Stress Theory</a>
+            <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='/mf/Failure_Theories#Max_Shear'>Maximum Shear Stress Theory (Tresca Theory)</a></li>
+            <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='/mf/Failure_Theories#Max_Distortion'>Maximum Distortion Energy Theory (Von Mises Theory)</a></li>
+            <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='/mf/Failure_Theories#Fracture_Mechanics'>Fracture Mechanics and Crack Propagation</a></li>
+            <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='/mf/Failure_Theories#Conclusion'>Conclusion</a></li>
+        </ul>
+        </CourseCard>
         
-        <CourseCard href="/mf/Threaded_Components" img_src="/mf/Threaded_Components/src" title="Threaded components">
+        <CourseCard href="/mf/Threaded_Components" img_src="/mf/home_page/tc.png" title="Threaded components">
             <ul class='list-group list-group-flush py-0'> 
             <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='/mf/Threaded_Components#Intro'>Introduction to Threaded Components</a></li>
             <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='/mf/Threaded_Components#power_screws'>Power Screws</a></li>
@@ -64,45 +66,14 @@ import "../../public/static/css/course_home_pages.css"
         </ul>
         </CourseCard>
         
-                    <li slot="list"><a href="/mf/Failure_Theories?origin=coursemenu">Failure theories</a></li><li slot="list"><a href="/mf/Stress_Concentrations?origin=coursemenu">Stress concentrations</a></li><li slot="list"><a href="/mf/Threaded_Components?origin=coursemenu">Threaded components</a></li>
+                   
+                    <li slot="list"><a href="/mf/Stress_Concentrations?origin=coursemenu">Stress concentrations</a></li>
+                    <li slot="list"><a href="/mf/Failure_Theories?origin=coursemenu">Failure theories</a></li>
+                    <li slot="list"><a href="/mf/Threaded_Components?origin=coursemenu">Threaded components</a></li>
+
                 </SimplifiedView>
             </div>
-            <div class="col-md-5 col-12">
-                <p>
-                    Mechanism Design focuses on the process of utilizing mathematical tools and models to analyze and predict the behavior of mechanisms. To do this, this page builds off of a large number of the concepts that are first explored in <a href="/dyn"> Dynamics</a>. Of particular interest are:
-                     </p>
-                  
-                  
-                      <Itemize>
-                        <Item> <a href="/dyn/rigid_body_kinematics"> Rigid body kinematics </a> which will be utilized in the analysis of planar mechanism and gears.</Item>
-                        <Item> <a href="/dyn/rigid_body_kinetics"> Rigid body kinetics </a> will be useful for the study of <a href="/md/Instant_Centers?origin=coursemenu">Instant centers</a> (IC), <a href="/md/Position_Velocity_Acceleration?origin=coursemenu">Position velocity acceleration</a> (PVA) and <a href="/md/Dynamic_Force_Analysis?origin=coursemenu">Dynamic force analysis </a> (DFA).</Item>
-                        <Item> <a href="/dyn/work_and_energy"> Work and energy </a> will be utilized in the study of <a href="/md/Virtual_Work?origin=coursemenu">Virtual work</a>.</Item>
-                      </Itemize>
-                  
-                      <p>
-                        <!--These pages will explore a wide variety of different mechanisms and mechanical components. One of the simplest mechanisms is the "four bar linkage", shown below.-->
-                  
-                        These reference pages will examine a wide range of concepts relating to mechanism design.
-                        <Itemize>
-                          <!--
-                          <Item> Planar Mechanisims will explore different methods of classifying mechanisms, as well as methods for identifying the degrees of freedom (DOF) of a mechanisim</Item>
-                          <Item> Gears will cover the key parts features of a gear, as well as helpful tools for the analysis of gear systems.</Item>
-                          -->
-                  
-                          <Item><a href="/md/Graphical_Linkage_Synthesis?origin=coursemenu">Graphical linkage synthesis</a> will explore procedures for creating mechanims that move along user specified paths, or between user specified locations </Item>
-                          <Item><a href="/md/Instant_Centers?origin=coursemenu">Instant centers</a> examines what an instant center is, how they can be identified, and how instant centers can be used to find force and velocity ratios in mechanisms </Item>
-                          <Item><a href="/md/Cams?origin=coursemenu">Cams</a> focuses on the different classifications of cams, as well as the steps required to design a cam profile according to the fundemental law of cam design </Item>
-                          <Item><a href="/md/Position_Velocity_Acceleration?origin=coursemenu">Position velocity acceleration</a> demonstrates a method for computing the positon, velocity, and acceleration of a mechanism </Item>
-                          <Item><a href="/md/Dynamic_Force_Analysis?origin=coursemenu">Dynamic force analysis</a> examines a method to compute the forces and torques on each part of a mechanism </Item>
-                          <Item><a href="/md/Virtual_Work?origin=coursemenu">Virtual work</a> examines an easier method to compute external forces and torques if the internal forces are unimportant </Item>
-                          <Item><a href="/md/Balancing?origin=coursemenu">Balancing</a> investigates the loads on rotating machinery as well as methods for minimizing them </Item>
-                          <!--
-                          <Item> </Item>
-                          <Item> </Item>
-                          <Item> </Item>
-                          -->
-                        </Itemize>
-                      </p>
+            <div class="col-md-0 col-0">
             </div>
         </div>    
     </Layout>
