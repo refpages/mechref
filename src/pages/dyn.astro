@@ -3,33 +3,261 @@ import Layout from "../layouts/CourseMenuLayout.astro"
 import Section from "../components/Section.astro"
 import SubSection from "../components/SubSection.astro"
 import Image from "../components/Image.astro"
+import SimplifiedView from "../components/course_menus/SimplifiedView.astro"
+import CourseCard from "../components/course_menus/CourseCard.astro"
 
 import "../../public/static/css/course_home_pages.css"
 ---
 
-<Layout title="Dynamics">
-
-  <h1>
-    <strong>Dynamics</strong>
-  </h1>
-
-  <section class="mt-sm-4 mt-2">
-    <ol>
-      <li><a href="/dyn/vectors?origin=coursemenu">Vectors</a></li>
-      <li><a href="/dyn/vector_calculus?origin=coursemenu">Vector calculus</a></li>
-      <li><a href="/dyn/particle_kinematics?origin=coursemenu">Particle kinematics</a></li>
-      <li><a href="/dyn/particle_kinetics?origin=coursemenu">Particle kinetics</a></li>
-      <li><a href="/dyn/rigid_body_kinematics?origin=coursemenu">Rigid body kinematics</a></li>
-      <li><a href="/dyn/rigid_body_kinetics?origin=coursemenu">Rigid body kinetics</a></li>
-      <li><a href="/dyn/contact_and_rolling?origin=coursemenu">Contact and rolling</a></li>
-      <li><a href="/dyn/work_and_energy?origin=coursemenu">Work and energy</a></li>
-    </ol>    
-  </section>
-  <section class="mt-sm-4 mt-2">
-    <h3 class="fw-bold w-100">Helpful links:</h3>
-    <ul>
-      <li><a href="/sta/pltips">PrairieLearn tips</a></li>
-    </ul>
-  </section>
-</div>
-</Layout>
+    <Layout title="Dynamics">
+        <div class="mt-sm-4 mt-2 row">
+            <div class="col-md-12 col-12">
+                <SimplifiedView id="here" title="Dynamics" title_style="h1 fw-bold" style="enumerate">
+                    
+        <CourseCard href="/dyn/particle_kinematics" img_src="/dyn/particle_kinematics/src" title="Particle kinematics">
+            <ul class='list-group list-group-flush py-0'> 
+    <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='/dyn/particle_kinematics#position_vectors'>Position vectors</a>
+		<ul class='list-group list-group-flush py-0'> 
+            <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='/dyn/particle_kinematics#transformation_position_vectors'>Transformation</a></li>  
+        </ul>
+    </li> 
+	<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='/dyn/particle_kinematics#velocity_acceleration_vectors'>Velocity and Acceleration vectors</a>
+		<ul class='list-group list-group-flush py-0'> 
+            <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='/dyn/particle_kinematics#cartesian_basis'>Cartesian</a></li>  
+			<li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='/dyn/particle_kinematics#polar_basis'>Polar</a></li> 
+			<li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='/dyn/particle_kinematics#summary_table'>Summary</a></li>
+        </ul>
+    </li> 
+	<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='/dyn/particle_kinematics#rotating_frames'>Rotating frames</a>
+		<ul class='list-group list-group-flush py-0'> 
+            <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='/dyn/particle_kinematics#angular_velocity'>Angular velocity</a></li>  
+			<li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='/dyn/particle_kinematics#derivatives_rotations'>Derivatives and rotations</a></li> 
+			<li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='/dyn/particle_kinematics#rotations_2D'>Rotations in 2D</a></li>
+			<li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='/dyn/particle_kinematics#rotations_positions'>Rotations and vector positions</a></li>
+			<li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='/dyn/particle_kinematics#rotations_properties'>Properties of rotations</a></li>
+			<li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='/dyn/particle_kinematics#rodrigues_formula'>Rodrigues' rotations formula</a></li>
+			<li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='/dyn/particle_kinematics#angular_acceleration'>Angular acceleration</a></li>
+        </ul>
+    </li> 
+		<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='/dyn/particle_kinematics#tangential_normal_basis'>Tangential and normal basis</a>
+		<ul class='list-group list-group-flush py-0'> 
+            <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='/dyn/particle_kinematics#normal_basis'>Normal basis</a></li>
+            <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='/dyn/particle_kinematics#curvature'>Curvature and torsion</a></li>  
+			<li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='/dyn/particle_kinematics#derivatives_angular_velocity'>Basis derivatives and angular velocity</a></li> 
+			<li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='/dyn/particle_kinematics#normal_tangential_acceleration'>Normal and Tangential kinematics</a></li>
+			<li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='/dyn/particle_kinematics#system_comparison'>Tangent lines and osculating circles</a></li>
+      <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='/dyn/particle_kinematics#curvature_on_curves'>Curvature on curves</a></li>
+			<li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='/dyn/particle_kinematics#system_comparison'>Systems comparison</a></li>
+        </ul>
+    </li> 
+	<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='/dyn/particle_kinematics#applications_pk'>Applications</a>
+		<ul class='list-group list-group-flush py-0'> 
+            <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='/dyn/particle_kinematics#celestial_velocities'>Celestial velocities</a></li>  
+			<li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='/dyn/particle_kinematics#track_transition_curves'>Track transition curves</a></li> 
+        </ul>
+    </li> 
+  </ul>
+        </CourseCard>
+        
+        <CourseCard href="/dyn/particle_kinetics" img_src="/dyn/particle_kinetics/src" title="Particle kinetics">
+            <ul class='list-group list-group-flush py-0'> 
+    <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='/dyn/particle_kinetics#classical_mechanics'>Classical mechanics</a>
+    </li> 
+    <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='/dyn/particle_kinetics#methods_assumed'>Methods of assumed forces and motion</a>
+    </li> 
+    <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='/dyn/particle_kinetics#solution_steps'>Solution steps</a>
+    </li>
+    <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='/dyn/particle_kinetics#numerical_integration'>Numerical integration</a>
+    </li>
+	<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='/dyn/particle_kinetics#applications_pkinetics'>Applications</a>
+	        <ul class='list-group list-group-flush py-0'> 
+            <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='/dyn/particle_kinetics#accelerating_braking'>Accelerating and braking</a></li>
+			<li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='/dyn/particle_kinetics#banked_turns'>Banked turns</a></li>
+			<li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='/dyn/particle_kinetics#projectiles_air_resistance'>Projectiles with air resistance</a></li>
+        </ul>
+    </li>
+</ul>
+        </CourseCard>
+        
+        <CourseCard href="/dyn/rigid_body_kinematics" img_src="/dyn/rigid_body_kinematics/src" title="Rigid body kinematics">
+            <ul class='list-group list-group-flush py-0'> 
+    <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='/dyn/rigid_body_kinematics#rigid_bodies'>Rigid bodies</a>
+    </li> 
+    <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='/dyn/rigid_body_kinematics#rotating_rigid_bodies'>Rotating rigid bodies</a>
+    </li> 
+    <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='/dyn/rigid_body_kinematics#points_rigid_bodies'>Points on rigid bodies</a>
+    </li>
+    <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='/dyn/rigid_body_kinematics#rigid_bodies_2d'>Rigid bodies in 2D</a>
+    </li>
+	<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='/dyn/rigid_body_kinematics#constrained_motion'>Constrained motion</a>
+		        <ul class='list-group list-group-flush py-0'> 
+            <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='/dyn/rigid_body_kinematics#constraint forces'>Constraint forces</a></li>
+        </ul>
+    </li>
+	<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='/dyn/rigid_body_kinematics#gears'>Gears</a>
+		    <ul class='list-group list-group-flush py-0'> 
+            <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='/dyn/rigid_body_kinematics#sign_convention'>Standard sign convention</a></li>
+			<li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='/dyn/rigid_body_kinematics#acce_contact_noslip_convention'>Acceleration in contact (no slip)</a></li>
+        </ul>
+    </li>
+		<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='/dyn/rigid_body_kinematics#applications_rgkinema'>Applications</a>
+	        <ul class='list-group list-group-flush py-0'> 
+            <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='/dyn/rigid_body_kinematics#steering_geometry'>Steering geometry</a></li>
+			<li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='/dyn/rigid_body_kinematics#turning_rigid_bodies'>Turning rigid bodies</a></li>
+			<li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='/dyn/rigid_body_kinematics#ackerman_steering'>Ackerman steering geometry</a></li>
+			<li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='/dyn/rigid_body_kinematics#knee_joint'>Knee joint</a></li>
+			<li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='/dyn/rigid_body_kinematics#suspensions_linkage'>Suspensions with Watt's linkage</a></li>
+        </ul>
+    </li>
+</ul>
+        </CourseCard>
+        
+        <CourseCard href="/dyn/vector_calculus" img_src="/dyn/vector_calculus/src" title="Vector calculus">
+            <ul class='list-group list-group-flush py-0'> 
+    <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='/dyn/vector_calculus#dot_product'>Dot product</a>
+        <ul class='list-group list-group-flush py-0'> 
+            <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='/dyn/vector_calculus#dot_product_identities'>Dot product identities</a></li>  
+        </ul>
+    </li> 
+    <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='/dyn/vector_calculus#cross_product'>Cross product</a>
+        <ul class='list-group list-group-flush py-0'> 
+            <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='/dyn/vector_calculus#cross_product_identities'>Cross product identities</a></li>  
+        </ul>
+    </li> 
+    <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='/dyn/vector_calculus#derivatives'>Derivatives</a>
+        <ul class='list-group list-group-flush py-0'> 
+            <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='/dyn/vector_calculus#newton_versus_leibniz_notation'>Newton versus Leibniz Notation</a></li>
+        </ul>
+    </li>
+    <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='/dyn/vector_calculus#derivatives_and_vector_positions'>Derivatives and vector "positions"</a>
+        <ul class='list-group list-group-flush py-0'> 
+            <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='/dyn/vector_calculus#cartesian'>Cartesian</a></li>
+            <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='/dyn/vector_calculus#non-cartesian_polar_basis'>Non-Cartesian: Polar basis</a></li>
+        </ul>
+    </li>
+    <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='/dyn/vector_calculus#chain_rule'>Chain rule</a>
+    </li>
+    <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='/dyn/vector_calculus#integration'>Integration</a>
+        <ul class='list-group list-group-flush py-0'> 
+            <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='/dyn/vector_calculus#cartesian_basis'>Cartesian basis</a></li>
+            <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='/dyn/vector_calculus#polar_basis'>Polar basis</a></li>
+        </ul>
+    </li> 
+    <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='/dyn/vector_calculus#solving_equations'>Solving equations</a></li>
+</ul>
+        </CourseCard>
+        
+        <CourseCard href="/dyn/vectors" img_src="/dyn/vectors/src" title="Vectors">
+            <ul class='list-group list-group-flush py-0'> 
+    <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='/dyn/vectors#notation'>Notation</a></li>
+    <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='/dyn/vectors#cartesian_coordinate_system'>Cartesian coordinate system</a></li>
+    <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='/dyn/vectors#polar_coordinate_system'>Polar coordinate system</a></li>
+    <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='/dyn/vectors#units'>Units</a></li>
+    <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='/dyn/vectors#unit_vectors'>Unit vectors</a></li>
+    <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='/dyn/vectors#vectors_bases'>Vectors Bases</a>
+        <ul class='list-group list-group-flush py-0'> 
+            <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='/dyn/vectors#length_of_vectors'>Length of vectors</a></li>  
+        </ul>
+    </li> 
+    <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='/dyn/vectors#changing_bases'>Changing bases</a></li>
+    <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='/dyn/vectors#projection_and_complementary_projection'>Projection and complementary projection</a></li>
+    <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='/dyn/vectors#change_in_length_and_direction'>Change in length and direction</a></li>
+    <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='/dyn/vectors#spherical_coordinates'>Spherical Coordinates</a></li>
+	<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='/dyn/vectors#cylindrical_coordinates'>Cylindrical Coordinates</a></li>
+    <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='/dyn/vectors#applications'>Applications</a>
+        <ul class='list-group list-group-flush py-0'> 
+            <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='/dyn/vectors#shortest_flight_paths'>Shortest flight paths</a>
+                <ul class='list-group list-group-flush py-0'> 
+                    <li class='list-group-item py-0'><a class='text-decoration-none subsubsubsection' href='/dyn/vectors#shortest_paths_on_the_sphere'>Shortest paths on the sphere</a></li>
+                    <li class='list-group-item py-0'><a class='text-decoration-none subsubsubsection' href='/dyn/vectors#proof_that_great_circles_are_shortest_paths'>Proof that great circles are shortest paths</a></li>
+                </ul>
+            </li>
+        </ul>
+    </li> 
+</ul>
+        </CourseCard>
+        
+        <CourseCard href="/dyn/work_and_energy" img_src="/dyn/work_and_energy/src" title="Work and energy">
+            <ul class='list-group list-group-flush py-0'> 
+    <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='/dyn/work_and_energy#energy'>Energy</a></li>
+        <ul class='list-group list-group-flush py-0'> 
+            <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='/dyn/work_and_energy#potential_energy'>Potential energy</a></li>  
+			<li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='/dyn/work_and_energy#kinetic_energy'>Kinetic energy</a></li>  
+			<li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='/dyn/work_and_energy#energy_summary'>Summary energy</a></li>  
+        </ul>	
+	<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='/dyn/work_and_energy#work'>Work</a></li>
+        <ul class='list-group list-group-flush py-0'>  
+			<li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='/dyn/work_and_energy#work_force'>Work done by a force</a></li>  
+			<li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='/dyn/work_and_energy#conserv_nonconserv_forces'>Conservative vs Non-conservative forces</a></li>  
+			<li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='/dyn/work_and_energy#work_friction'>Work done by friction</a></li> 
+			<li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='/dyn/work_and_energy#work_moment'>Work done by a moment</a></li> 
+        </ul>
+	<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='/dyn/work_and_energy#friction'>Friction</a></li>
+        <ul class='list-group list-group-flush py-0'>   
+			<li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='/dyn/work_and_energy#solution_procedure'>Solution procedure</a></li>  
+        </ul>
+	<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='/dyn/work_and_energy#momentum'>Momentum</a></li>
+	<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='/dyn/work_and_energy#impulse'>Impulse</a></li>
+	<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='/dyn/work_and_energy#collisions'>Collisions</a></li>
+	<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='/dyn/work_and_energy#app_work_energy'>Applications</a></li>
+  </ul>
+        </CourseCard>
+        
+        <CourseCard href="/dyn/contact_and_rolling" img_src="/dyn/contact_and_rolling/src" title="Contact and rolling">
+            <ul class='list-group list-group-flush py-0'> 
+    <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='/dyn/contact_and_rolling#rolling_motion'>Rolling motion</a></li>
+        <ul class='list-group list-group-flush py-0'> 
+            <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='/dyn/contact_and_rolling#rolling_flat_surface'>Flat surfaces</a></li>  
+			<li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='/dyn/contact_and_rolling#rolling_curved_surface'>Curved surfaces</a></li>   
+        </ul>	
+    <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='/dyn/contact_and_rolling#app_contact_rolling'>Applications</a></li>
+        <ul class='list-group list-group-flush py-0'> 
+            <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='/dyn/contact_and_rolling#app_bearings'>Bearings</a></li>   
+        </ul>
+    </li> 
+  </ul>
+        </CourseCard>
+        
+        <CourseCard href="/dyn/rigid_body_kinetics" img_src="/dyn/rigid_body_kinetics/src" title="Rigid body kinetics">
+            <ul class='list-group list-group-flush py-0'> 
+    <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='/dyn/rigid_body_kinetics#center_of_mass'>Center of mass</a>
+        <ul class='list-group list-group-flush py-0'> 
+            <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='/dyn/rigid_body_kinetics#recap_com'>Recap</a></li>  
+			<li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='/dyn/rigid_body_kinetics#basic_shapes_com'>Basic shapes</a></li>  
+			<li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='/dyn/rigid_body_kinetics#simple_shapes_com'>Simplified shapes</a></li>  
+        </ul>	
+    </li>
+    <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='/dyn/rigid_body_kinetics#moment_of_inertia'>Moment of inertia</a>
+        <ul class='list-group list-group-flush py-0'> 
+            <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='/dyn/rigid_body_kinetics#parallel_axis_theorem'>Parallel axis theorem</a></li>  
+            <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='/dyn/rigid_body_kinetics#additive_theorem'>Additive theorem</a></li>  
+            <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='/dyn/rigid_body_kinetics#basic_shapes_moi'>Basic shapes</a></li>  
+            <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='/dyn/rigid_body_kinetics#simple_shapes_moi'>Simplified shapes</a></li>  
+        </ul>
+    </li> 
+    <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='/dyn/rigid_body_kinetics#instant_center_center'>Instantaneous center</a>
+        <ul class='list-group list-group-flush py-0'> 
+            <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='/dyn/rigid_body_kinetics#graphical_rules_ic'>Graphical rules for finding M</a>
+        </ul>
+    </li>  
+    <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='/dyn/rigid_body_kinetics#euler-motion'>Euler's laws of motion</a>
+    </li>
+    <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='/dyn/rigid_body_kinetics#rotation-arbitrary'>Rotation about arbitrary reference points</a>
+    </li>
+	<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='/dyn/rigid_body_kinetics#app_rg_kinetics'>Applications</a>
+        <ul class='list-group list-group-flush py-0'> 
+            <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='/dyn/rigid_body_kinetics#accelerating_braking'>Accelerating and braking</a></li>  
+            <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='/dyn/rigid_body_kinetics#banked_turns'>Banked turns</a></li>
+        </ul>
+    </li>
+  </ul>
+        </CourseCard>
+        
+                    <li slot="list"><a href="/dyn/particle_kinematics?origin=coursemenu">Particle kinematics</a></li><li slot="list"><a href="/dyn/particle_kinetics?origin=coursemenu">Particle kinetics</a></li><li slot="list"><a href="/dyn/rigid_body_kinematics?origin=coursemenu">Rigid body kinematics</a></li><li slot="list"><a href="/dyn/vector_calculus?origin=coursemenu">Vector calculus</a></li><li slot="list"><a href="/dyn/vectors?origin=coursemenu">Vectors</a></li><li slot="list"><a href="/dyn/work_and_energy?origin=coursemenu">Work and energy</a></li><li slot="list"><a href="/dyn/contact_and_rolling?origin=coursemenu">Contact and rolling</a></li><li slot="list"><a href="/dyn/rigid_body_kinetics?origin=coursemenu">Rigid body kinetics</a></li>
+                </SimplifiedView>
+            </div>
+            <div class="col-md-0 col-0">
+            </div>
+        </div>    
+    </Layout>
+    
