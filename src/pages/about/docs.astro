@@ -86,6 +86,7 @@ import Plotly from "../../components/Plotly.astro";
                 <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#review'> Review </a></li>
                 <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#supplemental'> Supplemental material </a></li>
                 <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#extra'> Extra info</a></li>
+                <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#applications'> Applications</a></li>
             </ul>
         </li>
         <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#images'> Images </a></li> 
@@ -891,7 +892,7 @@ All titles should be done in sentence case.
 <SubSection title="Callout cards" id="callout-cards">
 
     <p>
-    There are 3 main callout card templates which are all shown here. 
+    There are 4 main callout card templates which are all shown here. 
     </p>
 
     <CodeBox language="javascript" code=`
@@ -992,6 +993,35 @@ All titles should be done in sentence case.
         <CalloutCard title="Heads  up!">
             <p>
                <strong> SubSectionTitle </strong> builds on this content in COURSE.
+            </p>
+            <p>
+                CONTENT
+            </p>
+        </CalloutCard>
+    </CalloutContainer>
+</CalloutContainerContainer>
+</SubSubSection>
+
+<SubSubSection title="Applications" id="applications">
+    <p>This card is used to highlight a real-world application of the course material.</p>
+    <CalloutContainerContainer>
+    <CodeBox language="html" code=`
+    <CalloutContainer slot="cards">
+        <CalloutCard title="Application Alert!">
+            <p>
+               <a href="/XXX/ApplicationPage">Application</a>  uses <strong> SubSectionTitle </strong> by SHORT DESCRIPTION.
+              </p>
+              <p>
+                 CONTENT
+              </p>
+        </CalloutCard>
+    </CalloutContainer>
+    ` closed_by_default="True" id="applicationalert" closed_height="60"/>
+
+    <CalloutContainer slot="cards">
+        <CalloutCard title="Application  Alert!">
+            <p>
+                <a href="/XXX/ApplicationPage">Application</a>  uses <strong> SubSectionTitle </strong> by SHORT DESCRIPTION.
             </p>
             <p>
                 CONTENT
