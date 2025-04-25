@@ -7,6 +7,8 @@ import BlueText from "../../components/BlueText.astro"
 import SubSubSection from "../../components/SubSubSection.astro"
 import Enumerate from "../../components/Enumerate.astro"
 import Item from "../../components/Item.astro"
+import CalloutCard from "../../components/CalloutCard.astro"
+import CalloutContainer from "../../components/CalloutContainer.astro"
 ---
 <Layout title="Reaction Forces">
 
@@ -86,5 +88,16 @@ There are three ways we can analyze a 2D system to determine if it is stable or 
 	<Image src='/sta/reaction_forces/UnstableRotation.jpg' width='6'>Stable system (left) and unstable system (right).</Image>
 </Enumerate>
 
+<CalloutContainer slot = "cards">
+	<CalloutCard title = "Application Alert!">
+		<p>
+			Have you ever wondered what a connection being used in the real world would look like? Here is a cool example of <strong>roller supports</strong> being used in the <strong>Krannert Center parking garage.</strong>
+		</p>
+		<Image src = '/sta/reaction_forces/KrannertCenterRollerSupports.jpg' width = '8'/>
+		<p>
+			Here, roller supports are incorporated below columns supporting the roof of the Krannert Center parking garage. You can learn more about the Krannert Center for the Performing Arts <a target = "_blank" rel = "noopener noreferrer" href = "https://krannertcenter.com/events/krannert-center-tours">here.</a>
+		</p>
+	</CalloutCard>
+</CalloutContainer>
 </SubSubSection>
 </Layout>
