@@ -37,7 +37,7 @@ import DisplayTable from "../../components/DisplayTable.astro"
             <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#accelerating_braking'>Accelerating and braking</a></li>
 			<li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#banked_turns'>Banked turns</a></li>
 			<li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#projectiles_air_resistance'>Projectiles with air resistance</a></li>
-      <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#kiiking'>Kiiking</a></li>
+ <!--      <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#kiiking'>Kiiking</a></li> -->
         </ul>
     </li>
 </ul>
@@ -1042,8 +1042,8 @@ import DisplayTable from "../../components/DisplayTable.astro"
 
         This functional relationship has no closed form.  However,
         the relationship has been established numerically based on
-        experimental data.  See <a href="#fig6">Figure #aft-fd</a>
-        for a schematic diagram of the drag coefficient's dependence
+        experimental data.  See the <a href="#fig6">graph</a>
+        below for a schematic diagram of the drag coefficient's dependence
         on the Reynolds number.</p>
         
         <Image id="aft-fd" src="/dyn/particle_kinetics/drag_coefficient.png" width="8">
@@ -1060,13 +1060,13 @@ import DisplayTable from "../../components/DisplayTable.astro"
 <SubSubSubSection title="Quadratic drag model">
 
     <p>
-        Notice from <a href="#aft-fd">Figure #aft-fd</a> that there
+        Notice from the <a href="#aft-fd">graph</a> above that there
         is a range of Reynolds numbers (<InlineEquation equation="10^3 < {\\rm Re} < 10^5" />),
         characteristic of macroscopic projectiles, for which the
         drag coefficient is approximately constant at about 1/2 (see
         the part of the curve labeled “4”
-        in <a href="#aft-fd">
-          Figure #aft-fd</a>).  That the drag 
+        in the <a href="#aft-fd">
+          graph</a> above).  That the drag 
     coefficient is constant means that,
         within this region, the magnitude of the drag force is
         proportional to the square of the object’s speed.
@@ -1158,10 +1158,11 @@ import DisplayTable from "../../components/DisplayTable.astro"
     </CalloutContainer>
 </SubSubSubSection>
 
+<!-- 
 <SubSubSection title="Kiiking" id = "kiiking">           
     <RedText>This topic is in L13-Notes, slides 9-10. YouTube link:  <a target="_blank" rel="noopener noreferrer" target="_blank" rel="noopener noreferrer" href="https://www.youtube.com/shorts/qvW0sz4kBLQ">https://www.youtube.com/shorts/qvW0sz4kBLQ</a></RedText>. 
 
 </SubSubSection>
-
+-->
 
 <script src="/dyn/particle_kinetics/canvases.js" is:inline></script>
