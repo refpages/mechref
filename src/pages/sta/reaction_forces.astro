@@ -8,23 +8,23 @@ import SubSubSection from "../../components/SubSubSection.astro"
 import Enumerate from "../../components/Enumerate.astro"
 import Item from "../../components/Item.astro"
 ---
-<Layout title="Reaction Forces">
+<Layout title="Reaction forces">
 
     <div slot="navtree">
         <ul class='list-group list-group-flush py-0'> 
-          <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#types_of_connections'>Types of Connections</a></li> 
-          <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#system_classifications'>System Classifications</a></li>
-		<li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#redundant_constraints'>Redundant Constraints</a></li>
-		<li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#proper_improper_constraints'>Proper and Improper Constraints</a></li>
-		<li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#stability_instability'>Stability and Instability</a></li>
+          <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#types_of_connections'>Types of connections</a></li> 
+          <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#system_classifications'>System classifications</a></li>
+		<li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#redundant_constraints'>Redundant constraints</a></li>
+		<li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#proper_improper_constraints'>Proper and improper constraints</a></li>
+		<li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#stability_instability'>Stability and instability</a></li>
       </ul>
       </div>
-<Section title="Reaction Forces" id="reaction_forces">
+<Section title="Reaction forces" id="reaction_forces">
 
 Because of Newton's Third Law we know that every action has an equal and opposite reaction. We can solve for these reaction forces to understand the loading of a structure.
   
 </Section>
-<SubSection title="Types of Connections" id="types_of_connections">
+<SubSection title="Types of connections" id="types_of_connections">
 
 Different supports and different connections have different types of reaction forces depending on what they are constraining. For example, a pin connection restricts movement in the x-and y-directions but doesn't restrict rotation. This means that each pin connection has two reaction forces: one in the x-direciton, and one in the y-direction corresponding to the degrees of freedom that are fixed. 
 
@@ -42,11 +42,11 @@ A roller support only constrains movement in the y-direction, and thus only has 
 
 </SubSection>
 
-<SubSection title="System Classifications" id="system_classifications">
+<SubSection title="System classifications" id="system_classifications">
 
 </SubSection>
 
-<SubSubSection title="Redundant Constraints" id="redundant_constraints">
+<SubSubSection title="Redundant constraints" id="redundant_constraints">
 
 If a body has more supports than it needs to hold it in equilibrium, it is overly constrained. This will result in more unknown reaction forces than equations we can write, and the problem will not be solvable using statics alone. This type of system is a "statically indeterminate" system. 
 
@@ -58,7 +58,7 @@ If a 2D system has 3 or less unknown reaction forces, it is considered determina
 
 </SubSubSection>
 
-<SubSubSection title="Proper and Improper Constraints" id="proper_constraints">
+<SubSubSection title="Proper and improper constraints" id="proper_constraints">
 
 A system can be properly or improperly constrained under different loading conditions. 
 
@@ -70,7 +70,7 @@ If there is no solution, the system is considered to be <strong>improperly const
 
 </SubSubSection>
 
-<SubSubSection title="Stability and Instability" id="stability">
+<SubSubSection title="Stability and instability" id="stability">
 
 If a system is stable in statics, it means that it cannot rotate or translate in any direction <strong>under any loading conditions</strong>.
 
