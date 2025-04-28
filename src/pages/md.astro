@@ -1,89 +1,149 @@
 ---
-
-import Itemize from "../components/Itemize.astro"
-import Item from "../components/Item.astro"
-
-
 import Layout from "../layouts/CourseMenuLayout.astro"
+import Section from "../components/Section.astro"
+import SubSection from "../components/SubSection.astro"
+import Image from "../components/Image.astro"
+import SimplifiedView from "../components/course_menus/SimplifiedView.astro"
+import CourseCard from "../components/course_menus/CourseCard.astro"
+import Item from "../components/Item.astro"
+import Itemize from "../components/Itemize.astro"
+
 import "../../public/static/css/course_home_pages.css"
-import Section from "../components/Section.astro";
 ---
 
-<Layout title="Mechanism Design">
-    <!-- Change the above and below to your couse name-->
+    <Layout title="Mechanism design">
+        <div class="mt-sm-4 mt-2 row">
+            <div class="col-md-7 col-12">
+                <SimplifiedView id="here" title="Mechanism design" title_style="h1 fw-bold" style="enumerate">
+        
+        <CourseCard href="/md/Graphical_Linkage_Synthesis" img_src="/md/home_page/gls.png" title="Graphical linkage synthesis">
+            <ul class='list-group list-group-flush py-0'> 
+            <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='/md/Graphical_Linkage_Synthesis#GLS'>Graphical Linkage Synthesis Intro</a>
+            <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='/md/Graphical_Linkage_Synthesis#Path_generation'>Path Generation</a>
+            <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='/md/Graphical_Linkage_Synthesis#Position_generation'>Position Generation</a>
+                <ul class='list-group list-group-flush py-0'> 
+                    <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='/md/Graphical_Linkage_Synthesis#Bisecting_line'>Bisecting A Line</a></li>
+                    <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='/md/Graphical_Linkage_Synthesis#2Position_v1'>Two Position synthesis: Crank Output</a></li>
+                    <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='/md/Graphical_Linkage_Synthesis#2Position_v2'>Two Position synthesis: Coupler Output</a></li>
+                    <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='/md/Graphical_Linkage_Synthesis#Rotopole'>Rotopole Synthesis</a></li>
+                    <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='/md/Graphical_Linkage_Synthesis#Dyad_Driver'>Dyad Driver</a></li>
+                    <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='/md/Graphical_Linkage_Synthesis#Quick_Return'>Quick Return</a></li>
+                </ul>
+            </li>
+        </ul>
+        </CourseCard>
+        
+        <CourseCard href="/md/Instant_Centers" img_src="/md/home_page/ic.png" title="Instant centers">
+            <ul class='list-group list-group-flush py-0'> 
+            <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='/md/Instant_Centers#IC_intro'>Instant Centers Intro</a>
+            <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='/md/Instant_Centers#Finding_IC'>Finding Instant Centers</a>
+                <ul class='list-group list-group-flush py-0'> 
+                    <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='/md/Instant_Centers#r1'>Rule 1</a></li>
+                    <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='/md/Instant_Centers#r2'>Rule 2</a></li>
+                    <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='/md/Instant_Centers#r3'>Rule 3</a></li>
+                    <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='/md/Instant_Centers#r4'>Rule 4</a></li>
+                    <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='/md/Instant_Centers#r5'>Rule 5</a></li>
+                </ul>
+            </li>
+            <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='/md/Instant_Centers#Using_IC'>Using Instant Centers</a>
+        </ul>
+        </CourseCard>
 
+        <CourseCard href="/md/Cams" img_src="/md/Cams/GIF/Radial Cam gif.gif" title="Cams">
+            <ul class='list-group list-group-flush py-0'> 
+            <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='/md/Cams#Cam_intro'>Cams  Intro</a>
+            <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='/md/Cams#Motion_programing'> Motion Programing</a>
+            <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='/md/Cams#Cam_profiles'>Cam Profiles</a>
+            <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='/md/Cams#Profile_selection'>Cam Profile Selection</a>
+            <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='/md/Cams#Function_transformation'>Function Transformation</a>
+        </ul>
+        </CourseCard>
 
-
-  <h1>
-    <strong>Mechanism Design</strong>
-  </h1>
-  <section>
-    <p>
-  Mechanism Design focuses on the process of utilizing mathematical tools and models to analyze and predict the behavior of mechanisms. To do this, this page builds off of a large number of the concepts that are first explored in <a href="/dyn"> Dynamics</a>. Of particular interest are:
-   </p>
-
-
-    <Itemize>
-      <Item> <a href="/dyn/rigid_body_kinematics"> Rigid Body Kinematics </a> which will be utilized in the analysis of planar mechanism and gears.</Item>
-      <Item> <a href="/dyn/rigid_body_kinetics"> Rigid Body Kinetics </a> will be useful for the study of <a href="/md/Instant_Centers?origin=coursemenu">Instant Centers</a> (IC), <a href="/md/Position_Velocity_Acceleration?origin=coursemenu">Position Velocity Acceleration</a> (PVA) and <a href="/md/Dynamic_Force_Analysis?origin=coursemenu">Dynamic Force Analysis </a> (DFA).</Item>
-      <Item> <a href="/dyn/work_and_energy"> Work and Energy </a> will be utilized in the study of <a href="/md/Virtual_Work?origin=coursemenu">Virtual Work</a>.</Item>
-    </Itemize>
-
-    <p>
-      <!--These pages will explore a wide variety of different mechanisms and mechanical components. One of the simplest mechanisms is the "four bar linkage", shown below.-->
-
-      These reference pages will examine a wide range of concepts relating to mechanism design.
-      <Itemize>
-        <!--
-        <Item> Planar Mechanisims will explore different methods of classifying mechanisms, as well as methods for identifying the degrees of freedom (DOF) of a mechanisim</Item>
-        <Item> Gears will cover the key parts features of a gear, as well as helpful tools for the analysis of gear systems.</Item>
-        -->
-
-        <Item><a href="/md/Graphical_Linkage_Synthesis?origin=coursemenu">Graphical Linkage Synthesis</a> will explore procedures for creating mechanims that move along user specified paths, or between user specified locations </Item>
-        <Item><a href="/md/Instant_Centers?origin=coursemenu">Instant Centers</a> examines what an instant center is, how they can be identified, and how instant centers can be used to find force and velocity ratios in mechanisms </Item>
-        <Item><a href="/md/Cams?origin=coursemenu">Cams</a> focuses on the different classifications of cams, as well as the steps required to design a cam profile according to the fundemental law of cam design </Item>
-        <Item><a href="/md/Position_Velocity_Acceleration?origin=coursemenu">Position Velocity Acceleration</a> demonstrates a method for computing the positon, velocity, and acceleration of a mechanism </Item>
-        <Item><a href="/md/Dynamic_Force_Analysis?origin=coursemenu">Dynamic Force Analysis</a> examines a method to compute the forces and torques on each part of a mechanism </Item>
-        <Item><a href="/md/Virtual_Work?origin=coursemenu">Virtual Work</a> examines an easier method to compute external forces and torques if the internal forces are unimportant </Item>
-        <Item><a href="/md/Balancing?origin=coursemenu">Balancing</a> investigates the loads on rotating machinery as well as methods for minimizing them </Item>
-        <!--
-        <Item> </Item>
-        <Item> </Item>
-        <Item> </Item>
-        -->
-      </Itemize>
-    </p>
-  </section>
-  <h1>
-    <strong>Key Topics</strong>
-  </h1>
-  <section class="mt-sm-4 mt-2">
-    <ol>
-      <!-- <li><a href="/md/Planar_Mechanisms?origin=coursemenu">Planar Mechanisms</a></li>-->
-      <!--<li><a href="/md/Gears?origin=coursemenu">Gears</a></li>-->
-      <li><a href="/md/Graphical_Linkage_Synthesis?origin=coursemenu">Graphical Linkage Synthesis</a></li>
-      <li><a href="/md/Instant_Centers?origin=coursemenu">Instant Centers</a></li>
-      <li><a href="/md/Cams?origin=coursemenu">Cams</a></li>
-      <li><a href="/md/Position_Velocity_Acceleration?origin=coursemenu">Position Velocity Acceleration</a></li>
-      <li><a href="/md/Dynamic_Force_Analysis?origin=coursemenu">Dynamic Force Analysis</a></li>
-      <li><a href="/md/Virtual_Work?origin=coursemenu">Virtual Work</a></li>
-      <li><a href="/md/Balancing?origin=coursemenu">Balancing</a></li>
-
-    </ol>
-  </section>
-  <!--
-  <section class="mt-sm-4 mt-2">
+        <CourseCard href="/md/Position_Velocity_Acceleration" img_src="/md/home_page/pva.png" title="Position velocity acceleration">
+            <ul class='list-group list-group-flush py-0'>
+            <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='/md/Position_Velocity_Acceleration#PVA_Intro'>PVA Intro</a>
+            <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='/md/Position_Velocity_Acceleration#Vector_calculus'>Vector Calculus</a>
+            <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='/md/Position_Velocity_Acceleration#Vector_loops'> Vector Loops</a>
+            <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='/md/Position_Velocity_Acceleration#Position_analysis'>Position Analysis</a>
+            <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='/md/Position_Velocity_Acceleration#Velocity_analysis'>Velocity Analysis</a>
+            <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='/md/Position_Velocity_Acceleration#Acceleration_analysis'>Acceleration Analysis</a>
+            <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='/md/Position_Velocity_Acceleration#Application_notes'>Application Notes</a>
+        </ul>
+        </CourseCard>
+        
+        <CourseCard href="/md/Dynamic_Force_Analysis" img_src="/md/home_page/dfa.png" title="Dynamic force analysis">
+            <ul class='list-group list-group-flush py-0'>
+            <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='/md/Dynamic_Force_Analysis#DFA_intro'>Dynamic Force Analysis Intro</a></li>
+            <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='/md/Dynamic_Force_Analysis#Dynamics_review'> Review of Dynamics Concepts</a></li>
+            <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='/md/Dynamic_Force_Analysis#DFA_procedure'>DFA Procedure</a></li>
+            <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='/md/Dynamic_Force_Analysis#DFA_Walkthrough'>DFA Walkthrough</a></li>
+            <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='/md/Dynamic_Force_Analysis#Application_Notes'>Application Notes</a></li>
+        </ul>
+        </CourseCard>
+        
+        <CourseCard href="/md/Virtual_Work" img_src="/md/home_page/vw.png" title="Virtual work">
+            <ul class='list-group list-group-flush py-0'>
+            <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='/md/Virtual_Work#VW_intro'>Virtual Work Intro</a></li>
+            <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='/md/Virtual_Work#VW_Theory'> Theory of Virtual Work</a></li>
+        </ul>
+        </CourseCard>
+        
+        
+        
+        <CourseCard href="/md/Balancing" img_src="/md/home_page/balancing.png" title="Balancing">
+            <ul class='list-group list-group-flush py-0'>
+            <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='/md/Balancing#Balancing_intro'>Balancing Intro</a></li>
+            <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='/md/Balancing#Single_plane' >Single Plane Balance</a></li>
+            <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='/md/Balancing#Two_plane' >Two Plane Balance</a></li>
+        </ul>
+        </CourseCard>
+        
+                    <li slot="list"><a href="/md/Graphical_Linkage_Synthesis?origin=coursemenu">Graphical linkage synthesis</a></li>
+                    <li slot="list"><a href="/md/Instant_Centers?origin=coursemenu">Instant centers</a></li>
+                    <li slot="list"><a href="/md/Cams?origin=coursemenu">Cams</a></li>
+                    <li slot="list"><a href="/md/Position_Velocity_Acceleration?origin=coursemenu">Position velocity acceleration</a></li>
+                    <li slot="list"><a href="/md/Dynamic_Force_Analysis?origin=coursemenu">Dynamic force analysis</a></li>
+                    <li slot="list"><a href="/md/Virtual_Work?origin=coursemenu">Virtual work</a></li>
+                    <li slot="list"><a href="/md/Balancing?origin=coursemenu">Balancing</a></li>
+                </SimplifiedView>
+            </div>
+            <div class="col-md-5 col-12">
+                <p>
+                    Mechanism Design focuses on the process of utilizing mathematical tools and models to analyze and predict the behavior of mechanisms. To do this, this page builds off of a large number of the concepts that are first explored in <a href="/dyn"> Dynamics</a>. Of particular interest are:
+                     </p>
+                  
+                  
+                      <Itemize>
+                        <Item> <a href="/dyn/rigid_body_kinematics"> Rigid Body Kinematics </a> which will be utilized in the analysis of planar mechanism and gears.</Item>
+                        <Item> <a href="/dyn/rigid_body_kinetics"> Rigid Body Kinetics </a> will be useful for the study of <a href="/md/Instant_Centers?origin=coursemenu">Instant Centers</a> (IC), <a href="/md/Position_Velocity_Acceleration?origin=coursemenu">Position Velocity Acceleration</a> (PVA) and <a href="/md/Dynamic_Force_Analysis?origin=coursemenu">Dynamic Force Analysis </a> (DFA).</Item>
+                        <Item> <a href="/dyn/work_and_energy"> Work and Energy </a> will be utilized in the study of <a href="/md/Virtual_Work?origin=coursemenu">Virtual Work</a>.</Item>
+                      </Itemize>
+                  
+                      <p>
+                        <!--These pages will explore a wide variety of different mechanisms and mechanical components. One of the simplest mechanisms is the "four bar linkage", shown below.-->
+                  
+                        These reference pages will examine a wide range of concepts relating to mechanism design.
+                        <Itemize>
+                          <!--
+                          <Item> Planar Mechanisims will explore different methods of classifying mechanisms, as well as methods for identifying the degrees of freedom (DOF) of a mechanisim</Item>
+                          <Item> Gears will cover the key parts features of a gear, as well as helpful tools for the analysis of gear systems.</Item>
+                          -->
+                  
+                          <Item><a href="/md/Graphical_Linkage_Synthesis?origin=coursemenu">Graphical Linkage Synthesis</a> will explore procedures for creating mechanims that move along user specified paths, or between user specified locations </Item>
+                          <Item><a href="/md/Instant_Centers?origin=coursemenu">Instant Centers</a> examines what an instant center is, how they can be identified, and how instant centers can be used to find force and velocity ratios in mechanisms </Item>
+                          <Item><a href="/md/Cams?origin=coursemenu">Cams</a> focuses on the different classifications of cams, as well as the steps required to design a cam profile according to the fundemental law of cam design </Item>
+                          <Item><a href="/md/Position_Velocity_Acceleration?origin=coursemenu">Position Velocity Acceleration</a> demonstrates a method for computing the positon, velocity, and acceleration of a mechanism </Item>
+                          <Item><a href="/md/Dynamic_Force_Analysis?origin=coursemenu">Dynamic Force Analysis</a> examines a method to compute the forces and torques on each part of a mechanism </Item>
+                          <Item><a href="/md/Virtual_Work?origin=coursemenu">Virtual Work</a> examines an easier method to compute external forces and torques if the internal forces are unimportant </Item>
+                          <Item><a href="/md/Balancing?origin=coursemenu">Balancing</a> investigates the loads on rotating machinery as well as methods for minimizing them </Item>
+                          <!--
+                          <Item> </Item>
+                          <Item> </Item>
+                          <Item> </Item>
+                          -->
+                        </Itemize>
+                      </p>
+            </div>
+        </div>    
+    </Layout>
     
-    <h3 class="fw-bold w-100">Helpful links:</h3>
-    <p>Add any useful links to your course, can remove this section if there are none, e.g:</p>
-    <ul>
-      <li><a href="/sta/pltips">PrairieLearn tips</a></li>
-      <li><a href="/sta/pltips">Other cool thing</a></li>
-    </ul>
-  </section>
-  -->
-  <section>
-    Special thanks to Sophia Litauszki and Allan Zhu for their instrumental roles in the creation of these pages
-  </section>
-</div>
-</Layout>

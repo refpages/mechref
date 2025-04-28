@@ -3,33 +3,214 @@ import Layout from "../layouts/CourseMenuLayout.astro"
 import Section from "../components/Section.astro"
 import SubSection from "../components/SubSection.astro"
 import Image from "../components/Image.astro"
+import SimplifiedView from "../components/course_menus/SimplifiedView.astro"
+import CourseCard from "../components/course_menus/CourseCard.astro"
+import Item from "../components/Item.astro"
+import Itemize from "../components/Itemize.astro"
 
 import "../../public/static/css/course_home_pages.css"
 ---
 
-<Layout title="Thermodynamics">
+    <Layout title="Thermodynamics">
+        <div class="mt-sm-4 mt-2 row">
+            <div class="col-md-12 col-12">
+                <SimplifiedView id="here" title="Thermodynamics" title_style="h1 fw-bold" style="enumerate">
+                    <CourseCard href="/thermodynamics/thermodynamic_systems" img_src="/thermodynamics/home_page/ts.png" title="Thermodynamic systems">
+                        <ul class='list-group list-group-flush py-0'>
+                <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='/thermodynamics/thermodynamic_systems#system,_boundaries_and_surroundings'>System, boundaries and surroundings</a>
+                  <ul class='list-group list-group-flush py-0'>
+                    <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='/thermodynamics/thermodynamic_systems#types_of_systems_closed,_open,_and_isolated_systems'>Types of Systems: Closed, Open, and Isolated Systems</a></li>
+                  </ul>
+                </li>
+                <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='/thermodynamics/thermodynamic_systems#units_of_interest'>Units of Interest</a>
+                  <ul class='list-group list-group-flush py-0'>
+                    <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='/thermodynamics/thermodynamic_systems#typical_units_in_si_and_english_systems'>Typical Units in SI and English Systems</a></li>
+                    <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='/thermodynamics/thermodynamic_systems#useful_conversions'>Useful Conversions</a></li>
+                    <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='/thermodynamics/thermodynamic_systems#useful_constants'>Useful Constants</a></li>
+                    <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='/thermodynamics/thermodynamic_systems#helpful_math_expressions'>Helpful Math Expressions</a></li>
+                  </ul>
+                </li>
+                <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='/thermodynamics/thermodynamic_systems#mass_and_mass_flow'>Mass and Mass Flow</a></li>
+                <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='/thermodynamics/thermodynamic_systems#volume_and_volume_flow'>Volume and Volume Flow</a>
+                  <ul class='list-group list-group-flush py-0'>
+                    <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='/thermodynamics/thermodynamic_systems#volume_flow'>Volume Flow</a></li>
+                  </ul>
+                </li>
+                <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='/thermodynamics/thermodynamic_systems#energy_and_energy_flow'>Energy and Energy Flow</a>
+                  <ul class='list-group list-group-flush py-0'>
+                      <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='/thermodynamics/thermodynamic_systems#internal_energy'>Internal Energy</a></li>
+                      <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='/thermodynamics/thermodynamic_systems#potential_energy'>Potential Energy</a></li>
+                      <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='/thermodynamics/thermodynamic_systems#kinetic_energy'>Kinetic Energy</a></li>
+                      <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='/thermodynamics/thermodynamic_systems#enthalpy'>Enthalpy</a></li>
+                      <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='/thermodynamics/thermodynamic_systems#entropy'>Entropy</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </CourseCard>
 
-  <h1>
-    <strong>Thermodynamics</strong>
-  </h1>
+            <CourseCard href="/thermodynamics/substances" img_src="/thermodynamics/home_page/sub.png" title="Substances">
+                <ul class='list-group list-group-flush py-0'>
+                <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='/thermodynamics/substances#phases_of_matter'>Phases of matter</a>
+                    <ul class='list-group list-group-flush py-0'>
+                        <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='/thermodynamics/substances#phase_diagrams'>Phase Diagrams</a></li>
+                        <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='/thermodynamics/substances#critical_values_and_ideal_gases'>Critical Values and Ideal Gases</a></li>
+                    </ul>
+                </li>
+                <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='/thermodynamics/substances#ideal_gases'>Ideal Gases</a>
+                    <ul class='list-group list-group-flush py-0'>
+                        <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='/thermodynamics/substances#ideal_gas_assumptions'>Ideal Gas Assumptions</a></li>
+                        <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='/thermodynamics/substances#equation_of_state'>Equation of State</a></li>
+                        <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='/thermodynamics/substances#temperature_effects'>Temperature Effects</a></li>
+                    </ul>
+                </li>
+                <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='/thermodynamics/substances#incompressible_fluids'>Incompressible Fluids</a>
+                    <ul class='list-group list-group-flush py-0'>
+                        <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='/thermodynamics/substances#internal_energy_of_incompressible_fluids'>Internal Energy of Incompressible Fluids</a></li>
+                        <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='/thermodynamics/substances#specific_heat_of_incompressible_fluids'>Specific Heat of Incompressible Fluids</a></li>
+                        <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='/thermodynamics/substances#specific_entropy_change_of_incompressible_fluids'>Specific Entropy Change of Incompressible Fluids</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </CourseCard>
 
-  <section class="mt-sm-4 mt-2">
-    <ol>
-      <li><a href="/thermodynamics/thermodynamic_systems?origin=coursemenu">Thermodynamic Systems</a></li>
-      <li><a href="/thermodynamics/substances?origin=coursemenu">Substances</a></li>
-      <li><a href="/thermodynamics/heat_and_work?origin=coursemenu">Heat and Work</a></li>
-      <li><a href="/thermodynamics/mass_and_energy_balances?origin=coursemenu">Mass and Energy Balances</a></li>
-      <li><a href="/thermodynamics/complex_problems?origin=coursemenu">Complex Problems</a></li>
-      <li><a href="/thermodynamics/thermodynamic_devices?origin=coursemenu">Thermodynamic devices</a></li>
-      <li><a href="/thermodynamics/entropy?origin=coursemenu">Entropy</a></li>
-      <li><a href="/thermodynamics/cycles?origin=coursemenu">Cycles</a></li>
-    </ol>    
-  </section>
-  <section class="mt-sm-4 mt-2">
-    <h3 class="fw-bold w-100">Helpful links:</h3>
-    <ul>
-      <li><a href="/sta/pltips">PrairieLearn tips</a></li>
+        <CourseCard href="/thermodynamics/heat_and_work" img_src="/thermodynamics/home_page/hw.png" title="Heat and work">
+            <ul class='list-group list-group-flush py-0'> 
+            <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='/thermodynamics/heat_and_work#heat'>Heat</a></li>
+            <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='/thermodynamics/heat_and_work#work'>Work</a>
+                <ul class='list-group list-group-flush py-0'> 
+                    <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='/thermodynamics/heat_and_work#(pv)_work'>\\(pV\\) work</a></li>
+                    <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='/thermodynamics/heat_and_work#shaft_work'>Shaft work</a></li>
+                </ul>
+            </li>
+        </ul>
+        </CourseCard>
+
+        <CourseCard href="/thermodynamics/mass_and_energy_balances" img_src="/thermodynamics/home_page/meb.png" title="Mass and energy balances">
+            <ul class='list-group list-group-flush py-0'> 
+            <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='/thermodynamics/mass_and_energy_balances#closed_system_energy_rate_balance'>Closed System Energy Rate Balance</a></li>
+            <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='/thermodynamics/mass_and_energy_balances#closed_system_energy_balance'>Closed System Energy Balance</a></li>
+            <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='/thermodynamics/mass_and_energy_balances#energy_transfer_via_mass_flow'>Energy Transfer via Mass Flow</a>
+                <ul class='list-group list-group-flush py-0'>
+                    <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='/thermodynamics/mass_and_energy_balances#internal_energy_change_via_mass_flow'>Internal Energy Change via Mass Flow</a></li>
+                    <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='/thermodynamics/mass_and_energy_balances#(pv)_work_done_via_mass_flow'>\\(pV\\) Work Done via Mass Flow</a></li>
+                    <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='/thermodynamics/mass_and_energy_balances#total_internal_energy_change_via_mass_flow'>Total Internal Energy Change via Mass Flow</a></li>
+                    <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='/thermodynamics/mass_and_energy_balances#relative_specific_enthalpy'>Relative Specific Enthalpy</a></li>
+                </ul>
+            </li>
+            <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='/thermodynamics/mass_and_energy_balances#internal_energy_rate_balance'>Internal Energy Rate Balance</a></li>
+            <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='/thermodynamics/mass_and_energy_balances#total_energy_balance'>Total Energy Balance</a></li>
+            <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='/thermodynamics/mass_and_energy_balances#total_energy_rate_balance'>Total Energy Rate Balance</a></li>
+        </ul>
+        </CourseCard>
+
+        <CourseCard href="/thermodynamics/complex_problems" img_src="/thermodynamics/home_page/cp.png" title="Complex problems">
+            <ul class='list-group list-group-flush py-0'> 
+            <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='/thermodynamics/complex_problems#composite_thermodynamic_systems'>Composite Thermodynamic Systems</a>
+                <ul class='list-group list-group-flush py-0'> 
+                    <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='/thermodynamics/complex_problems#step_1_identify_known_states'>Step 1: Identify Known States</a></li>
+                    <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='/thermodynamics/complex_problems#step_2_determine_unknowns'>Step 2: Determine Unknowns</a></li>
+                    <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='/thermodynamics/complex_problems#step_3_write_energy_balances'>Step 3: Write Energy Balances</a></li>
+                    <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='/thermodynamics/complex_problems#example_refrigeration_and_heat_pump_cycles'>Example: Refrigeration and Heat Pump Cycles</a></li>
+                </ul>
+            </li>
+            <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='/thermodynamics/complex_problems#transient_systems'>Transient Systems</a>
+                <ul class='list-group list-group-flush py-0'> 
+                    <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='/thermodynamics/complex_problems#transient_vs._steady_state_example'>Transient vs. Steady State Example</a></li>
+                </ul>
+            </li>
+        </ul>
+        </CourseCard>
+
+        
+        
+        <CourseCard href="/thermodynamics/thermodynamic_devices" img_src="/thermodynamics/home_page/td.png" title="Thermodynamic devices">
+            <ul class='list-group list-group-flush py-0'>
+            <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='/thermodynamics/thermodynamic_devices#nozzle'>Nozzle</a></li>
+            <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='/thermodynamics/thermodynamic_devices#diffuser'>Diffuser</a></li>
+            <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='/thermodynamics/thermodynamic_devices#turbine'>Turbine</a></li>
+            <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='/thermodynamics/thermodynamic_devices#compressor'>Compressor</a></li>
+            <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='/thermodynamics/thermodynamic_devices#pump'>Pump</a></li>
+            <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='/thermodynamics/thermodynamic_devices#throttling_device'>Throttling device</a></li>
+            <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='/thermodynamics/thermodynamic_devices#heat_exchanger'>Heat Exchanger</a></li>
+        </ul>
+        </CourseCard>
+        
+        <CourseCard href="/thermodynamics/entropy" img_src="/thermodynamics/home_page/en.png" title="Entropy">
+            <ul class='list-group list-group-flush py-0'> 
+        <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='/thermodynamics/entropy#the_second_law_energy_dispersal'>The Second Law: Energy dispersal</a></li>
+        <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='/thermodynamics/entropy#clausius_statement_of_the_second_law'>Clausius Statement of the Second Law</a>
+            <ul class='list-group list-group-flush py-0'>
+                <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='/thermodynamics/entropy#expansion'>Expansion</a></li>
+                <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='/thermodynamics/entropy#directionality'>Directionality</a></li>
+            </ul>  
+        </li>
+        <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='/thermodynamics/entropy#kelvin-planck_statement_of_the_second_law'>Kelvin-Planck Statement of the Second Law</a></li>
+        <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='/thermodynamics/entropy#clausius_inequality'>Clausius Inequality</a>
+            <ul class='list-group list-group-flush py-0'>
+                <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='/thermodynamics/entropy#reversible_process'>Reversible Process</a></li>
+                <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='/thermodynamics/entropy#internally_reversible_cycles'>Internally Reversible Cycles</a></li>
+            </ul>
+        </li>
+
+        <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='/thermodynamics/entropy#what_is_entropy?'>What is Entropy?</a>
+            <ul class='list-group list-group-flush py-0'>
+                <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='/thermodynamics/entropy#differential_form_of_the_closed_system_energy_balance'>Differential form of the closed system energy balance</a></li>
+                <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='/thermodynamics/entropy#specific_entropy_of_an_ideal_gas'>Specific Entropy of an Ideal Gas</a></li>
+                <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='/thermodynamics/entropy#differential_form_of_the_enthalpy_equation'>Differential form of the enthalpy equation</a></li>
+            </ul>
+        </li>
+        <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='/thermodynamics/entropy#entropy_balance'>Entropy Balance</a>
+            <ul class='list-group list-group-flush py-0'>
+                <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='/thermodynamics/entropy#entropy_balance_and_multiple_heat_transfer_events'>Entropy Balance and multiple heat transfer events</a></li>
+                <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='/thermodynamics/entropy#rate_of_change_of_entropy'>Rate of Change of Entropy</a></li>
+                <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='/thermodynamics/entropy#microstates'>Microstates</a></li>
+                <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='/thermodynamics/entropy#principal_of_superposition'>Principal of Superposition</a></li>
+                <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='/thermodynamics/entropy#open_system_entropy_rate_balance'>Open System Entropy Rate Balance</a></li>
+            </ul>
+        </li>
     </ul>
-  </section>
-</div>
-</Layout>
+        </CourseCard>
+        
+        
+        
+        
+        
+        
+        
+        
+
+        <CourseCard href="/thermodynamics/cycles" img_src="/thermodynamics/home_page/cycles.png" title="Cycles">
+            <ul class='list-group list-group-flush py-0'> 
+            <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='/thermodynamics/cycles#carnot_cycle'>Carnot cycle</a>
+                <ul class='list-group list-group-flush py-0'> 
+                    <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='/thermodynamics/cycles#carnot_cycle_steps'>Carnot Cycle Steps</a></li>
+                    <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='/thermodynamics/cycles#isothermal_processes'>Isothermal Processes</a></li>
+                    <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='/thermodynamics/cycles#adiabatic_processes'>Adiabatic Processes</a></li>
+                    <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='/thermodynamics/cycles#internal_energy_balance_of_the_system'>Internal Energy Balance of the System</a></li>
+                    <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='/thermodynamics/cycles#thermal_efficiency'>Thermal Efficiency</a></li>
+                </ul>
+            </li>
+            <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='/thermodynamics/cycles#a_rankine_cycle'>A Rankine Cycle</a></li>
+            <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='/thermodynamics/cycles#otto_cycle'>Otto Cycle</a></li>
+        </ul>
+        </CourseCard>
+        
+        
+<li slot="list"><a href="/thermodynamics/thermodynamic_systems?origin=coursemenu">Thermodynamic systems</a></li> 
+<li slot="list"><a href="/thermodynamics/substances?origin=coursemenu">Substances</a></li>
+<li slot="list"><a href="/thermodynamics/heat_and_work?origin=coursemenu">Heat and work</a></li>
+<li slot="list"><a href="/thermodynamics/mass_and_energy_balances?origin=coursemenu">Mass and energy balances</a></li>
+<li slot="list"><a href="/thermodynamics/complex_problems?origin=coursemenu">Complex problems</a></li>
+<li slot="list"><a href="/thermodynamics/thermodynamic_devices?origin=coursemenu">Thermodynamic devices</a></li>
+
+<li slot="list"><a href="/thermodynamics/entropy?origin=coursemenu">Entropy</a></li>
+<li slot="list"><a href="/thermodynamics/cycles?origin=coursemenu">Cycles</a></li>
+
+
+                </SimplifiedView>
+            </div>
+            <div class="col-md-0 col-0">
+            </div>
+        </div>    
+    </Layout>
+    

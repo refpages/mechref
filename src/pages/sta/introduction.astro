@@ -17,43 +17,43 @@ import DisplayTable from "../../components/DisplayTable.astro"
     <ul class='list-group list-group-flush py-0'> 
         <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#newtons_laws'>Newton's laws</a>
             <ul class='list-group list-group-flush py-0'> 
-                <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#newtons_mass_and_energy_balances'>Newton's First Law</a></li> 
-                <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#newtons_second_law'>Newton's Second Law</a></li> 
-                <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#newtons_third_law'>Newton's Third Law</a></li> 
+                <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#newtons_mass_and_energy_balances'>Newton's first law</a></li> 
+                <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#newtons_second_law'>Newton's second law</a></li> 
+                <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#newtons_third_law'>Newton's third law</a></li> 
                 <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#example'>Example</a></li> 
             </ul>
         </li> 
         <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#idealizations'>Idealizations</a>
             <ul class='list-group list-group-flush py-0'> 
                 <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#particles'>Particles</a></li> 
-                <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#rigid_bodies'>Rigid Bodies</a></li> 
+                <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#rigid_bodies'>Rigid bodies</a></li> 
             </ul>
         </li>
     </ul>
 </div>
 
-<Section title="Introduction to Statics" id="introduction_to_statics"></Section>
+<Section title="Introduction to statics" id="introduction_to_statics"></Section>
 
-<SubSection title="Newton's Laws" id="newtons_laws">
+<SubSection title="Newton's laws" id="newtons_laws">
 
 Newton's equations relate the acceleration <InlineEquation equation='\\vec{a}' /> of a point mass with mass <InlineEquation equation='m' /> to the total applied force <InlineEquation equation='\\vec{F}' /> on the mass (sum of all applied forces). There is no derivation for Newton's equations, because they are an assumed model for dynamics. We can only verify them by comparing with experimental evidence, which confirms that Newtonian dynamics are accurate for non-relativistic and non-quantum systems.
 
 
 </SubSection>
 
-<SubSubSection title="Newton's First Law" id="newtons_mass_and_energy_balances">
+<SubSubSection title="Newton's first law" id="newtons_mass_and_energy_balances">
 
 A particle at rest stays that way unless acted on by unbalanced forces. 
 
 </SubSubSection>
 
-<SubSubSection title="Newton's Second Law" id="newtons_second_law">
+<SubSubSection title="Newton's second law" id="newtons_second_law">
 
     <DisplayEquation equation="\\vec{F} = m\\vec{a}" background="True" title="Newton's second law: "/>
 
 </SubSubSection>
 
-<SubSubSection title="Newton's Third Law" id="newtons_third_law">
+<SubSubSection title="Newton's third law" id="newtons_third_law">
 
 The mutual forces of action and reaction between two particles are equal, opposite, and collinear. 
 
@@ -88,7 +88,7 @@ In this course, we assume two things about particles:
 
 </SubSubSection>
 
-<SubSubSection title="Rigid Bodies" id="rigid_bodies">
+<SubSubSection title="Rigid bodies" id="rigid_bodies">
 
 For rigid bodies, we assume that the object has both mass (similar to particles) but also take its shape into account. 
 </p>
@@ -111,14 +111,12 @@ A <em>rigid body</em> is an extended area of material that
             <tr>
                 <th></th>
                 <th>location description</th>
-                <th>velocity description</th>
             <tr>
         </thead>
         <tbody>
             <tr>
                 <th>point mass</th>
                 <td>position vector <InlineEquation equation="\\vec{r}_P" /></td>
-                <td>velocity vector <InlineEquation equation="\\vec{ v}_P" /></td>
             </tr>
             <tr>
                 <th>rigid body in 2D</th>
@@ -126,20 +124,12 @@ A <em>rigid body</em> is an extended area of material that
                     <p class="m-0">position vector <InlineEquation equation="\\vec{r}_P" /></p>
                     <p class="m-0">angle <InlineEquation equation="\\theta" /></p>
                 </td>
-                <td>
-                    <p class="m-0">velocity vector <InlineEquation equation="\\vec{v}_P"/></p>
-                    <p class="m-0">angular velocity <InlineEquation equation="\\omega" /></p>
-                </td>
             </tr>
             <tr>
                 <th>rigid body in 3D</th>
                 <td>
                     <p class="m-0">position vector <InlineEquation equation="\\vec{r}_P"/></p>
                     <p class="m-0">angles <InlineEquation equation="\\theta,\\phi,\\psi"/></p>
-                </td>
-                <td>
-                    <p class="m-0">velocity vector <InlineEquation equation="\\vec{v}_P"/></p>
-                    <p class="m-0">angular velocity vector <InlineEquation equation="\\vec{\\omega}" /></p>
                 </td>
             </tr>
         </tbody>

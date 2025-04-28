@@ -13,11 +13,11 @@ import Row from "../../components/Row.astro"
 import Col from "../../components/Col.astro"
 ---
 
-<Layout title="Moment of Inertia">
+<Layout title="Moment of inertia">
 
     <div slot="navtree">
         <ul class='list-group list-group-flush py-0'> 
-          <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#second_moment'>Moment of Inertia (Second Moment of Area)</a></li> 
+          <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#second_moment'>Moment of inertia (second moment of area)</a></li> 
           <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#parallel_axis_theorem'>Parallel axis theorem</a></li>
           <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#combining_moments'>Combining moments of inertia</a></li>
           <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#typical_shapes'>Moment of inertia for typical shapes</a></li>
@@ -25,7 +25,7 @@ import Col from "../../components/Col.astro"
         </ul>
       </div>
 
-<Section title="Moment of Inertia" id="moments">
+<Section title="Moment of inertia" id="moments">
 
 <!-- Lecture 33 -->
 <em>Note:</em> in statics we are using the second moment of area as our moment of inertia. In dynamics, a different moment of inertia is used (the mass moment of inertia). The differences between these two quantities are summarized in the following table. 
@@ -77,10 +77,10 @@ import Col from "../../components/Col.astro"
         <tr>
             <th>Units</th>
             <td>
-                <InlineEquation equation="length*mass^2"/>
+                <InlineEquation equation="\\mathrm{mass} * \\mathrm{length} ^ 2"/>
             </td>
             <td class="table-shaded">
-                <InlineEquation equation="length^4"/>
+                <InlineEquation equation="\\mathrm{length} ^ 4"/>
             </td>
         </tr>
         <tr>
@@ -106,11 +106,11 @@ import Col from "../../components/Col.astro"
 
 </Section>
 
-<SubSection title="Moment of Inertia (Second Moment of Area)" id="second_moment">
+<SubSection title="Moment of inertia (second moment of area)" id="second_moment">
 
 The moment of inertia used in statics is the "second moment of area".
 This is a mass property that determines the amount of torque that is needed to create an angular acceleration about a specific axis of rotation. 
-The dimension of the area moment of inertia is <InlineEquation equation='length^4' />.
+The dimension of the area moment of inertia is <InlineEquation equation='\\mathrm{length} ^ 4' />.
 
 <DisplayEquation equation='I_x = \\int_{A}^{} y^2 \\,dA \\' title="Moment of inertia about the x-axis" background="True" />
 

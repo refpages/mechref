@@ -21,17 +21,17 @@ import CalloutContainer from "../../components/CalloutContainer.astro"
 import DisplayTable from "../../components/DisplayTable.astro"
 import InlineCanvas from "../../components/InlineCanvas.astro"
 ---
-<Layout title="Center of Mass">
+<Layout title="Center of mass">
 
     <div slot="navtree">
         <ul class='list-group list-group-flush py-0'> 
           <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#centroid'>Centroid</a></li> 
-		  <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#basic_shapes'>Centroids of Basic Shapes</a></li>
-		  <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#composite_shapes'>Finding Centroids Using Composite Shapes</a></li>
+		  <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#basic_shapes'>Centroids of basic shapes</a></li>
+		  <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#composite_shapes'>Finding centroids using composite shapes</a></li>
       </ul>
       </div>
 
-<Section title="Center of Mass, Gravity, and Volume" id="center_of_mass">
+<Section title="Center of mass, gravity, and volume" id="center_of_mass">
 
 <p>
 The center of mass, center of gravity, and center of volume of an object are all very similar. In fact, they are all the same if the density of the object is constant and gravity is constant along an object. 
@@ -112,20 +112,20 @@ The center of mass, center of gravity, and center of volume are all represented 
     When are Centers of Gravity, Mass, and Volume the same? Deriving each will make this clearer.
 </p>
 
-<DisplayEquation title = "Center of gravity" id = "cog" background = "True" equation = "\\bar{y} = \\frac{\\int \\tilde{y} \\ dW}{\\int dW} \\ \\ \\ \\bar{x} = \\frac{\\int \\tilde{x} \\ dW}{\\int dW}"></DisplayEquation>
+<DisplayEquation equation = "\\bar{y} = \\frac{\\int \\tilde{y} \\ dW}{\\int dW} \\ \\ \\ \\bar{x} = \\frac{\\int \\tilde{x} \\ dW}{\\int dW}" title = "Center of gravity" background = "True" id = "cog"/>
 
-<DisplayEquation title = "Center of mass" id = "com" background = "True" equation = "\\bar{y} = \\frac{\\int \\tilde{y} \\ dm}{\\int dm} \\ \\ \\ \\bar{x} = \\frac{\\int \\tilde{x} \\ dm}{\\int dm}" derivation = "True" >
+<DisplayEquation equation = "\\bar{y} = \\frac{\\int \\tilde{y} \\ dm}{\\int dm} \\ \\ \\ \\bar{x} = \\frac{\\int \\tilde{x} \\ dm}{\\int dm}" title = "Center of mass" background = "True" derivation = "True" id = "com">
     <p class = "text-center">We know that: <InlineEquation equation = "W = m * g"/></p>
     <DisplayEquation equation = `\\begin{align} \\Rightarrow dW &= dm \\cdot g + m \\cdot \\cancel{dg} && \\text{assuming } g \\text{ is constant} \\\\ 
-    &= g\\cdot dm && dg = 0 \\end{align}` />
+        &= g\\cdot dm && dg = 0 \\end{align}` />
     <DisplayEquation equation = "\\bar{y} = \\frac{\\int \\tilde{y} * \\cancel{g} \\ dm}{\\int \\cancel{g} dm}"/>
     <DisplayEquation equation = "\\bar{y} = \\frac{\\int \\tilde{y} \\ dm}{\\int dm} \\ \\ \\ \\bar{x} = \\frac{\\int \\tilde{x} \\ dm}{\\int dm}"/>
 </DisplayEquation>
 
-<DisplayEquation title = "Center of volume (centroid)" id = "cov" background = "True" equation = "\\bar{y} = \\frac{\\int \\tilde{y} \\ dV}{\\int dV} \\ \\ \\ \\bar{x} = \\frac{\\int \\tilde{x} \\ dV}{\\int dV}" derivation = "True">
+<DisplayEquation equation = "\\bar{y} = \\frac{\\int \\tilde{y} \\ dV}{\\int dV} \\ \\ \\ \\bar{x} = \\frac{\\int \\tilde{x} \\ dV}{\\int dV}" title = "Center of volume (centroid)" background = "True" derivation = "True" id = "cov">
     <p class="text-center">We know that mass = <InlineEquation equation = "\\rho * V \\ \\ \\ \\ \\"/>(<InlineEquation equation = "\\rho"/> = density)</p>
     <DisplayEquation equation = `\\begin{align} \\Rightarrow dm &= \\rho * dV + V * \\cancel{d \\rho} && \\text{assuming } \\rho \\text{ is constant} \\\\
-    &= \\rho * dV && d \\rho = 0 \\end{align}`/>
+        &= \\rho * dV && d \\rho = 0 \\end{align}`/>
     <DisplayEquation equation = "\\bar{y} = \\frac{\\int \\tilde{y} * \\cancel{\\rho} \\ dV}{\\int \\cancel{\\rho} \\ dV}"/>
     <DisplayEquation equation = "\\bar{y} = \\frac{\\int \\tilde{y} \\ dV}{\\int dV} \\ \\ \\ \\bar{x} = \\frac{\\int \\tilde{x} \\ dV}{\\int dV}"/>
 </DisplayEquation>
@@ -188,7 +188,7 @@ with similar equations for <InlineEquation equation="\\bar{y}" />.
 </SubSection>
 <!-- Lectures 28, 29  -->
 
-<SubSubSection title = "Axes of Symmetry">
+<SubSubSection title = "Axes of symmetry">
 
 <Image src="/sta/centers_of_mass/AxisOfSymmetry.png" width="7"></Image>
 
@@ -196,7 +196,7 @@ If the shape has an axis of symmetry, the centroid falls on that line of symmetr
 
 </SubSubSection>
 
-<SubSubSection title="Centroids of Basic Shapes" id="basic_shapes">
+<SubSubSection title="Centroids of basic shapes" id="basic_shapes">
 
 <style>
     /* Center-align all table content */
@@ -276,7 +276,7 @@ If the shape has an axis of symmetry, the centroid falls on that line of symmetr
 
 </SubSubSection> 
 
-<SubSubSection title = "Finding Centroids Using Composite Shapes" id = "composite_shapes">
+<SubSubSection title = "Finding centroids using composite shapes" id = "composite_shapes">
 
 <p> We can find the centroid of more complicated shapes by breaking them up into simpler shapes and finding the centroids of those simpler shapes. </p>
 

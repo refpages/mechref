@@ -37,7 +37,7 @@ import Plotly from "../../components/Plotly.astro";
 
 </style>
 
-<Layout title="Style Guide & Documentation">
+<Layout title="Style guide & documentation">
 
 <div slot="navtree">
     <ul class='list-group list-group-flush py-0'>
@@ -48,20 +48,23 @@ import Plotly from "../../components/Plotly.astro";
             </ul>
         </li>
         <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#branding'> Branding </a></li>
-        <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#general-page-format'> General Format </a></li>
-        <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#section-types'> Section Types </a>
+        <ul class='list-group list-group-flush py-0'>
+            <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#fig-brand'> Figure branding </a></li>
+        </ul>
+        <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#general-page-format'> General format </a></li>
+        <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#section-types'> Section types </a>
             <ul class='list-group list-group-flush py-0'>
                 <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#section'> Title </a></li>
                 <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#sub-section'> Sections </a></li>
-                <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#sub-sub-section'> Sub Sections </a></li>
-                <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#sub-sub-sub-section'> Sub Sub Sections </a></li>
+                <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#sub-sub-section'> Sub sections </a></li>
+                <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#sub-sub-sub-section'> Sub sub sections </a></li>
             </ul>
         </li>
-        <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#paragraph-font'>Paragraph and Font Options</a>
+        <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#paragraph-font'>Paragraph and font options</a>
             <ul class='list-group list-group-flush py-0'>
-                <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#new-paragraph'> New Paragraph </a></li>
+                <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#new-paragraph'> New pragraph </a></li>
                 <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#lists'> Lists </a></li>
-                <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#numbered-lists'> Numbered Lists </a></li>
+                <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#numbered-lists'> Numbered lists </a></li>
                 <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#multi-column'> Multicolumn </a></li>
                 <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#italics'> Italics </a></li>
                 <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#bold'> Bold </a></li>
@@ -69,8 +72,8 @@ import Plotly from "../../components/Plotly.astro";
                 <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#font-customizations'> Other </a></li>
             </ul>
         </li>
-        <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#nav-tree'> Navigation Tree </a></li>
-        <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#links'> Inserting Links </a>
+        <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#nav-tree'> Navigation tree </a></li>
+        <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#links'> Inserting links </a>
             <ul class='list-group list-group-flush py-0'>
                 <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#same-page'> Within </a></li>
                 <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#int-page'> MechRef </a></li>
@@ -78,11 +81,12 @@ import Plotly from "../../components/Plotly.astro";
                 <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#ext-video'> Video </a></li>
             </ul>
         </li>
-        <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#callout-cards'> Callout Cards </a>
+        <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#callout-cards'> Callout cards </a>
             <ul class='list-group list-group-flush py-0'>
                 <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#review'> Review </a></li>
-                <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#supplemental'> Supplemental Material </a></li>
-                <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#extra'> Extra Info</a></li>
+                <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#supplemental'> Supplemental material </a></li>
+                <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#extra'> Extra info</a></li>
+                <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#applications'> Applications</a></li>
             </ul>
         </li>
         <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#images'> Images </a></li> 
@@ -114,7 +118,7 @@ import Plotly from "../../components/Plotly.astro";
 </div>
     
 
-<Section title="Style Guide & Documentation" id="style-guide">
+<Section title="Style guide & documentation" id="style-guide">
 
 The aim of using components is to maintain a consistant look and feel throughout the website, as well as being able to make changes without having to go through every page.
 
@@ -200,10 +204,29 @@ This concept is very important, and applies to almost every component. The diffe
 <SubSection title ="Branding" id="branding">
    <p>
         For U of I affiliated pages, use the university specified <a href="https://brand.illinois.edu/visual-identity/color">branding</a>. 
+        Mechref has three U of I specific colors defined as variables:
+    </p> 
+        <ul>
+            <li>--illini-blue: Illinois blue</li>
+            <li>--illini-orange: Illinois orange</li>
+            <li>--altgeld-orange: A darker version of orange, having more contrast than Illinois orange, meant to be more accessible.</li>
+        </ul>
+        
         To change the color to text, you can either enter a hex code, or type in common color names. 
-    </p>    
-    <CodeBox code=`<span style="color: #000000">Text</span>` />
+   
+        <CodeBox code=`<span style="color: #000000">Text</span>` />
+
+        For U of I colors,  make sure to wrap the variable with `var()`, and to not forget the `--`.
+        <CodeBox language="html" code=`
+       <span style="color: var(--illini-blue);">Text, </span><span style="color: var(--altgeld-orange);">and more text</span> 
     
+        ` />
+        <span style="color: var(--illini-blue);">Text, </span><span style="color: var(--altgeld-orange);">and more text</span> 
+  
+
+    </SubSection>
+       
+    <SubSubSection title = "Figure branding" id="fig-brand">
     <p>All content figures should have the following components colored the same so there is continuity between courses. </p>
 
         <Itemize>
@@ -241,9 +264,9 @@ This concept is very important, and applies to almost every component. The diffe
         </Row>
 
 
-</SubSection>
+    </SubSubSection>
 
-<SubSection title="General Page Format" id="general-page-format">
+<SubSection title="General page format" id="general-page-format">
    <p>
     The general format for a page is as follows. Parts can be removed as needed, but try not to rearrange them.
    </p> 
@@ -268,9 +291,11 @@ This concept is very important, and applies to almost every component. The diffe
 
 Remember, these pages are supposed to be reference material, not a textbook. Keep blocks of text to a mimimum and use bullet points and numbering when useful. 
 </SubSection>
-<SubSection id="section-types" title="Section Types"></SubSection>
+<SubSection id="section-types" title="Section types"></SubSection>
 
-<SubSubSection id="section" title="Page Title" >
+All titles should be done in sentence case. 
+
+<SubSubSection id="section" title="Page title" >
 
     <CodeBox language="javascript" code=`
     import Section from "../../components/Section.astro" 
@@ -295,13 +320,13 @@ Remember, these pages are supposed to be reference material, not a textbook. Kee
 
 <hr>
 
-<Section title="Example Page Title" id="example-page">
+<Section title="Example page title" id="example-page">
 <p>TEXT</p>
 </Section>
 
 <hr>
 
-<SubSubSection id="sub-section" title="Page Sections" >
+<SubSubSection id="sub-section" title="Page sections" >
 
     <CodeBox language="javascript" code=`
     import SubSection from "../../components/SubSection.astro"
@@ -326,13 +351,13 @@ Remember, these pages are supposed to be reference material, not a textbook. Kee
 
 <hr>
 
-<SubSection title="Example Section" id="example-section">
+<SubSection title="Example section" id="example-section">
     <p>TEXT</p>
 </SubSection>
 
 <hr>
 
-<SubSubSection id="sub-sub-section" title="Page Sub Sections" >
+<SubSubSection id="sub-sub-section" title="Page sub sections" >
 
     <CodeBox language="javascript" code=`
     import SubSection from "../../components/SubSubSection.astro"
@@ -357,13 +382,13 @@ Remember, these pages are supposed to be reference material, not a textbook. Kee
 
 <hr>
 
-<SubSubSection title="Example SubSection" id="example-sub-section">
+<SubSubSection title="Example subsection" id="example-sub-section">
     <p>TEXT</p>
 </SubSubSection>
 
 <hr>
 
-<SubSubSection id="sub-sub-sub-section" title="Page Sub Sub Sections" >
+<SubSubSection id="sub-sub-sub-section" title="Page sub sub sections" >
 
     <CodeBox language="javascript" code=`
     import SubSection from "../../components/SubSubSubSection.astro"
@@ -388,18 +413,18 @@ Remember, these pages are supposed to be reference material, not a textbook. Kee
 
 <hr>
 
-<SubSubSubSection title="Example SubSubSection" id="example-sub-sub-section">
+<SubSubSubSection title="Example subsubsection" id="example-sub-sub-section">
     <p>TEXT</p>
 </SubSubSubSection>
 
 <hr>
     
-<SubSection title="Paragraph and Font Options" id="paragraph-font">
+<SubSection title="Paragraph and font options" id="paragraph-font">
     <p>TEXT</p>
 </SubSection>
     
       
-<SubSubSection title="New Paragraph" id="new-paragraph">
+<SubSubSection title="New paragraph" id="new-paragraph">
     <p>Tag type: Regular</p>
     
     Options:
@@ -446,7 +471,7 @@ Remember, these pages are supposed to be reference material, not a textbook. Kee
 </SubSubSection>     
 
 
-<SubSubSection title="Numbered Lists" id="numbered-lists">
+<SubSubSection title="Numbered lists" id="numbered-lists">
     
     <p>Use when 2 or more things are in a process or order.</p>
 
@@ -729,29 +754,11 @@ Remember, these pages are supposed to be reference material, not a textbook. Kee
     ` />
     <span style="color: green;" >TEXT</span> 
 
-    <p class="mt-2">
-        Mechref has three U of I specific colors defined as variables:
-    </p>
-    <ul>
-        <li>--illini-blue: Illinois blue</li>
-        <li>--illini-orange: Illinois orange</li>
-        <li>--altgeld-orange: A darker version of orange, having more contrast than Illinois orange, meant to be more accessible.</li>
-    </ul>
 
-    Example:
-    <CodeBox language="html" code=`
-   <span style="color: var(--illini-blue);">Text, </span><span style="color: var(--altgeld-orange);">and more text</span> 
-
-    ` />
-    <span style="color: var(--illini-blue);">Text, </span><span style="color: var(--altgeld-orange);">and more text</span> 
-    
-    <p class="my-2">
-        Make sure to wrap the variable with `var()`, and to not forget the `--`.
-    </p>   
 
 </SubSubSection> 
 
-<SubSection title="Navigation Tree" id="nav-tree">
+<SubSection title="Navigation tree" id="nav-tree">
 
     <p>Tag type: Regular</p>
     
@@ -816,7 +823,7 @@ Remember, these pages are supposed to be reference material, not a textbook. Kee
 
 </SubSubSection> 
 
-<SubSubSection title="Internal Page" id="int-page">
+<SubSubSection title="Internal page" id="int-page">
 
     <p>Tag type: Regular</p>
     
@@ -836,7 +843,7 @@ Remember, these pages are supposed to be reference material, not a textbook. Kee
 
 </SubSubSection> 
 
-<SubSubSection title="External Page" id="ext-page">
+<SubSubSection title="External page" id="ext-page">
 
     <p>Tag type: Regular</p>
     
@@ -856,7 +863,7 @@ Remember, these pages are supposed to be reference material, not a textbook. Kee
 
 </SubSubSection> 
 
-<SubSubSection title="External Video" id="ext-video">
+<SubSubSection title="External video" id="ext-video">
 
     <p> For safety purposes, please only embed YouTube videos. <p>
 
@@ -882,10 +889,10 @@ Remember, these pages are supposed to be reference material, not a textbook. Kee
 
 </SubSubSection>
 
-<SubSection title="Callout Cards" id="callout-cards">
+<SubSection title="Callout cards" id="callout-cards">
 
     <p>
-    There are 3 main callout card templates which are all shown here. 
+    There are 4 main callout card templates which are all shown here. 
     </p>
 
     <CodeBox language="javascript" code=`
@@ -945,7 +952,7 @@ Remember, these pages are supposed to be reference material, not a textbook. Kee
 </SubSubSection>
 
 
-<SubSubSection title="Supplemental Material" id="supplemental">
+<SubSubSection title="Supplemental material" id="supplemental">
     <p>This card is used to include supplemental material (ie; videos, webpages, open-source textbooks, etc.).</p>
     <CalloutContainerContainer>
         <CodeBox language="html" code=`
@@ -966,7 +973,7 @@ Remember, these pages are supposed to be reference material, not a textbook. Kee
     </CalloutContainerContainer>
 </SubSubSection>
 
-<SubSubSection title="Extra Info" id="extra">
+<SubSubSection title="Extra info" id="extra">
     <p>This card is used to connect to future content in the course or other courses students may take in the future.</p>
     <CalloutContainerContainer>
     <CodeBox language="html" code=`
@@ -986,6 +993,35 @@ Remember, these pages are supposed to be reference material, not a textbook. Kee
         <CalloutCard title="Heads  up!">
             <p>
                <strong> SubSectionTitle </strong> builds on this content in COURSE.
+            </p>
+            <p>
+                CONTENT
+            </p>
+        </CalloutCard>
+    </CalloutContainer>
+</CalloutContainerContainer>
+</SubSubSection>
+
+<SubSubSection title="Applications" id="applications">
+    <p>This card is used to highlight a real-world application of the course material.</p>
+    <CalloutContainerContainer>
+    <CodeBox language="html" code=`
+    <CalloutContainer slot="cards">
+        <CalloutCard title="Application Alert!">
+            <p>
+               <a href="/XXX/ApplicationPage">Application</a>  uses <strong> SubSectionTitle </strong> by SHORT DESCRIPTION.
+              </p>
+              <p>
+                 CONTENT
+              </p>
+        </CalloutCard>
+    </CalloutContainer>
+    ` closed_by_default="True" id="applicationalert" closed_height="60"/>
+
+    <CalloutContainer slot="cards">
+        <CalloutCard title="Application  Alert!">
+            <p>
+                <a href="/XXX/ApplicationPage">Application</a>  uses <strong> SubSectionTitle </strong> by SHORT DESCRIPTION.
             </p>
             <p>
                 CONTENT

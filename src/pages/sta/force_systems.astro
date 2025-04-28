@@ -8,7 +8,7 @@ import BlueText from "../../components/BlueText.astro"
 import InlineEquation from "../../components/InlineEquation.astro" 
 import DisplayEquation from "../../components/DisplayEquation.astro" 
 ---
-<Layout title="ForceSystems">
+<Layout title="Force systems">
 
     <div slot="navtree">
         <ul class='list-group list-group-flush py-0'> 
@@ -19,11 +19,11 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
             <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#rectangular_loading'>Rectangular loading</a></li>
             <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#triangular_loading'>Triangular loading</a></li>
             <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#nonuniform_distributed_loads'>Nonuniform distributed loads</a></li>
-        </ul>
+          </ul>
       </ul>
       </div>
 
-<Section title="Force Systems" id="force_systems"></Section>
+<Section title="Force systems" id="force_systems"></Section>
 
 <SubSection title="Equivalent systems" id="equivalent_systems">
 
@@ -39,17 +39,17 @@ It can be helpful to know what are equivalent transformations for both forces an
 
 </SubSection>
 
-<SubSubSection title="Allowable Force Transformations" id="allowable force transformations">
+<SubSubSection title="Allowable force transformations" id="allowable force transformations">
 
 Replacing two forces with their vector sum: 
 <Image src='/sta/force_systems/Equivalent_VectorSum.PNG' width='5 '> </Image>
 
 Moving a force ALONG its line of action: 
-<Image src='/sta/force_systems/Equivalent_Force_LOA.png' width='5 '> </Image>
+<Image src='/sta/force_systems/Equivalent_Force_LOA.png' width='4.5 '> </Image>
 
 </SubSubSection>
 
-<SubSubSection title="Allowable Moment Transformations" id="allowable moment transformations">
+<SubSubSection title="Allowable moment transformations" id="allowable moment transformations">
 
 Replacing a force couple with a couple moment: 
 <Image src='/sta/force_systems/Equivalent_CoupleReplace.png' width='5 '> </Image>
@@ -63,7 +63,7 @@ Moving a couple moment to another spot on a rigid body:
 
 Concentrated forces are forces acting at a specific point on a body. 
 
-<Image src='/sta/force_systems/ConcentratedForce.PNG' width='5 '> A concentrated force applied to a bar at point A.</Image>
+<Image src='/sta/force_systems/ConcentratedForce.PNG' width='4 '> A concentrated force applied to a bar at point A.</Image>
 
 </SubSection>
 
@@ -86,7 +86,7 @@ For a constant distributed load of magnitude c applied to a bar over a length l,
 
 the resultant force location is at <InlineEquation equation='l/2' />.
 
-<Image src='/sta/force_systems/DistLoad.PNG' width='5'> Example distributed load (top) and its equivalent force system (bottom).</Image>
+<Image src='/sta/force_systems/DistLoad.PNG' width='4'> Example distributed load (top) and its equivalent force system (bottom).</Image>
 
 </SubSubSection>
 
@@ -98,7 +98,7 @@ For a triangular distributed load (a uniformly varying load), the magnitude of t
 
 The location of <InlineEquation equation='F_R' /> is 1/3 from the base of the triangle. 
 
-<Image src='/sta/force_systems/TriangleLoad.PNG' width='5'> Example triangular distributed load (top) and its equivalent force system (bottom).</Image>
+<Image src='/sta/force_systems/TriangleLoad.PNG' width='4'> Example triangular distributed load (top) and its equivalent force system (bottom).</Image>
 
 </SubSubSection>
 
@@ -120,22 +120,20 @@ Now we can solve for the center of mass of the distributed load, <InlineEquation
 
 <Image src='/sta/force_systems/NonuniformLoad.jpg' width='8'> Nonuniform load.</Image>
 
-<div style = "display: flex; justify-content: center; align-items: center;">
-  <div style = "display: flex; gap: 120px;">
-      <div style = "width: 300px; height: 200px; text-align: center;">
-        <p class = "text-center">Moment about 0 from force <InlineEquation equation = "dF:"/></p>
-        <DisplayEquation equation = `\\begin{align} dM &= x * (dF) \\\\
-        &= x * w * dx \\end{align}`/>
-        <p class = "text-center">Total moment <InlineEquation equation = "(M_R)"/> about point 0:</p>
-        <DisplayEquation equation = "M_R = \\int dM = \\int_{0} ^ {L} x * w(x) \\, dx"/>
-      </div>
-      <div style = "width: 300px; height: 200px; text-align: center;">
-        <p class = "text-center">Total moment <InlineEquation equation = "(M_R)"/> about point 0:</p>
-        <DisplayEquation equation = "M_R = \\bar{x} * F_R"/>
-        <p class = "text-center">solve for <InlineEquation equation = "\\bar{x}:"/></p>
-        <DisplayEquation equation = "\\bar{x} = \\frac{M_R}{F_R} = \\frac{\\int_{0} ^ {L} x * w \\, dx}{\\int_{0} ^ {L} w \\, dx}"/>
-      </div>
-    </div>
+<div class="row">
+  <div class="col-md-6 col-12">
+    <p class = "text-center">Moment about 0 from force <InlineEquation equation = "dF:"/></p>
+    <DisplayEquation equation = `\\begin{align} dM &= x * (dF) \\\\
+    &= x * w * dx \\end{align}`/>
+    <p class = "text-center">Total moment <InlineEquation equation = "(M_R)"/> about point 0:</p>
+    <DisplayEquation equation = "M_R = \\int dM = \\int_{0} ^ {L} x * w(x) \\, dx"/>
+  </div>
+  <div class="col-md-6 col-12" >
+    <p class = "text-center">Total moment <InlineEquation equation = "(M_R)"/> about point 0:</p>
+    <DisplayEquation equation = "M_R = \\bar{x} * F_R"/>
+    <p class = "text-center">solve for <InlineEquation equation = "\\bar{x}:"/></p>
+    <DisplayEquation equation = "\\bar{x} = \\frac{M_R}{F_R} = \\frac{\\int_{0} ^ {L} x * w \\, dx}{\\int_{0} ^ {L} w \\, dx}"/>
+  </div>
 </div>
 
 </SubSubSection>
