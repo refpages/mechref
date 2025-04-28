@@ -133,14 +133,107 @@ import CalloutContainer from "../../components/CalloutContainer.astro"
         <Item>y component of 2 plane</Item>
 
     </Enumerate>
+
     <p>
-    </p><p>
-    we have 6 unknowns. (2 masses, two x positions, 2 y positions). Again this is okay because it gives design freedom. </p>
+        A good example for dynamic balancing is a CT scanner. A CT scanner is composed of many different elements that have to rotate about an axis at a constant rate to get a good image of the person being scanned. For this example, let us simplify the CT scanner and only consider the x-ray source, the x-ray detectors, and the cooling system. Assume the x-ray source and the cooling system as a single point mass located at the center of mass of each system while the x-ray detectors as two point masses as there are more detectors that each have a sizable mass. In this case, the location of the x-ray source and detectors is known because they have to be across from each other to operate properly. Using the cooling system and an extra balance, we can work to balance the system.</p>
+
+
+        <Image src="/md/Balancing/CT_scanner_without_cover.jpg" width="5"></Image>
+        <!--Source: https://www.medicaldaily.com/pulse/ct-scanner-without-its-cover-demonstrates-how-it-works-inside-machine-reveals-your-363658-->
+
+        <Image src="/md/Balancing/CT_Scanner_Simplified_Ex.png" width="5"></Image>
+        <p>In this example, you are free to decide the mass of the balance and the cooling fluid along with the x- and y-positions of each.</p>
+        <Image src="/md/Balancing/CT_Scanner_Simplified_Ex_2.png" width="5"></Image>
+        <p>By summing taking the sum of the forces and setting them equal to zero, two equations will result (one with x-components and one with y-components).</p>
+
+        <p><DisplayEquation equation="\\sum_{i=0}^n m_i\\omega ^2\\overrightarrow R_i = 0"  background="True"/></p>
+
+        <p><DisplayEquation equation="\m_1\\overrightarrow R_1\\omega^2+m_2\\overrightarrow R_2\\omega^2+m_3\\overrightarrow R_3\\omega^2+m_A\\overrightarrow R_A\\omega^2+m_B\\overrightarrow R_B\\omega^2 = 0"  background="True"/></p>
+
+
+        <p>X-Component:</p>
+
+        <p><DisplayEquation equation="\m_AR_{Ax} +m_B R_{Bx} = - m_1R_{1x}- m_2 R_{2x}- m_3 R_{3x}" background="True"/></p>
+        <p>Y-Component:</p>
+
+        <p><DisplayEquation equation="\m_A R_{Ay} +m_BR_{By} = - m_1 R_{1y}- m_2 R_{2y}- m_3 R_{3y}"  background="True"/></p>
+
+        <p> We can also find two more equations by summing the moments about plane A.</p>
+
+        <p><DisplayEquation equation="\\sum_{i=0}^n m_i\\omega \\overrightarrow R_i l_i = 0"  background="True"/></p>
+
+        <p><DisplayEquation equation="\(m_1\\overrightarrow R_1\\omega ^2)l_1 + (m_2\\overrightarrow R_2\\omega ^2)l_2 +(m_3\\overrightarrow R_3\\omega ^2)l_3 + (m_B\\overrightarrow R_B\\omega ^2)l_B = 0"  background="True"/></p>
+
+        <p>X-Component:</p>
+
+
+        <p><DisplayEquation equation="\m_BR_{Bx}= \\frac{-m_1R_{1x}l_1-m_2R_{2x}l_2-m_3R_{3x}l_3}{l_B}"  background="True"/></p>
+
+        <p>Y-Component:</p>
+
+
+        <p><DisplayEquation equation="\m_BR_{By}= \\frac{-m_1R_{1y}l_1-m_2R_{2y}l_2-m_3R_{3y}l_3}{l_B}"  background="True"/></p>
+
+
+        <p> we have 6 unknowns. (2 masses, two x positions, 2 y positions). Again this is okay because it gives design freedom. </p>
     </SubSection>
-    <!--
-    <SubSection title="">Did you know?</SubSection>
+
+
+
+<!--
+        </p>
     <p>
-    </p><p>
+        $$</p>
+    <p>m_AR_{Ax} +m_B R_{Bx} = - m_1R_{1x}- m_2 R_{2x}- m_3 R_{3x}
+        $$</p>
+    <p>
+        Y-Component:</p>
+    <p>
+        $$</p>
+    <p>m_A R_{Ay} +m_BR_{By} = - m_1 R_{1y}- m_2 R_{2y}- m_3 R_{3y}
+        $$</p>
+    <p>
+        We can also find two more equations by summing the moments about plane A.</p>
+    <p>
+        $$</p>
+    \sum_{i=0}^n m_i\omega \overrightarrow R_i l_i = 0
+    <p>$$</p>
+    <p>
+        $$</p>
+    <p>(m_1\overrightarrow R_1\omega ^2)l_1 + (m_2\overrightarrow R_2\omega ^2)l_2 +(m_3\overrightarrow R_3\omega ^2)l_3 + (m_B\overrightarrow R_B\omega ^2)l_B = 0</p>
+    <p>$$</p>
+    <p>
+        X-Component:</p>
+    <p>
+        $$</p>
+    <p>m_BR_{Bx}= \frac{-m_1R_{1x}l_1-m_2R_{2x}l_2-m_3R_{3x}l_3}{l_B}
+        $$</p>
+    <p>
+        Y-Component:</p>
+    <p>
+        $$</p>
+    <p>m_BR_{By}= \frac{-m_1R_{1y}l_1-m_2R_{2y}l_2-m_3R_{3y}l_3}{l_B}
+        $$</p>
+    <p>
+        %Simultaneously solve 4 equations (probably should write them out)</p>
+    <p>
+        <Enumerate>
+
+        <Item>x component of 1 plane</p></Item>
+    <p>    <Item>y component of 1 plane</p></Item>
+    <p>    <Item>x component of 2 plane</p></Item>
+    <p>    <Item>y component of 2 plane</p></Item>
+    <p>
+        </Enumerate>
+    </p>
+    <p>
+    We have 6 unknowns (2 masses, two x-positions, and 2 y-positions). Again, this is okay because it allows for design freedom. </p>
+
+-->
+    <!--
+
+    <p>
+        %\subsection{Did you know?}
     </p><p>
     %\subsection{blancing a 4 bar linkage}
     %we could include this section if we want</p>
@@ -148,11 +241,9 @@ import CalloutContainer from "../../components/CalloutContainer.astro"
         %\subsection{flywheels}
         %we could include this section if we want</p>
     <p>%How big do you need to make the fly wheel to balance any imbalances?</p>
-
-    \end{document}
     <p>
-        %Two plane balancing of tires (very common) -> maybe some application videos</p>
+        %Two plane balancing of tires (very common)  maybe some application videos</p>
     <p>%CT scanner is a good example of balancing</p>
     %We want vibrations in some things (such as electric toothbrush and hex bugs)
-    -->
+-->
 </Layout>
