@@ -1,0 +1,251 @@
+---
+import Layout from "../../layouts/Layout.astro" 
+import Image from "../../components/Image.astro" 
+import Section from "../../components/Section.astro" 
+import SubSection from "../../components/SubSection.astro" 
+import SubSubSection from "../../components/SubSubSection.astro" 
+import BlueText from "../../components/BlueText.astro" 
+import RedText from "../../components/RedText.astro" 
+import InlineEquation from "../../components/InlineEquation.astro"
+import Center from "../../components/Center.astro"
+import CalloutCard from "../../components/CalloutCard.astro"
+import CalloutContainer from "../../components/CalloutContainer.astro"
+import Enumerate from "../../components/Enumerate.astro"
+import Item from "../../components/Item.astro"
+import Warning from "../../components/Warning.astro"
+import PrairieDrawCanvas from "../../components/PrairieDrawCanvas.astro"
+import DisplayEquation from "../../components/DisplayEquation.astro"
+import DisplayEquationCustom from "../../components/DisplayEquationCustom.astro"
+import Example from "../../components/Example.astro"
+import InlineCanvas from "../../components/InlineCanvas.astro"
+import Row from "../../components/Row.astro"
+import Col from "../../components/Col.astro"
+import SubSubSubSection from "../../components/SubSubSubSection.astro"
+import DisplayTable from "../../components/DisplayTable.astro"
+import CalloutContainerContainer from "../../components/special/CalloutContainerContainer.astro"
+---
+<Layout title="The capsizing ship">
+
+    <div slot="navtree">
+        <ul class='list-group list-group-flush py-0'> 
+          <ul class='list-group list-group-flush py-0'> 
+              <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#capsizing_ship'>The capsizing ship</a></li>  
+              <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#background'>Background</a></li>
+              <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#principles_of_stability'>Principles of stability</a></li>
+              <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#stability_comparisons'>Stability comparisons</a></li>
+              <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#additional_info'>Additional information</a></li>
+          </ul>
+              </ul>
+          </li>
+      </ul>
+      </div>
+
+<Section title = "The capsizing ship" id = "capsizing_ship"></Section>
+    
+<SubSection title = "Background" id = "background">
+
+<p>
+    We are all familiar with the notion of the center of mass of a rigid body. In class, we have described the 
+    position of the center of mass to be the average position of all the constitutent mass elements 
+    weighted by the the total mass of the body. We have also learnt how to find the center of mass of composite bodies 
+    and derived simple expressions for basic shapes. This practice can sometimes seem abstract, but do you know that 
+    center of mass calculations are integral in understanding the stability of dynamic structures? 
+</p>
+
+    <Image alt = "Capsized ship" src = "/dyn/Capsized_ship.jpg" width = 7>
+
+    <p class = "figureCaption">
+        The MV Golden Ray <a target="_blank" rel="noopener noreferrer" 
+        href="https://en.wikipedia.org/wiki/MV_Golden_Ray">capsized
+        </a> on 8 September 2019 in 
+        St. Simons Sound near the Port of Brunswick in Georgia, United States. 
+        Image Source: U.S. Coast Guard District 7 PADE. 
+    </p>
+    </Image>
+
+    <p>
+        The MV Golden Ray, a 656-foot long roll-on/roll-off vehicle carrier, collapsed on 
+        8 September 2019 in between the Colonel's Island Terminal in the Port of Brunswick, Georgia, 
+        and Baltimore, Maryland. You can read more about the incident 
+        <a target="_blank" rel="noopener noreferrer" 
+        href="https://www.cnn.com/2021/09/14/us/golden-ray-cargo-ship-ntsb-report/index.html">here.</a> 
+        After thorough investigations by the National Transportation Safety Board (NTSB), 
+        it was found that the chief officer of the ship entered erroneous ballast quantities into the stability 
+        calculation program, which produced incorrect stability conditions of the ship. In other words, a 
+        moment or torque was generated from the difference between 
+        the locations of the center of mass and the center of buoyancy.
+        This torque arm produced an angular acceleration &alpha; that was opposite to the angular displacement
+        &theta;, which meant that the ship was in unstable equilibrium. Thus, the failure in accounting for the 
+        changes in ballast quantities meant that the hull of the ship was unable to provide a counter torque to
+        these forces, and the ship capsized. Observe how you can combine concepts from both
+        TAM 210/211 and TAM 212!
+    </p>
+
+    <Image alt = "Capsized ship on fire" src = "/dyn/Capsized_ship_fire.jpg" width = 7>
+
+        <p class = "figureCaption">
+            The MV Golden Ray, which capsized near St. Simons, Georgia, US, caught fire on May 14, 2021. 
+            Image source: Jud McCranie. 
+        </p>
+    
+    </Image>
+
+
+</SubSection>
+
+<SubSection title = "Principles of stability" id = "principles_of_stability">
+
+    Ship stability reflects the relationship between buoyancy (the force pushing on a ship allowing it to float) 
+    and gravity (the force pushing the ship into the water). The force of gravity acts downward through the 
+    ship's center of gravity (G), while the buoyant force acts upward through the ship's center of buoyancy (B). 
+    When a vessel is floating at an even keel or upright, the force of gravity and buoyancy are vertically aligned. 
+    The stability of a vessel is usually expressed as the magnitude of the heeling moment that is necessary to capsize the 
+    ship at a certain angle, called the heeling angle.
+
+    <CalloutContainer slot = 'cards'>
+        <CalloutCard>
+
+            <p>
+
+                The center of buoyancy (B) is the point where the total buoyant force on a 
+                submerged or floating object acts. You can think of it as the center of gravity of 
+                the volume of fluid displaced by the object. This term is crucial for understanding 
+                stability and equilibrium in hydrodynamics. 
+            </p>
+
+
+        </CalloutCard>
+
+
+        <CalloutCard>
+
+            <p>
+                In practice, there is a way to stabilize an inverted pendulum at the top 
+                by oscillating it at a very high frequency that generates a regenerative oscillation
+                about the same point, but with higher amplitude and lower frequency. This is outside the 
+                scope of the presented content, but you can learn more about these topics is classes 
+                like ME 340 and TAM 412! 
+            </p>
+        </CalloutCard>
+
+    </CalloutContainer>
+
+    <Image alt = "Stability of ship 1" src = "/dyn/Stability_of_ship_1.png" width = 1"></Image>
+
+    When a disturbing force such as wave action or wind pressure exerts an inclining moment on a ship, 
+    the ship's underwater volume shifts in the direction of the heel, 
+    which causes the center of buoyancy to shift in the same direction. Unless the ballast of the ship
+    (cargo, weights, etc.) is allowed to change, the center of gravity remains the same and lines of 
+    action of the forces of buoyancy and gravity separate. The hull of the ship allows the exertion 
+    of a restoring moment to bring the ship to an even keel, known as the righting moment. The special
+    moment arm in this case is known as the righting arm. 
+
+    <Image alt = "Stability of ship 2" src = "/dyn/Stability_of_ship_2.png" width = 1"></Image>
+    
+    A ship's metacenter (M) is the virtual intersection of two successive lines of action of 
+    the force of buoyancy when the ship heels through a very small angle. 
+    The initial position of the metacenter is used as a reference in stability calculations. 
+    The distance from a ship's center of gravity (G) to its metacenter is known as the GM, 
+    which measures the vessel's ability to right itself when experiencing an overturning moment.
+    
+    <Image alt = "Stability of ship 3" src = "/dyn/Stability_of_ship_3.png" width = 1"></Image>
+
+</SubSection>
+
+<SubSection title = "Stability comparisons" id = "stability_comparisons">
+    <p>
+
+    In the discussion of the stability of a capsizing ship, we mentioned 
+    the idea of a restoring moment, known as the righting moment, that 
+    stabilizes the ship against external, overturning or destabilizing torques.
+    Does this remind you of a common physical system? Does this system also 
+    experience restoring torques? Yes, a simple pendulum is the mechanical analog
+    of a hydrodynamic system such as a ship. 
+    
+
+    <DisplayEquation background = True title = "Characteristic equation of a pendulum." id = "eqn-pend"
+    equation = "\\begin{aligned}   \\ddot \\theta  = - \\frac{g}{l} \\sin(\\theta)  \\end{aligned}">
+      
+    </DisplayEquation>
+        
+    For a simple pendulum, the rest position or the vertical position where 
+    the angular displacement &theta;=0 is the position of stable 
+    equilibrium. At this point, its potential energy is lowest while the kinetic
+    energy is maximized. However, at the two extrema on either side of the rest 
+    position, the angular displacement &theta; from the stable equilibrium position
+    is maximum and the pendulum has the maximum potential energy. This configuration
+    induces a restoring torque &tau; that produces an angular acceleration &alpha;, 
+    which is opposite to the direction of the angular displacement. The implication is that
+    these extrema are points of unstable equilibrium for the simple pendulum.
+    
+    <Image alt = "Simple Pendulum" src = "/dyn/Simple_pendulum.jpg" width = 1"></Image>
+
+    Now, you might be thinking, is there a tipping point for this system? Yes! Let's think
+    about an inverted pendulum. At the top, its potential energy is maximized and it is 
+    in unstable equilibrium. But to return to stable equilibrium, the torque induced is in 
+    the direction of the angular displacement, i.e., &alpha; and &theta; have the same signs. 
+    You could think of this as being the case when the ship capsizes eventually, however, the 
+    pendulum does not have a metacenter or a center of buoyancy, which are only valid for floating
+    objects. 
+    
+    <Image alt = "Inverted Pendulum" src = "/dyn/Inverted_pendulum.jpg" width = 1"></Image>
+
+    </p>
+</SubSection>
+
+<SubSection title = "Additional information" id = "additional_info">
+
+    <p>
+        In its investigation of the MV Golden Ray capsizing incident, the NTSB conducted a stability
+        analysis of the vessel by using different parameters for the weights of the ballast, bunkers, 
+        liquid, and cargo. This allowed them to compare the loading conditions at the time of accident
+        and those found in the loading manual for the ship by generating curves for the righting arm and
+        the heel angle of the ship. 
+
+    </p>
+    <Image alt = "Righting arm curve 1" src = "/dyn/Righting_arm_curve1.png" id = "rarmc1" width = 7>
+
+        <p class = "figureCaption">
+            Righting arm curves of the Golden Ray 
+            during the accident voyage compared with benchmark righting arm curves 
+            chosen from the vessel's loading manual.
+            Image source: Coast Guard. 
+        </p>
+    
+    </Image>
+
+    <p>
+        As can be seen from the <a 
+        href="#rarmc1"> graph</a>, the length of the righting arm increases with the angle of heel to a maximum point. 
+        In theory, the righting arm decreases after this point, reaching zero at a very large angle of heel. 
+        A reduction in the size of the righting 
+        arm usually means a decrease in stability. The area under the righting arm curve represents the energy available to 
+        the ship to right itself, and in general, the more area under the curve, the larger the capsizing moments the vessel can resist. 
+        The angle where the righting arm crosses zero denotes where a vessel's stability changes from positive 
+        righting moments to negative capsizing moments. Vessels are often termed “stable” when they have 
+        enough positive stability to return to an upright position in the conditions encountered as loaded, 
+        and “unstable” when they do not, and capsize. 
+    </p>
+    <Image alt = "Righting arm curve 2" src = "/dyn/Righting_arm_curve2.png" id = "rarmc2" width = 7>
+
+        <p class = "figureCaption">
+            Theoretical righting arm curves (dashed green lines) generated from the 
+            analysis of the Golden Ray during the accident voyage and 
+            previous two voyages with an additional 1,492 MT of ballast. 
+            The righting arm curves (solid green lines) for the vessel in the representative loading condition 
+            for each voyage are shown for comparison. 
+            Image source: Coast Guard. 
+        </p>
+
+    </Image>
+
+    From the above graph, we can estimate the stability of the vessel by measuring the slope of the righting arm curves,
+    which dictates whether the ship will be stable or unstable at small angles of heel. The slight
+    differences between the experimental and the theoretical findings seen through these graphs should 
+    make you appreciate that center of mass is not just an abstract topic but a highly intricate notion
+    in practical scenarios! The correlation between center of mass and stability is highly critical to 
+    study of dynamic systems that are subject to external loading coditions and entails 
+    precise calculations and services of experts in risk analysis. 
+
+</SubSection>
+
