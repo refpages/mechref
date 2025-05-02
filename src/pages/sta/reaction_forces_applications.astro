@@ -1,0 +1,55 @@
+---
+import Layout from "../../layouts/Layout.astro" 
+import Image from "../../components/Image.astro" 
+import Section from "../../components/Section.astro" 
+import SubSection from "../../components/SubSection.astro" 
+import BlueText from "../../components/BlueText.astro" 
+import SubSubSection from "../../components/SubSubSection.astro"
+import Enumerate from "../../components/Enumerate.astro"
+import Item from "../../components/Item.astro"
+import DisplayEquation from "../../components/DisplayEquation.astro"
+import InlineEquation from "../../components/InlineEquation.astro"
+---
+<Layout title = "Reaction forces">
+    <div slot = "navtree">
+        <ul class = 'list-group list-group-flush py-0'> 
+			<li class = 'list-group-item py-0'><a class = 'text-decoration-none section' href = '#applications'>Applications</a>
+				<ul class = 'list-group list-group-flush py-0'> 
+					<li class = 'list-group-item py-0'><a class = 'text-decoration-none subsection' href = '#track_and_field_starting_blocks'>Track and field starting blocks</a></li>
+				</ul>
+			</li>
+      </ul>
+    </div>
+<Section title = "Applications" id = "applications"/>
+
+<SubSection title = "Track and field starting blocks" id = "track_and_field_starting_blocks">
+
+<p>
+	In track and field, athletes who compete in sprinting events use starting blocks. Essentially, they push off of them in order to assist in acceleration at the beginning of races.
+	The reaction force created by the athlete by applying force into the blocks will be normal to the surface of the blocks.
+	The following is a heavily abstracted model that aims to show the resultant reaction force generated if a force <InlineEquation equation = "F_B"/> is applied to a back block set at 55 degrees and a force <InlineEquation equation = "F_F"/> is applied to a front block set at 45 degrees.
+</p>
+<Image src = '/sta/reaction_forces/StartingBlocksFBD1.jpg' width = '3'>Image from <a target = "_blank" rel = "noopener noreferrer" href = "https://commons.wikimedia.org/wiki/File:2017-08-04-Matt_Duboff-4x100_(36378998635).jpg">Wikimedia.</a> CC BY 2.0</Image>
+<Image src = '/sta/reaction_forces/StartingBlocksFBD2.png' width = '3'>FBD showing resultant reaction force caused by applied forces. Drawn by Professor Kellie Halloran.</Image>
+<p>
+	Keep in mind that several assumptions were made in this model and calculation. This model assumes that each force is applied perpendicular to the surface of the block.
+	This model also ignores the role that the athlete's spikes (studded shoes used in sprinting) being dug into the turf material on the surface of the block has on the FBD.
+</p>
+<DisplayEquation equation = "F_R = (F_B \\ \\cos 35 + F_F \\ \\cos 45) \\ \\hat{\\imath} + (F_B \\ \\sin 35 + F_F \\ \\sin 45) \\ \\hat{\\jmath}" title = "The reaction force can be written as" background = "True" derivation = "True" id = "tsb">
+	<DisplayEquation equation = `\\begin{align} F_R &= F_B + F_F \\\\
+	&= (F_{Bx} + F_{Fx}) \\ \\hat{\\imath} + (F_{By} + F_{Fy}) \\ \\hat{\\jmath} \\\\
+	&= (F_B \\ \\cos 35 + F_F \\ \\cos 45) \\ \\hat{\\imath} + (F_B \\ \\sin 35 + F_F \\ \\sin 45) \\ \\hat{\\jmath} \\end{align}`/>
+</DisplayEquation>
+<Image src = '/sta/reaction_forces/UsainBolt.jpg' width = '3'>Usain Bolt using starting blocks. Image from <a target = "_blank" rel = "noopener noreferrer" href = "https://www.flickr.com/photos/nickwebb/7734416998/in/photostream">Nick Webb.</a> CC BY 2.0</Image>
+<p>
+	The angle of the blocks can be adjusted to the athlete's preferences. One may be lead to believe that setting the blocks to the most vertical angle, maximizing the horizontal reaction force, would be best.
+	However, the opposite is actually true. <a target = "_blank" rel = "noopener noreferrer" href = "https://www.brianmac.co.uk/sprints/blockset.htm">This</a> article explains how lower angles actually increase the usage of the athlete's stretch reflex.
+	Typically, the front block is set to about 45 degrees and the back block is set to a more vertical position.
+	This is to achieve a front knee angle of about 90 degrees and a back knee angle of about 120 degrees. <a target = "_blank" rel = "noopener noreferrer" href = "https://outperformsports.com/block-starts-for-track/">This</a> study explores the implications of different back knee angles.
+	Essentially, athletes aim to get into what is called "triple extension," which is when the ankles, knees, and hips are as open as possible, maximizing the power output from their muscles.
+	Here is an example of starting blocks being used at the <a target = "_blank" rel = "noopener noreferrer" href = "https://www.youtube.com/watch?v=jo_t6CbKsGo">Paris Olympics.</a>
+</p>
+
+</SubSection>
+
+</Layout>
