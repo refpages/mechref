@@ -122,17 +122,7 @@ import CalloutContainer from "../../components/CalloutContainer.astro"
         Where <InlineEquation equation="l" /> is the position vector along the axis or shaft, whereas <InlineEquation equation="\\overrightarrow R" /> is the vector pointing from the shaft to the mass. </p>
     <p>
         Our goal is to make it such that the sum of all of these moments is 0. To do this, set up two different correction planes to put masses in. Take the moment around one plane. </p>
-    <p>
-        Simultaneously solve 4 equations</p>
 
-    <Enumerate>
-
-        <Item>x component of 1 plane</Item>
-        <Item>y component of 1 plane</Item>
-        <Item>x component of 2 plane</Item>
-        <Item>y component of 2 plane</Item>
-
-    </Enumerate>
 
     <p>
         A good example for dynamic balancing is a CT scanner. A CT scanner is composed of many different elements that have to rotate about an axis at a constant rate to get a good image of the person being scanned. For this example, let us simplify the CT scanner and only consider the x-ray source, the x-ray detectors, and the cooling system. Assume the x-ray source and the cooling system as a single point mass located at the center of mass of each system while the x-ray detectors as two point masses as there are more detectors that each have a sizable mass. In this case, the location of the x-ray source and detectors is known because they have to be across from each other to operate properly. Using the cooling system and an extra balance, we can work to balance the system.</p>
@@ -175,7 +165,7 @@ import CalloutContainer from "../../components/CalloutContainer.astro"
         <p><DisplayEquation equation="\m_BR_{By}= \\frac{-m_1R_{1y}l_1-m_2R_{2y}l_2-m_3R_{3y}l_3}{l_B}"  background="True"/></p>
 
 
-        <p> we have 6 unknowns. (2 masses, two x positions, 2 y positions). Again this is okay because it gives design freedom. </p>
+        <p> We have six unknowns (two masses, two x-positions, two y-positions). Again, this is okay because it allows for design freedom. </p>
     </SubSection>
 
 
