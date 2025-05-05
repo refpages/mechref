@@ -75,7 +75,7 @@ import Warning from "../../components/Warning.astro"
 <p>
 Generally, the state of stress a 3D material can be represented as a second-rank tensor (i.e. a matrix) with <InlineEquation equation="3^2 = 9" /> components.
 </p>
-<Image src="/sol/stress/Stress Element.png" width="8"> Stress element</Image>
+<Image src="/sol/stress/Stress Element.png" id="stress-element" width="7"> Stress element</Image>
 <DisplayEquation equation=  "\\boldsymbol{\\sigma} = \\begin{bmatrix} \\sigma_{11} & \\sigma_{12} & \\sigma_{13} \\\\ \\sigma_{21} & \\sigma_{22} & \\sigma_{23} \\\\ \\sigma_{31} & \\sigma_{32} & \\sigma_{33} \\end{bmatrix} \\" title="Stress tensor." background="True"/>
 
 <p>
@@ -110,7 +110,7 @@ This elasticity tensor, C, relating the stress and strain tensors is shown in in
 </DisplayEquation>
 
 Expanding over these two summations yields:
-<DisplayEquation equation= "\\sigma_{ij} = C_{ij11}\\varepsilon_{11} + C_{ij12}\\varepsilon_{12} + C_{ij13}\\varepsilon_{13} \\ + C_{ij21}\\varepsilon_{21} + C_{ij22}\\varepsilon_{22} + C_{ij23}\\varepsilon_{23} \\ + C_{ij31}\\varepsilon_{31} + C_{ij32}\\varepsilon_{32} + C_{ij33}\\varepsilon_{33}"/>
+<DisplayEquation equation= "\\begin{aligned}\\sigma_{ij} = &C_{ij11}\\varepsilon_{11} + C_{ij12}\\varepsilon_{12} + C_{ij13}\\varepsilon_{13} \\\\ + &C_{ij21}\\varepsilon_{21} + C_{ij22}\\varepsilon_{22} + C_{ij23}\\varepsilon_{23} \\ + C_{ij31}\\varepsilon_{31} + C_{ij32}\\varepsilon_{32} + C_{ij33}\\varepsilon_{33}\\end{aligned}" id="expanded"/>
 
 <p>
 
@@ -148,8 +148,6 @@ the material is assumed to be isotropic (having the same behavior in all directi
 } title = "Voigt notation." background = "true"/>
 
 </p>
-
-<p>
 
 Here the engineering shear strains <InlineEquation equation = \\gamma_{23},\\gamma_{13},\\gamma_{12} /> are introduced.
 This, along with identification of shear stresses <InlineEquation equation = \\sigma_{23},\\sigma_{13},\\sigma_{12} />
@@ -275,7 +273,9 @@ Stresses above the plastic limit (<InlineEquation equation="\\sigma_Y < \\sigma"
  After ultimate stress (<InlineEquation equation="\\sigma_u < \\sigma" />), the middle of the material elongates before failure.
 </p>
 
-<SubSubSection title="Failure" id="plastic_behavior">
+</SubSubSection>
+
+<SubSubSection title="Failure" id="failure">
 
 
 <p>
