@@ -2095,7 +2095,9 @@ import search_contents from "../search.json"
       "sta": 'Statics',
       'dyn': 'Dynamics',
       'sol': 'Solid Mechanics',
-      'thermodynamics': 'Thermodynamics'
+      'thermodynamics': 'Thermodynamics',
+      'md': 'Mechanical design',
+      'mf': 'Machine failure'
     };
 
     const index = Fuse.createIndex(['title', 'text'], search_contents)
@@ -2215,6 +2217,8 @@ import search_contents from "../search.json"
           <option value="dyn">Dynamics</option>
           <option value="sol">Sol. Mech.</option>
           <option value="thermodynamics">Thermo.</option>
+          <option value="md">Mech. Design</option>
+          <option value="mf">Mach. Failure</option>
           `;
         }else{
           course_selector.innerHTML = `
@@ -2223,6 +2227,8 @@ import search_contents from "../search.json"
           <option value="dyn">Dynamics</option>
           <option value="sol">Solid Mechanics</option>
           <option value="thermodynamics">Thermodynamics</option>
+          <option value="md">Mechanical design</option>
+          <option value="mf">Machine failure</option>
           `;
         }
     }
