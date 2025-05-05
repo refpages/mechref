@@ -43,7 +43,7 @@ a{
 }
 </style>
 
-<div class="w-100" id={id} onload="loadSlides()" style="position: relative;margin: auto;">
+<div class="w-100" id={`slideshow-${id}`} onload="loadSlides()" style="position: relative;margin: auto;">
     <slot />
 
     <a class="prev" >&lt;</a>
@@ -64,7 +64,7 @@ a{
             current_index = 0;
         }
 
-        document.querySelector(`#${id}`).querySelector('p').innerText = `${current_index+1}/${images.length}`
+        document.querySelector(`#slideshow-${id}`).querySelector('p').innerText = `${current_index+1}/${images.length}`
 
         let index = 0;
 
@@ -79,11 +79,11 @@ a{
         })
     }
 
-    const buttons = document.querySelector(`#${id}`).querySelectorAll('a')
+    const buttons = document.querySelector(`#slideshow-${id}`).querySelectorAll('a')
     const previous_btn = buttons[0]
     const next_btn = buttons[1]
     
-    const images = document.querySelector(`#${id}`).querySelectorAll('.img-container');
+    const images = document.querySelector(`#slideshow-${id}`).querySelectorAll('.img-container');
 
     previous_btn.onclick =  () => {changeSlides(-1, images)}
     next_btn.onclick =  () => {changeSlides(1, images)}
@@ -100,7 +100,7 @@ a{
             index += 1;
         })
 
-        document.querySelector(`#${id}`).querySelector('p').innerText = `1/${index}`
+        document.querySelector(`#slideshow-${id}`).querySelector('p').innerText = `1/${index}`
     }
 
     loadSlides(images);
