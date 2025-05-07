@@ -12,16 +12,8 @@ import InlineEquation from "../../components/InlineEquation.astro"
 import CalloutCard from "../../components/CalloutCard.astro"
 import CalloutContainer from "../../components/CalloutContainer.astro"
 ---
-<Layout title = "Reaction forces Applications">
-    <div slot = "navtree">
-        <ul class = 'list-group list-group-flush py-0'>
-			<li class = 'list-group-item py-0'><a class = 'text-decoration-none subsection' href = '#track_and_field_starting_blocks'>Track and field starting blocks</a></li>
-			<li class = 'list-group-item py-0'><a class = 'text-decoration-none subsection' href = '#krannert_center_parking_garage'>Krannert Center parking garage</a></li>
-      	</ul>
-    </div>
-<Section title = "Reaction forces applications" id = "reaction_forces_applications"/>
-
-<SubSection title = "Track and field starting blocks" id = "track_and_field_starting_blocks">
+<Layout title = "Track and field starting blocks">
+<Section title = "Track and field starting blocks" id = "track_and_field_starting_blocks">
 
 <p>
 	In track and field, athletes who compete in sprinting events use starting blocks. Essentially, they push off of them in order to assist in acceleration at the beginning of races.
@@ -57,21 +49,6 @@ import CalloutContainer from "../../components/CalloutContainer.astro"
 	</CalloutCard>
 </CalloutContainer>
 
-</SubSection>
-
-<SubSection title = "Krannert Center parking garage" id = "krannert_center_parking_garage">
-	<Image src = '/sta/reaction_forces/KrannertCenterParkingGarage.jpg' width = '3'/>
-	<p>
-		Here, roller supports are incorporated below columns supporting the roof of the Krannert Center parking garage.
-		You can learn more about the Krannert Center for the Performing Arts <a target = "_blank" rel = "noopener noreferrer" href = "https://krannertcenter.com/events/krannert-center-tours">here.</a>
-	</p>
-	<CalloutContainer slot = "cards">
-		<CalloutCard title = "Reference material">
-			<p>
-				This application uses <a href = "/sta/reaction_forces#types_of_connections">Types of connections.</a>
-			</p>
-		</CalloutCard>
-	</CalloutContainer>
-</SubsSection>
+</Section>
 
 </Layout>
