@@ -9,6 +9,8 @@ import Enumerate from "../../components/Enumerate.astro"
 import Item from "../../components/Item.astro"
 import DisplayEquation from "../../components/DisplayEquation.astro"
 import InlineEquation from "../../components/InlineEquation.astro"
+import CalloutCard from "../../components/CalloutCard.astro"
+import CalloutContainer from "../../components/CalloutContainer.astro"
 ---
 <Layout title="Reaction forces">
 
@@ -31,7 +33,7 @@ Because of Newton's Third Law we know that every action has an equal and opposit
 </Section>
 <SubSection title="Types of connections" id="types_of_connections">
 
-Different supports and different connections have different types of reaction forces depending on what they are constraining. For example, a pin connection restricts movement in the x-and y-directions but doesn't restrict rotation. This means that each pin connection has two reaction forces: one in the x-direciton, and one in the y-direction corresponding to the degrees of freedom that are fixed. 
+Different supports and different connections have different types of reaction forces depending on what they are constraining. For example, a pin connection restricts movement in the x-and y-directions but doesn't restrict rotation. This means that each pin connection has two reaction forces: one in the x-direction, and one in the y-direction corresponding to the degrees of freedom that are fixed. 
 
 A roller support only constrains movement in the y-direction, and thus only has one reaction force (oriented in the y-direction). 
 
@@ -44,6 +46,19 @@ A roller support only constrains movement in the y-direction, and thus only has 
 <!-- From lecture 13 -->
 
 <!-- L13, Slide 3 had some good examples of support reactions if we want to make a pop up on the side eventually.-->
+
+<CalloutContainer slot = "cards">
+	<CalloutCard title = "Application alert!">
+		<p>
+			<a href = "/sta/reaction_forces_applications#track_and_field_starting_blocks">Track and field starting blocks</a> use <strong>Types of connections</strong> by returning a force normal to the surface back into the runner.
+		</p>
+	</CalloutCard>
+	<CalloutCard title = "Application alert!">
+		<p>
+			The <a href = "/sta/reaction_forces_applications#krannert_center_parking_garage">Krannert Center parking garage</a> uses <strong>Types of connections</strong> by using roller supports.
+		</p>
+	</CalloutCard>
+</CalloutContainer>
 
 </SubSection>
 

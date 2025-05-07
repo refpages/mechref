@@ -1,26 +1,25 @@
 ---
-import Layout from "../../layouts/Layout.astro" 
-import Image from "../../components/Image.astro" 
-import Section from "../../components/Section.astro" 
-import SubSection from "../../components/SubSection.astro" 
-import BlueText from "../../components/BlueText.astro" 
+import Layout from "../../layouts/Layout.astro"
+import Image from "../../components/Image.astro"
+import Section from "../../components/Section.astro"
+import SubSection from "../../components/SubSection.astro"
+import BlueText from "../../components/BlueText.astro"
 import SubSubSection from "../../components/SubSubSection.astro"
 import Enumerate from "../../components/Enumerate.astro"
 import Item from "../../components/Item.astro"
 import DisplayEquation from "../../components/DisplayEquation.astro"
 import InlineEquation from "../../components/InlineEquation.astro"
+import CalloutCard from "../../components/CalloutCard.astro"
+import CalloutContainer from "../../components/CalloutContainer.astro"
 ---
-<Layout title = "Reaction forces">
+<Layout title = "Reaction forces Applications">
     <div slot = "navtree">
-        <ul class = 'list-group list-group-flush py-0'> 
-			<li class = 'list-group-item py-0'><a class = 'text-decoration-none section' href = '#applications'>Applications</a>
-				<ul class = 'list-group list-group-flush py-0'> 
-					<li class = 'list-group-item py-0'><a class = 'text-decoration-none subsection' href = '#track_and_field_starting_blocks'>Track and field starting blocks</a></li>
-				</ul>
-			</li>
-      </ul>
+        <ul class = 'list-group list-group-flush py-0'>
+			<li class = 'list-group-item py-0'><a class = 'text-decoration-none subsection' href = '#track_and_field_starting_blocks'>Track and field starting blocks</a></li>
+			<li class = 'list-group-item py-0'><a class = 'text-decoration-none subsection' href = '#krannert_center_parking_garage'>Krannert Center parking garage</a></li>
+      	</ul>
     </div>
-<Section title = "Applications" id = "applications"/>
+<Section title = "Reaction forces applications" id = "reaction_forces_applications"/>
 
 <SubSection title = "Track and field starting blocks" id = "track_and_field_starting_blocks">
 
@@ -30,7 +29,7 @@ import InlineEquation from "../../components/InlineEquation.astro"
 	The following is a heavily abstracted model that aims to show the resultant reaction force generated if a force <InlineEquation equation = "F_B"/> is applied to a back block set at 55 degrees and a force <InlineEquation equation = "F_F"/> is applied to a front block set at 45 degrees.
 </p>
 <Image src = '/sta/reaction_forces/StartingBlocksFBD1.jpg' width = '3'>Image from <a target = "_blank" rel = "noopener noreferrer" href = "https://commons.wikimedia.org/wiki/File:2017-08-04-Matt_Duboff-4x100_(36378998635).jpg">Wikimedia.</a> CC BY 2.0</Image>
-<Image src = '/sta/reaction_forces/StartingBlocksFBD2.png' width = '3'>FBD showing resultant reaction force caused by applied forces. Drawn by Professor Kellie Halloran.</Image>
+<Image src = '/sta/reaction_forces/StartingBlocksFBD2.jpg' width = '3'>FBD showing resultant reaction force caused by applied forces. Drawn by Professor Kellie Halloran.</Image>
 <p>
 	Keep in mind that several assumptions were made in this model and calculation. This model assumes that each force is applied perpendicular to the surface of the block.
 	This model also ignores the role that the athlete's spikes (studded shoes used in sprinting) being dug into the turf material on the surface of the block has on the FBD.
@@ -50,6 +49,29 @@ import InlineEquation from "../../components/InlineEquation.astro"
 	Here is an example of starting blocks being used at the <a target = "_blank" rel = "noopener noreferrer" href = "https://www.youtube.com/watch?v=jo_t6CbKsGo">Paris Olympics.</a>
 </p>
 
+<CalloutContainer slot = "cards">
+	<CalloutCard title = "Reference material">
+		<p>
+			This application uses <a target = "_blank" rel = "noopener noreferrer" href = "/sta/reaction_forces#types_of_connections">Types of connections.</a>
+		</p>
+	</CalloutCard>
+</CalloutContainer>
+
 </SubSection>
+
+<SubSection title = "Krannert Center parking garage" id = "krannert_center_parking_garage">
+	<Image src = '/sta/reaction_forces/KrannertCenterParkingGarage.jpg' width = '3'/>
+	<p>
+		Here, roller supports are incorporated below columns supporting the roof of the Krannert Center parking garage.
+		You can learn more about the Krannert Center for the Performing Arts <a target = "_blank" rel = "noopener noreferrer" href = "https://krannertcenter.com/events/krannert-center-tours">here.</a>
+	</p>
+	<CalloutContainer slot = "cards">
+		<CalloutCard title = "Reference material">
+			<p>
+				This application uses <a target = "_blank" rel = "noopener noreferrer" href = "/sta/reaction_forces#types_of_connections">Types of connections.</a>
+			</p>
+		</CalloutCard>
+	</CalloutContainer>
+</SubsSection>
 
 </Layout>
