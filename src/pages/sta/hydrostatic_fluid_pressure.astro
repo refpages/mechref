@@ -14,6 +14,8 @@ import Example from "../../components/Example.astro"
     <div slot="navtree">
         <ul class='list-group list-group-flush py-0'> 
           <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#fluid_pressure'>Fluid pressure</a></li> 
+		  <li class = 'list-group-item py-0'><a class = 'text-decoration-none subsection' href = '#fluid_pressure_FBD'>Pressure, distributed loads, and free body diagrams</a></li>
+		  <li class = 'list-group-item py-0'><a class = 'text-decoration-none subsection' href = '#fluid_pressure_scs'>Fluid pressure with slanted and curved surfaces</a></li>
           <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#buoyancy'>Buoyancy</a></li>
       </ul>
       </div>
@@ -81,7 +83,7 @@ In 3D, the value for <InlineEquation equation=" w " />, the distributed load on 
 
 <Image src='/sta/hydrostatic_fluid_pressure/Fluid3DPlate.PNG' width='5'></Image>
 
-<DisplayEquation equation = "F_R = \\rho * g * h * b * L" background = "True" title = "In 3D, the resultant force from the distributed load can be written as" id = "hfp-3D" derivation = "True">
+<DisplayEquation equation = "F_R = \\rho * g * h * b * L" title = "In 3D, the resultant force from the distributed load can be written as" background = "True" derivation = "True" id = "hfp-3D">
 	<DisplayEquation equation = "\\begin{align} w = P = \\rho * g * h && \\mathrm{[\\frac{N}{m^2}]} \\end{align}"/>
 	<p class = "text-center">
 		(force over area)<br>
@@ -97,7 +99,7 @@ In 2D, the the value for <InlineEquation equation=" w " />, the distributed load
 
 <Image src='/sta/hydrostatic_fluid_pressure/Fluid2DPlate.PNG' width='5'></Image>
 
-<DisplayEquation equation = "F_R = \\rho * g * h * b * L" background = "True" title = "In 2D, the resultant force from the distributed load can be written as" id = "hfp-2D" derivation = "True">
+<DisplayEquation equation = "F_R = \\rho * g * h * b * L" title = "In 2D, the resultant force from the distributed load can be written as" background = "True" derivation = "True" id = "hfp-2D">
 	<DisplayEquation equation = "\\begin{align} w = P * b = \\rho * g * h * b && \\mathrm{[\\frac{N}{m^2}] * [m] = [\\frac{N}{m}]} \\end{align}"/></span></div>
 	<p class = "text-center">
 		(force over length)<br>
@@ -109,7 +111,7 @@ In 2D, the the value for <InlineEquation equation=" w " />, the distributed load
 
 </SubSection>
 
-<SubSection title="Fluid pressure with slanted and curved surfaces" id="fluid_pressure_FBD">
+<SubSection title="Fluid pressure with slanted and curved surfaces" id="fluid_pressure_scs">
 
 <p> We will often be required to analyze the hydrostatic fluid pressure on surfaces that are not perfectly horizontal or vertical. In these cases, it is easier to redraw our system and create articifial horizontal and vertical "surfaces", adding the force from the FBD of the weight of the water trapped in our horizontal and vertical surfaces. 
 </p>
