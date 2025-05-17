@@ -23,6 +23,8 @@ import Col from "../../components/Col.astro"
 import SubSubSubSection from "../../components/SubSubSubSection.astro"
 import DisplayTable from "../../components/DisplayTable.astro"
 import CalloutContainerContainer from "../../components/special/CalloutContainerContainer.astro"
+import Slideshow from "../../components/Slideshow.astro";
+
 ---
 <Layout title="The capsizing ship">
 
@@ -33,7 +35,6 @@ import CalloutContainerContainer from "../../components/special/CalloutContainer
               <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#background'>Background</a></li>
               <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#principles_of_stability'>Principles of stability</a></li>
               <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#stability_comparisons'>Stability comparisons</a></li>
-              <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#additional_info'>Additional information</a></li>
           </ul>
               </ul>
           </li>
@@ -45,11 +46,18 @@ import CalloutContainerContainer from "../../components/special/CalloutContainer
 <SubSection title = "Background" id = "background">
 
 <p>
+    <!-- 
     We are all familiar with the notion of the center of mass of a rigid body. In class, we have described the 
     position of the center of mass to be the average position of all the constitutent mass elements 
     weighted by the the total mass of the body. We have also learnt how to find the center of mass of composite bodies 
     and derived simple expressions for basic shapes. This practice can sometimes seem abstract, but do you know that 
     center of mass calculations are integral in understanding the stability of dynamic structures? 
+    -->
+    The MV Golden Ray, a 656-foot long roll-on/roll-off vehicle carrier, collapsed on 
+    8 September 2019 in between the Colonel's Island Terminal in the Port of Brunswick, Georgia, 
+    and Baltimore, Maryland. You can read more about the incident 
+    <a target="_blank" rel="noopener noreferrer" 
+    href="https://www.cnn.com/2021/09/14/us/golden-ray-cargo-ship-ntsb-report/index.html">here.</a> 
 </p>
 
     <Image alt = "Capsized ship" src = "/dyn/Capsized_ship.jpg" width = 7>
@@ -59,18 +67,17 @@ import CalloutContainerContainer from "../../components/special/CalloutContainer
         href="https://en.wikipedia.org/wiki/MV_Golden_Ray">capsized
         </a> on 8 September 2019 in 
         St. Simons Sound near the Port of Brunswick in Georgia, United States. 
-        Image Source: U.S. Coast Guard District 7 PADE.
+        Image credit: <a target="_blank" rel="noopener noreferrer" 
+        href="https://commons.wikimedia.org/wiki/File:Coast_Guard_rescue_Golden_Ray_1.jpg?uselang=en#/media/File:Coast_Guard_rescue_Golden_Ray_1.jpg"> 
+        U.S. Coast Guard District 7 PADE</a> <a target="_blank" rel="noopener noreferrer" 
+        href="https://creativecommons.org/publicdomain/mark/1.0/">(CC PDM 1.0)</a>.
     </p>
     </Image>
 
     <p>
-        The MV Golden Ray, a 656-foot long roll-on/roll-off vehicle carrier, collapsed on 
-        8 September 2019 in between the Colonel's Island Terminal in the Port of Brunswick, Georgia, 
-        and Baltimore, Maryland. You can read more about the incident 
-        <a target="_blank" rel="noopener noreferrer" 
-        href="https://www.cnn.com/2021/09/14/us/golden-ray-cargo-ship-ntsb-report/index.html">here.</a> 
-        After thorough investigations by the National Transportation Safety Board (NTSB), 
-        it was found that the chief officer of the ship entered erroneous ballast quantities into the stability 
+
+        After an investigation by the NTSB, 
+        it was found that the ship collapsed due to the use of erroneous ballast quantities in the stability 
         calculation program, which produced incorrect stability conditions of the ship. In other words, a 
         moment or torque was generated from the difference between 
         the locations of the center of mass and the center of buoyancy.
@@ -78,29 +85,22 @@ import CalloutContainerContainer from "../../components/special/CalloutContainer
         &theta;, which meant that the ship was in unstable equilibrium. Thus, the failure in accounting for the 
         changes in ballast quantities meant that the hull of the ship was unable to provide a counter torque to
         these forces, and the ship capsized. Observe how you can combine concepts from both
-        TAM 210/211 and TAM 212!
+        Statics and Dynamics in this example!
     </p>
-
-    <Image alt = "Capsized ship on fire" src = "/dyn/Capsized_ship_fire.jpg" width = 7>
-
-        <p class = "figureCaption">
-            The MV Golden Ray, which capsized near St. Simons, Georgia, US, caught fire on May 14, 2021. 
-            Image source: Jud McCranie. 
-        </p>
-    
-    </Image>
 
 
 </SubSection>
 
 <SubSection title = "Principles of stability" id = "principles_of_stability">
-
+    <p>
     Ship stability reflects the relationship between buoyancy (the force pushing on a ship allowing it to float) 
     and gravity (the force pushing the ship into the water). The force of gravity acts downward through the 
     ship's center of gravity (G), while the buoyant force acts upward through the ship's center of buoyancy (B). 
     When a vessel is floating at an even keel or upright, the force of gravity and buoyancy are vertically aligned. 
     The stability of a vessel is usually expressed as the magnitude of the heeling moment that is necessary to capsize the 
     ship at a certain angle, called the heeling angle.
+
+    </p>
 
     <CalloutContainer slot = 'cards'>
         <CalloutCard>
@@ -116,22 +116,11 @@ import CalloutContainerContainer from "../../components/special/CalloutContainer
 
         </CalloutCard>
 
-
-        <CalloutCard>
-
-            <p>
-                In practice, there is a way to stabilize an inverted pendulum at the top 
-                by oscillating it at a very high frequency that generates a regenerative oscillation
-                about the same point, but with higher amplitude and lower frequency. This is outside the 
-                scope of the presented content, but you can learn more about these topics is classes 
-                like ME 340 and TAM 412! 
-            </p>
-        </CalloutCard>
-
     </CalloutContainer>
 
-    <Image alt = "Stability of ship 1" src = "/dyn/Stability_of_ship_1.png" width = 1"></Image>
+    <p>
 
+    
     When a disturbing force such as wave action or wind pressure exerts an inclining moment on a ship, 
     the ship's underwater volume shifts in the direction of the heel, 
     which causes the center of buoyancy to shift in the same direction. Unless the ballast of the ship
@@ -140,27 +129,41 @@ import CalloutContainerContainer from "../../components/special/CalloutContainer
     of a restoring moment to bring the ship to an even keel, known as the righting moment. The special
     moment arm in this case is known as the righting arm. 
 
-    <Image alt = "Stability of ship 2" src = "/dyn/Stability_of_ship_2.png" width = 1"></Image>
+    </p>
+
+    <p>
     
     A ship's metacenter (M) is the virtual intersection of two successive lines of action of 
     the force of buoyancy when the ship heels through a very small angle. 
     The initial position of the metacenter is used as a reference in stability calculations. 
     The distance from a ship's center of gravity (G) to its metacenter is known as the GM, 
     which measures the vessel's ability to right itself when experiencing an overturning moment.
+
+    </p>
+
     
-    <Image alt = "Stability of ship 3" src = "/dyn/Stability_of_ship_3.png" width = 1"></Image>
+   <Slideshow id = "capsizing_ship">
+        <Image alt = "Stability of ship 1" src = "/dyn/Stability_of_ship_1.png" width = 0.5"></Image>
+
+        <Image alt = "Stability of ship 2" src = "/dyn/Stability_of_ship_2.png" width = 1"></Image>
+        
+        <Image alt = "Stability of ship 3" src = "/dyn/Stability_of_ship_3.png" width = 1"></Image>
+        
+    </Slideshow>
+    <p style="text-align: center; font-style: italic;">
+        Image credit: National Transportation Safety Board
+    </p>
 
 </SubSection>
 
 <SubSection title = "Stability comparisons" id = "stability_comparisons">
     <p>
-
-    In the discussion of the stability of a capsizing ship, we mentioned 
-    the idea of a restoring moment, known as the righting moment, that 
-    stabilizes the ship against external, overturning or destabilizing torques.
-    Does this remind you of a common physical system? Does this system also 
-    experience restoring torques? Yes, a simple pendulum is the mechanical analog
-    of a hydrodynamic system such as a ship. 
+    A simple pendulum can be thought of as a mechanical analog of a hydrodynamic system such as a ship. 
+    A simple pendulum experiences restoring torque at its unstable position that brings it back to its
+    stable equilibrium position, similar to the function of a righting moment in the example above. 
+    However, in the case of an inverted pendulum, there is no stable equilibrium position. 
+    The two examples presented below for the simple and inverted pendulum correspond to the ship 
+    having low and high centers of gravity respectively. 
     
 
     <DisplayEquation background = True title = "Characteristic equation of a pendulum." id = "eqn-pend"
@@ -169,30 +172,42 @@ import CalloutContainerContainer from "../../components/special/CalloutContainer
     </DisplayEquation>
         
     For a simple pendulum, the rest position or the vertical position where 
-    the angular displacement &theta;=0 is the position of stable 
-    equilibrium. At this point, its potential energy is lowest while the kinetic
+    the angular displacement &theta;=0 is the position of marginally stable 
+    equilibrium. The reason the equilibrium is marginally stable is because 
+    an oscillatory system like a simple pendulum does not become unbounded but 
+    also does not achieve a steady state after an excitation. 
+    At &theta;=0, its potential energy is lowest while the kinetic
     energy is maximized. However, at the two extrema on either side of the rest 
     position, the angular displacement &theta; from the stable equilibrium position
     is maximum and the pendulum has the maximum potential energy. This configuration
     induces a restoring torque &tau; that produces an angular acceleration &alpha;, 
     which is opposite to the direction of the angular displacement. The implication is that
-    these extrema are points of unstable equilibrium for the simple pendulum.
+    these extrema are unstable for the simple pendulum. 
     
-    <Image alt = "Simple Pendulum" src = "/dyn/Simple_pendulum.jpg" width = 1"></Image>
+    <Slideshow id = "pendulum">
+        <Image alt = "Simple Pendulum" src = "/dyn/Simple_pendulum_1.jpg" width = 1"></Image>
 
-    Now, you might be thinking, is there a tipping point for this system? Yes! Let's think
-    about an inverted pendulum. At the top, its potential energy is maximized and it is 
-    in unstable equilibrium. But to return to stable equilibrium, the torque induced is in 
-    the direction of the angular displacement, i.e., &alpha; and &theta; have the same signs. 
-    You could think of this as being the case when the ship capsizes eventually, however, the 
+        <Image alt = "Simple Pendulum" src = "/dyn/Simple_pendulum_2.jpg" width = 1"></Image>
+
+        <Image alt = "Inverted Pendulum" src = "/dyn/Inverted_pendulum_1.jpg" width = 1"></Image>
+
+        <Image alt = "Inverted Pendulum" src = "/dyn/Inverted_pendulum_2.jpg" width = 1"></Image>
+
+    </Slideshow>
+
+    For an inverted pendulum, the rest position with &phi;= 0 is unstable since its potential energy is maximized. 
+    This is an unstable system since the output due to an excitation is unbounded unlike a simple pendulum. 
+    When the pendulum is displaced for some value of &phi;, the torque induced is in the direction 
+    of the angular displacement, i.e., &alpha; and &phi; have the same signs. 
+    You could think of this as being the case when the ship capsizes eventually. However, the 
     pendulum does not have a metacenter or a center of buoyancy, which are only valid for floating
     objects. 
     
-    <Image alt = "Inverted Pendulum" src = "/dyn/Inverted_pendulum.jpg" width = 1"></Image>
+    
 
     </p>
 </SubSection>
-
+<!-- 
 <SubSection title = "Additional information" id = "additional_info">
 
     <p>
@@ -249,3 +264,16 @@ import CalloutContainerContainer from "../../components/special/CalloutContainer
 
 </SubSection>
 
+#Extra callout card for inverted pendulum 
+
+        <CalloutCard>
+
+            <p>
+                In practice, there is a way to stabilize an inverted pendulum at the top 
+                by oscillating it at a very high frequency that generates a regenerative oscillation
+                about the same point, but with higher amplitude and lower frequency. This is outside the 
+                scope of the presented content, but you can learn more about these topics is classes 
+                like ME 340 and TAM 412! 
+            </p>
+        </CalloutCard>
+-->
