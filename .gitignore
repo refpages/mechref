@@ -28,3 +28,4 @@ pnpm-debug.log*
 
 # jetbrains setting folder
 .idea/
+public/dyn/Inverted_pendulum.jpg

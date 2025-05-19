@@ -1,0 +1,107 @@
+---
+const { id } = Astro.props;
+---
+
+<style>
+    .prev, .next {
+        cursor: pointer;
+        position: absolute;
+        top: 50%;
+        width: auto;
+        margin-top: -22px;
+        padding: 16px;
+        color: white;
+        border: 1px black solid;
+        font-weight: bold;
+        font-size: 2rem;
+        transition: 0.6s ease;
+        border-radius: 0 3px 3px 0;
+        user-select: none;
+        z-index: 100;
+    }
+
+    .next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+    }
+
+    .previous {
+    left: 0;
+    border-radius: 3px 0 0 3px;
+    }
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+a{
+    text-decoration: none;
+    font-weight: bold;
+    mix-blend-mode: difference;
+    font-size: 2rem;
+}
+</style>
+
+<div class="w-100" id={`slideshow-${id}`} onload="loadSlides()" style="position: relative;margin: auto;">
+    <slot />
+
+    <a class="prev" >&lt;</a>
+    <a class="next">&gt;</a>
+
+    <p class="fw-bold text-center"></p>
+</div>
+
+<script is:inline define:vars={{id}}>
+    let current_index = 0;
+
+    function changeSlides(increment, images){
+        current_index += increment;
+        
+        if (current_index < 0){
+            current_index = images.length-1;
+        }else if (current_index > images.length-1){
+            current_index = 0;
+        }
+
+        document.querySelector(`#slideshow-${id}`).querySelector('p').innerText = `${current_index+1}/${images.length}`
+
+        let index = 0;
+
+        Array.from(images).forEach(e => {
+            if (index != current_index){
+                e.classList.add('d-none');
+                console.log(e)
+            }else{
+                e.classList.remove('d-none');
+            }
+            index += 1;
+        })
+    }
+
+    const buttons = document.querySelector(`#slideshow-${id}`).querySelectorAll('a')
+    const previous_btn = buttons[0]
+    const next_btn = buttons[1]
+    
+    const images = document.querySelector(`#slideshow-${id}`).querySelectorAll('.img-container');
+
+    previous_btn.onclick =  () => {changeSlides(-1, images)}
+    next_btn.onclick =  () => {changeSlides(1, images)}
+
+    console.log(images)
+
+    function loadSlides(images){
+        let index = 0;
+
+        Array.from(images).forEach(e => {
+            if (index > 0){
+                e.classList.add('d-none');
+            }
+            index += 1;
+        })
+
+        document.querySelector(`#slideshow-${id}`).querySelector('p').innerText = `1/${index}`
+    }
+
+    loadSlides(images);
+</script>
