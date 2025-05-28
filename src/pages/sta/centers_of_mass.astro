@@ -25,9 +25,13 @@ import InlineCanvas from "../../components/InlineCanvas.astro"
 
     <div slot="navtree">
         <ul class='list-group list-group-flush py-0'> 
-          <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#centroid'>Centroid</a></li> 
-		  <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#basic_shapes'>Centroids of basic shapes</a></li>
-		  <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#composite_shapes'>Finding centroids using composite shapes</a></li>
+          <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#centroid'>Centroid</a>
+            <ul class = 'list-group list-group-flush py-0'>
+                <li class = 'list-group-item py-0'><a class = 'text-decoration-none subsubsection' href = '#axes_of_symmetry'>Axes of symmetry</a></li>
+                <li class = 'list-group-item py-0'><a class = 'text-decoration-none subsubsection' href = '#basic_shapes'>Centroids of basic shapes</a></li>
+		        <li class = 'list-group-item py-0'><a class = 'text-decoration-none subsubsection' href = '#composite_shapes'>Finding centroids using composite shapes</a></li>
+            </u>
+          </li>
       </ul>
       </div>
 
@@ -188,7 +192,7 @@ with similar equations for <InlineEquation equation="\\bar{y}" />.
 </SubSection>
 <!-- Lectures 28, 29  -->
 
-<SubSubSection title = "Axes of symmetry">
+<SubSubSection title = "Axes of symmetry" id = "axes_of_symmetry">
 
 <Image src="/sta/centers_of_mass/AxisOfSymmetry.png" width="7"></Image>
 

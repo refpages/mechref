@@ -13,12 +13,13 @@ import InlineCanvas from "../../components/InlineCanvas.astro";
 import CalloutCard from "../../components/CalloutCard.astro";
 import CalloutContainer from "../../components/CalloutContainer.astro";
 import Image from "../../components/Image.astro";
+import Slideshow from "../../components/Slideshow.astro";
 ---
 
 <Layout title="Mechref Example Skeleton">
     
 
-    <iframe
+    <!-- <iframe
         src="https://jcrayb.github.io/mechref-notebooks/lab/index.html?path=javascript.ipynb"
         width="100%"
         height="500px"
@@ -41,8 +42,12 @@ import Image from "../../components/Image.astro";
             document.getElementById("math-container").appendChild(node);
         })
         .catch((err) => console.error(err));
-    </script>
+    </script> -->
 
     <button onclick="remove_sidebar()" class="btn btn-primary">remove sidebar</button>
 
+    <Slideshow id="test">
+        <Image src="/about/documentation/alma.jpg" id="1" width="10"></Image>
+        <Image src="/sol/bending/Geometry.png" id="2"></Image>
+    </Slideshow>
 </Layout>

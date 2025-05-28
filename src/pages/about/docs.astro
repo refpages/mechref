@@ -24,6 +24,7 @@ import Row from "../../components/Row.astro"
 import Col from "../../components/Col.astro"
 import Warning from "../../components/Warning.astro"
 import Plotly from "../../components/Plotly.astro";
+import Slideshow from "../../components/Slideshow.astro";
 
 
 ---
@@ -1031,7 +1032,10 @@ All titles should be done in sentence case.
 </CalloutContainerContainer>
 </SubSubSection>
 
-<SubSection title="Images" id="images">
+<SubSection title="Images" id="images"></SubSection>
+
+<SubSubSection title="Images" id="image-image">
+    
     
     <CodeBox language="javascript" code=`
     import Image from "../../components/Image.astro"
@@ -1073,7 +1077,36 @@ All titles should be done in sentence case.
         </Col>
     </Row>
 
-</SubSection>
+</SubSubSection>
+
+<SubSubSection title="Slideshow" id="slideshow">
+    <CodeBox language="javascript" code=`
+    import Slideshow from "../../components/Slideshow.astro"
+    ` />
+
+    <p>Tag type: regular only</p>
+
+    Options:
+    <ul>
+    <li>id: Gives an id to the image so it can be linked to in within the current page or from other pages. Required.</li>
+    </ul>
+
+    <p class="m-0">Example:</p>
+
+    <CodeBox language="javascript" code=`
+    <Slideshow id="test">
+        <Image src="/about/documentation/alma.jpg" id="1" width="5"></Image>
+        <Image src="/sol/bending/Geometry.png" id="2" width="5"></Image>
+    </Slideshow>
+     ` />
+
+     <p>Result:</p>
+
+     <Slideshow id="test">
+        <Image src="/about/documentation/alma.jpg" id="1" width="5"></Image>
+        <Image src="/sol/bending/Geometry.png" id="2" width=5></Image>
+    </Slideshow>
+</SubSubSection>
 
 <!-- 
 <SubSection title="Animations" id="animations">

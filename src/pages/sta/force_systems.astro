@@ -12,14 +12,20 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
 
     <div slot="navtree">
         <ul class='list-group list-group-flush py-0'> 
-          <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#equivalent_systems'>Equivalent systems</a></li> 
+          <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#equivalent_systems'>Equivalent systems</a>
+            <ul class='list-group list-group-flush py-0'>
+              <li class='list-group-item py-0'><a class = 'text-decoration-none subsubsection' href = '#allowable force transformations'>Allowable force transformations</a></li>
+              <li class='list-group-item py-0'><a class = 'text-decoration-none subsubsection' href = '#allowable moment transformations'>Allowable moment transformations</a></li>
+            </ul>
+          </li>
           <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#concentrated_forces'>Concentrated forces</a></li>
-          <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#distributed_loads'>Distributed loads</a></li>
-          <ul class='list-group list-group-flush py-0'> 
-            <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#rectangular_loading'>Rectangular loading</a></li>
-            <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#triangular_loading'>Triangular loading</a></li>
-            <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#nonuniform_distributed_loads'>Nonuniform distributed loads</a></li>
-          </ul>
+          <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#distributed_loads'>Distributed loads</a>
+            <ul class='list-group list-group-flush py-0'> 
+              <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#rectangular_loading'>Rectangular loading</a></li>
+              <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#triangular_loading'>Triangular loading</a></li>
+              <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#nonuniform_distributed_loads'>Nonuniform distributed loads</a></li>
+            </ul>
+          </li>
       </ul>
       </div>
 
@@ -120,15 +126,15 @@ Now we can solve for the center of mass of the distributed load, <InlineEquation
 
 <Image src='/sta/force_systems/NonuniformLoad.jpg' width='8'> Nonuniform load.</Image>
 
-<div class="row">
-  <div class="col-md-6 col-12">
+<div class = "row">
+  <div class = "col-md-6 col-12">
     <p class = "text-center">Moment about 0 from force <InlineEquation equation = "dF:"/></p>
     <DisplayEquation equation = `\\begin{align} dM &= x * (dF) \\\\
     &= x * w * dx \\end{align}`/>
     <p class = "text-center">Total moment <InlineEquation equation = "(M_R)"/> about point 0:</p>
     <DisplayEquation equation = "M_R = \\int dM = \\int_{0} ^ {L} x * w(x) \\, dx"/>
   </div>
-  <div class="col-md-6 col-12" >
+  <div class = "col-md-6 col-12" >
     <p class = "text-center">Total moment <InlineEquation equation = "(M_R)"/> about point 0:</p>
     <DisplayEquation equation = "M_R = \\bar{x} * F_R"/>
     <p class = "text-center">solve for <InlineEquation equation = "\\bar{x}:"/></p>
