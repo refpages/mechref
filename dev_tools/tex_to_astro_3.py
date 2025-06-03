@@ -1,9 +1,5 @@
-from TexSoup import TexSoup
-import shutil
 import re
 import os
-import difflib
-import pprint
 
 
 #Usage: Run this file to convert a .tex file into a .astro file
@@ -39,22 +35,107 @@ replacements = {
 for filename in tex_files:
     required_modules = ['Image']
 
-    tex_path = f"tex/{course}/{page}.tex"
+    tex_path = f"tex/{course}/{filename}.tex"
 
     astro_path = f"astro/{coursetags[course]}/{filename.lower().replace(' ', '_')}.astro"
 
     with open(tex_path, 'r+') as file:
         raw = file.read()
 
-        data = TexSoup(raw)
+        # Remove preamble LaTeX
+        raw = re.sub(r'\\documentclass\{.*?\}', '', raw)
+        raw = re.sub(r'\\usepackage\{.*?\}', '', raw)
+        raw = re.sub(r'%.*', '', raw)
+        raw = re.sub(r'\\title\{.*?\}', '', raw)
+        raw = re.sub(r'\\author\{.*?\}', '', raw)
+        raw = re.sub(r'\\date\{.*?\}', '', raw)
+        raw = re.sub(r'\\begin\{document\}', '', raw)
+        raw = re.sub(r'\\maketitle', '', raw)
+        raw = re.sub(r'\\newenvironment\{callout\}\s*\{[^}]*\}\s*\{[^}]*\}','',raw,flags=re.DOTALL)
+        raw = re.sub(r'\n\s*\n+', '\n', raw)
 
-        # matches = re.sub(r'(?<=\n)(?!\s*\\)(.*?)(?<!\})(?=\n)', raw)
+        # -=-=-=- Start of Section/subsection/subsubsection structure -=-=-=- 
+        section_regex = re.compile(r'\\(section|subsection|subsubsection)\{([^}]+)\}')
 
-        raw = re.sub(r'(?<=\n)(?!\s*\\)(.*?)(?<!\})(?=\n)', lambda m: f"<p>{m.group(1)}</p>", raw, flags=re.DOTALL)
+        # Split raw into tokens: section commands and in-between content
+        tokens = []
+        last_pos = 0
+        for match in section_regex.finditer(raw):
+            start, end = match.span()
+            cmd_type, title = match.group(1), match.group(2)
+            # Save text before this heading
+            if start > last_pos:
+                tokens.append(('text', raw[last_pos:start].strip()))
 
-        paragraph_regex = [r"\\paragraph\{([^}]*)\}\s*(.*?)(?=(\\[a-zA-Z]+|\Z))",
-                           r"\\paragraph\{([^}]*)\}\s*(.*?)(?=(\\[a-zA-Z]+|\Z))",
-                           r"\\paragraph\{([^}]*)\}\s*([^\\]*)"]
+            tokens.append((cmd_type, title.strip()))
+            last_pos = end
+        if last_pos < len(raw):
+            tokens.append(('text', raw[last_pos:].strip()))
+
+        #Map commands to astro components
+        tag_map = {
+            'section': ('SubSection', 1, ''),  
+            'subsection': ('SubSubSection', 2, ''),
+            'subsubsection': ('SubSubSubSection', 3, '')
+        }
+
+        # -=-=-=- Build Output HTML and NavTree -=-=-=- 
+        output = []
+        stack = []
+        navtree_entries = []
+
+        for token in tokens:
+            if token[0] in tag_map:
+                # Close previous section if needed
+                if stack:
+                    output.append(f'</{stack[-1]}>')
+                    stack.pop()
+                cmd_type, title = token
+                tag, level, _ = tag_map[cmd_type]
+                navtree_entries.append((level, title))
+                output.append(f'<{tag} title="{title}" id="{title}">')
+                stack.append(tag)
+            elif token[0] == 'text' and token[1]:
+                output.append(token[1])
+
+        # Close any open sections at the end
+        while stack:
+            output.append(f'</{stack.pop()}>')
+
+        raw = "\n".join(output)
+
+        # -=-=- Wrap all adjacent <CalloutCard> blocks into a single <CalloutContainer> -=-=- 
+        raw = re.sub(r'((<CalloutCard[\s\S]*?</CalloutCard>\s*)+)',
+            lambda m: f"<CalloutContainer slot=\"cards\">\n{m.group(1)}</CalloutContainer>",
+            raw
+        )
+        required_modules.append("CalloutContainer")
+
+        # -=-=-=- Generate the navtree -=-=-=-=- 
+        def generate_navtree(entries):
+            nav_html = '<div slot="navtree">\n<ul class="list-group list-group-flush py-0">\n'
+            prev_level = 1
+            for i, (level, title) in enumerate(entries):
+                if level > prev_level:
+                    nav_html += "<ul>\n" * (level - prev_level)
+                elif level < prev_level:
+                    nav_html += "</ul>\n</li>\n" * (prev_level - level)
+                elif i != 0:
+                    nav_html += "</li>\n"
+                nav_html += f"<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#{title}'>{title}</a>"
+                prev_level = level
+            nav_html += "</li>\n" + "</ul>\n" * prev_level + "</div>"
+            return nav_html
+
+        navtree_html = generate_navtree(navtree_entries)
+        raw = navtree_html + '\n' + raw
+        required_modules += ['Section', 'SubSection', 'SubSubSection', 'SubSubSubSection']
+
+        # -=-=- Handle \paragraph{} Commands -=-=-=- 
+        paragraph_regex = [
+            r"\\paragraph\{([^}]*)\}\s*(.*?)(?=(\\[a-zA-Z]+|\Z))",
+            r"\\paragraph\{([^}]*)\}\s*([^\\]*)"
+        ]
 
 
         # Function to process each match
@@ -100,12 +181,6 @@ for filename in tex_files:
         raw = re.sub(blueregex, r"<BlueText>\1</BlueText>", raw)
 
 
-        iregex = r"\\item\s+(.*)"
-
-        # Use re.sub to replace \emph{} with <strong>
-        raw = re.sub(iregex, r"<Item>\1</Item>", raw)
-
-
         def transform_itemize(match):
             items = match.group(1)  # Capture the content inside the environment
             # Replace \item with <Item></Item>
@@ -139,23 +214,22 @@ for filename in tex_files:
         # Use re.sub to remove all \vspace commands
         raw = re.sub(vregex, "", raw)
 
-        for tex, html in replacements.items():
-
-            matches = data.find_all(tex)
-
-            for match in list(matches):
-                if len(list(match.contents)):
-                    raw = raw.replace(str(match).replace(r'\blue {', r'\blue{'),
-                                      f"<{html}>{' '.join(list([str(e) for e in match.contents]))}</{html}>")
-
-                    if html != 'em' and html != 'strong' and (html not in required_modules):
-                        required_modules.append(html)
+        # -=-=-=- Handle LATEX Callout -=-=-=- 
+        callout_regex = r"\\begin\{callout\}([\s\S]*?)\\end\{callout\}"
+        def transform_callout(match):
+            content = match.group(1).strip()
+            required_modules.append("CalloutCard")
+            return (
+                f"    <CalloutCard title=\"Extra!\">\n"
+                "        <u class=\"m-0\">Callout Card</u>\n"
+                f"        {content}\n"
+                "    </CalloutCard>"
+            )
+        raw = re.sub(callout_regex, transform_callout, raw)
+        # -=-=-=- End LATEX Callout -=-=-=-=-
 
         # ADDITIONAL CLEANUP
 
-        raw = raw.replace('<Section>', '<Section title="">')
-        raw = raw.replace('<SubSection>', '<SubSection title="">')
-        raw = raw.replace('<SubSubSection>', '<SubSubSection title="">')
         # print([e for e in data.subsection.descendants])
 
         required_modules.append('OrangeText')
@@ -172,7 +246,6 @@ for filename in tex_files:
             r'\\begin\{equation\*\}(.*?)\\end\{equation\*\}',
             r'\\begin\{align\*\}(.*?)\\end\{align\*\}'
         ]
-
 
         # Replacement function
         def replace_equation(match):
@@ -256,38 +329,90 @@ for filename in tex_files:
         for pattern in patterns:
             raw = re.sub(pattern, replace_equation, raw, flags=re.DOTALL)
 
-        inline_equations = re.findall(r'\$([^$]*)\$', raw)
+        # -=-=-=- Start LATEX Math Conversion -=-=-=- 
 
-        if len(inline_equations): required_modules.append('InlineEquation')
+        # Protect escaped dollar signs in the case use of literal dollar signs
+        raw = raw.replace(r'\$', '__DOLLAR__')
 
-        for eq in inline_equations:
-            if len(eq)>0:
-                db_backslash = eq.replace('\\', '\\\\').replace('\n', '')
-                raw = raw.replace(f'${eq}$', f'<InlineEquation equation="{db_backslash}" />')
+        required_modules.append("InlineEquation")
+        required_modules.append("DisplayEquation")
 
-        required_modules.append('DisplayEquation')
+        # \begin{equation}...\end{equation}
+        def transform_equation_env(match):
+            content = match.group(1).strip()
+            content = re.sub(r'\\label\{.*?\}', '', content).strip()
+            content = content.replace('\\', '\\\\').replace('"', '\\"')
+            return '\n<DisplayEquation equation="{}" title="" />\n'.format(content)
+        raw = re.sub(r'\\begin\{equation\}([\s\S]*?)\\end\{equation\}', transform_equation_env, raw)
 
-        display_equations = re.findall(r'\[(.*)\]', raw)
+        # $$...$$
+        raw = re.sub(
+            r'\$\$([\s\S]*?)\$\$',
+            lambda m: '\n<DisplayEquation equation="{}" title="" />\n'.format(
+                m.group(1).strip().replace('\\', '\\\\').replace('"', '\\"')
+            ),
+            raw
+        )
+        # \[...\]
+        raw = re.sub(
+            r'\\\[(.*?)\\\]',
+            lambda m: '\n<DisplayEquation equation="{}" title="" />\n'.format(
+                re.sub(r'\s+', ' ', m.group(1).strip()).replace('\\', '\\\\').replace('"', '\\"')
+            ),
+            raw,
+            flags=re.DOTALL
+        )
+        # Inline math: $...$
+        raw = re.sub(
+            r'\$(.+?)\$',
+            lambda m: '<InlineEquation equation="{}" />'.format(
+                m.group(1).strip().replace('\\', '\\\\').replace('"', '\\"')
+            ),
+            raw
+        )
+        # Wrap plain text if not already wrapped
+        raw = re.sub(
+            r'(?<![<\w])\n([^\n<>]+?)\n(?!\s*<)',
+            lambda m: '\n<p>{}</p>\n'.format(m.group(1).strip()),
+            raw
+        )
 
+        # Remove <p> wrapping around equations
+        raw = re.sub(r'<p>\s*(<DisplayEquation .*?/>)\s*</p>', r'\1', raw)
+        raw = re.sub(r'<p>\s*(<InlineEquation .*?/>)\s*</p>', r'\1', raw)
 
-        for eq in display_equations:
-            if len(eq)>0:
-                db_backslash = eq.replace('\\', '\\\\').replace('\n', '')
-                if r'\[%s]' % (eq) in raw and ('DisplayEquation' not in required_modules): required_modules.append(
-                    'DisplayEquation')
-                raw = raw.replace(r'\[%s]' % (eq), f'<DisplayEquation equation="{db_backslash}" />')
+        # Restore escaped dollar signs
+        raw = raw.replace('__DOLLAR__', '$')
 
+        # -=-=-=-  End LATEX Math -=-=-=- 
 
-        display_equations2 = re.findall(r'\$\$(.*)\$\$', raw)
-        for eq in display_equations2:
-            if len(eq) > 0:
-                db_backslash = eq.replace('\\', '\\\\').replace('\n', '')
-                if r'$$%s$$' % (eq) in raw and ('DisplayEquation' not in required_modules): required_modules.append(
-                    'DisplayEquation')
-                raw = raw.replace(r'$$%s$$' % (eq), f'<DisplayEquation equation="{db_backslash}" />')
+        # -=-=- Remove \section* and wrap manually -=-=- 
+        raw = re.sub(r'\\section\*\{([^}]*)\}', lambda m: f"<Section title=\"{m.group(1)}\">", raw)
+        raw = re.sub(r'\\subsection\*\{([^}]*)\}', lambda m: f"<SubSection title=\"{m.group(1)}\">", raw)
+        raw = re.sub(r'\\subsubsection\*\{([^}]*)\}', lambda m: f"<SubSubSection title=\"{m.group(1)}\">", raw)
+
+        #Paragraph-wrapping regex update
+        def safe_wrap_paragraphs(text):
+            lines = text.split("\n")
+            result = []
+            for line in lines:
+                stripped = line.strip()
+                if not stripped:
+                    result.append("")
+                elif re.match(r'^\s*</?\w+.*?>\s*$', stripped): 
+                    result.append(line)
+                elif stripped.startswith("<") and stripped.endswith(">"):
+                    result.append(line)
+                else:
+                    result.append(f"<p>{stripped}</p>")
+            return "\n".join(result)
+        raw = safe_wrap_paragraphs(raw)
+        # -=-=-=- End of Sectioning -=-=-=-=- 
 
         imports = 'import Layout from "../../layouts/Layout.astro" \n'
 
+        #Organized imports and no more than one import
+        required_modules = list(dict.fromkeys(required_modules)) 
         for comp in required_modules:
             imports += f'import {comp} from "../../components/{comp}.astro" \n'
 
@@ -296,11 +421,11 @@ for filename in tex_files:
         # Use re.sub to remove all figure environments
         raw = re.sub(figregex, "", raw, flags=re.DOTALL)
 
-        # Remove matching <p> tags
-        raw = re.sub(r"<p>\s*%+\s*</p>", "", raw)
-
         # print(imports)
 
+        #Removes \end{document} add greater checks later?
+        raw = re.sub(r'\\end\{document\}', '', raw)
+        
         raw = '---\n' + imports + '---\n' + f'<Layout title="{filename}">' + '\n' + raw + '\n' + '</Layout>'
 
         raw = raw.replace("<p></p>", "")
@@ -310,18 +435,3 @@ for filename in tex_files:
         astro_file.write(raw)
 
         astro_file.close()
-
-for filename in tex_files:
-    required_modules = ['Image']
-
-    tex_path = f"tex/{course}/{page}.tex"
-
-    astro_path = f"astro/src/pages/{coursetags[course]}/{filename.lower().replace(' ', '_')}.astro"
-
-    with open(tex_path, 'r+') as file:
-        raw = file.read()
-
-        data = TexSoup(raw)
-
-        for match in re.finditer(r'(?<=\n\n)(?!\\)(.*?)(?<!\})(?=\n\n)', raw):
-            print(match)
