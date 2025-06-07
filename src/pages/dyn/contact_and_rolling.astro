@@ -257,15 +257,6 @@ import DisplayEquationCustom from "../../components/DisplayEquationCustom.astro"
 
     <PrairieDrawCanvas id="rko-fc-c" width="600" height="600"></PrairieDrawCanvas>
 
-    <DisplayEquation id="rko-eg" derivation='True' background="True" title="Geometric quantities for rolling on a curved surface." equation="\\begin{aligned} \\left.\\begin{aligned} R &amp;= \\rho - r \\\\ \\vec{\\omega} &amp;= -\\omega \\,\\hat{e}_b \\\\ \\vec{\\alpha} &amp;= -\\alpha \\,\\hat{e}_b \\end{aligned}\\right\\} &amp; \\text{ when rolling on the inside of a curved surface} \\\\[1em] \\left.\\begin{aligned} R &amp;= \\rho + r \\\\ \\vec{\\omega} &amp;= \\omega \\,\\hat{e}_b \\\\ \\vec{\\alpha} &amp;= \\alpha \\,\\hat{e}_b \\end{aligned}\\right\\} &amp; \\text{ when rolling on the outside of a curved surface} \\end{aligned}"> 
-            These formulas are all choices of sign conventions for
-            <InlineEquation equation="\\omega" /> and <InlineEquation equation="\\alpha" />, and definitions of <InlineEquation equation="R" />. Figure <a
-            href="#rko-fc">#rko-fc</a> shows the appropriate
-            geometry. Note that <InlineEquation equation="\\omega" /> and <InlineEquation equation="\\alpha" /> are defined
-            with positive values corresponding to motion in the
-            tangential direction.
-    </DisplayEquation>
-
     <Warning id="rko-wr" title="Radii of curvature \\(\\rho\\) and \\(r\\) may not be constant.">
       <p>
         The radius of curvature <InlineEquation equation="\\rho" /> of the surface may be
@@ -281,6 +272,42 @@ import DisplayEquationCustom from "../../components/DisplayEquationCustom.astro"
       same as for a flat surface, while the acceleration also
       depends on the radius of curvature of the surface:
     </p>
+
+    <DisplayEquationCustom title="Center velocity and acceleration while rolling on a curved surface (I-J Basis)." id="rko-ec2" background="true" derivation="true">
+
+      <InlineEquation equation="\\text{Rolling on the inside}:" />
+      <DisplayEquation equation="\\begin{aligned} R &amp;= \\rho - r \\\\ \\vec{v}_C &amp;= -r \\omega_z \\,\\hat{I}\\\\\\vec{a}_C &amp;= -r \\alpha_z \\,\\hat{I}+ \\frac{(r\\omega)^2}{R} \\,\\hat{J}\\end{aligned}" />
+
+      <InlineEquation equation="\\text{Rolling on the outside}:" />
+      <DisplayEquation equation="\\begin{aligned} R &amp;= \\rho + r \\\\ \\vec{v}_C &amp;= -r \\omega_z \\,\\hat{I}\\\\\\vec{a}_C &amp;= -r \\alpha_z \\,\\hat{I}- \\frac{(r\\omega)^2}{R} \\,\\hat{J}\\end{aligned}" />
+
+
+      <div slot="derivation">
+        <p>
+          By defining positive <InlineEquation equation="\\hat{J}" /> as always pointing towards the center of the
+          body rolling, i.e <InlineEquation equation="\\hat{J}  = -\\hat{e}_n" /> for rolling on the outside,
+          and <InlineEquation equation="\\hat{J}  = \\hat{e}_n" /> for rolling on the inside, 
+          and <InlineEquation equation="\\hat{I}" /> to make a right-handed 
+          set (i.e <InlineEquation equation="\\hat{I} \\times \\hat{J} = \\hat{k}" />)
+          we can obtain the expressions above. 
+        </p>
+      </div>
+    </DisplayEquationCustom>
+    
+    <p>
+      It should be noted that for situations involving rigid bodies rolling on curved surfaces, it is also possible to use the Tangent-Normal basis instead of the <InlineEquation equation = "\\hat{I}, \\hat{J}"/> basis,
+      but doing so depends on the direction the object is rolling, and thus requires more intuition. One can infer the direction the rigid body will roll by using the sign of <InlineEquation equation = "\\vec{\\omega},"/>
+      which can be used to determine <InlineEquation equation = "\\hat{e}_t"/>. Then, the following formulas can be used.
+    </p>
+
+    <DisplayEquation id="rko-eg" derivation='True' background="True" title="Geometric quantities for rolling on a curved surface." equation="\\begin{aligned} \\left.\\begin{aligned} R &amp;= \\rho - r \\\\ \\vec{\\omega} &amp;= -\\omega \\,\\hat{e}_b \\\\ \\vec{\\alpha} &amp;= -\\alpha \\,\\hat{e}_b \\end{aligned}\\right\\} &amp; \\text{ when rolling on the inside of a curved surface} \\\\[1em] \\left.\\begin{aligned} R &amp;= \\rho + r \\\\ \\vec{\\omega} &amp;= \\omega \\,\\hat{e}_b \\\\ \\vec{\\alpha} &amp;= \\alpha \\,\\hat{e}_b \\end{aligned}\\right\\} &amp; \\text{ when rolling on the outside of a curved surface} \\end{aligned}"> 
+            These formulas are all choices of sign conventions for
+            <InlineEquation equation="\\omega" /> and <InlineEquation equation="\\alpha" />, and definitions of <InlineEquation equation="R" />. Figure <a
+            href="#rko-fc">#rko-fc</a> shows the appropriate
+            geometry. Note that <InlineEquation equation="\\omega" /> and <InlineEquation equation="\\alpha" /> are defined
+            with positive values corresponding to motion in the
+            tangential direction.
+    </DisplayEquation>
 
     <DisplayEquation title="Center velocity and acceleration while rolling on a curved surface (Tangential-Normal Basis)." id="rko-ec" equation="\\begin{aligned}\\vec{v}_C &amp;= r \\omega \\,\\hat{e}_t \\\\\\vec{a}_C &amp;= r \\alpha \\,\\hat{e}_t+ \\frac{(r\\omega)^2}{R} \\,\\hat{e}_n\\end{aligned}" background="true" derivation="true">
       <p>
@@ -349,27 +376,6 @@ import DisplayEquationCustom from "../../components/DisplayEquationCustom.astro"
       </p>
 
     </DisplayEquation>
-
-    <DisplayEquationCustom title="Center velocity and acceleration while rolling on a curved surface (I-J Basis)." id="rko-ec2" background="true" derivation="true">
-
-      <InlineEquation equation="\\text{Rolling on the inside}:" />
-      <DisplayEquation equation="\\begin{aligned}\\vec{v}_C &amp;= -r \\omega_z \\,\\hat{I}\\\\\\vec{a}_C &amp;= -r \\alpha_z \\,\\hat{I}+ \\frac{(r\\omega)^2}{R} \\,\\hat{J}\\end{aligned}" />
-
-      <InlineEquation equation="\\text{Rolling on the outside}:" />
-      <DisplayEquation equation="\\begin{aligned}\\vec{v}_C &amp;= -r \\omega_z \\,\\hat{I}\\\\\\vec{a}_C &amp;= -r \\alpha_z \\,\\hat{I}- \\frac{(r\\omega)^2}{R} \\,\\hat{J}\\end{aligned}" />
-
-
-      <div slot="derivation">
-        <p>
-          By defining positive <InlineEquation equation="\\hat{J}" /> as always pointing towards the center of the
-          body rolling, i.e <InlineEquation equation="\\hat{J}  = -\\hat{e}_n" /> for rolling on the outside,
-          and <InlineEquation equation="\\hat{J}  = \\hat{e}_n" /> for rolling on the inside, 
-          and <InlineEquation equation="\\hat{I}" /> to make a right-handed 
-          set (i.e <InlineEquation equation="\\hat{I} \\times \\hat{J} = \\hat{k}" />)
-          we can obtain the expressions above. 
-        </p>
-      </div>
-    </DisplayEquationCustom>
 
     <p>
       The angular velocity of the rolling rigid body can be
