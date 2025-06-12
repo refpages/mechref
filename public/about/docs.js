@@ -90,14 +90,14 @@ $(document).ready(function(){
         this.translate(rP1);
         this.rotate(theta1);
         this.rectangle(0.8, 0.8 / this.goldenRatio, O, 0, true);
-        this.text($V([0.33, -0.18]), $V([0, 0]), "TEX:$\\mathcal{B}_1$");
+        this.text($V([0.3, -0.16]), $V([0, 0]), "TEX:$\\mathcal{B}_1$");
         this.restore();
 
         this.save();
         this.translate(rP2);
         this.rotate(theta2);
         this.rectangle(0.8, 0.8 / this.goldenRatio, O, 0, true);
-        this.text($V([0.33, -0.18]), $V([0, 0]), "TEX:$\\mathcal{B}_2$");
+        this.text($V([0.3, -0.16]), $V([0, 0]), "TEX:$\\mathcal{B}_2$");
         this.restore();
 
         this.setProp("shapeInsideColor", "rgb(255, 255, 255)");
