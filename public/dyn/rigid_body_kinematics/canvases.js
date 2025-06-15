@@ -264,6 +264,7 @@ $(document).ready(function(){
     });
 
     rkg_fd_c = new PrairieDrawAnim("rkg-fd-c", function(t) {
+        
         this.setUnits(6, 4);
 
         this.addOption("showLabels", true);

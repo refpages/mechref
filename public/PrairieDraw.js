@@ -3601,6 +3601,7 @@ PrairieDrawAnim.prototype.stopAnim = function() {
 /** Toggle the animation.
 */
 PrairieDrawAnim.prototype.toggleAnim = function() {
+    this.currentmovement = this.getOption("movement");
     if (this._running) {
         this.stopAnim();
     } else {
@@ -3693,7 +3694,8 @@ PrairieDrawAnim.prototype.reset = function() {
     this.resetView3D(false);
     this.resetTime(false);
     this.redraw();
-    document.querySelector('input[name = "rkg-fd-c-movement"][value = "translate"]').checked = true;
+
+    this.setOption("movement", this.currentmovement);
 }
 
 /** Stop all action and computation.
