@@ -3693,6 +3693,7 @@ PrairieDrawAnim.prototype.reset = function() {
     this.resetView3D(false);
     this.resetTime(false);
     this.redraw();
+    document.querySelector('input[name = "rkg-fd-c-movement"][value = "translate"]').checked = true;
 }
 
 /** Stop all action and computation.
