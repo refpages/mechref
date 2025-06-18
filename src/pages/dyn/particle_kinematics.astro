@@ -101,7 +101,18 @@ import InlineCanvas from "../../components/InlineCanvas.astro"
         vectors with respect to different origins and in different
         bases.
       </p>
-    </PrairieDrawCanvas>
+    </PrairieDrawCanvas>   
+    <CalloutContainer slot = "cards">
+      <CalloutCard title = "Heads up!">
+        <p>
+          Similar to particle kinematics, <strong><a href = "/dyn/rigid_body_kinematics">rigid body kinematics</a></strong> also builds on this content later in the course.
+        </p>
+        <PrairieDrawCanvas id = "rkg-fr-c" height = "250" width = "250"/>
+        <p>
+          Rigid body kinematics examines the velocity and acceleration of particles on the same rigid body.
+        </p>
+      </CalloutCard>
+    </CalloutContainer>
   </SubSection>
   
     <SubSubSection title="Transformation of position vectors" id="Transformation_position_vectors">
@@ -318,6 +329,17 @@ import InlineCanvas from "../../components/InlineCanvas.astro"
 
     </tbody>
 </DisplayTable>
+  <CalloutContainer slot = "cards">
+    <CalloutCard title = "Heads up!">
+      <p>
+        <strong><a href = "/md/Position_Velocity_Acceleration">Position velocity acceleration</a></strong> builds on this content in Mechanism design.
+      </p>
+      <Image src = "/md/Position_Velocity_Acceleration/Vector_loop_1.png" width = "5"/>
+      <p>
+        Position, Velocity, Acceleration (PVA) analysis is used to analytically determine the motion of a mechanism. Position determines the configuration of the mechanism, velocity determines the kinetic energy and momentum, and acceleration determines the forces. The known geometry, initial configurations, and PVA data of one link determines the PVA data for the other links.
+      </p>
+    </CalloutCard>
+  </CalloutContainer>
 </SubSubSection>
 
 

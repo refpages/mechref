@@ -171,6 +171,94 @@ $(document).ready(function() {
 
     rkr_fc_c.activate3DControl();
 
+    rkg_fr_c = new PrairieDraw("rkg-fr-c", function() {
+        this.setUnits(3, 3 / this.goldenRatio);
+
+        this.addOption("showType", "none");
+
+        this.translate($V([-1.2, -0.7]));
+
+        var O = $V([0, 0]);
+        var ei = $V([1, 0]);
+        var ej = $V([0, 1]);
+        var rP = $V([1.5, 0.4]);
+        var rQ = $V([1.7, 1.2]);
+        var vP = $V([0.3, -0.2]);
+        var omega = 0.8;
+        var rPQ = rQ.subtract(rP);
+        var vQRel = this.perp(rPQ).x(omega);
+        var vQ = vP.add(vQRel);
+        var alpha = 1.1;
+        var aP = $V([0.6, 0.2]);
+        var aQAlpha = this.perp(rPQ).x(alpha);
+        var aQCent = rPQ.x(-omega * omega);
+        var aQ = aP.add(aQAlpha).add(aQCent);
+
+        this.arrow(O, ei);
+        this.arrow(O, ej);
+        this.text(O, $V([1, 1]), "TEX:$O$");
+        this.labelLine(O, ei, $V([1, -1]), "TEX:$\\hat{\\imath}$");
+        this.labelLine(O, ej, $V([1, 1]), "TEX:$\\hat{\\jmath}$");
+
+        this.save();
+        this.translate($V([1.6, 0.8]));
+        this.rotate(0.7);
+        this.rectangle(1.2, 1.2 / this.goldenRatio);
+        this.restore();
+
+        this.point(rP);
+        this.point(rQ);
+        this.text(rP, $V([0, -1]), "TEX:$P$");
+        this.text(rQ, $V([-1.2, 0]), "TEX:$Q$");
+
+        if (this.getOption("showType") === "position") {
+            this.arrow(O, rP, "position");
+            this.arrow(O, rQ, "position");
+            this.labelLine(O, rP, $V([0, -1.1]), "TEX:$\\vec{r}_P$");
+            this.labelLine(O, rQ, $V([0, 1.1]), "TEX:$\\vec{r}_Q$");
+
+            this.arrow(rP, rQ);
+            this.labelLine(rP, rQ, $V([0, -1.1]), "TEX:$\\vec{r}_{PQ}$");
+        }
+
+        if (this.getOption("showType") === "velocity") {
+            this.arrowFrom(rP, vP, "velocity");
+            this.arrowFrom(rQ, vQ, "velocity");
+            this.labelLine(rP, rP.add(vP), $V([1, 0]), "TEX:$\\vec{v}_P$");
+            this.labelLine(rQ, rQ.add(vQ), $V([1, 0]), "TEX:$\\vec{v}_Q$");
+
+            this.arrowFrom(rQ, vQRel);
+            this.labelLine(rQ, rQ.add(vQRel), $V([1, 0]), "TEX:$\\vec{\\omega} \\times \\vec{r}_{PQ}$");
+        }
+
+        if (this.getOption("showType") === "velocity"
+            || this.getOption("showType") === "acceleration") {
+            var omegaRad = 0.2;
+            this.circleArrow(rP, omegaRad, Math.PI / 2 - omega, Math.PI / 2 + omega, "angVel", true);
+            this.labelCircleLine(rP, omegaRad, Math.PI / 2 - omega, Math.PI / 2 + omega, $V([0, -1]),
+                                 "TEX:$\\vec{\\omega}$", true);
+        }
+
+        if (this.getOption("showType") === "acceleration") {
+            var alphaRad = 0.25;
+            this.circleArrow(rP, alphaRad, Math.PI / 2 - alpha, Math.PI / 2 + alpha, "angAcc", true);
+            this.labelCircleLine(rP, alphaRad, Math.PI / 2 - alpha, Math.PI / 2 + alpha, $V([0, 1]),
+                                 "TEX:$\\vec{\\alpha}$", true);
+
+            this.arrowFrom(rQ, aQAlpha);
+            this.labelLine(rQ, rQ.add(aQAlpha), $V([0, -1.1]), "TEX:$\\vec{\\alpha} \\times \\vec{r}_{PQ}$");
+
+            this.arrowFrom(rQ, aQCent);
+            this.labelLine(rQ, rQ.add(aQCent), $V([0, 1.1]), "TEX:$\\vec{\\omega} \\times (\\vec{\\omega} \\times \\vec{r}_{PQ})$");
+
+            this.arrowFrom(rP, aP, "acceleration");
+            this.arrowFrom(rQ, aQ, "acceleration");
+            this.labelLine(rP, rP.add(aP), $V([1, 0]), "TEX:$\\vec{a}_P$");
+            this.labelLine(rQ, rQ.add(aQ), $V([1, 0]), "TEX:$\\vec{a}_Q$");
+        }
+        
+    });
+
     rkr_fe_c = new PrairieDrawAnim("rkr-fe-c", function(t) {
         this.setUnits(4.5, 3);
 
