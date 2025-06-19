@@ -9,6 +9,7 @@ import CourseCard from "../components/course_menus/CourseCard.astro"
 import "../../public/static/css/course_home_pages.css"
 ---
 
+
 <Layout title="Solid mechanics">
 
   <div class="mt-sm-4 mt-2">
@@ -250,4 +251,56 @@ import "../../public/static/css/course_home_pages.css"
       <li slot="list"><a href="/sol/buckling?origin=coursemenu">Buckling</a></li>
     </SimplifiedView>
   </div>
+
+
+  <div style="height:40px"></div>
+  <h2 class="site-title">The Faculty at TAM 251:</h2>
+  <div style="height:10px"></div>
+
+  <div>
+      <ul class="list-unstyled d-flex flex-wrap text-center mb-1 ml-4">
+              <li class="me-4 text-center">
+                    <a href="https://grainger.illinois.edu/about/directory/faculty/tfg">
+                    <img class="border-blue small-img rounded-circle" src="https://ws.engr.illinois.edu/directory/viewphoto.aspx?photo=19205&s=300" />
+                    </a>
+                    <h2 style="font-size:20px" class="site-title mt-2">Tom Golecki</h2>
+              </li>
+              <li class="me-5 text-center">
+                    <a href="https://grainger.illinois.edu/about/directory/faculty/cluetke">
+                    <img class="border-blue small-img rounded-circle" src="https://ws.engr.illinois.edu/directory/viewphoto.aspx?photo=16811&s=300" />
+                    </a>
+                    <h2 style="font-size:20px" class="site-title mt-2">Callan Luetkemeyer</h2>
+              </li>
+      </ul>
+  </div>
+  <div style="height:20px"></div>
+
+  <div>
+    <h2 style="font-size:25px" class="site-title"> Student Authors / Editors: </h2>
+    <ul>
+      <li> <h2 style="font-size:20px;" class="site-title">Mikayla Hoyle</h2> </li>
+      <li> <h2 style="font-size:20px;" class="site-title">Chris Raymond-Bertrand</h2> </li>
+    </ul>
+  </div>
+
+  <div style="height:20px"></div>
+
 </Layout>
+
+
+<style>
+      h2 {
+            font-weight: 700;
+            letter-spacing: -0.7px;
+      }
+      .small-img {
+            width: 120px;
+            height: 120px;
+      }
+      .border-orange {
+            border: 6px solid #ff724f;
+      }
+      .border-blue {
+            border: 6px solid blue;
+      }
+</style>

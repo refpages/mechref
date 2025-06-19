@@ -1,0 +1,252 @@
+---
+const imageUrl = "https://media.istockphoto.com/id/1288129985/vector/missing-image-of-a-person-placeholder.jpg?s=612x612&w=0&k=20&c=9kE777krx5mrFHsxx02v60ideRWvIgI1RWzR1X4MG2Y=";
+---
+
+<style>
+
+    footer{
+        position: relative;
+        z-index: 10;
+        line-height: 1.5;
+        font-family: 'SourceSansPro';
+    }
+
+    footer .campus-footer {
+        padding-top: 35px;
+        padding-bottom: 0px;
+        background-color: var(--illini-blue);
+        color: #fff;
+        border-top: 8px solid var(--illini-orange);
+        line-height: 24px;
+    }
+
+    footer .site-footer {
+        padding: 2.5rem 0;
+        border-top: 8px solid var(--illini-blue);
+        background-color: var(--illini-light-grey);
+        font-size: 16px;
+    }
+
+    .maxwidth1140 {
+        max-width: 1170px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    footer :is(h2, .h2) {
+        font-size: 1.75rem;
+        margin-bottom: 1.5rem;
+    }
+
+    footer .il-footer-contact {
+        margin-bottom: 2rem;
+    }
+
+    footer .il-footer-contact p {
+        margin-bottom: 0;
+        line-height: 1.5;
+        color: black;
+    }
+
+    .hide-empty[data-value=""]{
+        display: none;
+    }
+
+    :is(h1, h2, h3, h4, h5, .h1, .h2, .h3, .h4, .h5) a {
+        text-decoration: none;
+    }
+
+    a {
+        color: var(--illini-industrial-blue);
+        text-decoration: underline;
+        padding: 1px 0;
+    }
+
+    h2{
+        font-weight: 700;
+        letter-spacing: -0.7px;
+    }
+
+    footer .site-footer-content :is(h2, .h2) {
+        border-bottom: 1px solid var(--illini-blue);
+        padding-bottom: 6px;
+        margin-bottom: 6px;
+    }
+
+    footer .il-footer-social li a > svg{
+        height: 20px;
+        fill: var(--illini-industrial-blue);
+    }
+
+    footer .il-footer-social ul {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    footer .il-footer-social li {
+        margin-right: 1rem;
+    }
+
+    .small-img {
+        width: 100px;
+        height: 100px;
+    }
+
+    footer ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    @media (min-width: 768px) {
+        .text-md-right {
+            text-align: right !important;
+        }
+    }
+
+    footer .campus-footer .campus-wordmark a {
+        display: block;
+        margin-bottom: 60px;
+        max-width: 151px;
+    }
+
+    footer .campus-footer h3 {
+        font-size: 1.5rem;
+        font-weight: 600;
+    }
+
+    footer .campus-footer h2 {
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin: 0;
+    }
+
+    footer .campus-footer .links li {
+        padding: 0.5rem 0;
+    }
+    footer .campus-footer .links a {
+        text-decoration: none;
+        color: var(--engr-white);
+        display: inline-block;
+    }
+
+    footer .legal-footer {
+        border-top: 8px solid var(--illini-industrial-blue-darker-2);
+        padding-top: 36px;
+        padding-bottom: 36px;
+        background-color: var(--illini-blue);
+        color: #ffffff;
+    }
+
+    footer .legal-footer ul {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 30px;
+        min-height: 60px;
+    }
+
+    footer .legal-footer a {
+        color: var(--engr-white);
+        text-decoration: underline;
+        padding: 5px;
+    }
+
+    footer .legal-footer #ot-sdk-btn.ot-sdk-show-settings {
+        border: 1px solid white !important;
+        color: white;
+        border-radius: 5px;
+        font-size: 14px;
+        line-height: 1.2;
+        background-color: var(--illini-alma-blue) !important;
+        padding: 11px 16px !important;
+        text-decoration: none;
+        font-family: inherit !important;
+    }
+</style>
+
+<footer>
+    <div class="site-footer hide-empty" data-value=""></div>
+
+    <div class="site-footer show-empty" data-value="">
+        <div class="container-fluid maxwidth1140">
+            <div class="row justify-content-between">
+                <div class="col-12 col-md-6 mb-5 mb-md-0">
+
+                    <h2 class="site-title">Authors:</h2>
+                    <div style="height:10px"></div>
+                    <div>
+                        <ul class="list-unstyled d-flex text-center mb-4">
+                            <li class="me-5">
+                                <a href="href="https://youtube.com">
+                                <img class="small-img rounded-circle" src={imageUrl}></img>
+                                </a>
+                                <h2 style="font-size:20px" class="mt-3">Author 1</h2>
+                            </li>
+                            <li class="me-5">
+                                <a href="https://youtube.com">
+                                <img class="small-img rounded-circle" src={imageUrl}></img>
+                                </a>
+                                <h2 style="font-size:20px" class="mt-3">Author 2</h2>
+                            </li>
+                            <li class="me-5">
+                                <a href="https://youtube.com">
+                                <img class="small-img rounded-circle" src={imageUrl}></img>
+                                </a>
+                                <h2 style="font-size:20px" class="mt-3">Author 3</h2>
+                            </li>
+                            <li class="me-5">
+                                <a href="https://youtube.com">
+                                <img class="small-img rounded-circle" src={imageUrl}></img>
+                                </a>
+                                <h2 style="font-size:20px" class="mt-3">Author 4</h2>
+                            </li>
+                        </ul>
+                        <ul class="list-unstyled d-flex text-center pt-4 mb-4">
+                            <li class="me-5">
+                                <a href="href="https://youtube.com">
+                                <img class="small-img rounded-circle" src={imageUrl}></img>
+                                </a>
+                                <h2 style="font-size:20px" class="mt-3">Author 5</h2>
+                            </li>
+                            <li class="me-5">
+                                <a href="https://youtube.com">
+                                <img class="small-img rounded-circle" src={imageUrl}></img>
+                                </a>
+                                <h2 style="font-size:20px" class="mt-3">Author 6</h2>
+                            </li>
+                            <li class="me-5">
+                                <a href="https://youtube.com">
+                                <img class="small-img rounded-circle" src={imageUrl}></img>
+                                </a>
+                                <h2 style="font-size:20px" class="mt-3">Author 7</h2>
+                            </li>
+                            <li class="me-5">
+                                <a href="https://youtube.com">
+                                <img class="small-img rounded-circle" src={imageUrl}></img>
+                                </a>
+                                <h2 style="font-size:20px" class="mt-3">Author 8</h2>
+                            </li>
+                        </ul>
+                    <div>
+                    <div style="height:40px"></div>
+
+                    <div>
+                        <h2 class="site-title">Student authors / editors:</h4>
+                        <ul>
+                            <li><p class="fs-6">- Chris Raymond-Bertrand</p></li>
+                            <li><p class="fs-6">- Andrew Yao</p></li>
+                            <li><p class="fs-6">- Any students to be added (etc.) </p></li>
+                        </ul>
+                    </div>
+
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+
+
+</footer>
