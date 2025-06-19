@@ -3604,6 +3604,7 @@ PrairieDrawAnim.prototype.stopAnim = function() {
 */
 PrairieDrawAnim.prototype.toggleAnim = function() {
     this.currentmovement = this.getOption("movement");
+
     if (this._running) {
         this.stopAnim();
     } else {
