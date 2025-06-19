@@ -1114,6 +1114,8 @@ PrairieDraw.prototype.setOption = function(name, value, redraw, trigger, setRese
     if (redraw) {
         this.redraw();
     }
+
+    this.currentmovement = this.getOption("movement");
 }
 
 /** Get the value of an option.
