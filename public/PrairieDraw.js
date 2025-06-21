@@ -3603,13 +3603,13 @@ PrairieDrawAnim.prototype.stopAnim = function() {
 /** Toggle the animation.
 */
 PrairieDrawAnim.prototype.toggleAnim = function() {
-    this.currentmovement = this.getOption("movement");
-
     if (this._running) {
         this.stopAnim();
     } else {
         this.startAnim();
     }
+
+    this.currentmovement = this.getOption("movement");
 }
 
 /** Register a callback on animation state changes.
