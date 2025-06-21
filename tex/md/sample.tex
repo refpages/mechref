@@ -1,16 +1,17 @@
 \documentclass{article}
 \usepackage{graphicx} % Required for inserting images
 
-
+% Custom callout environment for Astro conversion
 \newenvironment{callout}
 {
-    }
-    { 
-    }
-
+    % Begin callout (could be styled in Astro)
+}
+{ 
+    % End callout
+}
 
 \title{test file for astro conversion}
-\author{wandke2 }
+\author{wandke2}
 \date{May 2025}
 
 \begin{document}
@@ -21,11 +22,15 @@
 this should be a subsection
 
 \begin{callout}
-    This should be made into a callout card. We may add additional funcitonality later.
+    This should be made into a callout card. We may add additional functionality later.
 \end{callout}
 
 \subsection{subsection 1.1}
 this should be a subsubsection
+
+\begin{callout}
+    Inline math inside a callout: $E = mc^2$ and $a_i^2 + b_i^2 = c_i^2$
+\end{callout}
 
 \subsection{subsection 1.2}
 this should be a subsubsection
@@ -33,32 +38,66 @@ this should be a subsubsection
 \subsubsection{subsubsection 1.2.1}
 this should be a subsubsubsection
 
-\section{section 2}
+\begin{callout}
+    Display math inside a callout:
+    \[
+        \int_0^1 x^2 \, dx = \frac{1}{3}
+    \]
+    Inline next to display: $f(x) = x^2$
+\end{callout}
 
-This should be an inline equation  $\alpha \sum_0^\infty$  Immediately followed by text. 
+\section{Section 2}
 
+This should be an inline equation  $\alpha \sum_{n=0}^\infty a_n$  Immediately followed by text. 
 
+\begin{callout}
+    Test multiple inline equations: $x_1 + x_2 = x_3$, $F = ma$, $V = IR$
+\end{callout}
 
 This should be a displayed equation
 \begin{equation}
-    \alpha \sum_0^\infty
+    \alpha \sum_{n=0}^\infty a_n
 \end{equation}
 with text above and below
 
-
 This should be a displayed equation
 $$
-    \alpha \sum_0^\infty
+    e^{i\pi} + 1 = 0
 $$
 with text above and below
 
 This should be a displayed equation
-\[\alpha \sum_0^\infty \]    
-
+\[
+    f(x) = \sum_{n=0}^\infty \frac{f^{(n)}(a)}{n!}(x - a)^n
+\]    
 with text above and below
 
+\begin{callout}
+    Warning-style message: Make sure $\vec{E}$ is not confused with $E$.
+    Use proper vector notation and units.
+\end{callout}
 
+\section{Section 3}
 
+\begin{callout}
+    Nested equations: Start with inline $p = mv$ and then:
 
+    \[
+        K = \frac{1}{2}mv^2
+    \]
+
+    Mix of chemistry too: $H_2O$, $CO_2$, $CH_3COOH$
+\end{callout}
+
+\begin{callout}
+    Use of escaped \$ signs: You paid \$100 for a textbook. Not math!
+\end{callout}
+
+More inline math: $a^2 + b^2 = c^2$
+
+And yet another equation:
+\begin{equation}
+    PV = nRT
+\end{equation}
 
 \end{document}
