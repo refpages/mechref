@@ -2314,7 +2314,6 @@ $(document).ready(function() {
         ava_fc_c.redraw();
         avb_fr_c.redraw();
         avb_fb_c.redraw();
-        
     });
 });
 
