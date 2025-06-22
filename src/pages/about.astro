@@ -1,39 +1,217 @@
 ---
-import Layout from "../layouts/Layout.astro"
-import Section from "../components/Section.astro"
-import SubSection from "../components/SubSection.astro"
+import Layout from "../layouts/Layout.astro";
+import Section from "../components/Section.astro";
+import SubSection from "../components/SubSection.astro";
+import Image from "../components/Image.astro";
+import Row from "../components/Row.astro";
+import Col from "../components/Col.astro";
+
+const imageUrl = "https://media.istockphoto.com/id/1288129985/vector/missing-image-of-a-person-placeholder.jpg?s=612x612&w=0&k=20&c=9kE777krx5mrFHsxx02v60ideRWvIgI1RWzR1X4MG2Y=";
 ---
 
+<style>
+       h2 {
+              font-weight: 700;
+              letter-spacing: -0.7px;
+       }
+       .small-img {
+              width: 120px;
+              height: 120px;
+       }
+       .border-orange {
+              border: 6px solid #C84113 ;
+       }
+       .border-blue {
+               border: 6px solid #ff724f;
+       }
+
+</style>
+
+
 <Layout title="About">
-<Section title="About">
-    <ul class="list-group list-group-flush">
-        <li class="list-group-item"><a href="/about/team" class="text-body">The project and our team</a></li>
-        <li class="list-group-item"><a href="/about/students"  class="text-body">For students</a></li>
-        
-    </ul>
-</Section>
-<SubSection title="Start building your course">
-    <ul class="list-group list-group-flush">
-        <li class="list-group-item"><a href="/about/instructors" class="text-body">For instructors</a></li>
-        <li class="list-group-item">
-            Setup your own version of MechRef...
-            <ul class="list-group list-group-flush ">
-                <li class="list-group-item"><a href="/about/instructions/mechse" class="text-body">...as a MechSE course</a></li>
-                <li class="list-group-item"><a href="/about/instructions/illinois" class="text-body">... as a non-MechSE Illinois department</a></li>
-                <li class="list-group-item pb-0"><a href="/about/instructions/external" class="text-body">... as another college</a></li>
-            </ul>
-        </li>
-    </ul>
-    <ul class="list-group list-group-flush">
-        <li class="list-group-item">
-            Skeleton pages
-            <ul class="list-group list-group-flush ">
-                <li class="list-group-item"><a href="/about/examples/home_page" class="text-body">Starter home page</a></li>
-                <li class="list-group-item"><a href="/about/examples/example" class="text-body">Starter page</a></li>
-            </ul>
-        </li>
-        <li class="list-group-item"><a href="/about/docs" class="text-body">Style guide & documentation</a></li>
-        <li class="list-group-item"><a href="/about/troubleshooting" class="text-body">Troubleshooting & Common problems</a></li>
-    </ul>
+
+
+
+<SubSection id="mission" title="Mission">
+       <p>  Create quality and freely accessible on-line educational materials that enhance student curiosity, connection and creates value for both student and instructor.</p>
 </SubSection>
+
+<SubSection id="history" title="Project history">
+       <p> The course reference pages began as part of a larger college-wide effort from the University of Illinois at Urbana Champaign (UIUC) Strategic Instructional Initiatives Program (SIIP).  
+              The reference pages were created using a Community of Practice (COPs) model which centers on instructors and staff committed to the collaborative development of educational resources.  
+              Initial pages for Dynamics were developed in 2014 by Prof. Matt West and with the formation of the COPs have now been extended to multiple courses offered by the Department of Mechanical Science and Engineering.
+              The pages are under continual development and revision by a dedicated team of faculty, graduate assistants, and undergraduate students.</p>
+       <p> The reference pages have been created with the following tenants in mind:  </p>
+
+<Row>
+    <Col values="12 md-6">
+        <Image src='/MainFig.png' class_=""></Image>
+    </Col>
+    <Col values="12 md-6">
+        <p>Accessible: the references pages are an open resource for anyone (students, instructors, or the public) to use and can be accessed on our github site.</p>
+        <p>Informative: the content has been designed to provide critical information and concepts for students when studying for exams or working on homework. </p>
+    </Col>
+</Row>
+
+<p>Adaptable: a web-based platform enables easy updates and editing of the reference pages.</p>
+<p>Impactful: real-world examples help students understand the value of their engineering education and how the content connects to their future career as engineers.</p>
+<p>Interactive: web-tools and interactive graphics assist with learning, help develop intuition, and increases engagement.</p>
+<p>Interdisciplinary: the pages link topics across multiple-courses and helps students understand the connection between courses.</p>
+
+</SubSection>
+
+<SubSection id="team">
+
+<h2 class="text-center site-title">Meet the Community of Practice:</h2>
+<div style="height:10px"></div>
+<h3 style="font-size: 20px;" class="text-center"> Faculty </h3>
+<div style="height:50px"></div>
+<div style="width: 800px; margin: 0 auto;">
+       <div>
+              <ul style="padding-left: 90px;" class="list-unstyled d-flex flex-wrap text-center mb-1 ml-4">
+                     <li class="me-5 text-center">
+                            <a href="https://mechse.illinois.edu/people/profile/admal">
+                            <img class="border-orange small-img rounded-circle" src="https://ws.engr.illinois.edu/directory/viewphoto.aspx?photo=19308&s=300" />
+                            </a>
+                            <h3 style="font-size:15px" class="mt-1">Nikhil Admal</h2>
+                     </li>
+                     <li class="me-5 text-center">
+                            <a href="https://grainger.illinois.edu/about/directory/faculty/wlchang">
+                            <img class="border-orange small-img rounded-circle" src="https://ws.engr.illinois.edu/directory/viewphoto.aspx?photo=18679&s=300" />
+                            </a>
+                            <h3 style="font-size:15px" class="mt-1">Wayne Chang</h2>
+                     </li>
+                     <li class="me-5 text-center">
+                            <a href="https://grainger.illinois.edu/about/directory/faculty/tfg">
+                            <img class="border-orange small-img rounded-circle" src="https://ws.engr.illinois.edu/directory/viewphoto.aspx?photo=19205&s=300"/>
+                            </a>
+                            <h3 style="font-size:15px" class="mt-1">Tom Golecki</h2>
+                     </li>
+                     <li class="me-5 text-center">
+                            <a href="https://mechse.illinois.edu/people/profile/kellie2">
+                            <img class="border-orange small-img rounded-circle" src="https://ws.engr.illinois.edu/directory/viewphoto.aspx?photo=19424&s=300"/>
+                            </a>
+                            <h3 style="font-size:15px" class="mt-1">Kellie Halloran</h2>
+                     </li>
+              </ul>
+       </div>
+       <div>
+              <ul style="padding-left: 180px;" class="list-unstyled d-flex flex-wrap text-center pt-3 mb-1">
+
+                     <li class="me-5 text-center">
+                            <a href="https://matse.illinois.edu/people/profile/hutchs">
+                            <img class="border-orange small-img rounded-circle" src="https://ws.engr.illinois.edu/directory/viewphoto.aspx?photo=9442&s=300"/>
+                            </a>
+                            <h3 style="font-size:15px" class="mt-1">Shelby Hutchens</h2>
+                     </li>
+                     <li class="me-5 text-center">
+                            <a href="https://grainger.illinois.edu/about/directory/faculty/mkersh">
+                            <img class="border-orange small-img rounded-circle" src="https://pbs.twimg.com/profile_images/1411517321743671375/iCIG4eiJ_400x400.jpg"/>
+                            </a>
+                            <h3 style="font-size:15px" class="mt-1">Mariana Kersh</h2>
+                     </li>
+                     <li class="me-5 text-center">
+                            <a href="https://grainger.illinois.edu/about/directory/faculty/cluetke">
+                            <img class="border-orange small-img rounded-circle" src="https://ws.engr.illinois.edu/directory/viewphoto.aspx?photo=16811&s=300" />
+                            </a>
+                            <h3 style="font-size:15px" class="mt-1">Callan Luetkemeyer</h2>
+                     </li>
+              </ul>
+       </div>
+       <div>
+              <ul style="padding-left: 180px;" class="list-unstyled d-flex flex-wrap text-center pt-3 mb-4">
+                     <li class="me-5 text-center">
+                            <a href="https://mechse.illinois.edu/people/profile/bmercer">
+                            <img class="border-orange small-img rounded-circle" src="https://ws.engr.illinois.edu/directory/viewphoto.aspx?photo=10408&s=300" />
+                            </a>
+                            <h3 style="font-size:15px" class="mt-1">Brian Mercer</h2>
+                     </li>
+                  <li class="me-5 text-center">
+                      <a href="https://grainger.illinois.edu/about/directory/faculty/wandke2">
+                          <img class="border-orange small-img rounded-circle" src="https://ws.engr.illinois.edu/directory/viewphoto.aspx?photo=19440&s=300" />
+                      </a>
+                      <h3 style="font-size:15px" class="mt-1">Kevin Wandke</h2>
+                  </li>
+                     <li class="me-5 text-center">
+                            <a href="https://grainger.illinois.edu/about/directory/faculty/mwest">
+                            <img class="border-orange small-img rounded-circle" src="https://ws.engr.illinois.edu/directory/viewphoto.aspx?photo=16813&s=300" />
+                            </a>
+                            <h3 style="font-size:15px" class="mt-1">Matt West</h2>
+                     </li>
+
+              </ul>
+       </div>
+    <h3 style="font-size: 20px;" class="text-center"> Students</h3>
+       <div>
+              <ul style="padding-left: 180px;" class="list-unstyled d-flex flex-wrap text-center pt-3 mb-4">
+
+                  <li class="me-5 text-center">
+                      <img class="border-orange small-img rounded-circle" src="/about/mikaylahoyle.jpg" />
+                      <h2 style="font-size:15px" class="mt-1">Mikayla Hoyle</h2>
+                  </li>
+                  <li class="me-3 text-center">
+                      <img class="border-orange small-img rounded-circle" src="https://media.licdn.com/dms/image/v2/D5603AQHSEf1dkNk89w/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1697822928321?e=2147483647&v=beta&t=5aWEiU1vfH8fAh6BR5p7Dmjgwa6NQy-oEnmKM2EfsBg"/>
+                      <h3 style="font-size:15px" class="mt-1">Melany Opolz</h2>
+                  </li>
+                  <li  class="me-5 text-center">
+                      <img class="border-orange small-img rounded-circle" src="https://media.licdn.com/dms/image/v2/D4E03AQE0HKOw_e393w/profile-displayphoto-shrink_800_800/B4EZYN_fHqG0Ac-/0/1743991468884?e=1755734400&v=beta&t=7n2MT-YXxstkSmEhSCN2stHGflOqz6ZCWNYSKkv0s6Q"/>
+                      <h3 style="font-size:15px" class="mt-1">Chris Raymond-Bertrand</h2>
+                  </li>
+              </ul>
+       </div>
+<div>
+<div style="height:30px"></div>
+
+<div style="width:1000px;">
+    <SubSection title="About">
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item"><a href="/about/students"  class="text-body">For students</a></li>
+        <li class="list-group-item"><a href="/about/instructors" class="text-body">For instructors</a></li>
+    </ul>
+    </Section>
+    <div style="height:10px"></div>
+
+    <SubSection class="text-center" title="Documentation and Style Guide">
+
+    <div style="height:10px"></div>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+                <a href="/about/instructions/mechse" class="text-body">
+                Setup your own version of MechRef...
+                </a>
+            </li>
+            <li class="list-group-item">
+                Skeleton pages
+                <ul class="list-group list-group-flush ">
+                    <li class="list-group-item"><a href="/about/examples/home_page" class="text-body">Starter home page</a></li>
+                    <li class="list-group-item"><a href="/about/examples/example" class="text-body">Starter page</a></li>
+                </ul>
+            </li>
+            <li class="list-group-item"><a href="/about/docs" class="text-body">Style guide & documentation</a></li>
+            <li class="list-group-item"><a href="/about/troubleshooting" class="text-body">Troubleshooting & Common problems</a></li>
+        </ul>
+
+    </SubSection>
+
+
+    <div style="height:40px"></div>
+    <SubSection id="thanks" title="Acknowledgements">
+    <div style="height:20px"></div>
+        <p> Funding for the development of the course reference pages has been provided by: </p>
+        <ul>
+              <li>The Grainger College of Engineering Strategic Instructional Innovations Program</li>
+              <li> Kern Family Foundation </li>
+              <li> Department of Mechanical Science and Engineering </li>
+              <li> Some images used were created with biorender.com </li>
+        </ul>
+    </SubSection>
+
+    <div style="height:40px"></div>
+    <SubSection title="Using These Pages">
+    <div style="height:20px"></div>
+        <p>refpages.org and its associated websites are licensed under a <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="text-body">Creative Commons Attribution-Non Commercial-Share Alike 4.0 International License (CC BY-NC-SA) </a>. You are welcome to download, use, and print this material freely, provided that your use is not primarily for commercial gain or monetary compensation. You may also adapt or modify the content as long as you credit the original authors for the portions you use. We’d love to see your contributions, so please consider sharing them with us! </p>
+    </SubSection>
+    <div style="height:60px"></div>
+</div>
+
 </Layout>

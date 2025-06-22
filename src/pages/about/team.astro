@@ -5,7 +5,27 @@ import SubSection from "../../components/SubSection.astro"
 import Image from "../../components/Image.astro"
 import Row from '../../components/Row.astro';
 import Col from '../../components/Col.astro';
+
+const imageUrl = "https://media.istockphoto.com/id/1288129985/vector/missing-image-of-a-person-placeholder.jpg?s=612x612&w=0&k=20&c=9kE777krx5mrFHsxx02v60ideRWvIgI1RWzR1X4MG2Y=";
 ---
+
+<style>
+       h2 {
+              font-weight: 700;
+              letter-spacing: -0.7px;
+       }
+       .small-img {
+              width: 120px;
+              height: 120px;
+       }
+       .border-orange {
+              border: 6px solid #ff724f;
+       }
+       .border-blue {
+               border: 6px solid blue;
+       }
+
+</style>
 
 <Layout title="About">
 
@@ -37,9 +57,102 @@ import Col from '../../components/Col.astro';
 
 </SubSection>
 
-<SubSection id="team" title="The team">
+<SubSection id="team">
 
-<Image src='/about/team2.png' class_=""></Image>
+
+<h2 class="text-center site-title">Meet the Team:</h2>
+<div style="height:10px"></div>
+<h3 style="font-size: 20px;" class="text-center"> <span style="color:#ff724f;">Faculty</span> and <span style="color:blue;">Student</span> Community of Practice </h3>
+
+<div style="height:50px"></div>
+<div style="width: 800px; margin: 0 auto;">
+       <div>
+              <ul style="padding-left: 90px;" class="list-unstyled d-flex flex-wrap text-center mb-1 ml-4">
+                     <li class="me-5 text-center">
+                            <a href="https://mechse.illinois.edu/people/profile/admal">
+                            <img class="border-orange small-img rounded-circle" src="https://ws.engr.illinois.edu/directory/viewphoto.aspx?photo=19308&s=300" />
+                            </a>
+                            <h3 style="font-size:15px" class="mt-1">Nikhil Admal</h2>
+                     </li>
+                     <li class="me-5 text-center">
+                            <a href="https://grainger.illinois.edu/about/directory/faculty/wlchang">
+                            <img class="border-blue small-img rounded-circle" src="../public/about/waynechang.jpeg" />
+                            </a>
+                            <h3 style="font-size:15px" class="mt-1">Wayne Chang</h2>
+                     </li>
+                     <li class="me-5 text-center">
+                            <a href="https://grainger.illinois.edu/about/directory/faculty/tfg">
+                            <img class="border-orange small-img rounded-circle" src="https://ws.engr.illinois.edu/directory/viewphoto.aspx?photo=19205&s=300"/>
+                            </a>
+                            <h3 style="font-size:15px" class="mt-1">Tom Golecki</h2>
+                     </li>
+                     <li class="me-5 text-center">
+                            <a href="https://mechse.illinois.edu/people/profile/kellie2">
+                            <img class="border-blue small-img rounded-circle" src="https://ws.engr.illinois.edu/directory/viewphoto.aspx?photo=19424&s=300"/>
+                            </a>
+                            <h3 style="font-size:15px" class="mt-1">Kellie Halloran</h2>
+                     </li>
+              </ul>
+       </div>
+       <div>
+              <ul style="padding-left: 90px;" class="list-unstyled d-flex flex-wrap text-center pt-3 mb-1">
+                     <li class="me-5 text-center">
+                            <a href="href="https://beckman.illinois.edu/contact/directory/advancedsearch?unitSearch=true&researchSearch=false&unitName=Department%20of%20Mechanical%20Science%20and%20Engineering&researchQuery=">
+                            <img class="border-orange small-img rounded-circle" src="https://beckman.illinois.edu/images/default-source/people/mikayla-hoyle.jpeg?sfvrsn=6fd01917_4"/>
+                            </a>
+                            <h3 style="font-size:15px" class="mt-1">Mikayla Hoyle</h2>
+                     </li>
+                     <li class="me-5 text-center">
+                            <a href="https://matse.illinois.edu/people/profile/hutchs">
+                            <img class="border-orange small-img rounded-circle" src="https://ws.engr.illinois.edu/directory/viewphoto.aspx?photo=9442&s=300"/>
+                            </a>
+                            <h3 style="font-size:15px" class="mt-1">Shelby Hutchens</h2>
+                     </li>
+                     <li class="me-5 text-center">
+                            <a href="https://grainger.illinois.edu/about/directory/faculty/mkersh">
+                            <img class="border-blue small-img rounded-circle" src="https://pbs.twimg.com/profile_images/1411517321743671375/iCIG4eiJ_400x400.jpg"/>
+                            </a>
+                            <h3 style="font-size:15px" class="mt-1">Mariana Kersh</h2>
+                     </li>
+                     <li class="me-5 text-center">
+                            <a href="https://grainger.illinois.edu/about/directory/faculty/cluetke">
+                            <img class="border-blue small-img rounded-circle" src="https://ws.engr.illinois.edu/directory/viewphoto.aspx?photo=16811&s=300" />
+                            </a>
+                            <h3 style="font-size:15px" class="mt-1">Callan Luetkemeyer</h2>
+                     </li>
+              </ul>
+       </div>
+       <div>
+              <ul style="padding-left: 90px;" class="list-unstyled d-flex flex-wrap text-center pt-3 mb-4">
+                     <li class="me-5 text-center">
+                            <a href="href="https://grainger.illinois.edu/about/directory/faculty/bmercer">
+                            <img class="border-orange small-img rounded-circle" src="https://ws.engr.illinois.edu/directory/viewphoto.aspx?photo=10408&s=300" />
+                            </a>
+                            <h3 style="font-size:15px" class="mt-1">Brian Mercer</h2>
+                     </li>
+                     <li class="me-3 text-center">
+                            <a href="">
+                            <img class="border-blue small-img rounded-circle" src="https://media.licdn.com/dms/image/v2/D5603AQHSEf1dkNk89w/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1697822928321?e=2147483647&v=beta&t=5aWEiU1vfH8fAh6BR5p7Dmjgwa6NQy-oEnmKM2EfsBg"/>
+                            </a>
+                            <h3 style="font-size:15px" class="mt-1">Melany Opolz</h2>
+                     </li>
+                     <li style="margin-right:35px; class="me-4 text-center">
+                            <a href="">
+                            <img class="border-orange small-img rounded-circle" src="https://media.licdn.com/dms/image/v2/D4E03AQE0HKOw_e393w/profile-displayphoto-shrink_800_800/B4EZYN_fHqG0Ac-/0/1743991468884?e=1755734400&v=beta&t=7n2MT-YXxstkSmEhSCN2stHGflOqz6ZCWNYSKkv0s6Q" />
+                            </a>
+                            <h3 style="font-size:15px" class="mt-1">Chris Raymond-Bertrand</h2>
+                     </li>
+                     <li class="me-5 text-center">
+                            <a href="https://grainger.illinois.edu/about/directory/faculty/mwest">
+                            <img class="border-blue small-img rounded-circle" src="https://ws.engr.illinois.edu/directory/viewphoto.aspx?photo=16813&s=300" />
+                            </a>
+                            <h3 style="font-size:15px" class="mt-1">Matt West</h2>
+                     </li>
+              </ul>
+       </div>
+<div>
+<div style="height:50px"></div>
+
 
 
 </SubSection>
@@ -47,8 +160,8 @@ import Col from '../../components/Col.astro';
 <SubSection id="thanks" title="Acknowledgements">
        <p> Funding for the development of the course reference pages has been provided by: </p>
        <p> The Grainger College of Engineering Strategic Instructional Innovations Program</p>
-        <p> Kern Family Foundation </p>
-        <p> Department of Mechanical Science and Engineering </p>
+       <p> Kern Family Foundation </p>
+       <p> Department of Mechanical Science and Engineering </p>
        <p> Some images used were created with biorender.com </p>
 </SubSection>
 

@@ -117,9 +117,9 @@ for filename in tex_files:
             prev_level = 1
             for i, (level, title) in enumerate(entries):
                 if level > prev_level:
-                    nav_html += "<ul>\n" * (level - prev_level)
+                    nav_html += "<ul class='list-group list-group-flush py-0'>\n" * (level - prev_level)
                 elif level < prev_level:
-                    nav_html += "</ul>\n</li>\n" * (prev_level - level)
+                    nav_html +="</li>"+ "</ul>\n</li>\n" * (prev_level - level)
                 elif i != 0:
                     nav_html += "</li>\n"
                 nav_html += f"<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#{title}'>{title}</a>"
