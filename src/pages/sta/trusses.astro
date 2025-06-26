@@ -153,8 +153,16 @@ Then, you "cut" the truss so that the internal force you want is "exposed" from 
 
 </SubSection>
 
-
-<PrairieDrawCanvas id="triangle-truss" height="600" width="600"/>
+<SubSection>
+  <PrairieDrawCanvas id="triangle-truss" height="600" width="600">
+    <p class="controls">
+      Show:
+      <button class="option-toggle:triangle-truss:showLabels" onclick="triangle-truss.toggleOption('showLabels')">show labels</button>
+        External forces FBD
+      </button>
+    </p>
+  </PrairieDrawCanvas>
+</SubSection>
 </Layout>
 
 <script src="/sta/trusses/canvases.js" is:inline></script>
