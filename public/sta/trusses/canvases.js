@@ -312,72 +312,105 @@ $(document).ready(function(){
     });
 
     triangle_truss = new PrairieDraw("triangle-truss", function() {
-    this.setUnits(4, 3);
+        this.setUnits(3, 2);
+        this.translate($V([-0.7, -0.4]))
 
-    const a = 1;
-    const ei = $V([1, 0]);
-    const ej = $V([0, 1]);
+        this.addOption("FBD2", 0);
+        var FBD2 = Number(this.getOption("FBD2"));
 
-    // Triangle points
-    const rA = $V([0, 0]);
-    const rB = $V([a, 0]);
-    const rC = $V([a / 2, Math.sqrt(3) * a / 2]);
+        const a = 1;
+        const ei = $V([1, 0]);
+        const ej = $V([0, 1]);
 
-    const z = 0.2;
-    const w = 0.1;
+        // Triangle points
+        const rA = $V([0, 0]);
+        const rB = $V([a, 0]);
+        const rC = $V([a / 2, Math.sqrt(3) * a / 2]);
 
-    // Rods
-    this.rod(rA, rB, w);
-    this.rod(rB, rC, w);
-    this.rod(rC, rA, w);
+        const z = 0.2;
+        const w = 0.1;
 
-    // Pivots at A and B
-    this.save();
-    this.pivot(rA.add(ej.x(-0.25)), rA, z);
-    this.pivot(rB.add(ej.x(-0.25)), rB, z);
-    this.restore();
+        // Rods
+        this.rod(rA, rB, w);
+        this.rod(rB, rC, w);
+        this.rod(rC, rA, w);
 
-    // Ground at A and B
-    this.ground(rA.add(ej.x(-0.25)), ej, 0.4);
-    this.ground(rB.add(ej.x(-0.25)), ej, 0.4);
+        // Pivots at A and B
+        this.save();
+        this.pivot(rA.add(ej.x(-0.25)), rA, z);
+        this.pivot(rB.add(ej.x(-0.25)), rB, z);
+        this.restore();
 
-    // Reaction forces at A
-    this.save();
-    this.arrow(rA, rA.add(ei.x(0.6)), "force");   // horizontal
-    this.arrow(rA, rA.add(ej.x(0.6)), "force");   // vertical
-    this.text(rA.add($V([0.7, 0])), $V([1, 0]), "TEX:$A_x$");
-    this.text(rA.add($V([0, 0.7])), $V([0, 1]), "TEX:$A_y$");
-    this.restore();
+        // Ground at A and B
+        this.ground(rA.add(ej.x(-0.25)), ej, 0.4);
+        this.ground(rB.add(ej.x(-0.25)), ej, 0.4);
 
-    // Reaction forces at B
-    this.save();
-    this.arrow(rB, rB.add(ei.x(0.6)), "force");  // horizontal
-    this.arrow(rB, rB.add(ej.x(0.6)), "force");   // vertical
-    this.text(rB.add($V([0.7, 0])), $V([1, 0]), "TEX:$B_x$");
-    this.text(rB.add($V([0, 0.7])), $V([0, 1]), "TEX:$B_y$");
-    this.restore();
+        // Points
+        this.point(rA);
+        this.point(rB);
+        this.point(rC);
 
-    // Force at C at 30° angle
-    const theta = Math.PI / 6; // 30 degrees
-    const len = 1.0;
-    const forceC = $V([Math.cos(theta), Math.sin(theta)]).x(len);
-    const rForceC = rC.add(forceC);
-    this.arrow(rC, rForceC, "force");
-    this.text(rForceC.add($V([0.1, 0])), $V([1, 0]), "TEX:$P$");
+        // Labels
+        this.text(rA, $V([1, 0]), "TEX:$A$");
+        this.text(rB, $V([1, 0]), "TEX:$B$");
+        this.text(rC, $V([0.2, 1]), "TEX:$C$");
 
-    // Points
-    this.point(rA);
-    this.point(rB);
-    this.point(rC);
+        switch(FBD2){
+            case 0:
 
-    // Labels
-    this.text(rA, $V([-1.5, 0]), "TEX:$A$");
-    this.text(rB, $V([1, 0]), "TEX:$B$");
-    this.text(rC, $V([0, 1]), "TEX:$C$");
-});
+                // Reaction forces at A
+            
+                this.arrow(rA, rA.add(ei.x(0.4)), "force");   // horizontal
+                this.arrow(rA, rA.add(ej.x(0.4)), "force");   // vertical
+                this.text(rA.add($V([0.5, 0])), $V([0.5, 0]), "TEX:$A_x$");
+                this.text(rA.add($V([0, 0.5])), $V([0, 0.5]), "TEX:$A_y$");
+                // Reaction forces at B
+          
+                this.arrow(rB, rB.add(ei.x(0.4)), "force");  // horizontal
+                this.arrow(rB, rB.add(ej.x(0.4)), "force");   // vertical
+                this.text(rB.add($V([0.5, 0])), $V([0.5, 0]), "TEX:$B_x$");
+                this.text(rB.add($V([0, 0.5])), $V([0, 0.5]), "TEX:$B_y$");
+                const theta = Math.PI / 6; // 30 degrees
+                const len = 1.0;
+                const forceC = $V([Math.cos(theta), Math.sin(theta)]).x(len);
+                const rForceC = rC.add(forceC);
+                this.arrow(rC, rForceC, "force");
+                this.text(rForceC.add($V([0.1, 0])), $V([1, 0]), "TEX:$P$");
+                break;
+            case 1:
+                // Reaction forces at B
+          
+                this.arrow(rB, rB.add(ei.x(0.4)), "force");  // horizontal
+                this.arrow(rB, rB.add(ej.x(0.4)), "force");   // vertical
+                this.text(rB.add($V([0.5, 0])), $V([0.5, 0]), "TEX:$B_x$");
+                this.text(rB.add($V([0, 0.5])), $V([0, 0.5]), "TEX:$B_y$");
+                break;
+            case 2:
+
+                // Reaction forces at A
+            
+                this.arrow(rA, rA.add(ei.x(0.4)), "force");   // horizontal
+                this.arrow(rA, rA.add(ej.x(0.4)), "force");   // vertical
+                this.text(rA.add($V([0.5, 0])), $V([0.5, 0]), "TEX:$A_x$");
+                this.text(rA.add($V([0, 0.5])), $V([0, 0.5]), "TEX:$A_y$");
+                break;
+            case 3:
+                // Reaction forces at B
+          
+                this.arrow(rB, rB.add(ei.x(0.4)), "force");  // horizontal
+                this.arrow(rB, rB.add(ej.x(0.4)), "force");   // vertical
+                this.text(rB.add($V([0.5, 0])), $V([0.5, 0]), "TEX:$B_x$");
+                this.text(rB.add($V([0, 0.5])), $V([0, 0.5]), "TEX:$B_y$");
+                break;
+        };
+            
+        
+        
+    });
 
 
     $( window ).on( "resize", function() {
         rfb_xzf_f.redraw();
+        triangle_truss.redraw();
     })
 })

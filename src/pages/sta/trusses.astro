@@ -137,6 +137,16 @@ Method of joints for truss analysis:
 <!-- Suggestion: Make this diagram more interactive -->
 <Image src='/sta/trusses/ExplodedTruss.jpg' width='6'></Image>
 
+  <PrairieDrawCanvas id = "triangle-truss" height = "600" width = "600">
+    <p class = "controls">
+  		Show:
+		<button onclick = "triangle_truss.setOption('FBD2', 0);">External force FBD</button>
+		<button onclick = "triangle_truss.setOption('FBD2', 1);">Joint A FBD</button>
+		<button onclick = "triangle_truss.setOption('FBD2', 2);">Joint B FBD</button>
+		<button onclick = "triangle_truss.setOption('FBD2', 3);">Joint C FBD</button>
+	</p>
+  </PrairieDrawCanvas>
+
 </SubSection>
 
 <SubSection title="Truss analysis: method of sections" id="sections">
@@ -153,16 +163,8 @@ Then, you "cut" the truss so that the internal force you want is "exposed" from 
 
 </SubSection>
 
-<SubSection>
-  <PrairieDrawCanvas id="triangle-truss" height="600" width="600">
-    <p class="controls">
-      Show:
-      <button class="option-toggle:triangle-truss:showLabels" onclick="triangle-truss.toggleOption('showLabels')">show labels</button>
-        External forces FBD
-      </button>
-    </p>
-  </PrairieDrawCanvas>
-</SubSection>
+
+
 </Layout>
 
 <script src="/sta/trusses/canvases.js" is:inline></script>
