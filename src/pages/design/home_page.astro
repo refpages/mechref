@@ -1,0 +1,33 @@
+---
+import Layout from "../../../layouts/CourseMenuLayout.astro"
+import "../../../../public/static/css/course_home_pages.css"
+
+//WHEN THE PAGE IS MOVED TO ITS PROPER PLACE, i.e. /SRC/PAGES, 
+//REMOVE THE TWO LINES ABOVE, AND UNCOMMENT THE LINES BELOW
+//import Layout from "../layouts/Layout.astro"
+//import "../../public/static/css/course_home_pages.css"
+---
+
+<Layout title="Course name">
+    <!-- Change the above and below to your couse name-->
+  <h1>
+    <strong>Course name</strong>
+  </h1>
+  <section class="mt-sm-4 mt-2">
+    <ol>
+      <li><a href="/<course_abbreviation>/<code_for_page_1>?origin=coursemenu">Page 1</a></li>
+      <li><a href="/<course_abbreviation>/<code_for_page_2>?origin=coursemenu">Page 2</a></li>
+      <li><a href="/<course_abbreviation>/<code_for_page_3>?origin=coursemenu">Page 3</a></li>
+    </ol>
+  </section>
+  <section class="mt-sm-4 mt-2">
+    
+    <h3 class="fw-bold w-100">Helpful links:</h3>
+    <p>Add any useful links to your course, can remove this section if there are none, e.g:</p>
+    <ul>
+      <li><a href="/sta/pltips">PrairieLearn tips</a></li>
+      <li><a href="/sta/pltips">Other cool thing</a></li>
+    </ul>
+  </section>
+</div>
+</Layout>
