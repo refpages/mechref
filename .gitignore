@@ -31,3 +31,4 @@ pnpm-debug.log*
 # jetbrains setting folder
 .idea/
 src/pages/md/test.astro
+src/pages/md/completed_sample.astro
