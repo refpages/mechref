@@ -694,9 +694,9 @@ $(document).ready(function(){
         rvv_fn_c.redraw();
         rvv_eo_c.redraw();
         rvv_fx_c.redraw();
+        rvc_fi_c.redraw();
         rvc_fd_c.redraw();
         rvc_fp_c.redraw();
         rvc_fc_c.redraw();
-        rvc_fi_c.redraw();
     } );
 })
