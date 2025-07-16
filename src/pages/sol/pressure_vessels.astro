@@ -32,7 +32,7 @@ import BlueText from "../../components/BlueText.astro"
 <Itemize>
 	<Item>Inner radius: <InlineEquation equation="r" /></Item>
 	<Item>Wall thickness: <InlineEquation equation="t" /></Item>
-	<Item>Thin walls: <InlineEquation equation="t//r <<1" /></Item>
+	<Item>Thin walls: <InlineEquation equation="\\dfrac{t}{r} <<1" /></Item>
 	<Item>Assume that stress distribution through the thin wall is uniform</Item>
 	<Item>Pressure vessel contains fluid under pressure (<InlineEquation equation="p" />), usually called gauge pressure (i.e., <InlineEquation equation="p = \\Delta p = p_i - p_o" />).</Item>
 </Itemize>
@@ -69,13 +69,16 @@ import BlueText from "../../components/BlueText.astro"
 
 <Image src="/sol/pressure_vessels/RadialStress.png" width="5"></Image>
 
+In addition to hoop and axial stresses, there is also a radial stress <InlineEquation equation="\\sigma_r" /> that acts normal to the pressure vessel walls.
 <Itemize>
 	<Item>Inner Surface: <InlineEquation equation="\\sigma_r = -p" /></Item>
 	<Item>Outer Surface: <InlineEquation equation="\\sigma_r = 0" /></Item>
 </Itemize>
 
-
- Because <InlineEquation equation="t/r << 1" />, <InlineEquation  equation="\\sigma_h,\\sigma_a >> \\sigma_r\\" />. In general, we can <strong>neglect  <InlineEquation equation="\\sigma_r" /></strong>.
+ Recall the hoop stress <InlineEquation equation="\\sigma_h =p\\left(\\dfrac{r}{t}\\right)" /> and axial stress 
+ <InlineEquation equation="\\sigma_h =p\\left(\\dfrac{r}{2t}\\right)" />. 
+ Because <InlineEquation equation="\\dfrac{t}{r} << 1" />, it is easy to see that <InlineEquation  equation="\\sigma_h,\\sigma_a >> \\sigma_r\\" />. 
+ We therefore <strong>neglect  <InlineEquation equation="\\sigma_r" /></strong> in thin-walled pressure vessel calculations because it is small compared to the other stresses experienced in the vessel.
 
 </SubSubSection>
 
