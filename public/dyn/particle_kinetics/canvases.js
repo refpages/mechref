@@ -391,6 +391,7 @@ $(document).ready(function() {
 
         this.addOption("showLabels", true);
         this.addOption("showPath", true);
+        this.addOption("movement", "translate");
 
         var label = this.getOption("showLabels") ? true : undefined;
 
