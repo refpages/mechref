@@ -126,7 +126,7 @@ The general state of stress at a point is characterized by three independent nor
 </p>
 </SubSection>
 
-<SubSubSection title="Transformation Sign Convention" id="sign-convention-transformation">
+<SubSubSection title="Stress Transformation Equations" id="sign-convention-transformation">
 
   <Image src="/sol/stress_transformation/Plane Transformation.png" width="7"></Image>
 
@@ -230,6 +230,70 @@ Normal and shear stresses can be shown graphically as a function of <InlineEquat
 
 <Warning title="Unlike with the principal stress element, the normal stresses are not zero." remove_button="True" id="max-shr" />
 
+</SubSubSection>
+
+<SubSubSection title="Alternative Approach: Eigenvalues" id="eigenvalues">
+The <strong>eigenvalues</strong> of the stress tensor are called the principal stresses, and the <strong>eigenvectors</strong> define the principal direction vectors.
+
+<p>
+ Because of symmetry, the stress tensor (<InlineEquation equation="T" />) has real eigenvalues (<InlineEquation equation="\\lambda" />) and mutually perpendicular eigenvectors (<InlineEquation equation="v" />).
+</p>  
+ <DisplayEquation equation="Tv = \\lambda v \\rightarrow (T-\\lambda I)v = 0\\" title="Eigenvalues." background="True"/>
+
+ From linear algebra, we know that a system of linear equations <InlineEquation equation="A v = 0" /> has a non-zero solution <InlineEquation equation="\\boldsymbol{v}" /> if, and only if, the determinant of the matrix <InlineEquation equation="\\boldsymbol{T}" /> is zero.
+
+<DisplayEquation equation="\\lambda_{1,2} = \\sigma_{1,2}" title="Eigenvalues relate to stress." background="True" derivation="True" id="egn-str">
+  Start with. 
+
+  <DisplayEquation equation="\\det(\\boldsymbol{T}-\\lambda\\boldsymbol{I})=0\\"/>
+
+  Expand the equation.
+
+  <DisplayEquation equation="\\det\\Biggl(\\begin{bmatrix} \\sigma_{x} & \\tau_{xy}\\\\ \\tau_{xy} & \\sigma_{y} \\end{bmatrix} - \\begin{bmatrix} \\lambda & 0\\\\ 0 & \\lambda \\end{bmatrix} \\Biggr) = 0" />
+  <DisplayEquation equation="\\det\\Biggl(\\begin{bmatrix} \\sigma_{x}-\\lambda & \\tau_{xy}\\\\ \\tau_{xy} & \\sigma_{y}-\\lambda \\end{bmatrix} \\Biggr) = 0 " />
+                        
+   Evaluate the determinate.
+  
+  <DisplayEquation equation="(\\sigma_{x}-\\lambda)(\\sigma_{y}-\\lambda) - \\tau_{xy}^2 = 0\\" />
+  <DisplayEquation equation="\\sigma_{x}\\sigma_{y} - \\lambda\\sigma_{y} -\\lambda\\sigma_{x} + \\lambda^2 - \\tau_{xy}^2 = 0\\" />
+                        
+   Rearrange.
+  
+  <DisplayEquation equation="\\lambda^2 - \\lambda(\\sigma_{y} + \\sigma_{x}) + \\sigma_{x}\\sigma_{y} - \\tau_{xy}^2 = 0\\" />
+  
+   Solve for the eigenvalues using the quadratic equation where <InlineEquation equation="\\rm\\ a = 1" />, <InlineEquation equation="\\rm\\ b = -(\\sigma_{y} + \\sigma_{x})" />, and <InlineEquation equation="\\rm\\ c = \\sigma_{x}\\sigma_{y} - \\tau_{xy}^2" />.
+  
+  
+  <DisplayEquation equation="\\begin{align} \\lambda &= \\frac{(\\sigma_{y} + \\sigma_{x}) \\pm \\sqrt{(\\sigma_{y} + \\sigma_{x})^2 - 4(\\sigma_{x}\\sigma_{y} - \\tau_{xy}^2)}}{2} \\\\ &= \\frac{(\\sigma_{x} + \\sigma_{y})}{2} \\pm \\frac{\\sqrt{\\sigma_{y}^2 + 2\\sigma_{y}\\sigma_{x} + \\sigma_{x}^2 - 4\\sigma_{x}\\sigma_{y} + 4\\tau_{xy}^2}}{2} \\\\ &= \\frac{(\\sigma_{x} + \\sigma_{y})}{2} \\pm \\frac{\\sqrt{\\sigma_{y}^2 - 2\\sigma_{y}\\sigma_{x} + \\sigma_{x}^2 + 4\\tau_{xy}^2}}{2} \\\\ &= \\frac{(\\sigma_{x} + \\sigma_{y})}{2} \\pm \\sqrt{\\frac{(\\sigma_{y} - \\sigma_{x})^2 + 4\\tau_{xy}^2}{4}} \\\\ &= \\frac{(\\sigma_{x} + \\sigma_{y})}{2} \\pm \\sqrt{\\biggl(\\frac{\\sigma_{y} - \\sigma_{x}}{2}\\biggr)^2 + \\tau_{xy}^2} \\end{align}" />
+  
+    This is the same result as the geometric derivation above.  
+</DisplayEquation>
+
+To find the eigenvectors, we plug our eigenvalues back into the equation <InlineEquation equation="(\\boldsymbol{T}-\\lambda\\boldsymbol{I})\\boldsymbol{v} = 0" />.
+
+
+<DisplayEquation equation="\\theta_{p1} = \\tan^{-1}\\Bigl(\\frac{\\sigma_1 - \\sigma_x}{\\tau_{xy}}\\Bigr) = \\tan^{-1}\\Bigl(\\frac{\\tau_{xy}}{\\sigma_1 - \\sigma_y}\\Bigr)\\" title="First eigenvector angle." background="True" derivation="True" id="fst-egn">
+
+  <DisplayEquation equation="\\lambda_1 = \\sigma_1" />
+  
+  <DisplayEquation equation="\\begin{bmatrix} \\sigma_{x}-\\sigma_{1} & \\tau_{xy}\\\\ \\tau_{xy} & \\sigma_{y}-\\sigma_{1} \\end{bmatrix} \\begin{bmatrix} v_{11} \\\\ v_{12} \\end{bmatrix} = 0" />
+                        
+  Multiplying out gives two equations.
+
+  <DisplayEquation equation="(\\sigma_{x}-\\sigma_{1})v_{11} + \\tau_{xy}v_{12} = 0\\" />
+  <DisplayEquation equation="\\tau_{xy}v_{12} + (\\sigma_{x}-\\sigma_{1})v_{12} = 0\\" />
+
+  The angle of the eigenvector. 
+
+  <DisplayEquation equation="\\theta_{p1} = \\tan^{-1}\\Bigl(\\frac{v_{12}}{v_{11}}\\Bigr)\\" />
+
+</DisplayEquation>
+
+We can repeat this procedure for the second eigenvalue, <InlineEquation equation="\\lambda_2 = \\sigma_2" />.
+
+
+<DisplayEquation equation="\\theta_{p2} = \\tan^{-1}\\Bigl(\\frac{\\sigma_2 - \\sigma_x}{\\tau_{xy}}\\Bigr) = \\tan^{-1}\\Bigl(\\frac{\\tau_{xy}}{\\sigma_2 - \\sigma_y}\\Bigr)\\" title="Second eigenvector angle." background="True"/>
+ 
 </SubSubSection>
 
 <SubSubSection title="Stresses on Inclined Planes" id="stress-inclined-plane">
@@ -566,70 +630,5 @@ Normal and shear stresses can be shown graphically as a function of <InlineEquat
   
   The principal stresses are where the circle crosses the x-axis, and the maximum shear stress is the highest y-coordinate of the circle. 
   </SubSubSection>
-
-
-<SubSection title="Alternative Approach: Eigenvalues" id="eigenvalues">
-The <strong>eigenvalues</strong> of the stress tensor are called the principal stresses, and the <strong>eigenvectors</strong> define the principal direction vectors.
-
-<p>
- Because of symmetry, the stress tensor (<InlineEquation equation="T" />) has real eigenvalues (<InlineEquation equation="\\lambda" />) and mutually perpendicular eigenvectors (<InlineEquation equation="v" />).
-</p>  
- <DisplayEquation equation="Tv = \\lambda v \\rightarrow (T-\\lambda I)v = 0\\" title="Eigenvalues." background="True"/>
-
- From linear algebra, we know that a system of linear equations <InlineEquation equation="A v = 0" /> has a non-zero solution <InlineEquation equation="\\boldsymbol{v}" /> if, and only if, the determinant of the matrix <InlineEquation equation="\\boldsymbol{T}" /> is zero.
-
-<DisplayEquation equation="\\lambda_{1,2} = \\sigma_{1,2}" title="Eigenvalues relate to stress." background="True" derivation="True" id="egn-str">
-  Start with. 
-
-  <DisplayEquation equation="\\det(\\boldsymbol{T}-\\lambda\\boldsymbol{I})=0\\"/>
-
-  Expand the equation.
-
-  <DisplayEquation equation="\\det\\Biggl(\\begin{bmatrix} \\sigma_{x} & \\tau_{xy}\\\\ \\tau_{xy} & \\sigma_{y} \\end{bmatrix} - \\begin{bmatrix} \\lambda & 0\\\\ 0 & \\lambda \\end{bmatrix} \\Biggr) = 0" />
-  <DisplayEquation equation="\\det\\Biggl(\\begin{bmatrix} \\sigma_{x}-\\lambda & \\tau_{xy}\\\\ \\tau_{xy} & \\sigma_{y}-\\lambda \\end{bmatrix} \\Biggr) = 0 " />
-                        
-   Evaluate the determinate.
-  
-  <DisplayEquation equation="(\\sigma_{x}-\\lambda)(\\sigma_{y}-\\lambda) - \\tau_{xy}^2 = 0\\" />
-  <DisplayEquation equation="\\sigma_{x}\\sigma_{y} - \\lambda\\sigma_{y} -\\lambda\\sigma_{x} + \\lambda^2 - \\tau_{xy}^2 = 0\\" />
-                        
-   Rearrange.
-  
-  <DisplayEquation equation="\\lambda^2 - \\lambda(\\sigma_{y} + \\sigma_{x}) + \\sigma_{x}\\sigma_{y} - \\tau_{xy}^2 = 0\\" />
-  
-   Solve for the eigenvalues using the quadratic equation where <InlineEquation equation="\\rm\\ a = 1" />, <InlineEquation equation="\\rm\\ b = -(\\sigma_{y} + \\sigma_{x})" />, and <InlineEquation equation="\\rm\\ c = \\sigma_{x}\\sigma_{y} - \\tau_{xy}^2" />.
-  
-  
-  <DisplayEquation equation="\\begin{align} \\lambda &= \\frac{(\\sigma_{y} + \\sigma_{x}) \\pm \\sqrt{(\\sigma_{y} + \\sigma_{x})^2 - 4(\\sigma_{x}\\sigma_{y} - \\tau_{xy}^2)}}{2} \\\\ &= \\frac{(\\sigma_{x} + \\sigma_{y})}{2} \\pm \\frac{\\sqrt{\\sigma_{y}^2 + 2\\sigma_{y}\\sigma_{x} + \\sigma_{x}^2 - 4\\sigma_{x}\\sigma_{y} + 4\\tau_{xy}^2}}{2} \\\\ &= \\frac{(\\sigma_{x} + \\sigma_{y})}{2} \\pm \\frac{\\sqrt{\\sigma_{y}^2 - 2\\sigma_{y}\\sigma_{x} + \\sigma_{x}^2 + 4\\tau_{xy}^2}}{2} \\\\ &= \\frac{(\\sigma_{x} + \\sigma_{y})}{2} \\pm \\sqrt{\\frac{(\\sigma_{y} - \\sigma_{x})^2 + 4\\tau_{xy}^2}{4}} \\\\ &= \\frac{(\\sigma_{x} + \\sigma_{y})}{2} \\pm \\sqrt{\\biggl(\\frac{\\sigma_{y} - \\sigma_{x}}{2}\\biggr)^2 + \\tau_{xy}^2} \\end{align}" />
-  
-    This is the same result as the geometric derivation above.  
-</DisplayEquation>
-
-To find the eigenvectors, we plug our eigenvalues back into the equation <InlineEquation equation="(\\boldsymbol{T}-\\lambda\\boldsymbol{I})\\boldsymbol{v} = 0" />.
-
-
-<DisplayEquation equation="\\theta_{p1} = \\tan^{-1}\\Bigl(\\frac{\\sigma_1 - \\sigma_x}{\\tau_{xy}}\\Bigr) = \\tan^{-1}\\Bigl(\\frac{\\tau_{xy}}{\\sigma_1 - \\sigma_y}\\Bigr)\\" title="First eigenvector angle." background="True" derivation="True" id="fst-egn">
-
-  <DisplayEquation equation="\\lambda_1 = \\sigma_1" />
-  
-  <DisplayEquation equation="\\begin{bmatrix} \\sigma_{x}-\\sigma_{1} & \\tau_{xy}\\\\ \\tau_{xy} & \\sigma_{y}-\\sigma_{1} \\end{bmatrix} \\begin{bmatrix} v_{11} \\\\ v_{12} \\end{bmatrix} = 0" />
-                        
-  Multiplying out gives two equations.
-
-  <DisplayEquation equation="(\\sigma_{x}-\\sigma_{1})v_{11} + \\tau_{xy}v_{12} = 0\\" />
-  <DisplayEquation equation="\\tau_{xy}v_{12} + (\\sigma_{x}-\\sigma_{1})v_{12} = 0\\" />
-
-  The angle of the eigenvector. 
-
-  <DisplayEquation equation="\\theta_{p1} = \\tan^{-1}\\Bigl(\\frac{v_{12}}{v_{11}}\\Bigr)\\" />
-
-</DisplayEquation>
-
-We can repeat this procedure for the second eigenvalue, <InlineEquation equation="\\lambda_2 = \\sigma_2" />.
-
-
-<DisplayEquation equation="\\theta_{p2} = \\tan^{-1}\\Bigl(\\frac{\\sigma_2 - \\sigma_x}{\\tau_{xy}}\\Bigr) = \\tan^{-1}\\Bigl(\\frac{\\tau_{xy}}{\\sigma_2 - \\sigma_y}\\Bigr)\\" title="Second eigenvector angle." background="True"/>
- 
-</SubSection>
 
 </Layout>
