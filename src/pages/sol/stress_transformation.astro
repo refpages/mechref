@@ -29,22 +29,23 @@ import CalloutCard from "../../components/CalloutCard.astro"
       <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#general-state'>General State of Stress</a></li>
       <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#sign-convention-general'>Sign Convention</a></li> 
       <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#plane-stress'>Plane Stress</a></li> 
-      <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#plane-stress-transformation'>Plane Stress Transformation</a>
-          <ul class='list-group list-group-flush py-0'> 
-              <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#sign-convention-transformation'>Transformation Sign Convention</a></li> 
-              <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#2d'>2D Mohr's Circle</a></li> 
-              <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#circle-anim'>Interactive Mohr's circle</a></li>
-              <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#3d'>3D Mohr's Circle</a></li> 
-              <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#stress-inclined-plane'>Stresses on Inclined Planes</a></li>  
-              <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#pure-shear'>Pure Shear</a></li> 
-          </ul>
-      </li> 
-      <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#principal-stresses'>Principal Stresses</a>
-        <ul class='list-group list-group-flush py-0'> 
+       <ul class='list-group list-group-flush py-0'> 
+          <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#plane-stress-transformation'>Plane Stress Transformation</a>
+          <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#sign-convention-transformation'>Stress Transformation Equations</a></li>
+          <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#principal-stresses'>Principal Stresses</a></li>
+          <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#max-shear'>Maximum Shear Stress</a></li> 
           <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#eigenvalues'>Alternative Approach: Eigenvalues</a></li> 
+          <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#stress-inclined-plane'>Stresses on Inclined Planes</a></li>  
+          <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#pure-shear'>Pure Shear</a></li> 
         </ul>
       </li>
-      <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#max-shear-stress'>Maximum Shear Stress</a></li>   
+      <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#mohr-circle'>Mohr's Circle</a></li> 
+        <ul class='list-group list-group-flush py-0'> 
+            <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#2d'>2D Mohr's Circle</a></li> 
+            <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#circle-anim'>Interactive Mohr's circle</a></li>
+            <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#3d'>3D Mohr's Circle</a></li> 
+        </ul>
+      </li>  
   </ul>
 </div>
 
@@ -350,12 +351,11 @@ We can repeat this procedure for the second eigenvalue, <InlineEquation equation
 
 </SubSubSection>
 
-<Section title="Mohr's Circle" id="mohr">
-</Section>
-
+<SubSection title="Mohr's Circle" id="mohr-circle">
+Mohr's circle is a graphical representation of stress transformations. The equations for stress transformations actually describe a circle if we consider the normal stress <InlineEquation equation="\\sigma" /> to be the x-coordinate and the shear stress <InlineEquation equation="\\tau" /> to be the y-coordinate.
+</SubSection>
+  
   <SubSubSection title="2-D Mohr's Circle" id="2d">
-    Mohr's circle is a graphical representation of stress transformations. The equations for stress transformations actually describe a circle if we consider the normal stress <InlineEquation equation="\\sigma" /> to be the x-coordinate and the shear stress <InlineEquation equation="\\tau" /> to be the y-coordinate.
-
    <Image src="/sol/stress_transformation/mohrsCircle.png" width="4"></Image>
   
   <DisplayEquation equation="C = \\sigma_{avg} = \\frac{\\sigma_x +\\sigma_y}{2} = \\frac{\\sigma_1 +\\sigma_2}{2}\\" title="Circle centroid." background="True"/>
