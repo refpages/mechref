@@ -29,14 +29,16 @@ import CalloutCard from "../../components/CalloutCard.astro"
       <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#general-state'>General State of Stress</a></li>
       <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#sign-convention-general'>Sign Convention</a></li> 
       <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#plane-stress'>Plane Stress</a></li> 
+        <ul class='list-group list-group-flush py-0'>
+          <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#stress-inclined-plane'>Stresses on Inclined Planes</a></li>  
+          <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#pure-shear'>Pure Shear</a></li> 
+        </ul>
+       <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#plane-stress-transformation'>Plane Stress Transformation</a>
        <ul class='list-group list-group-flush py-0'> 
-          <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#plane-stress-transformation'>Plane Stress Transformation</a>
           <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#sign-convention-transformation'>Stress Transformation Equations</a></li>
           <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#principal-stresses'>Principal Stresses</a></li>
           <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#max-shear'>Maximum Shear Stress</a></li> 
-          <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#eigenvalues'>Alternative Approach: Eigenvalues</a></li> 
-          <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#stress-inclined-plane'>Stresses on Inclined Planes</a></li>  
-          <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#pure-shear'>Pure Shear</a></li> 
+          <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#eigenvalues'>Alternative Approach: Eigenvalues</a></li>
         </ul>
       </li>
       <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#mohr-circle'>Mohr's Circle</a></li> 
@@ -99,9 +101,8 @@ The general state of stress at a point is characterized by three independent nor
 
 </SubSection>
 
-<SubSection title="Plane Stress Transformation" id="plane-stress-transformation">
-  
-  <CalloutContainer slot="cards">
+<SubSubSection title="Stresses on Inclined Planes" id="stress-inclined-plane">
+<CalloutContainer slot="cards">
     <CalloutCard title="Heads  up!">
         <p>
             <strong> Cauchys stress theorem </strong> builds on this content  in later solid mechanics courses.
@@ -119,6 +120,61 @@ The general state of stress at a point is characterized by three independent nor
     </CalloutCard>
 </CalloutContainer>
 
+<Image src="/sol/stress_transformation/Plane Transformation.png" width="7"></Image>
+
+<DisplayEquation equation="\\begin{align} \\sigma_{x'} &= {\\bf n}\\cdot\\ {\\bf t}^{n}={\\bf n}\\cdot\\ {\\bf T}\\,{\\bf n} = \\sigma_{x} \\cos ^2(\\theta) + 2 \\,\\tau_{xy} \\sin(\\theta) \\cos(\\theta)+\\sigma_{y} \\sin ^2(\\theta) \\\\ \\tau_{x'y'} &= {\\bf s}\\cdot\\ {\\bf t}^{n}={\\bf s}\\cdot\\ {\\bf T}\\,{\\bf n} = (\\sigma_y - \\sigma_{x}) \\sin(\\theta) \\cos(\\theta) + \\tau_{xy} ( \\cos^2(\\theta) - \\sin^2(\\theta) )  \\end{align}" title="Stresses on inclined planes." background="True" derivation="True" id="str-inc">
+
+  Equilibrium equations.
+  <DisplayEquation equation="\\sum F_x: -\\sigma_x (A\\rm\\cos\\theta) - \\tau_{xy}(A\\rm\\sin\\theta) + (\\sigma_{x}'\\rm\\cos\\theta)A - (\\tau_{x'y'}\\rm\\sin\\theta)A=0\\" />
+  <DisplayEquation equation="\\sum F_y: -\\sigma_y (A\\rm\\sin\\theta) - \\tau_{xy}(A\\rm\\cos\\theta) + (\\sigma_{x}'\\rm\\sin\\theta)A - (\\tau_{x'y'}\\rm\\cos\\theta)A=0\\" />
+  
+   Rearrange terms.
+  
+  <DisplayEquation equation="A[\\sigma_{x}'\\rm\\cos\\theta - \\tau_{x'y'}\\rm\\sin\\theta] = A[\\sigma_{x}\\rm\\cos\\theta + \\tau_{xy}\\rm\\sin\\theta]\\" />
+  <DisplayEquation equation="A[\\sigma_{x}'\\rm\\sin\\theta - \\tau_{x'y'}\\rm\\cos\\theta] = A[\\sigma_{x}\\rm\\sin\\theta + \\tau_{xy}\\rm\\cos\\theta]\\" />
+  
+   Combine into a matrix.
+  
+  <DisplayEquation equation="\\begin{bmatrix} \\rm\\cos\\theta & -\\rm\\sin\\theta \\\\ \\rm\\sin\\theta & \\rm\\cos\\theta \\end{bmatrix} \\begin{bmatrix}\\sigma_{x}' \\\\ \\tau_{x'y'} \\end{bmatrix} = \\begin{bmatrix} \\sigma_{x}\\rm\\cos\\theta & \\tau_{xy}\\rm\\sin\\theta \\\\ \\sigma_{y}\\rm\\sin\\theta & \\tau_{xy}\\rm\\cos\\theta \\end{bmatrix}" />
+          
+   Multiply by the inverse.
+  
+  <DisplayEquation equation="\\begin{bmatrix} \\sigma_{x}' \\\\ \\tau_{x'y'} \\end{bmatrix} = \\begin{bmatrix} \\rm\\cos\\theta & \\rm\\sin\\theta \\\\ -\\rm\\sin\\theta & \\rm\\cos\\theta \\end{bmatrix} \\begin{bmatrix} \\sigma_{x}\\rm\\cos\\theta & \\tau_{xy}\\rm\\sin\\theta \\\\ \\sigma_{y}\\rm\\sin\\theta & \\tau_{xy}\\rm\\cos\\theta \\end{bmatrix}" />
+  
+
+  </DisplayEquation>
+
+</SubSubSection>
+
+<SubSubSection title="Pure Shear" id="pure-shear">
+
+
+ A circular shaft under torsion develops <strong>pure shear</strong> on cross-sections between longitudinal planes (the faces of element <InlineEquation equation="a" /> are parallel and perpendicular to the axis of the shaft).
+
+<Image src="/sol/stress_transformation/Circular Shaft Torsion.png" width="7"></Image>
+
+<DisplayEquation equation="\\begin{align} \\sigma_{x'} = 2\\tau_{max} \\sin\\theta \\cos\\theta = \\tau_{max} \\sin (2\\theta) \\\\ \\tau_{x'y'} = \\tau_{max}(\\cos^2\\theta - \\sin^2\\theta) = \\tau_{max} \\cos(2\\theta) \\end{align}" title="Torsion on inclined planes." background="True" derivation="True" id="tor-inc">
+
+  Recall projected forces.
+
+  <DisplayEquation equation=" \\begin{align} \\sigma_{x'} = \\frac{P}{A_o}(\\cos^2(\\theta)) \\\\ \\tau_{x'y'} = -\\frac{P}{A_o}\\sin(\\theta)\\cos(\\theta) \\end{align} "/> 
+
+
+  <Image src="/sol/stress_transformation/Max Stress.png" width="6"></Image>
+
+ Maximum normal stress at 90 degrees.
+
+<DisplayEquation equation="\\begin{align} \\sigma_{x'} = \\tau_{max} = \\frac{Tc}{J} \\\\ \\sigma_{y'} = -\\tau_{max} = -\\frac{Tc}{J} \\\\ \\tau_{x'y'} = 0 \\end{align}" /> 
+
+ Maximum shear stress at 45 degrees.
+ <DisplayEquation equation="\\begin{align} \\sigma_{x'} = 0 \\\\ \\sigma_{y'} = 0 \\\\ \\tau_{x'y'} = \\tau_{max} = \\frac{Tc}{J} \\end{align}" /> 
+
+
+</DisplayEquation>
+
+</SubSubSection>
+
+<SubSection title="Plane Stress Transformation" id="plane-stress-transformation">
 
   <Image src="/sol/stress_transformation/Coord Transformation.png" width="6"></Image>
 
@@ -128,9 +184,6 @@ The general state of stress at a point is characterized by three independent nor
 </SubSection>
 
 <SubSubSection title="Stress Transformation Equations" id="sign-convention-transformation">
-
-  <Image src="/sol/stress_transformation/Plane Transformation.png" width="7"></Image>
-
 <Itemize>
 	<Item>Both the <InlineEquation equation="x-y" /> (original) and <InlineEquation equation="x’-y’" /> (transformed) systems follow the right-hand rule.</Item>
 	<Item>The orientation of an inclined plane (on which the normal and shear stress components are to be determined) will be defined using the angle <InlineEquation equation="\\theta" />. The angle <InlineEquation equation="\\theta" /> is measured from the positive <InlineEquation equation="x" /> to the positive <InlineEquation equation="x’" /> -axis. It is positive if it follows the curl of the right-hand fingers.</Item>
@@ -295,60 +348,6 @@ We can repeat this procedure for the second eigenvalue, <InlineEquation equation
 
 <DisplayEquation equation="\\theta_{p2} = \\tan^{-1}\\Bigl(\\frac{\\sigma_2 - \\sigma_x}{\\tau_{xy}}\\Bigr) = \\tan^{-1}\\Bigl(\\frac{\\tau_{xy}}{\\sigma_2 - \\sigma_y}\\Bigr)\\" title="Second eigenvector angle." background="True"/>
  
-</SubSubSection>
-
-<SubSubSection title="Stresses on Inclined Planes" id="stress-inclined-plane">
-
-<DisplayEquation equation="\\begin{align} \\sigma_{x'} &= {\\bf n}\\cdot\\ {\\bf t}^{n}={\\bf n}\\cdot\\ {\\bf T}\\,{\\bf n} = \\sigma_{x} \\cos ^2(\\theta) + 2 \\,\\tau_{xy} \\sin(\\theta) \\cos(\\theta)+\\sigma_{y} \\sin ^2(\\theta) \\\\ \\tau_{x'y'} &= {\\bf s}\\cdot\\ {\\bf t}^{n}={\\bf s}\\cdot\\ {\\bf T}\\,{\\bf n} = (\\sigma_y - \\sigma_{x}) \\sin(\\theta) \\cos(\\theta) + \\tau_{xy} ( \\cos^2(\\theta) - \\sin^2(\\theta) )  \\end{align}" title="Stresses on inclined planes." background="True" derivation="True" id="str-inc">
-
-  Equilibrium equations.
-  <DisplayEquation equation="\\sum F_x: -\\sigma_x (A\\rm\\cos\\theta) - \\tau_{xy}(A\\rm\\sin\\theta) + (\\sigma_{x}'\\rm\\cos\\theta)A - (\\tau_{x'y'}\\rm\\sin\\theta)A=0\\" />
-  <DisplayEquation equation="\\sum F_y: -\\sigma_y (A\\rm\\sin\\theta) - \\tau_{xy}(A\\rm\\cos\\theta) + (\\sigma_{x}'\\rm\\sin\\theta)A - (\\tau_{x'y'}\\rm\\cos\\theta)A=0\\" />
-  
-   Rearrange terms.
-  
-  <DisplayEquation equation="A[\\sigma_{x}'\\rm\\cos\\theta - \\tau_{x'y'}\\rm\\sin\\theta] = A[\\sigma_{x}\\rm\\cos\\theta + \\tau_{xy}\\rm\\sin\\theta]\\" />
-  <DisplayEquation equation="A[\\sigma_{x}'\\rm\\sin\\theta - \\tau_{x'y'}\\rm\\cos\\theta] = A[\\sigma_{x}\\rm\\sin\\theta + \\tau_{xy}\\rm\\cos\\theta]\\" />
-  
-   Combine into a matrix.
-  
-  <DisplayEquation equation="\\begin{bmatrix} \\rm\\cos\\theta & -\\rm\\sin\\theta \\\\ \\rm\\sin\\theta & \\rm\\cos\\theta \\end{bmatrix} \\begin{bmatrix}\\sigma_{x}' \\\\ \\tau_{x'y'} \\end{bmatrix} = \\begin{bmatrix} \\sigma_{x}\\rm\\cos\\theta & \\tau_{xy}\\rm\\sin\\theta \\\\ \\sigma_{y}\\rm\\sin\\theta & \\tau_{xy}\\rm\\cos\\theta \\end{bmatrix}" />
-          
-   Multiply by the inverse.
-  
-  <DisplayEquation equation="\\begin{bmatrix} \\sigma_{x}' \\\\ \\tau_{x'y'} \\end{bmatrix} = \\begin{bmatrix} \\rm\\cos\\theta & \\rm\\sin\\theta \\\\ -\\rm\\sin\\theta & \\rm\\cos\\theta \\end{bmatrix} \\begin{bmatrix} \\sigma_{x}\\rm\\cos\\theta & \\tau_{xy}\\rm\\sin\\theta \\\\ \\sigma_{y}\\rm\\sin\\theta & \\tau_{xy}\\rm\\cos\\theta \\end{bmatrix}" />
-  
-
-  </DisplayEquation>
-
-</SubSubSection>
-
-<SubSubSection title="Pure Shear" id="pure-shear">
-
-
- A circular shaft under torsion develops <strong>pure shear</strong> on cross-sections between longitudinal planes (the faces of element <InlineEquation equation="a" /> are parallel and perpendicular to the axis of the shaft).
-
-<Image src="/sol/stress_transformation/Circular Shaft Torsion.png" width="7"></Image>
-
-<DisplayEquation equation="\\begin{align} \\sigma_{x'} = 2\\tau_{max} \\sin\\theta \\cos\\theta = \\tau_{max} \\sin (2\\theta) \\\\ \\tau_{x'y'} = \\tau_{max}(\\cos^2\\theta - \\sin^2\\theta) = \\tau_{max} \\cos(2\\theta) \\end{align}" title="Torsion on inclined planes." background="True" derivation="True" id="tor-inc">
-
-  Recall projected forces.
-
-  <DisplayEquation equation=" \\begin{align} \\sigma_{x'} = \\frac{P}{A_o}(\\cos^2(\\theta)) \\\\ \\tau_{x'y'} = -\\frac{P}{A_o}\\sin(\\theta)\\cos(\\theta) \\end{align} "/> 
-
-
-  <Image src="/sol/stress_transformation/Max Stress.png" width="6"></Image>
-
- Maximum normal stress at 90 degrees.
-
-<DisplayEquation equation="\\begin{align} \\sigma_{x'} = \\tau_{max} = \\frac{Tc}{J} \\\\ \\sigma_{y'} = -\\tau_{max} = -\\frac{Tc}{J} \\\\ \\tau_{x'y'} = 0 \\end{align}" /> 
-
- Maximum shear stress at 45 degrees.
- <DisplayEquation equation="\\begin{align} \\sigma_{x'} = 0 \\\\ \\sigma_{y'} = 0 \\\\ \\tau_{x'y'} = \\tau_{max} = \\frac{Tc}{J} \\end{align}" /> 
-
-
-</DisplayEquation>
-
 </SubSubSection>
 
 <SubSection title="Mohr's Circle" id="mohr-circle">
