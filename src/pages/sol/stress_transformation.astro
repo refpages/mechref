@@ -146,34 +146,6 @@ The general state of stress at a point is characterized by three independent nor
 
 </SubSubSection>
 
-<SubSubSection title="Pure Shear" id="pure-shear">
-
-
- A circular shaft under torsion develops <strong>pure shear</strong> on cross-sections between longitudinal planes (the faces of element <InlineEquation equation="a" /> are parallel and perpendicular to the axis of the shaft).
-
-<Image src="/sol/stress_transformation/Circular Shaft Torsion.png" width="7"></Image>
-
-<DisplayEquation equation="\\begin{align} \\sigma_{x'} = 2\\tau_{max} \\sin\\theta \\cos\\theta = \\tau_{max} \\sin (2\\theta) \\\\ \\tau_{x'y'} = \\tau_{max}(\\cos^2\\theta - \\sin^2\\theta) = \\tau_{max} \\cos(2\\theta) \\end{align}" title="Torsion on inclined planes." background="True" derivation="True" id="tor-inc">
-
-  Recall projected forces.
-
-  <DisplayEquation equation=" \\begin{align} \\sigma_{x'} = \\frac{P}{A_o}(\\cos^2(\\theta)) \\\\ \\tau_{x'y'} = -\\frac{P}{A_o}\\sin(\\theta)\\cos(\\theta) \\end{align} "/> 
-
-
-  <Image src="/sol/stress_transformation/Max Stress.png" width="6"></Image>
-
- Maximum normal stress at 90 degrees.
-
-<DisplayEquation equation="\\begin{align} \\sigma_{x'} = \\tau_{max} = \\frac{Tc}{J} \\\\ \\sigma_{y'} = -\\tau_{max} = -\\frac{Tc}{J} \\\\ \\tau_{x'y'} = 0 \\end{align}" /> 
-
- Maximum shear stress at 45 degrees.
- <DisplayEquation equation="\\begin{align} \\sigma_{x'} = 0 \\\\ \\sigma_{y'} = 0 \\\\ \\tau_{x'y'} = \\tau_{max} = \\frac{Tc}{J} \\end{align}" /> 
-
-
-</DisplayEquation>
-
-</SubSubSection>
-
 <SubSection title="Plane Stress Transformation" id="plane-stress-transformation">
 
   <Image src="/sol/stress_transformation/Coord Transformation.png" width="6"></Image>
@@ -283,6 +255,34 @@ Normal and shear stresses can be shown graphically as a function of <InlineEquat
 <DisplayEquation equation="\\sigma_{x}' = \\sigma_{y}' = \\sigma_{avg} = \\frac{\\sigma_x + \\sigma_y}{2}\\" title="Average normal stress." background="True"/>
 
 <Warning title="Unlike with the principal stress element, the normal stresses are not zero." remove_button="True" id="max-shr" />
+
+</SubSubSection>
+
+<SubSubSection title="Pure Shear" id="pure-shear">
+
+
+ A circular shaft under torsion develops <strong>pure shear</strong> on cross-sections between longitudinal planes (the faces of element <InlineEquation equation="a" /> are parallel and perpendicular to the axis of the shaft).
+
+<Image src="/sol/stress_transformation/Circular Shaft Torsion.png" width="7"></Image>
+
+<DisplayEquation equation="\\begin{align} \\sigma_{x'} = 2\\tau_{max} \\sin\\theta \\cos\\theta = \\tau_{max} \\sin (2\\theta) \\\\ \\tau_{x'y'} = \\tau_{max}(\\cos^2\\theta - \\sin^2\\theta) = \\tau_{max} \\cos(2\\theta) \\end{align}" title="Torsion on inclined planes." background="True" derivation="True" id="tor-inc">
+
+  Recall projected forces.
+
+  <DisplayEquation equation=" \\begin{align} \\sigma_{x'} = \\frac{P}{A_o}(\\cos^2(\\theta)) \\\\ \\tau_{x'y'} = -\\frac{P}{A_o}\\sin(\\theta)\\cos(\\theta) \\end{align} "/> 
+
+
+  <Image src="/sol/stress_transformation/Max Stress.png" width="6"></Image>
+
+ Maximum normal stress at 90 degrees.
+
+<DisplayEquation equation="\\begin{align} \\sigma_{x'} = \\tau_{max} = \\frac{Tc}{J} \\\\ \\sigma_{y'} = -\\tau_{max} = -\\frac{Tc}{J} \\\\ \\tau_{x'y'} = 0 \\end{align}" /> 
+
+ Maximum shear stress at 45 degrees.
+ <DisplayEquation equation="\\begin{align} \\sigma_{x'} = 0 \\\\ \\sigma_{y'} = 0 \\\\ \\tau_{x'y'} = \\tau_{max} = \\frac{Tc}{J} \\end{align}" /> 
+
+
+</DisplayEquation>
 
 </SubSubSection>
 
