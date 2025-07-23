@@ -1694,8 +1694,6 @@ $(document).ready(function(){
         rvc_fm_c.redraw();
         rvs_fd_c.redraw();
         rvs_ec_c.redraw();
-        rvc_fm_c.redraw();
-        rvs_fd_c.redraw();
         rvy_fd_c.redraw();
         aos_fm_c.redraw();
         aos_fd_c.redraw();
