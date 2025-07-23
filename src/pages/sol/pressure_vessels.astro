@@ -20,7 +20,8 @@ import BlueText from "../../components/BlueText.astro"
 		
 			<ul class='list-group list-group-flush py-0'> 
 				<li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#cylindrical-vessels'>Cylindrical Vessels</a></li> 
-				<li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#spherical-vessels'>SphericalVessels</a></li>  
+				<li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#spherical-vessels'>SphericalVessels</a></li>
+				<li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#radial-stress'>Radial Stress</a></li>  
 			</ul>
 		</li>
 	</ul>
@@ -61,11 +62,19 @@ import BlueText from "../../components/BlueText.astro"
 	<DisplayEquation equation="\\therefore \\sigma_a = \\frac{pr}{2t}\\" />
 
  	<em>Note:</em> A more accurate derivation of the longitudinal stress may be calculated with the true area of the pressure vessel <InlineEquation equation="(A_{wall} = \\pi(r+t)^2 - \\pi r^2 = \\pi 2rt + \\pi t^2)" />, leading to an axial stress of: <InlineEquation equation="\\sigma_a = \\frac{pr^2}{2rt + t^2}" />. The approximation used in this course is only sufficient when <InlineEquation equation="\\frac{r}{t} \\ge 10" />. 
-
-
 </DisplayEquation>
 
- <strong>Radial Stress:</strong>
+</SubSubSection>
+
+<SubSubSection title="Spherical Vessels" id="spherical-vessels">
+
+<Image src="/sol/pressure_vessels/SphericalVessel.png" width="5"></Image>
+
+<DisplayEquation equation="\\sigma_1 = \\sigma_2 = \\frac{pr}{2t}\\" title="Due to symmetry." background="True"/>
+
+</SubSubSection>
+
+<SubSubSection title="Radial Stress" id="radial-stress">
 
 <Image src="/sol/pressure_vessels/RadialStress.png" width="5"></Image>
 
@@ -79,14 +88,6 @@ In addition to hoop and axial stresses, there is also a radial stress <InlineEqu
  <InlineEquation equation="\\sigma_h =p\\left(\\dfrac{r}{2t}\\right)" />. 
  Because <InlineEquation equation="\\dfrac{t}{r} << 1" />, it is easy to see that <InlineEquation  equation="\\sigma_h,\\sigma_a >> \\sigma_r\\" />. 
  We therefore <strong>neglect  <InlineEquation equation="\\sigma_r" /></strong> in thin-walled pressure vessel calculations because it is small compared to the other stresses experienced in the vessel.
-
-</SubSubSection>
-
-<SubSubSection title="Spherical Vessels" id="spherical-vessels">
-
-<Image src="/sol/pressure_vessels/SphericalVessel.png" width="5"></Image>
-
-<DisplayEquation equation="\\sigma_1 = \\sigma_2 = \\frac{pr}{2t}\\" title="Due to symmetry." background="True"/>
 
 </SubSubSection>
 </Layout>

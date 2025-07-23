@@ -29,22 +29,25 @@ import CalloutCard from "../../components/CalloutCard.astro"
       <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#general-state'>General State of Stress</a></li>
       <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#sign-convention-general'>Sign Convention</a></li> 
       <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#plane-stress'>Plane Stress</a></li> 
-      <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#plane-stress-transformation'>Plane Stress Transformation</a>
-          <ul class='list-group list-group-flush py-0'> 
-              <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#sign-convention-transformation'>Transformation Sign Convention</a></li> 
-              <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#2d'>2D Mohr's Circle</a></li> 
-              <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#circle-anim'>Interactive Mohr's circle</a></li>
-              <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#3d'>3D Mohr's Circle</a></li> 
-              <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#stress-inclined-plane'>Stresses on Inclined Planes</a></li>  
-              <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#pure-shear'>Pure Shear</a></li> 
-          </ul>
-      </li> 
-      <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#principal-stresses'>Principal Stresses</a>
-        <ul class='list-group list-group-flush py-0'> 
-          <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#eigenvalues'>Alternative Approach: Eigenvalues</a></li> 
+        <ul class='list-group list-group-flush py-0'>
+          <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#stress-inclined-plane'>Stresses on Inclined Planes</a></li>  
+        </ul>
+       <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#plane-stress-transformation'>Plane Stress Transformation</a>
+       <ul class='list-group list-group-flush py-0'> 
+          <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#sign-convention-transformation'>Stress Transformation Equations</a></li>
+          <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#principal-stresses'>Principal Stresses</a></li>
+          <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#max-shear'>Maximum Shear Stress</a></li> 
+          <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#pure-shear'>Pure Shear</a></li> 
+          <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#eigenvalues'>Alternative Approach: Eigenvalues</a></li>
         </ul>
       </li>
-      <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#max-shear-stress'>Maximum Shear Stress</a></li>   
+      <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#mohr-circle'>Mohr's Circle</a></li> 
+        <ul class='list-group list-group-flush py-0'> 
+            <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#2d'>2D Mohr's Circle</a></li> 
+            <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#circle-anim'>Interactive Mohr's circle</a></li>
+            <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#3d'>3D Mohr's Circle</a></li> 
+        </ul>
+      </li>  
   </ul>
 </div>
 
@@ -98,9 +101,8 @@ The general state of stress at a point is characterized by three independent nor
 
 </SubSection>
 
-<SubSection title="Plane Stress Transformation" id="plane-stress-transformation">
-  
-  <CalloutContainer slot="cards">
+<SubSubSection title="Stresses on Inclined Planes" id="stress-inclined-plane">
+<CalloutContainer slot="cards">
     <CalloutCard title="Heads  up!">
         <p>
             <strong> Cauchys stress theorem </strong> builds on this content  in later solid mechanics courses.
@@ -118,19 +120,42 @@ The general state of stress at a point is characterized by three independent nor
     </CalloutCard>
 </CalloutContainer>
 
+<Image src="/sol/stress_transformation/Plane Transformation.png" width="7"></Image>
+
+<DisplayEquation equation="\\begin{align} \\sigma_{x'} &= {\\bf n}\\cdot\\ {\\bf t}^{n}={\\bf n}\\cdot\\ {\\bf T}\\,{\\bf n} = \\sigma_{x} \\cos ^2(\\theta) + 2 \\,\\tau_{xy} \\sin(\\theta) \\cos(\\theta)+\\sigma_{y} \\sin ^2(\\theta) \\\\ \\tau_{x'y'} &= {\\bf s}\\cdot\\ {\\bf t}^{n}={\\bf s}\\cdot\\ {\\bf T}\\,{\\bf n} = (\\sigma_y - \\sigma_{x}) \\sin(\\theta) \\cos(\\theta) + \\tau_{xy} ( \\cos^2(\\theta) - \\sin^2(\\theta) )  \\end{align}" title="Stresses on inclined planes." background="True" derivation="True" id="str-inc">
+
+  Equilibrium equations.
+  <DisplayEquation equation="\\sum F_x: -\\sigma_x (A\\rm\\cos\\theta) - \\tau_{xy}(A\\rm\\sin\\theta) + (\\sigma_{x}'\\rm\\cos\\theta)A - (\\tau_{x'y'}\\rm\\sin\\theta)A=0\\" />
+  <DisplayEquation equation="\\sum F_y: -\\sigma_y (A\\rm\\sin\\theta) - \\tau_{xy}(A\\rm\\cos\\theta) + (\\sigma_{x}'\\rm\\sin\\theta)A - (\\tau_{x'y'}\\rm\\cos\\theta)A=0\\" />
+  
+   Rearrange terms.
+  
+  <DisplayEquation equation="A[\\sigma_{x}'\\rm\\cos\\theta - \\tau_{x'y'}\\rm\\sin\\theta] = A[\\sigma_{x}\\rm\\cos\\theta + \\tau_{xy}\\rm\\sin\\theta]\\" />
+  <DisplayEquation equation="A[\\sigma_{x}'\\rm\\sin\\theta - \\tau_{x'y'}\\rm\\cos\\theta] = A[\\sigma_{x}\\rm\\sin\\theta + \\tau_{xy}\\rm\\cos\\theta]\\" />
+  
+   Combine into a matrix.
+  
+  <DisplayEquation equation="\\begin{bmatrix} \\rm\\cos\\theta & -\\rm\\sin\\theta \\\\ \\rm\\sin\\theta & \\rm\\cos\\theta \\end{bmatrix} \\begin{bmatrix}\\sigma_{x}' \\\\ \\tau_{x'y'} \\end{bmatrix} = \\begin{bmatrix} \\sigma_{x}\\rm\\cos\\theta & \\tau_{xy}\\rm\\sin\\theta \\\\ \\sigma_{y}\\rm\\sin\\theta & \\tau_{xy}\\rm\\cos\\theta \\end{bmatrix}" />
+          
+   Multiply by the inverse.
+  
+  <DisplayEquation equation="\\begin{bmatrix} \\sigma_{x}' \\\\ \\tau_{x'y'} \\end{bmatrix} = \\begin{bmatrix} \\rm\\cos\\theta & \\rm\\sin\\theta \\\\ -\\rm\\sin\\theta & \\rm\\cos\\theta \\end{bmatrix} \\begin{bmatrix} \\sigma_{x}\\rm\\cos\\theta & \\tau_{xy}\\rm\\sin\\theta \\\\ \\sigma_{y}\\rm\\sin\\theta & \\tau_{xy}\\rm\\cos\\theta \\end{bmatrix}" />
+  
+
+  </DisplayEquation>
+
+</SubSubSection>
+
+<SubSection title="Plane Stress Transformation" id="plane-stress-transformation">
 
   <Image src="/sol/stress_transformation/Coord Transformation.png" width="6"></Image>
-
 
 <p>
  We think of stresses acting on faces, so we often associate the state of stress with a coordinate system. However, the selection of a coordinate system is arbitrary (materials don't know about coordinates - it's a mathematical construct!) and we could choose to express the stress state acting on any set of faces aligned with <strong>any</strong> coordinate system axes. Furthermore, we can relate the states of stress in each coordinate system to one another through <strong>stress transformation equations.</strong>
 </p>
 </SubSection>
 
-<SubSubSection title="Transformation Sign Convention" id="sign-convention-transformation">
-
-  <Image src="/sol/stress_transformation/Plane Transformation.png" width="7"></Image>
-
+<SubSubSection title="Stress Transformation Equations" id="sign-convention-transformation">
 <Itemize>
 	<Item>Both the <InlineEquation equation="x-y" /> (original) and <InlineEquation equation="x’-y’" /> (transformed) systems follow the right-hand rule.</Item>
 	<Item>The orientation of an inclined plane (on which the normal and shear stress components are to be determined) will be defined using the angle <InlineEquation equation="\\theta" />. The angle <InlineEquation equation="\\theta" /> is measured from the positive <InlineEquation equation="x" /> to the positive <InlineEquation equation="x’" /> -axis. It is positive if it follows the curl of the right-hand fingers.</Item>
@@ -166,10 +191,170 @@ Normal and shear stresses can be shown graphically as a function of <InlineEquat
 
 </SubSubSection>
 
-    
-  <SubSubSection title="2-D Mohr's Circle" id="2d">
-    Mohr's circle is a graphical representation of stress transformations. The equations for stress transformations actually describe a circle if we consider the normal stress <InlineEquation equation="\\sigma" /> to be the x-coordinate and the shear stress <InlineEquation equation="\\tau" /> to be the y-coordinate.
+<SubSubSection title="Principal Stresses" id="principal-stresses">
 
+  <Image src="/sol/stress_transformation/principalStressesElement.png" width="3"> </Image>
+
+
+<InlineEquation equation="\\sigma_{x}'" /> can be maximized to find the principal stresses. 
+
+<DisplayEquation equation="\\begin{align} \\rm\\tan(2\\theta_{p1}) = \\frac{2\\tau_{xy}}{\\sigma_x - \\sigma_y} \\\\ \\theta_{p2} = \\theta_{p1} + 90^o \\end{align}" title="Angle for maximum normal stress." background="True" derivation="True" id="prn-str">
+
+  Recall. 
+
+<DisplayEquation equation="\\sigma_x' = \\frac{\\sigma_x + \\sigma_y}{2} + \\frac{\\sigma_x - \\sigma_y}{2}\\rm\\cos(2\\theta) + \\tau_{xy}\\sin(2\\theta)\\" />
+
+ To maximize an equation, we take the derivative and set it equal to zero.
+
+<DisplayEquation equation="\\frac{d\\sigma_{x}'}{d\\theta} = -2\\rm\\sin(2\\theta)[\\frac{\\sigma_x-\\sigma_y}{2}] + 2\\rm\\cos(2\\theta)\\tau_{xy} = 0 \\" />
+
+<DisplayEquation equation="(\\sigma_x - \\sigma_y)\\rm\\sin(2\\theta) = 2\\tau_{xy}\\rm\\cos(2\\theta)\\" />
+
+<DisplayEquation equation="\\tan(2\\theta) = \\frac{2\\tau_{xy}}{\\sigma_x - \\sigma_y}\\" />
+
+  </DisplayEquation>
+ 
+ The maximum/minimum normal stress values (the principal stresses) are associated with <InlineEquation equation="\\theta_{p1}" /> and <InlineEquation equation="\\theta_{p2}" />.
+
+<DisplayEquation equation="\\sigma_{1,2} = \\frac{\\sigma_x +\\sigma_y}{2} \\pm \\sqrt{(\\frac{\\sigma_x - \\sigma_y}{2})^2 + \\tau_{xy}^2}\\" title="Principal stresses" background="True"/>
+
+ We use the convention that <InlineEquation equation="\\sigma_1 > \\sigma_2" />.
+
+</SubSubSection>
+
+<SubSubSection title="Maximum Shear Stress" id="max-shear">
+
+  <Image src="/sol/stress_transformation/maxShearStressState.png" width="2"></Image>
+
+ The orientations for the principal stress element and max shear stress element are <InlineEquation equation="45^o" /> apart.
+
+<InlineEquation equation="\\tau_{x'y'}" /> can also be maximized. 
+
+
+
+<DisplayEquation equation="\\begin{align} \\tan(2\\theta_{s1}) = \\frac{-(\\sigma_x - \\sigma_y)}{2\\tau_{xy}} \\\\ \\theta_{s2} = \\theta_{s1} + 90^o \\end{align}" title="Angle for maximum shear stress." background="True" derivation="True" id="max-shr">
+
+  Recall.
+
+<DisplayEquation equation="\\tau_{x'y'} = -\\frac{\\sigma_x - \\sigma_y}{2}\\rm\\sin(2\\theta) + \\tau_{xy}\\cos(2\\theta)\\" />
+
+ To maximize an equation, take the derivative and set it equal to zero.
+
+<DisplayEquation equation="\\frac{d\\tau_{x'y'}}{d\\theta} = -\\frac{\\sigma_x - \\sigma_y}{2}2\\rm\\cos(2\\theta) - \\tau_{xy}2\\rm\\sin(2\\theta) = 0\\" />
+<DisplayEquation equation="-2\\tau_{xy}\\rm\\sin(2\\theta)  = (\\sigma_x - \\sigma_y)\\rm\\cos(2\\theta)\\" />
+<DisplayEquation equation="\\tan(2\\theta) = \\frac{-(\\sigma_x - \\sigma_y)}{2\\tau_{xy}}\\" />
+
+  </DisplayEquation>
+
+ The maximum/minimum in plane shear stress values are associated with <InlineEquation equation="\\theta_{s1}" /> and <InlineEquation equation="\\theta_{s2}" />.
+
+<DisplayEquation equation="|\\tau_{max}| = \\sqrt{(\\frac{\\sigma_x - \\sigma_y}{2})^2 + \\tau_{xy}^2}\\" title="Maximum shear stress." background="True"/>
+
+ A maximum shear stress element has an average normal stress. 
+
+<DisplayEquation equation="\\sigma_{x}' = \\sigma_{y}' = \\sigma_{avg} = \\frac{\\sigma_x + \\sigma_y}{2}\\" title="Average normal stress." background="True"/>
+
+<Warning title="Unlike with the principal stress element, the normal stresses are not zero." remove_button="True" id="max-shr" />
+
+</SubSubSection>
+
+<SubSubSection title="Pure Shear" id="pure-shear">
+
+
+ A circular shaft under torsion develops <strong>pure shear</strong> on cross-sections between longitudinal planes (the faces of element <InlineEquation equation="a" /> are parallel and perpendicular to the axis of the shaft).
+
+<Image src="/sol/stress_transformation/Circular Shaft Torsion.png" width="7"></Image>
+
+<DisplayEquation equation="\\begin{align} \\sigma_{x'} = 2\\tau_{max} \\sin\\theta \\cos\\theta = \\tau_{max} \\sin (2\\theta) \\\\ \\tau_{x'y'} = \\tau_{max}(\\cos^2\\theta - \\sin^2\\theta) = \\tau_{max} \\cos(2\\theta) \\end{align}" title="Torsion on inclined planes." background="True" derivation="True" id="tor-inc">
+
+  Recall projected forces.
+
+  <DisplayEquation equation=" \\begin{align} \\sigma_{x'} = \\frac{P}{A_o}(\\cos^2(\\theta)) \\\\ \\tau_{x'y'} = -\\frac{P}{A_o}\\sin(\\theta)\\cos(\\theta) \\end{align} "/> 
+
+
+  <Image src="/sol/stress_transformation/Max Stress.png" width="6"></Image>
+
+ Maximum normal stress at 90 degrees.
+
+<DisplayEquation equation="\\begin{align} \\sigma_{x'} = \\tau_{max} = \\frac{Tc}{J} \\\\ \\sigma_{y'} = -\\tau_{max} = -\\frac{Tc}{J} \\\\ \\tau_{x'y'} = 0 \\end{align}" /> 
+
+ Maximum shear stress at 45 degrees.
+ <DisplayEquation equation="\\begin{align} \\sigma_{x'} = 0 \\\\ \\sigma_{y'} = 0 \\\\ \\tau_{x'y'} = \\tau_{max} = \\frac{Tc}{J} \\end{align}" /> 
+
+
+</DisplayEquation>
+
+</SubSubSection>
+
+<SubSubSection title="Alternative Approach: Eigenvalues" id="eigenvalues">
+The <strong>eigenvalues</strong> of the stress tensor are called the principal stresses, and the <strong>eigenvectors</strong> define the principal direction vectors.
+
+<p>
+ Because of symmetry, the stress tensor (<InlineEquation equation="T" />) has real eigenvalues (<InlineEquation equation="\\lambda" />) and mutually perpendicular eigenvectors (<InlineEquation equation="v" />).
+</p>  
+ <DisplayEquation equation="Tv = \\lambda v \\rightarrow (T-\\lambda I)v = 0\\" title="Eigenvalues." background="True"/>
+
+ From linear algebra, we know that a system of linear equations <InlineEquation equation="A v = 0" /> has a non-zero solution <InlineEquation equation="\\boldsymbol{v}" /> if, and only if, the determinant of the matrix <InlineEquation equation="\\boldsymbol{T}" /> is zero.
+
+<DisplayEquation equation="\\lambda_{1,2} = \\sigma_{1,2}" title="Eigenvalues relate to stress." background="True" derivation="True" id="egn-str">
+  Start with. 
+
+  <DisplayEquation equation="\\det(\\boldsymbol{T}-\\lambda\\boldsymbol{I})=0\\"/>
+
+  Expand the equation.
+
+  <DisplayEquation equation="\\det\\Biggl(\\begin{bmatrix} \\sigma_{x} & \\tau_{xy}\\\\ \\tau_{xy} & \\sigma_{y} \\end{bmatrix} - \\begin{bmatrix} \\lambda & 0\\\\ 0 & \\lambda \\end{bmatrix} \\Biggr) = 0" />
+  <DisplayEquation equation="\\det\\Biggl(\\begin{bmatrix} \\sigma_{x}-\\lambda & \\tau_{xy}\\\\ \\tau_{xy} & \\sigma_{y}-\\lambda \\end{bmatrix} \\Biggr) = 0 " />
+                        
+   Evaluate the determinate.
+  
+  <DisplayEquation equation="(\\sigma_{x}-\\lambda)(\\sigma_{y}-\\lambda) - \\tau_{xy}^2 = 0\\" />
+  <DisplayEquation equation="\\sigma_{x}\\sigma_{y} - \\lambda\\sigma_{y} -\\lambda\\sigma_{x} + \\lambda^2 - \\tau_{xy}^2 = 0\\" />
+                        
+   Rearrange.
+  
+  <DisplayEquation equation="\\lambda^2 - \\lambda(\\sigma_{y} + \\sigma_{x}) + \\sigma_{x}\\sigma_{y} - \\tau_{xy}^2 = 0\\" />
+  
+   Solve for the eigenvalues using the quadratic equation where <InlineEquation equation="\\rm\\ a = 1" />, <InlineEquation equation="\\rm\\ b = -(\\sigma_{y} + \\sigma_{x})" />, and <InlineEquation equation="\\rm\\ c = \\sigma_{x}\\sigma_{y} - \\tau_{xy}^2" />.
+  
+  
+  <DisplayEquation equation="\\begin{align} \\lambda &= \\frac{(\\sigma_{y} + \\sigma_{x}) \\pm \\sqrt{(\\sigma_{y} + \\sigma_{x})^2 - 4(\\sigma_{x}\\sigma_{y} - \\tau_{xy}^2)}}{2} \\\\ &= \\frac{(\\sigma_{x} + \\sigma_{y})}{2} \\pm \\frac{\\sqrt{\\sigma_{y}^2 + 2\\sigma_{y}\\sigma_{x} + \\sigma_{x}^2 - 4\\sigma_{x}\\sigma_{y} + 4\\tau_{xy}^2}}{2} \\\\ &= \\frac{(\\sigma_{x} + \\sigma_{y})}{2} \\pm \\frac{\\sqrt{\\sigma_{y}^2 - 2\\sigma_{y}\\sigma_{x} + \\sigma_{x}^2 + 4\\tau_{xy}^2}}{2} \\\\ &= \\frac{(\\sigma_{x} + \\sigma_{y})}{2} \\pm \\sqrt{\\frac{(\\sigma_{y} - \\sigma_{x})^2 + 4\\tau_{xy}^2}{4}} \\\\ &= \\frac{(\\sigma_{x} + \\sigma_{y})}{2} \\pm \\sqrt{\\biggl(\\frac{\\sigma_{y} - \\sigma_{x}}{2}\\biggr)^2 + \\tau_{xy}^2} \\end{align}" />
+  
+    This is the same result as the geometric derivation above.  
+</DisplayEquation>
+
+To find the eigenvectors, we plug our eigenvalues back into the equation <InlineEquation equation="(\\boldsymbol{T}-\\lambda\\boldsymbol{I})\\boldsymbol{v} = 0" />.
+
+
+<DisplayEquation equation="\\theta_{p1} = \\tan^{-1}\\Bigl(\\frac{\\sigma_1 - \\sigma_x}{\\tau_{xy}}\\Bigr) = \\tan^{-1}\\Bigl(\\frac{\\tau_{xy}}{\\sigma_1 - \\sigma_y}\\Bigr)\\" title="First eigenvector angle." background="True" derivation="True" id="fst-egn">
+
+  <DisplayEquation equation="\\lambda_1 = \\sigma_1" />
+  
+  <DisplayEquation equation="\\begin{bmatrix} \\sigma_{x}-\\sigma_{1} & \\tau_{xy}\\\\ \\tau_{xy} & \\sigma_{y}-\\sigma_{1} \\end{bmatrix} \\begin{bmatrix} v_{11} \\\\ v_{12} \\end{bmatrix} = 0" />
+                        
+  Multiplying out gives two equations.
+
+  <DisplayEquation equation="(\\sigma_{x}-\\sigma_{1})v_{11} + \\tau_{xy}v_{12} = 0\\" />
+  <DisplayEquation equation="\\tau_{xy}v_{12} + (\\sigma_{x}-\\sigma_{1})v_{12} = 0\\" />
+
+  The angle of the eigenvector. 
+
+  <DisplayEquation equation="\\theta_{p1} = \\tan^{-1}\\Bigl(\\frac{v_{12}}{v_{11}}\\Bigr)\\" />
+
+</DisplayEquation>
+
+We can repeat this procedure for the second eigenvalue, <InlineEquation equation="\\lambda_2 = \\sigma_2" />.
+
+
+<DisplayEquation equation="\\theta_{p2} = \\tan^{-1}\\Bigl(\\frac{\\sigma_2 - \\sigma_x}{\\tau_{xy}}\\Bigr) = \\tan^{-1}\\Bigl(\\frac{\\tau_{xy}}{\\sigma_2 - \\sigma_y}\\Bigr)\\" title="Second eigenvector angle." background="True"/>
+ 
+</SubSubSection>
+
+<SubSection title="Mohr's Circle" id="mohr-circle">
+Mohr's circle is a graphical representation of stress transformations. The equations for stress transformations actually describe a circle if we consider the normal stress <InlineEquation equation="\\sigma" /> to be the x-coordinate and the shear stress <InlineEquation equation="\\tau" /> to be the y-coordinate.
+</SubSection>
+  
+  <SubSubSection title="2-D Mohr's Circle" id="2d">
    <Image src="/sol/stress_transformation/mohrsCircle.png" width="4"></Image>
   
   <DisplayEquation equation="C = \\sigma_{avg} = \\frac{\\sigma_x +\\sigma_y}{2} = \\frac{\\sigma_1 +\\sigma_2}{2}\\" title="Circle centroid." background="True"/>
@@ -444,194 +629,5 @@ Normal and shear stresses can be shown graphically as a function of <InlineEquat
   
   The principal stresses are where the circle crosses the x-axis, and the maximum shear stress is the highest y-coordinate of the circle. 
   </SubSubSection>
-
-
-<SubSubSection title="Stresses on Inclined Planes" id="stress-inclined-plane">
-
-<DisplayEquation equation="\\begin{align} \\sigma_{x'} &= {\\bf n}\\cdot\\ {\\bf t}^{n}={\\bf n}\\cdot\\ {\\bf T}\\,{\\bf n} = \\sigma_{x} \\cos ^2(\\theta) + 2 \\,\\tau_{xy} \\sin(\\theta) \\cos(\\theta)+\\sigma_{y} \\sin ^2(\\theta) \\\\ \\tau_{x'y'} &= {\\bf s}\\cdot\\ {\\bf t}^{n}={\\bf s}\\cdot\\ {\\bf T}\\,{\\bf n} = (\\sigma_y - \\sigma_{x}) \\sin(\\theta) \\cos(\\theta) + \\tau_{xy} ( \\cos^2(\\theta) - \\sin^2(\\theta) )  \\end{align}" title="Stresses on inclined planes." background="True" derivation="True" id="str-inc">
-
-  Equilibrium equations.
-  <DisplayEquation equation="\\sum F_x: -\\sigma_x (A\\rm\\cos\\theta) - \\tau_{xy}(A\\rm\\sin\\theta) + (\\sigma_{x}'\\rm\\cos\\theta)A - (\\tau_{x'y'}\\rm\\sin\\theta)A=0\\" />
-  <DisplayEquation equation="\\sum F_y: -\\sigma_y (A\\rm\\sin\\theta) - \\tau_{xy}(A\\rm\\cos\\theta) + (\\sigma_{x}'\\rm\\sin\\theta)A - (\\tau_{x'y'}\\rm\\cos\\theta)A=0\\" />
-  
-   Rearrange terms.
-  
-  <DisplayEquation equation="A[\\sigma_{x}'\\rm\\cos\\theta - \\tau_{x'y'}\\rm\\sin\\theta] = A[\\sigma_{x}\\rm\\cos\\theta + \\tau_{xy}\\rm\\sin\\theta]\\" />
-  <DisplayEquation equation="A[\\sigma_{x}'\\rm\\sin\\theta - \\tau_{x'y'}\\rm\\cos\\theta] = A[\\sigma_{x}\\rm\\sin\\theta + \\tau_{xy}\\rm\\cos\\theta]\\" />
-  
-   Combine into a matrix.
-  
-  <DisplayEquation equation="\\begin{bmatrix} \\rm\\cos\\theta & -\\rm\\sin\\theta \\\\ \\rm\\sin\\theta & \\rm\\cos\\theta \\end{bmatrix} \\begin{bmatrix}\\sigma_{x}' \\\\ \\tau_{x'y'} \\end{bmatrix} = \\begin{bmatrix} \\sigma_{x}\\rm\\cos\\theta & \\tau_{xy}\\rm\\sin\\theta \\\\ \\sigma_{y}\\rm\\sin\\theta & \\tau_{xy}\\rm\\cos\\theta \\end{bmatrix}" />
-          
-   Multiply by the inverse.
-  
-  <DisplayEquation equation="\\begin{bmatrix} \\sigma_{x}' \\\\ \\tau_{x'y'} \\end{bmatrix} = \\begin{bmatrix} \\rm\\cos\\theta & \\rm\\sin\\theta \\\\ -\\rm\\sin\\theta & \\rm\\cos\\theta \\end{bmatrix} \\begin{bmatrix} \\sigma_{x}\\rm\\cos\\theta & \\tau_{xy}\\rm\\sin\\theta \\\\ \\sigma_{y}\\rm\\sin\\theta & \\tau_{xy}\\rm\\cos\\theta \\end{bmatrix}" />
-  
-
-  </DisplayEquation>
-
-</SubSubSection>
-
-
-
-<SubSubSection title="Pure Shear" id="pure-shear">
-
-
- A circular shaft under torsion develops <strong>pure shear</strong> on cross-sections between longitudinal planes (the faces of element <InlineEquation equation="a" /> are parallel and perpendicular to the axis of the shaft).
-
-<Image src="/sol/stress_transformation/Circular Shaft Torsion.png" width="7"></Image>
-
-<DisplayEquation equation="\\begin{align} \\sigma_{x'} = 2\\tau_{max} \\sin\\theta \\cos\\theta = \\tau_{max} \\sin (2\\theta) \\\\ \\tau_{x'y'} = \\tau_{max}(\\cos^2\\theta - \\sin^2\\theta) = \\tau_{max} \\cos(2\\theta) \\end{align}" title="Torsion on inclined planes." background="True" derivation="True" id="tor-inc">
-
-  Recall projected forces.
-
-  <DisplayEquation equation=" \\begin{align} \\sigma_{x'} = \\frac{P}{A_o}(\\cos^2(\\theta)) \\\\ \\tau_{x'y'} = -\\frac{P}{A_o}\\sin(\\theta)\\cos(\\theta) \\end{align} "/> 
-
-
-  <Image src="/sol/stress_transformation/Max Stress.png" width="6"></Image>
-
- Maximum normal stress at 90 degrees.
-
-<DisplayEquation equation="\\begin{align} \\sigma_{x'} = \\tau_{max} = \\frac{Tc}{J} \\\\ \\sigma_{y'} = -\\tau_{max} = -\\frac{Tc}{J} \\\\ \\tau_{x'y'} = 0 \\end{align}" /> 
-
- Maximum shear stress at 45 degrees.
- <DisplayEquation equation="\\begin{align} \\sigma_{x'} = 0 \\\\ \\sigma_{y'} = 0 \\\\ \\tau_{x'y'} = \\tau_{max} = \\frac{Tc}{J} \\end{align}" /> 
-
-
-</DisplayEquation>
-
-</SubSubSection>
-
-<SubSection title="Principal Stresses" id="principal-stresses">
-
-  <Image src="/sol/stress_transformation/principalStressesElement.png" width="3"> </Image>
-
-
-<InlineEquation equation="\\sigma_{x}'" /> can be maximized to find the principal stresses. 
-
-<DisplayEquation equation="\\begin{align} \\rm\\tan(2\\theta_{p1}) = \\frac{2\\tau_{xy}}{\\sigma_x - \\sigma_y} \\\\ \\theta_{p2} = \\theta_{p1} + 90^o \\end{align}" title="Angle for maximum normal stress." background="True" derivation="True" id="prn-str">
-
-  Recall. 
-
-<DisplayEquation equation="\\sigma_x' = \\frac{\\sigma_x + \\sigma_y}{2} + \\frac{\\sigma_x - \\sigma_y}{2}\\rm\\cos(2\\theta) + \\tau_{xy}\\sin(2\\theta)\\" />
-
- To maximize an equation, we take the derivative and set it equal to zero.
-
-<DisplayEquation equation="\\frac{d\\sigma_{x}'}{d\\theta} = -2\\rm\\sin(2\\theta)[\\frac{\\sigma_x-\\sigma_y}{2}] + 2\\rm\\cos(2\\theta)\\tau_{xy} = 0 \\" />
-
-<DisplayEquation equation="(\\sigma_x - \\sigma_y)\\rm\\sin(2\\theta) = 2\\tau_{xy}\\rm\\cos(2\\theta)\\" />
-
-<DisplayEquation equation="\\tan(2\\theta) = \\frac{2\\tau_{xy}}{\\sigma_x - \\sigma_y}\\" />
-
-  </DisplayEquation>
- 
- The maximum/minimum normal stress values (the principal stresses) are associated with <InlineEquation equation="\\theta_{p1}" /> and <InlineEquation equation="\\theta_{p2}" />.
-
-<DisplayEquation equation="\\sigma_{1,2} = \\frac{\\sigma_x +\\sigma_y}{2} \\pm \\sqrt{(\\frac{\\sigma_x - \\sigma_y}{2})^2 + \\tau_{xy}^2}\\" title="Principal stresses" background="True"/>
-
- We use the convention that <InlineEquation equation="\\sigma_1 > \\sigma_2" />.
-
-
-</SubSection>
-
-<SubSubSection title="Alternative Approach: Eigenvalues" id="eigenvalues">
-The <strong>eigenvalues</strong> of the stress tensor are called the principal stresses, and the <strong>eigenvectors</strong> define the principal direction vectors.
-
-<p>
- Because of symmetry, the stress tensor (<InlineEquation equation="T" />) has real eigenvalues (<InlineEquation equation="\\lambda" />) and mutually perpendicular eigenvectors (<InlineEquation equation="v" />).
-</p>  
- <DisplayEquation equation="Tv = \\lambda v \\rightarrow (T-\\lambda I)v = 0\\" title="Eigenvalues." background="True"/>
-
- From linear algebra, we know that a system of linear equations <InlineEquation equation="A v = 0" /> has a non-zero solution <InlineEquation equation="\\boldsymbol{v}" /> if, and only if, the determinant of the matrix <InlineEquation equation="\\boldsymbol{T}" /> is zero.
-
-<DisplayEquation equation="\\lambda_{1,2} = \\sigma_{1,2}" title="Eigenvalues relate to stress." background="True" derivation="True" id="egn-str">
-  Start with. 
-
-  <DisplayEquation equation="\\det(\\boldsymbol{T}-\\lambda\\boldsymbol{I})=0\\"/>
-
-  Expand the equation.
-
-  <DisplayEquation equation="\\det\\Biggl(\\begin{bmatrix} \\sigma_{x} & \\tau_{xy}\\\\ \\tau_{xy} & \\sigma_{y} \\end{bmatrix} - \\begin{bmatrix} \\lambda & 0\\\\ 0 & \\lambda \\end{bmatrix} \\Biggr) = 0" />
-  <DisplayEquation equation="\\det\\Biggl(\\begin{bmatrix} \\sigma_{x}-\\lambda & \\tau_{xy}\\\\ \\tau_{xy} & \\sigma_{y}-\\lambda \\end{bmatrix} \\Biggr) = 0 " />
-                        
-   Evaluate the determinate.
-  
-  <DisplayEquation equation="(\\sigma_{x}-\\lambda)(\\sigma_{y}-\\lambda) - \\tau_{xy}^2 = 0\\" />
-  <DisplayEquation equation="\\sigma_{x}\\sigma_{y} - \\lambda\\sigma_{y} -\\lambda\\sigma_{x} + \\lambda^2 - \\tau_{xy}^2 = 0\\" />
-                        
-   Rearrange.
-  
-  <DisplayEquation equation="\\lambda^2 - \\lambda(\\sigma_{y} + \\sigma_{x}) + \\sigma_{x}\\sigma_{y} - \\tau_{xy}^2 = 0\\" />
-  
-   Solve for the eigenvalues using the quadratic equation where <InlineEquation equation="\\rm\\ a = 1" />, <InlineEquation equation="\\rm\\ b = -(\\sigma_{y} + \\sigma_{x})" />, and <InlineEquation equation="\\rm\\ c = \\sigma_{x}\\sigma_{y} - \\tau_{xy}^2" />.
-  
-  
-  <DisplayEquation equation="\\begin{align} \\lambda &= \\frac{(\\sigma_{y} + \\sigma_{x}) \\pm \\sqrt{(\\sigma_{y} + \\sigma_{x})^2 - 4(\\sigma_{x}\\sigma_{y} - \\tau_{xy}^2)}}{2} \\\\ &= \\frac{(\\sigma_{x} + \\sigma_{y})}{2} \\pm \\frac{\\sqrt{\\sigma_{y}^2 + 2\\sigma_{y}\\sigma_{x} + \\sigma_{x}^2 - 4\\sigma_{x}\\sigma_{y} + 4\\tau_{xy}^2}}{2} \\\\ &= \\frac{(\\sigma_{x} + \\sigma_{y})}{2} \\pm \\frac{\\sqrt{\\sigma_{y}^2 - 2\\sigma_{y}\\sigma_{x} + \\sigma_{x}^2 + 4\\tau_{xy}^2}}{2} \\\\ &= \\frac{(\\sigma_{x} + \\sigma_{y})}{2} \\pm \\sqrt{\\frac{(\\sigma_{y} - \\sigma_{x})^2 + 4\\tau_{xy}^2}{4}} \\\\ &= \\frac{(\\sigma_{x} + \\sigma_{y})}{2} \\pm \\sqrt{\\biggl(\\frac{\\sigma_{y} - \\sigma_{x}}{2}\\biggr)^2 + \\tau_{xy}^2} \\end{align}" />
-  
-    This is the same result as the geometric derivation above.  
-</DisplayEquation>
-
-To find the eigenvectors, we plug our eigenvalues back into the equation <InlineEquation equation="(\\boldsymbol{T}-\\lambda\\boldsymbol{I})\\boldsymbol{v} = 0" />.
-
-
-<DisplayEquation equation="\\theta_{p1} = \\tan^{-1}\\Bigl(\\frac{\\sigma_1 - \\sigma_x}{\\tau_{xy}}\\Bigr) = \\tan^{-1}\\Bigl(\\frac{\\tau_{xy}}{\\sigma_1 - \\sigma_y}\\Bigr)\\" title="First eigenvector angle." background="True" derivation="True" id="fst-egn">
-
-  <DisplayEquation equation="\\lambda_1 = \\sigma_1" />
-  
-  <DisplayEquation equation="\\begin{bmatrix} \\sigma_{x}-\\sigma_{1} & \\tau_{xy}\\\\ \\tau_{xy} & \\sigma_{y}-\\sigma_{1} \\end{bmatrix} \\begin{bmatrix} v_{11} \\\\ v_{12} \\end{bmatrix} = 0" />
-                        
-  Multiplying out gives two equations.
-
-  <DisplayEquation equation="(\\sigma_{x}-\\sigma_{1})v_{11} + \\tau_{xy}v_{12} = 0\\" />
-  <DisplayEquation equation="\\tau_{xy}v_{12} + (\\sigma_{x}-\\sigma_{1})v_{12} = 0\\" />
-
-  The angle of the eigenvector. 
-
-  <DisplayEquation equation="\\theta_{p1} = \\tan^{-1}\\Bigl(\\frac{v_{12}}{v_{11}}\\Bigr)\\" />
-
-</DisplayEquation>
-
-We can repeat this procedure for the second eigenvalue, <InlineEquation equation="\\lambda_2 = \\sigma_2" />.
-
-
-<DisplayEquation equation="\\theta_{p2} = \\tan^{-1}\\Bigl(\\frac{\\sigma_2 - \\sigma_x}{\\tau_{xy}}\\Bigr) = \\tan^{-1}\\Bigl(\\frac{\\tau_{xy}}{\\sigma_2 - \\sigma_y}\\Bigr)\\" title="Second eigenvector angle." background="True"/>
- 
-</SubSubSection>
-
-<SubSection title="Maximum Shear Stress" id="max-shear">
-
-  <Image src="/sol/stress_transformation/maxShearStressState.png" width="2"></Image>
-
- The orientations for the principal stress element and max shear stress element are <InlineEquation equation="45^o" /> apart.
-
-<InlineEquation equation="\\tau_{x'y'}" /> can also be maximized. 
-
-
-
-<DisplayEquation equation="\\begin{align} \\tan(2\\theta_{s1}) = \\frac{-(\\sigma_x - \\sigma_y)}{2\\tau_{xy}} \\\\ \\theta_{s2} = \\theta_{s1} + 90^o \\end{align}" title="Angle for maximum shear stress." background="True" derivation="True" id="max-shr">
-
-  Recall.
-
-<DisplayEquation equation="\\tau_{x'y'} = -\\frac{\\sigma_x - \\sigma_y}{2}\\rm\\sin(2\\theta) + \\tau_{xy}\\cos(2\\theta)\\" />
-
- To maximize an equation, take the derivative and set it equal to zero.
-
-<DisplayEquation equation="\\frac{d\\tau_{x'y'}}{d\\theta} = -\\frac{\\sigma_x - \\sigma_y}{2}2\\rm\\cos(2\\theta) - \\tau_{xy}2\\rm\\sin(2\\theta) = 0\\" />
-<DisplayEquation equation="-2\\tau_{xy}\\rm\\sin(2\\theta)  = (\\sigma_x - \\sigma_y)\\rm\\cos(2\\theta)\\" />
-<DisplayEquation equation="\\tan(2\\theta) = \\frac{-(\\sigma_x - \\sigma_y)}{2\\tau_{xy}}\\" />
-
-  </DisplayEquation>
-
- The maximum/minimum in plane shear stress values are associated with <InlineEquation equation="\\theta_{s1}" /> and <InlineEquation equation="\\theta_{s2}" />.
-
-<DisplayEquation equation="|\\tau_{max}| = \\sqrt{(\\frac{\\sigma_x - \\sigma_y}{2})^2 + \\tau_{xy}^2}\\" title="Maximum shear stress." background="True"/>
-
- A maximum shear stress element has an average normal stress. 
-
-<DisplayEquation equation="\\sigma_{x}' = \\sigma_{y}' = \\sigma_{avg} = \\frac{\\sigma_x + \\sigma_y}{2}\\" title="Average normal stress." background="True"/>
-
-<Warning title="Unlike with the principal stress element, the normal stresses are not zero." remove_button="True" id="max-shr" />
-
-</SubSection>
 
 </Layout>
