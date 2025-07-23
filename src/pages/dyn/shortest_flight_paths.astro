@@ -22,28 +22,16 @@ import DisplayTable from "../../components/DisplayTable.astro"
 import InlineCanvas from "../../components/InlineCanvas.astro"
 ---
 
-<Layout title = "Vectors" description = "Understand the ways to describe vectors, which have magnitude and direction, and scalars, which only have magnitude.">
+<Layout title = "Shortest flight paths" description = "Learn about how vectors apply to shortest flight paths.">
 
 <div slot="navtree">
   <ul class='list-group list-group-flush py-0'> 
-    <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#notation'>Notation</a></li>
-    <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#cartesian_coordinate_system'>Cartesian coordinate system</a></li>
-    <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#polar_coordinate_system'>Polar coordinate system</a></li>
-    <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#units'>Units</a></li>
-    <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#unit_vectors'>Unit vectors</a></li>
-    <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#vectors_bases'>Vectors bases</a>
-        <ul class='list-group list-group-flush py-0'> 
-            <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#length_of_vectors'>Length of vectors</a></li>  
-        </ul>
-    </li> 
-    <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#changing_bases'>Changing bases</a></li>
-    <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#projection_and_complementary_projection'>Projection and complementary projection</a></li>
-    <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#change_in_length_and_direction'>Change in length and direction</a></li>
-    <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#spherical_coordinates'>Spherical coordinates</a></li>
-	<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#cylindrical_coordinates'>Cylindrical coordinates</a></li>
+    <li class = 'list-group-item py-0'><a class = 'text-decoration-none subsection' href = '#shortest_paths_on_the_sphere'>Shortest paths on the sphere</a></li>
+    <li class = 'list-group-item py-0'><a class = 'text-decoration-none subsection' href = '#proof_that_great_circles_are_shortest_paths'>Proof that great circles are shortest paths</a></li>
 </ul>
 </div>
 
+<div hidden>
 <Section title="Vectors" id="vectors">
 
     <p>
@@ -1192,14 +1180,7 @@ import InlineCanvas from "../../components/InlineCanvas.astro"
       and again we can substitute the <a href="#rvs-et">basis
       vector derivatives</a>.
     </p>
-  </DisplayEquation>  
-  <CalloutContainer slot = "cards">
-    <CalloutCard title = "Application Alert!">
-      <p>
-        <a href = "/dyn/shortest_flight_paths">Shortest flight paths</a> uses <strong>spherical coordinates</strong> by relating latitude and longitude to spherical coordinates.
-      </p>
-    </CalloutCard>
-  </CalloutContainer>
+  </DisplayEquation>
 </SubSection>
 
 <SubSection title="Cylindrical coordinates" id="cylindrical_coordinates">
@@ -1416,12 +1397,10 @@ import InlineCanvas from "../../components/InlineCanvas.astro"
     </p>
   </DisplayEquation>
 </SubSection>
+</div>
 
 
-<div hidden>
-<SubSection title="Applications" id="applications"></SubSection>
-
-<SubSubSection title="Shortest flight paths" id="shortest_flight_paths">
+<Section title="Shortest flight paths" id="shortest_flight_paths">
 
     <p>
       If we want to fly from Urbana, USA to Delhi, India, which
@@ -1503,9 +1482,9 @@ import InlineCanvas from "../../components/InlineCanvas.astro"
         </p>
       </CalloutCard>
     </CalloutContainer>
-</SubSubSection>
+</Section>
 
-<SubSubSubSection title="Shortest paths on the sphere" id="shortest_paths_on_the_sphere">
+<SubSection title="Shortest paths on the sphere" id="shortest_paths_on_the_sphere">
   <p>
     Finding the shortest distance between two points on the
     sphere is not a simple calculation given their latitude and
@@ -1624,9 +1603,9 @@ import InlineCanvas from "../../components/InlineCanvas.astro"
     </p>
   </CalloutCard>
 </CalloutContainer>
-</SubSubSubSection>
+</SubSection>
 
-<SubSubSubSection title="Proof that great circles are shortest paths" id="proof_that_great_circles_are_shortest_paths">
+<SubSection title="Proof that great circles are shortest paths" id="proof_that_great_circles_are_shortest_paths">
 
   <p>
     Given any two points <InlineEquation equation="A" /> and <InlineEquation equation="B" /> on the surface of the
@@ -1721,8 +1700,7 @@ import InlineCanvas from "../../components/InlineCanvas.astro"
     </CalloutCard>
   </CalloutContainer>
 
-</SubSubSubSection>
-</div>
+</SubSection>
 </Layout>
 
 <script src="/dyn/vectors/worldCoastlineCompressed.js" is:inline></script>
