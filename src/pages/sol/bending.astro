@@ -43,17 +43,21 @@ import InlineCanvas from "../../components/InlineCanvas.astro"
         </ul>
     </div>
 
-<Section title="Pure Bending" id="bending">
+<Section title="Bending" id="bending">
 
-Transverse loads applied to a beam causes deflections, primarily up or down is referred to as <strong>bending</strong>. Bending stresses depend on the beams cross-section, length, and material properties.
+Transverse loads applied to a horizontal straight beam will cause it to deflect primarily up or down. This type of deformation is referred to as <strong>bending</strong>. 
+
+A beam in bending will develop normal (tensile and compressive) bending stresses throughout the beam. The magnitude of these stresses depends on the internal bending moment in the beam as well as the beam's cross-section geometry.
 
 </Section>
 
-<SubSection title="Sign Conventions" id="sign-conventions">
+<SubSection title="Sign Conventions for Shear and Moment Diagrams" id="sign-conventions">
 
+<p>
 For the purposes of drawing shear and moment diagrams, the adopted sign conventions for internal forces and moments are shown below. 
-The internal shear force V and moment M in a beam are <strong> plotted with positive values </strong> when they act in the indicated directions with respect to internal surfaces in the beam. 
-These conventions assume the analysis is conducted on a horizontal beam with positive x-axis pointing to the right.
+The internal shear force <InlineEquation equation='V' /> and moment <InlineEquation equation='M' /> in a beam are <strong> plotted with positive values </strong> when they act in the indicated directions with respect to internal surfaces in the beam. 
+These conventions assume the analysis is conducted on a horizontal beam with positive <InlineEquation equation='x' /> axis pointing to the right.
+</p>
 
 <Image src='/sol/bending/Internal sign convention - correct branding.png' width='5'> </Image>
 
@@ -62,6 +66,10 @@ These conventions assume the analysis is conducted on a horizontal beam with pos
 </SubSection>
 
 <SubSection title="Boundary Conditions" id="boundary-conditions">
+
+<p>Below are common support conditions and loading conditions that are used to model beams. </p>
+
+<p>Pin supports allow rotation but not translation; fixed supports restrain <strong>both</strong> translation and rotation of the beam at that location.</p>
 
 <strong>Statically Determinate Beams</strong>
 
