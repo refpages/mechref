@@ -1,0 +1,171 @@
+---
+import Layout from "../../layouts/Layout.astro" 
+import Image from "../../components/Image.astro" 
+import Section from "../../components/Section.astro" 
+import SubSection from "../../components/SubSection.astro" 
+import SubSubSection from "../../components/SubSubSection.astro" 
+import BlueText from "../../components/BlueText.astro" 
+import RedText from "../../components/RedText.astro" 
+import InlineEquation from "../../components/InlineEquation.astro"
+import Center from "../../components/Center.astro"
+import CalloutCard from "../../components/CalloutCard.astro"
+import CalloutContainer from "../../components/CalloutContainer.astro"
+import Enumerate from "../../components/Enumerate.astro"
+import Item from "../../components/Item.astro"
+import Warning from "../../components/Warning.astro"
+import PrairieDrawCanvas from "../../components/PrairieDrawCanvas.astro"
+import DisplayEquation from "../../components/DisplayEquation.astro"
+import DisplayEquationCustom from "../../components/DisplayEquationCustom.astro"
+import Example from "../../components/Example.astro"
+import InlineCanvas from "../../components/InlineCanvas.astro"
+import Row from "../../components/Row.astro"
+import Col from "../../components/Col.astro"
+import SubSubSubSection from "../../components/SubSubSubSection.astro"
+import DisplayTable from "../../components/DisplayTable.astro"
+---
+
+<Layout title = "Turning rigid bodies" description = "Learn how rigid body kinematics applies to turning rigid bodies.">
+
+
+
+
+
+
+  <div hidden>
+    <PrairieDrawCanvas id = "rkg-fw-c" width = "1" height = "1"/>
+    <PrairieDrawCanvas id = "rkg-fr-c" width = "1" height = "1"/>
+    <PrairieDrawCanvas id = "rkg-xp-c" width = "1" height = "1"/>
+    <PrairieDrawCanvas id = "rkg-xc-c" width = "1" height = "1"/>
+    <PrairieDrawCanvas id = "rkg-fd-c" width = "1" height = "1"/>
+    <PrairieDrawCanvas id = "rkc-cm-c" width = "1" height = "1"/>
+    <PrairieDrawCanvas id = "rkc-xcl-c" width = "1" height = "1"/>
+    <PrairieDrawCanvas id = "rkc-xcp-c" width = "1" height = "1"/>
+    <PrairieDrawCanvas id = "rkc-xcp-cs" width = "1" height = "1"/>
+    <PrairieDrawCanvas id = "rkc-xcf-c" width = "1" height = "1"/>
+    <PrairieDrawCanvas id = "rkc-xcf-s" width = "1" height = "1"/>
+    <PrairieDrawCanvas id = "rkc-xlc-c" width = "1" height = "1"/>
+    <PrairieDrawCanvas id = "rkc-xtp-c" width = "1" height = "1"/>
+    <PrairieDrawCanvas id = "rkc-xtp-sa" width = "1" height = "1"/>
+    <PrairieDrawCanvas id = "rkc-xtp-s1" width = "1" height = "1"/>
+    <PrairieDrawCanvas id = "rkc-xtp-s2" width = "1" height = "1"/>
+  </div>
+
+<Section title="Turning rigid bodies" id="turning_rigid_bodies">
+  <p>
+    When a rigid body turns in a circle, the four corners of the
+    body all move with different velocities and speeds. If we
+    think of a car as a single rigid body with wheels at the
+    corners, this means the four wheels move with different
+    speeds and also different directions. Car designers can
+    choose different steering arrangements, as shown below,
+    where the steering can be with the front two wheels only
+    (conventional cars), with the rear two wheels only
+    (forklifts), or with all four wheels in some
+    high-performance cars.
+  </p>
+
+  <PrairieDrawCanvas id="avs-ft-c" width="600" height="800">
+    <p class="controls">
+      <button class="anim-toggle:avs-ft-c" onclick="avs_ft_c.toggleAnim();">animation</button>
+      <button class="reset:avs-ft-c" onclick="avs_ft_c.reset();">reset</button>
+    </p>
+    <DisplayTable>
+      <tbody>
+        <tr>
+          <td style="border: 0px;">Show:</td>
+          <td style="border: 0px;" colspan="2">
+            <button class="option-toggle:avs-ft-c:showLabels" onclick="avs_ft_c.toggleOption('showLabels', this.value);">labels</button>
+            <button class="option-toggle:avs-ft-c:showCornerVelocities" onclick="avs_ft_c.toggleOption('showCornerVelocities', this.value);">corner velocities</button>
+            <button class="option-toggle:avs-ft-c:showRadialLines" onclick="avs_ft_c.toggleOption('showRadialLines', this.value);">radial lines</button>
+          </td>
+        </tr>
+      </tbody>
+      
+    </DisplayTable>
+
+    <Row> 
+      <Col values="12">
+          <div class="d-flex  align-items-baseline">
+              <p class="m-0 flex-shrink-1">Turn radius:</p>
+              <div class="flex-grow-1 d-flex align-items-baseline">
+                  <input type="range" min="1" max="5" value="5" step="0.1" class="data-input:avs-ft-c:radiusTurning flex-grow-1 mx-2" onchange="avs_ft_c.setOption('radius', this.value); document.querySelector('span[class*=radiusTurning]').innerText = this.value;;" oninput="avs_ft_c.setOption('radius', this.value); document.querySelector('span[class*=radiusTurning]').innerText = this.value;"/>
+                      \(r = \; \) <span class="data-option:avb-fp-c:radiusTurning">5</span>m
+              </div>
+          </div>
+      </Col>
+      <Col values="12">
+          <div class="d-flex  align-items-baseline">
+            <p class="m-0 flex-shrink-1">Vehicle offset:</p>
+              <div class="flex-grow-1 d-flex align-items-baseline">
+                  <input type="range" min="-100" max="100" value="0" step="1" class="data-input:avs-ft-c:vehicleoffset flex-grow-1 mx-2" onchange="avs_ft_c.setOption('offset', this.value); document.querySelector('span[class*=vehicleoffset]').innerText = this.value;" oninput="avs_ft_c.setOption('offset', this.value); document.querySelector('span[class*=vehicleoffset]').innerText = this.value;"/>
+                      \(d = \; \) <span class="data-option:avb-fp-c:vehicleoffset">0</span>%
+              </div>
+          </div>
+      </Col>
+  </Row>
+    <p class="figureCaption mt-2">
+      A car turning in a circle, showing the directions that the
+      wheels must point as the turn radius \(r\) and offset \(d\)
+      change.
+    </p>
+  </PrairieDrawCanvas>
+
+  <CalloutContainer slot="cards">
+    <CalloutCard>
+      <p>
+        <a
+        href="http://en.wikipedia.org/wiki/Forklift_truck">Forklifts</a>
+        typically have fixed front wheels and steer with the rear
+        wheels. This gives them great control over the position of
+        the front lifting forks, but makes steering harder for the
+        operator. Rear-wheel steering is a type of <i>non-minimum
+        phase</i> control system. The <a
+        href="http://en.wikipedia.org/wiki/Minimum_phase">technical
+        definition</a> of minimum phase is somewhat complicated,
+        but for vehicle steering it essentially means that we have
+        to steer the “wrong way”. For example, to turn right in a
+        forklift we have to first swing the back out to the
+        left. This makes it very easy to accidentally run into
+        obstacles, and is also unstable at higher speeds.
+      </p>
+
+      <Image src="/dyn/rigid_body_kinematics/avs_8116755483.jpg" alt="Forklift steering." width="8">
+        <p class="caption">
+          A Yale GLP-50VX forklift executing a sharp right-hand
+          turn. Image credit: <a
+          href="http://www.flickr.com/photos/asv_/8116755483/">Flickr
+          image</a> by <a
+          href="http://www.flickr.com/people/asv_/">Anastasia
+          Victor</a> (<a
+          href="http://creativecommons.org/licenses/by/2.0/">CC BY
+          2.0</a>) (<a href="avs_8116755483.jpg">full-sized
+          image</a>).
+        </p>
+      </Image>
+      <p>
+        Sometimes in cars it would be convenient to also steer
+        with the rear or trailing wheels, for example when trying
+        to park in a tight spot. We actually have a mechanism for
+        converting a car to trailing-wheel steering, which is to
+        drive backwards, such as when <a
+        href="http://en.wikipedia.org/wiki/Parallel_parking">parallel
+        parking</a>.
+      </p>
+    </CalloutCard>
+    <CalloutCard title = "Reference material">
+      <p>
+        This application uses <a href = "/dyn/rigid_body_kinematics#rigid_bodies">rigid bodies.</a>
+      </p>
+    </CalloutCard>
+  </CalloutContainer>
+</Section>
+
+  <div hidden>
+    <PrairieDrawCanvas id = "avs-fr-c" width = "1" height = "1"/>
+    <PrairieDrawCanvas id = "aml-fk-c" width = "1" height = "1"/>
+    <PrairieDrawCanvas id = "aml-fs-c" width = "1" height = "1"/>
+    <PrairieDrawCanvas id = "aml-fw-c" width = "1" height = "1"/>
+  </div>
+
+<script src="/dyn/rigid_body_kinematics/canvases.js" is:inline></script>
+</Layout>

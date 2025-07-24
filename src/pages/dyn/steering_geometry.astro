@@ -1,0 +1,99 @@
+---
+import Layout from "../../layouts/Layout.astro" 
+import Image from "../../components/Image.astro" 
+import Section from "../../components/Section.astro" 
+import SubSection from "../../components/SubSection.astro" 
+import SubSubSection from "../../components/SubSubSection.astro" 
+import BlueText from "../../components/BlueText.astro" 
+import RedText from "../../components/RedText.astro" 
+import InlineEquation from "../../components/InlineEquation.astro"
+import Center from "../../components/Center.astro"
+import CalloutCard from "../../components/CalloutCard.astro"
+import CalloutContainer from "../../components/CalloutContainer.astro"
+import Enumerate from "../../components/Enumerate.astro"
+import Item from "../../components/Item.astro"
+import Warning from "../../components/Warning.astro"
+import PrairieDrawCanvas from "../../components/PrairieDrawCanvas.astro"
+import DisplayEquation from "../../components/DisplayEquation.astro"
+import DisplayEquationCustom from "../../components/DisplayEquationCustom.astro"
+import Example from "../../components/Example.astro"
+import InlineCanvas from "../../components/InlineCanvas.astro"
+import Row from "../../components/Row.astro"
+import Col from "../../components/Col.astro"
+import SubSubSubSection from "../../components/SubSubSubSection.astro"
+import DisplayTable from "../../components/DisplayTable.astro"
+---
+
+<Layout title = "Steering geometry" description = "Learn how rigid body kinematics applies to steering geometry.">
+
+
+
+
+
+
+  <div hidden>
+    <PrairieDrawCanvas id = "rkg-fw-c" width = "1" height = "1"/>
+    <PrairieDrawCanvas id = "rkg-fr-c" width = "1" height = "1"/>
+    <PrairieDrawCanvas id = "rkg-xp-c" width = "1" height = "1"/>
+    <PrairieDrawCanvas id = "rkg-xc-c" width = "1" height = "1"/>
+    <PrairieDrawCanvas id = "rkg-fd-c" width = "1" height = "1"/>
+    <PrairieDrawCanvas id = "rkc-cm-c" width = "1" height = "1"/>
+    <PrairieDrawCanvas id = "rkc-xcl-c" width = "1" height = "1"/>
+    <PrairieDrawCanvas id = "rkc-xcp-c" width = "1" height = "1"/>
+    <PrairieDrawCanvas id = "rkc-xcp-cs" width = "1" height = "1"/>
+    <PrairieDrawCanvas id = "rkc-xcf-c" width = "1" height = "1"/>
+    <PrairieDrawCanvas id = "rkc-xcf-s" width = "1" height = "1"/>
+    <PrairieDrawCanvas id = "rkc-xlc-c" width = "1" height = "1"/>
+    <PrairieDrawCanvas id = "rkc-xtp-c" width = "1" height = "1"/>
+    <PrairieDrawCanvas id = "rkc-xtp-sa" width = "1" height = "1"/>
+    <PrairieDrawCanvas id = "rkc-xtp-s1" width = "1" height = "1"/>
+    <PrairieDrawCanvas id = "rkc-xtp-s2" width = "1" height = "1"/>
+  </div>
+
+<Section title="Steering geometry" id="steering_geometry">
+   
+
+    <p>
+      We are all familiar with the idea that turning the steering
+      wheel in a car rotates the front wheels, causing the car to
+      steer into a turn. But why do we normally steer with the
+      front wheels rather than the rear wheels (or all four
+      wheels, as shown below)? Do both front wheels turn the same
+      amount, or is something more complicated going on?
+    </p>
+
+    <Image src="/dyn/rigid_body_kinematics/avs_Mercedes_Kubelwagen_G5_600.jpg" width="6">
+      <p class="figureCaption">
+        A <a
+        href="http://www.autoevolution.com/cars/mercedes-benz-g5-w152-1937.html#aeng_mercedes-benz-g5-w152-1937-20">Mercedes-Benz
+        Typ G 5 (W 152, 1937–1941)</a> housed in <a
+        href="http://en.wikipedia.org/wiki/Technikmuseum_Speyer">Technik
+        Museum Speyer</a>, showing the use of a four-wheel
+        steering system.  Image source: <a
+        href="http://commons.wikimedia.org/wiki/File:Mercedes_K%C3%BCbelwagen_G5.jpg">Wikimedia
+        Commons</a> (<a
+        href="http://creativecommons.org/licenses/by-sa/3.0/deed.en">CC
+        BY-SA 3.0</a>) (<a
+        href="avs_Mercedes_Kubelwagen_G5.jpg">full-sized
+        image</a>).
+      </p>
+    </Image>
+
+    <CalloutContainer slot="cards">
+      <CalloutCard title="Reference material">
+        <li><a href = "/dyn/rigid_body_kinematics#rigid_bodies">Rigid bodies</a></li>
+        <li><a href = "/dyn/rigid_body_kinematics#constrained_motion">Constrained motion</a></li>
+      </CalloutCard>
+    </CalloutContainer>
+</Section>
+
+  <div hidden>
+    <PrairieDrawCanvas id = "avs-ft-c" width = "1" height = "1"/>
+    <PrairieDrawCanvas id = "avs-fr-c" width = "1" height = "1"/>
+    <PrairieDrawCanvas id = "aml-fk-c" width = "1" height = "1"/>
+    <PrairieDrawCanvas id = "aml-fs-c" width = "1" height = "1"/>
+    <PrairieDrawCanvas id = "aml-fw-c" width = "1" height = "1"/>
+  </div>
+
+<script src="/dyn/rigid_body_kinematics/canvases.js" is:inline></script>
+</Layout>
