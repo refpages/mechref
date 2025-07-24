@@ -797,11 +797,11 @@ $(document).ready(function() {
         rep_xl_c.redraw();
         rep_xl_f.redraw();
         ava_fp_c.redraw();
-        afp_ft_c.redraw();
-        afp_ff_c.redraw();
         avb_fg_c.redraw();
         avb_fp_c.redraw();
         avb_fr_c.redraw();
         avb_fb_c.redraw();
+        afp_ft_c.redraw();
+        afp_ff_c.redraw();
     } );
 }); // end of document.ready()

@@ -1,0 +1,151 @@
+---
+import Layout from "../../layouts/Layout.astro" 
+import Image from "../../components/Image.astro" 
+import Section from "../../components/Section.astro" 
+import SubSection from "../../components/SubSection.astro" 
+import SubSubSection from "../../components/SubSubSection.astro" 
+import SubSubSubSection from "../../components/SubSubSubSection.astro" 
+import BlueText from "../../components/BlueText.astro" 
+import RedText from "../../components/RedText.astro" 
+import InlineEquation from "../../components/InlineEquation.astro"
+import DisplayEquation from "../../components/DisplayEquation.astro"
+import CalloutContainer from "../../components/CalloutContainer.astro"
+import CalloutCard from "../../components/CalloutCard.astro"
+import Center from "../../components/Center.astro"
+import Example from "../../components/Example.astro"
+import Itemize from "../../components/Itemize.astro"
+import Item from "../../components/Item.astro"
+import PrairieDrawCanvas from "../../components/PrairieDrawCanvas.astro"
+import Row from "../../components/Row.astro"
+import Col from "../../components/Col.astro"
+import DisplayTable from "../../components/DisplayTable.astro"
+---
+<Layout title = "Accelerating and braking" description = "Learn how particle kinetics applies to accelerating and braking.">
+
+
+
+  <div hidden>
+    <PrairieDrawCanvas id = "rep-ff-c" width = "1" height = "1"/>
+    <PrairieDrawCanvas id = "rep-xl-c" wifth = "1" height = "1"/>
+    <PrairieDrawCanvas id = "rep-xl-f" wifth = "1" height = "1"/>
+  </div>
+
+<Section title="Accelerating and braking" id="accelerating_braking">
+    <p>
+        What happens when we step on the gas or brake in a car? The
+        car pushes against the road to either accelerate (gas pedal)
+        or decelerate (brake pedal). But how are the forces on the
+        car and wheels distributed? What determines whether the
+        wheels grip the road or lose traction and spin or slide?
+    </p>
+
+    <p>
+        To study this problem we need a model. Let's start with the simplest model and then
+        gradually consider more complex models.
+    </p>
+    <Image src="/dyn/particle_kinetics/red_car.jpg" width="8"> The classic American <a
+        target="_blank" rel="noopener noreferrer" href="http://en.wikipedia.org/wiki/Pony_car">Pony Car</a>:
+        a 1965 <a
+        target="_blank" rel="noopener noreferrer" href="http://en.wikipedia.org/wiki/Ford_Mustang">Ford
+        Mustang</a> <a
+        target="_blank" rel="noopener noreferrer" href="http://en.wikipedia.org/wiki/Fastback">Fastback</a>
+        with the <a
+        target="_blank" rel="noopener noreferrer" href="http://en.wikipedia.org/wiki/Golden_Gate_Bridge">Golden
+        Gate Bridge</a> in the background. Image source: <a
+        target="_blank" rel="noopener noreferrer" href="http://www.flickr.com/photos/aresauburnphotos/4704100327/">flikr
+        image </a> by <a
+        target="_blank" rel="noopener noreferrer" href="http://www.flickr.com/photos/aresauburnphotos/">Nick
+        Ares</a> <a
+        target="_blank" rel="noopener noreferrer" href="http://creativecommons.org/licenses/by-sa/2.0/">(CC
+        BY-SA 2.0)</a> (<a href="/public/dyn/particle_kinetics/red_car_full.jpg">full-sized
+        image</a>).</Image>
+
+    <p>
+        The simplest model of a car is to treat the entire vehicle
+        as a point mass. On a <button
+        class="seq-toggle:ava-fp-c:fbd" onclick="ava_fp_c.stepSequence('fbd')">free body diagram</button>
+        we have vertical force balance for a stationary car. When
+        the car <button
+        class="seq-step:ava-fp-c:motion:stationary" onclick="ava_fp_c.stepSequence('motion', 'stationary')">accelerates</button>,
+        there is a horizontal forward force on the car, and a
+        corresponding backwards horizontal force on the ground. As
+        the car picks up speed, <a
+        target="_blank" rel="noopener noreferrer" target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Drag_%28physics%29">air
+        resistance</a> produces a backwards force. On the diagram we
+        have drawn some forces offset from the center of mass, so
+        that the vectors don't overlap. Because we are assuming a
+        point mass model, however, all vectors are really acting at
+        the same point.
+      </p>
+      <p>
+        While cruising at a constant speed, there is a balance
+        between the horizontal driving force and the drag force due
+        to air resistance. When the car <button
+        class="seq-step:ava-fp-c:motion:cruising" onclick="ava_fp_c.stepSequence('motion', 'cruising')">brakes</button>,
+        there is a backwards force that slows the car down to a
+        stop.
+      </p>
+
+    <Center>
+        <PrairieDrawCanvas id="ava-fp-c" width="600" height="600" />
+    </Center>
+        
+      <p>
+        <button class="seq-step:ava-fp-c:motion:stationary" onclick="ava_fp_c.stepSequence('motion', 'stationary')">accelerate</button>
+        <button class="seq-step:ava-fp-c:motion:cruising" onclick="ava_fp_c.stepSequence('motion', 'cruising')">brake</button>
+        <button class="seq-toggle:ava-fp-c:fbd" onclick="ava_fp_c.stepSequence('fbd')">free body diagram</button>
+        <button class="option-toggle:ava-fp-c:components" onclick="ava_fp_c.toggleOption('components')">components</button>
+        <button class="anim-toggle:ava-fp-c" onclick="ava_fp_c.toggleAnim()">animation</button>
+      </p>
+      <p>
+        We can think of the force vectors (such as the ground force
+        on the car) as either in separate horizontal and vertical
+        <button
+        class="option-toggle:ava-fp-c:components" onclick="ava_fp_c.toggleOption('components')">components</button>
+        or as unified vectors. It may be helpful to pause the
+        <button class="anim-toggle:ava-fp-c" onclick="ava_fp_c.toggleAnim()">animation</button>
+        during <button
+        class="seq-step:ava-fp-c:motion:stationary" onclick="ava_fp_c.stepSequence('motion', 'stationary')">acceleration</button>
+        and <button
+        class="seq-step:ava-fp-c:motion:cruising" onclick="ava_fp_c.stepSequence('motion', 'cruising')">braking</button>
+        to consider the forces at work.
+      </p>
+
+    <CalloutContainer slot="cards">
+        <CalloutCard title="Reference material">
+            <Itemize>
+                <Item><a href="/dyn/particle_kinetics">Kinetics of point masses</a></Item>
+                <Item><a href="/dyn/rigid_body_kinetics">Kinetics of rigid bodies</a></Item>
+            </Itemize>
+        </CalloutCard>
+        <CalloutCard title="Extra links">
+            <Itemize>
+                <Item><a
+                    target="_blank" rel="noopener noreferrer" href="http://www.youtube.com/watch?v=JAAZGDY7Fq0">Video of
+                    a burnout</a> with a deliberate loss of traction.</Item>
+                <Item><a
+                    target="_blank" rel="noopener noreferrer" href="http://www.youtube.com/watch?v=_07GEGeLR5c">Video of
+                    a wheelie</a>, where the front wheels lose contact.</Item>
+                <Item><a target="_blank" rel="noopener noreferrer" href="http://www.youtube.com/watch?v=_07GEGeLR5c"><a
+                    target="_blank" rel="noopener noreferrer" href="http://www.youtube.com/watch?v=HnVkeZXsXjo">Video of
+                    braking</a> in which the rear wheels lose contact.</Item>
+                <Item><a
+                    target="_blank" rel="noopener noreferrer" href="http://www.youtube.com/watch?v=unwujSVpZwA">Another
+                    burnout video</a>, taken to the point of destruction.</Item>
+            </Itemize>
+        </CalloutCard>
+    </CalloutContainer>
+
+</Section>
+
+  <div hidden>
+    <PrairieDrawCanvas id = "avb-fg-c" width = "1" height = "1"/>
+    <PrairieDrawCanvas id = "avb-fp-c" width = "1" height = "1"/>
+    <PrairieDrawCanvas id = "avb-fr-c" width = "1" height = "1"/>
+    <PrairieDrawCanvas id = "avb-fb-c" width = "1" height = "1"/>
+    <PrairieDrawCanvas id = "afp-ft-c" width = "1" height = "1"/>
+    <PrairieDrawCanvas id = "afp-ff-c" width = "1" height = "1"/>
+  </div>
+</Layout>
+
+<script src="/dyn/particle_kinetics/canvases.js" is:inline></script>
