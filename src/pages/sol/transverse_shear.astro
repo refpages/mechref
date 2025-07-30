@@ -285,7 +285,7 @@ Built-up beams are beams that have been put together with either an adhesive (gl
       <p>
           <DisplayEquation equation="\\begin{align*} &q = \\frac{VQ}{I},\\  &f_n = \\frac{q*s_{total}}{4}\\ \\end{align*}"/>
 
-          Shear flow.
+          <strong> Shear flow. </strong>
 
           <Image src="/sol/transverse_shear/BoardsQ.png" width="2.5"></Image>
 
@@ -295,14 +295,25 @@ Built-up beams are beams that have been put together with either an adhesive (gl
 
           <DisplayEquation equation="q = 1.5 \\text{ } \\frac{kN}{mm}" />
 
-          Force in the nail. 
-
+          <strong> Force in the nail. </strong>
+          <p>
+          Since the nails are uniformally distributed, each nail is assumed to supply a shearing force <InlineEquation equation="f_n"/> 
+          that resists the shear flow in the beam. Along a single row of nails (refer to the free-body diagram above), the total force is:
+          </p>
+          
           <DisplayEquation equation="\\Sigma F_{total} = \\frac{1}{2}f_n + f_n + \\frac{1}{2}f_n = 2f_n" />
           
-          Because there are 2 nails in each row, 
-
+          <p>
+          Because there are two rows of nails, the total resistance load supplied by the nails is:
+          </p>
+          
           <DisplayEquation equation="\\Sigma F_{total} = 2*F_{total} = 2*2f_n = 4f_n" />
-
+          
+          <p>
+          To find the shearing force <InlineEquation equation = "f_n"/> in each nail, we equate the total force supplied by the nails with 
+          the total shear flow acting across their total spacing, <InlineEquation equation = "q*s_{total} = 2q\\Delta s"/>, to obtain:
+          </p>
+          
           <DisplayEquation equation="s_{total} = 2\\Delta s = 100 \\text{ } mm^4" />
 
           <DisplayEquation equation="f_n = 37.5 \\text{ } kN" />
