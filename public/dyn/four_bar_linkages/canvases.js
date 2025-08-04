@@ -1441,7 +1441,7 @@ $(document).ready(function(){
     var aml_fj_c = new PrairieDrawAnim("aml-fj-c", function(t) {
         this.addOption("showLinkage", false);
         this.addOption("showForces", false);
-        this.addOption("movement", "translate")
+        this.addOption("movement", "translate");
 
 	this.setUnits(600, 550);
         this.drawImage("/dyn/four_bar_linkages/aml_id82373_resized.jpg", $V([0, 0]), $V([0, 0]));
