@@ -1605,8 +1605,18 @@ $(document).ready(function(){
     aml_fl_c.registerOptionCallback("oscMagnitude", function(value) {this.clearAllHistory();});
 
         $(window).on("resize", function(){
+            aml_ft_c.redraw();
+            aml_fr_c.redraw();
+            aml_fc_c.redraw();
+            aml_fi_c.redraw();
+            aml_fp_c.redraw();
+            aml_fb_c.redraw();
             aml_fk_c.redraw();
             aml_fs_c.redraw();
             aml_fw_c.redraw();
+            aml_fg_c.redraw();
+            aml_fj_c.redraw();
+            aml_fm_c.redraw();
+            aml_fl_c.redraw();
         });
 })
