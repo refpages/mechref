@@ -44,27 +44,6 @@ import DisplayTable from "../../components/DisplayTable.astro"
 
 
 
-  <div hidden>
-    <PrairieDrawCanvas id = "rkg-fw-c" width = "1" height = "1"/>
-    <PrairieDrawCanvas id = "rkg-fr-c" width = "1" height = "1"/>
-    <PrairieDrawCanvas id = "rkg-xp-c" width = "1" height = "1"/>
-    <PrairieDrawCanvas id = "rkg-xc-c" width = "1" height = "1"/>
-    <PrairieDrawCanvas id = "rkg-fd-c" width = "1" height = "1"/>
-    <PrairieDrawCanvas id = "rkc-cm-c" width = "1" height = "1"/>
-    <PrairieDrawCanvas id = "rkc-xcl-c" width = "1" height = "1"/>
-    <PrairieDrawCanvas id = "rkc-xcp-c" width = "1" height = "1"/>
-    <PrairieDrawCanvas id = "rkc-xcp-cs" width = "1" height = "1"/>
-    <PrairieDrawCanvas id = "rkc-xcf-c" width = "1" height = "1"/>
-    <PrairieDrawCanvas id = "rkc-xcf-s" width = "1" height = "1"/>
-    <PrairieDrawCanvas id = "rkc-xlc-c" width = "1" height = "1"/>
-    <PrairieDrawCanvas id = "rkc-xtp-c" width = "1" height = "1"/>
-    <PrairieDrawCanvas id = "rkc-xtp-sa" width = "1" height = "1"/>
-    <PrairieDrawCanvas id = "rkc-xtp-s1" width = "1" height = "1"/>
-    <PrairieDrawCanvas id = "rkc-xtp-s2" width = "1" height = "1"/>
-    <PrairieDrawCanvas id = "avs-ft-c" width = "1" height = "1"/>
-    <PrairieDrawCanvas id = "avs-fr-c" width = "1" height = "1"/>
-  </div>
-
 <Section title = "Four-bar linkages">
         <p>
           A planar four-bar linkage consists of four rigid rods in the
@@ -325,53 +304,7 @@ import DisplayTable from "../../components/DisplayTable.astro"
           gravity. This allows a smaller engine to be used.
         </p>
         <div class="figureContainer width600" id="aml-fp">
-          <canvas id="aml<p>
-          Bicycles are an efficient means of human-powered
-          transportation due to their use of rotary wheel
-          motion. Humans cannot directly produce indefinite rotations,
-          however, so some mechanism is required to translate
-          reciprocating human motion into rotary motion. Bicycles
-          achieve this conversion with two four-bar linkages, each
-          consisting of the two segments of the riders leg, the
-          bicycle frame, and the <a
-          href="http://en.wikipedia.org/wiki/Crank_(mechanism)">crank</a>,
-          as shown below.
-        </p>
-        <div class="figureContainer width600" id="aml-fb">
-          <canvas id="aml-fb-c" width="600" height="400" class="figureImage" >
-          </canvas>
-          <p class="controls">
-            <button class="option-toggle:aml-fb-c:showLinkage">show linkage</button>
-            <button class="anim-toggle:aml-fb-c">animation</button>
-            <button class="reset-time:aml-fb-c">reset</button>
-          </p>
-          <p class="figureCaption">
-            A man riding a bicycle at the port of <a
-            href="http://en.wikipedia.org/wiki/Vannes">Vannes</a>,
-            Brittany, in the north-west of France. Image source: <a
-            href="http://www.flickr.com/photos/adulau/7705967112/">Flickr
-            image</a> by <a
-            href="http://www.flickr.com/people/adulau/">Alexandre
-            Dulaunoy</a> (<a
-            href="http://creativecommons.org/licenses/by-sa/2.0/deed.en">CC
-            BY 2.0</a>) (<a href="aml_7705967112.jpg">full-sized
-            image</a>).
-          </p>
-        </div>
-        <p>
-          While the four links in the bicycle linkage are
-          approximately rigid rods, only two of the joints are in fact
-          reasonable models of a pin joint (the knee and lower
-          crank). At the pedal and seat, only compression is allowed,
-          as there is no way for the rider to pull up on the pedal or
-          seat. This doesn't normally matter, as the rider's weight
-          serves to maintain the connection at the seat, while the
-          pedal joint only has force exerted during the down-stroke on
-          each side, and the two legs are offset by 180&#176; so one
-          is always pushing down. An alternative approach is used on
-          racing bikes, where the feet are clipped to the pedals and
-          so each foot can pull up as well as push down.
-          </p>-fp-c" width="600" height="431" class="figureImage" >
+          <canvas id="aml-fp-c" width="600" height="431" class="figureImage" >
           </canvas>
           <p class="controls">
             <button class="option-toggle:aml-fp-c:showLinkage">show linkage</button>
@@ -386,7 +319,7 @@ import DisplayTable from "../../components/DisplayTable.astro"
             href="http://www.flickr.com/people/37467370@N08/">Greg
             Goebel</a> (<a
             href="http://creativecommons.org/licenses/by-sa/2.0/deed.en">CC
-            BY-SA 2.0</a>) (<a href="aml_7632673158.jpg">full-sized
+            BY-SA 2.0</a>) (<a href="/dyn/four_bar_linkages/aml_7632673158.jpg">full-sized
             image</a>).
           </p>
         </div>
@@ -422,7 +355,7 @@ import DisplayTable from "../../components/DisplayTable.astro"
             href="http://www.flickr.com/people/adulau/">Alexandre
             Dulaunoy</a> (<a
             href="http://creativecommons.org/licenses/by-sa/2.0/deed.en">CC
-            BY 2.0</a>) (<a href="aml_7705967112.jpg">full-sized
+            BY 2.0</a>) (<a href="/dyn/four_bar_linkages/aml_7705967112.jpg">full-sized
             image</a>).
           </p>
         </div>
@@ -440,8 +373,8 @@ import DisplayTable from "../../components/DisplayTable.astro"
           racing bikes, where the feet are clipped to the pedals and
           so each foot can pull up as well as push down.
           </p>
-      <div class="infoCol">
-        <div id="aml-ib" class="infoBox factBox">
+      <CalloutContainer slot = "cards">
+        <CalloutCard>
           <p>
             While the current form of the bicycle may seem obvious,
             with a rotary crank connected by a chain to the rear
@@ -461,13 +394,13 @@ import DisplayTable from "../../components/DisplayTable.astro"
             modern automobile in 1885</a>.
           </p>
           <div class="imageBox width250">
-            <img src="aml_Draisine1817_clipped_small.jpg" alt="A Draisine bicycle."></img>
+            <img src="/dyn/four_bar_linkages/aml_Draisine1817_clipped_small.jpg" alt="A Draisine bicycle."></img>
             <p class="caption">
               Image credit: <a
               href="http://commons.wikimedia.org/wiki/File:Draisine1817.jpg">Wikimedia
               Commons</a> (<a
               href="http://creativecommons.org/licenses/publicdomain/">public
-              domain</a>) (<a href="aml_Draisine1817.jpg">full-sized
+              domain</a>) (<a href="/dyn/four_bar_linkages/aml_Draisine1817.jpg">full-sized
               image</a>).
             </p>
           </div>
@@ -488,8 +421,8 @@ import DisplayTable from "../../components/DisplayTable.astro"
             bicycle</a> in 1876, which is the modern form we still use
             today.
           </p>
-        </div>
-      </div>
+        </CalloutCard>
+      </CalloutContainer>
 </SubSection>
 
 <SubSection title="Knee joint"  id="knee_joint">
@@ -625,10 +558,78 @@ import DisplayTable from "../../components/DisplayTable.astro"
           Commons</a> (<a
           href="http://creativecommons.org/licenses/sa/1.0/">CC SA
           1.0</a>) (<a
-          href="aml_GSFRRearViewUnderCropped.jpg">full-sized
+          href="/dyn/four_bar_linkages/aml_GSFRRearViewUnderCropped.jpg">full-sized
           image</a>).</i>
         </p>
       </PrairieDrawCanvas>
+        <p>
+          Watt's original hand drawing of the linkage clearly shows
+          the main elements, and also indicates the circular motions
+          of the two moving pivots, as we can see below.
+        </p>
+        <div class="figureContainer" id="aml-fd">
+          <img class="figureImage" alt="Watt's original hand drawing of his linkage."
+               src="/dyn/four_bar_linkages/aml_The_Kinematics_of_Machinery_Fig_1_small.png" />
+          <p class="figureCaption">
+            Watt's hand-drawn diagram explaining the concept behind
+            his new linkage design.  Image credit: <a
+            href="http://commons.wikimedia.org/wiki/File:The_Kinematics_of_Machinery_Fig_1.png">Wikimedia
+            Commons</a>, originally from J. P. Muirhead, <i>The Life
+            of James Watt with Selections from his Correspondence</i>,
+            1858, p. 294 (<a
+            href="http://creativecommons.org/licenses/publicdomain/">public
+            domain</a>) (<a
+            href="/dyn/four_bar_linkages/aml_The_Kinematics_of_Machinery_Fig_1.png">full-sized
+            image</a>).
+          </p>
+        </div>
+        <p>
+          The discovery was first revealed in a letter that <a
+          href="http://en.wikipedia.org/wiki/Watt's_linkage#History">Watt
+          wrote</a> in 1784:
+        </p>
+        <blockquote>
+          I have got a glimpse of a method of causing a piston rod to
+          move up and down perpendicularly by only fixing it to a
+          piece of iron upon the beam, without chains or perpendicular
+          guides [...] and one of the most ingenious simple pieces of
+          mechanics I have invented.
+        </blockquote>
+      <CalloutContainer slot = "cards">
+        <CalloutCard>
+          <p>
+            While Watt's linkage only produces approximate
+            straight-line motion, the 8-link <a
+            href="http://en.wikipedia.org/wiki/Peaucellier%E2%80%93Lipkin_linkage">Peaucellier-Lipkin
+            linkage</a>, shown below, was discovered in 1864 and
+            produces an exactly straight line. In the illustration the
+            links of the same color are equal in length.
+          </p>
+          <div class="imageBox width250">
+            <canvas id="aml-fg-c" width="250" height="250">
+            </canvas>
+            <p class="controls">
+              <button class="anim-toggle:aml-fg-c">animation</button>
+              <button class="reset:aml-fg-c">reset</button>
+            </p>
+          </div>
+          <p>
+            Rather than trying to discover special linkages to produce
+            different types of motion, <a
+            href="http://en.wikipedia.org/wiki/Alfred_Kempe">Alfred
+            Kempe</a> proved that any <a
+            href="http://en.wikipedia.org/wiki/Algebraic_curve">plane
+            algebraic curve</a> (the set of zeros of a polynomial like
+            \(x + 2 x^3 - y^2 - 3\)) can be traced by a sufficiently
+            complicated linkage. See: A. B. Kempe, <a
+            href="/dyn/four_bar_linkages/aml_PLMS-1875-Kempe-213-6.pdf">On a General Method
+            of describing Plane Curves of the n<sup>th</sup> degree by
+            Linkwork</a>, <i>Proceedings of the London Mathematical
+            Society</i> (1875) s1-7(1): 213-216. doi: <a
+            href="http://dx.doi.org/10.1112/plms/s1-7.1.213">10.1112/plms/s1-7.1.213</a>.
+          </p>
+        </CalloutCard>
+      </CalloutContainer>
 </SubSection>
 
 <SubSection title = "Example: parrotfish jaw (force multiplication)" id = "example_parrotfish_jaw_force_multiplication">
@@ -642,7 +643,7 @@ import DisplayTable from "../../components/DisplayTable.astro"
           which grow continuously as they are worn down by feeding.
         </p>
         <div class="figureContainer" id="aml-ff">
-          <img class="figureImage" alt="A Bleeker's Parrotfish swimming in front of coral" src="aml_reef4416_small.jpg" />
+          <img class="figureImage" alt="A Bleeker's Parrotfish swimming in front of coral" src="/dyn/four_bar_linkages/aml_reef4416_small.jpg" />
           <p class="figureCaption">
             A <a
             href="http://en.wikipedia.org/wiki/Pieter_Bleeker">Bleeker's</a>
@@ -656,7 +657,7 @@ import DisplayTable from "../../components/DisplayTable.astro"
             from <a href="http://www.photolib.noaa.gov/reef/">NOAA's
             Coral Kingdom Collection</a> by Julie Bedford. (Public
             domain, U.S. Federal Government). (<a
-            href="aml_reef4416.jpg">full-sized image</a>).
+            href="/dyn/four_bar_linkages/aml_reef4416.jpg">full-sized image</a>).
           </p>
         </div>
         <p>
@@ -686,7 +687,7 @@ import DisplayTable from "../../components/DisplayTable.astro"
             href="http://www.biolib.cz/en/person/id258/">Pavel
             Zuber</a> <a
             href="http://creativecommons.org/licenses/by/2.0/">(CC BY
-            2.0)</a> (<a href="aml_id82373_original.jpg">full-sized
+            2.0)</a> (<a href="/dyn/four_bar_linkages/aml_id82373_original.jpg">full-sized
             image</a>).
           </p>
         </div>
@@ -702,8 +703,8 @@ import DisplayTable from "../../components/DisplayTable.astro"
             </li>
           </ul>
         </div> 
-      <div class="infoCol">
-        <div id="aml-ij" class="infoBox factBox">
+      <CalloutContainer slot = "cards">
+        <CalloutCard>
           <p>
             Parrotfish have two sets of jaws: the regular set of oral
             jaws that we can see, and a second set of <a
@@ -738,12 +739,12 @@ import DisplayTable from "../../components/DisplayTable.astro"
               large prey, <i>Nature</i> 449, 79-82, 2007. DOI: <a
               href="http://dx.doi.org/10.1038/nature06062">10.1038/nature06062</a>. (full-sized
               images: <a
-              href="aml_moray_pharyngeal_closed.png">closed</a>, <a
-              href="aml_moray_pharyngeal_open.png">open</a>).
+              href="/dyn/four_bar_linkages/aml_moray_pharyngeal_closed.png">closed</a>, <a
+              href="/dyn/four_bar_linkages/aml_moray_pharyngeal_open.png">open</a>).
             </p>
           </div>
-        </div>
-      </div>
+        </CalloutCard>
+      </CalloutContainer>
 </SubSection>
 
 <SubSection title = "Full linkage model" id = "full_linkage_model">
@@ -993,5 +994,5 @@ import DisplayTable from "../../components/DisplayTable.astro"
         </table>
 </SubSection>
 
-<script src="/dyn/rigid_body_kinematics/canvases.js" is:inline></script>
+<script src="/dyn/four_bar_linkages/canvases.js" is:inline></script>
 </Layout>
