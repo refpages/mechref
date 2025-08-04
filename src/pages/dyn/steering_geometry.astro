@@ -37,25 +37,6 @@ import DisplayTable from "../../components/DisplayTable.astro"
 
 
 
-  <div hidden>
-    <PrairieDrawCanvas id = "rkg-fw-c" width = "1" height = "1"/>
-    <PrairieDrawCanvas id = "rkg-fr-c" width = "1" height = "1"/>
-    <PrairieDrawCanvas id = "rkg-xp-c" width = "1" height = "1"/>
-    <PrairieDrawCanvas id = "rkg-xc-c" width = "1" height = "1"/>
-    <PrairieDrawCanvas id = "rkg-fd-c" width = "1" height = "1"/>
-    <PrairieDrawCanvas id = "rkc-cm-c" width = "1" height = "1"/>
-    <PrairieDrawCanvas id = "rkc-xcl-c" width = "1" height = "1"/>
-    <PrairieDrawCanvas id = "rkc-xcp-c" width = "1" height = "1"/>
-    <PrairieDrawCanvas id = "rkc-xcp-cs" width = "1" height = "1"/>
-    <PrairieDrawCanvas id = "rkc-xcf-c" width = "1" height = "1"/>
-    <PrairieDrawCanvas id = "rkc-xcf-s" width = "1" height = "1"/>
-    <PrairieDrawCanvas id = "rkc-xlc-c" width = "1" height = "1"/>
-    <PrairieDrawCanvas id = "rkc-xtp-c" width = "1" height = "1"/>
-    <PrairieDrawCanvas id = "rkc-xtp-sa" width = "1" height = "1"/>
-    <PrairieDrawCanvas id = "rkc-xtp-s1" width = "1" height = "1"/>
-    <PrairieDrawCanvas id = "rkc-xtp-s2" width = "1" height = "1"/>
-  </div>
-
 <Section title="Steering geometry" id="steering_geometry">
    
 
@@ -68,7 +49,7 @@ import DisplayTable from "../../components/DisplayTable.astro"
       amount, or is something more complicated going on?
     </p>
 
-    <Image src="/dyn/rigid_body_kinematics/avs_Mercedes_Kubelwagen_G5_600.jpg" width="6">
+    <Image src="/dyn/steering_geometry/avs_Mercedes_Kubelwagen_G5_600.jpg" width="6">
       <p class="figureCaption">
         A <a
         href="http://www.autoevolution.com/cars/mercedes-benz-g5-w152-1937.html#aeng_mercedes-benz-g5-w152-1937-20">Mercedes-Benz
@@ -80,7 +61,7 @@ import DisplayTable from "../../components/DisplayTable.astro"
         Commons</a> (<a
         href="http://creativecommons.org/licenses/by-sa/3.0/deed.en">CC
         BY-SA 3.0</a>) (<a
-        href="avs_Mercedes_Kubelwagen_G5.jpg">full-sized
+        href="/dyn/steering_geometry/avs_Mercedes_Kubelwagen_G5.jpg">full-sized
         image</a>).
       </p>
     </Image>
@@ -172,7 +153,7 @@ import DisplayTable from "../../components/DisplayTable.astro"
         obstacles, and is also unstable at higher speeds.
       </p>
 
-      <Image src="/dyn/rigid_body_kinematics/avs_8116755483.jpg" alt="Forklift steering." width="8">
+      <Image src="/dyn/steering_geometry/avs_8116755483.jpg" alt="Forklift steering." width="8">
         <p class="caption">
           A Yale GLP-50VX forklift executing a sharp right-hand
           turn. Image credit: <a
@@ -181,7 +162,7 @@ import DisplayTable from "../../components/DisplayTable.astro"
           href="http://www.flickr.com/people/asv_/">Anastasia
           Victor</a> (<a
           href="http://creativecommons.org/licenses/by/2.0/">CC BY
-          2.0</a>) (<a href="avs_8116755483.jpg">full-sized
+          2.0</a>) (<a href="/dyn/steering_geometry/avs_8116755483.jpg">full-sized
           image</a>).
         </p>
       </Image>
@@ -248,7 +229,7 @@ import DisplayTable from "../../components/DisplayTable.astro"
             automobile</a>.
         </p>
 
-      <Image src="/dyn/rigid_body_kinematics/avs_Motorwagen_Serienversion_shaved_small.jpg" alt="Benz Patent-Motorwagen Nr. 3." width="8">
+      <Image src="/dyn/steering_geometry/avs_Motorwagen_Serienversion_shaved_small.jpg" alt="Benz Patent-Motorwagen Nr. 3." width="8">
         <p class="caption">
           Benz Patent-Motorwagen Nr. 3 from 1888. Image credit:
           <a
@@ -256,7 +237,7 @@ import DisplayTable from "../../components/DisplayTable.astro"
           Commons</a> (<a
           href="http://creativecommons.org/licenses/publicdomain/">public
           domain</a>) (<a
-          href="avs_Motorwagen_Serienversion.jpg">full-sized
+          href="/dyn/steering_geometry/avs_Motorwagen_Serienversion.jpg">full-sized
           image</a>).
         </p>
       </Image>
@@ -290,11 +271,5 @@ import DisplayTable from "../../components/DisplayTable.astro"
   </CalloutContainer>
 </SubSection>
 
-  <div hidden>
-    <PrairieDrawCanvas id = "aml-fk-c" width = "1" height = "1"/>
-    <PrairieDrawCanvas id = "aml-fs-c" width = "1" height = "1"/>
-    <PrairieDrawCanvas id = "aml-fw-c" width = "1" height = "1"/>
-  </div>
-
-<script src="/dyn/rigid_body_kinematics/canvases.js" is:inline></script>
+<script src="/dyn/steering_geometry/canvases.js" is:inline></script>
 </Layout>
