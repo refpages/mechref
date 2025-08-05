@@ -38,44 +38,6 @@ import Row from "../../components/Row.astro"
 </div>
 
 
-    <div hidden>
-        <PrairieDrawCanvas id = "rcm-cm-c" width = "1" height = "1"/>
-        <PrairieDrawCanvas id = "rcm-xc-c" width = "1" height = "1"/>
-        <PrairieDrawCanvas id = "rcm-xc-s1" width = "1" height = "1"/>
-        <PrairieDrawCanvas id = "rcm-xc-s2" width = "1" height = "1"/>
-        <PrairieDrawCanvas id = "rcm-cm-cb" width = "1" height = "1"/>
-        <PrairieDrawCanvas id = "rcm-xl-c" width = "1" height = "1"/>
-        <PrairieDrawCanvas id = "rcm-xl-cd" width = "1" height = "1"/>
-        <PrairieDrawCanvas id = "rcm-xl-cf" width = "1" height = "1"/>
-        <PrairieDrawCanvas id = "rcm-er-c" width = "1" height = "1"/>
-        <PrairieDrawCanvas id = "rcm-et-c" width = "1" height = "1"/>
-        <PrairieDrawCanvas id = "rcm-ee-c" width = "1" height = "1"/>
-        <PrairieDrawCanvas id = "rcm-eg-c" width = "1" height = "1"/>
-        <PrairieDrawCanvas id = "rcm-ei-c" width = "1" height = "1"/>
-        <PrairieDrawCanvas id = "rcm-ec-c" width = "1" height = "1"/>
-        <PrairieDrawCanvas id = "rcm-es-c" width = "1" height = "1"/>
-        <PrairieDrawCanvas id = "rem-ei-c" width = "1" height = "1"/>
-        <PrairieDrawCanvas id = "rem-ec-c" width = "1" height = "1"/>
-        <PrairieDrawCanvas id = "rem-xs-c" width = "1" height = "1"/>
-        <PrairieDrawCanvas id = "rem-xs-c3" width = "1" height = "1"/>
-        <PrairieDrawCanvas id = "rem-el-c" width = "1" height = "1"/>
-        <PrairieDrawCanvas id = "rem-xc-c" width = "1" height = "1"/>
-        <PrairieDrawCanvas id = "rem-xc-c3" width = "1" height = "1"/>
-        <PrairieDrawCanvas id = "rem-ea-c" width = "1" height = "1"/>
-        <PrairieDrawCanvas id = "rem-xl-c" width = "1" height = "1"/>
-        <PrairieDrawCanvas id = "rem-xl-cd" width = "1" height = "1"/>
-        <PrairieDrawCanvas id = "rem-ep-c" width = "1" height = "1"/>
-        <PrairieDrawCanvas id = "rem-el-c" width = "1" height = "1"/>
-        <PrairieDrawCanvas id = "rem-er-c" width = "1" height = "1"/>
-        <PrairieDrawCanvas id = "rem-ey-c" width = "1" height = "1"/>
-        <PrairieDrawCanvas id = "rem-es-c" width = "1" height = "1"/>
-        <PrairieDrawCanvas id = "rem-eo-c" width = "1" height = "1"/>
-        <PrairieDrawCanvas id = "rem-ek-c" width = "1" height = "1"/>
-        <PrairieDrawCanvas id = "rem-eh-c" width = "1" height = "1"/>
-        <PrairieDrawCanvas id = "rem-eb-c" width = "1" height = "1"/>
-        <PrairieDrawCanvas id = "rem-ew-c" width = "1" height = "1"/>
-    </div>
-
 <Section title="Accelerating and braking"  id="accelerating_braking">
  
 <p>
@@ -90,7 +52,7 @@ import Row from "../../components/Row.astro"
         To study this problem we need a model. Let's start with the simplest model and then
         gradually consider more complex models.
     </p>
-    <Image src="/dyn/particle_kinetics/red_car.jpg" width="8"> The classic American <a
+    <Image src="/dyn/accelerating_and_braking/red_car.jpg" width="8"> The classic American <a
         target="_blank" rel="noopener noreferrer" href="http://en.wikipedia.org/wiki/Pony_car">Pony Car</a>:
         a 1965 <a
         target="_blank" rel="noopener noreferrer" href="http://en.wikipedia.org/wiki/Ford_Mustang">Ford
@@ -104,7 +66,7 @@ import Row from "../../components/Row.astro"
         target="_blank" rel="noopener noreferrer" href="http://www.flickr.com/photos/aresauburnphotos/">Nick
         Ares</a> <a
         target="_blank" rel="noopener noreferrer" href="http://creativecommons.org/licenses/by-sa/2.0/">(CC
-        BY-SA 2.0)</a> (<a href="/public/dyn/particle_kinetics/red_car_full.jpg">full-sized
+        BY-SA 2.0)</a> (<a href="/public/dyn/accelerating_and_braking/red_car_full.jpg">full-sized
         image</a>).</Image>
 
     <CalloutContainer slot="cards">
@@ -557,14 +519,7 @@ import Row from "../../components/Row.astro"
         </p>
 </SubSection>
 
-    <div hidden>
-        <PrairieDrawCanvas id = "avb-fg-c" width = "1" height = "1"/>
-        <PrairieDrawCanvas id = "avb-fp-c" width = "1" height = "1"/>
-        <PrairieDrawCanvas id = "avb-fr-c" width = "1" height = "1"/>
-        <PrairieDrawCanvas id = "avb-fb-c" width = "1" height = "1"/>
-    </div>
-
 
 </Layout>
 
-<script src="/dyn/rigid_body_kinetics/canvases.js" is:inline></script>
+<script src="/dyn/accelerating_and_braking/canvases.js" is:inline></script>
