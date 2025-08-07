@@ -16,7 +16,7 @@ import "../../public/static/css/course_home_pages.css"
             <div class="col-md-7 col-12">
                 <SimplifiedView id="here" title="Mechanism design" title_style="h1 fw-bold" style="enumerate">
 
-        <CourseCard href="/md/Planar_mechanisms" img_src="/md/Planar_mechanisims/Gruebler.png" title="Planar Mechanisms">
+        <CourseCard href="/md/Planar_mechanisms" img_src="/md/Planar_mechanisims/4Bar.png" title="Planar Mechanisms">
                     <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='md/Planar_mechanisms#Links and Joints'>Links and Joints</a></li>
                     <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='md/Planar_mechanisms#DOF'>DOF</a></li>
                     <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='md/Planar_mechanisms#Transformation rules'>Transformation rules</a></li>
@@ -24,7 +24,17 @@ import "../../public/static/css/course_home_pages.css"
                     <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='md/Planar_mechanisms#Grashof Condition'>Grashof Condition</a></li>
         </CourseCard>
 
-
+        <CourseCard href="/md/Gears" img_src="/md/Gears/Gears.png" title="Planar Mechanisms">
+                <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='md/Gears#Gears'>Gears</a>
+                    <ul class='list-group list-group-flush py-0'>
+                    <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='md/Gears#Gear Types'>Gear Types</a></li>
+                    <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='md/Gears#Gear Parts'>Gear Parts</a></li>
+                    <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='md/Gears#Gear Teeth Intro'>Gear Teeth Intro</a></li>
+                    <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='md/Gears#Standard Gear Applications'>Standard Gear Applications</a></li>
+                    <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='md/Gears#2 DOF Gear Applications'>2 DOF Gear Applications</a></li>
+                    </ul>
+                </li>
+        </CourseCard>
 
         <CourseCard href="/md/Graphical_Linkage_Synthesis" img_src="/md/home_page/gls.png" title="Graphical linkage synthesis">
             <ul class='list-group list-group-flush py-0'> 
@@ -108,6 +118,7 @@ import "../../public/static/css/course_home_pages.css"
         </ul>
         </CourseCard>
                     <li slot="list"><a href="/md/Planar_mechanisms?origin=coursemenu">Planar Mechanisms</a></li>
+                    <li slot="list"><a href="/md/Gears?origin=coursemenu">Gears</a></li>
                     <li slot="list"><a href="/md/Graphical_Linkage_Synthesis?origin=coursemenu">Graphical linkage synthesis</a></li>
                     <li slot="list"><a href="/md/Instant_Centers?origin=coursemenu">Instant centers</a></li>
                     <li slot="list"><a href="/md/Cams?origin=coursemenu">Cams</a></li>
@@ -124,7 +135,7 @@ import "../../public/static/css/course_home_pages.css"
                   
                   
                       <Itemize>
-                        <Item> <a href="/dyn/rigid_body_kinematics"> Rigid Body Kinematics </a> which will be utilized in the analysis of planar mechanism and gears.</Item>
+                        <Item> <a href="/dyn/rigid_body_kinematics"> Rigid Body Kinematics </a> which will be utilized in the analysis of <a href="/md/Planar_mechanisms?origin=coursemenu">Planar Mechanisms</a> and <a href="/md/Gears?origin=coursemenu">Gears</a>.</Item>
                         <Item> <a href="/dyn/rigid_body_kinetics"> Rigid Body Kinetics </a> will be useful for the study of <a href="/md/Instant_Centers?origin=coursemenu">Instant Centers</a> (IC), <a href="/md/Position_Velocity_Acceleration?origin=coursemenu">Position Velocity Acceleration</a> (PVA) and <a href="/md/Dynamic_Force_Analysis?origin=coursemenu">Dynamic Force Analysis </a> (DFA).</Item>
                         <Item> <a href="/dyn/work_and_energy"> Work and Energy </a> will be utilized in the study of <a href="/md/Virtual_Work?origin=coursemenu">Virtual Work</a>.</Item>
                       </Itemize>
@@ -138,10 +149,11 @@ import "../../public/static/css/course_home_pages.css"
                           <Item> Planar Mechanisims will explore different methods of classifying mechanisms, as well as methods for identifying the degrees of freedom (DOF) of a mechanisim</Item>
                           <Item> Gears will cover the key parts features of a gear, as well as helpful tools for the analysis of gear systems.</Item>
                           -->
-                  
+                        <Item><a href="/md/Planar_mechanisms?origin=coursemenu">Planar Mechanisms</a> will introduce several types of mechanisms, and introduce how we can analyze them </Item>
+                        <Item><a href="/md/gears?origin=coursemenu">Gears</a> Gives a brief introduction to gear types, their uses, as well as key equations for utilizing gear systems </Item>
                           <Item><a href="/md/Graphical_Linkage_Synthesis?origin=coursemenu">Graphical Linkage Synthesis</a> will explore procedures for creating mechanims that move along user specified paths, or between user specified locations </Item>
                           <Item><a href="/md/Instant_Centers?origin=coursemenu">Instant Centers</a> examines what an instant center is, how they can be identified, and how instant centers can be used to find force and velocity ratios in mechanisms </Item>
-                          <Item><a href="/md/Cams?origin=coursemenu">Cams</a> focuses on the different classifications of cams, as well as the steps required to design a cam profile according to the fundemental law of cam design </Item>
+                          <Item><a href="/md/Cams?origin=coursemenu">Cams</a> focuses on the different classifications of cams, as well as the steps required to design a cam profile according to the fundamental law of cam design </Item>
                           <Item><a href="/md/Position_Velocity_Acceleration?origin=coursemenu">Position Velocity Acceleration</a> demonstrates a method for computing the positon, velocity, and acceleration of a mechanism </Item>
                           <Item><a href="/md/Dynamic_Force_Analysis?origin=coursemenu">Dynamic Force Analysis</a> examines a method to compute the forces and torques on each part of a mechanism </Item>
                           <Item><a href="/md/Virtual_Work?origin=coursemenu">Virtual Work</a> examines an easier method to compute external forces and torques if the internal forces are unimportant </Item>

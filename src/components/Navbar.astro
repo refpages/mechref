@@ -458,12 +458,15 @@ const path = Astro.url.pathname;
                         <section class="tile menu white-box col">
                             <h2><a href="/md">Mechanism Design</a></h2>
                             <ol style="column-fill: balance; columns: 3 <= how many columns do you want your menu to have?;" class="course-menu">
-                                <li><a href="/md/Graphical_Linkage_Synthesis?origin=sidebar">Graphical linkage synthesis</a></li>
-                                <li><a href="/md/Instant_Centers?origin=sidebar">Instant centers</a></li>
-                                <li><a href="/md/Cams?origin=sidebar">Cams</a></li>
-                                <li><a href="/md/Position_Velocity_Acceleration?origin=sidebar">Position velocity acceleration</a></li>
-                                <li><a href="/md/Dynamic_Force_Analysis?origin=sidebar">Dynamic force analysis</a></li>
-                                <li><a href="/md/Virtual_Work?origin=coursemenu">Virtual work</a></li>
+                                <li slot="list"><a href="/md/Planar_mechanisms?origin=coursemenu">Planar Mechanisms</a></li>
+                                <li slot="list"><a href="/md/Gears?origin=coursemenu">Gears</a></li>
+                                <li slot="list"><a href="/md/Graphical_Linkage_Synthesis?origin=coursemenu">Graphical linkage synthesis</a></li>
+                                <li slot="list"><a href="/md/Instant_Centers?origin=coursemenu">Instant centers</a></li>
+                                <li slot="list"><a href="/md/Cams?origin=coursemenu">Cams</a></li>
+                                <li slot="list"><a href="/md/Position_Velocity_Acceleration?origin=coursemenu">Position velocity acceleration</a></li>
+                                <li slot="list"><a href="/md/Dynamic_Force_Analysis?origin=coursemenu">Dynamic force analysis</a></li>
+                                <li slot="list"><a href="/md/Virtual_Work?origin=coursemenu">Virtual work</a></li>
+                                <li slot="list"><a href="/md/Balancing?origin=coursemenu">Balancing</a></li>
                             </ol>
                         </section>
                     </div>

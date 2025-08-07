@@ -1,0 +1,91 @@
+---
+import Layout from "../../layouts/Layout.astro"
+import Image from "../../components/Image.astro"
+import CalloutContainer from "../../components/CalloutContainer.astro"
+import Section from "../../components/Section.astro"
+import SubSection from "../../components/SubSection.astro"
+import SubSubSection from "../../components/SubSubSection.astro"
+import SubSubSubSection from "../../components/SubSubSubSection.astro"
+import OrangeText from "../../components/OrangeText.astro"
+import TealText from "../../components/TealText.astro"
+import Enumerate from "../../components/Enumerate.astro"
+import Item from "../../components/Item.astro"
+import Itemize from "../../components/Itemize.astro"
+import InlineEquation from "../../components/InlineEquation.astro"
+import DisplayEquation from "../../components/DisplayEquation.astro"
+---
+<Layout title="Gears">
+    <div slot="navtree">
+        <ul class="list-group list-group-flush py-0">
+            <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Gears'>Gears</a><ul class='list-group list-group-flush py-0'>
+                <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Gear Types'>Gear Types</a></li>
+                <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Gear Parts'>Gear Parts</a></li>
+                <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Gear Teeth Intro'>Gear Teeth Intro</a></li>
+                <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Standard Gear Applications'>Standard Gear Applications</a></li>
+                <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#2 DOF Gear Applications'>2 DOF Gear Applications</a></li>
+            </ul>
+        </ul>
+    </div>
+
+    <!--
+    TODO: images
+    TODO: link fundemental law to IC's
+    TODO: Equations
+    -->
+    <SubSection title="Gears" id="Gears">
+        <p>Gears are common mechanical elements that can serve a variety of critical functions. Most often, gears are used to transmit or transfer power, change the direction or orientation of a shaft, or synchronize two shafts.</p>
+    </SubSection>
+    <SubSubSection title="Gear Types" id="Gear Types">
+        <p>There are a large number of different types of gears that are commonly used.</p>
+        <Itemize>
+        <Item><p>External gears have their teeth on their outer surface, while internal gears have hollow centers that have teeth on them.</p></Item>
+            <Item><p>Spur gears are cylinders that have straight teeth cut into them, allowing them to transmit power between parallel shafts.</p></Item>
+            <Image src='/md/Gears/Gears.png' width='7'> </Image>
+            <Item><p>Helical gears are similar in shape to spur gears, but have teeth that are curved around the gear face, resulting in teeth with a helical shape. These gears are often quite, and have a larger load bearing capacity, at a increase in cost.</p></Item>
+            <Item><p>Worm gears consist of a set of gears where one "worm" gear has a single tooth wrapped around a cylinder several times. When this worm gear is turned, it will advance the gear it is paired with one tooth length. This allows for enormous gear ratios to be achieved without complex gear trains. These gears also have the advantage of being self-locking, meaning that they cannot be back-driven.</p></Item>
+            <Item><p>Rack and pinion gears consist of a single regular spur gear that is paired with a straight rod that has teeth on it. By rotation the spur gear, the rod is moved forward and backwards, allowing for generation of linear motion.</p></Item>
+            <Item><p>Bevel gears have teeth that are cut into a cone rather than a cylinder. This allows them to change the direction of rotation of a shaft to a non-parallel axis.</p></Item>
+        </Itemize>
+    </SubSubSection>
+    <SubSubSection title="Gear Parts" id="Gear Parts">
+        <p>In order for two gears to work together properly, they need to share a few key features.</p>
+        <p>First, the gears need to have the same pitch, or spacing between gears. If two gears do not have the same spacing between gears, they will likely get stuck or jammed when trying to mesh.</p>
+        <p>Gear pitch is measured in 3 different ways.</p>
+        <Enumerate>
+        <Item><p>Diametral Pitch is the number of teeth per inch</p></Item>
+            <Item><p>Circular Pitch is the distance between teeth</p></Item>
+            <Item><p>Module is a metric measurement that gives the number of <InlineEquation equation="\\pi" />mm between gear teeth.</p></Item>
+        </Enumerate>
+        <p>To mesh properly, gears also must have the same "pressure angle" This is a measure of the angle between the force vector applied by a gear tooth and the direction that the tooth moves. This factor is controlled by the shape of a gear tooth.</p>
+    </SubSubSection>
+    <SubSubSection title="Gear Teeth Intro" id="Gear Teeth Intro">
+        <p>To minimize the wear on gears and ensure that there is smooth transmission of power between gears, two gears must follow the "fundamental law of gearing" which states that the ratio of angular velocities between gears must remain constant throughout a revolution.</p>
+        <p>Geometrically, this means that the force between two gears must always be exerted along the same line. Since the force between two gears is defined by the common normal shared between gear teeth, this means that gear teeth must be specifically designed to follow the fundamental law of gearing.</p>
+        <p>Most gear teeth that are designed to follow the fundamental law of gearing are designed using an "involute curve". This shape is the curve created by the end of a piece of string as you unroll it around a cylinder.</p>
+    </SubSubSection>
+    <SubSubSection title="Standard Gear Applications" id="Standard Gear Applications">
+        <p>Power from rotation can be expressed:</p>
+
+        <DisplayEquation equation="P=\\tau \\omega" title="" />
+
+        <p>Where <InlineEquation equation="\\tau" /> is torque and <InlineEquation equation="\\omega" /> is angular velocity.</p>
+        <p>We also know that linear velocity can be expressed:</p>
+
+        <DisplayEquation equation="V=r \\times \\omega" title="" />
+
+        <p>If we assume that a set of gears is frictionless, then the input and output power are the same.</p>
+
+        <DisplayEquation equation="P_{in}=P_{out}" title="" />
+
+        <p>Gears that are in contact must have the same linear velocity. This means that if we increase the radius (or number of teeth) of one gear, we can decrease its angular velocity. If power is constant, this will result in an increase in torque to balance the decrease in angular velocity. Thus, we can write:</p>
+
+        <DisplayEquation equation="\\frac{r_{in}}{r_{out}}=\\frac{\\omega_{in}}{\\omega_{out}}=\\frac{\\tau_{in}}{\\tau_{out}}" title="" />
+
+        <p>It should also be noted that this gives the behavior of two gears that are in contact. However, by mounting two gears on the same shaft, they are constrained to have the same angular velocity. This allows for the creation of compound gear trains that can have higher gear ratios than a single pair of gears.</p>
+    </SubSubSection>
+    <SubSubSection title="2 DOF Gear Applications" id="2 DOF Gear Applications">
+        <p>Planetary gears are a 2 DOF system where a large internal "ring" gear is connected to a central "sun" gear by a series of "planet" gears. These planetary gears allow for additional redundancy and higher power transmission between the sun and ring gear.</p>
+        <p>Differentials are often used in vehicles to power two wheels that may need to move at different speeds. They are composed of a series of bevel gears that allow one input shaft to drive two output shafts at different speeds.</p>
+
+    </SubSubSection>
+</Layout>
