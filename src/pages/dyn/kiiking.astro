@@ -1,0 +1,60 @@
+---
+import Layout from "../../layouts/Layout.astro" 
+import Image from "../../components/Image.astro" 
+import Section from "../../components/Section.astro" 
+import SubSection from "../../components/SubSection.astro" 
+import SubSubSection from "../../components/SubSubSection.astro" 
+import SubSubSubSection from "../../components/SubSubSubSection.astro" 
+import BlueText from "../../components/BlueText.astro" 
+import RedText from "../../components/RedText.astro" 
+import InlineEquation from "../../components/InlineEquation.astro"
+import DisplayEquation from "../../components/DisplayEquation.astro"
+import CalloutContainer from "../../components/CalloutContainer.astro"
+import CalloutCard from "../../components/CalloutCard.astro"
+import Center from "../../components/Center.astro"
+import Example from "../../components/Example.astro"
+import Itemize from "../../components/Itemize.astro"
+import Item from "../../components/Item.astro"
+import PrairieDrawCanvas from "../../components/PrairieDrawCanvas.astro"
+import Row from "../../components/Row.astro"
+import Col from "../../components/Col.astro"
+import DisplayTable from "../../components/DisplayTable.astro"
+---
+
+<Layout title = "Kiiking" description = "Learn how particle kinetics applies to kiiking.">
+
+<div slot = "navtree">
+  <ul class = 'list-group list-group-flush py-0'> 
+    <li class = 'list-group-item py-0'><a class = 'text-decoration-none subsection' href = '#system_diagram'>System design</a></li>
+    <li class = 'list-group-item py-0'><a class = 'text-decoration-none subsection' href = '#fbd'>FBD</a></li>
+    <li class = 'list-group-item py-0'><a class = 'text-decoration-none subsection' href = '#kinematics'>Kinematics</a></li>
+    <li class = 'list-group-item py-0'><a class = 'text-decoration-none subsection' href = '#kinetics'>Kinetics</a></li>
+    <li class = 'list-group-item py-0'><a class = 'text-decoration-none subsection' href = '#algebra'>Algebra</a></li>
+  </ul>
+</div>
+
+<Section title = "Kiiking" id = "kiiking"/>
+
+<SubSection title = "System design" id = "system_design">
+  <DisplayEquation title = "place" equation = "1" id = "1" background = "true"/>
+</SubSection>
+
+<SubSection title = "FBD" id = "fbd">
+  <DisplayEquation title = "place" equation = "1" id = ""/>
+</SubSection>
+
+<SubSection title = "Kinematics" id = "kinematics">
+  <DisplayEquation title = "place" equation = "1" id = ""/>
+</SubSection>
+
+<SubSection title = "Kinetics" id = "kinetics">
+  <DisplayEquation title = "place" equation = "1" id = ""/>
+</SubSection>
+
+<SubSection title = "Algebra" id = "algebra">
+  <DisplayEquation title = "place" equation = "1" id = ""/>
+</SubSection>
+
+</Layout>
+
+<script src="/dyn/kiiking/canvases.js" is:inline></script>
