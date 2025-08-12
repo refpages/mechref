@@ -38,7 +38,7 @@ import CalloutContainer from "../../components/CalloutContainer.astro"
                 <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#digital_image_correlation_(dic)'>Digital Image Correlation (DIC)</a></li>
             </ul>
         </li>
-    </ul>
+    </ul>   
 </div>
 
 <Section title="Strain" id="strain">
@@ -150,13 +150,13 @@ Dimensionless [mm/mm, in/in, or %]
     The components of normal and shear strain can be combined into the strain tensor. This is a symmetric matrix.
 </p>
 
-<DisplayEquation equation=" E = \\begin{bmatrix} \\varepsilon_{x} & \\gamma_{xy} & \\gamma_{xz} \\\\ \\gamma_{yx} & \\varepsilon_{y} &\\gamma_{yz} \\\\ \\gamma_{zx} & \\gamma_{zy} &\\varepsilon_{z} \\end{bmatrix} \\" title="Strain tensor." background="True"/>
+<DisplayEquation equation=" E = \\begin{bmatrix} \\varepsilon_{xx} & \\varepsilon_{xy} & \\varepsilon_{xz} \\\\ \\varepsilon_{yx} & \\varepsilon_{yy} & \\varepsilon_{yz} \\\\ \\varepsilon_{zx} & \\varepsilon_{zy} & \\varepsilon_{zz} \\end{bmatrix} \\ = \\begin{bmatrix} \\varepsilon_{xx} & \\frac{1}{2} \\gamma_{xy} & \\frac{1}{2} \\gamma_{xz} \\\\ \\frac{1}{2} \\gamma_{yx} & \\varepsilon_{yy} & \\frac{1}{2} \\gamma_{yz} \\\\ \\frac{1}{2} \\gamma_{zx} & \\frac{1}{2} \\gamma_{zy} &\\varepsilon_{zz} \\end{bmatrix} \\" title="Strain tensor." background="True"/>
 
-<!-- <DisplayEquation equation=" E&nbsp;= \\begin{bmatrix} \\varepsilon_{x} &amp; \\gamma_{xy} &amp; \\gamma_{xz} \\\\ \\gamma_{yx} &amp; \\varepsilon_{y} &amp; \\gamma_{yz} \\\\ \\gamma_{zx} &amp;\\gamma_{zy} &amp; \\varepsilon_{z} \\end{bmatrix} \\" /> -->
+<!-- <DisplayEquation equation=" E&nbsp;= \\begin{bmatrix} \\varepsilon_{xx} &amp; \\gamma_{xy} &amp; \\gamma_{xz} \\\\ \\gamma_{yx} &amp; \\varepsilon_{yy} &amp; \\gamma_{yz} \\\\ \\gamma_{zx} &amp;\\gamma_{zy} &amp; \\varepsilon_{zz} \\end{bmatrix} \\" /> -->
 
 
 <Itemize>
-    <Item>  Three normal strain components: <InlineEquation equation="\\varepsilon_x, \\varepsilon_y, \\varepsilon_z" /></Item>
+    <Item>  Three normal strain components: <InlineEquation equation="\\varepsilon_{xx}, \\varepsilon_{yy}, \\varepsilon_{zz}" /></Item>
     <Item> Six shear strain components: <InlineEquation equation="\\gamma_{xy} =\\gamma_{yx}, \\gamma_{xz}=\\gamma_{zx}, \\gamma_{yz}=\\gamma_{zy}" /></Item>
 </Itemize>
 
