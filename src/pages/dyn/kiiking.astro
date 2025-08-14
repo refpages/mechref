@@ -34,27 +34,49 @@ import DisplayTable from "../../components/DisplayTable.astro"
 </div>
 
 <Section title = "Kiiking" id = "kiiking">
-  Kiiking is...
+  "Kiiking (Estonian pronunciation: [ˈkiːkiŋ]) is a sport which involves a person making a swing gain increasingly more momentum, to pass over the spindle with the longest shafts possible. It was invented in Estonia by Ado Kosk in 1993;[1] in Estonian, kiik means a swing.
+
+In a kiiking swing, the swing arms are made of steel to enable a person to swing 360 degrees going over the fulcrum of the swing. A person is fastened to the swing base by their feet. To swing, the person begins to pump by squatting and standing up on the swing. The swing will gain momentum and will, by skillful pumping, take a person over the fulcrum." - Wikipedia
+  <Image src = '/dyn/kiiking/kiiking.png' width='3'/>
+  The acceleration of the athlete can be solved for by leveraging free body diagrams, kinematics, and kinetics.
 </Section>
 
 <SubSection title = "System design" id = "system_design">
-  <DisplayEquation equation = "" title = "System diagram" background = "true" id = "system_diagram"/>
+  Begin by creating a diagram to represent the system.
+  <Image src = '/dyn/kiiking/system_diagram.png' width = '3'/>
+  Considering the athlete is spinning around a fixed point along a circular path, it makes sense to utilize the polar basis. It is also important to set where <InlineEquation equation = "\\theta = 0"/> is. Here, it makes sense to set it to be "down" position.
 </SubSection>
 
 <SubSection title = "FBD" id = "fbd">
-  <DisplayEquation equation = "" title = "FBD" background = "true" id = "fbd"/>
+  A free body diagram showing relevant forces can be created by using the system diagram.
+  <Image src = '/dyn/kiiking/fbd.png' width = '3'/>
+  Expressions for both forces can be written using the FBD and some trig:
+  <DisplayEquation equation = "\\vec{F_s} = -F_s \\hat{e_r} + 0 \\hat{e_\\theta}" title = "String force" background = "true" id = "fbd1"/>
+  <DisplayEquation equation = "\\vec{F_g} = m \\ g \\cos{\\theta} \\hat{e_r} + -m \\ g \\sin{\\theta} \\hat{e_\\theta}" title = "Gravitational force" background = "true" id = "fbd2"/>
 </SubSection>
 
 <SubSection title = "Kinematics" id = "kinematics">
-  <DisplayEquation equation = "" title = "Kinematics" background = "true" id = "kinematics"/>
+  <DisplayEquation equation = "\\vec{a} = -r \\dot{\\theta} ^ 2 \\hat{e_r} + r \\ddot{\\theta} \\hat{e_\\theta}" title = "Kinematics" background = "true" derivation = "true" id = "kinematics">
+    <DisplayEquation equation = `\\begin{align} \\vec{a} &= (\\cancel{\\ddot{r}} - r \\dot{\\theta} ^ 2) \\hat{e_r} + (r \\ddot{\\theta} + \\cancel{2 \\dot{r} \\dot{\\theta}}) \\hat{e_\\theta} \\\\
+      \\vec{a} &= -r \\dot{\\theta} ^ 2 \\hat{e_r} + r \\ddot{\\theta} \\hat{e_\\theta} \\end{align}`/>
+  </DisplayEquation>
 </SubSection>
 
 <SubSection title = "Kinetics" id = "kinetics">
-  <DisplayEquation equation = "" title = "Kinetics" background = "true" id = "kinetics"/>
+  This step involves combining the expressions solved for in the FBD step and the kinematics step.
+  <DisplayEquation equation = `\\begin{align} \\sum \\ F_r &= m \\ a_r \\\\
+    -F_s + m \\ g \\cos{\\theta} &= m \\ (-r \\ddot{\\theta} ^ 2) \\end{align}` title = "Kinetics" background = "true" id = "kinetics"/>
+  <DisplayEquation equation = `\\begin{align} \\sum \\ F_\\theta &= m \\ a_\\theta \\\\
+    -m \\ g \\sin{\\theta} &= m \\ r \\ddot{\\theta} \\end{align}` title = "Kinetics2" background = "true" id = "kinetics2"/>
 </SubSection>
 
 <SubSection title = "Algebra" id = "algebra">
-  <DisplayEquation equation = "" title = "Algebra" background = "true" id = "algebra"/>
+  <DisplayEquation equation = "\\vec{F_s} = m \\ r \\ \\dot{\\theta} ^ 2 + m \\ g \\cos{\\theta}" title = "Algebra" background = "true" id = "algebra"/>
+  <DisplayEquation equation = "\\ddot{\\theta} = \\frac{-g}{r} \\sin{\\theta}" title = "Algebra 2" background = "true" derivation = "true" id = "algebra2">
+    <DisplayEquation equation = `\\begin{align} \\cancel{m} \\ r \\ddot{\\theta} + \\cancel{m} \\ g \\sin{\\theta} &= 0 \\\\
+      r \\ddot{\\theta} + g \\sin{\\theta} &= 0 \\\\
+      \\ddot{\\theta} &= \\frac{-g}{r} \\sin{\\theta} \\end{align}`/>
+  </DisplayEquation>
 </SubSection>
 
 </Layout>
