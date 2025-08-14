@@ -44,12 +44,25 @@ import Slideshow from "../../components/Slideshow.astro";
     
 <SubSection title = "Background" id = "background">
 
-<p>
+    <CalloutContainer slot = 'cards'>
+        <CalloutCard>
 
+            <p>
+                The center of buoyancy (<InlineEquation equation="B" />) is the point where the total buoyant force on a 
+                submerged or floating object acts. You can think of it as the center of gravity of 
+                the volume of fluid displaced by the object. This term is crucial for understanding 
+                stability and equilibrium in hydrodynamics. 
+            </p>
+
+
+        </CalloutCard>
+
+    </CalloutContainer>
+
+<p>
     The <a target="_blank" rel="noopener noreferrer" 
     href="https://www.cnn.com/2021/09/14/us/golden-ray-cargo-ship-ntsb-report/index.html">MV Golden Ray</a>, a 656-foot long roll-on/roll-off vehicle carrier, collapsed on 
-    8 September 2019 in between the Colonel's Island Terminal in the Port of Brunswick, Georgia, and Baltimore, Maryland. 
-     
+    8 September 2019 in between the Colonel's Island Terminal in the Port of Brunswick, Georgia, and Baltimore, Maryland.    
 </p>
 
     <Image alt = "Capsized ship" src = "/dyn/the_capsizing_ship/Capsized_ship.jpg" width = 5>
@@ -67,39 +80,20 @@ import Slideshow from "../../components/Slideshow.astro";
     </Image>
 
     <p>
-
         After an investigation by the <a target="_blank" rel="noopener noreferrer" 
     href="https://www.ntsb.gov/Pages/home.aspx">National Transportation Safety Board (NTSB)</a>, 
-        it was found that the ship collapsed due to the use of erroneous ballast quantities in the stability 
+        it was found that the ship collapsed due to the use of erroneous ballast (cargo, weights, etc.) quantities in the stability 
         calculation program, which produced incorrect stability conditions of the ship. In other words, a 
-        moment or torque was generated from the difference between 
-        the locations of the center of mass and the center of buoyancy.
-        This torque arm produced an angular acceleration (<InlineEquation equation="\\alpha" />) that was opposite to the angular displacement
-        (<InlineEquation equation="\\theta" />), which meant that the ship was in unstable equilibrium. Thus, the failure in accounting for the 
-        changes in ballast quantities meant that the hull of the ship was unable to provide a counter torque to
-        these forces, and the ship capsized.
+        moment was generated from the location difference between the center of mass and the center of buoyancy.
+        This moment arm produced an angular acceleration (<InlineEquation equation="\\alpha" />) opposite to the angular displacement
+        (<InlineEquation equation="\\theta" />), meaning the ship was unstable. This failure to account for changes in ballast quantities 
+        meant the ships hull could not provide a counter moment to these forces, and the ship capsized.
     </p>
 
 
 </SubSection>
 
 <SubSection title = "Principles of stability" id = "principles_of_stability">
-    
-    <CalloutContainer slot = 'cards'>
-        <CalloutCard>
-
-            <p>
-
-                The center of buoyancy (<InlineEquation equation="B" />) is the point where the total buoyant force on a 
-                submerged or floating object acts. You can think of it as the center of gravity of 
-                the volume of fluid displaced by the object. This term is crucial for understanding 
-                stability and equilibrium in hydrodynamics. 
-            </p>
-
-
-        </CalloutCard>
-
-    </CalloutContainer>
     
        <Slideshow id = "capsizing_ship">
         <Image alt = "Stability of ship 1" src = "/dyn/the_capsizing_ship/Stability_of_ship_1.png" width = 5></Image>
@@ -114,36 +108,30 @@ import Slideshow from "../../components/Slideshow.astro";
     </p>
 
     <p>
-    Ship stability reflects the relationship between buoyancy (the force pushing on a ship allowing it to float) 
-    and gravity (the force pushing the ship into the water). The force of gravity acts downward through the 
-    ship's center of gravity (<InlineEquation equation="G" />), while the buoyant force acts upward through the ship's center of buoyancy (<InlineEquation equation="B" />). 
+    Ship stability reflects the relationship between buoyancy (the force pushing up on the ships center of buoyancy, <InlineEquation equation="B" />) 
+    and gravity (the force pushing down on the ships center of gravity, <InlineEquation equation="G" />). 
     When a vessel is floating upright, the force of gravity and buoyancy are vertically aligned. 
-    The stability of a vessel is usually expressed as the magnitude of the heeling moment necessary to capsize the 
-    ship at a certain angle, called the heeling angle.
-
+    Vessel stability is usually expressed as the heeling (tilting) moment magnitude necessary to capsize the 
+    ship at a specified heeling angle.
     </p>
 
-    <p>
-
-    When a disturbing force such as wave action or wind pressure exerts an inclining moment on a ship, 
-    the ship's underwater volume shifts in the direction of the heel, 
-    which causes the center of buoyancy to shift in the same direction. Unless the ballast of the ship
-    (cargo, weights, etc.) is allowed to change, the center of gravity remains the same and lines of 
-    action of the forces of buoyancy and gravity separate. The hull of the ship allows the exertion 
-    of a restoring moment to bring the ship to an even keel, known as the righting moment. The special
-    moment arm in this case is known as the righting arm. 
-
+<p>
+    When a disturbing force, such as waves or wind, exerts an inclining moment on a ship, 
+    the ship's underwater volume shifts, causing the center of buoyancy to move.
+    A ship's metacenter (<InlineEquation equation="M" />) is the virtual intersection between the lines from (1) the original center of buoyancy and (2) 
+    the new, heeling center of buoyancy. The distance from a ship's center of gravity to its metacenter is known as the 
+    metacentric height (<InlineEquation equation="GM" />), and is used to determine stability. A negative value indicates instability. 
     </p>
 
+
     <p>
+    Unless the ballast is allowed to change, the center of gravity remains the same, causing the two force directions to become unalligned, 
+    risking this negative <InlineEquation equation="GM" /> value. If ballast allows the restoring moment exertion to bring the ship to an even keel, 
+    the <InlineEquation equation="GM" /> is positive and the moment is
+    known as the righting moment arm. 
+    </p>
+
     
-    A ship's metacenter (<InlineEquation equation="M" />) is the virtual intersection of two successive lines of action of 
-    the force of buoyancy when the ship heels through a very small angle. 
-    The initial position of the metacenter is used as a reference in stability calculations. 
-    The distance from a ship's center of gravity to its metacenter is known as the (<InlineEquation equation="GM" />), 
-    which measures the vessel's ability to right itself when experiencing an overturning moment.
-
-    </p>
 
     
 
