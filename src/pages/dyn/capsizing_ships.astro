@@ -26,26 +26,36 @@ import CalloutContainerContainer from "../../components/special/CalloutContainer
 import Slideshow from "../../components/Slideshow.astro";
 
 ---
-<Layout title="The capsizing ship">
+<Layout title="Capsizing ships">
 
     <div slot="navtree">
         <ul class='list-group list-group-flush py-0'> 
-          <ul class='list-group list-group-flush py-0'> 
-              <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#background'>Background</a></li>
-              <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#principles_of_stability'>Principles of stability</a></li>
-              <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#stability_comparisons'>Stability comparisons</a></li>
-          </ul>
-              </ul>
-          </li>
-      </ul>
-      </div>
+            <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#background'>Background</a></li>
+            <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#principles_of_stability'>Principles of stability</a></li>
+            <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#stability_comparisons'>Stability comparisons</a>
+                <ul class='list-group list-group-flush py-0'> 
+                    <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#simple'>Simple pendulum</a></li>
+                    <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#inverted'>Inverted pendulum</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
 
-<Section title = "The capsizing ship" id = "capsizing_ship"></Section>
+<Section title = "Capsizing ships" id = "capsizing_ships"></Section>
     
 <SubSection title = "Background" id = "background">
 
+    
+    
     <CalloutContainer slot = 'cards'>
         
+        <CalloutCard title="Reference material.">
+           
+<p> This application uses <a href="/dyn/rigid_body_kinetics#center_of_mass">center of mass.</a> </p>
+
+
+        </CalloutCard>
+
         <CalloutCard title="Extra!">
         <p class="m-0"><u>Supplemental video:</u></p>
             
@@ -105,7 +115,7 @@ import Slideshow from "../../components/Slideshow.astro";
 
 <SubSection title = "Principles of stability" id = "principles_of_stability">
     
-       <Slideshow id = "capsizing_ship">
+       <Slideshow id = "capsizing_ship_fig">
         <Image alt = "Stability of ship 1" src = "/dyn/the_capsizing_ship/Stability_of_ship_1.png" width = 5></Image>
 
         <Image alt = "Stability of ship 2" src = "/dyn/the_capsizing_ship/Stability_of_ship_2.png" width = 5></Image>
@@ -154,7 +164,8 @@ import Slideshow from "../../components/Slideshow.astro";
 
      A simple pendulum can be thought of as a mechanical analog of a ship. 
     Simple pendulums experience a restoring torque when in an unstable position that brings it back to equilibrium, 
-    similar to the function of a righting moment in the example above. This corresponds to a ship having a low center of gravity.
+    similar to the function of a righting moment in the example above. <strong>This corresponds to a ship having a low center of gravity.</strong>
+
 
    <Slideshow id = "pendulum">
         <Image alt = "Simple Pendulum" src = "/dyn/the_capsizing_ship/Simple_pendulum_1.jpg" width = 4></Image>
@@ -183,7 +194,7 @@ import Slideshow from "../../components/Slideshow.astro";
     </SubSubSection>
 
     <SubSubSection title = "Inverted pendulum" id = "inverted"> 
-    However, in the case of an inverted pendulum, there is no stable equilibrium position. This corresponds to a ship with a high center of gravity. 
+    However, in the case of an inverted pendulum, there is no stable equilibrium position. <strong>This corresponds to a ship having a high center of gravity.</strong> 
 
     <Slideshow id = "inverted_pendulum">
         <Image alt = "Inverted Pendulum" src = "/dyn/the_capsizing_ship/Inverted_pendulum_1.jpg" width = 4></Image>
@@ -197,9 +208,11 @@ import Slideshow from "../../components/Slideshow.astro";
     This is an unstable system since the output due to an excitation is unbounded, unlike a simple pendulum. 
     When the pendulum is displaced by a value of <InlineEquation equation="\\phi" />, the torque induced is in the direction 
     of the angular displacement (i.e., <InlineEquation equation="\\alpha" /> and <InlineEquation equation="\\phi" /> have the same signs). 
-    In the case of a ship, the high center of gravity means there is a high risk of capsizing.    
+    In the case of a ship, the high center of gravity means <strong>there is a high risk of capsizing.</strong>
 
 </SubSubSection>
+</Layout>
+
 <!-- 
 <SubSection title = "Additional information" id = "additional_info">
 
