@@ -45,7 +45,17 @@ import Slideshow from "../../components/Slideshow.astro";
 <SubSection title = "Background" id = "background">
 
     <CalloutContainer slot = 'cards'>
-        <CalloutCard>
+        
+        <CalloutCard title="Extra!">
+        <p class="m-0"><u>Supplemental video:</u></p>
+            
+<p class="m-0">Watch how boats can be engineered and tested to correct any capsizing movements. </p>
+<iframe src="https://www.youtube.com/embed/ggNx7G6i664" class="w-100" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+
+        </CalloutCard>
+                
+        <CalloutCard  title="Review?">
 
             <p>
                 The center of buoyancy (<InlineEquation equation="B" />) is the point where the total buoyant force on a 
@@ -139,40 +149,42 @@ import Slideshow from "../../components/Slideshow.astro";
 </SubSection>
 
 <SubSection title = "Stability comparisons" id = "stability_comparisons">
+    </SubSection>
+    <SubSubSection title = "Simple pendulum" id = "simple">
+
+     A simple pendulum can be thought of as a mechanical analog of a ship. 
+    Simple pendulums experience a restoring torque when in an unstable position that brings it back to equilibrium, 
+    similar to the function of a righting moment in the example above. This corresponds to a ship having a low center of gravity.
+
    <Slideshow id = "pendulum">
         <Image alt = "Simple Pendulum" src = "/dyn/the_capsizing_ship/Simple_pendulum_1.jpg" width = 4></Image>
 
         <Image alt = "Simple Pendulum" src = "/dyn/the_capsizing_ship/Simple_pendulum_2.jpg" width = 4></Image>
 
     </Slideshow>
-   
-    <p>
-    A simple pendulum can be thought of as a mechanical analog of a hydrodynamic system such as a ship. 
-    A simple pendulum experiences restoring torque at its unstable position that brings it back to its
-    stable equilibrium position, similar to the function of a righting moment in the example above. 
-    However, in the case of an inverted pendulum, there is no stable equilibrium position. 
-    The two examples presented below for the simple and inverted pendulum correspond to the ship 
-    having low and high centers of gravity respectively. 
-    
 
     <DisplayEquation background = True title = "Characteristic equation of a pendulum." id = "eqn-pend"
     equation = "\\begin{aligned}   \\ddot \\theta  = - \\frac{g}{l} \ \\sin(\\theta)  \\end{aligned}">
       
     </DisplayEquation>
         
-    For a simple pendulum, the rest position or the vertical position where 
-    the angular displacement <InlineEquation equation="\\theta=0" /> is the position of marginally stable 
-    equilibrium. The reason the equilibrium is marginally stable is because 
-    an oscillatory system like a simple pendulum does not become unbounded but 
-    also does not achieve a steady state after an excitation. 
+    For a simple pendulum, the rest, or vertical, position where the angular displacement at (<InlineEquation equation="\\theta=0" />) 
+    is the position of marginally stable equilibrium. 
+    Equilibrium is only marginally stable because an oscillatory system, like a simple pendulum, has a limited output range but 
+     does not achieve steady state after an excitation. 
     At <InlineEquation equation="\\theta=0" />, its potential energy is lowest while the kinetic
-    energy is maximized. However, at the two extrema on either side of the rest 
-    position, the <InlineEquation equation="\\theta" /> from the stable equilibrium position
-    is maximum and the pendulum has the maximum potential energy. This configuration
-    induces a restoring torque (<InlineEquation equation="\\tau" />) that produces an <InlineEquation equation="\\alpha" />, 
+    energy is maximized. 
+    However, at the two extrema on either side of the rest position, 
+    the <InlineEquation equation="\\theta" /> is maximum and the pendulum has the maximum potential energy. 
+    This configuration induces a restoring torque (<InlineEquation equation="\\tau" />) that produces an <InlineEquation equation="\\alpha" />, 
     which is opposite to the direction of the angular displacement. The implication is that
     these extrema are unstable for the simple pendulum. 
-    
+   
+    </SubSubSection>
+
+    <SubSubSection title = "Inverted pendulum" id = "inverted"> 
+    However, in the case of an inverted pendulum, there is no stable equilibrium position. This corresponds to a ship with a high center of gravity. 
+
     <Slideshow id = "inverted_pendulum">
         <Image alt = "Inverted Pendulum" src = "/dyn/the_capsizing_ship/Inverted_pendulum_1.jpg" width = 4></Image>
 
@@ -180,18 +192,14 @@ import Slideshow from "../../components/Slideshow.astro";
 
     </Slideshow>
 
-    For an inverted pendulum, the rest position with <InlineEquation equation="\\phi=0" /> is unstable since its potential energy is maximized. 
-    This is an unstable system since the output, due to an excitation, is unbounded, unlike a simple pendulum. 
-    When the pendulum is displaced for a value of <InlineEquation equation="\\phi" />, the torque induced is in the direction 
-    of the angular displacement (i.e., <InlineEquation equation="\\alpha" /> and <InlineEquation equation="\\phi" /> have the same signs). 
-    You could think of this as being the case when the ship capsizes eventually. However, the 
-    pendulum does not have a metacenter or a center of buoyancy, which are only valid for floating
-    objects. 
-    
-    
 
-    </p>
-</SubSection>
+    For an inverted pendulum, the rest position with <InlineEquation equation="\\phi=0" /> is unstable since its potential energy is maximized. 
+    This is an unstable system since the output due to an excitation is unbounded, unlike a simple pendulum. 
+    When the pendulum is displaced by a value of <InlineEquation equation="\\phi" />, the torque induced is in the direction 
+    of the angular displacement (i.e., <InlineEquation equation="\\alpha" /> and <InlineEquation equation="\\phi" /> have the same signs). 
+    In the case of a ship, the high center of gravity means there is a high risk of capsizing.    
+
+</SubSubSection>
 <!-- 
 <SubSection title = "Additional information" id = "additional_info">
 
