@@ -111,7 +111,7 @@ $(document).ready(function() {
             yLabelRotate: true,
         };
         console.log(2)
-        this.plot(posTrajVacuum, originDw, sizeDw, originData, sizeData, "TEX:horizontal position $x$ / m", "TEX:vertical position $y$ / m", "blue", true, false, null, null, options);
+        this.plot(posTrajVacuum, originDw, sizeDw, originData, sizeData, "TEX:\\text{horizontal position} \\ $x$ / m", "TEX:\\text{vertical position} \\ $y$ / m", "blue", true, false, null, null, options);
         this.plot(posTrajDrag, originDw, sizeDw, originData, sizeData, null, null, "red", false);
 
         var findPeak = function(posTraj) {
@@ -136,8 +136,8 @@ $(document).ready(function() {
             (peakDrag.e(2) - originData.e(2)) / sizeData.e(2) * sizeDw.e(2) + originDw.e(2),
         ]);
 
-        this.text(peakVacuum, $V([0, -1]), "TEX:vacuum");
-        this.text(peakDrag, $V([0, 1]), "TEX:drag");
+        this.text(peakVacuum, $V([0, -1]), "TEX:\\text{vacuum}");
+        this.text(peakDrag, $V([0, 1]), "TEX:\\text{drag}");
     });
 
     /********************************************************************************/
