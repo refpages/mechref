@@ -259,25 +259,25 @@ import InlineCanvas from "../../components/InlineCanvas.astro"
   </p>
   <p>
     The length \(L\) of our path can be computed by integrating
-    the speed from the start time to the end time:
+    the speed from the start time to the end time.
   </p>
   <p>
-    <DisplayEquation equation="L = \\int_0^1 \\| \\dot{\\vec{r}} \\| \\, dt= \\int_0^1 \\sqrt{\\dot{x}^2 + \\dot{y}^2 + \\dot{z}^2} \\, dt." />
+    <DisplayEquation equation="L = \\int_0^1 \\| \\dot{\\vec{r}} \\| \\, dt= \\int_0^1 \\sqrt{\\dot{x}^2 + \\dot{y}^2 + \\dot{z}^2} \\, dt" />
   </p>
   <p>
     To switch from rectangular to spherical coordinates we use
-    the <a href="#rvs-ec">conversion</a>:
+    this <a href="#rvs-ec">conversion.</a>
   </p>
   <p>
-    <DisplayEquation equation="\\begin{aligned}    x &amp;= r \\cos\\theta \\sin\\phi \\\\    y &amp;= r \\sin\\theta \\sin\\phi \\\\    z &amp;= r \\cos\\phi.    \\end{aligned}" />
+    <DisplayEquation equation="\\begin{aligned}    x &amp;= r \\cos\\theta \\sin\\phi \\\\    y &amp;= r \\sin\\theta \\sin\\phi \\\\    z &amp;= r \\cos\\phi    \\end{aligned}" />
   </p>
   <p>
     Differentiating these expressions and substituting (or using
     the <a href="#rvs-ep">spherical velocity
-    expression</a>) gives the path length expression:
+    expression</a>) gives the path length expression.
   </p>
   <p>
-    <DisplayEquation equation="L = \\int_0^1 r_0 \\sqrt{\\dot{\\phi}^2 + \\dot{\\theta}^2 \\sin^2\\phi} \\, dt\\ge \\int_0^1 r_0 |\\dot{\\phi}| \\, dt\\ge r_0 \\Delta \\phi." />
+    <DisplayEquation equation="L = \\int_0^1 r_0 \\sqrt{\\dot{\\phi}^2 + \\dot{\\theta}^2 \\sin^2\\phi} \\, dt\\ge \\int_0^1 r_0 |\\dot{\\phi}| \\, dt\\ge r_0 \\Delta \\phi" />
   </p>
   <p>
     Here we have used the fact that <InlineEquation equation="\\dot{\\theta}^2 \\sin^2\\phi    \\ge 0" /> to see that \(L\) must be at least as big as the
@@ -290,9 +290,8 @@ import InlineCanvas from "../../components/InlineCanvas.astro"
     <CalloutCard>
       <p>
         All the calculations on this page have assumed a spherical
-        model of the Earth, given by
-        <DisplayEquation equation="x^2 + y^2 + z^2 = R^2," />
-        where the radius of the Earth is \(R = 6371\rm\ km.\)
+        model of the Earth, given by the following equation, where the radius of the Earth is \(R = 6371\rm\ km.\)
+        <DisplayEquation equation="x^2 + y^2 + z^2 = R^2" />
       </p>
       <p>
         Because it spins with a period of about 24 hours, the
@@ -300,9 +299,8 @@ import InlineCanvas from "../../components/InlineCanvas.astro"
         equator than from the poles. A shape that better
         approximates the true Earth is thus an <a
         target="_blank" rel="noopener noreferrer" href="http://en.wikipedia.org/wiki/Reference_ellipsoid">ellipsoid</a>,
-        given by:
-        <DisplayEquation equation="\\left(\\frac{x}{R_{\\rm xy}}\\right)^2+ \\left(\\frac{y}{R_{\\rm xy}}\\right)^2+ \\left(\\frac{z}{R_{\\rm z}}\\right)^2 = 1,      " />
-        where <InlineEquation equation="R_{\\rm xy} = 6378\\rm\\ km" /> and <InlineEquation equation="\R_{\\rm z} = 6357\\rm\\ km." />
+        given by the following equation, where <InlineEquation equation="R_{\\rm xy} = 6378\\rm\\ km" /> and <InlineEquation equation="\R_{\\rm z} = 6357\\rm\\ km." />
+        <DisplayEquation equation="\\left(\\frac{x}{R_{\\rm xy}}\\right)^2+ \\left(\\frac{y}{R_{\\rm xy}}\\right)^2+ \\left(\\frac{z}{R_{\\rm z}}\\right)^2 = 1      " />
       </p>
       <p>
         Computing shortest path distances on ellipsoids turns out
