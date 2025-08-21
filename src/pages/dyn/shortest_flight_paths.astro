@@ -290,8 +290,9 @@ import InlineCanvas from "../../components/InlineCanvas.astro"
     <CalloutCard>
       <p>
         All the calculations on this page have assumed a spherical
-        model of the Earth, given by the following equation, where the radius of the Earth is \(R = 6371\rm\ km.\)
+        model of the Earth, given by the following equation.
         <DisplayEquation equation="x^2 + y^2 + z^2 = R^2" />
+        We consider that radius of the Earth is \(R = 6371\rm\ km.\)
       </p>
       <p>
         Because it spins with a period of about 24 hours, the
@@ -299,8 +300,9 @@ import InlineCanvas from "../../components/InlineCanvas.astro"
         equator than from the poles. A shape that better
         approximates the true Earth is thus an <a
         target="_blank" rel="noopener noreferrer" href="http://en.wikipedia.org/wiki/Reference_ellipsoid">ellipsoid</a>,
-        given by the following equation, where <InlineEquation equation="R_{\\rm xy} = 6378\\rm\\ km" /> and <InlineEquation equation="\R_{\\rm z} = 6357\\rm\\ km." />
+        given by the following equation.
         <DisplayEquation equation="\\left(\\frac{x}{R_{\\rm xy}}\\right)^2+ \\left(\\frac{y}{R_{\\rm xy}}\\right)^2+ \\left(\\frac{z}{R_{\\rm z}}\\right)^2 = 1      " />
+        We consider that <InlineEquation equation="R_{\\rm xy} = 6378\\rm\\ km" /> and <InlineEquation equation="\R_{\\rm z} = 6357\\rm\\ km." />
       </p>
       <p>
         Computing shortest path distances on ellipsoids turns out

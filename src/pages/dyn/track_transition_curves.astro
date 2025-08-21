@@ -281,7 +281,7 @@ import InlineCanvas from "../../components/InlineCanvas.astro"
     say this is that the curvature is a linear function of the
     distance along the curve. To see that this is the same
     thing, we write the acceleration in a <a
-    href="rvt.html">tangential/normal basis</a> as  <DisplayEquation equation=" \\vec{a} =    \\ddot{s} \\, \\hat{e}_t + \\kappa v^2 \\, \\hat{e}_n. " />
+    href="rvt.html">tangential/normal basis</a> with the following equation.  <DisplayEquation equation=" \\vec{a} =    \\ddot{s} \\, \\hat{e}_t + \\kappa v^2 \\, \\hat{e}_n " />
     For constant-speed motion with speed \(v\), the distance along the
     curve satisfies <InlineEquation equation=" \\dot{s} = v = \\text{constant}" />, so
     <InlineEquation equation="\\ddot{s} = 0" />. The acceleration vector thus only has a
@@ -297,10 +297,10 @@ import InlineCanvas from "../../components/InlineCanvas.astro"
     define the shape of the Euler spiral curve, finding the
     explicit equation for the curve is not so easy. We first
     introduce the functions \(C(z)\) and \(S(z)\), known as <em>Fresnel
-    integrals</em> and defined by:
+    integrals</em> defined by the following equations.
   </p>
 
-  <DisplayEquation id="avt-ef" title="Fresnel integrals" background="True" equation="\\begin{aligned}C(z) &amp;= \\int_0^z \\cos\\Big(\\frac{1}{2} \\pi u^2\\Big) du \\\\S(z) &amp;= \\int_0^z \\sin\\Big(\\frac{1}{2} \\pi u^2\\Big) du\\end{aligned}"/>
+  <DisplayEquation id="avt-ef" title="Fresnel integrals." background="True" equation="\\begin{aligned}C(z) &amp;= \\int_0^z \\cos\\Big(\\frac{1}{2} \\pi u^2\\Big) du \\\\S(z) &amp;= \\int_0^z \\sin\\Big(\\frac{1}{2} \\pi u^2\\Big) du\\end{aligned}"/>
 
   <p>
     The Fresnel integrals do not have any simpler forms in terms
@@ -310,10 +310,10 @@ import InlineCanvas from "../../components/InlineCanvas.astro"
   <p>
     Now we define the constant <InlineEquation equation="\\ell = \\sqrt{\\pi/\\alpha}" />, and
     then the position at distance \(s\) along an Euler spiral
-    curve is:
+    curve with the following equation.
   </p>
 
-  <DisplayEquation id="avt-ee" title="Euler spiral"  equation="\\vec{r} = \\ell C(s / \\ell) \\, \\hat{\\imath}+ \\ell S(s / \\ell) \\, \\hat{\\jmath}" background="True" derivation="True">
+  <DisplayEquation id="avt-ee" title="Euler spiral."  equation="\\vec{r} = \\ell C(s / \\ell) \\, \\hat{\\imath}+ \\ell S(s / \\ell) \\, \\hat{\\jmath}" background="True" derivation="True">
     <InlineCanvas id="avt-ee-c" width="300" height="200" />
 
     <p>
@@ -323,7 +323,7 @@ import InlineCanvas from "../../components/InlineCanvas.astro"
       basis, let \(\theta\) be the angle of <InlineEquation equation="\\hat{e}_t" /> as
       shown. Then <InlineEquation equation="\\dot{\\theta}" /> can be found by considering
       two expressions for the acceleration. First, from the tangential/normal acceleration
-      formula, we have <DisplayEquation equation=" \\vec{a} = \\ddot{s} \\, \\hat{e}_t +      \\kappa v^2 \\, \\hat{e}_n = \\alpha s v^2 \\, \\hat{e}_n, " />
+      formula, we have the following equation. <DisplayEquation equation=" \\vec{a} = \\ddot{s} \\, \\hat{e}_t +      \\kappa v^2 \\, \\hat{e}_n = \\alpha s v^2 \\, \\hat{e}_n " />
       where we used the fact that <InlineEquation equation="\\ddot{s} = \\dot{v} = 0" />
       (constant speed) and that <InlineEquation equation="\\kappa = \\alpha s " /> for some
       constant \(\alpha\) (the definition of the Euler spiral is
@@ -332,23 +332,23 @@ import InlineCanvas from "../../components/InlineCanvas.astro"
     <p>
       The second expression for acceleration uses the angular
       velocity <InlineEquation equation="\\vec{\\omega} = \\dot\\theta \\, \\hat{k}" /> of the
-      tangential/normal basis vectors. Recalling that <InlineEquation equation="\\vec{v}      = v \\, \\hat{e}_t" /> and \(v\) is constant, we have
-      <DisplayEquation equation=" \\begin{aligned}      \\vec{a} = \\dot{\\vec{v}} = v \\, \\dot{\\hat{e}}_t      = v \\, \\vec{\\omega} \\times \\vec{e}_t      = v \\dot{\\theta} \\, \\hat{e}_n. \\end{aligned}" />
+      tangential/normal basis vectors. Recalling that <InlineEquation equation="\\vec{v}      = v \\, \\hat{e}_t" /> and \(v\) is constant, we have the following equation.
+      <DisplayEquation equation=" \\begin{aligned}      \\vec{a} = \\dot{\\vec{v}} = v \\, \\dot{\\hat{e}}_t      = v \\, \\vec{\\omega} \\times \\vec{e}_t      = v \\dot{\\theta} \\, \\hat{e}_n \\end{aligned}" />
     </p>
     <p>
-      Comparing the two expressions for <InlineEquation equation="\\vec{a}" /> and using <InlineEquation equation="s = vt" /> we see that
-      <DisplayEquation equation=" \\dot{\\theta} = \\alpha s v = \\alpha v^2 t " /> and we can
+      Comparing the two expressions for <InlineEquation equation="\\vec{a}" /> and using <InlineEquation equation="s = vt" /> we see the following equation.
+      <DisplayEquation equation=" \\dot{\\theta} = \\alpha s v = \\alpha v^2 t " /> We can
       integrate this (with the initial condition that $\(\theta\)
-      starts at zero) to give <DisplayEquation equation=" \\theta = \\frac{1}{2} \\alpha      v^2 t^2. " />
+      starts at zero) to give the following equation. <DisplayEquation equation=" \\theta = \\frac{1}{2} \\alpha      v^2 t^2 " />
     </p>
     <p>
-      To find the equation for <InlineEquation equation="\\vec{r}" /> we can integrate the
-      equation <DisplayEquation equation=" \\dot{\\vec{r}} = v \\, \\hat{e}_t = v      \\cos\\theta \\, \\hat{\\imath} + v \\sin\\theta \\,      \\hat{\\jmath} " /> 
-      starting from <InlineEquation equation="\\vec{r}=0" /> to obtain 
+      To find the equation for <InlineEquation equation="\\vec{r}" /> we can integrate this
+      equation. <DisplayEquation equation=" \\dot{\\vec{r}} = v \\, \\hat{e}_t = v      \\cos\\theta \\, \\hat{\\imath} + v \\sin\\theta \\,      \\hat{\\jmath} " /> 
+      We started from <InlineEquation equation="\\vec{r}=0" /> to obtain the following expression.
       
       <DisplayEquation equation="      \\begin{aligned} \\vec{r} &amp;= \\int_0^t \\left(v      \\cos\\Big(\\frac{1}{2} \\alpha v^2 \\tau^2\\Big) \\,      \\hat{\\imath} + v \\sin\\Big(\\frac{1}{2} \\alpha v^2 \\tau^2      \\Big) \\, \\hat{\\jmath}\\right) d\\tau \\\\ &amp;= \\ell      \\int_0^{s/\\ell} \\left( \\cos\\Big(\\frac{1}{2} \\pi u^2\\Big)      \\, \\hat{\\imath} + \\sin\\Big(\\frac{1}{2} \\pi u^2\\Big) \\,      \\hat{\\jmath} \\right) du, \\end{aligned} " />
       
-       where we made
+       We made
       the substitution <InlineEquation equation="\\tau = \\ell u / v" /> with <InlineEquation equation="\\ell =      \\sqrt{\\pi/\\alpha}" />. Using the definitions of the
       <a href="#avt-ef">Fresnel integrals</a> now gives the <a
       href="#avt-ee">desired expression</a>.
