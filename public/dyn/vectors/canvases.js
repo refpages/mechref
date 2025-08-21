@@ -1159,7 +1159,7 @@ $(document).ready(function(){
         this.save();
         this.setProp("pointRadiusPx", cityRadiusPx);
         this.setProp("shapeOutlineColor", cityColor1);
-        this.text(aP, $V([1.2, 0]), "TEX:Urbana", true);
+        this.text(aP, $V([1.1, 0]), "TEX:Urbana", true);
         this.point(aP);
         this.setProp("shapeOutlineColor", cityColor2);
         this.text(bP, $V([-1.2, 0]), "TEX:Delhi", true);

@@ -57,7 +57,7 @@ import InlineCanvas from "../../components/InlineCanvas.astro"
 
     <p>
       Geographic coordinates are typically given
-      in <a href="#spherical_coordinates">spherical coordinates</a>, but without
+      in <a href="/dyn/vectors#spherical_coordinates">spherical coordinates</a>, but without
       the radius and with the angles given
       in <a target="_blank" rel="noopener noreferrer" href="http://en.wikipedia.org/wiki/Arcminute">degrees,
       minutes, and seconds</a>, with the latitude first, and the
@@ -119,14 +119,14 @@ import InlineCanvas from "../../components/InlineCanvas.astro"
   <p>
     Finding the shortest distance between two points on the
     sphere is not a simple calculation given their latitude and
-    longitude. As <a href="#aos-sf">proved below</a>, the
+    longitude. As <a href="#aos-fd-c">proved below</a>, the
     shortest path on the sphere is always a <i>great circle</i>,
     which is the intersection of the sphere with a plane through
     the origin. The shortest distance calculation thus reduces
     to finding the angle between the vectors <InlineEquation equation="\\vec{OA}" /> and
     <InlineEquation equation="\\vec{OB}" />, which can be easily done by finding their <a
-    href="/sta/vector_calculus#rvv-sd">dot product</a> after changing them
-    to <a href="#cartesian_coordinates">rectangular coordinates</a>.
+    href="/dyn/vector_calculus#dot_product">dot product</a> after changing them
+    to <a href="/dyn/vectors#rvs-ec">rectangular coordinates</a>.
   </p>
   <Center>
   <PrairieDrawCanvas id="aos-fd-c" width="600" height="600">
