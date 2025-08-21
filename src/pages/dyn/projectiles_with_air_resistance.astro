@@ -96,11 +96,11 @@ import DisplayTable from "../../components/DisplayTable.astro"
 <SubSection title="Drag forces and drag coefficients" id = "drag_forces_and_drag_coefficients">
     <p>
         The <em>drag force</em> is always directly opposed to the velocity of
-        the object.  In vector notation,
+        the object.  In vector notation, it is defined by the following equation.
 
-        <DisplayEquation equation="\\vec{F}_{\\rm D} = -F_{\\rm D} \\hat{v}," />
+        <DisplayEquation equation="\\vec{F}_{\\rm D} = -F_{\\rm D} \\hat{v}" />
 
-        where <InlineEquation equation="F_{\\rm D}" /> is the magnitude of the drag force, and
+        We consider that <InlineEquation equation="F_{\\rm D}" /> is the magnitude of the drag force, and
         <InlineEquation equation="\\hat{v}" /> is the unit vector in the direction of the
         object's velocity.
       </p>
@@ -133,12 +133,12 @@ import DisplayTable from "../../components/DisplayTable.astro"
       <p>
         The magnitude of the drag force is
         characterized by the dimensionless <em>drag coefficient</em>
-        <InlineEquation equation="C_{\\rm D}"  />, given by
+        <InlineEquation equation="C_{\\rm D}"  />, given by the following equation.
 
-        <DisplayEquation equation="C_{\\rm D} = \\frac{F_{\\rm D}}{\\frac{1}{2} \\rho A v^2}," />
+        <DisplayEquation equation="C_{\\rm D} = \\frac{F_{\\rm D}}{\\frac{1}{2} \\rho A v^2}" />
 
 
-        where <InlineEquation equation="\\rho" /> is the density of the fluid (in this case,
+        We consider that <InlineEquation equation="\\rho" /> is the density of the fluid (in this case,
         air), <InlineEquation equation="A=(1/4)\\pi D^{2}" /> is the cross-sectional area of the object, and <InlineEquation equation="v" />        is the object's speed.
       </p>
 
@@ -149,11 +149,11 @@ import DisplayTable from "../../components/DisplayTable.astro"
     
     <p>
         A dimensionless parameter that is very useful in fluid
-        dynamics is the Reynolds number, which is defined as
+        dynamics is the Reynolds number, which is defined by the following equation.
 
-        <DisplayEquation equation="{\\rm Re} = \\frac{\\rho v L}{\\mu}," />
+        <DisplayEquation equation="{\\rm Re} = \\frac{\\rho v L}{\\mu}" />
 
-        where <InlineEquation equation="L" /> is a characteristic length for the flow (in this
+        We consider that <InlineEquation equation="L" /> is a characteristic length for the flow (in this
         case, the diameter <InlineEquation equation="D" /> of the ball), and <InlineEquation equation="\\mu" /> is the
         dynamic viscosity of the fluid.  The Reynolds number gives a
         ratio between inertial forces and viscous forces in a fluid
@@ -166,9 +166,9 @@ import DisplayTable from "../../components/DisplayTable.astro"
       <p>
         An important result in fluid dynamics is that the drag
         coefficient is a function only of the Reynolds number of the
-        fluid flow about the object.  That is,
+        fluid flow about the object.  This is defined by the following equation.
   
-        <DisplayEquation equation="C_{\\rm D} = C_{\\rm D}({\\rm Re})." />
+        <DisplayEquation equation="C_{\\rm D} = C_{\\rm D}({\\rm Re})" />
 
         This functional relationship has no closed form.  However,
         the relationship has been established numerically based on
@@ -201,30 +201,30 @@ import DisplayTable from "../../components/DisplayTable.astro"
         within this region, the magnitude of the drag force is
         proportional to the square of the object’s speed.
     Substituting <InlineEquation equation="C_{\\rm D}=1/2"/> into the definition of <InlineEquation equation="C_{D}" /> above,
-        we obtain
+        we obtain the following equation.
 
-        <DisplayEquation equation="F_{\\rm D} = \\frac{1}{4} \\rho A v^2 = c v^2,"/>
+        <DisplayEquation equation="F_{\\rm D} = \\frac{1}{4} \\rho A v^2 = c v^2"/>
       
-    where we have defined the <em>quadratic drag parameter</em> \(c\) as
+    We have defined the <em>quadratic drag parameter</em> \(c\) with the following equation.
 
-        <DisplayEquation equation="c = \\frac{1}{4} \\rho A = \\frac{\\pi}{16} \\rho D^2," />
+        <DisplayEquation equation="c = \\frac{1}{4} \\rho A = \\frac{\\pi}{16} \\rho D^2" />
 
-        which is a constant for a given projectile. This is referred to as <em>quadratic
+        We consider this is a constant for a given projectile. This is referred to as <em>quadratic
         drag</em>, because the drag force magnitude is proportional
         to the <em>square</em> of the speed.
-    Using this result, we can write the drag force vector as
+    Using this result, we can write the drag force vector with the following equation.
       
-        <DisplayEquation equation="\\vec{F}_{\\rm D} = - c v^2 \\hat{v}." />
+        <DisplayEquation equation="\\vec{F}_{\\rm D} = - c v^2 \\hat{v}" />
         
       <p>
       <p>
         In the presence of gravity and quadratic drag alone, the net
-        force on an object is given by
+        force on an object is given by the following equation.
 
-        <DisplayEquation equation="\\sum \\vec{F} = m \\vec{g} - c v^2 \\hat{v}," />
+        <DisplayEquation equation="\\sum \\vec{F} = m \\vec{g} - c v^2 \\hat{v}" />
         
 
-        where <InlineEquation equation="m" /> is the mass of the object and <InlineEquation equation="\\vec{g}" /> is the
+        We consider that <InlineEquation equation="m" /> is the mass of the object and <InlineEquation equation="\\vec{g}" /> is the
         local acceleration due to gravity. Below is an interactive
         graphic showing the trajectory of an object with gravity and
         quadratic drag.  You can change the various parameters to
