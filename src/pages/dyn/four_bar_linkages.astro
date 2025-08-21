@@ -952,7 +952,37 @@ import DisplayTable from "../../components/DisplayTable.astro"
           each of <InlineEquation equation = "T_1, T_2,"/> and <InlineEquation equation = "T_3"/> are positive, zero, or
           negative. The full table of possibilities is given below.
         </p>
-        <table class="smallGrid">
+  <style>
+    table.smallGrid {
+      border-spacing: 0;
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    table.smallGrid th {
+      padding: 0.4em;
+      border-left: 1px solid #000;
+      border-right: 1px solid #000;
+      border-top: 1px solid #000;
+      border-bottom: 3px solid #000;
+      text-align: center;
+    }
+
+    table.smallGrid td {
+      padding: 0.4em;
+      border: 1px solid #000;
+      text-align: center;
+    }
+
+    table.smallGrid th.midColGroup {
+      border-right: 3px solid #000;
+    }
+
+    table.smallGrid td.midColGroup {
+      border-right: 3px solid #000;
+    }
+    </style>
+        <table class = "smallGrid">
           <tr>
             <th>\(T_1\)</th><th>\(T_2\)</th><th>\(T_3\)</th><th>Input \(\alpha\)</th><th class="midColGroup">Output \(\beta\)</th>
             <th>\(T_1\)</th><th>\(T_2\)</th><th>\(T_3\)</th><th>Input \(\alpha\)</th><th class="midColGroup">Output \(\beta\)</th>
