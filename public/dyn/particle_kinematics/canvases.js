@@ -171,6 +171,130 @@ $(document).ready(function() {
 
     rkr_fc_c.activate3DControl();
 
+    aov_fe_c = new PrairieDrawAnim("aov-fe-c", function(t) {
+        this.setUnits(40, 20);
+
+        var daysInYear = 8; // solar days
+        var omega = 0.5; // orbital angular velocity
+        var orbitRad = 8;
+        var earthRad = 1;
+        var sunRad = 2;
+        var starRad = 0.8;
+        var sunColor = "rgb(200, 150, 0)";
+        var starColor = "rgb(0, 100, 150)";
+
+        var states = [];
+        var transTimes = [];
+        var holdTimes = [];
+        var interps = {};
+        var names = [];
+        var i, theta0, theta1;
+        var that = this;
+        var thetaOfState = function(iState) {
+            if (iState % 2 === 0) {
+                // solar day
+                return that.linearInterp(0, 2 * Math.PI, iState / 2 / daysInYear);
+            } else {
+                // sidereal day
+                return that.linearInterp(0, 2 * Math.PI, (iState + 1) / 2 / (daysInYear + 1));
+            }
+        };
+        for (i = 0; i <= 2 * daysInYear; i++) {
+            theta0 = thetaOfState(i);
+            theta1 = thetaOfState(i + 1);
+            states.push({"theta": theta0});
+            transTimes.push((theta1 - theta0) / omega);
+            if (i === 0) {
+                holdTimes.push(0);
+            } else if (i === 2 * daysInYear) {
+                holdTimes.push(1);
+            } else {
+                holdTimes.push(0.2);
+            }
+            names.push("");
+        }
+
+        var state = this.newSequence("motion", states, transTimes, holdTimes, interps, names, t);
+        i = state.index;
+        theta = state.theta;
+        var earthTheta = theta * (daysInYear + 1);
+
+        var O = $V([0, 0]);
+        var P = $V([Math.cos(theta), Math.sin(theta)]).x(orbitRad);
+
+        // stars
+        var drawStar = function(pos) {
+            that.save();
+            that.translate(pos);
+            that.setProp("shapeOutlineColor", starColor);
+            that.line($V([-starRad, 0]), $V([starRad, 0]));
+            that.line($V([0, -starRad]), $V([0, starRad]));
+            that.line($V([-starRad * 0.7, -starRad * 0.7]), $V([starRad * 0.7, starRad * 0.7]));
+            that.line($V([starRad * 0.7, -starRad * 0.7]), $V([-starRad * 0.7, starRad * 0.7]));
+            that.restore();
+        }
+        drawStar($V([-18, 5]));
+        drawStar($V([-16, 8]));
+        drawStar($V([-17, -8]));
+        drawStar($V([-15, 2]));
+        drawStar($V([-16.5, -1]));
+        drawStar($V([-15.5, 4]));
+        drawStar($V([-17.5, 7]));
+        drawStar($V([-15.2, -6]));
+        drawStar($V([-16.3, -3]));
+        drawStar($V([-17.4, -7]));
+
+        // earth-sun system
+        this.save();
+        this.translate($V([10, 0]));
+
+        // line to sun
+        if (!state.inTransition && i % 2 === 0 && i > 0) {
+            this.save();
+            if (i === 2 * daysInYear) {
+                this.setProp("shapeOutlineColor", starColor);
+                this.line(P, $V([-40, P.e(2)]));
+            }
+            this.setProp("shapeOutlineColor", sunColor);
+            this.line(O, P);
+            this.restore();
+        }
+
+        // line to stars
+        if (!state.inTransition && i % 2 === 1) {
+            this.save();
+            this.setProp("shapeOutlineColor", starColor);
+            this.line(P, $V([-40, P.e(2)]));
+            this.restore();
+        }
+
+        // sun
+        this.save();
+        this.setProp("pointRadiusPx", 20);
+        this.setProp("shapeInsideColor", "rgb(255, 255, 0)");
+        this.setProp("shapeOutlineColor", sunColor);
+        this.arc(O, sunRad, undefined, undefined, true);
+        this.restore();
+
+        // earth
+        this.save();
+        this.translate(P);
+        this.rotate(earthTheta);
+        this.arc(O, earthRad);
+        this.arrow(O, $V([-2.2 * earthRad, 0]));
+        this.restore();
+
+        this.restore(); // end of earth-sun system
+
+        var iSolar = Math.floor(i / 2);
+        var iSidereal = Math.floor((i + 1) / 2) + Math.floor(i / 2 / daysInYear);
+        this.save();
+        this._ctx.font = "16px sans-serif";
+        this.text($V([-12, 6.9]), $V([-1,-1]), "Solar days: " + iSolar.toFixed());
+        this.text($V([-12, 4.3]), $V([-1,-1]), "Sidereal days: " + iSidereal.toFixed());
+        this.restore();
+    });
+
     rkg_fr_c = new PrairieDraw("rkg-fr-c", function() {
         this.setUnits(3, 3 / this.goldenRatio);
 
@@ -1539,6 +1663,7 @@ $(document).ready(function() {
         rkv_fa_c.redraw();
         rkv_fr_c.redraw();
         rkr_fc_c.redraw();
+        aov_fe_c.redraw();
         rkr_fe_c.redraw();
         rkr_fg_c.redraw();
         rkt_fb_c.redraw();

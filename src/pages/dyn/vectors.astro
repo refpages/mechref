@@ -1198,6 +1198,10 @@ import InlineCanvas from "../../components/InlineCanvas.astro"
       <p>
         <a href = "/dyn/shortest_flight_paths">Shortest flight paths</a> uses <strong>spherical coordinates.</strong>
       </p>
+      <PrairieDrawCanvas id = "aos-fm-c" width = "250" height = "250"/>
+      <p>
+        Spherical coordinates can be used to find the shortest flight path between two places on a globe.
+      </p>
     </CalloutCard>
   </CalloutContainer>
 </SubSection>
@@ -1420,5 +1424,6 @@ import InlineCanvas from "../../components/InlineCanvas.astro"
 
 </Layout>
 
+<script src="/dyn/vectors/worldCoastlineCompressed.js" is:inline></script>
 <script src="/dyn/vectors/py_triples.js" is:inline></script>
 <script src="/dyn/vectors/canvases.js" is:inline></script>
