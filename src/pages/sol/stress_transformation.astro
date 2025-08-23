@@ -265,20 +265,34 @@ Normal and shear stresses can be shown graphically as a function of <InlineEquat
 
 <Image src="/sol/stress_transformation/Circular Shaft Torsion.png" width="7"></Image>
 
-<DisplayEquation equation="\\begin{align} \\sigma_{x'} = 2\\tau_{max} \\sin\\theta \\cos\\theta = \\tau_{max} \\sin (2\\theta) \\\\ \\tau_{x'y'} = \\tau_{max}(\\cos^2\\theta - \\sin^2\\theta) = \\tau_{max} \\cos(2\\theta) \\end{align}" title="Torsion on inclined planes." background="True" derivation="True" id="tor-inc">
+<p>
+  For a material under pure shear conditions, the state of stress can be defined with the following relations.
+</p>
 
-  Recall projected forces.
+  <DisplayEquation equation = "\\begin{align} \\sigma_x = \\sigma_y = 0 \\\\ \\tau_{xy} = \\tau_{max} = \\frac{Tc}{J} \\end{align}" title="State of stress for pure shear." background="True"/>. 
+  
+  <p>
+  The stress transformation equations under pure shear can be derived in terms of <InlineEquation equation = "\\tau_{max}"/>, the maximum shear stress under the applied torque. <InlineEquation equation = "\\tau_{max}"/> can be calculated using the formula for shear stress due to torsion: <InlineEquation equation = "\\tau_{max} = \\frac{Tc}{J}"/>, where T is the applied torque, c is the distance from the neutral axis to the stress element, and J is the polar moment of inertia.
+</p>
 
-  <DisplayEquation equation=" \\begin{align} \\sigma_{x'} = \\frac{P}{A_o}(\\cos^2(\\theta)) \\\\ \\tau_{x'y'} = -\\frac{P}{A_o}\\sin(\\theta)\\cos(\\theta) \\end{align} "/> 
+<DisplayEquation equation="\\begin{align} \\sigma_{x'} = 2\\tau_{max} \\sin\\theta \\cos\\theta = \\tau_{max} \\sin (2\\theta) \\\\ \\tau_{x'y'} = \\tau_{max}(\\cos^2\\theta - \\sin^2\\theta) = \\tau_{max} \\cos(2\\theta) \\\\ \\sigma_1 = \\tau_{max} = -\\sigma_2 \\\\ \\theta_{s1} = 0^\\circ = \\theta_{s2} \\pm 90^\\circ \\end{align}" title="Torsion on inclined planes." background="True" derivation="True" id="tor-inc">
 
+  Recall the stress transformation equations.
 
+  <DisplayEquation equation = "\\begin{align} \\sigma_{1,2} = \\frac{\\sigma_x +\\sigma_y}{2} \\pm \\sqrt{(\\frac{\\sigma_x - \\sigma_y}{2})^2 + \\tau_{xy}^2} \\\\= \\frac{0+0}{2} \\pm \\sqrt{(\\frac{0+0}{2})^2 + \\tau_{max}^2} \\\\= \\tau_{max} \\end{align}"/>
+
+  <DisplayEquation equation="\\begin{align} \\rm\\tan(2\\theta_{p1}) = \\frac{2\\tau_{xy}}{\\sigma_x - \\sigma_y} \\\\ = \\frac{2\\tau_{max}}{0-0} \\\\ 2\\theta_{p1} = \\pm 90^\\circ \\\\ \\theta_{p1} = \\pm 45^\\circ \\end{align}"/>
+
+  <DisplayEquation equation="\\begin{align} \\rm\\tan(2\\theta_{s1}) = \\frac{\\sigma_x - \\sigma_y}{2\\tau_{xy}} \\\\ = \\frac{0-0}{2\\tau_{max}} \\\\ 2\\theta_{s1} = 0^\\circ, 180^\\circ \\\\ \\theta_{s1} = 0^\\circ \\\\ \\theta_{s2} = \\pm 90^\\circ \\end{align}"/>
+
+  
   <Image src="/sol/stress_transformation/Max Stress.png" width="6"></Image>
 
- Maximum normal stress at 90 degrees.
+ Maximum normal stress at 45 degrees.
 
 <DisplayEquation equation="\\begin{align} \\sigma_{x'} = \\tau_{max} = \\frac{Tc}{J} \\\\ \\sigma_{y'} = -\\tau_{max} = -\\frac{Tc}{J} \\\\ \\tau_{x'y'} = 0 \\end{align}" /> 
 
- Maximum shear stress at 45 degrees.
+ Maximum shear stress at 0 degrees.
  <DisplayEquation equation="\\begin{align} \\sigma_{x'} = 0 \\\\ \\sigma_{y'} = 0 \\\\ \\tau_{x'y'} = \\tau_{max} = \\frac{Tc}{J} \\end{align}" /> 
 
 
