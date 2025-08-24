@@ -1,0 +1,78 @@
+---
+import Center from "../../components/Center.astro" 
+import Layout from "../../layouts/Layout.astro" 
+import Image from "../../components/Image.astro" 
+import Section from "../../components/Section.astro" 
+import SubSection from "../../components/SubSection.astro" 
+import SubSubSection from "../../components/SubSubSection.astro" 
+import BlueText from "../../components/BlueText.astro" 
+import InlineEquation from "../../components/InlineEquation.astro" 
+import DisplayEquation from "../../components/DisplayEquation.astro" 
+import PrairieDrawCanvas from "../../components/PrairieDrawCanvas.astro"
+import DisplayTable from "../../components/DisplayTable.astro"
+---
+<Layout title = "Introduction" description = "This page explains the essence of dynamics, the branch of mechanics dealing with objects in motion.">
+
+<div slot = "navtree">
+    <ul class = 'list-group list-group-flush py-0'> 
+        <li class = 'list-group-item py-0'><a class = 'text-decoration-none subsection' href = '#what_is_dynamics'>What is dynamics?</a></li>
+        <li class = 'list-group-item py-0'><a class = 'text-decoration-none subsection' href = '#assumptions_in_dynamics'>Assumptions in dynamics</a></li>
+    </ul>
+</div>
+
+<Section title = "Introduction"/>
+
+<SubSection title = "What is dynamics?" id = "what_is_dynamics"/>
+
+<SubSection title = "Assumptions in dynamics" id = "assumptions in dynamics">
+    <DisplayTable id = "assumptions" class = "mb-3">
+        <thead>
+            <tr>
+                <th class = "table-shaded"/>
+                <th class = "table-shaded">
+                    Rigid
+                </th>
+                <th class = "table-shaded">
+                    Deformable
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class = "table-shaded">
+                    <p>
+                        No motion
+                    </p>
+                    <InlineEquation equation = "\\sum F = 0"/>
+                </td>
+                <td>
+                    Statics
+                </td>
+                <td>
+                    Solid mechanics
+                </td>
+            </tr>
+            <tr>
+                <td class = "table-shaded">
+                    <p>
+                        Motion
+                    </p>
+                    <InlineEquation equation = "\\sum F \\neq 0"/>
+                </td>
+                <td>
+                    <mark>
+                        Dynamics
+                    </mark>
+                </td>
+                <td>
+                    Vibration, FEA, robotics, etc.
+                </td>
+            </tr>
+        </tbody>
+    </DisplayTable>
+</SubSection>
+
+</Layout>
+
+<script src="/sta/introduction/canvases.js" is:inline></script>
+
