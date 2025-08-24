@@ -38,7 +38,53 @@ import DisplayTable from "../../components/DisplayTable.astro"
 
 <SubSection title = "What is statics?" id = "what_is_statics"/>
 
-<SubSection title = "Assumptions in statics" id = "assumptions_in_statics"/>
+<SubSection title = "Assumptions in statics" id = "assumptions_in_statics">
+    <DisplayTable id = "assumptions" class = "mb-3">
+        <thead>
+            <tr>
+                <th class = "table-shaded"/>
+                <th class = "table-shaded">
+                    Rigid
+                </th>
+                <th class = "table-shaded">
+                    Deformable
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class = "table-shaded">
+                    <p>
+                        No motion
+                    </p>
+                    <InlineEquation equation = "\\sum F = 0"/>
+                </td>
+                <td>
+                    <mark>
+                        Statics
+                    </mark>
+                </td>
+                <td>
+                    Solid mechanics
+                </td>
+            </tr>
+            <tr>
+                <td class = "table-shaded">
+                    <p>
+                        Motion
+                    </p>
+                    <InlineEquation equation = "\\sum F \\neq 0"/>
+                </td>
+                <td>
+                    Dynamics
+                </td>
+                <td>
+                    Vibration, FEA, robotics, etc.
+                </td>
+            </tr>
+        </tbody>
+    </DisplayTable>
+</SubSection>
 
 <SubSection title="Newton's laws" id="newtons_laws">
 
