@@ -20,22 +20,29 @@ import CalloutCard from "../../components/CalloutCard.astro"
 import CalloutContainer from "../../components/CalloutContainer.astro"
 import DisplayTable from "../../components/DisplayTable.astro"
 import InlineCanvas from "../../components/InlineCanvas.astro"
+import Row from "../../components/Row.astro"
+import Col from "../../components/Col.astro"
 ---
-<Layout title = "Center of mass" description = "Learn how to locate the center of mass, gravity, and volume using integration and geometry.">
+<Layout title = "Geometric properties" description = "Learn how to locate the center of mass, gravity, and volume using integration and geometry.">
 
     <div slot="navtree">
         <ul class='list-group list-group-flush py-0'> 
+            <li class = 'list-group-item py-0'><a class = 'text-decoration-none subsection' href = '#derivations'>Derivations</a>
           <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#centroid'>Centroid</a>
             <ul class = 'list-group list-group-flush py-0'>
                 <li class = 'list-group-item py-0'><a class = 'text-decoration-none subsubsection' href = '#axes_of_symmetry'>Axes of symmetry</a></li>
                 <li class = 'list-group-item py-0'><a class = 'text-decoration-none subsubsection' href = '#basic_shapes'>Centroids of basic shapes</a></li>
 		        <li class = 'list-group-item py-0'><a class = 'text-decoration-none subsubsection' href = '#composite_shapes'>Finding centroids using composite shapes</a></li>
-            </u>
+            </ul>
           </li>
+          <li class = 'list-group-item py-0'><a class = 'text-decoration-none subsection' href = '#second_moment'>Moment of inertia (second moment of area)</a></li> 
+          <li class = 'list-group-item py-0'><a class = 'text-decoration-none subsection' href = '#parallel_axis_theorem'>Parallel axis theorem</a></li>
+          <li class = 'list-group-item py-0'><a class = 'text-decoration-none subsection' href = '#combining_moments'>Combining moments of inertia</a></li>
+          <li class = 'list-group-item py-0'><a class = 'text-decoration-none subsection' href = '#typical_shapes'>Moment of inertia for typical shapes</a></li>
       </ul>
       </div>
 
-<Section title="Center of mass, gravity, and volume" id="center_of_mass">
+<Section title="Geometric properties" id="center_of_mass">
 
 <p>
 The center of mass, center of gravity, and center of volume of an object are all very similar. In fact, they are all the same if the density of the object is constant and gravity is constant along an object. 
@@ -139,6 +146,8 @@ The center of mass, center of gravity, and center of volume are all represented 
 </p>
 
 </Section>
+
+<SubSection title = "Derivations" id = "derivations"/>
 
 <SubSection title="Centroid" id="centroid">
 
@@ -396,6 +405,214 @@ If the shape has an axis of symmetry, the centroid falls on that line of symmetr
 
 </SubSubSection>
 
+<SubSection title="Moment of inertia (second moment of area)" id="second_moment">
+
+The moment of inertia used in statics is the "second moment of area".
+This is a mass property that determines the amount of torque that is needed to create an angular acceleration about a specific axis of rotation. 
+The dimension of the area moment of inertia is <InlineEquation equation='\\mathrm{length} ^ 4' />.
+
+<DisplayEquation equation='I_x = \\int_{A}^{} y^2 \\,dA \\' title="Moment of inertia about the x-axis" background="True" />
+
+<DisplayEquation equation='I_y = \\int_{A}^{} x^2 \\,dA \\' title="Moment of inertia about the y-axis" background="True" />
+
+<DisplayEquation equation='J_O = \\int_{A}^{} r^2 \\,dA = \\int_{A}^{} (x^2+y^2) \\,dA\\' title="Polar moment of inertia." background="True" />
+
+<em>Note:</em> the polar moment of inertia depicts the measure of the distribution of area about a point (usually the origin), rather than about an axis.
+
+</SubSection>
+
+<SubSection title="Parallel axis theorem" id="parallel_axis_theorem">
+<p>
+    The parallel axis theorem is used to calculate the moment of inertia for an object around axes other than through the centroid.
+</p>
+
+    <DisplayEquation equation="\\begin{align} I_{x} = I_{x'} + A(d_y)^2 \\\\ I_{y} = I_{y'} + A(d_x)^2 \\end{align}" title="Parallel axis theorem." background="True" />
+<p>
+    where <InlineEquation equation="I_{x'}" /> and <InlineEquation equation="I_{y'}" /> are the moments of inertia about the centroid, <InlineEquation equation="A" /> is the total area of the shape, and <InlineEquation equation="d" /> is the perpendicular distance from the centroid to the axes of interest in either the x or y directions.
+</p>
+
+</SubSection>
+
+<SubSection title="Combining moments of inertia" id="combining_moments">
+<p>
+Moments of inertia of simple shapes can be combined to calculate the moments of inertia of more complex shapes using the parallel axis theorum. 
+</p>
+
+
+
+
+<Example id="blt-fst" title="Find the moment of inertia of a composite shape." solution="True">
+    <div class="d-flex flex-row">
+      <Row>
+        <Col values="12 md-6">
+          <p>
+            What is the <InlineEquation equation='I_x'/> of the composite shape?
+          </p>
+        </Col>
+        <Col values="12 md-6">
+            <Image src='/sta/moment_of_inertia/MOIComposite1.jpg' width='4'></Image>
+  
+        </Col>
+      </Row>
+    </div>
+    <div slot="solution">
+        <p>
+            <DisplayEquation equation="I = I_1 + I_2 - I_3"/>
+            <Image src='/sta/moment_of_inertia/MOIComposite2.jpg' width='5'></Image>
+            <DisplayEquation equation="I_1 = I_{x_1'}+A_1y_1^2"/>
+            <DisplayEquation equation="I_2 = I_{x_2'}+A_2y_2^2"/>
+            <DisplayEquation equation="I_3 = I_{x_3'}+A_3y_3^2"/>
+  
+  
+          </p>
+    </div>
+  </Example>
+
+
+</SubSection>
+
+<SubSection title="Moment of inertia for typical shapes" id="typical_shapes">
+
+    <center><em>Common shapes about the origin: <InlineEquation equation='I'/> and <InlineEquation equation='J_O'/></em></center>
+    <center><em>Common shapes about the centroid: <InlineEquation equation='\\bar{I}'/> and <InlineEquation equation='J_c'/></em></center>
+    <DisplayTable class_="text-center" id="shapes_table">
+        <thead>
+            <tr>
+                <th class="table-shaded" noborder>
+            <strong>Shape</strong>
+                </th>
+                <th class="table-shaded" style="width:50%">
+                    <strong>Diagram</strong>
+                </th>
+                <th class="table-shaded"> 
+                    <strong>MoI about the centroid (centroidal axis)</strong>
+                </th>	
+                <th class="table-shaded"> 
+                    <strong>MoI about the origin</strong>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td style="vertical-align: middle">
+                    Rectangle
+                </td>
+                <td>
+                    <Image src='/sol/bending/CommonShapes_Rect.png' width='5'> </Image>
+                </td>
+            <td style="vertical-align: middle">
+                <InlineEquation equation="\\bar{I_{x'}} = \\frac{1}{12}b h^3" />    
+                <br>
+                <br>
+                <InlineEquation equation="\\bar{I_{y'}} = \\frac{1}{12}b^3 h" />
+                <br>
+                <br>
+                <InlineEquation equation="J_c = \\frac{1}{12}bh(b^2+h^2)"/>
+            </td>
+            <td style="vertical-align: middle">
+                <InlineEquation equation="I_x = \\frac{1}{3}b h^3"/>
+                <br>
+                <br>
+                <InlineEquation equation="I_y = \\frac{1}{3}b^3 h"/>
+                <br>
+                <br>
+                
+            </td>
+            </tr>
+            <tr>
+                <td style="vertical-align: middle">
+                    Triangle
+                </td>
+                <td>
+                    <Image src='/sol/bending/CommonShapes_Tri.png' width='5'> </Image>
+                </td>
+            <td style="vertical-align: middle">
+                <InlineEquation equation="\\bar{I_{x'}} = \\frac{1}{36}bh^3" />
+                <br>
+                <br>
+            </td>
+            <td style="vertical-align: middle">
+                <InlineEquation equation="I_x = \\frac{1}{12}bh^3" />    
+            </td>
+            </tr>
+            <tr>
+                <td style="vertical-align: middle">
+                    Circle
+                </td>
+                <td>
+                    <Image src='/sol/bending/CommonShapes_Circle.png' width='5'> </Image>
+                </td>
+            <td style="vertical-align: middle">
+                <InlineEquation equation="\\bar{I_{x'}} = \\bar{I_{y'}}  = \\frac{1}{4} \\pi r^4" />
+            </td>
+            <td style="vertical-align: middle">
+                <br>
+                <br>
+                <InlineEquation equation="J_O= \\frac{1}{2} \\pi r^4"/>    
+            </td>
+            </tr>
+            <tr>
+                <td style="vertical-align: middle">
+                    Semicircle
+                </td>
+                <td>
+                    <Image src='/sol/bending/CommonShapes_Semi.png' width='5'> </Image>
+                </td>
+            <td style="vertical-align: middle">
+                <InlineEquation equation="\\bar{I_{x'}} = (\\frac{\\pi}{8} - \\frac{8}{9\\pi}) r^4" />
+                <br>
+                <br>
+                <InlineEquation equation="\\bar{I_{y'}} = \\frac{\\pi}{8}r^4" />
+            </td>
+            <td style="vertical-align: middle">
+                <InlineEquation equation="I_x = I_y = \\frac{1}{8} \\pi r^4" />
+                <br>
+                <br>
+                <InlineEquation equation="J_O = \\frac{1}{4} \\pi r^4"/>    
+            </td>
+            </tr>
+            <tr>
+                <td style="vertical-align: middle">
+                    Quarter circle
+                </td>
+                <td>
+                    <Image src='/sol/bending/CommonShapes_Quart.png' width='5'> </Image>
+                </td>
+            <td style="vertical-align: middle">
+            <InlineEquation equation="\\bar{I_{x'}} = \\bar{I_{y'}} = \\frac{1}{2}(\\frac{\\pi}{8} - \\frac{8}{9\\pi}) r^4" />
+
+            </td>
+            <td style="vertical-align: middle">
+                <InlineEquation equation="I_x = I_y = \\frac{1}{16} \\pi r^4" />
+                <br>
+                <br>
+                <InlineEquation equation="J_O = \\frac{1}{8} \\pi r^4"/>    
+            </td>
+            </tr>
+            <tr>
+                <td style="vertical-align: middle">
+                    Ellipse
+                </td>
+                <td>
+                    <Image src='/sol/bending/CommonShapes_Elipse.png' width='5'> </Image>
+                </td>
+            <td style="vertical-align: middle">
+                <InlineEquation equation="\\bar{I_{x'}} = \\frac{1}{4} \\pi a b^3" />
+                <br>
+                <br>
+                <InlineEquation equation="\\bar{I_{y'}} = \\frac{1}{4} \\pi a^3 b"/>
+                <br>
+                <br>
+            </td>
+            <td style="vertical-align: middle">    
+            <InlineEquation equation="J_O = \\frac{1}{4} \\pi ab(a^2+b^2)" />
+
+            </td>
+            </tr>
+        </tbody>
+        
+    </DisplayTable>
+    
 </SubSection>
 
 
