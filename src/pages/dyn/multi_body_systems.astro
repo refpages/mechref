@@ -1,0 +1,103 @@
+---
+import Layout from "../../layouts/Layout.astro" 
+import Image from "../../components/Image.astro" 
+import Section from "../../components/Section.astro" 
+import SubSection from "../../components/SubSection.astro" 
+import SubSubSection from "../../components/SubSubSection.astro" 
+import BlueText from "../../components/BlueText.astro" 
+import RedText from "../../components/RedText.astro" 
+import InlineEquation from "../../components/InlineEquation.astro"
+import Center from "../../components/Center.astro"
+import CalloutCard from "../../components/CalloutCard.astro"
+import CalloutContainer from "../../components/CalloutContainer.astro"
+import Enumerate from "../../components/Enumerate.astro"
+import Item from "../../components/Item.astro"
+import Warning from "../../components/Warning.astro"
+import PrairieDrawCanvas from "../../components/PrairieDrawCanvas.astro"
+import DisplayEquation from "../../components/DisplayEquation.astro"
+import DisplayEquationCustom from "../../components/DisplayEquationCustom.astro"
+import Example from "../../components/Example.astro"
+import InlineCanvas from "../../components/InlineCanvas.astro"
+import Row from "../../components/Row.astro"
+import Col from "../../components/Col.astro"
+import SubSubSubSection from "../../components/SubSubSubSection.astro"
+import DisplayTable from "../../components/DisplayTable.astro"
+---
+
+<Layout title = "Multi-body systems" description = "Learn how velocity and acceleration of mutliple connected gears behave.">
+
+
+<div slot="navtree">
+  <ul class='list-group list-group-flush py-0'> 
+	<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#gears'>Gears</a>
+		    <ul class='list-group list-group-flush py-0'> 
+            <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#sign_convention'>Standard sign convention</a></li>
+			<li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#acce_contact_noslip_convention'>Acceleration in contact (no slip)</a></li>
+      <li class = 'list-group-item py-0'><a class = 'text-decoration-none subsubsection' href = '#gear_kinetics'>Gear kinetics</a></li>
+        </ul>
+    </li>
+    <li class = 'list-group-item py-0'><a class = 'text-decoration-none subsection' href = '#slider_cranks'>Slider cranks</a></li>
+</ul>
+</div>
+
+
+
+
+<Section title="Multi-body systems"/>
+
+<SubSection title="Gears"  id="gears">
+
+		<Image src="/dyn/multi_body_systems/Gears1.png" width="5"></Image>
+		
+	<ul>
+      <li>Larger gear - &gt; slower spin</li>
+      <li>Accelerations - &gt; tangential are equal but centripetal are not</li>
+      <li>Opposite direction</li>
+    </ul>
+
+
+    <Image src="/dyn/multi_body_systems/GearsChains_edited.png" width="7"></Image>
+	
+
+</SubSection> 
+<SubSubSection title="Standard sign convention"  id="sign_convention">
+
+    <Image src="/dyn/multi_body_systems/GearsSignConvention.png" width="6"></Image>
+	
+	<Image src="/dyn/multi_body_systems/GearsSignConvention2.png" width="7"></Image>
+	
+	<ol>
+      <li> <InlineEquation equation="\\omega_{1z}" /> and  <InlineEquation equation="\\omega_{2z}" /> have opposite signs (the gears rotate in opposite direction) </li>
+      <li>Smaller gears rotate faster</li>
+    </ol>
+
+<Example id="rkc-gsc" title="Rotating gears." solution="False">
+
+  <div class="d-flex">
+  <Image src="/dyn/multi_body_systems/GearsExample1.png" width="5"></Image>
+
+  </div>
+</Example>
+
+
+<Example id="rkc-csc" title="Rotating gears with chain." solution="False">
+
+  <div class="d-flex">
+  <Image src="/dyn/multi_body_systems/GearsExample2.png" width="5"></Image>
+
+  </div>
+</Example>
+
+	
+</SubSubSection>
+
+<SubSubSection title="Acceleration in contact (no slip)"  id="acce_contact_noslip_convention">
+
+    <Image src="/dyn/multi_body_systems/GearsContact.png" width="7"></Image>
+</SubSubSection>
+
+<SubSubSection title = "Gear kinetics"  id = "gear_kinetics"/>
+
+<SubSection title = "Slider cranks"  id = "slider_cranks"/>
+
+</Layout>

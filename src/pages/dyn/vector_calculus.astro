@@ -17,6 +17,8 @@ import Row from "../../components/Row.astro"
 import Col from "../../components/Col.astro"
 import DisplayTable from "../../components/DisplayTable.astro"
 import InlineCanvas from "../../components/InlineCanvas.astro"
+import CalloutContainer from "../../components/CalloutContainer.astro"
+import CalloutCard from "../../components/CalloutCard.astro"
 ---
 <Layout title = "Vector calculus" description = "Learn about the dot product, cross product, and how to apply calculus principles to vectors.">
 
@@ -171,6 +173,17 @@ import InlineCanvas from "../../components/InlineCanvas.astro"
         </p>
       </PrairieDrawCanvas>
     </Center>
+  <CalloutContainer slot = "cards">
+    <CalloutCard title = "Application alert!">
+      <p>
+        <a href = "/dyn/shortest_flight_paths">Shortest flight paths</a> uses <strong>dot product.</strong>
+      </p>
+      <PrairieDrawCanvas id = "aos-fm-c" width = "250" height = "250"/>
+      <p>
+        Spherical coordinates can be used to find the shortest flight path between two places on a globe.
+      </p>
+    </CalloutCard>
+  </CalloutContainer>
 </SubSection>
 
 <SubSubSection title="Dot product identities" id="dot_product_identities">
@@ -1013,4 +1026,5 @@ import InlineCanvas from "../../components/InlineCanvas.astro"
 </SubSection>
 </Layout>
 
+<script src="/dyn/coordinate_systems/worldCoastlineCompressed.js" is:inline></script>
 <script src="/dyn/vector_calculus/canvases.js" is:inline></script>

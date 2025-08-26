@@ -1,0 +1,564 @@
+---
+import Layout from "../../layouts/Layout.astro" 
+import Image from "../../components/Image.astro" 
+import Section from "../../components/Section.astro" 
+import SubSection from "../../components/SubSection.astro" 
+import SubSubSection from "../../components/SubSubSection.astro" 
+import BlueText from "../../components/BlueText.astro" 
+import RedText from "../../components/RedText.astro" 
+import InlineEquation from "../../components/InlineEquation.astro"
+import DisplayEquation from "../../components/DisplayEquation.astro"
+import PrairieDrawCanvas from "../../components/PrairieDrawCanvas.astro"
+import CalloutContainer from "../../components/CalloutContainer.astro"
+import CalloutCard from "../../components/CalloutCard.astro"
+import SubSubSubSection from "../../components/SubSubSubSection.astro"
+import DisplayEquationCustom from "../../components/DisplayEquationCustom.astro"
+import Enumerate from "../../components/Enumerate.astro" 
+import Item from "../../components/Item.astro" 
+import Itemize from "../../components/Itemize.astro"
+import Col from "../../components/Col.astro"
+import Row from "../../components/Row.astro"
+import DisplayTable from "../../components/DisplayTable.astro"
+import InlineCanvas from "../../components/InlineCanvas.astro"
+---
+
+
+<Layout title = "Tangential and normal basis" description = "Learn how to represent vectors in the Tangent-Normal coordinate system.">
+
+<div slot="navtree">
+  <ul class='list-group list-group-flush py-0'> 
+    <li class = 'list-group-item py-0'><a class = 'text-decoration-none subsection' href = '#normal_basis'>Normal basis</a></li>
+    <li class = 'list-group-item py-0'><a class = 'text-decoration-none subsection' href = '#curvature'>Curvature and torsion</a></li>  
+		<li class = 'list-group-item py-0'><a class = 'text-decoration-none subsection' href = '#derivatives_angular_velocity'>Basis derivatives and angular velocity</a></li> 
+		<li class = 'list-group-item py-0'><a class = 'text-decoration-none subsection' href = '#normal_tangential_acceleration'>Normal and tangential kinematics</a></li>
+		<li class = 'list-group-item py-0'><a class = 'text-decoration-none subsection' href = '#tangent_lines_osc_circle'>Tangent lines and osculating circles</a></li>
+    <li class = 'list-group-item py-0'><a class = 'text-decoration-none subsection' href = '#curvature_on_curves'>Curvature on curves</a></li>
+  </ul>
+</div>
+
+
+<Section title = "Tangential and normal basis"/>
+
+<SubSection title="Normal basis" id="normal_basis">
+
+    <p>
+      Consider a particle moving with position vector <InlineEquation equation="\\vec{r}" />
+      and corresponding velocity <InlineEquation equation="\\vec{v}" /> and acceleration
+      <InlineEquation equation="\\vec{a}" />. The tangential/normal basis
+      <InlineEquation equation="\\hat{e}_t,\\hat{e}_n,\\hat{e}_b" /> is:
+    </p>
+
+    <DisplayEquation title="Tangential/normal basis vectors." id="rkt-eb" background="True" derivation="True" equation="\\begin{aligned}\\hat{e}_t &amp;= \\hat{v}&amp; &amp;\\text{tangential basis vector} \\\\\\hat{e}_n &amp;= \\frac{\\dot{\\hat{e}}_t}{\\|\\dot{\\hat{e}}_t\\|}= \\frac{\\operatorname{Comp}(\\vec{a},\\vec{v})}{\\|\\operatorname{Comp}(\\vec{a},\\vec{v})\\|}&amp; &amp;\\text{normal basis vector} \\\\\\hat{e}_b &amp;= \\hat{e}_t \\times \\hat{e}_n&amp; &amp;\\text{binormal basis vector} \\\\\\end{aligned}">
+      <p>
+        These equations are definitions of the basis vectors, so
+        the only thing to derive is the alternative formula for
+        <InlineEquation equation="\\hat{e}_n" />. Using the definition of <InlineEquation equation="\\hat{e}_t" /> above
+        and <a href="/dyn/vectors#rvc-eu">#rvc-eu</a>, we see that
+
+        <DisplayEquation equation="\\dot{\\hat{e}}_t = \\dot{\\hat{v}}        = \\frac{1}{v} \\operatorname{Comp}(\\dot{\\vec{v}}, \\vec{v})        = \\frac{1}{v} \\operatorname{Comp}(\\vec{a}, \\vec{v})." />
+
+        Normalizing both sides gives the desired expression:
+
+        <DisplayEquation equation="\\frac{\\dot{\\hat{e}}_t}{\\|\\dot{\\hat{e}}_t\\|}        = \\frac{\\frac{1}{v} \\operatorname{Comp}(\\vec{a}, \\vec{v})}{        \\left\\|\\frac{1}{v} \\operatorname{Comp}(\\vec{a}, \\vec{v})\\right\\|}        = \\frac{\\frac{1}{v} \\operatorname{Comp}(\\vec{a}, \\vec{v})}{        \\frac{1}{v} \\|\\operatorname{Comp}(\\vec{a}, \\vec{v})\\|}        = \\frac{\\operatorname{Comp}(\\vec{a}, \\vec{v})}{        \\|\\operatorname{Comp}(\\vec{a}, \\vec{v})\\|}." />
+      </p>
+    </DisplayEquation>
+
+    <p>
+      The tangential basis vector <InlineEquation equation="\\hat{e}_t" /> points tangential to
+      the path, the normal basis vector <InlineEquation equation="\\hat{e}_n" /> points
+      perpendicular (normal) to the path towards the instantaneous
+      center of curvature, and the binormal basis vector
+      <InlineEquation equation="\\hat{e}_b" /> completes the right-handed basis.
+    </p>
+
+    <PrairieDrawCanvas id="rkt-fb-c" width="600" height="400">
+      <p class="controls">
+        <button class="anim-toggle:rkt-fb-c" onclick="rkt_fb_c.toggleAnim()">animate</button>
+        <button class="reset:rkt-fb-c" onclick="rkt_fb_c.reset()">reset</button>
+        <button class="option-toggle:rkt-fb-c:showLabels" onclick="rkt_fb_c.toggleOption('showLabels')">show labels</button>
+      </p>
+      <table class="alignTop">
+        <tr>
+          <td>Show:</td>
+          <td>
+            <button class="option-toggle:rkt-fb-c:showPosition" onclick="rkt_fb_c.toggleOption('showPosition')">position vector</button>
+            <button class="option-toggle:rkt-fb-c:showVelocity" onclick="rkt_fb_c.toggleOption('showVelocity')">velocity</button>
+            <button class="option-toggle:rkt-fb-c:showAcceleration" onclick="rkt_fb_c.toggleOption('showAcceleration')">acceleration</button>
+            <button class="option-toggle:rkt-fb-c:showAccDecomp" onclick="rkt_fb_c.toggleOption('showAccDecomp')">acceleration decomposition</button>
+          </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>
+            <button class="option-toggle:rkt-fb-c:showCenter" onclick="rkt_fb_c.toggleOption('showCenter')">center of curvature</button>
+            <button class="option-toggle:rkt-fb-c:showCircle" onclick="rkt_fb_c.toggleOption('showCircle')">osculating circle</button>
+            <button class="option-toggle:rkt-fb-c:showAngVel" onclick="rkt_fb_c.toggleOption('showAngVel')">ang. vel.</button>
+            <button class="option-toggle:rkt-fb-c:showAngVelDecomp" onclick="rkt_fb_c.toggleOption('showAngVelDecomp')">ang. vel. decomposition</button>
+          </td>
+        </tr>
+      </table>
+      <p class="figureCaption mt-3">
+        Tangential/normal basis associated with movement around a
+        curve in 3D. Observe that the velocity <InlineEquation equation="\\vec{v}" /> is always
+        in the <InlineEquation equation="\\hat{e}_t" /> direction and that the acceleration
+        <InlineEquation equation="\\vec{a}" /> always lies in the <InlineEquation equation="\\hat{e}_t,\\hat{e}_n" /> plane
+        (the osculating plane). The center of curvature and
+        osculating circle are defined below.
+      </p>
+    </PrairieDrawCanvas>
+</SubSection>
+
+<SubSection title="Curvature and torsion" id="curvature">
+    
+  <DisplayEquationCustom title="Curvature and torsion." id="rkt-ek" background="True" derivation="True">
+    <p>
+      To better understand the geometry of the tangential/normal
+      basis, we can use the <em>curvature</em> \(\kappa\) to
+      describe the curving of the path, and the <em>torsion</em>
+      \(\tau\) to describe the rotation of the basis about the
+      path. These quantities are defined by:
+    </p>
+
+    <DisplayEquation equation="\\begin{aligned}\\kappa &amp;= \\frac{d\\hat{e}_t}{ds} \\cdot \\hat{e}_n= \\frac{1}{v} \\dot{\\hat{e}}_t \\cdot \\hat{e}_n &amp; &amp;\\text{curvature} \\\\\\rho &amp;= \\frac{1}{\\kappa}  &amp; &amp;\\text{radius of curvature} \\\\\\tau &amp;= -\\frac{d\\hat{e}_b}{ds} \\cdot \\hat{e}_n= -\\frac{1}{v} \\dot{\\hat{e}}_b \\cdot \\hat{e}_n  &amp; &amp;\\text{torsion} \\\\\\sigma &amp;= \\frac{1}{\\tau}  &amp; &amp;\\text{radius of torsion}\\end{aligned}" />
+    <div slot="derivation">
+      <p>
+        These equations are definitions, so we need only check
+        that the two expressions for each of \(\kappa\) and \(\tau\)
+        are equivalent. This follows immediately, however, from
+        the chain-rule conversions <a href="#rkt-ea">#rkt-ea</a>
+        between \(d/ds\) and \(d/dt\).
+      </p>
+    </div>
+  </DisplayEquationCustom>
+
+  <p>
+    The <em>radius of curvature</em> \(\rho\) is the radius of
+    equivalent circular motion, and the <em>torsion</em>
+    determines the rate of rotation of the osculating plane, as
+    described below in a section <a href="#tangent_lines_osc_circle">below</a>.
+  </p>
+</SubSection>
+
+<SubSection title="Basis derivatives and angular velocity" id="derivatives_angular_velocity">
+  <p>
+    As the point \(P\) moves along its path, the associated
+    tangential/normal basis rotates with an angular velocity
+    vector \(\omega\) given by:
+  </p>
+
+  <DisplayEquation title="Angular velocity of the tangential/normal basis." id="rkt-ew" background="True" derivation="True" equation="\\begin{aligned}\\vec{\\omega} &amp;= v\\tau \\,\\hat{e}_t + v \\kappa \\,\\hat{e}_b\\end{aligned}">
+    <p>
+      We start by writing the angular velocity in the
+      tangential/normal basis, giving:
+
+      <DisplayEquation equation="\\vec{\\omega} = \\omega_t\\,\\hat{e}_t + \\omega_n\\,\\hat{e}_n+ \\omega_b\\,\\hat{e}_b." />
+
+      Now the basis vector derivatives are given by the cross
+      product by <InlineEquation equation="\\vec{\\omega}" /> from <a
+      href="#rkr-ew">#rkr-ew</a>, so we can evaluate
+      the expressions <a href="#rkt-ek">#rkt-ek</a> for
+      curvature and torsion to give:
+
+      <DisplayEquation equation="\\begin{aligned}\\kappa &amp;= \\frac{1}{v} \\dot{\\hat{e}}_t \\cdot \\hat{e}_n \\\\&amp;= \\frac{1}{v} (\\vec{\\omega} \\times \\hat{e}_t) \\cdot \\hat{e}_n \\\\&amp;= \\frac{1}{v} (\\omega_b\\,\\hat{e}_n - \\omega_n\\,\\hat{e}_b) \\cdot \\hat{e}_n \\\\&amp;= \\frac{1}{v} \\omega_b\\end{aligned}" />
+
+      and
+
+      <DisplayEquation equation="\\begin{aligned}\\tau &amp;= -\\frac{1}{v} \\dot{\\hat{e}}_b \\cdot \\hat{e}_n \\\\&amp;= -\\frac{1}{v} (\\vec{\\omega} \\times \\hat{e}_b) \\cdot \\hat{e}_n \\\\&amp;= -\\frac{1}{v} (\\omega_n\\,\\hat{e}_t - \\omega_t\\,\\hat{e}_n) \\cdot \\hat{e}_n \\\\&amp;= \\frac{1}{v} \\omega_t.\\end{aligned}" />
+
+      Rearranging the final expressions in each case gives
+      <InlineEquation equation="\\omega_b = v\\kappa" /> and <InlineEquation equation="\\omega_t = v\\tau" />.
+
+      From the definition <a href="#rkt-eb">#rkt-eb</a> of
+      <InlineEquation equation="\\hat{e}_n" />, we see that
+
+      <DisplayEquation equation="\\begin{aligned}\\hat{e}_n &amp;= \\frac{\\dot{\\hat{e}}_t}{\\|\\dot{\\hat{e}}_t\\|} \\\\\\hat{e}_n \\cdot \\hat{e}_b &amp;= \\frac{1}{\\|\\dot{\\hat{e}}_t\\|} (\\vec{\\omega} \\times \\hat{e}_t) \\cdot \\hat{e}_b \\\\0 &amp;= \\frac{1}{\\|\\dot{\\hat{e}}_t\\|} (\\omega_b\\,\\hat{e}_n - \\omega_n\\,\\hat{e}_b) \\cdot \\hat{e}_b \\\\&amp;= - \\frac{1}{\\|\\dot{\\hat{e}}_t\\|} \\omega_n.\\end{aligned}" />
+
+      from which we conclude that <InlineEquation equation="\\omega_n = 0" />, giving us
+      all three components of <InlineEquation equation="\\vec{\\omega}" />.
+    </p>
+  </DisplayEquation>
+
+  <p>
+    Knowing the angular velocity vector of the tangential/normal
+    basis allows us to easily compute the time derivatives of
+    each tangential/normal basis vector, as follows:
+  </p>
+
+  <DisplayEquation title="Tangential/normal basis vector derivatives." id="rkt-ed" background="True" derivation="True" equation="\\begin{aligned}\\dot{\\hat{e}}_t &amp;= \\phantom{-v\\kappa\\,\\hat{e}_t - } v\\kappa\\,\\hat{e}_n \\\\\\dot{\\hat{e}}_n &amp;= -v\\kappa\\,\\hat{e}_t \\phantom{ - v\\kappa\\,\\hat{e}_n + } + v\\tau\\,\\hat{e}_b \\\\\\dot{\\hat{e}}_b &amp;=\\phantom{-v\\kappa\\,\\hat{e}_t } - v\\tau\\,\\hat{e}_n\\end{aligned}">
+    <p>
+      We can use the expression <a href="#rkt-ew">#rkt-ew</a>
+      for <InlineEquation equation="\\vec{\\omega}" /> together with <a
+      href="#rkr-ew">#rkr-ew</a> to find the basis
+      vector derivatives:
+
+      <DisplayEquation equation="\\begin{aligned}\\dot{\\hat{e}}_t &amp;= \\vec{\\omega} \\times \\hat{e}_t= (v\\tau \\,\\hat{e}_t + v \\kappa \\,\\hat{e}_b) \\times \\hat{e}_t= v \\kappa \\,\\hat{e}_n \\\\\\dot{\\hat{e}}_n &amp;= \\vec{\\omega} \\times \\hat{e}_n= (v\\tau \\,\\hat{e}_t + v \\kappa \\,\\hat{e}_b) \\times \\hat{e}_n= - v \\kappa \\,\\hat{e}_t + v \\tau \\,\\hat{e}_b \\\\\\dot{\\hat{e}}_b &amp;= \\vec{\\omega} \\times \\hat{e}_b= (v\\tau \\,\\hat{e}_t + v \\kappa \\,\\hat{e}_b) \\times \\hat{e}_b= -v \\tau \\,\\hat{e}_n.\\end{aligned}" />
+    </p>
+  </DisplayEquation>
+
+  <CalloutContainer slot="cards">
+    <CalloutCard title="Notation note">
+      <p class="mb-0">
+        The tangential/normal basis is also called the
+        Frenet–Serret frame after <a
+        target="_blank" rel="noopener noreferrer" href="http://en.wikipedia.org/wiki/Jean_Fr%C3%A9d%C3%A9ric_Frenet">Jean
+        Frédéric Frenet</a> and <a
+        target="_blank" rel="noopener noreferrer" href="http://en.wikipedia.org/wiki/Joseph_Alfred_Serret">Joseph
+        Alfred Serret</a>, who discovered it independently around
+        1850. The equations <a href="#rkt-ed">#rkt-ed</a> for the
+        basis derivatives are often called the <a
+        target="_blank" rel="noopener noreferrer" href="http://en.wikipedia.org/wiki/Frenet%E2%80%93Serret_formulas">Frenet-Serret
+        formulas</a>, typically written in terms of \(s\) derivatives:
+      </p>
+
+      <DisplayEquation equation="\\begin{aligned}\\frac{d\\hat{e}_t}{ds} &amp;= \\phantom{-\\kappa\\,\\hat{e}_t - } \\kappa\\,\\hat{e}_n \\\\\\frac{d\\hat{e}_n}{ds} &amp;= -\\kappa\\,\\hat{e}_t \\phantom{ - \\kappa\\,\\hat{e}_n + } + \\tau\\,\\hat{e}_b \\\\\\frac{d\\hat{e}_b}{ds} &amp;=\\phantom{-\\kappa\\,\\hat{e}_t } - \\tau\\,\\hat{e}_n.\\end{aligned}" />
+
+      <p class="mb-0">
+        If we divide the angular velocity vector <a href="#rkt-ew">#rkt-ew</a> by \(v\) then we obtain the vector
+      </p>
+      <DisplayEquation equation="\\frac{1}{v} \\vec{\\omega} = \\tau\\,\\hat{e}_t + \\kappa\\,\\hat{e}_b," />
+      <p  class="mb-0">
+        which is known as the <a target="_blank" rel="noopener noreferrer" href="http://en.wikipedia.org/wiki/Darboux_vector">Darboux vector</a> after its discoverer, <a target="_blank" rel="noopener noreferrer" href="http://en.wikipedia.org/wiki/Gaston_Darboux">Jean Gaston Darboux</a>.
+      </p>
+    </CalloutCard>
+  </CalloutContainer>
+  
+</SubSection>
+
+<SubSection title="Normal and tangential kinematics" id="normal_tangential_acceleration">
+
+    <p>
+      While the motion of a point \(P\) along a path defines the
+      tangential/normal basis, we can also use this basis to
+      express the kinematics of \(P\) itself, giving the following
+      expressions for velocity and acceleration.
+    </p>
+
+    <DisplayEquation title="Velocity and acceleration in tangential/normal basis." id="rkt-e" background="True" derivation="True"  equation="\\begin{aligned}\\vec{v} &amp;= \\dot{s} \\, \\hat{e}_t \\\\\\vec{a} &amp;= \\ddot{s} \\, \\hat{e}_t + \\frac{\\dot{s}^2}{\\rho} \\hat{e}_n\\end{aligned}">
+      <p>
+        From the definition <a href="#rkt-eb">#rkt-eb</a> of
+        <InlineEquation equation="\\hat{e}_t" /> we see that <InlineEquation equation="v\\,\\hat{e}_t = v\\hat{v} = \\vec{v}" />, which is the first equation
+        above. Differentiating this and using <InlineEquation equation="v = \\dot{s}" /> from
+        <a href="#rkt-es">#rkt-es</a> gives
+
+        <DisplayEquation equation="\\begin{aligned}\\vec{v} &amp;= \\dot{s}\\,\\hat{e}_t \\\\\\vec{a} = \\dot{\\vec{v}}&amp;= \\ddot{s}\\,\\hat{e}_t + \\dot{s}\\,\\dot{\\hat{e}}_t \\\\&amp;= \\ddot{s}\\,\\hat{e}_t + \\dot{s}(v \\kappa \\,\\hat{e}_n) \\\\&amp;= \\ddot{s}\\,\\hat{e}_t + \\frac{\\dot{s}^2}{\\rho} \\,\\hat{e}_n,\\end{aligned}" />
+
+        where we used the derivative <a
+        href="#rkt-ed">#rkt-ed</a> of <InlineEquation equation="\\hat{e}_t" /> in terms of
+        the curvature \(\kappa\), and the definition <a
+        href="#rkt-ek">#rkt-ek</a> of the radius of curvature to
+        give <InlineEquation equation="\\kappa = 1/\\rho" />.
+      </p>
+    </DisplayEquation>
+
+    <p>
+      The above formula shows that the normal acceleration
+      component \(a_n\) is determined by the radius of curvature. We
+      can therefore also find the radius of curvature from knowing
+      the normal acceleration:
+    </p>
+
+    <DisplayEquation title="Radius of curvature \\(\\rho\\) for velocity \\(\\vec{v}\\) and acceleration \\(\\vec{a}\\) with angle \\(\\theta\\) between them." id="rkt-er" background="True" derivation="True"  equation="\\rho = \\frac{v^2}{a_n} = \\frac{v^2}{|a\\sin\\theta|}">
+      <p>
+        From <a href="#rkt-ev">#rkt-ev</a> we known that the
+        normal component of the acceleration is given by <InlineEquation equation="a_n =\\dot{s}^2/\\rho" /> and from the definition <a
+        href="#rkt-es">#rkt-es</a> of path length we have
+        <InlineEquation equation="\\dot{s} = v" />, so this equation can be rearranged to
+        give <InlineEquation equation="\\rho = v^2 / a_n" />.
+      </p>
+      <p>
+        Now because <InlineEquation equation="\\vec{a}" /> only has <InlineEquation equation="\\hat{e}_t" /> and
+        <InlineEquation equation="\\hat{e}_n" /> components, the <InlineEquation equation="\\hat{e}_n" /> component is
+        given by
+
+        <DisplayEquation equation="\\begin{aligned}a_n &amp;= \\|\\operatorname{Comp}(\\vec{a}, \\hat{e}_t)\\| \\\\&amp;= \\|\\operatorname{Comp}(\\vec{a}, \\vec{v})\\| \\\\&amp;= |a \\sin\\theta|,\\end{aligned}" />
+
+        where we used the facts that <InlineEquation equation="\\vec{e}_t" /> is in the
+        direction of <InlineEquation equation="\\vec{v}" />, that
+        <InlineEquation equation="\\operatorname{Comp}(\\vec{a},\\vec{v})" /> does not depend
+        on the magnitude of <InlineEquation equation="\\vec{v}" />, and equation <a
+        href="#rvv-em">#rvv-em</a> for the magnitude of
+        the complementary projection.
+      </p>
+    </DisplayEquation>
+
+    <PrairieDrawCanvas id="rkt-ft-c" width="600" height="400">
+      <p class="controls">
+        <button class="anim-toggle:rkt-ft-c" onclick="rkt_ft_c.toggleAnim()">animate</button>
+        <button class="reset:rkt-ft-c" onclick="rkt_ft_c.reset()">reset</button>
+        <button class="option-toggle:rkt-ft-c:showLabels" onclick="rkt_ft_c.toggleOption('showLabels')">show labels</button>
+      </p>
+      <table class="alignTop">
+        <tr>
+          <td>Movement:</td>
+          <td><input type="radio" name="rkt-ft-c-movement" value="circle" class="data-input:rkt-ft-c:movement" onclick="rkt_ft_c.setOption('movement', this.value)" checked/> circle</td>
+          <td><input type="radio" name="rkt-ft-c-movement" value="varCircle" class="data-input:rkt-ft-c:movement" onclick="rkt_ft_c.setOption('movement', this.value)"/> var-circle</td>
+          <td><input type="radio" name="rkt-ft-c-movement" value="ellipse" class="data-input:rkt-ft-c:movement" onclick="rkt_ft_c.setOption('movement', this.value)"/> ellipse</td>
+          <td><input type="radio" name="rkt-ft-c-movement" value="arc" class="data-input:rkt-ft-c:movement" onclick="rkt_ft_c.setOption('movement', this.value)"/> arc</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td><input type="radio" name="rkt-ft-c-movement" value="trefoil" class="data-input:rkt-ft-c:movement" onclick="rkt_ft_c.setOption('movement', this.value)"/> trefoil</td>
+          <td><input type="radio" name="rkt-ft-c-movement" value="eight" class="data-input:rkt-ft-c:movement" onclick="rkt_ft_c.setOption('movement', this.value)"/> eight</td>
+          <td><input type="radio" name="rkt-ft-c-movement" value="comet" class="data-input:rkt-ft-c:movement" onclick="rkt_ft_c.setOption('movement', this.value)"/> comet</td>
+          <td><input type="radio" name="rkt-ft-c-movement" value="pendulum" class="data-input:rkt-ft-c:movement" onclick="rkt_ft_c.setOption('movement', this.value)"/> pendulum</td>
+        </tr>
+        <tr>
+          <td>Show:</td>
+          <td colspan="4">
+            <button class="option-toggle:rkt-ft-c:showPosition" onclick="rkt_ft_c.toggleOption('showPosition')">position vector</button>
+            <button class="option-toggle:rkt-ft-c:showVelocity" onclick="rkt_ft_c.toggleOption('showVelocity')">velocity</button>
+            <button class="option-toggle:rkt-ft-c:showAcceleration" onclick="rkt_ft_c.toggleOption('showAcceleration')">acceleration</button>
+            <button class="option-toggle:rkt-ft-c:showAccDecomp" onclick="rkt_ft_c.toggleOption('showAccDecomp')">acceleration decomposition</button>
+          </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td colspan="4">
+            <button class="option-toggle:rkt-ft-c:showPath" onclick="rkt_ft_c.toggleOption('showPath')">path</button>
+            <button class="option-toggle:rkt-ft-c:showCenter" onclick="rkt_ft_c.toggleOption('showCenter')">center of curvature</button>
+            <button class="option-toggle:rkt-ft-c:showCircle" onclick="rkt_ft_c.toggleOption('showCircle')">osculating circle</button>
+            <button class="option-toggle:rkt-ft-c:showAngVel" onclick="rkt_ft_c.toggleOption('showAngVel')">angular velocity</button>
+          </td>
+        </tr>
+        <tr>
+          <td>Origin:</td>
+          <td><input type="radio" name="rkt-ft-c-origin" value="O1" class="data-input:rkt-ft-c:origin" onclick="rkt_ft_c.setOption('origin', this.value)" checked/> \(O_1\)</td>
+          <td><input type="radio" name="rkt-ft-c-origin" value="O2" class="data-input:rkt-ft-c:origin" onclick="rkt_ft_c.setOption('origin', this.value)"/> \(O_2\)</td>
+          <td></td>
+          <td></td>
+        </tr>
+      </table>
+      <p class="figureCaption mt-3">
+        Velocity and acceleration in the tangential/normal
+        basis. Note that the tangential/normal basis does not
+        depend on the choice of origin or the position vector, in
+        contrast to the polar basis.
+      </p>
+    </PrairieDrawCanvas>
+</SubSection>
+<SubSection id="tangent_lines_osc_circle" title="Tangent lines and osculating circles">
+
+<p>
+  Given a point \(P\) moving along a complex path, at a given
+  instant of time we can match different components of the
+  point's motion with successively more complex geometric
+  shapes:
+</p>
+<DisplayTable class="basic" id="rkt-tm">
+  <thead>
+    <tr noborder>
+      <th>match</th>
+      <th>geometric object</th>
+      <th>name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><InlineEquation equation="\\vec{r}" /></td>
+      <td>point</td>
+      <td>position</td>
+    </tr>
+    <tr>
+      <td><InlineEquation equation="\\vec{r},\\vec{v}" /></td>
+      <td>line</td>
+      <td>tangent line</td>
+    </tr>
+    <tr>
+      <td><InlineEquation equation="\\vec{r},\\vec{v},\\vec{a}" /></td>
+      <td>circle</td>
+      <td>osculating circle</td>
+    </tr>
+  </tbody>
+  
+</DisplayTable>
+
+<p>
+  The <em>osculating circle</em> is the instantaneous
+  equivalent circular path. That is, a particle traveling on
+  the osculating circle with the same location \(P\), speed
+  <InlineEquation equation="\\dot{s}" />, and tangential acceleration <InlineEquation equation="\\ddot{s}" /> as our
+  particle would have matching velocity and acceleration
+  vectors.
+</p>
+
+<DisplayEquation title="Osculating circle" id="rkt-eo" equation="\\text{center C} = \\vec{r} + \\rho \\hat{e}_n,\\qquad \\text{radius} \\; \\rho,\\qquad \\text{normal to} \\; \\hat{e}_b" background="True" derivation="True">
+  <p>
+  Consider a particle \(P\) with position vector <InlineEquation equation="\\vec{r}_P" />
+  moving with velocity <InlineEquation equation="\\vec{v}_P" />
+  and acceleration
+  <InlineEquation equation="\\vec{a}_P" />
+, and let <InlineEquation equation="\\hat{e}_t,\\hat{e}_n,\\hat{e}_b" />be
+  the associated tangential/normal basis and <InlineEquation equation="\\rho_P " />
+  be the radius of curvature. Set <InlineEquation equation="\\dot{s}_P = v_P" />and
+  <InlineEquation equation="\\ddot{s}_P = \\vec{a}_P \\cdot \\hat{e}_t" />
+ to be the speed
+  and tangential acceleration of \(P\).
+</p>
+<p>
+  Next define the osculating circle as above with center
+  <InlineEquation equation="C = \\vec{r}_P + \\rho_P" /> , radius <InlineEquation equation="\\rho_P " />, and normal
+  vector <InlineEquation equation="\\hat{e}_b" />.
+</p>
+<p>
+  Now take a second particle \(Q\) moving on the osculating
+  circle so that its instantaneous position matches \(P\)
+  and it has the same speed <InlineEquation equation="\\dot{s}_Q = \\dot{s}_P" /> and
+  tangential acceleration <InlineEquation equation="\\ddot{s}_Q = \\ddot{s}_P" />. This
+  means that the radius of the circle <InlineEquation equation="r_Q" />  for \(Q\) is
+  matches the osculating circle radius <InlineEquation equation="\\rho_P" />, so <InlineEquation equation="r_Q = \\rho_P" />.
+</p>
+<p>
+  We want to prove that <InlineEquation equation="\\vec{v}_Q = \\vec{v}_P" /> and
+  <InlineEquation equation="\\vec{a}_Q = \\vec{a}_P" />.
+</p>
+<p>
+  We will use a polar coordinate system for \(Q\), centered
+  at \(C\) and in the plane with normal vector
+  <InlineEquation equation="\\hat{e}_b" />. At the current instant when the particles
+  are at the same position, this means that <InlineEquation equation="\\hat{e}_r =  -\\hat{e}_n" /> and <InlineEquation equation="\\hat{e}_\\theta = \\hat{e}_t" />. Using the
+  circular motion expressions <a
+  href="https://en.wikipedia.org/wiki/Circular_motion" target="_blank">#rke-ec</a> we have that the
+  velocity of \(Q\) is:
+
+  <DisplayEquation equation="\\begin{aligned}  \\vec{v}_Q &amp;= v_Q \\,\\hat{e}_\\theta \\\\  &amp;= \\dot{s}_Q \\,\\hat{e}_\\theta \\\\  &amp;= \\dot{s}_P \\,\\hat{e}_t = \\vec{v}_P. \\\\  \\end{aligned}" />
+
+
+  For a particle moving in a circle like \(Q\), the speed is
+  given by <InlineEquation equation="\\dot{s}_Q = v_Q = r_Q \\omega_Q" />, and
+  differentiating this gives <InlineEquation equation="\\ddot{s}_Q = r_Q  \\dot{\\omega}_Q = r_Q \\alpha_Q" />. Using this, the
+  acceleration of \(Q\) is:
+
+  <DisplayEquation equation="\\begin{aligned}  \\vec{a}_Q &amp;= -\\frac{v_Q^2}{\\rho_Q} \\,\\hat{e}_r  + \\rho_Q \\alpha_Q \\,\\hat{e}_\\theta \\\\  &amp;= -\\frac{\\dot{s}_Q^2}{\\rho_Q} \\,\\hat{e}_r  + \\ddot{s}_Q \\,\\hat{e}_\\theta \\\\  &amp;= \\frac{\\dot{s}_P^2}{\\rho_P} \\,\\hat{e}_n  + \\ddot{s}_Q \\,\\hat{e}_t \\\\  &amp;= \\vec{a}_Q.  \\end{aligned}" />
+
+
+  We thus see that points \(P\) and \(Q\) have the same
+  instantaneous velocity and acceleration. This also means
+  that the tangential/normal basis computed at this
+  instant for \(Q\) will match that of \(P\).
+</p>
+</DisplayEquation>
+
+<p>
+  The osculating circle lies in the <InlineEquation equation="\\hat{e}_t,\\hat{e}_n" />
+  plane, which is thus called the <em>osculating
+  plane</em>. This plane has normal vector <InlineEquation equation="\\hat{e}_b" />, and
+  rotates about <InlineEquation equation="\\hat{e}_t" /> with a rotation rate determined by
+  the torsion \(\tau\), as we see from the expression <a
+  href="#rkt-ed">#rkt-ed</a> for the derivative of <InlineEquation equation="  \\hat{e}_b." />
+</p>
+
+<PrairieDrawCanvas id="rkt-fo-c" height="600" width="600">
+  <p class="controls">
+    <button class="anim-toggle:rkt-fo-c" onclick="rkt_fo_c.toggleAnim()">animate</button>
+    <button class="reset:rkt-fo-c" onclick="rkt_fo_c.reset()">reset</button>
+    <button class="option-toggle:rkt-fo-c:showLabels" onclick="rkt_fo_c.toggleOption('showLabels')">show labels</button>
+  </p>
+  <table class="alignTop">
+    <tr>
+      <td>Show:</td>
+      <td colspan="4">
+        <button class="option-toggle:rkt-fo-c:showPosition" onclick="rkt_fo_c.toggleOption('showPosition')">position vector</button>
+        <button class="option-toggle:rkt-fo-c:showVelocity" onclick="rkt_fo_c.toggleOption('showVelocity')">velocity</button>
+        <button class="option-toggle:rkt-fo-c:showAcceleration" onclick="rkt_fo_c.toggleOption('showAcceleration')">acceleration</button>
+        <button class="option-toggle:rkt-fo-c:showAccDecomp" onclick="rkt_fo_c.toggleOption('showAccDecomp')">acceleration decomposition</button>
+      </td>
+    </tr>
+    <tr>
+      <td></td>
+      <td colspan="4">
+        <button class="option-toggle:rkt-fo-c:showLine" onclick="rkt_fo_c.toggleOption('showLine')">tangent line</button>
+        <button class="option-toggle:rkt-fo-c:showCircle" onclick="rkt_fo_c.toggleOption('showCircle')">osculating circle</button>
+      </td>
+    </tr>
+    <tr>
+      <td colspan=2>
+        <div class="d-flex  align-items-baseline">
+          <p class="m-0 flex-shrink-1">Match phase:</p>
+          <div class="flex-grow-1 d-flex align-items-baseline">
+
+          
+              <input type="range" min="0" max="100" value="0" step="1" class="data-input:rkt-fo-c:matchPhasePercent flex-grow-1 mx-2" onchange="rkt_fo_c.setOption('matchPhasePercent', this.value); document.querySelector('span[class*=matchPhasePercent]').innerText = this.value; console.log(this.value);" oninput="rkt_fo_c.setOption('matchPhasePercent', this.value); document.querySelector('span[class*=matchPhasePercent]').innerText = this.value;"/>
+              <span class="data-option:rkt-fo-c:matchPhasePercent">0</span>%
+          </div>
+      </div>
+      </td>
+    </tr>
+  </table>
+  <p class="figureCaption mt-2">
+    Tangent lines and osculating circles, showing matching of
+    velocity or velocity and acceleration, respectively.
+  </p>
+</PrairieDrawCanvas>
+
+</SubSection>
+
+
+<SubSection title="Curvature on curves " id="curvature_on_curves">
+    <p>
+      Given a parametric curve, its curvature can be directly
+      evaluated with:
+    </p>
+
+    <DisplayEquation title=" \Curvature of parametric curve \\(\\vec{r}(u)\\) in 3D." id="rkt-ec" background="True" derivation="True" equation="\\kappa = \\frac{\\|\\vec{r}' \\times \\vec{r}''\\|}{\\|\\vec{r}'\\|^3}">
+      <p>
+        Because the tangential/normal basis vectors <a
+        href="#rkt-eb">#rkt-eb</a> are all normalized, it does
+        not matter how fast the point moves along the line. We
+        can thus evaluate the parametric curve as a function of
+        time, giving <InlineEquation equation="\\vec{r}(t)" />. Now:
+
+        <DisplayEquation equation="\\begin{aligned}\\|\\vec{r}'' \\times \\vec{r}'\\| &amp;= \\|\\vec{a} \\times \\vec{v}\\| \\\\&amp;= a v \\sin\\theta \\\\&amp;= \\frac{v^3}{\\rho},\\end{aligned}" />
+
+        where we used the cross product length formula <a
+        href="/dyn/vector_calculus#rvv-el">#rvv-el</a> and equation <a
+        href="#rkt-er">#rkt-er</a> for the radius of curvature
+        <InlineEquation equation="\\rho" />. By definition <a href="#rkt-ek">#rkt-ek</a> the
+        curvature is <InlineEquation equation="\\kappa = 1/\\rho" />, so
+
+        <DisplayEquation equation="\\begin{aligned}\\|\\vec{r}'' \\times \\vec{r}'\\|&amp;= v^3 \\kappa \\\\\\kappa &amp;= \\frac{\\|\\vec{r}'' \\times \\vec{r}'\\|}{\\|\\vec{r}'\\|^3}.\\end{aligned}" />
+      </p>
+    </DisplayEquation>
+
+    <p>
+      While the above formula can be used in 2D by taking the
+      third component to be zero, it can also be written in an
+      explicitly 2D form:
+    </p>
+
+    <DisplayEquation title="Curvature of parametric curve \\(x = x(u)\\), \\(y = y(u)\\) in 2D." id="rkt-e2" background="True" derivation="True" equation="\\kappa = \\frac{|x''y' - y''x'|}{(x'^2 + y'^2)^{3/2}}">
+      <p>
+        This equation is just <a href="#rkt-ec">#rkt-ec</a>
+        written in explicit 2D coordinates. To see this, we
+        first take the position vector <InlineEquation equation="\\vec{r}(u)" /> to be
+
+        <DisplayEquation equation="\\vec{r}(u) = x(u)\\,\\hat\\imath + y(u)\\,\\hat\\jmath." />
+
+        Now <InlineEquation equation="r'(u) = \\sqrt{(x'(u))^2 + (y'(u))^2}" /> and
+
+        <DisplayEquation equation="\\begin{aligned}\\vec{r}'' \\times \\vec{r}'&amp;= (x''\\,\\hat\\imath + y''\\,\\hat\\jmath)\\times (x'\\,\\hat\\imath + y'\\,\\hat\\jmath) \\\\&amp;= (x''y' - y''x')\\,\\hat{k},\\end{aligned}" />
+
+        so evaluating <a href="#rkt-ec">#rkt-ec</a> gives the
+        desired expression.
+      </p>
+    </DisplayEquation>
+
+    <p>
+      We can take this a step further, and obtain an expression for an explicitly defined function.
+    </p>
+
+    <DisplayEquation title="Curvature of an explicitly defined function \\(y = f(x).\\)" id="rkt-e3" background="True" derivation="True" equation="\\kappa = \\frac{|y''(x)|}{(1 + y'(x)^2)^{3/2}}">
+      <p>
+        Use equation <a
+        href="#rkt-e2">#rkt‑e2</a> and parametrize the curve using \(x\) as the parametrization variable. Namely:
+
+        <DisplayEquation equation="\\begin{aligned}x = u, \\quad \\quad y = y(u) = y(x)\\end{aligned}" />
+
+        This yields a very elegant expression, as <InlineEquation equation="x'(u) = 1" /> and <InlineEquation equation="x''(u) = 0" />, which lets us arrive at the desired expression <a
+        href="#rkt-e3">#rkt‑e3</a>.
+      </p>
+    </DisplayEquation>
+</SubSection>
+
+</Layout>
+
+<script src="/dyn/tangential_and_normal_basis/canvases.js" is:inline></script>

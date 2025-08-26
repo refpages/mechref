@@ -1143,7 +1143,7 @@ $(document).ready(function(){
             var anchor, otherPoints;
             if (this.getOption("showPivots")) {
                 this.text(pA, $V([2, 0]), "TEX:$A$");
-                this.text(pB, $V([-1.5, -1.5]), "TEX:$B$");
+                this.text(pB, $V([0.9, -1.5]), "TEX:$B$");
             } else {
                 anchor = this.findAnchorForIntersection(pA, [pD, pB]);
                 this.text(pA, anchor, "TEX:$A$");
