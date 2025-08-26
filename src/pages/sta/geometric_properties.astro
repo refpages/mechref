@@ -407,6 +407,82 @@ If the shape has an axis of symmetry, the centroid falls on that line of symmetr
 
 <SubSection title="Moment of inertia (second moment of area)" id="second_moment">
 
+<em>Note:</em> in statics we are using the second moment of area as our moment of inertia. In dynamics, a different moment of inertia is used (the mass moment of inertia). The differences between these two quantities are summarized in the following table. 
+
+<DisplayTable id="moi_table" >
+    <thead>
+        <tr>
+            <th>
+                
+            </th>
+            <th>
+                <strong>Mass moment of inertia</strong>
+            </th>
+            <th class="table-shaded"> 
+                <strong>Area moment of inertia (used in Statics!)</strong>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th>Other names</th>
+            <td>
+
+            </td>
+            <td class="table-shaded">
+                Second moment of area
+            </td>
+        </tr>
+        <tr>
+            <th>Description</th>
+            <td>
+                Determines the torque needed to produce a desired angular rotation about an axis of rotation (resistance to rotation)
+            </td>
+            <td class="table-shaded">
+                Determines the moment needed to produce a desired curvature about an axis(resistance to bending)
+            </td>
+        </tr>
+        <tr>
+            <th>Equations</th>
+            <td>
+                <DisplayEquation equation='I_{P,\\hat{a}} = \\iiint_\\mathcal{B} \\rho r^2 \\,dV\\' /> 
+            </td>
+            <td class="table-shaded">
+                <DisplayEquation equation='I_x = \\int_{A}^{} y^2 \\,dA \\' />
+                <DisplayEquation equation='I_y = \\int_{A}^{} x^2 \\,dA \\' />
+                <DisplayEquation equation='\\begin{aligned} J_O &= \\int_{A}^{} r^2 \\,dA \\\\ &= \\int_{A}^{} (x^2+y^2) \\,dA\\ \\end{aligned}' />
+            </td>
+        </tr>
+        <tr>
+            <th>Units</th>
+            <td>
+                <InlineEquation equation="\\mathrm{mass} \\ \\mathrm{length} ^ 2"/>
+            </td>
+            <td class="table-shaded">
+                <InlineEquation equation="\\mathrm{length} ^ 4"/>
+            </td>
+        </tr>
+        <tr>
+            <th>Typical Equations</th>
+            <td>
+                <DisplayEquation equation='\\tau = I\\alpha' /> 
+            </td>
+            <td class="table-shaded">
+                <DisplayEquation equation='\\sigma = (My)/I \\' />
+            </td>
+        </tr>
+        <tr>
+            <th>Courses</th>
+            <td>
+                TAM 212
+            </td>
+            <td class="table-shaded">
+                TAM 210, TAM 251
+            </td>
+        </tr>
+    </tbody>
+</DisplayTable>
+
 The moment of inertia used in statics is the "second moment of area".
 This is a mass property that determines the amount of torque that is needed to create an angular acceleration about a specific axis of rotation. 
 The dimension of the area moment of inertia is <InlineEquation equation='\\mathrm{length} ^ 4' />.
