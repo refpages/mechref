@@ -43,13 +43,18 @@ import DisplayTable from "../../components/DisplayTable.astro"
                     <p>
                         No motion
                     </p>
-                    <InlineEquation equation = "\\sum F = 0"/>
+                    <p>
+                        <InlineEquation equation = "\\sum \\vec{F} = 0"/>
+                    </p>
+                    <p>
+                        <InlineEquation equation = "\\sum \\vec{M} = 0"/>
+                    </p>
                 </td>
                 <td>
-                    Statics
+                    <a href = "/sta?origin=sidebar">Statics</a>
                 </td>
                 <td>
-                    Solid mechanics
+                    <a href = "/sol?origin=sidebar">Solid mechanics</a>
                 </td>
             </tr>
             <tr>
@@ -57,11 +62,16 @@ import DisplayTable from "../../components/DisplayTable.astro"
                     <p>
                         Motion
                     </p>
-                    <InlineEquation equation = "\\sum F \\neq 0"/>
+                    <p>
+                        <InlineEquation equation = "\\sum \\vec{F} \\neq 0"/>
+                    </p>
+                    <p>
+                        <InlineEquation equation = "\\sum \\vec{M} \\neq 0"/>
+                    </p>
                 </td>
                 <td>
                     <mark>
-                        Dynamics
+                        <a href = "/dyn?origin=sidebar">Dynamics</a></li>
                     </mark>
                 </td>
                 <td>
