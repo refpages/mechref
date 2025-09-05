@@ -11,6 +11,7 @@ import PrairieDrawCanvas from "../../components/PrairieDrawCanvas.astro"
 import CalloutContainer from "../../components/CalloutContainer.astro"
 import CalloutCard from "../../components/CalloutCard.astro"
 import DisplayTable from "../../components/DisplayTable.astro"
+import Example from "../../components/Example.astro"
 ---
 <Layout title = "Free body diagrams" description = "Learn how to represent the external forces on a system graphically.">
 
@@ -70,7 +71,20 @@ import DisplayTable from "../../components/DisplayTable.astro"
 
 </Section>
 
-<SubSection title = "Vector representation in FBDs" id = "vector_representation_in_fbds"/>
+<SubSection title = "Vector representation in FBDs" id = "vector_representation_in_fbds">
+  <p>
+    Many problems involve setting up a free body diagram with assumed directions for unknown forces or moments.
+    <li>When solving for the magnitude of vectors with assumed directions, if the value is found to be negative, it means that the direction of that vector is the opposite of what was assumed.</li>
+    <li>The negative output says nothing about the signs of x, y, or z-components of the vector, only that the direction is the opposite of what was assumed in the free body diagram setup.</li>
+  </p>
+  <CalloutContainer slot="cards">
+    <CalloutCard title="Heads up!">
+      <p>
+        <strong><a href = "/sta/reaction_forces#types_of_connections">Types of connections</a></strong> and <strong><a href = "/sta/trusses#assumptions">truss assumptions</a></strong> build on this content later in the course.
+      </p>
+</CalloutCard>
+</CalloutContainer>
+</SubSection>
 
 <SubSection title="Pulley idealizations" id="pulley_idealizations">
 
