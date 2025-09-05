@@ -59,6 +59,18 @@ import DisplayTable from "../../components/DisplayTable.astro"
     <Image src="/dyn/multi_body_systems/GearsChains_edited.png" width="7"></Image>
 	
 
+<CalloutContainer slot = "cards">
+  <CalloutCard title="Applications">
+    <ul>
+      <li><a href = "/dyn/four_bar_linkages">Four-bar linkages</a></li>
+    </ul>
+    <PrairieDrawCanvas id = "aml-ft-c" width = "250" height = "250"/>
+    <p>
+      Four-bar linkages are a prominent example of a multi-body system.
+    </p>
+  </CalloutCard>
+</CalloutContainer>
+
 </SubSection> 
 <SubSubSection title="Standard sign convention"  id="sign_convention">
 
@@ -101,3 +113,5 @@ import DisplayTable from "../../components/DisplayTable.astro"
 <SubSection title = "Slider cranks"  id = "slider_cranks"/>
 
 </Layout>
+
+<script src="/dyn/multi_body_systems/canvases.js" is:inline></script>

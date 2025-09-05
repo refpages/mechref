@@ -807,7 +807,7 @@ $(document).ready(function(){
         this.labelLine(O.add($V([2, 1.2])), O.add($V([2, -0.35])), ej.x(1.2), "TEX:$y_2$");
     });
 
-        var limitsFourBar = function(pd, g, f, a, b) {
+    var limitsFourBar = function(pd, g, f, a, b) {
         var limits = {};
         limits.L = g + f + a + b;
         limits.ValidityIndex = limits.L - 2 * Math.max(g, f, a, b);
