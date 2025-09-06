@@ -16,6 +16,7 @@ import Warning from "../../components/Warning.astro"
 import DisplayTable from "../../components/DisplayTable.astro"
 import CalloutCard from "../../components/CalloutCard.astro"
 import CalloutContainer from "../../components/CalloutContainer.astro"
+import Plotly from "../../components/Plotly.astro"
 ---
 <Layout title = "Vectors and scalars" description = "Understand the ways to describe vectors, which have magnitude and direction, and scalars, which only have magnitude.">
 
@@ -320,6 +321,7 @@ The direction of a vector can be written as a unit vector by dividing the vector
   <SubSubSection title = "Vector representation" id = "vector_representation"/>
     <SubSubSubSection title = "Coordinates" id = "coordinates">
       <Image src = '/sta/vectors_scalars/Coordinates.jpg' width = '5'/>
+      <Plotly id = "cartesian" file_path = "sta/vectors_scalars/Cartesian.json"/>
         <CalloutContainer slot = "cards">
           <CalloutCard title = "Review?">
             <p>
@@ -333,6 +335,7 @@ The direction of a vector can be written as a unit vector by dividing the vector
     </SubSubSubSection>
     <SubSubSubSection title = "Angles" id = "angles">
       <Image src = '/sta/vectors_scalars/Angle.jpg' width = '5'/>
+      <Plotly id = "directioncosines" file_path = "sta/vectors_scalars/DirectionCosines.json"/>
     </SubSubSubSection>
     <SubSubSubSection title = "Unit vectors" id = "unit_vectors_representation">
       <Image src = '/sta/vectors_scalars/UnitVectors.jpg' width = '5'/>

@@ -26,7 +26,12 @@ const {file_path, id, height=400} = Astro.props;
         var data = $.getJSON(`/${file_path}`).done(function(){
             document.querySelector(`#plotly_${id}`).innerHTML = "";
             console.log(JSON.parse(data['responseText']))
-            Plotly.newPlot(`plotly_${id}`, JSON.parse(data['responseText']), layout ,{responsive: true})
+            Plotly.newPlot(`plotly_${id}`, JSON.parse(data['responseText']), layout ,{responsive: true}).then(() => {
+                // 🔥 Force MathJax to typeset LaTeX in tick labels, axis titles, etc.
+                if (window.MathJax && window.MathJax.typesetPromise) {
+                    MathJax.typesetPromise();
+                }
+            });
             Plotly.Plots.resize(`plotly_${id}`)
         });
 
