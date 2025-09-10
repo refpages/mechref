@@ -13,7 +13,7 @@ def change_links(css):
     for file in css:
         name = os.path.join('./dist/_astro', file)
 
-        with "open(name, 'r', 'errors="ignore"')"  as f:
+        with open(name, 'r', encoding='utf8')  as f:
             data = f.read()
 
         for wrong, correct in links_to_replace.items():
