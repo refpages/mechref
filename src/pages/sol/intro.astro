@@ -1,0 +1,48 @@
+---
+import Layout from "../../layouts/Layout.astro" 
+import Image from "../../components/Image.astro" 
+import Section from "../../components/Section.astro" 
+import SubSection from "../../components/SubSection.astro" 
+import SubSubSection from "../../components/SubSubSection.astro" 
+import Itemize from "../../components/Itemize.astro" 
+import Item from "../../components/Item.astro" 
+import InlineEquation from "../../components/InlineEquation.astro" 
+import DisplayEquation from "../../components/DisplayEquation.astro" 
+import Row from "../../components/Row.astro"
+import Col from "../../components/Col.astro"
+import CalloutCard from "../../components/CalloutCard.astro"
+import CalloutContainer from "../../components/CalloutContainer.astro"
+import Warning from "../../components/Warning.astro"
+---
+<style>
+    th {
+        text-align: center;
+    }
+    td {
+        text-align: center;
+    }
+</style>
+
+
+<Layout title="Introduction">
+
+<div slot="navtree">
+    <ul class='list-group list-group-flush py-0'> 
+        <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#stress-strain_diagram'>Stress-Strain Diagram</a>
+            <ul class='list-group list-group-flush py-0'> 
+                <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#elastic_behavior'>Elastic Behavior</a></li> 
+                <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#plastic_behavior'>Plastic Behavior</a></li> 
+            </ul>
+        </li> 
+        <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#other_derived_properties'>Other Derived Properties</a>
+            <ul class='list-group list-group-flush py-0'> 
+                <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#directional_materials'>Directional Materials</a></li>
+                <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href="#poissons_ratio">Poisson's Ratio</a></li>
+            </ul>
+        </li> 
+    </ul>
+</div>
+
+<Section title="Introduction" id="intro"></Section>
+
+</Layout>

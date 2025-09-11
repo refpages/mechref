@@ -16,7 +16,15 @@ import CalloutContainer from "../../components/CalloutContainer.astro"
 
 <div slot="navtree">
     <ul class='list-group list-group-flush py-0'> 
-        <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#units'>Units</a></li>
+        <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#measurement_of_strain'>Measurement of Strain</a>
+            <ul class='list-group list-group-flush py-0'> 
+                <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#direct_measurement'>Direct Measurement</a></li>
+                <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#contact_extensometer'>Contact Extensometer</a></li>
+                <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#electrical_resistance_strain_gauges'>Electrical Resistance Strain Gauges</a></li>
+                <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#vibrating_wire_strain_gauge'>Vibrating Wire Strain Gauge</a></li>
+                <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#digital_image_correlation_(dic)'>Digital Image Correlation (DIC)</a></li>
+            </ul>
+        </li>
         <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#normal_strain'>Normal Strain</a>
             <ul class='list-group list-group-flush py-0'> 
                 <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#average_normal_(extensional)_strain'>Average Normal (extensional) Strain</a></li> 
@@ -28,16 +36,7 @@ import CalloutContainer from "../../components/CalloutContainer.astro"
             </ul>
         </li> 
         <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#strain_tensor'>Strain Tensor</a></li> 
-        
-        <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#measurement_of_strain'>Measurement of Strain</a>
-            <ul class='list-group list-group-flush py-0'> 
-                <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#direct_measurement'>Direct Measurement</a></li>
-                <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#contact_extensometer'>Contact Extensometer</a></li>
-                <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#electrical_resistance_strain_gauges'>Electrical Resistance Strain Gauges</a></li>
-                <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#vibrating_wire_strain_gauge'>Vibrating Wire Strain Gauge</a></li>
-                <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#digital_image_correlation_(dic)'>Digital Image Correlation (DIC)</a></li>
-            </ul>
-        </li>
+        <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#average_strain'>Small vs Large Strain</a></li>
     </ul>   
 </div>
 
@@ -49,11 +48,59 @@ import CalloutContainer from "../../components/CalloutContainer.astro"
 
 </Section>
 
-<SubSection title="Units" id="units">
+<SubSection title="Measurement of Strain" id="measurement_of_strain"></SubSection>
 
-Dimensionless [mm/mm, in/in, or %]
+<SubSubSection title="Direct Measurement" id="direct_measurement">
 
-</SubSection>
+<p class="mb-0">
+    Initial and final lengths of some section of the specimen are measured, perhaps by some handheld device such as a ruler. Axial strain computed directly by following formula:
+</p>
+
+<DisplayEquation equation="\\varepsilon = \\frac{\\delta}{L} = \\frac{L_{final} - L_{initial}}{L_{initial}} \\" id="sta-axs" background="True" title="Axial strain formula"/>
+
+ Accurate measurements of strain in this way may require a fairly large initial length.
+
+</SubSubSection>
+ 
+<SubSubSection title="Contact Extensometer" id="contact_extensometer">
+
+<p>
+    A clip-on device that can measure very small deformations. Two clips attach to a specimen before testing. The clips are attached to a transducer body. The transducer outputs a voltage. Changes in voltage output are converted to strain.
+</p>
+
+<Image src="/sol/strain/extensometer.jpg" width="2"> A tensile test in the Materials Testing Instructional Laboratory, Talbot Lab, UIUC</Image>
+
+</SubSubSection>
+
+<SubSubSection title="Electrical Resistance Strain Gauges" id="electrical_resistance_strain_gauges">
+<p>
+Small electrical resistors whose resistance charges with strain. Change in resistance can be converted to strain measurement. Often sold as "rosettes", which can measure normal strain in two or more directions. Can be bonded to test specimen.
+</p>
+<Image src="/sol/strain/strainGauge.png" width="4"> Rosette strain gauge arrangement and example</Image>
+
+</SubSubSection>
+
+<SubSubSection title="Vibrating Wire Strain Gauge" id="vibrating_wire_strain_gauge">
+<p>
+A calibrated wire is set into vibration and its frequency is measured. Small changes in the length of the wire as a result of strain produce a measurable change in frequency, allowing for accurate strain measurements over relatively long gauge lengths.
+</p>
+<Image src="/sol/strain/VibratingWire.png" width="3"> Vibrating wire strain gauge attached to the side of a bridge</Image>
+
+
+</SubSubSection>
+
+<SubSubSection title="Digital Image Correlation (DIC)" id="digital_image_correlation_(dic)">
+
+<p>
+Image placed on surface of test specimen. Image may consist of speckles or some regular pattern. Deformation of image tracked by digital camera. Image analysis used to determine multiple strain component.
+</p>
+<Image src="/sol/strain/dic.png" width="3"> Experiment set up. The diffuse light source consists of two fluorescent tube lights that produce white light, behind a translucent plastic sheet.</Image>
+
+<Image src="/sol/strain/dic2.png" width="4">  <InlineEquation equation="\\varepsilon_{yy}" />  strain calculated through DIC of straight-curved specimen with an applied load of 114 N from TAM 456, UIUC.</Image>
+
+
+</SubSubSection>
+
 
 <SubSection title="Normal Strain" id="normal_strain">
 
@@ -117,16 +164,6 @@ Dimensionless [mm/mm, in/in, or %]
 
 </SubSection>
 
-<SubSubSection title="Average Shear Strain" id="average_shear_strain">
-<Image src="/sol/strain/Avg Shear Strain.png" width="5"> Average shear strain</Image>
-
-<DisplayEquation equation="\\begin{align*} &tan(\\gamma) = \\frac{\\delta}{L} \\xrightarrow{} \\gamma = \\frac{\\delta}{L}	\\\\ &\\gamma = \\alpha + \\beta	 \\\\ &\\gamma = \\frac{\\delta_x}{L_y} + \\frac{\\delta_y}{L_x} \\\\ \\end{align*}" title="Average shear strain." background="True"/>
-
-<Itemize>
-    <Item> <strong>Engineering</strong> (shear) strain: Compute angle from length changes and original (undeformed) total length.</Item>
-    <Item> <strong>True</strong> (shear) strain: Integrate infinitesimal angle changes.</Item>
-</Itemize>
-</SubSubSection>
 
 <SubSection title="Strain Tensor" id="strain_tensor">
 
@@ -167,57 +204,15 @@ The tensor contains:
 </p>
 </SubSection>
 
-<SubSection title="Measurement of Strain" id="measurement_of_strain"></SubSection>
+<SubSection title="Small vs Large Strain" id="average_strain">
+<Image src="/sol/strain/Avg Shear Strain.png" width="5"> Average shear strain</Image>
 
-<SubSubSection title="Direct Measurement" id="direct_measurement">
+<DisplayEquation equation="\\begin{align*} &tan(\\gamma) = \\frac{\\delta}{L} \\xrightarrow{} \\gamma = \\frac{\\delta}{L}	\\\\ &\\gamma = \\alpha + \\beta	 \\\\ &\\gamma = \\frac{\\delta_x}{L_y} + \\frac{\\delta_y}{L_x} \\\\ \\end{align*}" title="Average shear strain." background="True"/>
 
-<p class="mb-0">
-    Initial and final lengths of some section of the specimen are measured, perhaps by some handheld device such as a ruler. Axial strain computed directly by following formula:
-</p>
-
-<DisplayEquation equation="\\varepsilon = \\frac{\\delta}{L} = \\frac{L_{final} - L_{initial}}{L_{initial}} \\" id="sta-axs" background="True" title="Axial strain formula"/>
-
- Accurate measurements of strain in this way may require a fairly large initial length.
-
-</SubSubSection>
- 
-<SubSubSection title="Contact Extensometer" id="contact_extensometer">
-
-<p>
-    A clip-on device that can measure very small deformations. Two clips attach to a specimen before testing. The clips are attached to a transducer body. The transducer outputs a voltage. Changes in voltage output are converted to strain.
-</p>
-
-<Image src="/sol/strain/extensometer.jpg" width="2"> A tensile test in the Materials Testing Instructional Laboratory, Talbot Lab, UIUC</Image>
-
-</SubSubSection>
-
-<SubSubSection title="Electrical Resistance Strain Gauges" id="electrical_resistance_strain_gauges">
-<p>
-Small electrical resistors whose resistance charges with strain. Change in resistance can be converted to strain measurement. Often sold as "rosettes", which can measure normal strain in two or more directions. Can be bonded to test specimen.
-</p>
-<Image src="/sol/strain/strainGauge.png" width="4"> Rosette strain gauge arrangement and example</Image>
-
-</SubSubSection>
-
-<SubSubSection title="Vibrating Wire Strain Gauge" id="vibrating_wire_strain_gauge">
-<p>
-A calibrated wire is set into vibration and its frequency is measured. Small changes in the length of the wire as a result of strain produce a measurable change in frequency, allowing for accurate strain measurements over relatively long gauge lengths.
-</p>
-<Image src="/sol/strain/VibratingWire.png" width="3"> Vibrating wire strain gauge attached to the side of a bridge</Image>
-
-
-</SubSubSection>
-
-<SubSubSection title="Digital Image Correlation (DIC)" id="digital_image_correlation_(dic)">
-
-<p>
-Image placed on surface of test specimen. Image may consist of speckles or some regular pattern. Deformation of image tracked by digital camera. Image analysis used to determine multiple strain component.
-</p>
-<Image src="/sol/strain/dic.png" width="3"> Experiment set up. The diffuse light source consists of two fluorescent tube lights that produce white light, behind a translucent plastic sheet.</Image>
-
-<Image src="/sol/strain/dic2.png" width="4">  <InlineEquation equation="\\varepsilon_{yy}" />  strain calculated through DIC of straight-curved specimen with an applied load of 114 N from TAM 456, UIUC.</Image>
-
-
-</SubSubSection>
+<Itemize>
+    <Item> <strong>Engineering</strong> (shear) strain: Compute angle from length changes and original (undeformed) total length.</Item>
+    <Item> <strong>True</strong> (shear) strain: Integrate infinitesimal angle changes.</Item>
+</Itemize>
+</SubSection>
 
 </Layout>
