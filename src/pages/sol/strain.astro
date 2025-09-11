@@ -23,9 +23,6 @@ import CalloutContainer from "../../components/CalloutContainer.astro"
             </ul>
         </li> 
         <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#shear_strain'>Shear Strain</a>
-            <ul class='list-group list-group-flush py-0'> 
-                <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#average_normal_(extensional)_strain'>Average Shear Strain</a></li> 
-            </ul>
         </li> 
         <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#strain_tensor'>Strain Tensor</a></li> 
         
@@ -115,18 +112,21 @@ Dimensionless [mm/mm, in/in, or %]
 
 <DisplayEquation equation="\\gamma = \\frac{\\pi}{2} - \\theta \\approx \\frac{\\delta}{L}\\" title="Shear strain with the small angle approximaion." background="True"/>
 
-</SubSection>
 
-<SubSubSection title="Average Shear Strain" id="average_shear_strain">
-<Image src="/sol/strain/Avg Shear Strain.png" width="5"> Average shear strain</Image>
+<Image src="/sol/strain/Uniaxial Shear Strain.png" width="4"> Shear strain in one direction</Image>
 
-<DisplayEquation equation="\\begin{align*} &tan(\\gamma) = \\frac{\\delta}{L} \\xrightarrow{} \\gamma = \\frac{\\delta}{L}	\\\\ &\\gamma = \\alpha + \\beta	 \\\\ &\\gamma = \\frac{\\delta_x}{L_y} + \\frac{\\delta_y}{L_x} \\\\ \\end{align*}" title="Average shear strain." background="True"/>
+For shear along one axis, the shear strain (<InlineEquation equation="\\gamma"/>) can be found using the relation below.
+<DisplayEquation equation="\\begin{align*} &tan(\\gamma) = \\frac{\\delta}{L} \\xrightarrow{} \\gamma = \\frac{\\delta}{L}\\end{align*}" title="Shear strain along one axis" background="True"/>
+
+<Image src="/sol/strain/Biaxial Shear Strain.png" width="2"> Shear strain in two directions</Image>
+If there is shear along multiple axes, the strains from each component can be added.
+<DisplayEquation equation="\\begin{align*} &\\gamma = \\alpha + \\beta	 \\\\ &\\gamma = \\frac{\\delta_x}{L_y} + \\frac{\\delta_y}{L_x} \\\\ \\end{align*}" title="Shear strain along multiple axes." background="True"/>
 
 <Itemize>
     <Item> <strong>Engineering</strong> (shear) strain: Compute angle from length changes and original (undeformed) total length.</Item>
     <Item> <strong>True</strong> (shear) strain: Integrate infinitesimal angle changes.</Item>
 </Itemize>
-</SubSubSection>
+</SubSection>
 
 <SubSection title="Strain Tensor" id="strain_tensor">
 
