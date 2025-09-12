@@ -13,6 +13,7 @@ import Item from "../../components/Item.astro"
 import Itemize from "../../components/Itemize.astro"
 import InlineEquation from "../../components/InlineEquation.astro"
 import DisplayEquation from "../../components/DisplayEquation.astro"
+import CalloutCard from "../../components/CalloutCard.astro"
 ---
 <Layout title="Gears">
     <div slot="navtree">
@@ -34,6 +35,16 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
     -->
     <SubSection title="Gears" id="Gears">
         <p>Gears are common mechanical elements that can serve a variety of critical functions. Most often, gears are used to transmit or transfer power, change the direction or orientation of a shaft, or synchronize two shafts.</p>
+        <CalloutContainer slot = "cards">
+            <CalloutCard title = "Review?">
+                <p>
+                    Need a review of <strong>gears?</strong>
+                </p>
+                <p>
+                    This content has also been in <a href = "/dyn/multi_body_systems">dynamics.</a>
+                </p>
+            </CalloutCard>
+        </CalloutContainer>
     </SubSection>
     <SubSubSection title="Gear Types" id="Gear Types">
         <p>There are a large number of different types of gears that are commonly used.</p>

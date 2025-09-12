@@ -15,6 +15,8 @@ import Row from "../../components/Row.astro"
 import Col from "../../components/Col.astro"
 import Warning from "../../components/Warning.astro"
 import DisplayEquationCustom from "../../components/DisplayEquationCustom.astro"
+import CalloutCard from "../../components/CalloutCard.astro"
+import CalloutContainer from "../../components/CalloutContainer.astro"
 ---
 
 
@@ -147,6 +149,17 @@ import DisplayEquationCustom from "../../components/DisplayEquationCustom.astro"
             undergoing different rolling motions.
           </p>
     </PrairieDrawCanvas>
+  <CalloutContainer slot = "cards">
+    <CalloutCard title = "Heads up!">
+      <p>
+        <strong><a href = "/md/Instant_Centers">Instant centers</a></strong> builds on this content in mechanism design.
+      </p>
+      <Image src = "/dyn/contact_and_rolling/Rigid_body_velocity_3_1.png" width = "6"/>
+      <p>
+        Any rigid body has an angular velocity, which can create a linear velocity.
+      </p>
+    </CalloutCard>
+  </CalloutContainer>
 </SubSection>
 
 <SubSubSection title="Rolling on a flat surface" id="rolling_flat_surface" >
