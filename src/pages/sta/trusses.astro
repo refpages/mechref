@@ -12,6 +12,8 @@ import InlineEquation from "../../components/InlineEquation.astro"
 import PrairieDrawCanvas from "../../components/PrairieDrawCanvas.astro"
 import Row from "../../components/Row.astro"
 import Col from "../../components/Col.astro"
+import CalloutContainer from "../../components/CalloutContainer.astro"
+import CalloutCard from "../../components/CalloutCard.astro"
 ---
 <Layout title = "Trusses" description = "Learn about truss systems, zero force members, the method of joints, and the method of sections.">
 
@@ -57,6 +59,16 @@ In our class, we'll assume that members are <strong>always in tension</strong>. 
 
 
 </p>
+	<CalloutContainer slot = "cards">
+		<CalloutCard title = "Review?">
+			<p>
+				Need a review of <strong>truss assumptions?</strong>
+		 	</p>
+		  	<p>
+				This content has also been explained <a href = "/sta/free_body_diagrams#vector_representation_in_fbds">earlier in the course</a>
+			</p>
+		</CalloutCard>
+	</CalloutContainer>
 </SubSection>
 
 <!-- good summary in lecture 17, slide 5 -->
