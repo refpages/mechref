@@ -675,14 +675,14 @@ import InlineCanvas from "../../components/InlineCanvas.astro"
     <DisplayEquation title="Derivative of vector direction." background="True" id="rvc-eu" equation="\\dot{\\hat{a}} = \\frac{1}{a}\\operatorname{Comp}(\\dot{\\vec{a}}, \\vec{a})" derivation=True>
       <p>
         We take the definition <a
-        href="/dyn/vector_calculus#rvv-eu">#rvv-eu</a> for the unit vector
+        href="/dyn/vectors#rvv-eu">#rvv-eu</a> for the unit vector
         and differentiate it:
       </p>
       <p>
         <DisplayEquation equation="\\begin{aligned} \\hat{a} &amp;=        \\frac{\\vec{a}}{a} \\\\ \\frac{d}{dt} \\hat{a}        &amp;=        \\frac{d}{dt}\\left(\\frac{\\vec{a}}{a}\\right) \\\\        \\dot{\\hat{a}} &amp;= \\frac{\\dot{\\vec{a}} a -        \\vec{a} \\dot{a}}{a^2} \\\\ &amp;=        \\frac{\\dot{\\vec{a}}}{a} -        \\frac{\\dot{\\vec{a}} \\cdot \\hat{a}}{a^2}        \\vec{a} \\\\ &amp;= \\frac{1}{a} \\big(        \\dot{\\vec{a}} - (\\dot{\\vec{a}} \\cdot        \\hat{a}) \\hat{a} \\big)\\\\ &amp;= \\frac{1}{a}        \\operatorname{Comp}(\\dot{\\vec{a}},        \\vec{a}).\\end{aligned}" />
 
         Here we observed at the end that we had the expression
-        <a href="/dyn/vector_calculus#rvv-em">#rvv-em</a> for the
+        <a href="/dyn/vectors#rvv-em">#rvv-em</a> for the
         complementary projection of the derivative
         <InlineEquation equation="\\dot{\\vec{a}}" /> with respect to <InlineEquation equation="\\vec{a}" />  itself.
       </p>
@@ -699,14 +699,14 @@ import InlineCanvas from "../../components/InlineCanvas.astro"
         From <a href="#rvc-eu">#rvc-eu</a> we know that
         <InlineEquation equation="\\dot{\\hat{a}}" /> is in the direction of <InlineEquation equation="\\operatorname{Comp}(\\dot{\\vec{a}}, \\vec{a})" />
         , and from
-        <a href="/dyn/vector_calculus#rvv-er">#rvv-er</a> we know that this
+        <a href="/dyn/vectors#rvv-er">#rvv-er</a> we know that this
         is orthogonal to <InlineEquation equation="\\vec{a}" /> (and also <InlineEquation equation="\\hat{a}" />).
       </p>
     </DisplayEquation>
 
     <p>
       Recall that we can always write a vector as the <a
-      href="/dyn/vector_calculus#rvv-ei">product of its length and
+      href="/dyn/vectors#rvv-ei">product of its length and
       direction</a>, so <InlineEquation equation="\\vec{a} = a \\hat{a}" />. This gives the
       following decomposition of the derivative of <InlineEquation equation="\\vec{a}" />.
     </p>
@@ -737,7 +737,7 @@ import InlineCanvas from "../../components/InlineCanvas.astro"
           Vector derivatives can be decomposed into length changes
           (projection onto <InlineEquation equation="\\vec{a}" />) and direction changes
           (complementary projection). Compare to Figure <a
-          href="/dyn/vector_calculus#rvv-fu">#rvv-fu</a>.
+          href="/dyn/vectors#rvv-fu-c">#rvv-fu</a>.
         </p>
       </PrairieDrawCanvas>
     </Center>
