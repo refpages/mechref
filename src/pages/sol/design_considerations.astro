@@ -10,7 +10,7 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
 import Item from "../../components/Item.astro"
 import Itemize from "../../components/Itemize.astro"
 ---
-<Layout title="Buckling">
+<Layout title="Design Considerations">
 
 	<div slot="navtree">
 		<ul class='list-group list-group-flush py-0'> 
@@ -28,124 +28,28 @@ import Itemize from "../../components/Itemize.astro"
 			</li>  
 		</ul>
 	</div>
-<Section title="Buckling" id="buckling">
+<Section title="Design Considerations" id="design-considerations"> </Section>
 
-<strong>Buckling</strong> is the sudden change in shape of a structural component under a compressive load
+<SubSection title="Allowable Strength Design" id="allowable_strength_design">
 
-<Image src='/sol/buckling/BuckleVSDeflect.png' width='5'></Image>
-
- The beam is still able to withstand normal loads, but buckling causes an <strong>instability</strong>. Small perturbations make the structure unstable. 
-
- Failure is elastic (<InlineEquation equation='\\sigma < \\sigma_Y' />), but if increased loads are applied, further deformation and plastic failure (yielding) / brittle failure (fracture) can occur (post-buckling failure).
-</Section>
-
-<SubSection title="Stability of Structures" id="stability"></SubSection>
-
-<SubSubSection title="Single Column" id="single-column">
-
-<Image src='/sol/buckling/Stability of Structures.png' width='3'></Image>
-
- Column <InlineEquation equation='AB' /> is supporting uniaxial compressive load <InlineEquation equation='P' />. To properly design this column, the cross-section must satisfy two equations.
-
-<DisplayEquation equation=' \\begin{align} \\sigma = \\frac{P}{A} \\le \\sigma_{all} \\\\ \\delta = \\frac{PL}{EA} \\le \\delta_{spec} \\end{align}' title="Uniaxial compressive load on single column." background="True" />
-
- Increasing the load can cause the column to buckle <InlineEquation equation='\\rightarrow' /> instability causing failure.
-</SubSubSection>
-
-<SubSubSection title="Two Rods and a Torsional Spring" id="two-rods-spring">
-
-<Image src='/sol/buckling/TwoRods.png' width='3.5'></Image>
-
- Rods <InlineEquation equation='AC' /> and <InlineEquation equation='CB' /> are perfectly aligned and a torsional spring connects them at point <InlineEquation equation='C' />. For small perturbations, point <InlineEquation equation='C' /> moves to the right.
+<strong>Design Requirement:</strong> A structural design is intended to support and/or transmit loads while maintaining safety and utility: <strong><em>don't break</em></strong>. Strength of a structure reflects its ability to resist failure.
 
 <Itemize>
-	<Item>If <InlineEquation equation="C"/> <strong>returns</strong> to the original position, then the system is <strong>stable</strong></Item>
-	<Item>If <InlineEquation equation="C"/> <strong>moves farther away</strong> from the original position, then the system is <strong>unstable</strong></Item>
+    <Item> <strong>Ultimate load ( <InlineEquation equation="P_u" /> ):</strong> force when specimen fails (breaks).</Item> 
+    <Item> <strong>Ultimate normal stress ( <InlineEquation equation="\\sigma_u" /> ): stress when a specimen fails (breaks).</Item>
 </Itemize>
 
-<Image src='/sol/buckling/TopRodFBD.png' width='1.5'></Image>
+</strong> <DisplayEquation equation="\\sigma_u = \\frac{P_u}{A}\\" title="Ultimate normal stress" background="True"/>
+ 
+A structure is safe if its strength exceeds the required strength.
 
+<p>
+ <strong>Factor of Safety (FS):</strong> Ratio of structural strength to maximum (allowed) applied load (<InlineEquation equation="P_{all}" />).
+</p>
 
-<DisplayEquation equation='M_s = K(2\\Delta\\theta)= \\text{restoring moment}\\' title="Spring restoring moment." background="True" />
+<DisplayEquation equation="P_{all} \\le \\frac{P_u}{FS}\\" title="Maximum allowed applied load." background="True"/>
 
-The resultant moment from the applied load <InlineEquation equation="P"/> tends to move the rod away from the vertical position.
-<DisplayEquation equation='M_{load} = P\\frac{L}{2}\\sin\\Delta\\theta = P\\frac{L}{2}\\Delta\\theta = \\text{destabilizing moment}\\' title="Sprind destabilizing moment." background="True" />
-
-
-<Itemize>
-	<Item>Stable system: <InlineEquation equation="M > M_{load}" /></Item>
-	<Item>Unstable system: <InlineEquation equation="M< M_{load}" /></Item>
-	<Item>Equilibrium position gives:<InlineEquation equation="M=M_{load}" /> </Item>
-</Itemize>
-
-<DisplayEquation equation="P_{cr} = \\frac{4K}{L}\\" title="Critical load." background="True" derivation="True" id="crt-lod">
-
-    <DisplayEquation equation="M_s = M_{load}" />
-    <DisplayEquation equation="K(2\\Delta\\theta) = P_{cr}\\frac{L}{2}\\Delta\\theta" />
-
-</DisplayEquation>
-
-</SubSubSection>
-
-<SubSection title="Euler's Formula" id="euler">
-
-Euler's formula can be used to solve for the critical load of a uniaxially loaded column. 
+ Similarly, <DisplayEquation equation="\\sigma_{all} \\le \\frac{\\sigma_u}{FS}\\" title="Maximum allowed applied stress." background="True"/>
 
 </SubSection>
-
-<SubSubSection title="Pinned-end Columns" id="pinned-end">
-
-<Image src='/sol/buckling/Pinned.png' width='3.5'></Image>
-
- Rod <InlineEquation equation='AB' /> is pinned on each end. After a small perturbation, the system reaches equilibrium.
-
-<DisplayEquation equation="y''(x) + \\frac{P}{EI}y(x) = 0\\" title="Pinned-end equilibrium." background="True" derivation="True" id="pin-end">
-
-    <DisplayEquation equation="M(x) = EIy''(x)\\" />
-    <DisplayEquation equation="M = -Py(x)\\"/>
-	<DisplayEquation equation="EIy''(x) = -Py(x)\\" />
-
-</DisplayEquation>
-
-
- Linear, homogeneous differential equation of second order with constant coefficients.
-
-<DisplayEquation equation='y(x) = A\\sin(px) + B\\cos(px)\\'  title="General solution." background="True" />
-
-<DisplayEquation equation='y(0) = y(L) = 0\\'  title="Boundary conditions." background="True" />
-
-
-<DisplayEquation equation="\\begin{align} P_{cr} = \\frac{\\pi^2EI}{L^2} \\\\ \\text{where	} P > P_{cr} \\end{align}" title="Euler's formula for buckling." background="True" derivation="True" id="axl-fdr">
-
-	<DisplayEquation equation='y(x) = A\\sin(\\sqrt{\\frac{P}{EI}}x) + B\\cos(\\sqrt{\\frac{P}{EI}}x)\\' />
-	<DisplayEquation equation='y(x=0)=0 \\rightarrow A\\sin(0)+B\\cos(0) = 0\\' />
-	<DisplayEquation equation='B=0\\' />
-	<DisplayEquation equation='y(x=L)=0 \\rightarrow A\\sin(\\sqrt{\\frac{P}{EI}}L)+0 = 0\\' />
-	<DisplayEquation equation=' A\\sin(\\sqrt{\\frac{P}{EI}}L)=0\\' />
-	This has two solutions
-
-	<DisplayEquation equation='A = 0 \\rightarrow \\text{not interesting}\\' />
-
-	<DisplayEquation equation="A = n \\rightarrow n \\text{ (any number) except where } A\\sin(\\sqrt{\\frac{P}{EI}}L) = n\\pi" />
-	<DisplayEquation equation='\\frac{P}{EI}L^2 = n^2\\pi^2\\' />
-	<DisplayEquation equation='P_{cr} = \\frac{n^2\\pi^2EI}{L^2}\\' />
-
-	Buckling usually happens at the smallest non-zero value of <InlineEquation equation='P_{cr}' />.
-	<DisplayEquation equation='n=1\\' />
-
-	Higher <InlineEquation equation='n' /> values can be achieved if columns are prevented from buckling at <InlineEquation equation='n=1' />.
-
-</DisplayEquation>
-
-</SubSubSection>
-<SubSubSection title="Other Boundary Conditions" id="other-boundary-conditions">
-
-<Image src='/sol/buckling/EulerConditions.png' width='7'></Image>
-
-
-Different boundary conditions change the length used in the critical load formula resulting in an effective length (<InlineEquation equation='L_e' />).
-<DisplayEquation equation='P_{cr} = \\frac{\\pi^2EI}{L_e^2}\\' title="General critical load formula." background="True" />
-
-
-</SubSubSection>
 </Layout>

@@ -9,6 +9,8 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
 import BlueText from "../../components/BlueText.astro" 
 import RedText from "../../components/RedText.astro" 
 import Plotly from "../../components/Plotly.astro"
+import Itemize from "../../components/Itemize.astro" 
+import Item from "../../components/Item.astro" 
 ---
 <Layout title="Statically Indeterminate Problems">
 
@@ -41,7 +43,7 @@ All internal forces can be obtained from equilibrium analysis only
 
 </SubSection>
 
-<SubSection title="Statically Indeterminate Problems" id="statically_indeterminate_problems">
+<SubSection title="Statically Indeterminate Problems - Axial Loading" id="axial-statically_indeterminate_problems">
 
 <Image src='/sol/axial_loading/StaticallyIndeterminate.png' width='3'>
     Statically indeterminate
@@ -51,129 +53,15 @@ All internal forces can be obtained from equilibrium analysis only
 
 </SubSection>
 
-CONTENT BELOW MUST BE MOVED
+<SubSection title="Statically Indeterminate Problems - Torsion" id="torsion-statically_indeterminate_problems">
 
-<Section title="Failure Theories" id="failure-theories">
-    
-<!-- BSM:A table at the end summarizing the three main theories and their failure conditions would be a nice addition. -->
+<Image src="/sol/torsion/Equilibrium.png" width="5">  Single element shear stresses </Image>
 
-Failure of a material depends on (1) nature of loading and (2) type of material. There are theories that can predict material failure for complex states. 
-
-</Section>
-
-<SubSection title="Maximum Shear Stress (Tresca) Criterion" id="tresca">
-
- If a material is <strong>ductile</strong>, failure is defined by <strong>yield stress</strong> (<InlineEquation equation="\\sigma_Y" />) and occurs at <strong>max shear stress</strong> (<InlineEquation equation="\\tau_{max}" />).
-
-</SubSection>
-
-<SubSubSection title="Uniaxial Tension" id="tension">
-
-<Image src='/sol/failure_theories/Tresca.png' width='3'> </Image>
-
- Consider a material subjected to <strong>uniaxial tension</strong> <InlineEquation equation="\\sigma = \\frac{P}{A}" /> and <InlineEquation equation="P" /> is loaded to the yield point, then the following is true:
- 
-<DisplayEquation equation="\\begin{align} \\sigma_1 = \\sigma_Y \\\\ \\sigma_2 = 0 \\\\ \\tau_{max} = \\frac{\\sigma_Y}{2} \\end{align}" title="Tresca uniaxial tension." background="True"/>
-
-
-<strong>Shear stress</strong> is responsible for causing the ductile material to yield and <InlineEquation equation="\\sigma_Y" /> is the <strong>tensile</strong> yield strength.
-
-<DisplayEquation equation="\\tau_{max} \\ge \\frac{\\sigma_Y}{2}\\" title="Max  shear." background="True" />
-
-
-
-</SubSubSection>
-
-<SubSubSection title="General 2D Loading State" id="2d-loading">
-
-<DisplayEquation equation="\\sigma_z = \\sigma_3 = 0\\" title="Plane stresses." background="True" />
-
- Failure still occurs at max  shear.
-
-<DisplayEquation equation="\\tau_{max} = \\frac{\\sigma_Y}{2}\\" title="Tresca material failure." background="True" />
-
-<Image src='/sol/failure_theories/TrescaSurface.png' width='4'></Image>
-
- The equations for <InlineEquation equation="\\sigma_1" /> and <InlineEquation equation="\\sigma_2" /> can be plotted to show the failure surface. Loading conditions that occur <strong>outside</strong> of the surface are when the material fails.
-
-<br>
-<br>
- If <InlineEquation equation="\\sigma_1" /> and <InlineEquation equation="\\sigma_2" /> have the <strong>same</strong> signs:
-
- <Image src='/sol/failure_theories/TrescaSameSigns.png' width='3'></Image>
-
-<DisplayEquation equation=" \\begin{align} |\\sigma_1| = \\sigma_Y \\\\ |\\sigma_2| = \\sigma_Y \\end{align}" title="Tresca with same signs." background="True" />
-
- If <InlineEquation equation="\\sigma_1" /> and <InlineEquation equation="\\sigma_2" /> have <strong>opposite</strong> signs:
-
-<Image src='/sol/failure_theories/TrescaOppositeSigns.png' width='3'></Image>
-
-<DisplayEquation equation="|\\sigma_1 - \\sigma_2| = \\sigma_Y\\" title="Tresca with opposite signs." background="True" />
-
-</SubSubSection>
-
-<SubSection title="Maximum Distortion Energy (Von Mises) Criterion" id="von-mises">
-
-<strong>Ductile</strong> materials likely do not fail due to stresses that only result in a <strong>volume change</strong>. It is hypothesized that failure is driven by <strong>distortion strain energy</strong>.
-
-<Image src='/sol/failure_theories/VonMises.png' width='6'></Image>
-
- All elastic deformations can be broken down into <strong>volumetric</strong> and <strong>distortional</strong> deformations. 
-
-
-
- The total strain energy <InlineEquation equation="W" /> in a material is broken into these same parts.
-
-<DisplayEquation equation="W = W_v + W_d\\" />
-
-
-<DisplayEquation equation="\\sigma_{VM} = \\sqrt{\\sigma_1^2 - \\sigma_1 \\sigma_2 + \\sigma_2^2} \\ge \\sigma_Y\\" title="Von Mises material failure." background="True" derivation="True" id="von-mis">
-
-    <DisplayEquation equation="W_d = \\frac{1+\\nu}{3E}(\\sigma_1^2 - \\sigma_1 \\sigma_2 + \\sigma_2^2)\\" title="Strain energy density for  plane stress." />
-    
-    <DisplayEquation equation="W_{d,yield} = \\frac{1+\\nu}{3E}\\sigma_Y^2\\" title="Strain energy density at the moment of yield." />
-        
-    <DisplayEquation equation="\\sigma_1^2 - \\sigma_1 \\sigma_2 + \\sigma_2^2 = \\sigma_Y^2\\" title="Equating the plane stress and moment of yield equations." />
-        
-    <DisplayEquation equation="\\sigma_{VM}^2 = \\sigma_Y^2\\" title="Von Mises at yield." />
-    
-
-</DisplayEquation>
-
-<Image src='/sol/failure_theories/VonMisesSurface.png' width='4'></Image>
-
- The equating equation be plotted to show the failure surface. The elliptical surface is the Von Mises surface overlaid with the Teresca surface. Loading conditions that occur <strong>outside</strong> of the surface are when the material fails.
-
-</SubSection>
-
-<SubSubSection id="failure-surfaces" title="Interactive 3D Failure Surfaces">
-
-<p>
-    The following figure shows the failure surfaces of <span style="color: blue;">Tresca</span> and <span style="color: red;">von Mises</span> criteria in term of the principal stresses in 3 dimensions. 
-    The 2D figure above can be found cenered around the origin in this plot. 
-    The shape of the 2D failure surface <InlineEquation equation="(\\sigma_1,\\sigma_2)"/> remains the same, but moves location depending on <InlineEquation equation="\\sigma_3"/>.
-    Just like in 2D, regions <strong>outside</strong> the surfaces are considered to have failed. 
-</p>
-
-<Plotly id="failure-criteria-container" file_path="sol/plotly_graphs/FailureCriteria.json"/>
-
-<em>Note: </em> Click and drag to rotate, scroll to zoom, and click legend entries to toggle. 
-</SubSubSection>
-
-<SubSection title="Maximum Normal Stress Criterion" id="max-normal">
-
-For <strong>brittle</strong> materials, failure is caused by the <strong>maximum tensile stress</strong> and NOT compressive stress.
-
-
-
-
-<DisplayEquation equation="\\begin{align} |\\sigma_1| = \\sigma_{ult} \\\\ |\\sigma_2| = \\sigma_{ult} \\end{align}" title="Maximum normal stress criterion material failure." background="True" />
- 
-<Image src='/sol/failure_theories/Brittle.png' width='3'></Image>
-
- The <InlineEquation equation="\\sigma_1" /> and <InlineEquation equation="\\sigma_2" /> equations can be plotted to show the failure surface. Loading conditions that occur <strong>outside</strong> of the surface are when the material fails.
-
- Brittle fracture can be difficult to predict, so use this theory with caution
+The stress distribution in the shaft is not known.
+ <Itemize>
+     <Item>Statically indeterminate: must consider shaft deformations. </Item>
+     <Item>Multi-planar: equilibrium requires the existence of shear stresses on the faces formed by the two planes containing the axis of the shaft </Item>
+ </Itemize>
 
 </SubSection>
 

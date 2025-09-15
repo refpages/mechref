@@ -1,15 +1,24 @@
 ---
-import CalloutContainer from "../../components/CalloutContainer.astro"
-import CalloutCard from "../../components/CalloutCard.astro"
 import Layout from "../../layouts/Layout.astro" 
 import Image from "../../components/Image.astro" 
 import Section from "../../components/Section.astro" 
 import SubSection from "../../components/SubSection.astro" 
 import SubSubSection from "../../components/SubSubSection.astro" 
-import BlueText from "../../components/BlueText.astro" 
-import RedText from "../../components/RedText.astro" 
+import Enumerate from "../../components/Enumerate.astro" 
+import Itemize from "../../components/Itemize.astro" 
+import Item from "../../components/Item.astro" 
 import InlineEquation from "../../components/InlineEquation.astro" 
 import DisplayEquation from "../../components/DisplayEquation.astro" 
+import BlueText from "../../components/BlueText.astro" 
+import RedText from "../../components/RedText.astro" 
+import CalloutContainer from "../../components/CalloutContainer.astro"
+import CalloutCard from "../../components/CalloutCard.astro"
+import Example from "../../components/Example.astro"
+import InlineCanvas from "../../components/InlineCanvas.astro"
+import Row from "../../components/Row.astro"
+import Col from "../../components/Col.astro"
+
+
 ---
 <Layout title="Simple Loading">
 
@@ -35,11 +44,11 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
 
 <Section title="Simple Loading" id="simple_loading"></Section>
 
-<SubSection title="Axial Loading" id="axial-loading>
+<SubSection title="Axial Loading" id="axial-loading">
 </SubSection>
 
 <SubSubSection title="Assumptions" id="axial-loading-assumptions">
-REWORD CONTENT
+<p>REWORD CONTENT</p>
 <strong> Saint-Venant's Principle: slender beam case </strong>
 
     <Image src='/sol/axial_loading/Saint-Venants.png' width='5'>Notation</Image>
@@ -53,7 +62,7 @@ REWORD CONTENT
 ADD CONTENT HERE
 </SubSubSection>
 
-<SubSubSection title="Force-Deformation Relation" id="force-deformation_relation"> 
+<SubSubSection title="Force-Displacement Relation (Axial Stiffness)" id="axial-force-displacement_relation"> 
 
 <DisplayEquation equation='\\delta = \\frac{PL}{EA}\\' title="Relation." background="True" derivation="True" id="axl-fdr">
     
@@ -81,7 +90,9 @@ For non-uniform load, material property and cross-section area:
 
  Assume variations with <InlineEquation equation='x' /> are "mild" (on length scale longer than cross-sectional length scales)
 
-<SubSection title="General Solving Procedure" id="general_solving_procedure">
+</SubSubSection>
+
+<SubSubSection title="General Solving Procedure" id="general_solving_procedure">
 <ol>
 	<li>Draw a FBD
     </li>
@@ -92,9 +103,10 @@ For non-uniform load, material property and cross-section area:
 	<li>Compatibility equations: geometric constraints
 </li>
 </ol>
-</SubSubSection>
 
-<SubSubSection title="Misfit Problems" id="misfit_problems">
+<p><strong> Misfit Problems </strong></p>
+A misfit problem is one in which there is difference between a design distance and the manufactured length of a material. Some misfits are created intentionally to pre-strain a member. (e.g. spokes in a bicycle wheel or strings in a tennis racket). This type of problem neither modifies the equilibrium equations (1) nor the force-extension relations, (2) but the compatibility equations, (3) need to be modified.
+</SubSubSection>
 
 <CalloutContainer slot="cards">
         <CalloutCard title="Heads up!">
@@ -118,17 +130,21 @@ For non-uniform load, material property and cross-section area:
         </CalloutCard>
  </CalloutContainer>
 
-A misfit problem is one in which there is difference between a design distance and the manufactured length of a material. Some misfits are created intentionally to pre-strain a member. (e.g. spokes in a bicycle wheel or strings in a tennis racket). This type of problem neither modifies the equilibrium equations (1) nor the force-extension relations, (2) but the compatibility equations, (3) need to be modified.
-
-</SubSubSection>
-
 <SubSection title="Torsion" id="torsion">
 <strong>Torsion</strong> refers to the twisting of a specimen when it is loaded by couples (or <strong>moments</strong>) that produce rotation about the longitudinal axis. Applications include aircraft engines, car transmissions, and bicycles, etc.
 </SubSection>
 
 <SubSubSection title="Assumptions" id="torsion-assumptions">
 
-ADD OTHER GENERAL ASSUMPTIONS
+<Image src="/sol/torsion/TorsionLines.png" width="7"> Torsion lines </Image>
+
+
+<Itemize>
+	<Item>For circular shafts (hollow and solid): cross-sections remain plane and undistorted due to axisymmetric geometry</Item>
+	<Item>For non-circular shafts: cross-sections are distorted when subject to torsion</Item>
+	<Item>Linear and elastic deformation</Item>
+</Itemize>
+
 Gears:
 <Itemize>
 	<Item>Gears are perfectly rigid. </Item>
@@ -140,5 +156,619 @@ Gears:
 </SubSubSection>
 
 <SubSubSection title="Stress-Strain Distribution" id="torsion-stress-strain-distribution">
+<Image src="/sol/torsion/StressDistribution.png" width="5"> Stress distribution </Image>
+
+</SubSubSection>
+
+<SubSubSection title="Torque-Twist (Torsional Stiffness)" id="torsional-stiffness">
+
+<strong> Geometry of Deformation </strong>
+
+<Image src="/sol/torsion/GeometryDeformation.png" width="5">  Deformation </Image>
+
+The angle of twist increases as x increases.
+
+<DisplayEquation equation="\\frac{d\\phi}{dx} = \\frac{\\gamma}{\\rho} = \\frac{\\gamma_{max}}{c}\\" title="The twist rate is given by." background="True" />
+
+where <InlineEquation equation="c" /> is the radius and <InlineEquation equation="\\rho" /> is a point between 0 and <InlineEquation equation="c" />.
+
+<DisplayEquation equation="\\gamma = \\rho \\frac{d\\phi}{dx}\\" title="Moving terms." background="True" />
+
+<DisplayEquation equation="\\delta = \\rho d\\phi\\" title="Arc length." background="True" />
+
+ Hence, the shear strain (<InlineEquation equation="\\gamma" />):
+<Itemize>
+    <Item> is proportional to the angle of twist</Item>
+    <Item> varies linearly with the distance from the axis of the shaft</Item>
+    <Item> is <strong>maximum</strong> at the surface</Item>
+</Itemize>
+
+<strong> Torsional Stiffness </strong>
+
+<DisplayEquation equation="\\gamma = \\rho \\frac{d\\phi}{dx}\\" title="Geometry" background="True"/>
+
+<DisplayEquation equation="\\tau = G\\gamma\\" title="Hooke's law." background="True"/>
+
+<DisplayEquation equation="\\frac{d\\phi}{dx} = \\frac{T}{GJ}\\" title="From equilibrium." background="True"/>
+
+<DisplayEquation equation="\\tau = \\frac{T\\rho}{J}\\" title="Elastic torsion formula." background="True"/>
+
+The shear stress in the elastic range varies linearly with the radial position in the section.
+
+
+<em>Note:</em>  shaft under torque <InlineEquation equation="T" /> rotating at angular speed <InlineEquation equation="\\omega" /> transmits power  <InlineEquation equation="P" />.
+ 
+<DisplayEquation equation="P=T\\omega\\" title="Power." background="True"/>
+
+<p><strong> Angle of Twist </strong></p>
+
+From observation:
+<Itemize>
+	<Item>The angle of twist of the shaft is proportional to the applied torque </Item>
+	<Item>The angle of twist of the shaft is proportional to the length </Item>
+	<Item>The angle of twist of the shaft decreases when the diameter of the shaft increases
+</Item>
+</Itemize>
+
+<DisplayEquation equation="\\phi = \\frac{TL}{GJ}\\" title="Angle of twist." background="True"/>
+
+<DisplayEquation equation="k_T = \\frac{GJ}{L}\\" title="Torsional stiffness." background="True"/>
+
+<DisplayEquation equation="f_T = \\frac{L}{GJ}\\" title="Torsional flexibility." background="True"/>
+
+</SubSubSection>
+
+<SubSubSection title="Gear Systems" id="gear_systems">
+
+<CalloutContainer slot="cards">
+    <CalloutCard title="Extra!">
+        <p>
+            <strong> Power transmition </strong> can be used to find shear stress in gear shafts.
+            </p>
+            <p>
+                <DisplayEquation equation="\\tau = \\frac{P c}{\\omega J}\\" title="Maximum shear stress:"/>
+            </p>
+	<em>Note:</em>  1 hp = 550 ft.lb/s
+    </CalloutCard>
+</CalloutContainer>
+
+<Image src="/sol/torsion/GearSystemv2.png" width="5">  Gear system </Image>
+
+Gear system problems can be solved using the torsion equations. 
+
+<p> Common assumptions:</p>
+
+
+<Itemize>
+	<Item>Gears are perfectly rigid. </Item>
+	<Item>The rotation axis is perfectly fixed in space. </Item>
+	<Item>Gear teeth are evenly spaced and perfectly shaped so there is no gap to create lost motion. </Item>
+    <Item>Gear tooth faces are perfectly smooth so there is no slip. </Item>
+    <Item>Mated gears twist through the same arc length. </Item>
+</Itemize>
+
+<p>To solve:</p>
+
+<Enumerate>
+	<Item>Draw a FBD for each shaft.  </Item>
+	<Item>Use the torsion equilibrium equations of each shaft to find the recation forces and torques. </Item>
+    <Item>Use the shear stress equation to find the stresses in the shaft. </Item>
+</Enumerate>
+
+The angle of twist between two mating gears is related through the gear ratio. 
+
+<DisplayEquation equation="GR = d_B:d_A\\" title="Gear ratio." background="True" />
+
+<DisplayEquation equation="\\phi_A = GR \\text{  } \\phi_B\\" title="Angle of twist" background="True" />
+
+</SubSubSection>
+
+<SubSection title="Pure Bending" id="pure-bending">
+Transverse loads applied to a horizontal straight beam will cause it to deflect primarily up or down. This type of deformation is referred to as <strong>bending</strong>. 
+
+A beam in bending will develop normal (tensile and compressive) bending stresses throughout the beam. The magnitude of these stresses depends on the internal bending moment in the beam as well as the beam's cross-section geometry.
+
+<p><strong> Pure Bending </strong></p>
+
+<Image src='/sol/bending/PureBending.png' width='3'></Image>
+
+Take a flexible strip, such as a thin ruler, and apply equal forces with your fingers as shown. Each hand applies a couple or moment (equal and opposite forces a distance apart). The couples of the two hands must be equal and opposite. Between the thumbs, the strip has deformed into a circular arc. For the loading shown here, just as the deformation is uniform, so the internal bending <strong>moment is uniform</strong>, equal to the moment applied by each hand.
+
+
+</SubSection>
+
+<SubSubSection title="Assumptions" id="bending-assumptions">
+
+<Image src='/sol/bending/Geometry.png' width='3.5'>Bending diagram</Image>
+<Itemize>
+    <Item> 
+        Plane sections remain plane <InlineEquation equation='\\rightarrow' /> <strong>no shear</strong> stress/strains.
+        <DisplayEquation equation='\\gamma_{xy} = \\gamma_{xz} = 0\\' background="True"/>
+        Therefore: <DisplayEquation equation='\\tau_{xy} = \\tau_{xz} = 0\\' background="True"/>
+        Also, traction free boundary conditions yields... <DisplayEquation equation="\\sigma_y = \\sigma_z = \\tau_{yz} = 0\\" background="True"/>
+    </Item>
+    <Item> 
+        There is a <strong>Neutral axis</strong> between the top and the bottom where the length does not change. <DisplayEquation equation='\\sigma_x = 0 \\rm\\ and \\rm\\ \\epsilon_x = 0\\' background="True"/>
+    </Item>
+    
+    <Item> 
+        The beam deforms into a <strong>circular arc</strong> where the top surface (<InlineEquation equation='AB'/>) is in compression <DisplayEquation equation='\\sigma_x, \\varepsilon_x <0' background="True"/>, and the bottom surface (<InlineEquation equation='AB ^\\prime' />) is in tension <DisplayEquation equation='\\sigma_x, \\varepsilon_x >0' background="True"/>.
+    </Item>
+    <Item> Any point in the beam is in a state of <strong>uniaxial normal stress.</strong></Item>
+    <Item> Finding stresses is a <strong>statically indeterminate</strong> problem.</Item>
+</Itemize>
+</SubSubSection>
+
+<SubSubSection title="Neutral Axis" id="neutral-axis">
+ADD CONTENT HERE
+</SubSubSection>
+
+<SubSubSection title="Stress-Strain Distribution" id="bending-stress-strain-distribution">
+
+
+EDIT CONTENT PLACEMENT
+<strong> Boundary Conditions </strong>
+
+<p>Below are common support conditions and loading conditions that are used to model beams. </p>
+
+<p>Pin supports allow rotation but not translation; fixed supports restrain <strong>both</strong> translation and rotation of the beam at that location.</p>
+
+<strong>Statically Determinate Beams</strong>
+
+<Image src='/sol/bending/StaticallyDeterminateBeams.png' width='7'> </Image>
+
+
+ <strong>Statically Indeterminate Beams</strong>
+
+<Image src='/sol/bending/StaticallyIndeterminateBeams.png' width='7'> </Image>
+
+ <strong>Loadings</strong>
+<Image src='/sol/bending/UpdatedLoadings.png' width='7'> </Image>
+
+<p><strong>Maximum normal stress</strong></p>
+
+<CalloutContainer slot="cards">
+    <CalloutCard title="Heads  up! - Extra">
+        <p>
+            <strong> Composite beams </strong> builds on this content.
+            </p>
+            <p>
+                Recall that <InlineEquation equation='\\epsilon_x = -\\frac{y}{\\rho}' /> does not depend on the material properties of the beam, and is based only on the assumptions of geometry done so far.
+
+
+
+                <Image src='/sol/bending/CompositeBeam.png' width='9'></Image>
+
+
+
+                In non-homogeneous beams, we can no longer assume that the neutral axis passes through the centroid of the composite section. We should now determine that location…
+                
+                <br>
+                After obtaining the TRANSFORMED CROSS SECTION, we get
+                <DisplayEquation equation='\\int_{A_t}y d A_t = 0\\' />
+
+                Therefore, the neutral axis passes through the centroid of the transformed cross section.
+                <br>
+                <em>Note:</em> the widening (<InlineEquation equation='n > 1' />) or narrowing (<InlineEquation equation='n < 1' />) must be done in a direction parallel to the neutral axis of the section, since we want y-distances to be the same in the original and transformed section, so that the distance y in the flexural formula is unaltered.
+
+                <DisplayEquation equation='\\sigma_1 = -\\frac{My}{I_t}\\' />
+                <DisplayEquation equation='\\sigma_2 = -\\frac{nMy}{I_t}\\' />
+            </p>
+    </CalloutCard>
+</CalloutContainer>
+From equilibrium: the centroid is located at <InlineEquation equation='\\bar{y}=0' />, i.e., <em>the neutral axis passes through the centroid of the section</em>.
+
+<DisplayEquation equation='\\sigma_x (x,y) = - \\frac{M(x)y}{I_z(x)}\\' title="Elastic flextural formula." background="True" derivation="True" id="ela-flx">
+
+<DisplayEquation equation='M_z = \\frac{EI_z}{\\rho}\\' />
+<DisplayEquation equation='M_z = \\frac{-\\sigma_x}{y}I_z\\' />
+</DisplayEquation>
+
+ To evaluate the maximum absolute normal stress, denoting “c” the largest distance from the neutral surface, we use:
+
+<Image src='/sol/bending/MaxStress.png' width='4'></Image>
+
+<DisplayEquation equation='\\sigma_{max} = \\frac{|M|c}{I_z}\\' title="Absolute maximum stress." background="True"/>
+
+ <em>Note:</em> the ratio I/c depends only upon the geometry of the cross section. This ratio is called the <strong>elastic section modulus</strong> and is denoted by S.
+
+<DisplayEquation equation='\\sigma_{max} = \\frac{|M|}{S}\\' title="Absolute maximum stress." background="True" />
+<DisplayEquation equation='S = \\frac{I}{c}\\' title="Elastic section modulus." background="True"/>
+
+</SubSubSection>
+
+<SubSubSection title="Moment-Curvature (Flexural Stiffness)" id="flexural stiffness">
+<Image src='/sol/bending/StressStrainVar.png' width='4'></Image>
+
+The magnitudes of stress and strain vary along the cross section. The magnitudes increase as the point of intrest moves away from the neutral axis. The maximum is at the point farthest away from the neutral axis. 
+    
+
+<Image src='/sol/bending/Superposition.png' width='5'> </Image>
+
+This variation also changes as more modes are added. 
+
+<p><strong>Elastic range:</strong> bending moment is such that the normal stresses remain below the yield strength. <p>
+
+<DisplayEquation equation='\\int_A y dA =0\\' title="Hooke’s law combined with equilibrium." background="True"/> 
+<DisplayEquation equation='M(x) = \\frac{E(x)I_z(x)}{\\rho(x)}\\' title=" Moment-curvature equation." background="True" derivation="True" id="mmt-crv"> 
+
+Constitutive Relationship:
+<DisplayEquation equation='L_{y_i} = L_{NAi} = L_{NAf} = \\rho\\theta\\' />
+<DisplayEquation equation='L_{y_f} = (\\rho - y)\\theta\\' />
+<DisplayEquation equation='\\varepsilon_x = \\frac{(\\rho-y)\\theta - \\rho\\theta}{\\rho\\theta}\\' />
+<DisplayEquation equation='\\varepsilon_x = \\frac{-y\\theta}{\\rho\\theta} = \\frac{-y}{\\rho}\\' />
+<DisplayEquation equation='\\sigma_x = E\\varepsilon_x = -\\frac{Ey}{\\rho}\\' />
+
+Force Equilibrium: 
+<DisplayEquation equation='\\Sigma F_x = 0\\' />
+<DisplayEquation equation='\\Sigma F_x = \\int dF\\' />
+<DisplayEquation equation='\\Sigma F_x = \\int \\sigma_x dA\\' />
+<DisplayEquation equation='\\Sigma F_x = \\int\\frac{-Ey}{\\rho}dA\\' />
+<DisplayEquation equation='\\Sigma F_x = \\frac{-E}{\\rho}\\int y dA = 0\\' />
+
+Moment Equilibrium:
+<DisplayEquation equation='\\Sigma M_z = -M - \\int y dF = 0\\' />
+<DisplayEquation equation='\\Sigma M_z = -M - \\int y\\sigma_x dA\\' />
+<DisplayEquation equation='\\Sigma M_z = -M - \\int y (\\frac{-Ey}{\\rho}) dA\\' />
+<DisplayEquation equation='\\Sigma M_z = -M - + \\frac{E}{\\rho} \\int y^2 dA = 0\\' />
+
+ </DisplayEquation>
+
+</SubSubSection>
+
+</SubSubSection>
+
+
+<SubSubSection title="Eccentric Axial Loading in a Plane of Symmetry" id="eccentric-loading">
+
+<Image src='/sol/bending/EccentricLoading.png' width='3.5'> </Image>
+
+<DisplayEquation equation="F=P \\ \\ \\text{and} \\ \\ M=Pd\\" title="Equilibrium." background="True"/>
+
+ Stress due to eccentric loading found by superposing the uniform stress due to a centric load and linear stress distribution due to a pure bending moment.
+
+ Validity requires stresses below proportional limit (elastic region), deformations have negligible effect on geometry, and stresses not evaluated near points of load application.
+
+</SubSubSection>
+
+<SubSection title="Transverse Shear" id="transverse-shear">
+<Image src="/sol/transverse_shear/TransToLong.png" width="4"></Image>
+
+Transverse loading creates corresponding <strong>longitudinal shear stresses</strong> which will act along longitudinal planes of the beam
+</SubSection>
+
+<SubSubSection title="Assumptions" id="transverse-shear-assumptions">
+ADD CONTENT HERE
+</SubSubSection>
+
+<SubSubSection title="Stress-Strain Distribution" id="transverse-shear-stress-strain-distribution">
+
+<Image src="/sol/transverse_shear/TransverseShear.png" width="5.5"></Image>
+
+ When a shear force is applied, it tends to cause warping of the cross section. Therefore, when a beam is subject to moments and shear forces, the <strong>cross section will not remain plane</strong> as assumed in the derivation of the flexural formula. However, we can assume that the warping due to shear is small enough to be neglected, which is particularly true for slender beams (<InlineEquation equation="L>5d"/>). 
+
+<Image src="/sol/transverse_shear/EquilibriumEqtn.png" width="5.5"></Image>
+
+ Transverse loading applied to a beam results in normal and shearing stresses in transverse sections, as well as a bending moment.
+
+
+ The distribution of normal and shearing stresses satisfies the following where <InlineEquation equation="dA" /> is the cross sectional area. 
+
+<DisplayEquation equation="\\begin{align*} &F_x = \\int\\sigma_x dA = 0 		 &M_x &= \\int(y\\tau_{xz} - z\\tau_{xy})dA=0 \\\\ &F_y = \\int\\tau_{xy} dA = -V 	 &M_y &= \\int z\\sigma_{x} dA = 0 \\\\ &F_z = \\int\\tau_{xz} dA = 0 	 &M_z &= \\int(-y\\sigma_{x})dA = M \\\\ \\end{align*}" title="Equilibrium." background="True"/>
+
+ When shearing stresses are exerted on the vertical faces of an element, equal stresses must be exerted on the horizontal faces.
+
+
+
+ Longitudinal shearing stresses must exist in any member subjected to transverse loading.
+
+
+
+<p> Symmetry of stress: transverse xy stress implies longitudinal yx stress. </p>
+
+<Image src="/sol/transverse_shear/Symmetry.png" width="2"></Image>
+
+<DisplayEquation equation="\\tau_{xy} = \\tau_{yx}\\" title="Symmetry." background="True"/>
+ 
+</SubSubSection>
+
+<SubSubSection title="Force-Displacement Relationship (Shear Stiffness)" id="shear_stiffness">
+
+<Image src="/sol/transverse_shear/AvgShear.png" width="5"></Image>
+
+Shear stress varies throughout the cross-section of the beam where the maximum shear stress is at the neutral axis and is zero at the edges. Shear stress can be represented as an average across the beam. 
+
+<DisplayEquation equation="\\tau = \\frac{V}{A}\\" title="Avg. shear stress." background="True" />
+
+<Image src="/sol/transverse_shear/ShearAtPoint.png" width="6"></Image>
+
+Shear stress can also be evaluated at any given point (<InlineEquation equation="y_1" />) from the z-axis. 
+
+<DisplayEquation equation="\\tau = \\frac{VQ}{It}\\" title="shear stress at a point." background="True" derivation="True" id="shr-pts">
+
+  <Image src="/sol/transverse_shear/ElementFBD.png" width="8"></Image>
+
+  <strong>(A)</strong> An element of width <InlineEquation equation="dx" /> in a bending beam has a FBD of the bending moment stress distribution.
+  <p>
+  <strong>(B)</strong> An element distance <InlineEquation equation="y" /> away from the neutral axis has a FBD of the bending moment stress distribution For this element to be in equilibrium, <InlineEquation equation="\\tau_{xy}" /> must be present.
+ </p>
+  <DisplayEquation equation="\\sigma_{x_1} \\neq \\sigma_{x_2}\\" />
+ 
+  <strong>(C)</strong> Simplified FBD. The width of this element is <InlineEquation equation="t(y)" />
+ 
+  <DisplayEquation equation="F_x = \\int\\sigma_x dA = 0\\" />
+  <DisplayEquation equation="\\Sigma F_x = F_{x_1} - F_{x_2} + \\Delta H\\" />
+  <DisplayEquation equation="\\int_{y}^{y_{top}} \\sigma_{x_1} t(y) dy - \\int_{y}^{y_{top}} \\sigma_{x_2} t(y) dy + \\tau_{xy} t(y) dx = 0\\" />
+  <DisplayEquation equation="\\int_{y}^{y_{top}} \\frac{M(x)y}{I} t(y) dy - \\int_{y}^{y_{top}} \\frac{(M(x)+dM(x))y}{I} t(y) dy + \\tau_{xy} t(y) dx = 0\\" />
+  <DisplayEquation equation="\\tau_{xy} = \\frac{dM(x)}{dx}\\frac{1}{I t(y)} \\int_{y}^{y_{top}} y t(y) dy\\" />
+  <DisplayEquation equation="V(x) = \\frac{dM(x)}{dx}\\" />
+  <DisplayEquation equation="\\tau_{xy} = \\frac{V(x)}{I t(y)} \\int_{y}^{y_{top}} y t(y) dy\\" />
+  <DisplayEquation equation="\\tau_{xy} = \\frac{V(x) Q(y)}{I t(y)}\\" />
+
+</DisplayEquation>
+
+<Itemize>
+  <Item><InlineEquation equation="V" /> : shear force</Item>
+  <Item><InlineEquation equation="Q" /> : First area moment of inertia of cut section ( <InlineEquation equation="Q = \\Sigma \\bar{y}'A'" /> )</Item>
+  <Item><InlineEquation equation="I" /> : Second area moment of inertia of whole cross-sectional area</Item>
+  <Item><InlineEquation equation="t" /> : beam thickness</Item>
+</Itemize>
+
+<p><strong>Rectangular Beam</strong><p>
+<Image src="/sol/transverse_shear/RectCrossSect.png" width="5"></Image>
+
+ 
+<DisplayEquation equation="\\begin{align*} &\\tau_{cut} = \\frac{3}{2} \\frac{V}{bh}(1-\\frac{y^2}{c^2})	\\\\ \\text{where}	 \\\\ &c = \\frac{1}{2}h \\\\ \\text{or} \\\\ &\\tau_{cut} = \\frac{6V}{bh^3}(\\frac{h^2}{4}-y^2) \\end{align*}" title="Shear stress at a given point (y) in a rectangular beam." background="True" derivation="True" id="shr-rct"> 
+
+ <DisplayEquation equation="I_z = \\frac{1}{12} bh^3\\" /> 
+ <DisplayEquation equation="t=b\\" /> 
+ <DisplayEquation equation=`\\begin{aligned}Q &= A\\bar{y}\\\\
+ &= b(\\frac{1}{2}h-y)[y+\\frac{1}{2}(\\frac{1}{2}h-y)]\\\\
+ &= \\frac{1}{2}b(\\frac{1}{4}h^2-y^2)\\end{aligned}` /> 
+
+</DisplayEquation>
+ 
+Maximum shear stress occurs at the neutral axis.
+<DisplayEquation equation="\\tau_{max} = 1.5 \\frac{V}{A}\\" title="Max. shear stress in rectangular beam." background="True"/>
+
+<p><strong>I-Beam</strong></p>
+<Image src="/sol/transverse_shear/IbeamCrossSect.png" width="5"></Image>
+
+The neutral axis of an I-beam is the center. To find the I, use the parallel axis theorem. When determining the stress distribution, break the beam up into sub-sections of constant thickness for easier calculations. The stress distribution is a discontinuous parabola. 
+
+</SubSubSection>
+
+<SubSubSection title="Built-up Members/Beams: Shear Flow" id="shear_flow">
+
+  <CalloutContainer slot="cards">
+    <CalloutCard title="Heads  up!">
+        <p>
+           <strong> shear stresses in thin-walled members </strong> builds on this content.
+          </p>
+          <p>
+            <Image src="/sol/transverse_shear/ThinWalledMembers.png" width=""></Image>  
+ 
+            The variation of shear flow across the section depends only on the variation of the first moment.
+           <DisplayEquation equation="q = \\tau t = \\frac{VQ}{I}\\" />
+           
+           <Image src="/sol/transverse_shear/RectThinWallShearFlow.png" width=""></Image> 
+            For a box beam, q grows symmetrically. From the edge to where the beam becomes hollow, the flow increases linearly and from where it becomes hollow to the neutral axis, the flow increases parabolically.
+           
+             <Image src="/sol/transverse_shear/UchannelShearFlow.png" width=""></Image> 
+             For a u-channel beam, the shear flow increases linearly on the sides from the edge to the base, and on the base it increases from the sides to the neutral axis.
+
+          </p>
+    </CalloutCard>
+</CalloutContainer>
+
+In some cases, it is more useful to look at shear flow (<InlineEquation equation="q" />) through a structure than internal shear stress.
+
+<Image src="/sol/transverse_shear/IbeamShearFlow.png" width="5">L: Shear flow direction. R: Shear flow magnitude</Image> 
+
+For an I-beam, the shear flow increases symmetrically on top from the end to the neutral axis in the y-direction, and on the side increases from the flanges to the neutral axes.
+
+Shear flow is the a measure of force per length.
+
+<DisplayEquation equation="\\begin{align*} &dF = \\frac{VQ}{I}dx	\\\\ \\text{where}	 \\\\ &q = \\frac{dF}{dx} = \\frac{VQ}{I} \\\\ \\end{align*}" title="Shear flow (q)." background="True" derivation="True" id="shr-flw">
+
+<DisplayEquation equation="F_x = \\int\\sigma_x dA = 0\\" />
+<DisplayEquation equation="\\Sigma F_x = F_{x_1} - F_{x_2} + \\Delta H\\" />
+<DisplayEquation equation="\\Delta H + \\int \\frac{M_{x_1} y}{I}dA - \\int \\frac{M_{x_2} y}{I}dA = 0\\" />
+<DisplayEquation equation="\\Delta H = \\frac{M_{x_1}-M_{x_2}}{I} \\int ydA = 0\\" />
+<DisplayEquation equation="\\Delta H = \\frac{\\Delta M}{I} Q = 0\\" />
+<DisplayEquation equation="\\frac{\\Delta H}{\\Delta x} = \\frac{\\Delta M}{\\Delta x} \\frac{Q}{I} = 0\\" />
+<DisplayEquation equation="\\lim_{x\\to 0} \\frac{\\Delta H}{\\Delta x} = \\frac{dH}{dx} = q\\" />
+<DisplayEquation equation="q = \\frac{dM}{dx} \\frac{Q}{I}\\" />
+
+</DisplayEquation>
+
+<DisplayEquation equation="\\tau = \\frac{q}{t}" title="Shear stress using shear flow." background="True" />
+
+Shear flow is most applicable in design situations such as built-up beams.
+Built-up beams are beams that have been put together with either an adhesive (glue, epoxy, etc) or fasteners (nails, bolts, etc). Calculating shear flow allows for determining how much adhesive or how often a fastener is needed.
+
+<DisplayEquation equation="F = q\\Delta s" title="For uniformly spaced fasteners:" background="True" />
+
+<Image src="/sol/transverse_shear/BuiltUpBeams.png" width="5"></Image>
+
+<p>
+<strong>Adhesives</strong> supply resistance along the length of the contacting parts. Determine the minimum shear strength at these contacting/weak points using the shear stress equation.
+</p>
+
+<Example id="blt-adh" title="The following I-beam is composed of 4 boards glued together" solution="True">
+  <div class="d-flex flex-row">
+    <Row>
+      <Col values="4 md-6">
+        <p>
+          The vertical shear is is <InlineEquation equation="V = 100 \\text{ } N"/>.
+          Find the minumum required shear strength for the glue (<InlineEquation equation="\\tau_{glue}" />). 
+          <br>
+          </p>
+      </Col>
+      <Col values="8 md-6">
+          <Image src="/sol/transverse_shear/AdhesiveExample.png" width="5"></Image>
+      </Col>
+    </Row>
+      
+    </div>
+      
+      
+  </div>
+  <div slot="solution">
+      <p>
+                
+        <DisplayEquation equation="\\begin{align*} &\\tau_{AB} = \\frac{V Q_A}{I t_A},\\  &\\tau_{BD} = \\frac{V Q_D}{I t_D}\\ \\end{align*}"/>
+        
+        <InlineEquation equation="V" /> : shear force
+
+        <DisplayEquation equation="V = 100 \\text{ } N" />
+        
+        <InlineEquation equation="Q" /> : First area moment of inertia of cut section ( <InlineEquation equation="Q = \\Sigma \\bar{y}'A'" /> )
+
+        <Image src="/sol/transverse_shear/IBeamQ.png" width="2"></Image>
+
+        <DisplayEquation equation="Q_A = A \\bar{y_A} = 3.13*10^4 \\text{ } mm^3" />
+        <DisplayEquation equation="Q_D = A \\bar{y_D} = 9.38*10^4 \\text{ } mm^3" />
+
+        <InlineEquation equation="I" /> : Second area moment of inertia of whole cross-sectional area
+        
+        <Image src="/sol/transverse_shear/IBeamMOI.png" width="1.5"></Image>
+      
+        <DisplayEquation equation="I = I_1 + 2 I_2 = 1.04*10^7 \\text{ } mm^4" />
+        <DisplayEquation equation="I_1 = \\frac{1}{12}b_1 h_1^3 = 8.79*10^5 \\text{ } mm^4" />
+        <DisplayEquation equation="I_2 = \\frac{1}{12}b_2 h_2^3 +A_2d_2^2 = 47.85*10^5 \\text{ } mm^4 " />
+        
+        <InlineEquation equation="t" /> : length of connected region
+
+        <Image src="/sol/transverse_shear/IBeamThick.png" width="1.5"></Image>
+      
+        <DisplayEquation equation="t_A = 25 \\text{ } mm" />
+        <DisplayEquation equation="t_D = 25 \\text{ } mm" />
+        
+        Solve.
+
+        <DisplayEquation equation="\\tau_{AB} = 12.0 \\text{ } kPa" />
+        <DisplayEquation equation="\\tau_{BD} = 36.1 \\text{ } kPa" />
+      
+        <DisplayEquation equation="\\begin{align*} &\\tau_{AB} < \\tau_{BD} \\  &\\tau_{glue} = 36.1 \\text{ } kPa\\ \\end{align*}" />
+
+        
+        </p>
+  </div>
+</Example>
+
+<p>
+<strong>Fasteners</strong> supply resistance at fixed intervals. Use the shear flow formula to analyze the beam.
+</p>
+
+<Example id="blt-fst" title="The following beam is composed of 2 boards connected by 6 nails." solution="True">
+  <div class="d-flex flex-row">
+    <Row>
+      <Col values="12 md-4">
+        <p>
+          The nails are at an interval of of <InlineEquation equation="\\Delta s = 50 \\text{ } mm"/>. The shear force is <InlineEquation equation="V = 100 \\text{ } kN"/>. 
+          Find the shear flow (<InlineEquation equation="q"/>) and the load at each fastener (<InlineEquation equation="f_n"/>).
+        </p>
+      </Col>
+      <Col values="12 md-8">
+        <Image src="/sol/transverse_shear/FastenerExample3D.png" width="6"></Image>
+      </Col>
+    </Row>
+  </div>
+  <div slot="solution">
+      <p>
+          <DisplayEquation equation="\\begin{align*} &q = \\frac{VQ}{I},\\  &f_n = \\frac{q*s_{total}}{4}\\ \\end{align*}"/>
+
+          <strong> Shear flow. </strong>
+
+          <Image src="/sol/transverse_shear/BoardsQ.png" width="2.5"></Image>
+
+          <DisplayEquation equation="Q = (b*h)\\bar{y} = (300*50)*25 = 3.75*10^5 \\text{ } mm^3" />
+
+          <DisplayEquation equation="I = \\frac{1}{12}b h^3 = \\frac{1}{12}*300*100^3 = 2.5*10^7 \\text{ } mm^4" />
+
+          <DisplayEquation equation="q = 1.5 \\text{ } \\frac{kN}{mm}" />
+
+          <strong> Force in the nail. </strong>
+          <p>
+          Since the nails are uniformally distributed, each nail is assumed to supply a shearing force <InlineEquation equation="f_n"/> 
+          that resists the shear flow in the beam. Along a single row of nails (refer to the free-body diagram above), the total force is:
+          </p>
+          
+          <DisplayEquation equation="\\Sigma F_{total} = \\frac{1}{2}f_n + f_n + \\frac{1}{2}f_n = 2f_n" />
+          
+          <p>
+          Because there are two rows of nails, the total resistance load supplied by the nails is:
+          </p>
+          
+          <DisplayEquation equation="\\Sigma F_{total} = 2*F_{total} = 2*2f_n = 4f_n" />
+          
+          <p>
+          To find the shearing force <InlineEquation equation = "f_n"/> in each nail, we equate the total force supplied by the nails with 
+          the total shear flow acting across their total spacing, <InlineEquation equation = "q*s_{total} = 2q\\Delta s"/>, to obtain:
+          </p>
+          
+          <DisplayEquation equation="s_{total} = 2\\Delta s = 100 \\text{ } mm^4" />
+
+          <DisplayEquation equation="f_n = 37.5 \\text{ } kN" />
+
+
+        </p>
+  </div>
+</Example>
+
+
+</SubSubSection>
+
+<SubSection title="Shear Moment Diagrams" id="vm_diagrams"></SubSection>
+
+<SubSubSection title="Internal Forces" id="shear_moment_diagrams">
+    <p>
+    Internal forces of a member can be determined by creating an imaginary cut in a member, and then solving for the internal shear force, normal force, and bending moment (which, after the cut, become "external" forces that can be solved for). 
+    </p>
+
+    <p>
+    To determine how the internal shear force and bending moment change throughout the member, shear force and bending moment diagrams are created. Shear force diagrams provide a graphical representation of the internal shear force within a member, and bending moment diagrams provide a graphical representation of the internal bending moment within a member. 
+    </p>
+
+    <Image src='/sta/shear_moment_diagrams/IntForces.jpg' width='5'> Internal shear force (V), internal normal force (N), and internal moment (M).</Image>
+</SubSubSection>
+
+<!-- starts in lecture 19 -->
+
+<SubSubSection title="Sign Conventions" id="sign_conventions">
+    <Image src='/sta/shear_moment_diagrams/SignConventions.jpg' width='6'> Sign conventions for internal forces and moments</Image>
+    <Image src='/sta/shear_moment_diagrams/faceSignConvention3D_arb.png' width='6'> Sign conventions for internal forces and moments in 3D</Image>
+</SubSubSection>
+
+<SubSubSection title="General Procedure" id="general_procedure">
+    <p>
+    Creating a shear force and bending moment diagram allows us to create a graphical representation of <InlineEquation equation='V' /> and <InlineEquation equation='M' /> as a function of the position along the beam, <InlineEquation equation='x' />. Therefore when creating internal loading diagrams we are trying to write equations for <InlineEquation equation='V(x)' /> and <InlineEquation equation='M(x)' />.
+    </p>
+
+    <p>
+    The general procedures for creating shear / bending moment diagrams are:</p> 
+    <Enumerate>
+        <Item>Find support reactions</Item>
+        <Item>Specify the x-coordinates</Item>
+        <Item>Divide the beam into regions: one region for every change in loading</Item>
+        <Item>Analyze each region by cutting inside each region and analyzing the free body diagram of the left side of the cut</Item>
+        <Item>Apply equations of equilibrium to solve for \(V\) and \(M\) as functions of x</Item>
+    </Enumerate>
+
+    <Image src='/sta/shear_moment_diagrams/IntLoadRecap.jpg' width='7'></Image>
+
+    <Image src="/sol/Stress Transformation-Figures/CantileverBeam.png" width="3.5"> </Image>
+</SubSubSection>
+
+<SubSubSection title="General Rules" id="general_rules">
+    <Enumerate>
+        <Item>When there is an external concentrated force or moment, there will be a "jump" in the shear force or bending moment diagram</Item>
+        <Item>\(w(x)\), \(V\), and \(M\) are related via the following relationship: </Item>
+    </Enumerate>
+
+    <Image src='/sta/shear_moment_diagrams/IntDerivRelationships.jpg' width='6'>Relationships between \(w(x)\), \(V\), and \(M\).</Image>
+</SubSubSection>
+
 
 </Layout>
