@@ -10,7 +10,7 @@ import BlueText from "../../components/BlueText.astro"
 import RedText from "../../components/RedText.astro" 
 import Plotly from "../../components/Plotly.astro"
 ---
-<Layout title="Failure Theories">
+<Layout title="Statically Indeterminate Problems">
 
 <div slot="navtree">
     <ul class='list-group list-group-flush py-0'> 
@@ -28,7 +28,32 @@ import Plotly from "../../components/Plotly.astro"
         <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#max-normal'>Maximum Normal Stress Criterion</a></li>
     </ul>
 </div>
-<Section title="Failure Theories" id="units">
+<Section title="Statically Indeterminate Problems" id="units">
+</Section>
+
+<SubSection title="Statically Determinate Problems" id="statically_determinate_problems">
+
+<Image src='/sol/axial_loading/StaticallyDeterminate.png' width='4'> 
+    Statically determinate
+</Image>
+
+All internal forces can be obtained from equilibrium analysis only
+
+</SubSection>
+
+<SubSection title="Statically Indeterminate Problems" id="statically_indeterminate_problems">
+
+<Image src='/sol/axial_loading/StaticallyIndeterminate.png' width='3'>
+    Statically indeterminate
+</Image>
+
+ Equilibrium does not determine all internal forces.
+
+</SubSection>
+
+CONTENT BELOW MUST BE MOVED
+
+<Section title="Failure Theories" id="failure-theories">
     
 <!-- BSM:A table at the end summarizing the three main theories and their failure conditions would be a nice addition. -->
 

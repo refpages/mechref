@@ -11,12 +11,14 @@ import RedText from "../../components/RedText.astro"
 import InlineEquation from "../../components/InlineEquation.astro" 
 import DisplayEquation from "../../components/DisplayEquation.astro" 
 ---
-<Layout title="Axial Loading">
+<Layout title="Simple Loading">
 
 <div slot="navtree">
     <ul class='list-group list-group-flush py-0'> 
-        <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#notation_and_convention'>Notation and Convention</a></li>
-        <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#saint-venants_principle_slender_beam_case'>Saint-Venant's Principle: slender beam case</a>
+        <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#axial-loading'>Axial Loading</a></li>
+            <ul class='list-group list-group-flush py-0'> 
+                <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#axial-loading-assumptions'>Assumptions</a>  
+            </ul>
         <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#force-deformation_relation'>Force-Deformation Relation</a>
         <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#axially_varying_properties'>Axially Varying Properties</a>
         <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#principle_of_superposition_'>Principle of Superposition</a>
@@ -31,39 +33,27 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
     </ul>
 </div>
 
-<Section title="Axial Loading" id="axial_loading"></Section>
+<Section title="Simple Loading" id="simple_loading"></Section>
 
-<SubSection title="Notation and Convention" id="notation_and_convention">
-
-<Image src='/sol/axial_loading/Notation.png' width='5'>Notation</Image>
-
-<ul>
-    <li>   <strong>Displacement of points in space:</strong>  the movement of a point relative to its initial position in space (ex;  <InlineEquation equation='\\delta_B' /> )</li>
-     <li><strong>Change in length of a segment:</strong>  the relative displacement of a point with respect to another point (ex;  <InlineEquation equation='\\delta_{B/A} = \\delta_B - \\delta_A = \\delta_1' /> ). This can be written multiple ways:
-     <DisplayEquation equation='\\delta_{AD} \\equiv \\delta_{DA} \\equiv \\delta_{A/D} \\equiv \\delta_{D/A}\\' title="Notation." background="True"/></li>
-</ul>
-
-<strong>Sign Conventions for internal forces in a bar.</strong>
-<ul>
-     <li><InlineEquation equation='F>0' /> : tension</li>
-     <li><InlineEquation equation='F<0' /> : compression</li>
-     <li><InlineEquation equation='\\delta>0' /> : elongation</li>
-     <li><InlineEquation equation='\\delta<0' /> : contraction</li>
-</ul>
-
+<SubSection title="Axial Loading" id="axial-loading>
 </SubSection>
 
-<SubSection title="Saint-Venant's Principle: slender beam case" id="saint-venants_principle_slender_beam_case">
+<SubSubSection title="Assumptions" id="axial-loading-assumptions">
+REWORD CONTENT
+<strong> Saint-Venant's Principle: slender beam case </strong>
 
     <Image src='/sol/axial_loading/Saint-Venants.png' width='5'>Notation</Image>
 
 <p>Stress analysis very near to the point of application of load <InlineEquation equation='P' />. <strong>Saint-Venant's principle:</strong> the stress and strain produced at points in a body <em>sufficiently removed</em>* from the region of external load application will be the same as the stress and strain produced by any other applied external loading that has the same statically equivalent resultant and is applied to the body within the same region.</p> 
 
  *farther than the widest dimension of the cross section
+</SubSubSection>
 
-</SubSection>
+<SubSubSection title="Stress and Strain Distribution" id="axial-stress-strain-distribution">
+ADD CONTENT HERE
+</SubSubSection>
 
-<SubSection title="Force-Deformation Relation" id="force-deformation_relation"> 
+<SubSubSection title="Force-Deformation Relation" id="force-deformation_relation"> 
 
 <DisplayEquation equation='\\delta = \\frac{PL}{EA}\\' title="Relation." background="True" derivation="True" id="axl-fdr">
     
@@ -77,9 +67,7 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
 
 <DisplayEquation equation='P = k\\delta   =>   k = \\frac{EA}{L}\\' title=" Axial stiffness." background="True" />
 
-</SubSection>
-
-<SubSection title="Axially Varying Properties" id="axially_varying_properties"> 
+<strong> Axially Varying Properties </strong>
 For non-uniform load, material property and cross-section area:
 
  <DisplayEquation equation='\\delta = \\int_0^L\\frac{F(x)}{E(x)A(x)}dx\\' title="Variable properties." id="sts-vpr" background="True" derivation="True" >
@@ -93,16 +81,6 @@ For non-uniform load, material property and cross-section area:
 
  Assume variations with <InlineEquation equation='x' /> are "mild" (on length scale longer than cross-sectional length scales)
 
-</SubSection>
-
-<SubSection title="Principle of Superposition " id="principle_of_superposition_">
-
-Superposition: If the displacements are (1) small and (2) linearly related to the force components acting, the displacements caused by the components can be added up:
-
-<DisplayEquation equation='\\delta = \\sum_i \\delta_i = \\sum_i \\frac{F_i L_i}{E_i A_i}\\' title="Superposition." background="True" />
-
-</SubSection>
-
 <SubSection title="General Solving Procedure" id="general_solving_procedure">
 <ol>
 	<li>Draw a FBD
@@ -114,70 +92,6 @@ Superposition: If the displacements are (1) small and (2) linearly related to th
 	<li>Compatibility equations: geometric constraints
 </li>
 </ol>
-</SubSection>
-
-
-
-<SubSection title="Statically Determinate Problems" id="statically_determinate_problems">
-
-<Image src='/sol/axial_loading/StaticallyDeterminate.png' width='4'> 
-    Statically determinate
-</Image>
-
-All internal forces can be obtained from equilibrium analysis only
-
-</SubSection>
-
-<SubSection title="Statically Indeterminate Problems" id="statically_indeterminate_problems">
-
-<Image src='/sol/axial_loading/StaticallyIndeterminate.png' width='3'>
-    Statically indeterminate
-</Image>
-
- Equilibrium does not determine all internal forces.
-
-</SubSection>
-
-<SubSubSection title="Thermal Effects: Temperature Changes" id="thermal_effects_temperature_changes">
-
-<strong>Notation</strong>
-<ul> 
-     <li>  <InlineEquation equation='\\Delta T > 0, \\sigma < 0' /> : Compression</li> 
-     <li>   <InlineEquation equation='\\Delta T < 0, \\sigma > 0' /> : Tension</li> 
-</ul> 
-
-<p>
-    <InlineEquation equation='\\delta_T' /> ,  <InlineEquation equation='\\varepsilon_T' />  present in addition to elastic  <InlineEquation equation='\\delta_E' /> ,  <InlineEquation equation='\\varepsilon_E' />  (from internal forces). Superposition (small strains):
- <DisplayEquation equation='\\varepsilon_{tot} = \\varepsilon_{E} + \\varepsilon_{T}\\' title="Total strain." background="True" /> 
-  <DisplayEquation equation='\\delta_{tot} = \\delta_{E} + \\delta_{T}\\' title="Total displacement." background="True" /> 
-</p>
-
-<Image src='/sol/axial_loading/Temperature_NoLoad.png' width='4'>Temperature changes with no applied loads</Image>
-
- A rod rests freely on a smooth horizontal surface. Temperature of the rod is raised by <InlineEquation equation='\\Delta T' />. Rod elongates by an amount.
-
-<DisplayEquation equation='\\delta_{T} = \\alpha \\Delta T L\\' title="Displacement from temperature changes." background="True" />
-
- Linear coefficient of thermal expansion <InlineEquation equation='\\alpha' />,  <InlineEquation equation='[\\alpha] = \\frac{1}{K},\\frac{1}{°C},...' />. This deformation is associated with an average thermal strain:
-
-<DisplayEquation equation='\\varepsilon_{T} = \\frac{\\delta_T}{L} = \\alpha T\\' title="Strain from temperature changes." background="True" />
-
-<Image src='/sol/axial_loading/Temperature_TwoPlates.png' width='1.5'>  
-    Temperature changes with statically indeterminate beam
-</Image>
-
- Initially, rod of length <InlineEquation equation='L' /> is placed between two supports at a distance <InlineEquation equation='L' /> from each other. With no internal forces, there is no stress or strain.
-
-<DisplayEquation equation='R_{A} = R_{B} = 0\\' title="Force balance." background="True" />
-<DisplayEquation equation='R_{A} = F\\' title="Reaction force." background="True" />
-                  
- After raising the temperature, total elongation of the rod is still zero. The total elongation is given by:
-
-<DisplayEquation equation='\\delta = \\frac{FL}{EA} + \\alpha L \\Delta T = 0\\' title="Total elongation." background="True" />
-
- The stress in the rod due to change in temperature is given by:
-<DisplayEquation equation='\\sigma = -\\alpha E \\Delta T\\' title="Stress from temperature changes." background="True"  />
-
 </SubSubSection>
 
 <SubSubSection title="Misfit Problems" id="misfit_problems">
@@ -207,5 +121,24 @@ All internal forces can be obtained from equilibrium analysis only
 A misfit problem is one in which there is difference between a design distance and the manufactured length of a material. Some misfits are created intentionally to pre-strain a member. (e.g. spokes in a bicycle wheel or strings in a tennis racket). This type of problem neither modifies the equilibrium equations (1) nor the force-extension relations, (2) but the compatibility equations, (3) need to be modified.
 
 </SubSubSection>
+
+<SubSection title="Torsion" id="torsion">
+<strong>Torsion</strong> refers to the twisting of a specimen when it is loaded by couples (or <strong>moments</strong>) that produce rotation about the longitudinal axis. Applications include aircraft engines, car transmissions, and bicycles, etc.
+</SubSection>
+
+<SubSubSection title="Assumptions" id="torsion-assumptions">
+
+ADD OTHER GENERAL ASSUMPTIONS
+Gears:
+<Itemize>
+	<Item>Gears are perfectly rigid. </Item>
+	<Item>The rotation axis is perfectly fixed in space. </Item>
+	<Item>Gear teeth are evenly spaced and perfectly shaped so there is no gap to create lost motion. </Item>
+    <Item>Gear tooth faces are perfectly smooth so there is no slip. </Item>
+    <Item>Mated gears twist through the same arc length. </Item>
+</Itemize>
+</SubSubSection>
+
+<SubSubSection title="Stress-Strain Distribution" id="torsion-stress-strain-distribution">
 
 </Layout>

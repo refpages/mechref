@@ -23,7 +23,7 @@ import Enumerate from "../../components/Enumerate.astro"
         <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#units'>Units</a></li>
         <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#notation_and_convention'>Notation and Convention</a></li>
         <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#equilibrium'>Equilibrium</a>
-        <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#assuptions'>Assumptions</a>
+        <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#assumptions'>Assumptions</a>
         <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#shear_stress_and_strain'>Shear Stress and Strain</a>
             <ul class='list-group list-group-flush py-0'> 
                 <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#geometry_of_deformation'>Shear Strain: Geometry of Deformation</a></li> 
@@ -44,30 +44,9 @@ import Enumerate from "../../components/Enumerate.astro"
     
 <Section title="Torsion" id="torsion">
 
-<strong>Torsion</strong> refers to the twisting of a specimen when it is loaded by couples (or <strong>moments</strong>) that produce rotation about the longitudinal axis. Applications include aircraft engines, car transmissions, and bicycles, etc.
+
 
 </Section>
-
-<SubSection title="Units" id="units">
-
-Force X distance [lb-in or N-m]
-
-</SubSection>
-
-<SubSection title="Notation and Convention" id="notation_and_convention">
-
-<Image src="/sol/torsion/Convention.png" width="5">  Sign convention for internal toruqe in a shaft </Image>
-
- <Itemize>
-     <Item><InlineEquation equation="\\phi > 0" /> : counter clockwise </Item>
-     <Item><InlineEquation equation="\\phi < 0" /> : clockwise </Item>
- </Itemize>
-
-<Image src="/sol/torsion/RightHandRule.png" width="4">  Right hand rule </Image>
-
- Torque and angle of twist follow the right hand rule sign convention. When positive, using the right hand, the thumb points outward from the shaft and the fingers will curl in the direction of the positive twist/torque.
-
-</SubSection>
 
 <SubSection title="Equilibrium" id="equilibrium">
 
@@ -81,18 +60,7 @@ The stress distribution in the shaft is not known.
 
 </SubSection>
 
-<SubSection title="Assumptions" id="assuptions">
 
-<Image src="/sol/torsion/TorsionLines.png" width="7"> Torsion lines </Image>
-
-
-<Itemize>
-	<Item>For circular shafts (hollow and solid): cross-sections remain plane and undistorted due to axisymmetric geometry</Item>
-	<Item>For non-circular shafts: cross-sections are distorted when subject to torsion</Item>
-	<Item>Linear and elastic deformation</Item>
-</Itemize>
-
-</SubSection>
 
 <SubSection title="Shear Stress and Strain" id="shear_stress_and_strain"></SubSection>
 
@@ -255,7 +223,7 @@ From observation:
 
 Gear system problems can be solved using the torsion equations. 
 
-<p> Common assuptions:</p>
+<p> Common assumptions:</p>
 
 
 <Itemize>
