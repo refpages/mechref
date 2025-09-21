@@ -43,9 +43,6 @@ import DisplayTable from "../../components/DisplayTable.astro"
         It is also assumed that objects are rigid, meaning they do not deform under applied forces.
         Statics is distinct from dynamics, which deals with bodies in motion and solid mechanics, which deals with deformable bodies.
     </p>
-</SubSection>
-
-<SubSection title = "Assumptions in statics" id = "assumptions_in_statics">
     <DisplayTable id = "assumptions" class = "mb-3">
         <thead>
             <tr>
@@ -60,7 +57,7 @@ import DisplayTable from "../../components/DisplayTable.astro"
         </thead>
         <tbody>
             <tr>
-                <td class = "table-shaded">
+                <td class = "table-shaded" style = "vertical-align: middle;">
                     <p>
                         No motion
                     </p>
@@ -71,12 +68,12 @@ import DisplayTable from "../../components/DisplayTable.astro"
                         <InlineEquation equation = "\\sum \\vec{M} = 0"/>
                     </p>
                 </td>
-                <td>
+                <td style = "vertical-align: middle;">
                     <mark>
                         <a href = "/sta?origin=sidebar">Statics</a>
                     </mark>
                 </td>
-                <td>
+                <td style = "vertical-align: middle;">
                     <a href = "/sol?origin=sidebar">Solid mechanics</a>
                 </td>
             </tr>
@@ -92,10 +89,10 @@ import DisplayTable from "../../components/DisplayTable.astro"
                         <InlineEquation equation = "\\sum \\vec{M} \\neq 0"/>
                     </p>
                 </td>
-                <td>
+                <td style = "vertical-align: middle;">
                     <a href = "/dyn?origin=sidebar">Dynamics</a></li>
                 </td>
-                <td>
+                <td style = "vertical-align: middle;">
                     Vibration, FEA, robotics, etc.
                 </td>
             </tr>
