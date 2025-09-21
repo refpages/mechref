@@ -233,14 +233,14 @@ import DisplayTable from "../../components/DisplayTable.astro"
           <col class="value" />
           <tr>
             <td>Coupler position:</td>
-            <td><input type="range" min="-400" max="400" value="0" step="10" class="data-input:aml-fc-c:PPosition" onchange = "aml_fc_c.setOption('PPosition', this.value); document.querySelector('span[class *= PPosition]').innerText = this.value;" oninput = "aml_fr_c.setOption('PPosition', this.value); document.querySelector('span[class *= PPosition]').innerText = this.value;"/></td>
+            <td><input type="range" min="-400" max="400" value="0" step="10" class="data-input:aml-fc-c:PPosition" onchange = "aml_fc_c.setOption('PPosition', this.value); document.querySelector('span[class *= PPosition]').innerText = this.value;" oninput = "aml_fc_c.setOption('PPosition', this.value); document.querySelector('span[class *= PPosition]').innerText = this.value;"/></td>
             <td><InlineEquation equation = "P_{\\rm pos} ="/> <span class="data-option:aml-fc-c:PPosition"></span>%
             from DC midpoint towards C
             </td>
           </tr>
           <tr class="bottomBorder">
             <td>Coupler offset:</td>
-            <td><input type="range" min="-200" max="200" value="0" step="10" class="data-input:aml-fc-c:POffset" onchange = "aml_fc_c.setOption('POffset', this.value); document.querySelector('span[class *= POffset]').innerText = this.value;" oninput = "aml_fr_c.setOption('POffset', this.value); document.querySelector('span[class *= POffset]').innerText = this.value;"/></td>
+            <td><input type="range" min="-200" max="200" value="0" step="10" class="data-input:aml-fc-c:POffset" onchange = "aml_fc_c.setOption('POffset', this.value); document.querySelector('span[class *= POffset]').innerText = this.value;" oninput = "aml_fc_c.setOption('POffset', this.value); document.querySelector('span[class *= POffset]').innerText = this.value;"/></td>
             <td><InlineEquation equation = "P_{\\rm off} ="/> <span class="data-option:aml-fc-c:POffset"></span>%
             of DC length
             </td>
@@ -845,22 +845,22 @@ import DisplayTable from "../../components/DisplayTable.astro"
           </tr>
           <tr>
             <td>Ground link length:</td>
-            <td><input type="range" min="5" max="40" value="0" step="1" class="data-input:aml-fl-c:g lengthInput" onchange = "aml_fl_c.setOption('g', this.value); document.querySelector('span[class *= g]').innerText = this.value;" oninput="aml_fl_c.setOption('g', this.value); document.querySelector('span[class *= g]').innerText = this.value;" /></td>
+            <td><input type="range" min="5" max="40" value="0" step="1" class="data-input:aml-fl-c:g lengthInput" onchange = "aml_fl_c.setOption('g', this.value); document.querySelector('span[class *= g]').innerText = this.value;" oninput="aml_fl_c.setOption('g', this.value); document.querySelector('span[class *= g]').innerText = this.value;"/></td>
             <td>\(g = \) <span class="data-option:aml-fl-c:g"></span> cm</td>
           </tr>
           <tr>
             <td>Input link length:</td>
-            <td><input type="range" min="5" max="40" value="0" step="1" class="data-input:aml-fl-c:a lengthInput" onchange = "aml_fl_c.setOption('a', this.value); document.querySelector('span[class *= a]').innerText = this.value;" oninput="aml_fl_c.setOption('a', this.value); document.querySelector('span[class *= a]').innerText = this.value;" /></td>
+            <td><input type="range" min="5" max="40" value="0" step="1" class="data-input:aml-fl-c:a lengthInput" onchange = "aml_fl_c.setOption('a', this.value); document.querySelector('span[class *= a]').innerText = this.value;" oninput="aml_fl_c.setOption('a', this.value); document.querySelector('span[class *= a]').innerText = this.value;"/></td>
             <td>\(a = \) <span class="data-option:aml-fl-c:a"></span> cm</td>
           </tr>
           <tr>
             <td>Output link length:</td>
-            <td><input type="range" min="5" max="40" value="0" step="1" class="data-input:aml-fl-c:b lengthInput" onchange = "aml_fl_c.setOption('b', this.value); document.querySelector('span[class *= b]').innerText = this.value;" oninput="aml_fl_c.setOption('b', this.value); document.querySelector('span[class *= b]').innerText = this.value;" /></td>
+            <td><input type="range" min="5" max="40" value="0" step="1" class="data-input:aml-fl-c:b lengthInput" onchange = "aml_fl_c.setOption('b', this.value); document.querySelector('span[class *= b]').innerText = this.value;" oninput="aml_fl_c.setOption('b', this.value); document.querySelector('span[class *= b]').innerText = this.value;"/></td>
             <td>\(b = \) <span class="data-option:aml-fl-c:b"></span> cm</td>
           </tr>
           <tr class="bottomBorder">
             <td>Floating link length:</td>
-            <td><input type="range" min="5" max="40" value="0" step="1" class="data-input:aml-fl-c:f lengthInput" onchange = "aml_fl_c.setOption('f', this.value); document.querySelector('span[class *= f]').innerText = this.value;" oninput="aml_fl_c.setOption('f', this.value); document.querySelector('span[class *= f]').innerText = this.value;" /></td>
+            <td><input type="range" min="5" max="40" value="0" step="1" class="data-input:aml-fl-c:f lengthInput" onchange = "aml_fl_c.setOption('f', this.value); document.querySelector('span[class *= f]').innerText = this.value;" oninput="aml_fl_c.setOption('f', this.value); document.querySelector('span[class *= f]').innerText = this.value;"/></td>
             <td>\(f = \) <span class="data-option:aml-fl-c:f"></span> cm</td>
           </tr>
           <tr>
@@ -870,41 +870,41 @@ import DisplayTable from "../../components/DisplayTable.astro"
           </tr>
           <tr>
             <td>Ground-free excess:</td>
-            <td><input type="range" min="-40" max="40" value="0" step="1" class="data-input:aml-fl-c:T1 excessInput" onchange = "aml_fl_c.setOption('T1', this.value); document.querySelector('span[class *= T1]').innerText = this.value;" oninput = "aml_fl_c.setOption('T1', this.value); document.querySelector('span[class *= T1]').innerText = this.value;" /></td>
+            <td><input type="range" min="-40" max="40" value="0" step="1" class="data-input:aml-fl-c:T1 excessInput" onchange = "aml_fl_c.setOption('T1', this.value); document.querySelector('span[class *= T1]').innerText = this.value;" oninput = "aml_fl_c.setOption('T1', this.value); document.querySelector('span[class *= T1]').innerText = this.value;"/></td>
             <td>\(T_1 = g + f - b - a = \) <span class="data-option:aml-fl-c:T1"></span> cm</td>
           </tr>
           <tr>
             <td>Output-ground excess:</td>
-            <td><input type="range" min="-40" max="40" value="0" step="1" class="data-input:aml-fl-c:T2 excessInput" onchange = "aml_fl_c.setOption('T2', this.value); document.querySelector('span[class *= T2]').innerText = this.value;" oninput = "aml_fl_c.setOption('T2', this.value); document.querySelector('span[class *= T2]').innerText = this.value;" /></td>
+            <td><input type="range" min="-40" max="40" value="0" step="1" class="data-input:aml-fl-c:T2 excessInput" onchange = "aml_fl_c.setOption('T2', this.value); document.querySelector('span[class *= T2]').innerText = this.value;" oninput = "aml_fl_c.setOption('T2', this.value); document.querySelector('span[class *= T2]').innerText = this.value;"/></td>
             <td>\(T_2 = b + g - f - a = \) <span class="data-option:aml-fl-c:T2"></span> cm</td>
           </tr>
           <tr>
             <td>Free-output excess:</td>
-            <td><input type="range" min="-40" max="40" value="0" step="1" class="data-input:aml-fl-c:T3 excessInput" onchange = "aml_fl_c.setOption('T3', this.value); document.querySelector('span[class *= T3]').innerText = this.value;" oninput = "aml_fl_c.setOption('T3', this.value); document.querySelector('span[class *= T3]').innerText = this.value;" /></td>
+            <td><input type="range" min="-40" max="40" value="0" step="1" class="data-input:aml-fl-c:T3 excessInput" onchange = "aml_fl_c.setOption('T3', this.value); document.querySelector('span[class *= T3]').innerText = this.value;" oninput = "aml_fl_c.setOption('T3', this.value); document.querySelector('span[class *= T3]').innerText = this.value;"/></td>
             <td>\(T_3 = f + b - g - a = \) <span class="data-option:aml-fl-c:T3"></span> cm</td>
           </tr>
           <tr class="bottomBorder">
             <td>Total length:</td>
-            <td><input type="range" min="10" max="200" value="0" step="1" class="data-input:aml-fl-c:L excessInput" onchange = "aml_fl_c.setOption('L', this.value); document.querySelector('span[class *= L]').innerText = this.value;" oninput = "aml_fl_c.setOption('L', this.value); document.querySelector('span[class *= L]').innerText = this.value;" /></td>
+            <td><input type="range" min="10" max="200" value="0" step="1" class="data-input:aml-fl-c:L excessInput" onchange = "aml_fl_c.setOption('L', this.value); document.querySelector('span[class *= L]').innerText = this.value;" oninput = "aml_fl_c.setOption('L', this.value); document.querySelector('span[class *= L]').innerText = this.value;"/></td>
             <td>\(L = g + f + b + a = \) <span class="data-option:aml-fl-c:L"></span> cm</td>
           </tr>
           <tr>
             <td>Coupler position:</td>
-            <td><input type="range" min="-400" max="400" value="0" step="10" class="data-input:aml-fl-c:PPosition" onchange = "aml_fl_c.setOption('PPosition', this.value); document.querySelector('span[class *= PPosition]').innerText = this.value;" oninput="aml_fl_c.setOption('PPosition', this.value); document.querySelector('span[class *= PPosition]').innerText = this.value;" /></td>
+            <td><input type="range" min="-400" max="400" value="0" step="10" class="data-input:aml-fl-c:PPosition" onchange = "aml_fl_c.setOption('PPosition', this.value); document.querySelector('span[class *= PPosition]').innerText = this.value;" oninput = "aml_fl_c.setOption('PPosition', this.value); document.querySelector('span[class *= PPosition]').innerText = this.value;"/></td>
             <td><InlineEquation equation = "P_{\\rm pos} ="/> <span class="data-option:aml-fl-c:PPosition"></span>%
             from DC midpoint towards C
             </td>
           </tr>
           <tr class="bottomBorder">
             <td>Coupler offset:</td>
-            <td><input type="range" min="-200" max="200" value="0" step="10" class="data-input:aml-fl-c:POffset" onchange = "aml_fl_c.setOption('POffset', this.value); document.querySelector('span[class *= POffset]').innerText = this.value;" oninput = "aml_fl_c.setOption('POffset', this.value); document.querySelector('span[class *= POffset]').innerText = this.value;" /></td>
+            <td><input type="range" min="-200" max="200" value="0" step="10" class="data-input:aml-fl-c:POffset" onchange = "aml_fl_c.setOption('POffset', this.value); document.querySelector('span[class *= POffset]').innerText = this.value;" oninput = "aml_fl_c.setOption('POffset', this.value); document.querySelector('span[class *= POffset]').innerText = this.value;"/></td>
             <td><InlineEquation equation = "P_{\\rm off} ="/> <span class="data-option:aml-fl-c:POffset"></span>%
             of DC length
             </td>
           </tr>
           <tr class="bottomBorder">
             <td>Ground link angle:</td>
-            <td><input type="range" min="-180" max="180" value="0" step="5" class="data-input:aml-fl-c:gAngleDeg" /></td>
+            <td><input type="range" min="-180" max="180" value="0" step="5" class="data-input:aml-fl-c:gAngleDeg" onchange = "aml_fl_c.setOption('gAngleDeg', this.value); document.querySelector('span[class *= gAngleDeg]').innerText = this.value;" oninput = "aml_fl_c.setOption('gAngleDeg', this.value); document.querySelector('span[class *= gAngleDeg]').innerText = this.value;"/></td>
             <td><InlineEquation equation = "\\theta_{\\rm g} ="/> <span class="data-option:aml-fl-c:gAngleDeg"></span>°
             </td>
           </tr>
@@ -916,7 +916,7 @@ import DisplayTable from "../../components/DisplayTable.astro"
           </tr>
           <tr>
             <td>Input angle center:</td>
-            <td><input type="range" min="0" max="100" value="0" step="5" class="data-input:aml-fl-c:oscCenter oscInput" onchange = "aml_fl_c.setOption('(oscCenter oscInput)', this.value); document.querySelector('span[class *= (oscCenter oscInput)]').innerText = this.value;" oninput = "aml_fc_c.setOption('oscCenter oscInput', this.value); document.querySelector('span[class *= (oscCenter oscInput)]').innerText = this.value;"/></td>
+            <td><input type="range" min="0" max="100" value="0" step="5" class="data-input:aml-fl-c:oscCenter" onchange = "aml_fl_c.setOption('oscCenter', this.value); document.querySelector('span[class *= oscCenter]').innerText = this.value;" oninput = "aml_fc_c.setOption('oscCenter', this.value); document.querySelector('span[class *= oscCenter]').innerText = this.value;"/></td>
             <td><span class="oscInput">
               <InlineEquation equation = "\\alpha_{\\rm cent} ="/> <span class="data-option:aml-fl-c:oscCenter"></span>%
               <span class="limitedDesc">from <InlineEquation equation = "\\alpha_{\\rm min}"/> to <InlineEquation equation = "\\alpha_{\\rm max}"/></span>
@@ -925,7 +925,7 @@ import DisplayTable from "../../components/DisplayTable.astro"
           </tr>
           <tr class="bottomBorder">
             <td>Input angle range:</td>
-            <td><input type="range" min="0" max="100" value="0" step="5" class="data-input:aml-fl-c:oscMagnitude oscInput" onchange = "aml_fl_c.setOption('(oscMagnitude oscInput)', this.value); document.querySelector('span[class *= (oscMagnitude oscInput)]').innerText = this.value;" oninput = "aml_fc_c.setOption('oscMagnitude oscInput', this.value); document.querySelector('span[class *= (oscMagnitude oscInput)]').innerText = this.value;"/></td>
+            <td><input type="range" min="0" max="100" value="0" step="5" class="data-input:aml-fl-c:oscMagnitude" onchange = "aml_fl_c.setOption('oscMagnitude', this.value); document.querySelector('span[class *= oscMagnitude]').innerText = this.value;" oninput = "aml_fc_c.setOption('oscMagnitude', this.value); document.querySelector('span[class *= oscMagnitude]').innerText = this.value;"/></td>
             <td><span class="oscInput">
               \(\Delta\alpha = \) <span class="data-option:aml-fl-c:oscMagnitude"></span>%
               <span class="limitedDesc">from <InlineEquation equation = "\\alpha_{\\rm cent}"/> to nearest <InlineEquation equation = "\\alpha_{\\rm min} / \\alpha_{\\rm max}"/></span>
