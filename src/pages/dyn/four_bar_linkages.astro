@@ -70,15 +70,15 @@ import DisplayTable from "../../components/DisplayTable.astro"
               <canvas id="aml-ft-c" width="600" height="300">
               </canvas>
             </td>
-            <!--<td class="controls">
-              <button class="anim-toggle:aml-ft-c">animation</button>
-              <button class="reset:aml-ft-c">reset</button>
+            <td class="controls">
+              <button class="anim-toggle:aml-ft-c" onclick = "aml_ft_c.toggleAnim()">animation</button>
+              <button class="reset:aml-ft-c" onclick = "aml_ft_c.reset()">reset</button>
               <table class="alignTop">
                 <tr>
                   <td>Show:</td>
                   <td>
-                    <button class="option-toggle:aml-ft-c:showLabels">labels</button>
-                    <button class="option-toggle:aml-ft-c:showPivots">pivots</button>
+                    <button class="option-toggle:aml-ft-c:showLabels" onclick = "aml_ft_c.toggleOption('showLabels')">labels</button>
+                    <button class="option-toggle:aml-ft-c:showPivots" onclick = "aml_ft_c.toggleOption('showPivots')">pivots</button>
                   </td>
                 </tr>
               </table>
@@ -86,7 +86,7 @@ import DisplayTable from "../../components/DisplayTable.astro"
                 <tr><td>Input \(\alpha\):</td><td><span class="data-option:aml-ft-c:inputType"></span></td></tr>
                 <tr><td>Output \(\beta\):</td><td><span class="data-option:aml-ft-c:outputType"></span></td></tr>
               </table>
-            </td>-->
+            </td>
           </tr>
         </table>
         <p>
@@ -137,15 +137,15 @@ import DisplayTable from "../../components/DisplayTable.astro"
               <canvas id="aml-fr-c" width="600" height="300">
               </canvas>
             </td>
-            <!--<td class="controls">
-              <button class="anim-toggle:aml-fr-c">animation</button>
-              <button class="reset:aml-fr-c">reset</button>
+            <td class="controls">
+              <button class="anim-toggle:aml-fr-c" onclick = "aml_fr_c.toggleAnim()">animation</button>
+              <button class="reset:aml-fr-c" onclick = "aml_fr_c.reset()">reset</button>
               <table class="alignTop">
                 <tr>
                   <td>Show:</td>
                   <td>
-                    <button class="option-toggle:aml-fr-c:showLabels">labels</button>
-                    <button class="option-toggle:aml-fr-c:showPivots">pivots</button>
+                    <button class="option-toggle:aml-fr-c:showLabels" onclick = "aml_fr_c.toggleOption('showLabels')">labels</button>
+                    <button class="option-toggle:aml-fr-c:showPivots" onclick = "aml_fr_c.toggleOption('showPivots')">pivots</button>
                   </td>
                 </tr>
               </table>
@@ -153,24 +153,24 @@ import DisplayTable from "../../components/DisplayTable.astro"
                 <tr><td>Input \(\alpha\):</td><td><span class="data-option:aml-fr-c:inputType"></span></td></tr>
                 <tr><td>Output \(\beta\):</td><td><span class="data-option:aml-fr-c:outputType"></span></td></tr>
               </table>
-            </td>-->
+            </td>
           </tr>
         </table>
-        <!--<table class="options">
+        <table class="options">
           <col class="label" />
           <col class="input" />
           <col class="value" />
           <tr>
             <td>Input link length:</td>
-            <td><input type="range" min="5" max="40" value="0" step="1" class="data-input:aml-fr-c:a" /></td>
+            <td><input type="range" min="5" max="40" value="0" step="1" class="data-input:aml-fr-c:a" onchange = "aml_fr_c.setOption('a', this.value); document.querySelector('span[class *= a]').innerText = this.value;" oninput = "aml_fr_c.setOption('a', this.value); document.querySelector('span[class *= a]').innerText = this.value;"/></td>
             <td>\(a = \) <span class="data-option:aml-fr-c:a"></span> cm</td>
           </tr>
           <tr>
             <td>Output link length:</td>
-            <td><input type="range" min="5" max="40" value="0" step="1" class="data-input:aml-fr-c:b" /></td>
+            <td><input type="range" min="5" max="40" value="0" step="1" class="data-input:aml-fr-c:b" onchange = "aml_fr_c.setOption('b', this.value); document.querySelector('span[class *= b]').innerText = this.value;" oninput = "aml_fr_c.setOption('b', this.value); document.querySelector('span[class *= b]').innerText = this.value;"/></td>
             <td>\(b = \) <span class="data-option:aml-fr-c:b"></span> cm</td>
           </tr>
-        </table>-->
+        </table>
 </SubSection>
 
 <SubSection title = "Coupler dynamics" id = "coupler_dynamics">
@@ -194,29 +194,29 @@ import DisplayTable from "../../components/DisplayTable.astro"
               <canvas id="aml-fc-c" width="600" height="300">
               </canvas>
             </td>
-            <!--<td class="controls">
-              <button class="anim-toggle:aml-fc-c">animation</button>
-              <button class="reset:aml-fc-c">reset</button>
+            <td class="controls">
+              <button class="anim-toggle:aml-fc-c" onclick = "aml_fc_c.toggleAnim()">animation</button>
+              <button class="reset:aml-fc-c" onclick = "aml_fc_c.reset()">reset</button>
               <table class="alignTop">
                 <tr>
                   <td>Zoom:</td>
                   <td><span><input style="width:84px;" type="range" min="10" max="100"
-                  value="100" step="5" class="data-input:aml-fc-c:zoom" />
+                  value="100" step="5" class="data-input:aml-fc-c:zoom" onchange = "aml_fc_c.setOption('zoom', this.value); document.querySelector('span[class *= zoom]').innerText = this.value;" oninput = "aml_fc_c.setOption('zoom', this.value); document.querySelector('span[class *= zoom]').innerText = this.value;"/>
                   <span class="data-option:aml-fc-c:zoom"></span>%</span></td>
                 </tr>
                 <tr>
                   <td>Show:</td>
                   <td>
-                    <button class="option-toggle:aml-fc-c:showLabels">labels</button>
-                    <button class="option-toggle:aml-fc-c:showPivots">pivots</button>
+                    <button class="option-toggle:aml-fc-c:showLabels" onclick = "aml_fc_c.toggleOption('showLabels')">labels</button>
+                    <button class="option-toggle:aml-fc-c:showPivots" onclick = "aml_fc_c.toggleOption('showPivots')">pivots</button>
                   </td>
                 </tr>
                 <tr>
                   <td>Trace:</td>
                   <td>
-                    <button class="option-toggle:aml-fc-c:traceC">C</button>
-                    <button class="option-toggle:aml-fc-c:traceD">D</button>
-                    <button class="option-toggle:aml-fc-c:traceP">P</button>
+                    <button class="option-toggle:aml-fc-c:traceC" onclick = "aml_fc_c.toggleOption('traceC')">C</button>
+                    <button class="option-toggle:aml-fc-c:traceD" onclick = "aml_fc_c.toggleOption('traceD')">D</button>
+                    <button class="option-toggle:aml-fc-c:traceP" onclick = "aml_fc_c.toggleOption('traceP')">P</button>
                   </td>
                 </tr>
               </table>
@@ -224,28 +224,28 @@ import DisplayTable from "../../components/DisplayTable.astro"
                 <tr><td>Input \(\alpha\):</td><td><span class="data-option:aml-fc-c:inputType"></span></td></tr>
                 <tr><td>Output \(\beta\):</td><td><span class="data-option:aml-fc-c:outputType"></span></td></tr>
               </table>
-            </td>-->
+            </td>
           </tr>
         </table>
-        <!--<table class="options">
+        <table class="options">
           <col class="label" />
           <col class="input" />
           <col class="value" />
           <tr>
             <td>Coupler position:</td>
-            <td><input type="range" min="-400" max="400" value="0" step="10" class="data-input:aml-fc-c:PPosition" /></td>
+            <td><input type="range" min="-400" max="400" value="0" step="10" class="data-input:aml-fc-c:PPosition" onchange = "aml_fc_c.setOption('PPosition', this.value); document.querySelector('span[class *= PPosition]').innerText = this.value;" oninput = "aml_fr_c.setOption('PPosition', this.value); document.querySelector('span[class *= PPosition]').innerText = this.value;"/></td>
             <td><InlineEquation equation = "P_{\\rm pos} ="/> <span class="data-option:aml-fc-c:PPosition"></span>%
             from DC midpoint towards C
             </td>
           </tr>
           <tr class="bottomBorder">
             <td>Coupler offset:</td>
-            <td><input type="range" min="-200" max="200" value="0" step="10" class="data-input:aml-fc-c:POffset" /></td>
+            <td><input type="range" min="-200" max="200" value="0" step="10" class="data-input:aml-fc-c:POffset" onchange = "aml_fc_c.setOption('POffset', this.value); document.querySelector('span[class *= POffset]').innerText = this.value;" oninput = "aml_fr_c.setOption('POffset', this.value); document.querySelector('span[class *= POffset]').innerText = this.value;"/></td>
             <td><InlineEquation equation = "P_{\\rm off} ="/> <span class="data-option:aml-fc-c:POffset"></span>%
             of DC length
             </td>
           </tr>
-        </table>-->
+        </table>
 </SubSection>
 
 <SubSection title = "Limiting the input angle" id = "limiting_the_input_angle">
@@ -264,16 +264,16 @@ import DisplayTable from "../../components/DisplayTable.astro"
               <canvas id="aml-fi-c" width="600" height="300">
               </canvas>
             </td>
-            <!--<td class="controls">
-              <button class="anim-toggle:aml-fi-c">animation</button>
-              <button class="reset:aml-fi-c">reset</button>
+            <td class="controls">
+              <button class="anim-toggle:aml-fi-c" onclick = "aml_fi_c.toggleAnim()">animation</button>
+              <button class="reset:aml-fi-c" onclick = "aml_fi_c.reset()">reset</button>
               <table class="alignTop">
                 <tr>
                   <td>Show:</td>
                   <td>
-                    <button class="option-toggle:aml-fi-c:showLabels">labels</button>
-                    <button class="option-toggle:aml-fi-c:showPivots">pivots</button>
-                    <button class="option-toggle:aml-fi-c:showInputRange">input range</button>
+                    <button class="option-toggle:aml-fi-c:showLabels" onclick = "aml_fi_c.toggleOption('showLabels')">labels</button>
+                    <button class="option-toggle:aml-fi-c:showPivots" onclick = "aml_fi_c.toggleOption('showPivots')">pivots</button>
+                    <button class="option-toggle:aml-fi-c:showInputRange" onclick = "aml_fi_c.toggleOption('showInputRange')">input range</button>
                   </td>
                 </tr>
               </table>
@@ -281,24 +281,24 @@ import DisplayTable from "../../components/DisplayTable.astro"
                 <tr><td>Input \(\alpha\):</td><td><span class="data-option:aml-fi-c:inputType"></span></td></tr>
                 <tr><td>Output \(\beta\):</td><td><span class="data-option:aml-fi-c:outputType"></span></td></tr>
               </table>
-            </td>-->
+            </td>
           </tr>
         </table>
-        <!--<table class="options">
+        <table class="options">
           <col class="label" />
           <col class="input" />
           <col class="value" />
           <tr>
             <td>Input angle center:</td>
-            <td><input type="range" min="0" max="100" value="0" step="5" class="data-input:aml-fi-c:oscCenter" /></td>
+            <td><input type="range" min="0" max="100" value="0" step="5" class="data-input:aml-fi-c:oscCenter" onchange = "aml_fi_c.setOption('oscCenter', this.value); document.querySelector('span[class*=oscCenter]').innerText = this.value;" oninput="aml_fr_c.setOption('oscCenter', this.value); document.querySelector('span[class*=oscCenter]').innerText = this.value;"/></td>
             <td><InlineEquation equation = "\\alpha_{\\rm cent} ="/> <span class="data-option:aml-fi-c:oscCenter"></span>% from 0° to 360°</td>
           </tr>
           <tr class="bottomBorder">
             <td>Input angle range:</td>
-            <td><input type="range" min="0" max="100" value="0" step="5" class="data-input:aml-fi-c:oscMagnitude" /></td>
+            <td><input type="range" min="0" max="100" value="0" step="5" class="data-input:aml-fi-c:oscMagnitude" onchange = "aml_fi_c.setOption('oscMagnitude', this.value); document.querySelector('span[class*=oscMagnitude]').innerText = this.value;" oninput="aml_fr_c.setOption('oscMagnitude', this.value); document.querySelector('span[class*=oscMagnitude]').innerText = this.value;"/></td>
             <td><InlineEquation equation = "\\Delta \\alpha ="/> <span class="data-option:aml-fi-c:oscMagnitude"></span>% of 180°</td>
           </tr>
-        </table>-->
+        </table>
 </SubSection>
 
 <SubSection title = "Example: pumpjack (rotary to reciprocal)" id = "example_pumpjack_rotary_to_reciprocal">
@@ -321,10 +321,10 @@ import DisplayTable from "../../components/DisplayTable.astro"
         <div class="figureContainer width600" id="aml-fp">
           <canvas id="aml-fp-c" width="600" height="431" class="figureImage" >
           </canvas>
-          <!--<p class="controls">
-            <button class="option-toggle:aml-fp-c:showLinkage">show linkage</button>
-            <button class="anim-toggle:aml-fp-c">animation</button>
-            <button class="reset-time:aml-fp-c">reset</button>
+          <p class="controls">
+            <button class="option-toggle:aml-fp-c:showLinkage" onclick = "aml_fp_c.toggleOption('showLinkage')">show linkage</button>
+            <button class="anim-toggle:aml-fp-c" onclick = "aml_fp_c.toggleAnim()">animation</button>
+            <button class="reset-time:aml-fp-c" onclick = "aml_fp_c.resetTime()">reset</button>
           </p>
           <p class="figureCaption">
             A pumpjack (also known as a nodding donkey) pump in
@@ -336,7 +336,7 @@ import DisplayTable from "../../components/DisplayTable.astro"
             href="http://creativecommons.org/licenses/by-sa/2.0/deed.en">CC
             BY-SA 2.0</a>) (<a href="/dyn/four_bar_linkages/aml_7632673158.jpg">full-sized
             image</a>).
-          </p>-->
+          </p>
         </div>
 </SubSecton>
 
@@ -356,10 +356,10 @@ import DisplayTable from "../../components/DisplayTable.astro"
         <div class="figureContainer width600" id="aml-fb">
           <canvas id="aml-fb-c" width="600" height="400" class="figureImage" >
           </canvas>
-          <!--<p class="controls">
-            <button class="option-toggle:aml-fb-c:showLinkage">show linkage</button>
-            <button class="anim-toggle:aml-fb-c">animation</button>
-            <button class="reset-time:aml-fb-c">reset</button>
+          <p class="controls">
+            <button class="option-toggle:aml-fb-c:showLinkage" onclick = "aml_fb_c.toggleOption('showLinkage')">show linkage</button>
+            <button class="anim-toggle:aml-fb-c" onclick = "aml_fb_c.toggleAnim()">animation</button>
+            <button class="reset-time:aml-fb-c" onclick = "aml_fb_c.resetTime()">reset</button>
           </p>
           <p class="figureCaption">
             A man riding a bicycle at the port of <a
@@ -372,7 +372,7 @@ import DisplayTable from "../../components/DisplayTable.astro"
             href="http://creativecommons.org/licenses/by-sa/2.0/deed.en">CC
             BY 2.0</a>) (<a href="/dyn/four_bar_linkages/aml_7705967112.jpg">full-sized
             image</a>).
-          </p>-->
+          </p>
         </div>
         <p>
           While the four links in the bicycle linkage are
@@ -623,10 +623,10 @@ import DisplayTable from "../../components/DisplayTable.astro"
           <div class="imageBox width250">
             <canvas id="aml-fg-c" width="250" height="250">
             </canvas>
-            <!--<p class="controls">
-              <button class="anim-toggle:aml-fg-c">animation</button>
-              <button class="reset:aml-fg-c">reset</button>
-            </p>-->
+            <p class="controls">
+              <button class="anim-toggle:aml-fg-c" onclick = "aml_fg_c.toggleAnim()">animation</button>
+              <button class="reset:aml-fg-c" onclick = "aml_fg_c.reset()">reset</button>
+            </p>
           </div>
           <p>
             Rather than trying to discover special linkages to produce
@@ -688,12 +688,12 @@ import DisplayTable from "../../components/DisplayTable.astro"
         <div class="figureContainer width600" id="aml-fj">
           <canvas id="aml-fj-c" width="600" height="550" class="figureImage" >
           </canvas>
-          <!--<p class="controls">
-            <button class="option-toggle:aml-fj-c:showLinkage">show linkage</button>
-            <button class="anim-toggle:aml-fj-c">animation</button>
-            <button class="option-toggle:aml-fj-c:showForces">show forces</button>
-            <button class="reset-time:aml-fj-c">reset</button>
-          </p>-->
+          <p class="controls">
+            <button class="option-toggle:aml-fj-c:showLinkage" onclick = "aml_fj_c.toggleOption('showLinkage')">show linkage</button>
+            <button class="anim-toggle:aml-fj-c" onclick = "aml_fj_c.toggleAnim()">animation</button>
+            <button class="option-toggle:aml-fj-c:showForces" onclick = "aml_fj_c.toggleOption('showForces')">show forces</button>
+            <button class="reset-time:aml-fj-c" onclick = "aml_fj_c.resetTime()">reset</button>
+          </p>
           <p class="figureCaption">
             The skull of a Bleeker's Parrotfish, showing the main
             components of the jaw. Image credit: <a
@@ -745,9 +745,9 @@ import DisplayTable from "../../components/DisplayTable.astro"
           <div class="imageBox width250">
             <canvas id="aml-fm-c" width="250" height="312">
             </canvas>
-            <!--<p class="controls">
-              <button class="option-toggle:aml-fm-c:showJaws">show pharyngeal jaws</button>
-            </p>-->
+            <p class="controls">
+              <button class="option-toggle:aml-fm-c:showJaws" onclick = "aml_fm_c.toggleOption('showJaws')">show pharyngeal jaws</button>
+            </p>
             <p class="caption">
               Image credit: R. S. Mehta and P. C. Wainwright,
               Raptorial jaws in the throat help moray eels swallow
@@ -791,30 +791,30 @@ import DisplayTable from "../../components/DisplayTable.astro"
               <canvas id="aml-fl-c" width="600" height="300">
               </canvas>
             </td>
-            <!--<td class="controls">
-              <button class="anim-toggle:aml-fl-c">animation</button>
-              <button class="reset:aml-fl-c">reset</button>
+            <td class="controls">
+              <button class="anim-toggle:aml-fl-c" onclick = "aml_fl_c.toggleAnim()">animation</button>
+              <button class="reset:aml-fl-c" onclick = "aml_fl_c.reset()">reset</button>
               <table class="alignTop">
                 <tr>
                   <td>Zoom:</td>
                   <td><span><input style="width:84px;" type="range" min="10" max="100"
-                  value="100" step="5" class="data-input:aml-fl-c:zoom" />
+                  value="100" step="5" class="data-input:aml-fl-c:zoom" onchange = "aml_fl_c.setOption('zoom', this.value); document.querySelector('span[class *= zoom]').innerText = this.value;" oninput = "aml_fl_c.setOption('zoom', this.value); document.querySelector('span[class *= zoom]').innerText = this.value;"/>
                   <span class="data-option:aml-fl-c:zoom"></span>%</span></td>
                 </tr>
                 <tr>
                   <td>Show:</td>
                   <td>
-                    <button class="option-toggle:aml-fl-c:showLabels">labels</button>
-                    <button class="option-toggle:aml-fl-c:showPivots">pivots</button>
-                    <button class="option-toggle:aml-fl-c:showInputRange">input range</button>
+                    <button class="option-toggle:aml-fl-c:showLabels" onclick = "aml_fl_c.toggleOption('showLabels')">labels</button>
+                    <button class="option-toggle:aml-fl-c:showPivots" onclick = "aml_fl_c.toggleOption('showPivots')">pivots</button>
+                    <button class="option-toggle:aml-fl-c:showInputRange" onclick = "aml_fl_c.toggleOption('showInputRange')">input range</button>
                   </td>
                 </tr>
                 <tr>
                   <td>Trace:</td>
                   <td>
-                    <button class="option-toggle:aml-fl-c:traceC">C</button>
-                    <button class="option-toggle:aml-fl-c:traceD">D</button>
-                    <button class="option-toggle:aml-fl-c:traceP">P</button>
+                    <button class="option-toggle:aml-fl-c:traceC" onclick = "aml_fl_c.toggleOption('traceC')">C</button>
+                    <button class="option-toggle:aml-fl-c:traceD" onclick = "aml_fl_c.toggleOption('traceD')">D</button>
+                    <button class="option-toggle:aml-fl-c:traceP" onclick = "aml_fl_c.toggleOption('traceP')">P</button>
                   </td>
                 </tr>
               </table>
@@ -824,80 +824,80 @@ import DisplayTable from "../../components/DisplayTable.astro"
                 <tr><td>Shortest link:</td><td><span class="data-option:aml-fl-c:GrashofInfo"></span></td></tr>
                 <tr><td></td><td>(<span class="data-option:aml-fl-c:GrashofType"></span>)</td></tr>
               </table>
-            </td>-->
+            </td>
           </tr>
         </table>
-        <!--<table class="options">
+        <table class="options">
           <col class="label" />
           <col class="input" />
           <col class="value" />
           <tr class="bottomBorder">
             <td>Orientation:</td>
             <td colspan="2">
-              <button class="option-toggle:aml-fl-c:reversed">reverse input angle</button>
-              <button class="option-toggle:aml-fl-c:flipped">flip output-floating triangle</button>
+              <button class="option-toggle:aml-fl-c:reversed" onclick = "aml_fl_c.toggleOption('reversed')">reverse input angle</button>
+              <button class="option-toggle:aml-fl-c:flipped" onclick = "aml_fl_c.toggleOption('flipped')">flip output-floating triangle</button>
             </td>
           </tr>
           <tr>
-            <td><input type="radio" name="aml-fl-c-controlMethod" value="lengths" class="data-input:aml-fl-c:controlMethod" /> set link lengths</td>
+            <td><input type="radio" name="aml-fl-c-controlMethod" value="lengths" class="data-input:aml-fl-c:controlMethod" onchange = "aml_fl_c.setOption('controlMethod', this.value);"/> set link lengths</td>
             <td></td>
             <td></td>
           </tr>
           <tr>
             <td>Ground link length:</td>
-            <td><input type="range" min="5" max="40" value="0" step="1" class="data-input:aml-fl-c:g lengthInput" /></td>
+            <td><input type="range" min="5" max="40" value="0" step="1" class="data-input:aml-fl-c:g lengthInput" onchange = "aml_fl_c.setOption('g', this.value); document.querySelector('span[class *= g]').innerText = this.value;" oninput="aml_fl_c.setOption('g', this.value); document.querySelector('span[class *= g]').innerText = this.value;" /></td>
             <td>\(g = \) <span class="data-option:aml-fl-c:g"></span> cm</td>
           </tr>
           <tr>
             <td>Input link length:</td>
-            <td><input type="range" min="5" max="40" value="0" step="1" class="data-input:aml-fl-c:a lengthInput" /></td>
+            <td><input type="range" min="5" max="40" value="0" step="1" class="data-input:aml-fl-c:a lengthInput" onchange = "aml_fl_c.setOption('a', this.value); document.querySelector('span[class *= a]').innerText = this.value;" oninput="aml_fl_c.setOption('a', this.value); document.querySelector('span[class *= a]').innerText = this.value;" /></td>
             <td>\(a = \) <span class="data-option:aml-fl-c:a"></span> cm</td>
           </tr>
           <tr>
             <td>Output link length:</td>
-            <td><input type="range" min="5" max="40" value="0" step="1" class="data-input:aml-fl-c:b lengthInput" /></td>
+            <td><input type="range" min="5" max="40" value="0" step="1" class="data-input:aml-fl-c:b lengthInput" onchange = "aml_fl_c.setOption('b', this.value); document.querySelector('span[class *= b]').innerText = this.value;" oninput="aml_fl_c.setOption('b', this.value); document.querySelector('span[class *= b]').innerText = this.value;" /></td>
             <td>\(b = \) <span class="data-option:aml-fl-c:b"></span> cm</td>
           </tr>
           <tr class="bottomBorder">
             <td>Floating link length:</td>
-            <td><input type="range" min="5" max="40" value="0" step="1" class="data-input:aml-fl-c:f lengthInput" /></td>
+            <td><input type="range" min="5" max="40" value="0" step="1" class="data-input:aml-fl-c:f lengthInput" onchange = "aml_fl_c.setOption('f', this.value); document.querySelector('span[class *= f]').innerText = this.value;" oninput="aml_fl_c.setOption('f', this.value); document.querySelector('span[class *= f]').innerText = this.value;" /></td>
             <td>\(f = \) <span class="data-option:aml-fl-c:f"></span> cm</td>
           </tr>
           <tr>
-            <td><input type="radio" name="aml-fl-c-controlMethod" value="excesses" class="data-input:aml-fl-c:controlMethod" /> set excess values</td>
+            <td><input type="radio" name="aml-fl-c-controlMethod" value="excesses" class="data-input:aml-fl-c:controlMethod" onchange = "aml_fl_c.setOption('controlMethod', this.value);"/> set excess values</td>
             <td></td>
             <td></td>
           </tr>
           <tr>
             <td>Ground-free excess:</td>
-            <td><input type="range" min="-40" max="40" value="0" step="1" class="data-input:aml-fl-c:T1 excessInput" /></td>
+            <td><input type="range" min="-40" max="40" value="0" step="1" class="data-input:aml-fl-c:T1 excessInput" onchange = "aml_fl_c.setOption('T1', this.value); document.querySelector('span[class *= T1]').innerText = this.value;" oninput = "aml_fl_c.setOption('T1', this.value); document.querySelector('span[class *= T1]').innerText = this.value;" /></td>
             <td>\(T_1 = g + f - b - a = \) <span class="data-option:aml-fl-c:T1"></span> cm</td>
           </tr>
           <tr>
             <td>Output-ground excess:</td>
-            <td><input type="range" min="-40" max="40" value="0" step="1" class="data-input:aml-fl-c:T2 excessInput" /></td>
+            <td><input type="range" min="-40" max="40" value="0" step="1" class="data-input:aml-fl-c:T2 excessInput" onchange = "aml_fl_c.setOption('T2', this.value); document.querySelector('span[class *= T2]').innerText = this.value;" oninput = "aml_fl_c.setOption('T2', this.value); document.querySelector('span[class *= T2]').innerText = this.value;" /></td>
             <td>\(T_2 = b + g - f - a = \) <span class="data-option:aml-fl-c:T2"></span> cm</td>
           </tr>
           <tr>
             <td>Free-output excess:</td>
-            <td><input type="range" min="-40" max="40" value="0" step="1" class="data-input:aml-fl-c:T3 excessInput" /></td>
+            <td><input type="range" min="-40" max="40" value="0" step="1" class="data-input:aml-fl-c:T3 excessInput" onchange = "aml_fl_c.setOption('T3', this.value); document.querySelector('span[class *= T3]').innerText = this.value;" oninput = "aml_fl_c.setOption('T3', this.value); document.querySelector('span[class *= T3]').innerText = this.value;" /></td>
             <td>\(T_3 = f + b - g - a = \) <span class="data-option:aml-fl-c:T3"></span> cm</td>
           </tr>
           <tr class="bottomBorder">
             <td>Total length:</td>
-            <td><input type="range" min="10" max="200" value="0" step="1" class="data-input:aml-fl-c:L excessInput" /></td>
+            <td><input type="range" min="10" max="200" value="0" step="1" class="data-input:aml-fl-c:L excessInput" onchange = "aml_fl_c.setOption('L', this.value); document.querySelector('span[class *= L]').innerText = this.value;" oninput = "aml_fl_c.setOption('L', this.value); document.querySelector('span[class *= L]').innerText = this.value;" /></td>
             <td>\(L = g + f + b + a = \) <span class="data-option:aml-fl-c:L"></span> cm</td>
           </tr>
           <tr>
             <td>Coupler position:</td>
-            <td><input type="range" min="-400" max="400" value="0" step="10" class="data-input:aml-fl-c:PPosition" /></td>
+            <td><input type="range" min="-400" max="400" value="0" step="10" class="data-input:aml-fl-c:PPosition" onchange = "aml_fl_c.setOption('PPosition', this.value); document.querySelector('span[class *= PPosition]').innerText = this.value;" oninput="aml_fl_c.setOption('PPosition', this.value); document.querySelector('span[class *= PPosition]').innerText = this.value;" /></td>
             <td><InlineEquation equation = "P_{\\rm pos} ="/> <span class="data-option:aml-fl-c:PPosition"></span>%
             from DC midpoint towards C
             </td>
           </tr>
           <tr class="bottomBorder">
             <td>Coupler offset:</td>
-            <td><input type="range" min="-200" max="200" value="0" step="10" class="data-input:aml-fl-c:POffset" /></td>
+            <td><input type="range" min="-200" max="200" value="0" step="10" class="data-input:aml-fl-c:POffset" onchange = "aml_fl_c.setOption('POffset', this.value); document.querySelector('span[class *= POffset]').innerText = this.value;" oninput = "aml_fl_c.setOption('POffset', this.value); document.querySelector('span[class *= POffset]').innerText = this.value;" /></td>
             <td><InlineEquation equation = "P_{\\rm off} ="/> <span class="data-option:aml-fl-c:POffset"></span>%
             of DC length
             </td>
@@ -910,13 +910,13 @@ import DisplayTable from "../../components/DisplayTable.astro"
           </tr>
           <tr>
             <td colspan="3">
-              <button class="option-toggle:aml-fl-c:oscInput">limited reciprocating input</button>
-              <button class="option-toggle:aml-fl-c:showInputRange">show input range</button>
+              <button class="option-toggle:aml-fl-c:oscInput" onclick = "aml_fl_c.toggleOption('oscInput')">limited reciprocating input</button>
+              <button class="option-toggle:aml-fl-c:showInputRange" onclick = "aml_fl_c.toggleOption('showInputRange')">show input range</button>
             </td>
           </tr>
           <tr>
             <td>Input angle center:</td>
-            <td><input type="range" min="0" max="100" value="0" step="5" class="data-input:aml-fl-c:oscCenter oscInput" /></td>
+            <td><input type="range" min="0" max="100" value="0" step="5" class="data-input:aml-fl-c:oscCenter oscInput" onchange = "aml_fl_c.setOption('(oscCenter oscInput)', this.value); document.querySelector('span[class *= (oscCenter oscInput)]').innerText = this.value;" oninput = "aml_fc_c.setOption('oscCenter oscInput', this.value); document.querySelector('span[class *= (oscCenter oscInput)]').innerText = this.value;"/></td>
             <td><span class="oscInput">
               <InlineEquation equation = "\\alpha_{\\rm cent} ="/> <span class="data-option:aml-fl-c:oscCenter"></span>%
               <span class="limitedDesc">from <InlineEquation equation = "\\alpha_{\\rm min}"/> to <InlineEquation equation = "\\alpha_{\\rm max}"/></span>
@@ -925,7 +925,7 @@ import DisplayTable from "../../components/DisplayTable.astro"
           </tr>
           <tr class="bottomBorder">
             <td>Input angle range:</td>
-            <td><input type="range" min="0" max="100" value="0" step="5" class="data-input:aml-fl-c:oscMagnitude oscInput" /></td>
+            <td><input type="range" min="0" max="100" value="0" step="5" class="data-input:aml-fl-c:oscMagnitude oscInput" onchange = "aml_fl_c.setOption('(oscMagnitude oscInput)', this.value); document.querySelector('span[class *= (oscMagnitude oscInput)]').innerText = this.value;" oninput = "aml_fc_c.setOption('oscMagnitude oscInput', this.value); document.querySelector('span[class *= (oscMagnitude oscInput)]').innerText = this.value;"/></td>
             <td><span class="oscInput">
               \(\Delta\alpha = \) <span class="data-option:aml-fl-c:oscMagnitude"></span>%
               <span class="limitedDesc">from <InlineEquation equation = "\\alpha_{\\rm cent}"/> to nearest <InlineEquation equation = "\\alpha_{\\rm min} / \\alpha_{\\rm max}"/></span>
@@ -944,7 +944,7 @@ import DisplayTable from "../../components/DisplayTable.astro"
             <td>\(V = l - s - p - q = \) <span class="data-option:aml-fl-c:ValidityIndex"></span> cm
             <span class="data-option:aml-fl-c:ValidityRelation"></span></td>
           </tr>
-        </table>-->
+        </table>
         <p>
           The variables \(s\) and \(l\) are the shortest and longest
           side lengths, respectively, while \(p\) and \(q\) are the

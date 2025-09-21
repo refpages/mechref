@@ -1,5 +1,5 @@
 $(document).ready(function(){
-    var limitsFourBar = function(pd, g, f, a, b) {
+    limitsFourBar = function(pd, g, f, a, b) {
         var limits = {};
         limits.L = g + f + a + b;
         limits.ValidityIndex = limits.L - 2 * Math.max(g, f, a, b);
@@ -98,7 +98,7 @@ $(document).ready(function(){
     **************************************************************
     *************************************************************/
 
-    var linkagePDFunction = function(t) {
+    linkagePDFunction = function(t) {
         this.addOption("controlMethod", "lengths");
         this.addOption("reversed", false);
         this.addOption("flipped", false);
@@ -445,7 +445,7 @@ $(document).ready(function(){
     **************************************************************
     *************************************************************/
 
-    var linkageConvertFromLengths = function(pd, setReset) {
+    linkageConvertFromLengths = function(pd, setReset) {
         var a = pd.getOption("a");
         var b = pd.getOption("b");
         var g = pd.getOption("g");
@@ -476,7 +476,7 @@ $(document).ready(function(){
         }
     };
 
-    var linkageConvertFromExcesses = function(pd) {
+    linkageConvertFromExcesses = function(pd) {
         if (pd.getOption("controlMethod") === "excesses") {
             var L = pd.getOption("L");
             var T1 = pd.getOption("T1");
@@ -500,7 +500,7 @@ $(document).ready(function(){
     **************************************************************
     *************************************************************/
 
-    var aml_ft_c = new PrairieDrawAnim("aml-ft-c", linkagePDFunction);
+    aml_ft_c = new PrairieDrawAnim("aml-ft-c", linkagePDFunction);
 
     aml_ft_c.addOption("movement", "translate");
     aml_ft_c.setOption("a", 25, undefined, undefined, true);
@@ -517,7 +517,7 @@ $(document).ready(function(){
     **************************************************************
     *************************************************************/
 
-    var aml_fr_c = new PrairieDrawAnim("aml-fr-c", linkagePDFunction);
+    aml_fr_c = new PrairieDrawAnim("aml-fr-c", linkagePDFunction);
 
     aml_fr_c.addOption("movement", "translate");
     aml_fr_c.setOption("a", 25, undefined, undefined, true);
@@ -537,7 +537,7 @@ $(document).ready(function(){
     **************************************************************
     *************************************************************/
 
-    var aml_fc_c = new PrairieDrawAnim("aml-fc-c", linkagePDFunction);
+    aml_fc_c = new PrairieDrawAnim("aml-fc-c", linkagePDFunction);
 
     aml_fc_c.addOption("movement", "translate");
     aml_fc_c.setOption("a", 25, undefined, undefined, true);
@@ -562,7 +562,7 @@ $(document).ready(function(){
     **************************************************************
     *************************************************************/
 
-    var aml_fi_c = new PrairieDrawAnim("aml-fi-c", linkagePDFunction);
+    aml_fi_c = new PrairieDrawAnim("aml-fi-c", linkagePDFunction);
 
     aml_fi_c.addOption("movement", "translate");
     aml_fi_c.setOption("a", 40, undefined, undefined, true);
@@ -586,7 +586,7 @@ $(document).ready(function(){
     **************************************************************
     *************************************************************/
 
-    var drawLinkage = function(pd, t, pivots, links, flipped, alphaMax, pivotPosFcn, symmetricOsc) {
+    drawLinkage = function(pd, t, pivots, links, flipped, alphaMax, pivotPosFcn, symmetricOsc) {
         var pivotA = pivots[0];
         var pivotB = pivots[1];
         var pivotC = pivots[2];
@@ -800,7 +800,7 @@ $(document).ready(function(){
         }
     ];
 
-    var aml_fp_c = new PrairieDrawAnim("aml-fp-c", function(t) {
+    aml_fp_c = new PrairieDrawAnim("aml-fp-c", function(t) {
         this.addOption("showLinkage", false);
 
 	this.setUnits(600, 431);
@@ -901,7 +901,7 @@ $(document).ready(function(){
         }
     ];
 
-    var aml_fb_c = new PrairieDrawAnim("aml-fb-c", function(t) {
+    aml_fb_c = new PrairieDrawAnim("aml-fb-c", function(t) {
         this.addOption("showLinkage", false);
 
 	this.setUnits(600, 400);
@@ -931,7 +931,7 @@ $(document).ready(function(){
         }
     });
 
-        var drawLinkage = function(pd, t, pivots, links, flipped, alphaMax, pivotPosFcn, symmetricOsc) {
+        drawLinkage = function(pd, t, pivots, links, flipped, alphaMax, pivotPosFcn, symmetricOsc) {
             var pivotA = pivots[0];
             var pivotB = pivots[1];
             var pivotC = pivots[2];
@@ -1287,7 +1287,7 @@ $(document).ready(function(){
             }
         });
 
-    var aml_fg_c = new PrairieDrawAnim("aml-fg-c", function(t) {
+    aml_fg_c = new PrairieDrawAnim("aml-fg-c", function(t) {
 	this.setUnits(12, 12);
 
         //          F
@@ -1344,7 +1344,7 @@ $(document).ready(function(){
         this.setProp("pointRadiusPx", 3);
         this.point(E);
 
-        var EHistory = this.history("E", 0.05, 2 * Math.PI + 0.05, t, E);
+        EHistory = this.history("E", 0.05, 2 * Math.PI + 0.05, t, E);
         this.polyLine(this.historyToTrace(EHistory));
     });
 
@@ -1438,7 +1438,7 @@ $(document).ready(function(){
         }
     ];
 
-    var aml_fj_c = new PrairieDrawAnim("aml-fj-c", function(t) {
+    aml_fj_c = new PrairieDrawAnim("aml-fj-c", function(t) {
         this.addOption("showLinkage", false);
         this.addOption("showForces", false);
         this.addOption("movement", "translate");
@@ -1513,7 +1513,7 @@ $(document).ready(function(){
         ]
     ];
 
-    var aml_fm_c = new PrairieDraw("aml-fm-c", function() {
+    aml_fm_c = new PrairieDraw("aml-fm-c", function() {
         this.addOption("showJaws", false);
 
 	this.setUnits(100, 125);
@@ -1528,7 +1528,7 @@ $(document).ready(function(){
         }
     });
 
-    var aml_fl_c = new PrairieDrawAnim("aml-fl-c", linkagePDFunction);
+    aml_fl_c = new PrairieDrawAnim("aml-fl-c", linkagePDFunction);
 
     aml_fl_c.addOption("movement", "translate");
 
