@@ -28,14 +28,11 @@ import DisplayTable from "../../components/DisplayTable.astro"
         It focuses on the forces and torques that cause motion and the resulting motion of particles and nondeforming rigid bodies.
         Dynamics is distinct from statics, which deals with bodies at rest or in equilibrium.
     </p>
-</SubSection>
-
-<SubSection title = "Assumptions in dynamics" id = "assumptions_in_dynamics">
     <DisplayTable id = "assumptions" class = "mb-3">
         <thead>
             <tr>
                 <th class = "table-shaded"/>
-                <th class = "table-shaded">
+                <th class = "table-shaded" style = "border-right: 1px solid var(--bs-border-color);">
                     Rigid
                 </th>
                 <th class = "table-shaded">
@@ -56,10 +53,10 @@ import DisplayTable from "../../components/DisplayTable.astro"
                         <InlineEquation equation = "\\sum \\vec{M} = 0"/>
                     </p>
                 </td>
-                <td>
+                <td style = "vertical-align: middle; border-right: 1px solid var(--bs-border-color);">
                     <a href = "/sta?origin=sidebar">Statics</a>
                 </td>
-                <td>
+                <td style = "vertical-align: middle;">
                     <a href = "/sol?origin=sidebar">Solid mechanics</a>
                 </td>
             </tr>
@@ -75,12 +72,12 @@ import DisplayTable from "../../components/DisplayTable.astro"
                         <InlineEquation equation = "\\sum \\vec{M} \\neq 0"/>
                     </p>
                 </td>
-                <td>
+                <td style = "vertical-align: middle; border-right: 1px solid var(--bs-border-color);">
                     <mark>
                         <a href = "/dyn?origin=sidebar">Dynamics</a></li>
                     </mark>
                 </td>
-                <td>
+                <td style = "vertical-align: middle;">
                     Vibration, FEA, robotics, etc.
                 </td>
             </tr>
