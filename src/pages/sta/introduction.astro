@@ -36,14 +36,18 @@ import DisplayTable from "../../components/DisplayTable.astro"
 
 <Section title="Introduction to statics" id="introduction_to_statics"></Section>
 
-<SubSection title = "What is statics?" id = "what_is_statics"/>
-
-<SubSection title = "Assumptions in statics" id = "assumptions_in_statics">
+<SubSection title = "What is statics?" id = "what_is_statics">
+    <p>
+        Statics is the branch of mechanics that analyzes bodies at rest or in equilibrium.
+        In statics, we analyze forces and moments acting on bodies to determine conditions for equilibrium, design structures, and solve engineering problems.
+        It is also assumed that objects are rigid, meaning they do not deform under applied forces.
+        Statics is distinct from dynamics, which deals with bodies in motion and solid mechanics, which deals with deformable bodies.
+    </p>
     <DisplayTable id = "assumptions" class = "mb-3">
         <thead>
             <tr>
                 <th class = "table-shaded"/>
-                <th class = "table-shaded">
+                <th class = "table-shaded" style = "vertical-align: middle; border-right: 1px solid var(--bs-border-color);">
                     Rigid
                 </th>
                 <th class = "table-shaded">
@@ -53,7 +57,7 @@ import DisplayTable from "../../components/DisplayTable.astro"
         </thead>
         <tbody>
             <tr>
-                <td class = "table-shaded">
+                <td class = "table-shaded" style = "vertical-align: middle;">
                     <p>
                         No motion
                     </p>
@@ -64,12 +68,12 @@ import DisplayTable from "../../components/DisplayTable.astro"
                         <InlineEquation equation = "\\sum \\vec{M} = 0"/>
                     </p>
                 </td>
-                <td>
+                <td style = "vertical-align: middle; border-right: 1px solid var(--bs-border-color);">
                     <mark>
                         <a href = "/sta?origin=sidebar">Statics</a>
                     </mark>
                 </td>
-                <td>
+                <td style = "vertical-align: middle;">
                     <a href = "/sol?origin=sidebar">Solid mechanics</a>
                 </td>
             </tr>
@@ -85,10 +89,10 @@ import DisplayTable from "../../components/DisplayTable.astro"
                         <InlineEquation equation = "\\sum \\vec{M} \\neq 0"/>
                     </p>
                 </td>
-                <td>
+                <td style = "vertical-align: middle; border-right: 1px solid var(--bs-border-color);">
                     <a href = "/dyn?origin=sidebar">Dynamics</a></li>
                 </td>
-                <td>
+                <td style = "vertical-align: middle;">
                     Vibration, FEA, robotics, etc.
                 </td>
             </tr>
