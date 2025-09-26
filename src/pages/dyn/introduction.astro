@@ -16,20 +16,25 @@ import DisplayTable from "../../components/DisplayTable.astro"
 <div slot = "navtree">
     <ul class = 'list-group list-group-flush py-0'> 
         <li class = 'list-group-item py-0'><a class = 'text-decoration-none subsection' href = '#what_is_dynamics'>What is dynamics?</a></li>
-        <li class = 'list-group-item py-0'><a class = 'text-decoration-none subsection' href = '#assumptions_in_dynamics'>Assumptions in dynamics</a></li>
     </ul>
 </div>
 
 <Section title = "Introduction"/>
 
-<SubSection title = "What is dynamics?" id = "what_is_dynamics"/>
-
-<SubSection title = "Assumptions in dynamics" id = "assumptions_in_dynamics">
+<SubSection title = "What is dynamics?" id = "what_is_dynamics">
+    <p>
+        Dynamics is the branch of mechanics that analyzes bodies in motion.
+        It focuses on the forces and torques that cause motion and the resulting motion of particles and bodies.
+        The field of dynamics studies all bodies, including those that deform under load.
+        However, these pages will focus on rigid bodies.
+        To learn more about deformable bodies, see <a href = "/sol">solid mechanics.</a>
+        Dynamics is also distinct from <a href = "/sta">statics,</a> which deals with bodies at rest or in equilibrium.
+    </p>
     <DisplayTable id = "assumptions" class = "mb-3">
         <thead>
             <tr>
                 <th class = "table-shaded"/>
-                <th class = "table-shaded">
+                <th class = "table-shaded" style = "border-right: 1px solid var(--bs-border-color);">
                     Rigid
                 </th>
                 <th class = "table-shaded">
@@ -50,10 +55,10 @@ import DisplayTable from "../../components/DisplayTable.astro"
                         <InlineEquation equation = "\\sum \\vec{M} = 0"/>
                     </p>
                 </td>
-                <td>
+                <td style = "vertical-align: middle; border-right: 1px solid var(--bs-border-color);">
                     <a href = "/sta?origin=sidebar">Statics</a>
                 </td>
-                <td>
+                <td style = "vertical-align: middle;">
                     <a href = "/sol?origin=sidebar">Solid mechanics</a>
                 </td>
             </tr>
@@ -69,12 +74,12 @@ import DisplayTable from "../../components/DisplayTable.astro"
                         <InlineEquation equation = "\\sum \\vec{M} \\neq 0"/>
                     </p>
                 </td>
-                <td>
+                <td style = "vertical-align: middle; border-right: 1px solid var(--bs-border-color);">
                     <mark>
                         <a href = "/dyn?origin=sidebar">Dynamics</a></li>
                     </mark>
                 </td>
-                <td>
+                <td style = "vertical-align: middle;">
                     Vibration, FEA, robotics, etc.
                 </td>
             </tr>
