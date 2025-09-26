@@ -290,12 +290,12 @@ import DisplayTable from "../../components/DisplayTable.astro"
           <col class="value" />
           <tr>
             <td>Input angle center:</td>
-            <td><input type="range" min="0" max="100" value="0" step="5" class="data-input:aml-fi-c:oscCenter" onchange = "aml_fi_c.setOption('oscCenter', this.value); document.querySelector('span[class*=oscCenter]').innerText = this.value;" oninput="aml_fr_c.setOption('oscCenter', this.value); document.querySelector('span[class*=oscCenter]').innerText = this.value;"/></td>
+            <td><input type="range" min="0" max="100" value="0" step="5" class="data-input:aml-fi-c:oscCenter" onchange = "aml_fi_c.setOption('oscCenter', this.value); document.querySelector('span[class *= oscCenter]').innerText = this.value;" oninput = "aml_fr_c.setOption('oscCenter', this.value); document.querySelector('span[class *= oscCenter]').innerText = this.value;"/></td>
             <td><InlineEquation equation = "\\alpha_{\\rm cent} ="/> <span class="data-option:aml-fi-c:oscCenter"></span>% from 0° to 360°</td>
           </tr>
           <tr class="bottomBorder">
             <td>Input angle range:</td>
-            <td><input type="range" min="0" max="100" value="0" step="5" class="data-input:aml-fi-c:oscMagnitude" onchange = "aml_fi_c.setOption('oscMagnitude', this.value); document.querySelector('span[class*=oscMagnitude]').innerText = this.value;" oninput="aml_fr_c.setOption('oscMagnitude', this.value); document.querySelector('span[class*=oscMagnitude]').innerText = this.value;"/></td>
+            <td><input type="range" min="0" max="100" value="0" step="5" class="data-input:aml-fi-c:oscMagnitude" onchange = "aml_fi_c.setOption('oscMagnitude', this.value); document.querySelector('span[class *= oscMagnitude]').innerText = this.value;" oninput = "aml_fr_c.setOption('oscMagnitude', this.value); document.querySelector('span[class *= oscMagnitude]').innerText = this.value;"/></td>
             <td><InlineEquation equation = "\\Delta \\alpha ="/> <span class="data-option:aml-fi-c:oscMagnitude"></span>% of 180°</td>
           </tr>
         </table>
@@ -845,22 +845,22 @@ import DisplayTable from "../../components/DisplayTable.astro"
           </tr>
           <tr>
             <td>Ground link length:</td>
-            <td><input type="range" min="5" max="40" value="0" step="1" class="data-input:aml-fl-c:g lengthInput" onchange = "aml_fl_c.setOption('g', this.value); document.querySelector('span[class *= g]').innerText = this.value;" oninput="aml_fl_c.setOption('g', this.value); document.querySelector('span[class *= g]').innerText = this.value;"/></td>
+            <td><input type="range" min="5" max="40" value="0" step="1" class="data-input:aml-fl-c:g lengthInput" onchange = "aml_fl_c.setOption('g', this.value); document.querySelector('span[class *= g]').innerText = this.value;" oninput = "aml_fl_c.setOption('g', this.value); document.querySelector('span[class *= g]').innerText = this.value;"/></td>
             <td>\(g = \) <span class="data-option:aml-fl-c:g"></span> cm</td>
           </tr>
           <tr>
             <td>Input link length:</td>
-            <td><input type="range" min="5" max="40" value="0" step="1" class="data-input:aml-fl-c:a lengthInput" onchange = "aml_fl_c.setOption('a', this.value); document.querySelector('span[class *= a]').innerText = this.value;" oninput="aml_fl_c.setOption('a', this.value); document.querySelector('span[class *= a]').innerText = this.value;"/></td>
+            <td><input type="range" min="5" max="40" value="0" step="1" class="data-input:aml-fl-c:a lengthInput" onchange = "aml_fl_c.setOption('a', this.value); document.querySelector('span[class *= a]').innerText = this.value;" oninput = "aml_fl_c.setOption('a', this.value); document.querySelector('span[class *= a]').innerText = this.value;"/></td>
             <td>\(a = \) <span class="data-option:aml-fl-c:a"></span> cm</td>
           </tr>
           <tr>
             <td>Output link length:</td>
-            <td><input type="range" min="5" max="40" value="0" step="1" class="data-input:aml-fl-c:b lengthInput" onchange = "aml_fl_c.setOption('b', this.value); document.querySelector('span[class *= b]').innerText = this.value;" oninput="aml_fl_c.setOption('b', this.value); document.querySelector('span[class *= b]').innerText = this.value;"/></td>
+            <td><input type="range" min="5" max="40" value="0" step="1" class="data-input:aml-fl-c:b lengthInput" onchange = "aml_fl_c.setOption('b', this.value); document.querySelector('span[class *= b]').innerText = this.value;" oninput = "aml_fl_c.setOption('b', this.value); document.querySelector('span[class *= b]').innerText = this.value;"/></td>
             <td>\(b = \) <span class="data-option:aml-fl-c:b"></span> cm</td>
           </tr>
           <tr class="bottomBorder">
             <td>Floating link length:</td>
-            <td><input type="range" min="5" max="40" value="0" step="1" class="data-input:aml-fl-c:f lengthInput" onchange = "aml_fl_c.setOption('f', this.value); document.querySelector('span[class *= f]').innerText = this.value;" oninput="aml_fl_c.setOption('f', this.value); document.querySelector('span[class *= f]').innerText = this.value;"/></td>
+            <td><input type="range" min="5" max="40" value="0" step="1" class="data-input:aml-fl-c:f lengthInput" onchange = "aml_fl_c.setOption('f', this.value); document.querySelector('span[class *= f]').innerText = this.value;" oninput = "aml_fl_c.setOption('f', this.value); document.querySelector('span[class *= f]').innerText = this.value;"/></td>
             <td>\(f = \) <span class="data-option:aml-fl-c:f"></span> cm</td>
           </tr>
           <tr>

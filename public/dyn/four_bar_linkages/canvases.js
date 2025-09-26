@@ -1344,7 +1344,7 @@ $(document).ready(function(){
         this.setProp("pointRadiusPx", 3);
         this.point(E);
 
-        EHistory = this.history("E", 0.05, 2 * Math.PI + 0.05, t, E);
+        var EHistory = this.history("E", 0.05, 2 * Math.PI + 0.05, t, E);
         this.polyLine(this.historyToTrace(EHistory));
     });
 
