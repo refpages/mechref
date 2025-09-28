@@ -916,7 +916,7 @@ import DisplayTable from "../../components/DisplayTable.astro"
           </tr>
           <tr>
             <td>Input angle center:</td>
-            <td><input type="range" min="0" max="100" value="0" step="5" class="data-input:aml-fl-c:oscCenter" onchange = "aml_fl_c.setOption('oscCenter', this.value); document.querySelector('span[class *= oscCenter]').innerText = this.value;" oninput = "aml_fc_c.setOption('oscCenter', this.value); document.querySelector('span[class *= oscCenter]').innerText = this.value;"/></td>
+            <td><input type="range" min="0" max="100" value="0" step="5" class="data-input:aml-fl-c:oscCenter oscInput" onchange = "aml_fl_c.setOption('oscCenter', this.value); document.querySelector('span[class *= oscCenter]').innerText = this.value;" oninput = "aml_fc_c.setOption('oscCenter', this.value); document.querySelector('span[class *= oscCenter]').innerText = this.value;"/></td>
             <td><span class="oscInput">
               <InlineEquation equation = "\\alpha_{\\rm cent} ="/> <span class="data-option:aml-fl-c:oscCenter"></span>%
               <span class="limitedDesc">from <InlineEquation equation = "\\alpha_{\\rm min}"/> to <InlineEquation equation = "\\alpha_{\\rm max}"/></span>
@@ -925,7 +925,7 @@ import DisplayTable from "../../components/DisplayTable.astro"
           </tr>
           <tr class="bottomBorder">
             <td>Input angle range:</td>
-            <td><input type="range" min="0" max="100" value="0" step="5" class="data-input:aml-fl-c:oscMagnitude" onchange = "aml_fl_c.setOption('oscMagnitude', this.value); document.querySelector('span[class *= oscMagnitude]').innerText = this.value;" oninput = "aml_fc_c.setOption('oscMagnitude', this.value); document.querySelector('span[class *= oscMagnitude]').innerText = this.value;"/></td>
+            <td><input type="range" min="0" max="100" value="0" step="5" class="data-input:aml-fl-c:oscMagnitude oscInput" onchange = "aml_fl_c.setOption('oscMagnitude', this.value); document.querySelector('span[class *= oscMagnitude]').innerText = this.value;" oninput = "aml_fc_c.setOption('oscMagnitude', this.value); document.querySelector('span[class *= oscMagnitude]').innerText = this.value;"/></td>
             <td><span class="oscInput">
               \(\Delta\alpha = \) <span class="data-option:aml-fl-c:oscMagnitude"></span>%
               <span class="limitedDesc">from <InlineEquation equation = "\\alpha_{\\rm cent}"/> to nearest <InlineEquation equation = "\\alpha_{\\rm min} / \\alpha_{\\rm max}"/></span>
