@@ -29,5 +29,56 @@ import BlueText from "../../components/BlueText.astro"
 
 <Section title="Sign Conventions" id="sign_conventions"></Section>
 
+<SubSection title="Axial (Normal) Stress Sign Convention id="axial_sign_convention>
+<Itemize>
+    <Item> <strong>Tension: </strong> <InlineEquation equation="\\sigma > 0" /> </Item>
+    <Item> <strong>Compression: </strong> <InlineEquation equation="\\sigma < 0" /> </Item>
+</Itemize>
+
+<Image src='/sol/axial_loading/Notation.png' width='5'>Notation</Image>
+
+<ul>
+    <li>   <strong>Displacement of points in space:</strong>  the movement of a point relative to its initial position in space (ex;  <InlineEquation equation='\\delta_B' /> )</li>
+     <li><strong>Change in length of a segment:</strong>  the relative displacement of a point with respect to another point (ex;  <InlineEquation equation='\\delta_{B/A} = \\delta_B - \\delta_A = \\delta_1' /> ). This can be written multiple ways:
+     <DisplayEquation equation='\\delta_{AD} \\equiv \\delta_{DA} \\equiv \\delta_{A/D} \\equiv \\delta_{D/A}\\' title="Notation." background="True"/></li>
+</ul>
+
+<strong>Sign Conventions for internal forces in a bar.</strong>
+<ul>
+     <li><InlineEquation equation='F>0' /> : tension</li>
+     <li><InlineEquation equation='F<0' /> : compression</li>
+     <li><InlineEquation equation='\\delta>0' /> : elongation</li>
+     <li><InlineEquation equation='\\delta<0' /> : contraction</li>
+</ul>
+
+</SubSection>
+
+<SubSection title="Torsion Sign Convention" id="torsion_notation_and_convention">
+
+<Image src="/sol/torsion/Convention.png" width="5">  Sign convention for internal toruqe in a shaft </Image>
+
+ <Itemize>
+     <Item><InlineEquation equation="\\phi > 0" /> : counter clockwise </Item>
+     <Item><InlineEquation equation="\\phi < 0" /> : clockwise </Item>
+ </Itemize>
+
+<Image src="/sol/torsion/RightHandRule.png" width="4">  Right hand rule </Image>
+
+ Torque and angle of twist follow the right hand rule sign convention. When positive, using the right hand, the thumb points outward from the shaft and the fingers will curl in the direction of the positive twist/torque.
+
+</SubSection>
+
+<SubSection title="Bending Sign Convention" id="bending-sign-convention">
+<p>
+For the purposes of drawing shear and moment diagrams, the adopted sign conventions for internal forces and moments are shown below. 
+The internal shear force <InlineEquation equation='V' /> and moment <InlineEquation equation='M' /> in a beam are <strong> plotted with positive values </strong> when they act in the indicated directions with respect to internal surfaces in the beam. 
+These conventions assume the analysis is conducted on a horizontal beam with positive <InlineEquation equation='x' /> axis pointing to the right.
+</p>
+
+<Image src='/sol/bending/Internal sign convention - correct branding.png' width='5'> </Image>
+
+<Image src='/sol/bending/External sign convention - correct branding.png' width='4.5'> </Image>
+
+</SubSection>
 
 </Layout>
