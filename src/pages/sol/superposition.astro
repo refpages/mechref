@@ -9,25 +9,61 @@ import Item from "../../components/Item.astro"
 import InlineEquation from "../../components/InlineEquation.astro" 
 import DisplayEquation from "../../components/DisplayEquation.astro" 
 import BlueText from "../../components/BlueText.astro" 
-
-
+import RedText from "../../components/RedText.astro" 
+import Warning from "../../components/Warning.astro"
+import Example from "../../components/Example.astro"
+import InlineCanvas from "../../components/InlineCanvas.astro"
+import PrairieDrawCanvas from "../../components/PrairieDrawCanvas.astro"
+import Row from "../../components/Row.astro"
+import Col from "../../components/Col.astro"
+import Center from "../../components/Center.astro"
+import CustomCanvas from "../../components/CustomCanvas.astro"
+import SubSubSubSection from "../../components/SubSubSubSection.astro"
+import CalloutContainer from "../../components/CalloutContainer.astro"
+import CalloutCard from "../../components/CalloutCard.astro"
 ---
 <Layout title="Principle of Superposition">
 
 <div slot="navtree">
-	<ul class='list-group list-group-flush py-0'> 
-		<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#thin-walled-pressure-vessels'>Thin-Walled Pressure Vessels</a>
-		
-			<ul class='list-group list-group-flush py-0'> 
-				<li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#cylindrical-vessels'>Cylindrical Vessels</a></li> 
-				<li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#spherical-vessels'>SphericalVessels</a></li>
-				<li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#radial-stress'>Radial Stress</a></li>  
-			</ul>
-		</li>
-	</ul>
+  <ul class='list-group list-group-flush py-0'> 
+      <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#general-state'>General State of Stress</a></li>
+      <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#sign-convention-general'>Sign Convention</a></li> 
+      <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#plane-stress'>Plane Stress</a></li> 
+        <ul class='list-group list-group-flush py-0'>
+          <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#stress-inclined-plane'>Stresses on Inclined Planes</a></li>  
+        </ul>
+       <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#plane-stress-transformation'>Plane Stress Transformation</a>
+       <ul class='list-group list-group-flush py-0'> 
+          <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#sign-convention-transformation'>Stress Transformation Equations</a></li>
+          <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#principal-stresses'>Principal Stresses</a></li>
+          <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#max-shear'>Maximum Shear Stress</a></li> 
+          <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#pure-shear'>Pure Shear</a></li> 
+          <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#eigenvalues'>Alternative Approach: Eigenvalues</a></li>
+        </ul>
+      </li>
+      <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#mohr-circle'>Mohr's Circle</a></li> 
+        <ul class='list-group list-group-flush py-0'> 
+            <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#2d'>2D Mohr's Circle</a></li> 
+            <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#circle-anim'>Interactive Mohr's circle</a></li>
+            <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#3d'>3D Mohr's Circle</a></li> 
+        </ul>
+      </li>  
+  </ul>
 </div>
 
-<Section title="Principle of Superposition" id="superposition"></Section>
 
+<Section title="Principle of Superposition" id="superposition">
+</Section>
+
+<SubSection title="Principle of Superposition " id="principle_of_superposition_">
+
+Superposition: If the displacements are (1) small and (2) linearly related to the force components acting, the displacements caused by the components can be added up:
+
+<DisplayEquation equation='\\delta = \\sum_i \\delta_i = \\sum_i \\frac{F_i L_i}{E_i A_i}\\' title="Superposition." background="True" />
+
+</SubSection>
+
+<SubSection title="Deformation" id="deformation"> ADD CONTENT HERE </SubSection>
+<SubSection title="Stress" id="superposition-stress"> ADD CONTENT HERE </SubSection>
 
 </Layout>
