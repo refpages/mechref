@@ -29,5 +29,46 @@ import BlueText from "../../components/BlueText.astro"
 
 <Section title="Thermal Loading" id="thermal_loading"></Section>
 
+<SubSection title="Thermal Effects: Temperature Changes" id="thermal_effects_temperature_changes">
+
+<strong>Notation</strong>
+<ul> 
+     <li>  <InlineEquation equation='\\Delta T > 0, \\sigma < 0' /> : Compression</li> 
+     <li>   <InlineEquation equation='\\Delta T < 0, \\sigma > 0' /> : Tension</li> 
+</ul> 
+
+<p>
+    <InlineEquation equation='\\delta_T' /> ,  <InlineEquation equation='\\varepsilon_T' />  present in addition to elastic  <InlineEquation equation='\\delta_E' /> ,  <InlineEquation equation='\\varepsilon_E' />  (from internal forces). Superposition (small strains):
+ <DisplayEquation equation='\\varepsilon_{tot} = \\varepsilon_{E} + \\varepsilon_{T}\\' title="Total strain." background="True" /> 
+  <DisplayEquation equation='\\delta_{tot} = \\delta_{E} + \\delta_{T}\\' title="Total displacement." background="True" /> 
+</p>
+
+<Image src='/sol/axial_loading/Temperature_NoLoad.png' width='4'>Temperature changes with no applied loads</Image>
+
+ A rod rests freely on a smooth horizontal surface. Temperature of the rod is raised by <InlineEquation equation='\\Delta T' />. Rod elongates by an amount.
+
+<DisplayEquation equation='\\delta_{T} = \\alpha \\Delta T L\\' title="Displacement from temperature changes." background="True" />
+
+ Linear coefficient of thermal expansion <InlineEquation equation='\\alpha' />,  <InlineEquation equation='[\\alpha] = \\frac{1}{K},\\frac{1}{°C},...' />. This deformation is associated with an average thermal strain:
+
+<DisplayEquation equation='\\varepsilon_{T} = \\frac{\\delta_T}{L} = \\alpha T\\' title="Strain from temperature changes." background="True" />
+
+<Image src='/sol/axial_loading/Temperature_TwoPlates.png' width='1.5'>  
+    Temperature changes with statically indeterminate beam
+</Image>
+
+ Initially, rod of length <InlineEquation equation='L' /> is placed between two supports at a distance <InlineEquation equation='L' /> from each other. With no internal forces, there is no stress or strain.
+
+<DisplayEquation equation='R_{A} = R_{B} = 0\\' title="Force balance." background="True" />
+<DisplayEquation equation='R_{A} = F\\' title="Reaction force." background="True" />
+                  
+ After raising the temperature, total elongation of the rod is still zero. The total elongation is given by:
+
+<DisplayEquation equation='\\delta = \\frac{FL}{EA} + \\alpha L \\Delta T = 0\\' title="Total elongation." background="True" />
+
+ The stress in the rod due to change in temperature is given by:
+<DisplayEquation equation='\\sigma = -\\alpha E \\Delta T\\' title="Stress from temperature changes." background="True"  />
+
+</SubSection>
 
 </Layout>
