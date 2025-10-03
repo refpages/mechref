@@ -10,6 +10,8 @@ import InlineEquation from "../../components/InlineEquation.astro"
 import DisplayEquation from "../../components/DisplayEquation.astro" 
 import PrairieDrawCanvas from "../../components/PrairieDrawCanvas.astro"
 import DisplayTable from "../../components/DisplayTable.astro"
+import Enumerate from "../../components/Enumerate.astro"
+import Item from "../../components/Item.astro"
 ---
 <Layout title = "Introduction" description = "This page explains the essence of statics, the branch of mechanics dealing with forces in equilibrium.">
 
@@ -171,12 +173,12 @@ A <em>rigid body</em> is an extended area of material that
           rotation angle of the body (one angle in 2D, three angles in
           3D).
 </p>
-    <DisplayTable id="pos">
+    <DisplayTable id="pos" class = "mb-3">
         <thead>
             <tr>
                 <th></th>
                 <th>location description</th>
-            <tr>
+            </tr>
         </thead>
         <tbody>
             <tr>
@@ -208,6 +210,43 @@ A <em>rigid body</em> is an extended area of material that
       </p>
 
 </SubSubSection>
+
+<SubSection title = "Solving Equilibrium Equations" id = "solving_equilibrium_equations">
+    <p>
+        For equilibrium problems, the problem-solving steps are:
+    </p>
+    <style>
+        ol.alpha { list-style: none; padding-left: 1.4em; }
+        ol.alpha li::marker {
+            content: "(" counter(list-item, lower-alpha) ") ";
+        }
+    </style>
+    <Enumerate>
+        <Item>Identify the system to be analyzed and draw a sketch.</Item>
+        <Item>Read and understand the problem.</Item>
+        <Item>Identify what you are asked to find and what is given.</Item>
+        <Item>Stop, think, and decide on an strategy.</Item>
+        <Item>
+            Draw a free-body diagram with all the required elements:
+                <ol class = "alpha">
+                    <li>An isolated body or group of bodies</li>
+                    <li>All applied loads</li>
+                    <li>All reactions from supports</li>
+                </ol>
+        </Item>
+        <Item>Write equations of equilibrium based on the free-body diagram.</Item>
+        <Item>
+            Check if the number of equations equals the number of unknowns.
+            If it doesn’t, you are missing something.
+            You may need additional free-body diagrams or other relationships.
+        </Item>
+        <Item>Solve for unknowns, then evaluate the reasonableness of your answer(s) magnitude, units, and sign/direction.</Item>
+    </Enumerate>
+    <p>
+        Using these steps does not guarantee that you will get the right solution, but it will help you be critical and conscious of your chosen strategies.
+        This reflection will help you learn more quickly and increase the odds that you choose the right tool for the job.
+    </p>
+</SubSection>
 
 </Layout>
 
