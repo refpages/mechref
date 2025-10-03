@@ -531,19 +531,11 @@ import InlineCanvas from "../../components/InlineCanvas.astro"
     </tbody>
   </DisplayTable>
 
-<CalloutContainer slot="cards">
-        <CalloutCard title="Warning!">
-            <p>
-               We normally write <InlineEquation equation=" \\vec{r}" /> 
-				for the position vector of a point, but if we are using cylindrical coordinates \( r,\theta ,z \)
-				then this is dangerous. This is because \( r \)
-				might mean the magnitude of <InlineEquation equation="\\vec{r}" />
-				or the radial coordinate, which are different. To avoid this confusion we use <InlineEquation equation="\\vec{\\rho} " /> 
-				for the position vector and \( r \)
-				for the radial coordinate.
-              </p>
-        </CalloutCard>
-	  </CalloutContainer>
+  <Warning title = "Use \\(\\vec{\\rho}\\) instead of \\(\\vec{r}\\) for cylindrical coordinates" id = "rho_instead_of_r">
+    We normally write <InlineEquation equation = "\\vec{r}"/> for the position vector of a point, but if we are using cylindrical coordinates \(r, \theta, z\) then this is dangerous.
+    This is because \(r\) might mean the magnitude of <InlineEquation equation = "\\vec{r}"/> or the radial coordinate, which are different. 
+    To avoid this confusion we use <InlineEquation equation = "\\vec{\\rho}"/> for the position vector and \(r\) for the radial coordinate.
+  </Warning>
 
     <p>
       The diagram below shows the cylindrical coordinates of a point
