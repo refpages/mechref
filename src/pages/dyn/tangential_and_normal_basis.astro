@@ -108,6 +108,65 @@ import InlineCanvas from "../../components/InlineCanvas.astro"
     </PrairieDrawCanvas>
 </SubSection>
 
+<SubSection title = "Path length" id = "rkt-sl">
+        <p>
+          The distance along the path is <InlineEquation equation = "s,"/> which can be found by
+          integrating the speed <InlineEquation equation = "v"/> with respect to
+          time. Correspondingly, the speed is the derivative of path
+          length.
+        </p>
+        <DisplayEquation equation = `\\begin{align} v &= \\dot{s} \\\\
+          s &= \\int_0 ^ t v(\\tau) \\,d\\tau \\end{align}` title = "Path length \\(s\\) and speed \\(v\\)." background = "True" derivation = "True" id = "rkt-es">
+            <p>
+              Either equation can serve as the definition of path
+              length, and then the other equation is obtained by the
+              <a
+              href="http://en.wikipedia.org/wiki/Fundamental_theorem_of_calculus">fundamental
+              theorem of calculus</a>, with the assumption that the
+              path length is measured from the position at time <InlineEquation equation = "t = 0."/>
+            </p>
+        </DisplayEquation>
+        <p>
+        </p>
+        <div class="figureContainer width600" id="rkt-fs">
+          <PrairieDrawCanvas id="rkt-fs-c" width="600" height="400" class="figureImage">
+          </PrairieDrawCanvas>
+          <p class="controls">
+            <button class="anim-toggle:rkt-fs-c" onclick = "rkt_fs_c.toggleAnim()">animate</button>
+            <button class="reset:rkt-fs-c" onclick = "rkt_fs_c.reset()">reset</button>
+          </p>
+          <p class="controls">
+            Show:
+            <button class="option-toggle:rkt-fs-c:showVelocity" onclick = "rkt_fs_c.toggleOption('showVelocity')">velocity and speed</button>
+          </p>
+          <p class="figureCaption">
+            Path length <InlineEquation equation = "s"/> and speed <InlineEquation equation = "v"/> shown for motion back and
+            forth along a curve. Observe that the path length is
+            always increasing, even when moving “backwards”, as speed
+            cannot be negative. For ease of visualization, this figure
+            resets the path length to zero when the particle returns
+            to the starting point.
+          </p>
+        </div>
+        <p>
+          When differentiating geometric quantities related to paths,
+          it is often convenient to differentiate with respect to path
+          length rather than with respect to time. These derivatives
+          are related by:
+        </p>
+        <DisplayEquation equation = `\\begin{align} \\frac{d}{dt} &= v \\frac{d}{ds} \\\\
+          \\frac{d}{ds} &= \\frac{1}{v} \\frac{d}{dt} \\end{align}` title = "Derivatives with respect to path length \\(s\\) and time \\(t\\)." background = "True" derivation = "True" id = "rkt-ea">
+            <p>
+              This is essentially a re-statement of the chain
+              rule. In particular, the first equation is the following.
+
+              <DisplayEquation equation = "\\frac{d}{dt} = \\frac{ds}{dt} \\frac{d}{ds} = \\dot{s} \\frac{d}{ds} = v \\frac{d}{ds}"/>
+              
+              The second equation is a simple re-arrangement.
+            </p>
+        </DisplayEquation>
+</SubSection>
+
 <SubSection title="Curvature and torsion" id="curvature">
     
   <DisplayEquationCustom title="Curvature and torsion." id="rkt-ek" background="True" derivation="True">
