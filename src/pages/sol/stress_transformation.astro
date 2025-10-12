@@ -512,8 +512,8 @@ Mohr's circle is a graphical representation of stress transformations. The equat
           this.text(O, $V([1, 1]), `(${savg}, ${0})`);
 
   
-          this.text($V([radius, 0]), $V([-1, 1]), `TEX:$\\sigma_1$`);
-          this.text($V([-radius, 0]), $V([1, 1]), `TEX:$\\sigma_2$`);
+          this.text($V([radius, 0]), $V([-1, 1]), `s1`);
+          this.text($V([-radius, 0]), $V([1, 1]), `s2`);
   
           this.line(O, $V([Math.cos(theta_p+2*theta)*radius, Math.sin(theta_p+2*theta)*radius]), 'blue');
           this.point($V([Math.cos(theta_p+2*theta)*radius, Math.sin(theta_p+2*theta)*radius]), 'blue');
