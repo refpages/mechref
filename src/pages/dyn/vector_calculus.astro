@@ -395,7 +395,7 @@ import CalloutCard from "../../components/CalloutCard.astro"
             <p class="m-0 flex-shrink-1">Increment:</p>
             <div class="flex-grow-1 d-flex align-items-baseline"> 
               <input type="range" min="0" max="4" value="2" step="0.01" class="data-input:rvc-fd-c:dt flex-grow-1 mx-2" onchange="rvc_fd_c.setOption('dt', this.value); document.querySelector('span[class*=deltat]').innerText = this.value; console.log(this.value);" oninput="rvc_fd_c.setOption('dt', this.value); document.querySelector('span[class*=deltat]').innerText = this.value;"/>
-            \(\Delta t = \) <span class="data-option:rvc-fd-c:deltat mx-2" >2</span> s
+            \(\Delta t = \)&nbsp;<span class="data-option:rvc-fd-c:dt" ></span>&nbsp;s
             </div>
           </div>
          
@@ -416,7 +416,7 @@ import CalloutCard from "../../components/CalloutCard.astro"
             <p class="m-0 flex-shrink-1">Time:</p>
             <div class="flex-grow-1 d-flex align-items-baseline"> 
               <input type="range" min="0" max="10" value="0" step="0.01" class="data-input:rvc-fd-c:t flex-grow-1 mx-2" onchange="rvc_fd_c.setOption('t', this.value); document.querySelector('span[class*=t_step_fd]').innerText = this.value;" oninput="rvc_fd_c.setOption('t', this.value); document.querySelector('span[class*=t_step_fd]').innerText = this.value;"/>
-              \(t = \) <span class="data-option:rvc-fd-c:t_step_fd mx-2">0</span> s
+              \(t = \)&nbsp;<span class="data-option:rvc-fd-c:t"></span>&nbsp;s
             </div>
           </div>
          
@@ -1028,3 +1028,69 @@ import CalloutCard from "../../components/CalloutCard.astro"
 
 <script src="/dyn/coordinate_systems/worldCoastlineCompressed.js" is:inline></script>
 <script src="/dyn/vector_calculus/canvases.js" is:inline></script>
+
+<script is:inline>
+document.addEventListener('DOMContentLoaded', () => {
+  // parse a class token like "data-option:aml-fr-c:a" -> { varName: "aml_fr_c", option: "a", token: "aml-fr-c" }
+  function parseDataToken(token) {
+    const parts = token.split(':');
+    if (parts.length < 3) return null;
+    const controllerToken = parts[1]; // "aml-fr-c"
+    const option = parts.slice(2).join(':'); // "a" (handles extra colons if any)
+    const varName = controllerToken.replace(/-/g, '_'); // "aml_fr_c"
+    return { controllerToken, varName, option };
+  }
+
+  function updateOptionSpan(varName, option, controllerToken) {
+    try {
+      const controller = window[varName];
+      const value = (controller && typeof controller.getOption === 'function') ? controller.getOption(option) : '';
+      // class in DOM uses the dashed controller token, e.g. data-option:aml-fr-c:a
+      const className = `data-option:${controllerToken}:${option}`;
+      const els = document.getElementsByClassName(className);
+      Array.from(els).forEach(el => {
+        el.textContent = (value === null || value === undefined) ? '' : String(value);
+      });
+    } catch (err) {
+      // non-fatal; helpful while debugging
+      // console.warn('updateOptionSpan error', err);
+    }
+  }
+
+  function updateAllOptionSpans() {
+    // scan elements' classList for tokens that start with "data-option:"
+    document.querySelectorAll('[class]').forEach(el => {
+      Array.from(el.classList).forEach(cls => {
+        if (!cls.startsWith('data-option:')) return;
+        const info = parseDataToken(cls);
+        if (!info) return;
+        updateOptionSpan(info.varName, info.option, info.controllerToken);
+      });
+    });
+  }
+
+  // Wire inputs that have data-input:... classes so sliding updates the displayed value from the controller
+  document.querySelectorAll('input').forEach(input => {
+    Array.from(input.classList).forEach(cls => {
+      if (!cls.startsWith('data-input:')) return;
+      const parts = cls.split(':');
+      if (parts.length < 3) return;
+      const controllerToken = parts[1];
+      const option = parts.slice(2).join(':');
+      const varName = controllerToken.replace(/-/g, '_');
+      const handler = () => updateOptionSpan(varName, option, controllerToken);
+      input.addEventListener('input', handler);
+      input.addEventListener('change', handler);
+    });
+  });
+
+  // initial sync (delay a bit so canvases.js can initialize controllers)
+  setTimeout(updateAllOptionSpans, 100);
+
+  // keep UI in sync (optional; adjusts if controller updates from other sources)
+  const syncHandle = setInterval(updateAllOptionSpans, 500);
+
+  // expose for console debugging
+  window.updateOptionSpans = updateAllOptionSpans;
+});
+</script>

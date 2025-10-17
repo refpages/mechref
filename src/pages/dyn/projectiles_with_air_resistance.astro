@@ -112,7 +112,7 @@ import DisplayTable from "../../components/DisplayTable.astro"
                     <p class="m-0 flex-shrink-1">Velocity angle from horizontal:</p>
                     <div class="flex-grow-1 d-flex align-items-baseline">
                         <input type="range" min="-180" max="180" value="30" class="data-option:afp-ff-c:vAngleDeg flex-grow-1 mx-2" onchange="afp_ff_c.setOption('vAngleDeg', this.value); document.querySelector('span[class*=vAngleDeg]').innerText = this.value; console.log(this.value);" oninput="afp_ff_c.setOption('vAngleDeg', this.value); document.querySelector('span[class*=vAngleDeg]').innerText = this.value;"/>
-                            \(\theta = \; \) <span class="data-option:avb-fp-c:vAngleDeg">30</span>\(^\circ\)
+                            \(\theta = \; \) <span class="data-option:afp-ff-c:vAngleDeg">30</span>\(^\circ\)
                     </div>
                 </div>
             </Col>
@@ -238,7 +238,7 @@ import DisplayTable from "../../components/DisplayTable.astro"
             <p class="m-0 flex-shrink-1">Initial speed:</p>
             <div class="flex-grow-1 d-flex align-items-baseline">
               <input type="range" min="0" max="55" value="30" step="1" class="data-input:afp-ft-c:v0 flex-grow-1 mx-2" onchange="afp_ft_c.setOption('v0', this.value); document.querySelector('span[class*=v0baseball]').innerText = this.value;" oninput="afp_ft_c.setOption('v0', this.value); document.querySelector('span[class*=v0baseball]').innerText = this.value;"/>
-              \(v_0 = \;\) <span class="data-option:afp-ft-c:v0baseball">30</span> m/s
+              \(v_0 = \;\) <span class="data-option:afp-ft-c:v0">30</span> m/s
             </div>
           </div>
         </Col>
@@ -248,7 +248,7 @@ import DisplayTable from "../../components/DisplayTable.astro"
           <p class="m-0 flex-shrink-1">Initial angle:</p>
           <div class="flex-grow-1 d-flex align-items-baseline">
             <input type="range" min="0" max="90" value="45" step="1" class="data-input:afp-ft-c:v0AngleDeg flex-grow-1 mx-2" onchange="afp_ft_c.setOption('v0AngleDeg', this.value); document.querySelector('span[class*=v0AngleDegbaseball]').innerText = this.value;" oninput="afp_ft_c.setOption('v0AngleDeg', this.value); document.querySelector('span[class*=v0AngleDegbaseball]').innerText = this.value;"/>
-            \(\theta_0 = \;\) <span class="data-option:afp-ft-c:v0AngleDegbaseball">45</span>°
+            \(\theta_0 = \;\) <span class="data-option:afp-ft-c:v0AngleDeg">45</span>°
           </div>
         </div>
       </Col>
@@ -257,7 +257,7 @@ import DisplayTable from "../../components/DisplayTable.astro"
           <p class="m-0 flex-shrink-1">Mass:</p>
           <div class="flex-grow-1 d-flex align-items-baseline">
             <input type="range" min="5" max="300" value="135" step="5" class="data-input:afp-ft-c:m_g flex-grow-1 mx-2" onchange="afp_ft_c.setOption('m_g', this.value); document.querySelector('span[class*=m_gbaseball]').innerText = this.value;" oninput="afp_ft_c.setOption('m_g', this.value); document.querySelector('span[class*=m_gbaseball]').innerText = this.value;"/>
-            \(m = \;\) <span class="data-option:afp-ft-c:m_gbaseball">135</span> g
+            \(m = \;\) <span class="data-option:afp-ft-c:m_g">135</span> g
           </div>
         </div>
       </Col>
@@ -266,7 +266,7 @@ import DisplayTable from "../../components/DisplayTable.astro"
           <p class="m-0 flex-shrink-1">Diameter:</p>
           <div class="flex-grow-1 d-flex align-items-baseline">
             <input type="range" min="1" max="20" value="7.5" step="0.1" class="data-input:afp-ft-c:D_cm flex-grow-1 mx-2" onchange="afp_ft_c.setOption('D_cm', this.value); document.querySelector('span[class*=D_cmbaseball]').innerText = this.value;" oninput="afp_ft_c.setOption('D_cm', this.value); document.querySelector('span[class*=D_cmbaseball]').innerText = this.value;"/>
-            \(D = \;\) <span class="data-option:afp-ft-c:D_cmbaseball">7.5</span> cm
+            \(D = \;\) <span class="data-option:afp-ft-c:D_cm">7.5</span> cm
           </div>
         </div>
       </Col>
@@ -299,3 +299,69 @@ import DisplayTable from "../../components/DisplayTable.astro"
 </Layout>
 
 <script src="/dyn/projectiles_with_air_resistance/canvases.js" is:inline></script>
+
+<script is:inline>
+document.addEventListener('DOMContentLoaded', () => {
+  // parse a class token like "data-option:aml-fr-c:a" -> { varName: "aml_fr_c", option: "a", token: "aml-fr-c" }
+  function parseDataToken(token) {
+    const parts = token.split(':');
+    if (parts.length < 3) return null;
+    const controllerToken = parts[1]; // "aml-fr-c"
+    const option = parts.slice(2).join(':'); // "a" (handles extra colons if any)
+    const varName = controllerToken.replace(/-/g, '_'); // "aml_fr_c"
+    return { controllerToken, varName, option };
+  }
+
+  function updateOptionSpan(varName, option, controllerToken) {
+    try {
+      const controller = window[varName];
+      const value = (controller && typeof controller.getOption === 'function') ? controller.getOption(option) : '';
+      // class in DOM uses the dashed controller token, e.g. data-option:aml-fr-c:a
+      const className = `data-option:${controllerToken}:${option}`;
+      const els = document.getElementsByClassName(className);
+      Array.from(els).forEach(el => {
+        el.textContent = (value === null || value === undefined) ? '' : String(value);
+      });
+    } catch (err) {
+      // non-fatal; helpful while debugging
+      // console.warn('updateOptionSpan error', err);
+    }
+  }
+
+  function updateAllOptionSpans() {
+    // scan elements' classList for tokens that start with "data-option:"
+    document.querySelectorAll('[class]').forEach(el => {
+      Array.from(el.classList).forEach(cls => {
+        if (!cls.startsWith('data-option:')) return;
+        const info = parseDataToken(cls);
+        if (!info) return;
+        updateOptionSpan(info.varName, info.option, info.controllerToken);
+      });
+    });
+  }
+
+  // Wire inputs that have data-input:... classes so sliding updates the displayed value from the controller
+  document.querySelectorAll('input').forEach(input => {
+    Array.from(input.classList).forEach(cls => {
+      if (!cls.startsWith('data-input:')) return;
+      const parts = cls.split(':');
+      if (parts.length < 3) return;
+      const controllerToken = parts[1];
+      const option = parts.slice(2).join(':');
+      const varName = controllerToken.replace(/-/g, '_');
+      const handler = () => updateOptionSpan(varName, option, controllerToken);
+      input.addEventListener('input', handler);
+      input.addEventListener('change', handler);
+    });
+  });
+
+  // initial sync (delay a bit so canvases.js can initialize controllers)
+  setTimeout(updateAllOptionSpans, 100);
+
+  // keep UI in sync (optional; adjusts if controller updates from other sources)
+  const syncHandle = setInterval(updateAllOptionSpans, 500);
+
+  // expose for console debugging
+  window.updateOptionSpans = updateAllOptionSpans;
+});
+</script>
