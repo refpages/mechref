@@ -14,22 +14,22 @@ $(document).ready(function(){
                 label = "TEX:\\textsf{Initial truss}";
                 break;
             case 1:
-                label = "TEX:\\sf Inspect $G$";
+                label = "TEX:\\textsf{Inspect } $G$";
                 break;
             case 2:
-                label = "TEX:\\sf Inspect $C$";
+                label = "TEX:\\textsf{Inspect } $C$";
                 break;
             case 3:
-                label = "TEX:\\sf Inspect $F$";
+                label = "TEX:\\textsf{Inspect } $F$";
                 break;
             case 4:
-                label = "TEX:\\sf Inspect $B$";
+                label = "TEX:\\textsf{Inspect } $B$";
                 break;
             case 5:
-                label = "TEX:\\sf Inspect $G$, $F$, $C$, $B$"
+                label = "TEX:\\textsf{Inspect } $G$, $F$, $C$, $B$";
                 break;
             case 6:
-                label = "TEX:\\sf Simplified truss";
+                label = "TEX:\\textsf{Simplified truss}";
                 break;
         };
 
