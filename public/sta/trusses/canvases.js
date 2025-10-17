@@ -11,7 +11,7 @@ $(document).ready(function(){
 
         switch(stage) {
             case 0:
-                label = "TEX:\\sf Initial truss";
+                label = "TEX:\\textsf{Initial truss}";
                 break;
             case 1:
                 label = "TEX:\\sf Inspect $G$";
