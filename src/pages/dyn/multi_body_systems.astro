@@ -116,12 +116,13 @@ import DisplayTable from "../../components/DisplayTable.astro"
 </SubSubSection>
 
 <SubSubSection title = "Gear kinetics"  id = "gear_kinetics">
-    <Image src="/dyn/multi_body_systems/placeholder.jpg" width="7"/>
+    <Image src = "/dyn/multi_body_systems/gear_kinetics.png" width = "3"/>
     <p>
       When two gears in equilibrium mesh,
       <ul>
         <li>There is a "contact force" between the gears—this comes from Newton's third law.</li>
-        <li>This contact force is perpendicular to the radius of the gear and produces a torque on each gear.</li>
+        <li>This contact force is perpendicular to the radius of the gear and produces a moment on each gear.</li>
+        <li><InlineEquation equation = "M = I \\times \\alpha"/> represents the net moment of each gear—this includes any external moments as well as the moment created by the contact forces</li>
       </ul>
     </p>
 </SubSubSection>
