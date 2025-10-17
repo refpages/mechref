@@ -1,0 +1,41 @@
+---
+import Layout from "../../layouts/Layout.astro" 
+import Image from "../../components/Image.astro" 
+import Section from "../../components/Section.astro" 
+import SubSection from "../../components/SubSection.astro" 
+import SubSubSection from "../../components/SubSubSection.astro" 
+import Itemize from "../../components/Itemize.astro" 
+import Item from "../../components/Item.astro" 
+import InlineEquation from "../../components/InlineEquation.astro" 
+import DisplayEquation from "../../components/DisplayEquation.astro" 
+import BlueText from "../../components/BlueText.astro" 
+
+
+---
+<Layout title="Overview">
+
+<div slot="navtree">
+	<ul class='list-group list-group-flush py-0'> 
+		<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#thin-walled-pressure-vessels'>Thin-Walled Pressure Vessels</a>
+		
+			<ul class='list-group list-group-flush py-0'> 
+				<li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#cylindrical-vessels'>Cylindrical Vessels</a></li> 
+				<li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#spherical-vessels'>SphericalVessels</a></li>
+				<li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#radial-stress'>Radial Stress</a></li>  
+			</ul>
+		</li>
+	</ul>
+</div>
+
+<Section title="Overview" id="overview"></Section>
+
+<SubSection title="General Stress Tensor" id="tensor">
+<p>
+ The components of normal and shear stress can be combined into the stress tensor. This is a symmetric matrix representing the state of stress with respect to three directions.
+</p>
+
+<DisplayEquation equation=" T= \\begin{bmatrix} \\sigma_{x} & \\sigma_{xy} & \\sigma_{xz} \\\\ \\sigma_{yx}& \\sigma_{y} & \\sigma_{yz} \\\\ \\sigma_{zx}&\\sigma_{zy}&\\sigma_{z} \\end{bmatrix} \\" title="Stress tensor." background="True"/>
+</SubSection>
+
+
+</Layout>

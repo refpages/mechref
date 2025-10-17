@@ -48,6 +48,16 @@ import Enumerate from "../../components/Enumerate.astro"
 
 </Section>
 
+<SubSection title="Pure Torsion Tensor" id="tensor">
+<p>
+ For pure torsion loading conditions, the stress tensor can be simplified as shown below, depending on whether <InlineEquation equation = "\\rho"/> is in the y or z direction for torsion calculations.
+</p>
+
+<DisplayEquation equation="\\begin{align} T= \\begin{bmatrix} 0 & \\frac{-T_x\\rho_y}{J} & 0 \\\\ \\frac{-T_x\\rho_y}{J} & 0 & 0 \\\\ 0 & 0 & 0 \\end{bmatrix} \\\\ T = \\begin{bmatrix} 0 & 0 & \\frac{T_x\\rho_z}{J} \\\\ 0 & 0 & 0 \\\\ \\frac{T_x\\rho_z}{J} & 0 & 0 \\end{bmatrix} \\ \\end{align}" title="Torsion stress tensor." background="True" id="tor-tsr"/>
+
+</SubSection>
+
+
 <SubSection title="Units" id="units">
 
 Force X distance [lb-in or N-m]
