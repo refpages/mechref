@@ -444,106 +444,98 @@ Mohr's circle is a graphical representation of stress transformations. The equat
       <div class="d-flex  align-items-baseline">
           <p class="m-0 flex-shrink-1">Angle:</p>
           <div class="flex-grow-1 d-flex align-items-baseline">
-<input 
-  type="range" 
-  min="-90" 
-  max="90" 
-  value="0" 
-  step="1" 
-  id="theta-slider" 
-  class="flex-grow-1 mx-2"
-/>
-\(\theta = \; \) <span id="theta-display">0</span>\(^\circ\)
-
-<script is:inline>
-  const thetaSlider = document.getElementById('theta-slider');
-  const thetaDisplay = document.getElementById('theta-display');
-
-  // Try to set both controllers; if they don't exist yet, retry a few times
-  function setThetaOnControllers(numericValue) {
-    let attempts = 0;
-    const maxAttempts = 40; // ~2 seconds with 50ms interval
-    const iv = setInterval(() => {
-      attempts++;
-      let didSomething = false;
-
-      // update stt_mc_c if present
-      if (window.stt_mc_c && typeof window.stt_mc_c.setOption === 'function') {
-        try {
-          window.stt_mc_c.setOption('theta', numericValue);
-          if (typeof window.stt_mc_c.redraw === 'function') window.stt_mc_c.redraw();
-          didSomething = true;
-        } catch (e) {
-          // ignore and keep trying
-        }
-      }
-
-      // update stt_cb_c if present
-      if (window.stt_cb_c && typeof window.stt_cb_c.setOption === 'function') {
-        try {
-          window.stt_cb_c.setOption('theta', numericValue);
-          if (typeof window.stt_cb_c.redraw === 'function') window.stt_cb_c.redraw();
-          didSomething = true;
-        } catch (e) {
-          // ignore and keep trying
-        }
-      }
-
-      // update any data-option spans via helper if available
-      if (typeof window.updateOptionSpans === 'function') {
-        try { window.updateOptionSpans(); } catch(e) {}
-      }
-
-      // stop if both controllers are present or if we've exceeded attempts
-      const bothReady = window.stt_mc_c && window.stt_cb_c;
-      if (bothReady || attempts >= maxAttempts || didSomething) {
-        clearInterval(iv);
-      }
-    }, 50);
-  }
-
-  function updateTheta(valueStr) {
-    // convert to number because controllers may expect numeric values
-    const valueNum = Number(valueStr);
-    thetaDisplay.textContent = valueStr;
-
-    // immediate attempt
-    try {
-      if (window.stt_mc_c && typeof window.stt_mc_c.setOption === 'function') {
-        window.stt_mc_c.setOption('theta', valueNum);
-        if (typeof window.stt_mc_c.redraw === 'function') window.stt_mc_c.redraw();
-      }
-    } catch(e) {}
-
-    try {
-      if (window.stt_cb_c && typeof window.stt_cb_c.setOption === 'function') {
-        window.stt_cb_c.setOption('theta', valueNum);
-        if (typeof window.stt_cb_c.redraw === 'function') window.stt_cb_c.redraw();
-      }
-    } catch(e) {}
-
-    // Ensure controllers are updated even if they weren't ready yet
-    setThetaOnControllers(valueNum);
-
-    // keep your data-option spans consistent (if you rely on that mechanism)
-    if (typeof window.updateOptionSpans === 'function') {
-      try { window.updateOptionSpans(); } catch(e) {}
-    }
-  }
-
-  thetaSlider.addEventListener('input', e => updateTheta(e.target.value));
-  thetaSlider.addEventListener('change', e => updateTheta(e.target.value));
-
-  // Initialize once DOM is ready (value could be non-zero)
-  document.addEventListener('DOMContentLoaded', () => {
-    updateTheta(thetaSlider.value);
-  });
-</script>
+            <input type="range" min="-90" max="90" value="0" step="1" id="theta-slider" class="flex-grow-1 mx-2"/>
+              \(\theta = \; \) <span id = "theta-display">0</span>\(^\circ\)
           </div>
       </div>
     </Col>
   </Row>
-  
+
+  <script is:inline>
+    const thetaSlider = document.getElementById("theta-slider");
+    const thetaDisplay = document.getElementById("theta-display");
+
+    // Try to set both controllers; if they don't exist yet, retry a few times
+    function setThetaOnControllers(numericValue){
+      let attempts = 0;
+      const maxAttempts = 40; // ~2 seconds with 50ms interval
+      const iv = setInterval(() => {
+        attempts ++;
+        let didSomething = false;
+
+        // update stt_mc_c if present
+        if (window.stt_mc_c && typeof window.stt_mc_c.setOption === "function"){
+          try {
+            window.stt_mc_c.setOption("theta", numericValue);
+            if (typeof window.stt_mc_c.redraw === "function") window.stt_mc_c.redraw();
+            didSomething = true;
+          } catch (e){
+            // ignore and keep trying
+          }
+        }
+
+        // update stt_cb_c if present
+        if (window.stt_cb_c && typeof window.stt_cb_c.setOption === "function"){
+          try {
+            window.stt_cb_c.setOption("theta", numericValue);
+            if (typeof window.stt_cb_c.redraw === "function") window.stt_cb_c.redraw();
+            didSomething = true;
+          } catch (e){
+            // ignore and keep trying
+          }
+        }
+
+        // update any data-option spans via helper if available
+        if (typeof window.updateOptionSpans === "function"){
+          try {window.updateOptionSpans();} catch(e){}
+        }
+
+        // stop if both controllers are present or if we've exceeded attempts
+        const bothReady = window.stt_mc_c && window.stt_cb_c;
+        if (bothReady || attempts >= maxAttempts || didSomething){
+          clearInterval(iv);
+        }
+      }, 50);
+    }
+
+    function updateTheta(valueStr){
+      // convert to number because controllers may expect numeric values
+      const valueNum = Number(valueStr);
+      thetaDisplay.textContent = valueStr;
+
+      // immediate attempt
+      try {
+        if (window.stt_mc_c && typeof window.stt_mc_c.setOption === "function"){
+          window.stt_mc_c.setOption("theta", valueNum);
+          if (typeof window.stt_mc_c.redraw === "function") window.stt_mc_c.redraw();
+        }
+      } catch(e){}
+
+      try {
+        if (window.stt_cb_c && typeof window.stt_cb_c.setOption === "function"){
+          window.stt_cb_c.setOption("theta", valueNum);
+          if (typeof window.stt_cb_c.redraw === "function") window.stt_cb_c.redraw();
+        }
+      } catch(e){}
+
+      // Ensure controllers are updated even if they weren't ready yet
+      setThetaOnControllers(valueNum);
+
+      // keep your data-option spans consistent (if you rely on that mechanism)
+      if (typeof window.updateOptionSpans === "function"){
+        try {window.updateOptionSpans();} catch(e){}
+      }
+    }
+
+    thetaSlider.addEventListener("input", e => updateTheta(e.target.value));
+    thetaSlider.addEventListener("change", e => updateTheta(e.target.value));
+
+    // Initialize once DOM is ready (value could be non-zero)
+    document.addEventListener("DOMContentLoaded", () => {
+      updateTheta(thetaSlider.value);
+    });
+  </script>
+
   <script is:inline>
     const container = document.querySelector("#anim-container");
     const cb = document.querySelector("#stt-cb-c");
