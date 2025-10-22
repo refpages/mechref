@@ -44,6 +44,12 @@ import CalloutContainer from "../../components/CalloutContainer.astro"
     When forces are applied to a body, <strong>deformation</strong>, the change in length or shape, occurs. The change in length, divided by the original length, is the <strong>strain</strong>. We use strain to <strong>normalize deformations</strong> with respect to the size of the geometry.
 </p>
 
+<DisplayEquation equation=" E = \\begin{bmatrix} \\varepsilon_{xx} & \\varepsilon_{xy} & \\varepsilon_{xz} \\\\ \\varepsilon_{yx} & \\varepsilon_{yy} & \\varepsilon_{yz} \\\\ \\varepsilon_{zx} & \\varepsilon_{zy} & \\varepsilon_{zz} \\end{bmatrix}\\" title="General strain tensor." background="True"/>
+
+<p>
+    The components of strain in different directions can be represented using a tensor as shown above.
+</p>
+
 </Section>
 
 <SubSection title="Units" id="units">
@@ -53,6 +59,12 @@ Dimensionless [mm/mm, in/in, or %]
 </SubSection>
 
 <SubSection title="Normal Strain" id="normal_strain">
+
+<p>
+    The normal strain components are represented by the values along the diagonal of a tensor. These indicate strain along an axis.
+</p>
+
+<DisplayEquation equation=" E = \\begin{bmatrix} \\varepsilon_{xx} & - & - \\\\ - & \\varepsilon_{yy} & - \\\\ - & - & \\varepsilon_{zz} \\end{bmatrix}\\" title="Normal strain tensor." background="True"/>
 
 <Image src="/sol/strain/Normal Strain.png" width="4"> Normal strain</Image>
 
@@ -96,6 +108,13 @@ Dimensionless [mm/mm, in/in, or %]
 </SubSubSection>
 
 <SubSection title="Shear Strain" id="shear_strain">
+<p>
+    Shear strain components make up all of the values besides those along the diagonal of the tensor.
+</p>
+
+<DisplayEquation equation=" E = \\begin{bmatrix} - & \\varepsilon_{xy} & \\varepsilon_{xz} \\\\ \\varepsilon_{yx} & - & \\varepsilon_{yz} \\\\ \\varepsilon_{zx} & \\varepsilon_{zy} & - \\end{bmatrix}\\" title="Shear strain tensor." background="True"/>
+
+
 <p>
     Change in <strong>angle</strong> between line segments oriented in perpendicular directions <InlineEquation equation="n" /> and <InlineEquation equation="t" />:
 </p>
