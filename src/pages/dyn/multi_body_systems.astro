@@ -122,7 +122,9 @@ import DisplayTable from "../../components/DisplayTable.astro"
       <ul>
         <li>There is a "contact force" between the gears—this comes from Newton's third law.</li>
         <li>This contact force is perpendicular to the radius of the gear and produces a moment on each gear.</li>
-        <li><InlineEquation equation = "M = I \\times \\alpha"/> represents the net moment of each gear—this includes any external moments as well as the moment created by the contact forces</li>
+        <li>For each gear,
+          <DisplayEquation equation = "I \\alpha = M + F_c \\ r"/>
+          where <InlineEquation equation = "M"/> is an external moment and <InlineEquation equation = "F_c \\ r"/> is the moment created by the contact force.</li>
       </ul>
     </p>
 </SubSubSection>
