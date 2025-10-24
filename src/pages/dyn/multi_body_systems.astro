@@ -115,7 +115,19 @@ import DisplayTable from "../../components/DisplayTable.astro"
     <Image src="/dyn/multi_body_systems/GearsContact.png" width="7"></Image>
 </SubSubSection>
 
-<SubSubSection title = "Gear kinetics"  id = "gear_kinetics"/>
+<SubSubSection title = "Gear kinetics"  id = "gear_kinetics">
+    <Image src = "/dyn/multi_body_systems/gear_kinetics.png" width = "3"/>
+    <p>
+      When two gears in equilibrium mesh,
+      <ul>
+        <li>There is a "contact force" between the gears—this comes from Newton's third law.</li>
+        <li>This contact force is perpendicular to the radius of the gear and produces a moment on each gear.</li>
+        <li>For each gear,
+          <DisplayEquation equation = "I \\alpha = M + F_c \\ r"/>
+          where <InlineEquation equation = "M"/> is an external moment and <InlineEquation equation = "F_c \\ r"/> is the moment created by the contact force.</li>
+      </ul>
+    </p>
+</SubSubSection>
 
 <SubSection title = "Slider cranks"  id = "slider_cranks">
   <Image src = "/dyn/multi_body_systems/Slider_Crank_animation.svg" width = "7">Image from <a target = "_blank" rel = "noopener noreferrer" href = "https://commons.wikimedia.org/wiki/File:Slider_Crank_animation.svg">Wikimedia.</a> CC BY 2.0</Image>
