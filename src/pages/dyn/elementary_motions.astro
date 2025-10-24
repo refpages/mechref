@@ -1,0 +1,93 @@
+---
+import Layout from "../../layouts/Layout.astro" 
+import Image from "../../components/Image.astro" 
+import Section from "../../components/Section.astro" 
+import SubSection from "../../components/SubSection.astro" 
+import SubSubSection from "../../components/SubSubSection.astro" 
+import BlueText from "../../components/BlueText.astro" 
+import RedText from "../../components/RedText.astro" 
+import InlineEquation from "../../components/InlineEquation.astro"
+import DisplayEquation from "../../components/DisplayEquation.astro"
+import PrairieDrawCanvas from "../../components/PrairieDrawCanvas.astro"
+import CalloutContainer from "../../components/CalloutContainer.astro"
+import CalloutCard from "../../components/CalloutCard.astro"
+import SubSubSubSection from "../../components/SubSubSubSection.astro"
+import DisplayEquationCustom from "../../components/DisplayEquationCustom.astro"
+import Enumerate from "../../components/Enumerate.astro" 
+import Item from "../../components/Item.astro" 
+import Itemize from "../../components/Itemize.astro"
+import Col from "../../components/Col.astro"
+import Row from "../../components/Row.astro"
+import DisplayTable from "../../components/DisplayTable.astro"
+import InlineCanvas from "../../components/InlineCanvas.astro"
+---
+
+<Layout title = "Elementary motions" description = "placeholder.">
+
+  <div slot="navtree">
+    <ul class='list-group list-group-flush py-0'> 
+      <li class = 'list-group-item py-0'><a class = 'text-decoration-none subsection' href = '#rke-sr'>Rectilinear motion</a>
+      <li class = 'list-group-item py-0'><a class = 'text-decoration-none subsection' href = '#rke-sc'>Circular motion</a></li>
+    </ul>
+  </div>
+
+  <Section title = "Elementary motions" id = "rke">
+    <p>
+      Two of the most common motions are straight-line and
+      circular kinematics. While the general kinematic formulas
+      apply to these situations, we can write simpler formulas
+      just for these special cases.
+    </p>
+  </Section>
+
+  <SubSection title="Rectilinear motion" id = "rke-sr">
+    <p>
+      Rectilinear motion is motion in a straight line. In the
+      particular case that acceleration is constant, the velocity
+      and position can be found by explicit integration.
+    </p>
+    <DisplayEquation equation = `\\begin{align} a &= a_0 = \\text{constant} \\\\
+      v &= v_0 + a_0 t \\\\
+      x &= x_0 + v_0 t + \\frac{1}{2} a_0 t ^ 2 \\end{align}` title = "Constant linear acceleration." background = "True" id = "rke-er"/>
+    <p>
+      If the <InlineEquation equation = "x"/> and <InlineEquation equation = "y"/> components of a 2D motion are
+      independent, then each direction can be regarded as simple
+      rectilinear motion. For example, if a projectile flies
+      through the air then the horizontal component is linear in
+      <InlineEquation equation = "t"/> while the vertical motion with constant gravitational
+      acceleration is a parabola.
+    </p>
+  </SubSection>
+
+  <SubSection title = "Circular motion" id = "rke-sc">
+    <p>
+      Motion in a circle of constant radius gives velocity in the
+      tangential direction <InlineEquation equation = "\\hat{e}_{\\theta}."/> The acceleration has
+      one component directly inwards in the radial direction
+      (centripetal acceleration) and one tangential component due
+      to angular acceleration <InlineEquation equation = "\\alpha."/>
+    </p>
+    <DisplayEquation equation = `\\begin{align} r &= \\text{constant} \\\\
+      \\vec{v} &= r \\omega \\, \\hat{e}_{\\theta} \\\\
+      \\vec{a} &= - r \\omega ^ 2 \\, \\hat{e}_r + r \\alpha \\, \\hat{e}_{\\theta} \\end{align}` title = "Circular motion (constant \\(r\\))." background = "True" id = "rke-ec"/>
+    <p>
+      Note that for circular motion the velocity <InlineEquation equation = "v"/> is linear in
+      both the radius <InlineEquation equation = "r"/> and angular velocity <InlineEquation equation = "\\omega."/> The
+      tangential acceleration is linear in both the radius <InlineEquation equation = "r"/> and
+      angular acceleration <InlineEquation equation = "\\alpha,"/> while the radial acceleration
+      is linear in <InlineEquation equation = "r"/> but quadratic in <InlineEquation equation = "\\omega."/>
+    </p>
+    <p>
+      In the case of constant angular acceleration, the angular
+      components function like rectilinear motion but in a circle,
+      giving the explicit formulas:
+    </p>
+    <DisplayEquation equation = `\\begin{align} r &= r_0 = \\text{constant} \\\\
+      \\alpha &= \\alpha_0 = \\text{constant} \\\\
+      \\omega &= \\omega_0 + \\alpha_0 t \\\\
+      \\theta &= \\theta_0 + \\omega_0 t + \\frac{1}{2} \\alpha_0 t ^ 2 \\end{align}` title = "Constant angular acceleration." background = "True" id = "rke-ea"/>
+  </SubSection>
+  
+</Layout>
+
+<script src="/dyn/particle_kinematics/canvases.js" is:inline></script>
