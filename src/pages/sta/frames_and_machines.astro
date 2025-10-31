@@ -13,6 +13,7 @@ import PrairieDrawCanvas from "../../components/PrairieDrawCanvas.astro"
 import Row from "../../components/Row.astro"
 import Col from "../../components/Col.astro"
 import Example from "../../components/Example.astro"
+import DisplayEquationCustom from "../../components/DisplayEquationCustom.astro"
 ---
 <Layout title = "Frames and machines" description = "Learn about systems using multi-force members and the needed assumptions to solve for unknowns.">
 
@@ -67,7 +68,7 @@ Frame and machine analysis involves the following steps:
 
 </p>
 
-	<Example title = "A-frame" solution = "False" id = "a_frame">
+	<Example title = "A-frame" solution = "True" id = "a_frame">
 		<p>
 			This example is adapted from <em><a href = "https://engineeringstatics.org/frames-and-machines.html" target = "_blank" rel = "noopener noreferrer">Engineering Statics</a></em> by Daniel Baker and William Haynes.
 		</p>
@@ -76,7 +77,7 @@ Frame and machine analysis involves the following steps:
 			The simplest form of an A-frame is formed by joining two similarly sized beams at an angle of 45 degrees or less and additionally connecting them with a third horizontal beam, so that the structure looks like that of an uppercase letter "A."
 		</p>
 		<p>
-			Consider the A-frame shown below, which is supporting a load <InlineEquation equation = "F"/> on the right beam.
+			Consider the simply supported A-frame shown below, which has a pin support at point <InlineEquation equation = "A,"/> a roller support at point <InlineEquation equation = "E,"/> and is supporting a load <InlineEquation equation = "F"/> on the right beam.
 		</p>
 		<Image src = "/sta/frames_and_machines/Example-frame.svg" width = "3"/>
 		<p>
@@ -87,6 +88,45 @@ Frame and machine analysis involves the following steps:
 			Take note that if a common force is shared between two free body diagrams, the force will be equal in magnitude, but act in the direction opposite of the direction it acts on the other member—this comes from Newton's third law.
 			Equilibrium equations can then be written for each member to solve for the unknowns.
 		</p>
+		<p>
+			For this example, we are asked to find the internal force at point <InlineEquation equation = "B"/> on member <InlineEquation equation = "ABC."/>
+			Assume the height of the A-frame is <InlineEquation equation = "h"/> and the width of the base is <InlineEquation equation = "w."/>
+			Assume that point <InlineEquation equation = "B"/> is at the midpoint of member <InlineEquation equation = "ABC"/> and that point <InlineEquation equation = "D"/> is at the midpoint of member <InlineEquation equation = "CDE."/>
+			Assume that the structure is symmetrical.
+		</p>
+		<div slot = "solution">
+			<p>
+				First, analyze the free body diagram of the entire system. Take the moment about pin <InlineEquation equation = "A"/> and solve for the reaction force at roller <InlineEquation equation = "E."/>
+			</p>
+			<DisplayEquation equation = `\\begin{align} \\sum M_A = 0 &= -\\frac{3 h}{4} F + w E \\\\
+				\\rightarrow E &= \\frac{3 h}{4 w} F \\end{align}`/>
+			<p>
+				Next, analyze the free body diagram for member <InlineEquation equation = "CDE."/> Take the moment about point <InlineEquation equation = "C"/> on member <InlineEquation equation = "CDE"/> and solve for the internal force at point <InlineEquation equation = "D."/>
+			</p>
+			<DisplayEquation equation = `\\begin{align} \\sum M_{C, CDE} = 0 &= \\frac{h}{4} F - \\frac{h}{2} F_D + \\frac{w}{2} E \\\\
+				\\rightarrow F_D &= \\frac{1}{2} F + \\frac{w}{h} E \\end{align}`/>
+			<p>
+				Since the magnitude of <InlineEquation equation = "F_D"/> was found to be positive, the assumption that <InlineEquation equation = "F_D"/> is in the direction shown on free body diagram of member <InlineEquation equation = "CDE"/> is correct.
+			</p>
+			<p>
+				Therefore, on member <InlineEquation equation = "CDE,"/>
+			</p>
+			<DisplayEquation equation = "F_D = -\\frac{1}{2} F - \\frac{w}{h} E"/>
+			<p>
+				Next, Analyze the free body diagram for member <InlineEquation equation = "BD."/> Analyze the forces along the x-direction and solve for <InlineEquation equation = "F_B."/>
+				Remember, on member <InlineEquation equation = "BD, F_D"/> acts in the direction opposite of the direction it acts on member <InlineEquation equation = "CDE."/>
+			</p>
+			<DisplayEquation equation = `\\begin{align} \\sum F_{x, BD} = 0 &= F_B + F_D \\\\
+				0 &= F_B + \\frac{1}{2} F + \\frac{w}{h} E \\\\
+				\\rightarrow F_B &= -\\frac{1}{2} F - \\frac{w}{h} E \\end{align}`/>
+			<p>
+				On member <InlineEquation equation = "ABC, F_B"/> acts in the direction opposite of the direction it acts on member <InlineEquation equation = "BD."/>
+			</p>
+			<p>
+				Therefore, on member <InlineEquation equation = "ABC,"/>
+			</p>
+			<DisplayEquation equation = "F_B = \\frac{1}{2} F + \\frac{w}{h} E"/>
+		</div>
 	</Example>
 
 <!--
