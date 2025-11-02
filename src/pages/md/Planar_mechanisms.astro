@@ -13,6 +13,8 @@ import Item from "../../components/Item.astro"
 import Itemize from "../../components/Itemize.astro"
 import InlineEquation from "../../components/InlineEquation.astro"
 import DisplayEquation from "../../components/DisplayEquation.astro"
+import CalloutCard from "../../components/CalloutCard.astro"
+import CalloutContainer from "../../components/CalloutContainer.astro"
 ---
 
 <Layout title="planar_mech">
@@ -82,7 +84,25 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
         <p>One of the most common mechanisms is a 4 bar linkage. This is because it 4 links connected with 4 full joints is one of the simplest 1 DOF systems.</p>
         <p>One example of a 4 bar linkage is a crank-rocker where the a rotary input results in an output that rocks back and forth.</p>
         <Image src='/md/Planar_mechanisims/4Bar.png' width='7'> </Image>
-        <p>Another example 4 bar linkage is a crank-slider, where transformation rule 1 is used to replace the rocker with a sliding joint.</p>
+        <p>Another example 4 bar linkage is a crank-slider, where transformation rule 1 is used to replace the rocker with a sliding joint.</p>        
+        <CalloutContainer slot = "cards">
+            <CalloutCard title = "Review?">
+                <p>
+                    Need a review of <strong>four-bar linkages?</strong>
+                </p>
+                <p>
+                    This content has also been in <a href = "/dyn/multi_body_systems#four_bar_linkages">dynamics.</a>
+                </p>
+            </CalloutCard>
+            <CalloutCard title = "Review?">
+                <p>
+                    Need a review of <strong>four-bar linkages applications?</strong>
+                </p>
+                <p>
+                    This content has also been in <a href = "/dyn/four_bar_linkages_applications">dynamics.</a>
+                </p>
+            </CalloutCard>
+        </CalloutContainer>
     </SubSection>
     <SubSection title="Grashof Condition" id="Grashof Condition">
         <p>The Grashof condition of a four bar linkage defines the allowed motion of the mechanism. The Grashof condition is determined by the length of the linkages in the four bar linkage, which is then categorized into one of three classes. The shortest link is denoted with the letter <InlineEquation equation="S" />, the longest link with the letter <InlineEquation equation="L" />, and the remaining two links with the letters <InlineEquation equation="P" /> and <InlineEquation equation="Q" />.</p>
