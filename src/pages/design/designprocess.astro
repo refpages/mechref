@@ -1,43 +1,53 @@
 ---
-//WHEN THE PAGE IS MOVED TO ITS PROPER PLACE, i.e. /SRC/PAGES, 
-//REMOVE THE TWO LINES ABOVE, AND UNCOMMENT THE LINES BELOW
-
-import Layout from "../../layouts/Layout.astro";
-import Section from "../../components/Section.astro";
-import SubSection from "../../components/SubSection.astro";
-import SubSubSection from "../../components/SubSubSection.astro";
-import SubSubSubSection from "../../components/SubSubSubSection.astro";
-import CalloutContainer from "../../components/CalloutContainer.astro";
-import CalloutCard from "../../components/CalloutCard.astro";
-import InlineEquation from "../../components/InlineEquation.astro";
-import DisplayEquation from "../../components/DisplayEquation.astro";
-import Image from "../../components/Image.astro"
-import DisplayTable from "../../components/DisplayTable.astro";
-import Warning from "../../components/Warning.astro";
-import InlineCanvas from "../../components/InlineCanvas.astro";
-
+import Layout from "../../layouts/Layout.astro" 
+import Image from "../../components/Image.astro" 
+import CalloutContainer from "../../components/CalloutContainer.astro" 
+import Section from "../../components/Section.astro" 
+import SubSection from "../../components/SubSection.astro" 
+import SubSubSection from "../../components/SubSubSection.astro" 
+import SubSubSubSection from "../../components/SubSubSubSection.astro" 
+import OrangeText from "../../components/OrangeText.astro" 
+import TealText from "../../components/TealText.astro" 
+import Enumerate from "../../components/Enumerate.astro" 
+import Item from "../../components/Item.astro" 
+import Itemize from "../../components/Itemize.astro" 
+import InlineEquation from "../../components/InlineEquation.astro" 
+import DisplayEquation from "../../components/DisplayEquation.astro" 
 ---
-
-<Layout title="Design Process">
-    <!-- Change the above and below to your course name-->
-  <h1>
-    <strong>Design for X</strong>
-  </h1>
-  <section class="mt-sm-4 mt-2">
-    <ol>
-      <li><a href="/<course_abbreviation>/<code_for_page_1>?origin=coursemenu">Page 1</a></li>
-      <li><a href="/<course_abbreviation>/<code_for_page_2>?origin=coursemenu">Page 2</a></li>
-      <li><a href="/<course_abbreviation>/<code_for_page_3>?origin=coursemenu">Page 3</a></li>
-    </ol>
-  </section>
-  <section class="mt-sm-4 mt-2">
-    
-    <h3 class="fw-bold w-100">Helpful links:</h3>
-    <p>Add any useful links to your course, can remove this section if there are none, e.g:</p>
-    <ul>
-      <li><a href="/sta/pltips">PrairieLearn tips</a></li>
-      <li><a href="/sta/pltips">Other cool thing</a></li>
-    </ul>
-  </section>
+<Layout title="DesignProcessIntro (1)">
+<div slot="navtree">
+<ul class="list-group list-group-flush py-0">
+</li>
+</ul>
 </div>
+<p>Design is an iterative process of refinement. For convenience, we often show it as a sequence of various stages. Viewing it strictly as an ordered sequence is inaccurate as iteration and revisiting prior stages is necessary and good practice. The design process can be segmented in to many steps and dozens of versions of a design process exist focusing more or less on different portions of the full process. One commonality among different representations is the cyclic and iterative nature of design. Here we break down the design process into several steps:</p>
+<Itemize>
+
+    <Item>Identify Need</Item>
+    <Item>Do Background Research</Item>
+    <Item>Develop a Product Design Specification</Item>
+    <Item>Generate Design Ideas</Item>
+    <Item>Analyze and Select a Design</Item>
+    <Item>Detailed Design</Item>
+    <Item>Prototype</Item>
+    <Item>Evaluate</Item>
+    <Item>Manufacture</Item>
+
+</Itemize>
+
+<Image id="avb-ft" src="/design/images/design-proc-thumbnail.png">
+        <p class="figureCaption">
+          Design Process Flowchart</a>.
+        </p>
+</Image>
+
+<p>The goal in the stages listed in the 'ideation' box is to develop a large set of potential solution strategies that align with the requirements of the product. The stages in 'prototype development' aid in generating detailed realizations of selected ideas. The use of these is not to force them to work, but to capture more nuance in evaluating the selected ideas as potential solutions. It is expected that some ideas selected early will not work in practice for reasons that are unforeseen until detailed design and testing.</p>
+<p>Early in the design process it is essential to specify the desired outcome or functions of a product as specifically as possible. Thorough specification aids in idea selection and filtering and makes evaluation clear. Given the iterative and cyclical nature of design improvement it is also good practice to document and clearly articulate why decisions were made throughout. Engineers are responsible for the safe design of their systems and products, evidence of how and why design decisions were made is crucial in validating safe performance.</p>
+
+<p>\CalloutContainer{</p>
+<p>\callout{</p>
+<p>Note: in order to make an informed selection of one idea or another it is often necessary to conduct digital or physical prototyping or detailed engineering analysis.</p>
+<p>}</p>
+<p>}</p>
+
 </Layout>
