@@ -29,7 +29,7 @@ import Warning from "../../components/Warning.astro"
 <div slot="navtree">
     <ul class='list-group list-group-flush py-0'> 
         <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#continuum_mechanics'>Continuum Mechanics Fundamentals</a></li>
-        <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#linear-elasticity'>Linear Elasticity</a></li> 
+        <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#linear_elasticity'>Linear Elasticity</a></li> 
             <ul class='list-group list-group-flush py-0'> 
                     <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#stress-strain_diagram'>Stress-Strain Diagram</a></li>
                     <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#elastic_modulus'>Elastic Modulus</a></li>
@@ -44,7 +44,6 @@ import Warning from "../../components/Warning.astro"
                 <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href="#failure">Failure</a></li>
             </ul>
         <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#energy-density'>Strain Energy Density</a></li>
-        <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#complex-behaviors'>Complex Material Behaviors</a></li> 
     </ul>
 </div>
 
@@ -170,9 +169,23 @@ Again, this can be expressed in a more general form.
 
 </SubSection>
 
-<Section title="Linear Elasticity" id="linear-elasticity"></Section>
+<Section title="Linear Elasticity" id="linear_elasticity">
+</Section>
 
 <SubSection title="Stress-Strain Diagram" id="stress-strain_diagram">
+<CalloutContainer slot="cards">
+    <CalloutCard title="Extra!">
+    There are many types of complex material behaviors. A few of them are listed below.
+        <p>Anisotropy:
+        <Itemize>
+            <Item><strong>Isotropic:</strong> material properties are independent of the direction</Item>
+            <Item><strong>Anisotropic:</strong> material properties depend on the direction (ie; composites, wood, and tissues)</Item>
+        </Itemize>
+        </p>
+        <p>Isotropy:</p>
+        <p>Nonlinearity:</p>
+    </CalloutCard>
+</CalloutContainer>
 
 A <strong>stress-strain diagram</strong> is the relationship of normal stress as a function of normal strain. One way to collect these measurement is a <strong>uniaxial tension test</strong> in which a specimen at a very slow, constant rate (quasi-static). A load <InlineEquation equation="P" /> and distance <InlineEquation equation="L" /> are measured at frequent intervals.
 
@@ -243,16 +256,24 @@ In the above equation, \(\nu\) refers to <strong>Poisson's ratio</strong>. Only 
 </SubSection>
 
 <SubSection title="Poisson's Ratio" id="poissons_ratio">
-
+<CalloutContainer slot="cards">
+    <CalloutCard title="Heads Up!">
+    <p>
+    Though typically the Poisson ratio will be positive, there are some materials (known as auxetic materials) which have a negative Poisson ratio. This means that these materials expand in all directions when pulled.
+    </p>
+    
+    <p>
+    For an interesting demonstration on auxetic materials, check out <a href= "https://www.youtube.com/watch?v=Ka7Mx-_aoVA"> this video</a>.
+    </p>
+    </CalloutCard>
+</CalloutContainer>
 <Image src="/sol/material_properties/Poisson's Ratio.png" width='4'>Poisson's ratio</Image>
 
 <p>
     As illustrated in the figure above, when an object is being compressed it expands outward, and when stretched it will become thinner. Depending on the material, it may experience more or less lateral deformation for a given amount of axial deformation. The ratio that governs the amount of lateral strain per unit of axial strain is called <strong>Poisson's ratio</strong>.
 </p>
 
-<DisplayEquation equation="\\varepsilon_{x} = \\frac{\\delta_x}{L}\\" title="Axial (normal) strain." background="True" />
-
- <DisplayEquation equation="\\nu = -\\frac{\\text{lateral strain}}{\\text{axial strain}} = -\\frac{\\varepsilon_y}{\\varepsilon_x}" title=" Poisson's ratio \\(\\nu\\)." background="True" />
+<DisplayEquation equation="\\nu = -\\frac{\\text{lateral strain}}{\\text{axial strain}} = -\\frac{\\varepsilon_y}{\\varepsilon_x}" title=" Poisson's ratio \\(\\nu\\)." background="True" />
 
 <DisplayEquation equation="0 < \\nu < 0.5\\" title="Typical range." background="True" derivation="True" id="poisson_range">
     <p class="m-0">Consider a cylinder with volume <InlineEquation equation="V = A\\cdot L" />. We know that <InlineEquation equation="A = \\frac{\\pi}{4}d^2" />. Since the diameter is dependant on the change in length \(dx\) due to Poisson's ratio, we get </p> 
@@ -289,16 +310,22 @@ In the above equation, \(\nu\) refers to <strong>Poisson's ratio</strong>. Only 
 </DisplayEquation> 
 
 <DisplayEquation equation="\\varepsilon_{z} = \\varepsilon_{y} = -\\nu\\varepsilon_{x}\\" title="Lateral strain." background="True" />
-
-<Warning title="Negative Poisson's Ratio (auxetics)" id="ngt-psn">
-    <p>
-      A negative Poisson's  ratio is possible when the material structure is non-trival.
-    </p>
-   </Warning>
-   
 </SubSection>
 
+
 <Section title="Plasticity" id="plasticity">
+<CalloutContainer slot="cards">
+    <CalloutCard title="Heads up!">
+        <p>
+            <strong>Fatigue</strong> builds on this content in Engineering Materials and Mechanical Design.                
+        </p>
+        <p>
+            <Image src='/sol/material_properties/SN Curve.png' width='4'>SN curve examples</Image>
+
+            If stress does not exceed the elastic limit, the specimen returns to its original configuration. However, this is not the case if the loading is repeated thousands or millions of times. In such cases, rupture will happen at stress lower than the fracture stress - this phenomenon is known as fatigue.
+        </p>
+    </CalloutCard>
+</CalloutContainer>
 <Image src='/sol/material_properties/Stress Strain Diagram.png' width='4'> Stress-strain diagram showing key properties</Image>
 </Section>
 
@@ -309,19 +336,40 @@ ADD CONTENT ABOUT DUCTILITY
 </SubSection>
 
 <SubSection title="Yield Strength" id="yield-strength">
-
+<p>
 Stresses above the plastic limit (<InlineEquation equation="\\sigma_Y < \\sigma" />) cause the material to permanently deform.
+</p>
 
 <p>
  Perfect plastic or ideal plastic: well-defined <InlineEquation equation="\\sigma_Y" />, stress plateau up to failure. Some materials (e.g. mild steel) have two yield points (stress plateau at <InlineEquation equation="\\sigma_{YL}" />). Most ductile metals do not have a stress plateau; yield strength <InlineEquation equation="\\sigma_{YS}" /> is then defined by the <strong>0.002 (0.2%) offset method</strong>.
 </p>
 
- <strong>Strain Hardening</strong>
+<p>
+<strong> 0.2% Offset Method </strong>
+</p>
+
+<p>
+The yield stress is the point at which the material begins to plastically deform, and on the stress-strain curve is the point at which the graph is no longer linear. However, most stress-strain curves will have a gradual shift from linearity to nonlinearity, making it difficult to identify an exact yield point. The 0.2% offset method allows for a consistent metric of where yielding in a material occurs.
+</p>
+
+<p>
+Steps to perform the 0.2% offset method:
+</p>
+
+<Itemize>
+    <Item> Determine the slope of the linear region of the stress-strain curve (the Young's modulus, E). </Item>
+    <Item> Start at 0.002 on the horizontal (strain) axis, and draw a line with slope E. </Item>
+    <Item> Find the point where the line from step 2 intersects the stress-strain curve. This is the 0.2% yield stress. </Item>
+</Itemize>
+
+</SubSection>
+
+<SubSection title="Strain Hardening" id="strain-hardening">
 
 <Image src='/sol/material_properties/Strain Hardening.png' width='5.5'>Strain hardening</Image>
 
 <p>
- <em>Atoms rearrange</em> in plastic region of ductile materials when a higher stress is sustained. Plastic strain remains after unloading as <em>permanent set</em>, resulting in permanent deformation. Reloading is linear elastic up to the new, higher yield stress (at <strong>A'</strong>) and a reduced ductility.
+ <em>Atoms rearrange</em> in plastic region of ductile materials when a stress higher than the yield strength is sustained. Plastic strain remains after unloading as <em>permanent set</em>, resulting in permanent deformation. Reloading is linear elastic up to the new, higher yield stress (at <strong>A'</strong>) and a reduced ductility.
 </p>
 
 </SubSection>
@@ -335,7 +383,7 @@ Stresses above the plastic limit (<InlineEquation equation="\\sigma_Y < \\sigma"
 
 <Image src='/sol/material_properties/Necking.png' width='3'>Necking</Image>
 <p>
- After ultimate stress (<InlineEquation equation="\\sigma_u < \\sigma" />), the middle of the material elongates before failure.
+ After ultimate stress (<InlineEquation equation="\\sigma_u < \\sigma" />), the middle of the material elongates before failure. Necking only occurs in ductile materials.
 </p>
 
 </SubSection>
@@ -377,18 +425,6 @@ Stresses above the plastic limit (<InlineEquation equation="\\sigma_Y < \\sigma"
 </Itemize>
 </SubSection>
 
-<CalloutContainer slot="cards">
-    <CalloutCard title="Heads up!">
-        <p>
-            <strong>Fatigue</strong> builds on this content in Engineering Materials and Mechanical Design.                
-        </p>
-        <p>
-            <Image src='/sol/material_properties/SN Curve.png' width='4'>SN curve examples</Image>
-
-            If stress does not exceed the elastic limit, the specimen returns to its original configuration. However, this is not the case if the loading is repeated thousands or millions of times. In such cases, rupture will happen at stress lower than the fracture stress - this phenomenon is known as fatigue.
-        </p>
-    </CalloutCard>
-</CalloutContainer>
 
 <Section title="Strain Energy Density" id="energy-density">
     Strain Energy builds on this content in Engineering Materials.
@@ -404,21 +440,6 @@ Stresses above the plastic limit (<InlineEquation equation="\\sigma_Y < \\sigma"
     <DisplayEquation equation="u = \\int \\sigma d\\varepsilon\ \\quad \\text{or} \\quad u = \\int \\tau d\\gamma\\" />
 </Section>
 
-<Section title="Complex Material Behaviors" id="complex-behaviors">
-<CalloutContainer slot="cards">
-    <CalloutCard title="Extra!">
-    There are many types of complex material behaviors. A few of them are listed below.
-        <p>Anisotropy:
-        <Itemize>
-            <Item><strong>Isotropic:</strong> material properties are independent of the direction</Item>
-            <Item><strong>Anisotropic:</strong> material properties depend on the direction (ie; composites, wood, and tissues)</Item>
-        </Itemize>
-        </p>
-        <p>Isotropy:</p>
-        <p>Nonlinearity:</p>
-    </CalloutCard>
-</CalloutContainer>
-</Section>
 <!--
 <SubSection title="Anisotropy" id="anisotropy">
 
