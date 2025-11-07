@@ -39,8 +39,7 @@ import CalloutCard from "../../components/CalloutCard.astro"
         <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#stress_under_general_loading_conditions'>Stress under general loading conditions</a>
             <ul class='list-group list-group-flush py-0'> 
                 <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#average_normal_stress_-_axial_loading'>Average Normal Stress - Axial Loading</a></li> 
-                <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#average_shear_stress'>Average Shear Stress</a></li> 
-                <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#stress_tensor'>Stress Tensor</a></li> 
+                <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#average_shear_stress'>Average Shear Stress</a></li>
             </ul>
         </li> 
         <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#general-state'>General State of Stress</a></li>
@@ -81,7 +80,7 @@ The normal stress components are represented by the values along the diagonal of
 
  where <InlineEquation equation="F" /> is the internal resultant normal force and <InlineEquation equation="A" /> is the cross-sectional area of the bar where the normal stress <InlineEquation equation="\\sigma_{ave}" /> is calculated.
 
-<Image src="/sol/stress/Stress Distribution.png" width="5"> Non-uniform stress distribution</Image>
+<Image src='/sol/axial_loading/Saint-Venants (FIXED).jpg' width='7'>Notation</Image>
 
  Around the point where the load is applied, the stress distribution is non-uniform. Cross-sections farther away from the point load gradually have a more uniform distribution. When the distance is greater than the widest dimension of the cross-section (<InlineEquation equation="l > b" />), the stress distribution is uniform.
 
@@ -148,7 +147,7 @@ The shear stress components make up the rest of the tensor, consisting of all th
 
 </SubSubSection>
 
-<SubSubSection title="Stress Tensor" id="stress_tensor">
+<SubSection title="General State of Stress" id="general-state">
 
 <CalloutContainer slot="cards">
     <CalloutCard title="Heads  up!">
@@ -161,27 +160,6 @@ The shear stress components make up the rest of the tensor, consisting of all th
     </CalloutCard>
 </CalloutContainer>
 
-<Image src="/sol/stress/Stress Element.png" width="8"> Stress element</Image>
-
-<p>
- The components of normal and shear stress can be combined into the stress tensor. This is a symmetric matrix representing the state of stress with respect to three directions.
-</p>
-
-<DisplayEquation equation=" T= \\begin{bmatrix} \\sigma_{x} & \\tau_{xy} & \\tau_{xz} \\\\ \\tau_{yx}& \\sigma_{y} & \\tau_{yz} \\\\ \\tau_{zx}&\\tau_{zy}&\\sigma_{z} \\end{bmatrix} \\" title="Stress tensor." background="True"/>
-
-<!--  <DisplayEquation equation=" T&nbsp;= \\begin{bmatrix} \\sigma_{x} &amp; \\tau_{xy} &amp; \\tau_{xz} \\\\ \\tau_{yx}&nbsp;&amp; \\sigma_{y} &amp; \\tau_{yz} \\\\ \\tau_{zx}&nbsp;&amp; \\tau_{zy}&nbsp;&amp; \\sigma_{z} \\end{bmatrix} \\" /> -->
-
-<Itemize>
-    <Item>  Three normal stress components: <InlineEquation equation="\\sigma_x, \\sigma_y, \\sigma_z" /></Item>
-    <Item> Six shear stress components: <InlineEquation equation="\\tau_{xy} =\\tau_{yx}, \\tau_{xz}=\\tau_{zx}, \\tau_{yz}=\\tau_{zy}" /></Item>
-</Itemize>
-
- The first subscript describes the surface <strong>orientation</strong> in the normal direction. The second subscript describes the <strong>direction</strong> of the stress.
-
-</SubSubSection>
-
-<SubSection title="General State of Stress" id="general-state">
-
 The general state of stress at a point is characterized by three independent normal stress components and three independent shear stress components, and is represented by the <strong>stress tensor</strong>. The combination of the state of stress for every point in the domain is called the <strong>stress field</strong>.
 
 
@@ -189,6 +167,12 @@ The general state of stress at a point is characterized by three independent nor
 
 <DisplayEquation equation="T = \\begin{bmatrix} \\sigma_{x} & \\tau_{xy} & \\tau_{xz} \\\\ \\tau_{xy} & \\sigma_{y} & \\tau_{yz} \\\\ \\tau_{xz} & \\tau_{yz} & \\sigma_{z} \\end{bmatrix}" title="Stress tensor." background="True" />
 
+<Itemize>
+    <Item>  Three normal stress components: <InlineEquation equation="\\sigma_x, \\sigma_y, \\sigma_z" /></Item>
+    <Item> Six shear stress components: <InlineEquation equation="\\tau_{xy} =\\tau_{yx}, \\tau_{xz}=\\tau_{zx}, \\tau_{yz}=\\tau_{zy}" /></Item>
+</Itemize>
+
+ The first subscript describes the surface <strong>orientation</strong> in the normal direction. The second subscript describes the <strong>direction</strong> of the stress.
 
 <Warning title="Stress is a physical quantity and as such, it is independent of the chosen coordinate system." id="str-ind" remove_button="true">
 
