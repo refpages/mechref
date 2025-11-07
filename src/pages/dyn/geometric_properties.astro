@@ -105,7 +105,7 @@ import Row from "../../components/Row.astro"
                 <DisplayEquation equation="\\vec{r}_C = \\frac{1}{m}\\iiint_{\\mathcal{B}} \\vec{r} dm" />
             </p>
             <p>
-                Where <InlineEquation equation="dm = \\rho \\, dV" /> from the differential of <a href="rcm.html#rcm-tm">#rcm-tm</a>. Substituting in:
+                Where <InlineEquation equation="dm = \\rho \\, dV" /> from the differential of <a href="/dyn/geometric_properties#rcm-tm">#rcm-tm</a>. Substituting in:
                 <DisplayEquation equation="\\begin{aligned} \\vec{r}_C &amp;= \\frac{1}{m}\\iiint_{\\mathcal{B}} \\vec{r} dm \\\\ &amp;= \\frac{1}{m}\\iiint_{\\mathcal{B}} \\vec{r} \\rho \\, dV \\\\ &amp;= \\frac{1}{m}\\iiint_{\\mathcal{B}} \\rho \\vec{r} \\, dV \\\\ \\end{aligned}" />
             </p>
         </div>
@@ -361,8 +361,8 @@ import Row from "../../components/Row.astro"
                 <DisplayEquation equation="\\begin{aligned} x_C &amp;= \\frac{\\rho}{m}\\int_{0}^{1}\\int_{0}^{1 - u} (x_P u + x_Q v) \\, J \\, dvdu \\\\ &amp;= \\frac{\\rho}{m}\\int_{0}^{1}\\int_{0}^{1 - u} (x_P u + x_Q v) \\, (x_P y_Q - x_Q y_P) \\, dvdu \\\\ &amp;= \\frac{\\rho}{m}(x_P y_Q - x_Q y_P)\\int_{0}^{1}\\int_{0}^{1 - u} (x_P u + x_Q v) \\, dvdu \\\\ &amp;= \\frac{\\rho}{m}(x_P y_Q - x_Q y_P)\\int_{0}^{1}x_P u\\left[v\\right]_{v = 0}^{v = 1-u} + \\frac{x_Q}{2}\\left[v^2\\right]_{v = 0}^{v = 1-u}du \\\\ &amp;= \\frac{\\rho}{m}(x_P y_Q - x_Q y_P)\\int_{0}^{1} x_P u(1 - u) + \\frac{x_Q}{2}(1 - u)^2 du \\\\ &amp;= \\frac{\\rho}{m}(x_P y_Q - x_Q y_P) \\left(\\frac{x_P}{2} \\left[u^2\\right]_{0}^{1} - \\frac{x_P}{3}\\left[u^3\\right]_{0}^{1}  + \\frac{x_Q}{2}\\left[u\\right]_{0}^{1} - \\frac{x_Q}{2}\\left[u^2\\right]_{0}^{1} + \\frac{x_Q}{6}\\left[u^3\\right]_{0}^{1}\\right) \\\\  &amp;= \\frac{\\rho}{m}(x_P y_Q - x_Q y_P) \\left(\\frac{x_P}{2} - \\frac{x_P}{3} + \\frac{x_Q}{2} - \\frac{x_Q}{2} + \\frac{x_Q}{6}\\right) \\\\ &amp;= \\frac{\\rho}{m}(x_P y_Q - x_Q y_P) \\left(\\frac{x_P + x_Q}{6}\\right) \\end{aligned}" />
             </p>
             <p>
-                The total mass of the plate is <InlineEquation equation="m = \rho A = \frac{1}{2}\rho x_P y_Q" />, and with the chosen configuration \(y_P = 0\). Thus:
-                <DisplayEquation equation="x_C = \frac{x_P + x_Q}{3}" />
+                The total mass of the plate is <InlineEquation equation="m = \\rho A = \\frac{1}{2}\\rho x_P y_Q" />, and with the chosen configuration \(y_P = 0\). Thus:
+                <DisplayEquation equation="x_C = \\frac{x_P + x_Q}{3}" />
             </p>
         </div>
     </DisplayEquationCustom>
@@ -383,7 +383,7 @@ import Row from "../../components/Row.astro"
                 <DisplayEquation equation="\\begin{aligned} \\vec{r}_C &amp;= \\frac{1}{m}\\iiint_\\mathcal{B} \\rho \\vec{r} \\, dV \\\\ &amp;= \\frac{1}{m}\\iint_{A} \\rho \\vec{r} \\, dA \\\\ \\end{aligned}" />
             </p>
             <p>
-                It is convenient to switch to <a href="rvy.html#rvy-ec">cylindrical coordinates</a>: 
+                It is convenient to switch to <a href="/dyn/coordinate_systems#cylindrical_coordinates">cylindrical coordinates</a>: 
                 <DisplayEquation equation="\\begin{aligned} x &amp;= a \\, r \\cos\\theta \\\\ y &amp;= b \\, r \\sin\\theta \\\\ \\end{aligned}" />
             </p>
             <p>
@@ -473,7 +473,7 @@ import Row from "../../components/Row.astro"
                 <DisplayEquation equation="\\begin{aligned} \\vec{r}_C &amp;= \\frac{1}{m}\\iiint_\\mathcal{B} \\rho \\vec{r} \\, dV \\\\ &amp;= \\frac{1}{m}\\iint_{A} \\rho \\vec{r} \\, dA \\\\ \\end{aligned}" />
             </p>
             <p>
-                It is convenient to switch to <a href="rvy.html#rvy-ec">cylindrical coordinates</a>:
+                It is convenient to switch to <a href="/dyn/coordinate_systems#cylindrical_coordinates">cylindrical coordinates</a>:
                 <DisplayEquation equation="\\begin{aligned} x &amp;= r \\cos\\theta \\\\ y &amp;= r \\sin\\theta \\\\ \\end{aligned}"/>
             </p>
             <p>
@@ -1077,7 +1077,7 @@ import Row from "../../components/Row.astro"
             <p>
                 To compute the integrals in <a
                 href="#rem-ec">#rem-ec</a> it is convenient to switch to
-                <a href="rvy.html">cylindrical coordinates</a>:
+                <a href="/dyn/coordinate_systems#cylindrical_coordinates">cylindrical coordinates</a>:
             </p>
             <DisplayEquation equation="\\begin{aligned}x &= r \\cos\\theta \\\\y &= r \\sin\\theta \\\\z &= z.\\end{aligned}\\" /> 
 
@@ -1131,7 +1131,7 @@ import Row from "../../components/Row.astro"
         <p>
             To compute the integrals in <a
             href="#rem-ec">#rem-ec</a> it is convenient to switch to
-            <a href="rvs.html">spherical coordinates</a>:
+            <a href="/dyn/coordinate_systems#spherical_coordinates">spherical coordinates</a>:
         </p>
         <DisplayEquation equation="\\begin{aligned}x &= r \\cos\\theta \\sin\\phi \\\\y &= r \\sin\\theta \\sin\\phi \\\\z &= r \\cos\\phi.\\end{aligned}\\" /> 
 
