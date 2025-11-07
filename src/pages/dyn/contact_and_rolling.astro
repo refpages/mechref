@@ -190,11 +190,11 @@ import CalloutContainer from "../../components/CalloutContainer.astro"
     <DisplayEquation equation="\\begin{aligned}            \\vec{v}_C &amp;= r \\omega \\,\\hat{e}_t \\\\            \\vec{a}_C &amp;= r \\alpha \\,\\hat{e}_t            \\end{aligned}" background="True" title="Center velocity and acceleration while rolling on a flat surface (Tangential-Normal Basis)." id="rko-ef" derivation="True">
         <p>
             We begin by observing that the sign conventions in
-            Figure <a href="#rko-ff">#rko-ff</a> mean that
+            Figure <a href="#rolling_flat_surface">#rko-ff</a> mean that
             <InlineEquation equation="\\vec\\omega = -\\omega\\,\\hat{e}_b" />. Now rolling without
             slipping means the contact point \(A\) must
             instantaneously have zero velocity, so using <a
-            href="rkg.html#rkg-er">#rkg-er</a> gives:
+            href="/dyn/rigid_body_kinematics#rkg-er">#rkg-er</a> gives:
 
             <DisplayEquation equation="\\begin{aligned}            \\vec{v}_C &amp;= \\vec{v}_A + \\vec{\\omega} \\times \\vec{r}_{AC} \\\\            &amp;= (-\\omega \\,\\hat{e}_b) \\times r \\,\\hat{e}_n \\\\            &amp;= r \\omega \\,\\hat{e}_t.            \\end{aligned}" />
 
@@ -247,7 +247,7 @@ import CalloutContainer from "../../components/CalloutContainer.astro"
                 By definition of non-slip rolling contact, the point of
                 contact \(P\) has zero velocity. The acceleration can be
                 computed from the center \(C\) with <a
-                href="#rkg-e2">#rkg-e2</a>:
+                href="/dyn/rigid_body_kinematics#rkg-e2">#rkg-e2</a>:
     
                 <DisplayEquation equation="\\begin{aligned}            \\vec{a}_P &amp;= \\vec{a}_C + \\vec{\\alpha} \\times \\vec{r}_{CP}            + \\vec{\\omega} \\times (\\vec{\\omega} \\times \\vec{r}_{CP}) \\\\            &amp;= \\alpha r \\,\\hat{e}_t + (-\\alpha\\,\\hat{e}_b) \\times (-r\\,\\hat{e}_n)            + (-\\omega\\,\\hat{e}_b) \\times \\Big((-\\omega\\,\\hat{e}_b) \\times (-r\\,\\hat{e}_n)\\Big) \\\\            &amp;= \\alpha r \\,\\hat{e}_t - \\alpha r \\,\\hat{e}_t            + \\omega^2 r \\,\\hat{e}_n \\\\            &amp;= \\omega^2 \\,\\vec{r}_{PC}.            \\end{aligned}"/>
               </p>
