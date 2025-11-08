@@ -246,7 +246,7 @@ import DisplayTable from "../../components/DisplayTable.astro"
     <Warning id="rkg-wc" title="Cross product order">
         <p>
             Because cross products are <a
-            href="/dyn/vector_calculus#rvv-wc">not associative</a>, it is very
+            href="/dyn/vector_calculus#warning_rvv-wc">not associative</a>, it is very
             important to compute the centripetal acceleration term
             with the parentheses as shown. That is, we must not
             compute <InlineEquation equation="(\\vec{\\omega} \\times \\vec{\\omega}) \\times \\vec{r}_{PQ}" />, as this is always zero.
@@ -415,7 +415,7 @@ import DisplayTable from "../../components/DisplayTable.astro"
   
                 Evaluating <a href="#rkg-er">#rkg-er</a> and using the
                 cross-product expression <a
-                href="rvv.html#rvv-e9">#rvv-e9</a> now gives the
+                href="/dyn/vector_calculus#rvv-e9">#rvv-e9</a> now gives the
                 velocity expression:
   
                 <DisplayEquation equation="\\begin{aligned}  \\vec{v}_Q &amp;= \\vec{v}_P  + \\vec{\\omega} \\times \\vec{r}_{PQ} \\\\  &amp;= \\vec{v}_P  + \\omega\\,\\hat{k} \\times \\vec{r}_{PQ} \\\\  &amp;= \\vec{v}_P  + \\omega \\,\\vec{r}_{PQ}^\\perp,  \\end{aligned}" />
@@ -937,13 +937,13 @@ import DisplayTable from "../../components/DisplayTable.astro"
         We can use conservation of energy to obtain an expression for <InlineEquation equation="\\dot\\theta" />.  
     </p>
     <p>
-        Using <a href="#">the work-energy theorem</a>:
+        Using <a href="/dyn/work_and_energy#ren-eco">the work-energy theorem</a>:
         <DisplayEquation equation="        W = \\Delta T + \\Delta V        " />
 
     </p>
     <p>
         The rod is sliding along frictionless surfaces, so there are no non-conservative forces present,
-        and constraint forces do no work (See <a href="#">work done by a constraint force</a>)
+        and constraint forces do no work (See <a href="/dyn/work_and_energy#ren-wt">work done by a constraint force</a>)
     </p>
     <p>
         Therefore:
@@ -1014,7 +1014,7 @@ import DisplayTable from "../../components/DisplayTable.astro"
 
   <div slot="solution">
     <p>
-      We added one more assumption to the ones made in <a href="#rkc-xcp">#rkc-xcp</a>. Namely, the rope can only slip.
+      We added one more assumption to the ones made in <a href="#example_btn_rkc-xcp">#rkc-xcp</a>. Namely, the rope can only slip.
       This simply means that the tension is the same at any point in the rope.
   </p>
   <p>
@@ -1052,7 +1052,7 @@ import DisplayTable from "../../components/DisplayTable.astro"
       <DisplayEquation equation="            T - m_2 g = m_2 a_2      " />
   </p>
   <p>
-      We have 3 unknowns, 2 equations. We apply our constraint equation from <a href="#rkc-xcp">#rkc-xcp</a> to relate
+      We have 3 unknowns, 2 equations. We apply our constraint equation from <a href="#example_btn_rkc-xcp">#rkc-xcp</a> to relate
       the accelerations of <InlineEquation equation="m_1" /> and <InlineEquation equation="m_2" />:
       <DisplayEquation equation="      2a_1 + a_2 = 0      " />
 
