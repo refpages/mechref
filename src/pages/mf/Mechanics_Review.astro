@@ -1,0 +1,350 @@
+---
+import Layout from "../../layouts/Layout.astro"
+import Image from "../../components/Image.astro"
+import CalloutContainer from "../../components/CalloutContainer.astro"
+import Section from "../../components/Section.astro"
+import SubSection from "../../components/SubSection.astro"
+import SubSubSection from "../../components/SubSubSection.astro"
+import SubSubSubSection from "../../components/SubSubSubSection.astro"
+import OrangeText from "../../components/OrangeText.astro"
+import TealText from "../../components/TealText.astro"
+import Enumerate from "../../components/Enumerate.astro"
+import Item from "../../components/Item.astro"
+import Itemize from "../../components/Itemize.astro"
+import InlineEquation from "../../components/InlineEquation.astro"
+import DisplayEquation from "../../components/DisplayEquation.astro"
+
+import DisplayTable from "../../components/DisplayTable.astro"
+
+
+import Example from "../../components/Example.astro"
+import Row from "../../components/Row.astro"
+import Col from "../../components/Col.astro"
+---
+<Layout title="Mechanics_Review">
+    <div slot="navtree">
+        <ul class="list-group list-group-flush py-0">
+            <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Solid Mechanics Review'> Solid Mechanics Review</a><ul class='list-group list-group-flush py-0'>
+                <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Solid Mechanics Review Introduction'>Solid Mechanics Review Introduction</a></li>
+                <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Loads on Machines'>Loads on Machines</a></li>
+                <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Types of Stress'>Types of Stress</a></li>
+                <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Stress Transformations'>Stress Transformations</a></li>
+            </ul>
+        </ul>
+    </div>
+
+    <SubSection title=" Solid Mechanics Review" id=" Solid Mechanics Review">
+    </SubSection>
+    <SubSubSection title="Solid Mechanics Review Introduction" id="Solid Mechanics Review Introduction">
+        <p>To master topics related to machine failure, it is important to have a solid baseline intuition with concepts from introductory engineering mechanics, especially static loading and the resulting stresses produced in solid bodies. This document covers these topics as a preliminary review before the core material of the course.</p>
+    </SubSubSection>
+    <SubSubSection title="Loads on Machines" id="Loads on Machines">
+        <p><strong>Free-Body Diagrams</strong></p>
+        <p>The first step in solving any loading problem is drawing a Free-Body Diagram (FBD). To consistently create reliable diagrams and avoid small errors, one should follow these steps:</p>
+        <Enumerate>
+
+            <Item>Show the general shape of the body under consideration</Item>
+            <Item>Display all forces and moments acting on it</Item>
+            <Item>Include relevant dimensions and angles</Item>
+
+        </Enumerate>
+        <p>When one body exerts a force on another, we use an index convention where the first subscript is the <strong>body the force acts on</strong>, and the second subscript is the <strong>body exerting the force</strong>:</p>
+
+        <DisplayEquation equation="F_{ab}=\\text{Force on a, exerted by b}" title="" />
+
+
+        <Example id="EX1" title="Example: Stacked Boxes" solution="True">
+            <div class="d-flex flex-row">
+                <Row>
+                    <Col values="12 md-4">
+                        <p>
+                            Two boxes are stacked on the ground. Draw a free body diagram for each box.
+                        </p>
+                    </Col>
+                    <Col values="12 md-8">
+                        <Image src='/mf/Mechanics_Review/Loads on Machines/boxesstack.png' width='7'></Image>
+                    </Col>
+                </Row>
+            </div>
+            <div slot="solution">
+                <p>For Box 1, there is a downward gravitational force and an upward contact force from Box 2. The FBD should look like this:</p>
+                <Image src='/mf/Mechanics_Review/Loads on Machines/box1fbd.png' width='7'></Image>
+                <p>For Box 2, there is a downward gravitational force, a downward contact force from Box 1, and an upward contact force from the ground. The FBD should look like this:</p>
+                <Image src='/mf/Mechanics_Review/Loads on Machines/box2fbd.png' width='7'></Image>
+                <p>Note the index notation in each diagram. The force on box 2 from box one is labeled as <InlineEquation equation="F_{21}" /> and vice versa.</p>
+            </div>
+        </Example>
+
+        <p><strong>Equilibrium Equations:</strong>></p>
+        <p>When analyzing static loading on machines, we assume they are in equilibrium. With these conditions, the following equations apply:</p>
+
+        <DisplayEquation equation="\\sum F_x =0" title="" />
+
+
+        <DisplayEquation equation="\\sum F_y =0" title="" />
+
+
+        <DisplayEquation equation="\\sum M =0" title="" />
+
+        <p>To study the way materials respond to loads, it is crucial to identify the resulting <em>internal</em>  forces within the object, including normal force, shear force, and bending moment. To draw internal loads consistently, one should follow this sign convention:</p>
+
+        <Image src='/mf/Mechanics_Review/Loads on Machines/signconvention.png' width='7'></Image>
+
+        <p>According to the sign convention, a segment experiencing positive shear force will have a downward slant, and one experiencing positive bending moment will have an upward curve:</p>
+
+        <Image src='/mf/Mechanics_Review/Loads on Machines/shearbendingconvention.png' width='7'> Image caption</Image>
+
+
+        <Example id="EX2" title="Example: Cantilever Beam with Central Weight" solution="True">
+            <div class="d-flex flex-row">
+                <Row>
+                    <Col values="12 md-4">
+                        <p>A rock of mass <InlineEquation equation="m_r" /> sits on the center of a massless cantilever beam of length L. Find and analyze the normal load, shear load, and bending moment at the left end of the beam.</p>
+                    </Col>
+                    <Col values="12 md-8">
+                        <Image src='/mf/Mechanics_Review/figures/Loads on Machines/beamsetup.png' width='7'></Image>
+                    </Col>
+                </Row>
+            </div>
+            <div slot="solution">
+                <p>We start by creating a free body diagram of the beam, using the following information from the setup:</p>
+                <Itemize>
+
+                    <Item>Forces include the weight of the rock and the reaction forces from supports.</Item>
+                    <Item>Fixed support on left side - vertical force, horizontal force, and bending moment</Item>
+                    <Item>No support on right side - no reaction forces</Item>
+
+                </Itemize>
+                <p>Additionally, to maintain a consistent approach, we will assume each of the reaction loads are positive and draw them according to the sign convention. The resulting FBD looks like this:</p>
+
+                <p>Additionally, to maintain a consistent approach, we will assume each of the reaction loads are positive and draw them according to the sign convention. The resulting FBD looks like this:</p>
+                <Image src='/mf/Mechanics_Review/Loads on Machines/beamfbd.png' width='7'></Image>
+                <p>Next, we can use this FBD and the three key equilibrium equations to find each load on the left end of the beam.</p>
+                <p><strong>Horizontal:</strong></p>
+                <p>Apply the equilibrium equation in the horizontal direction.</p>
+                <DisplayEquation equation="\\sum F_y=-R_x=0 \\xrightarrow{} R_x=0" title="" />
+
+
+                <p><strong>Vertical </strong></p>
+                <p>Apply the equilibrium equation in the vertical direction.</p>
+
+                <DisplayEquation equation="\\sum F_y=R_y-m_rg=0 \\xrightarrow{} R_y=m_rg" title="" />
+
+
+                <p><strong>Moment</strong></p>
+                <p>To apply the moment equilibrium equation, we need to calculate the moment about a specific point. One convenient strategy is to choose the point at the center of the beam (as in point A marked in the FBD). Then, the weight of the rock has no effect on the moment, and the resulting equation follows:</p>
+
+                <DisplayEquation equation="\\sum M_A=M+R_y\\left(\\frac{L}{2}\\right)=0 \\xrightarrow{} M=-\\frac{R_yL}{2}" title="" />
+
+                <p>Note that the shear (vertical) force is positive as assumed, while the bending moment is negative. Looking back at the sign conventions, this means the beam should experience a downward slant and a downward bend on the left end:</p>
+
+                <Image src='/mf/Mechanics_Review/Loads on Machines/shearbendingconvention.png' width='7'></Image>
+
+                <p>This aligns with intuition as we would imagine the beam to deflect downward if pushed down from the center.</p>
+
+                <Image src='/mf/Mechanics_Review/Loads on Machines/beamdeflected.png' width='7'></Image>
+
+            </div>
+        </Example>
+
+
+
+        <p><strong>Work and Power</strong></p>
+        <p>As you may remember from introductory physics courses, power is the rate of change of energy transfer over time. It can be described by the equation</p>
+
+        <DisplayEquation equation="\\dot W = F \\cdot V," title="" />
+
+        <p>where <InlineEquation equation="F" /> is the force applied at a point, <InlineEquation equation="V" /> is the velocity of that point, <InlineEquation equation="\\theta" /> is the angle between <InlineEquation equation="F" /> and <InlineEquation equation="V" />, and <InlineEquation equation="\\dot{W}" /> is the power transferred.</p>
+
+        <Image src='/mf/Mechanics_Review/Loads on Machines/powernotparallel.png' width='7'></Image>
+
+        <p>Assuming that the force and velocity are parallel, the equation simplifies to</p>
+
+        <DisplayEquation equation="\\dot W = F V." title="" />
+
+        <Image src='/mf/Mechanics_Review/Loads on Machines/powerparallel.png' width='7'></Image>
+
+        <p>Making sure to use consistent units, conversion factors can be built into the formula, as shown in this table:</p>
+
+        <DisplayTable id="id" class_="mb-3">
+            <thead>
+            <tr>
+                <th class="table-shaded">Unit System</th>
+                <th class="table-shaded">Metric</th>
+                <th class="table-shaded">Imperial</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td><strong>Formula</strong></td>
+                <td><InlineEquation equation="\\dot W = \\frac{F V}{1000}" /></td>
+                <td><InlineEquation equation="\\dot W = \\frac{F V}{33,000}" /></td>
+            </tr>
+            <tr>
+                <td><strong>Force Unit</strong></td>
+                <td><InlineEquation equation="N" /></td>
+                <td><InlineEquation equation="lbf" /></td>
+            </tr>
+            <tr>
+                <td><strong>Velocity Unit</strong></td>
+                <td><InlineEquation equation="m/s" /></td>
+                <td><InlineEquation equation="ft/min" /></td>
+            </tr>
+            <tr>
+                <td><strong>Power Unit</strong></td>
+                <td><InlineEquation equation="kW" /></td>
+                <td><InlineEquation equation="hp" /></td>
+            </tr>
+            </tbody>
+        </DisplayTable>
+
+
+        <p><strong>Gear Torque/Speed Ratios</strong></p>
+        <p>In the analysis of rotating objects, power can be calculated with the equation</p>
+
+        <DisplayEquation equation="\\dot W = \\tau \\omega," title="" />
+
+        <p>where <InlineEquation equation="\\tau" /> is the torque applied to the object and <InlineEquation equation="\\omega" /> is its rotational speed.</p>
+
+        <Image src='/mf/Mechanics_Review/Loads on Machines/rotationalpower.png' width='7'></Image>
+
+        <p>In a system of gears with negligible frictional losses,</p>
+
+        <DisplayEquation equation="\\dot W_{in}=\\dot W_{out} = \\tau_{in}\\omega_{in}=\\tau_{out}\\omega_{out}." title="" />
+
+        <p>Rearranging this expression, we get</p>
+
+        <DisplayEquation equation="\\tau_{out}=\\tau_{in} \\frac{\\omega_{in}}{\\omega_{out}}." title="" />
+
+        <p>Note that these are just magnitudes. The signs of the angular velocities and torques may change depending on the setup of the system.</p>
+    </SubSubSection>
+
+    <SubSubSection title="Types of Stress" id="Types of Stress">
+        <p><strong>Stress Elements</strong></p>
+        <p>To represent the state of stress at a chosen point on an object, we draw infinitesimal stress elements. Two-dimensional stress elements for objects with both normal and shear stresses will look something like this:</p>
+
+        <Image src='/mf/Mechanics_Review/Types of Stress/2Dstresselement.png' width='7'></Image>
+
+        <p>If the object has a three-dimensional stress state, the stress element will take the form of a cube instead, like this:</p>
+
+        <Image src='/mf/Mechanics_Review/Types of Stress/3Dstresselement.png' width='7'></Image>
+
+        <p>Notice that positive normal stress is indicated with arrows pointing outward from the faces, and positive shear stress is indicated with arrows converging on the top-right and bottom-left edges.</p>
+        <p>Also note that each shear stress is represented by four arrows lying in the same plane, which is required to cancel out the moments in the element, as expected for an object in equilibrium.</p>
+
+
+        <p><strong>Axial Stress</strong></p>
+        <p>Axial stress is a type of normal stress results from direct normal loading - tension and compression.</p>
+
+        <Image src='/mf/Mechanics_Review/Types of Stress/axialstress.png' width='7'></Image>
+
+        <p>The axial stress is distributed evenly at every point across the face, given by:</p>
+
+        <DisplayEquation equation="\\sigma=\\frac{F}{A}," title="" />
+
+        <p>where <InlineEquation equation="F" /> is the internal normal force and <InlineEquation equation="A" /> is the area of a cross section normal to the force.</p>
+
+        <p><strong>Bending Stress</strong></p>
+        <p>A bending moment creates an uneven distribution of normal stress across the face of a beam.</p>
+
+        <Image src='/mf/Mechanics_Review/Types of Stress/bendingstress.png' width='7'></Image>
+
+
+        <p>Bending stress at a point is a function of distance from the neutral axis, given by the equation</p>
+
+        <DisplayEquation equation="\\sigma=-\\frac{My}{I}," title="" />
+
+        <p>where <InlineEquation equation="M" /> is the bending moment, <InlineEquation equation="y" /> is the distance <strong>above</strong> the neutral axis, and <InlineEquation equation="I" /> is the second moment of area of the cross section.</p>
+
+        <p>Notice that with a positive bending moment, at the top of the beam (positive y) there will be a negative stress. This aligns with our sign convention where a positive bending moment represents an upward bend, so the top of the beam is compressed while the bottom is stretched.</p>
+
+        <p><strong>Torsional Stress</strong></p>
+        <p>A torsion (twisting) force on a beam will also cause an uneven stress distribution. However, it will create a shear stress, not a normal stress.</p>
+
+        <Image src='/mf/Mechanics_Review/Types of Stress/torsion.png' width='7'></Image>
+        <Image src='/mf/Mechanics_Review/Types of Stress/torsionconvention.png' width='7'></Image>
+
+        <p>Generally, stress is greater for areas of the object farther from the axis of rotation. The shear stress at a point on a cylinder is given by the formula</p>
+
+        <DisplayEquation equation="\\tau=\\frac{Tr}{J}," title="" />
+
+        <p>where <InlineEquation equation="T" /> is the applied torque, <InlineEquation equation="r" /> is the distance from the central axis, and <InlineEquation equation="J" /> is the polar moment of inertia of the cross section.</p>
+
+        <p><strong>Transverse Shear</strong></p>
+        <p>Transverse shear stress is caused by forces acting perpendicular to the axis of a beam.</p>
+
+        <Image src='/mf/Mechanics_Review/Types of Stress/transverseshear.png' width='7'></Image>
+
+        <p>This type of stress is also not uniform across the cross section, but unlike bending and torsional stress, it is highest at the center of the beam and lowest at the edges. Transverse shear stress at a point is given by the formula</p>
+
+        <DisplayEquation equation="\\tau=\\frac{VQ}{It}," title="" />
+
+        <p>Where <InlineEquation equation="Q" /> is the first moment of area for the part of the cross section <strong>between the point and the edge of the beam</strong>, <InlineEquation equation="I" /> is the moment of inertia of the <strong>entire cross section</strong>, <InlineEquation equation="V" /> is the total shear force, and <InlineEquation equation="t" /> is the thickness.</p>
+
+        <!--<p>[Maybe include combined loading example problem?]</p>-->
+    </SubSubSection>
+    <SubSubSection title="Stress Transformations" id="Stress Transformations">
+        <p>Mohr's circle in 2D and 3D (review or reuse materials from TAM)</p>
+        <p>\bigskip</p>
+        <p><strong>Principle Stress</strong></p>
+        <p>If we rotate our coordinate system around a stress element, it changes which stresses as normal stresses vs shear stress. For any state of stress, it is possible to find an angle where the normal stress is maximized and there is no shear stress. These maximized normal stresses are known as principle stresses, and the angle of the coordinate system with respect to the original system is the principle angle.</p>
+
+        <Image src='/mf/Mechanics_Review/Stress Transformations/principlestress2D.png' width='7'></Image>
+
+        <p>With known normal and shear stresses in one coordinate system, the principle stresses and principle angle can be directly calculated with these formulas:</p>
+
+        <DisplayEquation equation="\\sigma_{1,2}=\\frac{\\sigma_x+\\sigma_y}{2}\\pm\\sqrt{\\left(\\frac{\\sigma_x-\\sigma_y}{2}\\right)^2+\\tau_{xy}^2}," title="" />
+
+
+        <DisplayEquation equation="\\theta_p=\\frac{1}{2}\\tan^{-1}\\left(\\frac{2\\tau_{xy}}{\\sigma_x-\\sigma_y}\\right)." title="" />
+
+
+        <p><strong>Maximum Shear Stress</strong></p>
+        <p>We can also find a coordinate system with maximum shear stress. However, at the point of maximum shear stress, the normal stresses do not disappear. Instead, this is the point of <strong>average</strong> normal stress, where the normal stress on one axis is equal to that of the perpendicular axis.</p>
+
+        <Image src='/mf/Mechanics_Review/Stress Transformations/maxshearstress.png' width='7'></Image>
+
+        <p>To calculate the maximum shear stress and angle, use these formulas:</p>
+
+        <DisplayEquation equation="|\\tau_{max}|=\\sqrt{\\left(\\frac{\\sigma_x-\\sigma_y}{2}\\right)^2+\\tau_{xy}^2}," title="" />
+
+
+        <DisplayEquation equation="\\theta_s=\\theta_p\\pm45\\degree." title="" />
+
+
+        <p><strong>Mohr's Circle</strong></p>
+<p>Mohr's circle is a graphical representation of stress transformations. The equations for stress transformations actually describe a circle if we consider the normal stress <InlineEquation equation="\\sigma" /> to be the x-coordinate and the shear stress <InlineEquation equation="\\tau" /> to be the y-coordinate.</p>
+
+            <Image src='/mf/Mechanics_Review/Stress Transformations/mohrcircle371.png' width='7'></Image>
+
+            <p>Here, we choose two points to form opposite ends of a circle: point <InlineEquation equation="X" /> at <InlineEquation equation="(\\sigma_x, -\\tau_{x,y})" /> and point Y at <InlineEquation equation="(\\sigma_y, \\tau_{x,y})" />. With this constructed circle, we can easily find the principle stresses and maximum shear stress using the x-value of the center point <InlineEquation equation="C" /> and the length of the radius <InlineEquation equation="R" />. More precisely, the following relationships are true:</p>
+
+            <DisplayEquation equation="C=\\sigma_{avg}=\\frac{\\sigma_x+\\sigma_y}{2}=\\frac{\\sigma_1+\\sigma_2}{2}" title="" />
+
+
+            <DisplayEquation equation="R=\\sqrt{\\left(\\frac{\\sigma_x-\\sigma_y}{2}\\right)^2+\\tau_{xy}^2}," title="" />
+
+
+            <DisplayEquation equation="\\sigma_{1,2}=C \\pm R" title="" />
+
+
+            <DisplayEquation equation="|\\tau_{max}|=R" title="" />
+
+            <p><strong>Mohr's Circle in 3D</strong></p>
+<p>In reality, every stress state has stresses in three dimensions and therefore has three principle stresses. When we bring in 3D stress transformations, we get some new insights, even if <InlineEquation equation="\\sigma_3=0" />.</p>
+                <p>To construct Mohr's Circle in 3D, we need to draw three circles using the known principle stresses in each dimension:</p>
+                <Itemize>
+
+                    <Item>Connect <InlineEquation equation="\\sigma_1" /> and <InlineEquation equation="\\sigma_2" /></Item>
+                    <Item>Connect <InlineEquation equation="\\sigma_2" /> and <InlineEquation equation="\\sigma_3" /></Item>
+                    <Item>Connect <InlineEquation equation="\\sigma_1" /> and <InlineEquation equation="\\sigma_3" /></Item>
+
+                </Itemize>
+
+                <Image src='/mf/Mechanics_Review/Stress Transformations/mohrcircle3d.png' width='7'></Image>
+
+                <p>Just as the radius of original circle (connecting <InlineEquation equation="\\sigma_1" /> and <InlineEquation equation="\\sigma_2" />) represents the maximum <strong>in-plane</strong> shear stress, the radius of the largest circle represents the maximum <strong>absolute</strong> shear stress.</p>
+                <p>Note that <InlineEquation equation="\\sigma_3" /> is not always <InlineEquation equation="\\sigma_z" />. By convention, the principle stress with the highest value is labeled <InlineEquation equation="\\sigma_1" />, and the one with the lowest value is labeled <InlineEquation equation="\\sigma_3" />.</p>
+
+                </SubSubSection>
+                </Layout>
