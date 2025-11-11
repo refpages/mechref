@@ -1,11 +1,11 @@
 ---
 import Layout from "../../layouts/Layout.astro" 
 import Image from "../../components/Image.astro" 
+import CalloutContainer from "../../components/CalloutContainer.astro" 
 import Section from "../../components/Section.astro" 
 import SubSection from "../../components/SubSection.astro" 
 import SubSubSection from "../../components/SubSubSection.astro" 
 import SubSubSubSection from "../../components/SubSubSubSection.astro" 
-import CalloutContainer from "../../components/CalloutContainer.astro" 
 import OrangeText from "../../components/OrangeText.astro" 
 import TealText from "../../components/TealText.astro" 
 import Enumerate from "../../components/Enumerate.astro" 
@@ -165,7 +165,7 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
 <p>\documentclass[12pt]{article}</p>
 <SubSection title="Product Design Specifications (PDS)" id="Product Design Specifications (PDS)">
 <p><SubSection title="What is a PDS?"></p>
-<p>A Product Design Specification (PDS) is a structured document that defines the a distinct set of requirements to be met by all aspects of an enterprise to achieve a successful new product. At a high level, the PDS states <strong>what</strong> the product should do or meet, but <strong>not how</strong> it is achieved.</p>
+<p>A Product Design Specification (PDS) is a structured document that defines the a distinct set of requirements to be met by all aspects of an enterprise to achieve a successful new product. At a high level, the PDS states \textbf{what} the product should do or meet, but \textbf{not how} it is achieved.</p>
 <p>\setlength{\parskip}{1em}</p>
 <p>\callout</p>
 <p>For example, a new bike lock is desired. An environmental consideration you might specify in the PDS for this product could be "corrosion resistance." This requirement could be met through various solutions, such as stainless steel usage, protective coatings, galvanization, etc. The PDS does not need to dictate the solution, but rather defines the performance requirement.</p>
@@ -176,13 +176,13 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
 <p>Some key benefits of a PDS include the following:</p>
 <Itemize>
 
-    <Item><strong>Unifying Document:</strong> Reconciles what marketing requests, what engineering designs, what sales orders, what is manufactured, and what is installed</Item>
-    <Item><strong>Main Control Mechanism:</strong> When combined with effective product reviews, the PDS controls product development activities</Item>
-    <Item><strong>Communication Tool:</strong> Prevents interdepartmental miscommunication that leads to products not meeting customer needs</Item>
-    <Item><strong>Decision Criteria:</strong> Provides criteria for making design, manufacturing, and business decisions</Item>
+    <Item>\textbf{Unifying Document:} Reconciles what marketing requests, what engineering designs, what sales orders, what is manufactured, and what is installed</Item>
+    <Item>\textbf{Main Control Mechanism:} When combined with effective product reviews, the PDS controls product development activities</Item>
+    <Item>\textbf{Communication Tool:} Prevents interdepartmental miscommunication that leads to products not meeting customer needs</Item>
+    <Item>\textbf{Decision Criteria:} Provides criteria for making design, manufacturing, and business decisions</Item>
 
 </Itemize>
-<p>The PDS \emph{evolves over time}. The PDS is not a static document. It evolves and changes throughout the product development process. A multidisciplinary team can utilize the structure of a PDS to be aware of changes across all business areas.</p>
+<p>The PDS <strong>evolves over time</strong>. The PDS is not a static document. It evolves and changes throughout the product development process. A multidisciplinary team can utilize the structure of a PDS to be aware of changes across all business areas.</p>
 </SubSubSection>
 <SubSection title="The Design Boundary: 29 Primary Elements" id="The Design Boundary: 29 Primary Elements">
 <p>The following 29 elements help prepare a comprehensive PDS. Each element should be considered and documented as applicable to your product.</p>
@@ -191,17 +191,17 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
 <p>Consider the following factors:</p>
 <Itemize>
 
-    <Item><strong>Speed:</strong> Maximum/minimum operating speeds</Item>
-    <Item><strong>Operating Mode:</strong> Continuous or intermittent use</Item>
-    <Item><strong>Loadings:</strong> Electrical, hydraulic, pneumatic, or mechanical forces</Item>
-    <Item><strong>Precision:</strong> Accuracy, repeatability, resolution</Item>
-    <Item><strong>Tolerances:</strong> Acceptable variations in performance</Item>
+    <Item>\textbf{Speed:} Maximum/minimum operating speeds</Item>
+    <Item>\textbf{Operating Mode:} Continuous or intermittent use</Item>
+    <Item>\textbf{Loadings:} Electrical, hydraulic, pneumatic, or mechanical forces</Item>
+    <Item>\textbf{Precision:} Accuracy, repeatability, resolution</Item>
+    <Item>\textbf{Tolerances:} Acceptable variations in performance</Item>
 
 </Itemize>
 <p>\callout</p>
 <p>For the bike lock example, one might specify that the lock must resist at least 3,000 lbs of shearing force, or that it must operate in temperatures from -20\textdegree C to 50\textdegree C.  These specifications define product features rather than the ways in which those might be achieved.</p>
 <p>\callout</p>
-<p><strong>Note:</strong> Be as specific as possible while specifying PDS elements! Vague phrases such as "strong" or "durable" must be avoided to increase the efficiency of the design process. Go back to your user needs and specifications if you need help being more specific. If it isn't measurable in some way, then it is not possible to verify your product meets the specification.</p>
+<p>\textbf{Note:} Be as specific as possible while specifying PDS elements! Vague phrases such as "strong" or "durable" must be avoided to increase the efficiency of the design process. Go back to your user needs and specifications if you need help being more specific. If it isn't measurable in some way, then it is not possible to verify your product meets the specification.</p>
 </SubSubSection>
 <SubSubSection title="2. Environment" id="2. Environment">
 <p>Any product might encounter a variety of environments during its lifetime including:</p>
@@ -224,14 +224,14 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
 <p>Service life defines how long the product should remain functional and against what criteria. Measurement criteria could include calendar time, operating hours, distance traveled, number of cycles or revolutions, etc. Some considerations while determining the service life of a product are the following:</p>
 <Itemize>
 
-    <Item><strong>Short service life benefits:</strong> Higher product turnover, job creation, lower costs, customers enjoy new products</Item>
-    <Item><strong>Long service life benefits:</strong> Enhanced brand image, meets consumer quality expectations, environmental sustainability, reduced resource waste</Item>
+    <Item>\textbf{Short service life benefits:} Higher product turnover, job creation, lower costs, customers enjoy new products</Item>
+    <Item>\textbf{Long service life benefits:} Enhanced brand image, meets consumer quality expectations, environmental sustainability, reduced resource waste</Item>
 
 </Itemize>
 <p>\callout</p>
 <p>As a product engineer, you might design the bike lock to maintain full functionality for at least 10 years under normal use, which could correspond to approximately 15,000 lock–unlock cycles.</p>
 <p>\callout</p>
-<p><strong>Note:</strong> Service life is different from the shelf life of a product! While shelf life includes the time that the product remains unused, service life only considers the time over which the product remains in use.</p>
+<p>\textbf{Note:} Service life is different from the shelf life of a product! While shelf life includes the time that the product remains unused, service life only considers the time over which the product remains in use.</p>
 </SubSubSection>
 <SubSubSection title="4. Maintenance" id="4. Maintenance">
 <p>Not every product will remain maintenance-free throughout its lifetime. When developing the PDS, the designer should clearly define the product’s maintenance philosophy and associated requirements. Some key questions to consider are listed below:</p>
@@ -274,13 +274,13 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
 
 </Itemize>
 <p>\callout</p>
-<strong>Bike Lock Example</strong>
+<p>\textbf{Bike Lock Example}</p>
     <Itemize>
 
-        <Item><strong>Target Manufacturing Cost:</strong> $8.50 per unit (at 50,000 units/year)</Item>
-        <Item><strong>Tooling Investment:</strong> $75,000 (recovered over 2 years)</Item>
-        <Item><strong>Retail Price Target:</strong> $29.99 (competitive with mid-range locks)</Item>
-        <Item><strong>Profit Margin:</strong> 40\</Item>
+        <Item>\textbf{Target Manufacturing Cost:} $8.50 per unit (at 50,000 units/year)</Item>
+        <Item>\textbf{Tooling Investment:} $75,000 (recovered over 2 years)</Item>
+        <Item>\textbf{Retail Price Target:} $29.99 (competitive with mid-range locks)</Item>
+        <Item>\textbf{Profit Margin:} 40\</Item>
 
 </Itemize>
 <p>\callout</p>
@@ -313,12 +313,12 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
 <p>\callout</p>
 </SubSubSubSection>
 <SubSubSubSection title="Bike Lock Example" id="Bike Lock Example">
-<strong>Competitive Landscape:</strong>
+<p>\textbf{Competitive Landscape:}</p>
 <Itemize>
 
-    <Item><strong>Major Competitors:</strong> Kryptonite, ABUS, OnGuard, Master Lock</Item>
-    <Item><strong>Price Range:</strong> $15-$200 for U-locks</Item>
-    <Item><strong>Key Features Analysis:</strong> </Item>
+    <Item>\textbf{Major Competitors:} Kryptonite, ABUS, OnGuard, Master Lock</Item>
+    <Item>\textbf{Price Range:} $15-$200 for U-locks</Item>
+    <Item>\textbf{Key Features Analysis:} </Item>
 <p>\begin{itemize}</p>
         <Item>Security ratings (Sold Secure, ART)</Item>
         <Item>Weight: 1.5-4.5 lbs for comparable products</Item>
@@ -327,8 +327,8 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
         <Item>Key vs. combination locks</Item>
 
 </Itemize>
-<p>\item <strong>Market Gap Identified:</strong> No mid-priced lock with integrated GPS tracking and smartphone alerts</p>
-<p>\item <strong>Differentiation Strategy:</strong> Smart features at traditional lock pricing</p>
+<p>\item \textbf{Market Gap Identified:} No mid-priced lock with integrated GPS tracking and smartphone alerts</p>
+<p>\item \textbf{Differentiation Strategy:} Smart features at traditional lock pricing</p>
 <p>\end{itemize}</p>
 <p>\callout</p>
 </SubSubSubSection>
@@ -355,14 +355,14 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
 <SubSubSubSection title="Bike Lock Example" id="Bike Lock Example">
 <Itemize>
 
-    <Item><strong>Primary Distribution:</strong> Bulk shipment to regional warehouses, then to retail stores</Item>
-    <Item><strong>Secondary Distribution:</strong> Direct-to-consumer via e-commerce (20\</Item>
-    <Item><strong>Transportation:</strong> Truck freight (domestic), container ship (international)</Item>
-    <Item><strong>Pallet Configuration:</strong> 200 units per pallet</Item>
-    <Item><strong>Package Dimensions:</strong> 8" × 4" × 2" per retail package (fits standard carrier boxes)</Item>
-    <Item><strong>Shipping Weight:</strong> 2.2 lbs per unit (packaged)</Item>
-    <Item><strong>International:</strong> ISO container compatible; no special handling required</Item>
-    <Item><strong>Cost Constraint:</strong> Package size optimized to minimize dimensional weight charges for e-commerce</Item>
+    <Item>\textbf{Primary Distribution:} Bulk shipment to regional warehouses, then to retail stores</Item>
+    <Item>\textbf{Secondary Distribution:} Direct-to-consumer via e-commerce (20\</Item>
+    <Item>\textbf{Transportation:} Truck freight (domestic), container ship (international)</Item>
+    <Item>\textbf{Pallet Configuration:} 200 units per pallet</Item>
+    <Item>\textbf{Package Dimensions:} 8" × 4" × 2" per retail package (fits standard carrier boxes)</Item>
+    <Item>\textbf{Shipping Weight:} 2.2 lbs per unit (packaged)</Item>
+    <Item>\textbf{International:} ISO container compatible; no special handling required</Item>
+    <Item>\textbf{Cost Constraint:} Package size optimized to minimize dimensional weight charges for e-commerce</Item>
 
 </Itemize>
 <p>\callout</p>
@@ -391,10 +391,10 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
 <SubSubSubSection title="Bike Lock Example" id="Bike Lock Example">
 <Itemize>
 
-    <Item><strong>Year 1 Target:</strong> 25,000 units</Item>
-    <Item><strong>Year 2 Target:</strong> 50,000 units</Item>
-    <Item><strong>Year 3-5 Target:</strong> 75,000 units annually</Item>
-    <Item><strong>Design Implications:</strong> </Item>
+    <Item>\textbf{Year 1 Target:} 25,000 units</Item>
+    <Item>\textbf{Year 2 Target:} 50,000 units</Item>
+    <Item>\textbf{Year 3-5 Target:} 75,000 units annually</Item>
+    <Item>\textbf{Design Implications:} </Item>
 <p>\begin{itemize}</p>
         <Item>Die-cast lock body (economical at 50K+ units)</Item>
         <Item>Injection-molded protective cover</Item>
@@ -438,16 +438,16 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
 <SubSubSubSection title="Bike Lock Example" id="Bike Lock Example">
 <Itemize>
 
-    <Item><strong>Packaging Type:</strong> Clamshell blister pack with cardboard backer</Item>
-    <Item><strong>Cost Target:</strong> $0.85 per package (10\</Item>
-    <Item><strong>Protection Requirements:</strong> </Item>
+    <Item>\textbf{Packaging Type:} Clamshell blister pack with cardboard backer</Item>
+    <Item>\textbf{Cost Target:} $0.85 per package (10\</Item>
+    <Item>\textbf{Protection Requirements:} </Item>
 <p>\begin{itemize}</p>
         <Item>Prevent scratching of lock body during shipping</Item>
         <Item>Moisture barrier for corrosion prevention</Item>
         <Item>Drop-test rated packaging</Item>
 
 </Itemize>
-<p>\item <strong>Retail Display:</strong></p>
+<p>\item \textbf{Retail Display:}</p>
     <Itemize>
 
         <Item>Hang-sell configuration</Item>
@@ -455,9 +455,9 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
         <Item>Clear view of product</Item>
 
 </Itemize>
-<p>\item <strong>Sustainability:</strong> 60\</p>
-<p>\item <strong>Dimensions:</strong> Standardized to retail hanging systems</p>
-<p>\item <strong>Anti-Theft:</strong> Difficult to remove from package without damage</p>
+<p>\item \textbf{Sustainability:} 60\</p>
+<p>\item \textbf{Dimensions:} Standardized to retail hanging systems</p>
+<p>\item \textbf{Anti-Theft:} Difficult to remove from package without damage</p>
 <p>\end{itemize}</p>
 <p>\callout</p>
 </SubSubSubSection>
@@ -482,30 +482,30 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
 <SubSubSubSection title="Bike Lock Example" id="Bike Lock Example">
 <Itemize>
 
-    <Item><strong>Facility:</strong> Existing manufacturing plant with metal forming capabilities</Item>
-    <Item><strong>Existing Capacity:</strong> </Item>
+    <Item>\textbf{Facility:} Existing manufacturing plant with metal forming capabilities</Item>
+    <Item>\textbf{Existing Capacity:} </Item>
 <p>\begin{itemize}</p>
         <Item>Die casting equipment (currently at 70\</Item>
         <Item>CNC machining centers (available capacity)</Item>
         <Item>Heat treatment furnaces (in-house)</Item>
 
 </Itemize>
-<p>\item <strong>New Equipment Needed:</strong></p>
+<p>\item \textbf{New Equipment Needed:}</p>
     <Itemize>
 
         <Item>Lock cylinder assembly station ($25K investment)</Item>
         <Item>UV coating line for weather protection ($40K investment)</Item>
 
 </Itemize>
-<p>\item <strong>Make vs. Buy:</strong></p>
+<p>\item \textbf{Make vs. Buy:}</p>
     <Itemize>
 
         <Item>Make: Lock body, shackle, mounting bracket (core competencies)</Item>
         <Item>Buy: Lock cylinders, keys, rubber protective cover (specialized suppliers)</Item>
 
 </Itemize>
-<p>\item <strong>Assembly:</strong> Semi-automated assembly line in existing facility</p>
-<p>\item <strong>Quality Control:</strong> Leverage existing testing infrastructure</p>
+<p>\item \textbf{Assembly:} Semi-automated assembly line in existing facility</p>
+<p>\item \textbf{Quality Control:} Leverage existing testing infrastructure</p>
 <p>\end{itemize}</p>
 <p>\callout</p>
 </SubSubSubSection>
@@ -517,9 +517,9 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
 <SubSubSubSection title="Size Considerations" id="Size Considerations">
 <Itemize>
 
-    <Item><strong>Maximum Size:</strong> Portability, storage, access limitations, user preference</Item>
-    <Item><strong>Minimum Size:</strong> Ergonomic requirements, functionality constraints</Item>
-    <Item><strong>Optimum Size:</strong> User surveys, market standards, compatibility requirements</Item>
+    <Item>\textbf{Maximum Size:} Portability, storage, access limitations, user preference</Item>
+    <Item>\textbf{Minimum Size:} Ergonomic requirements, functionality constraints</Item>
+    <Item>\textbf{Optimum Size:} User surveys, market standards, compatibility requirements</Item>
 
 </Itemize>
 </SubSubSubSection>
@@ -536,19 +536,19 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
 <SubSubSubSection title="Bike Lock Example" id="Bike Lock Example">
 <Itemize>
 
-    <Item><strong>Overall Dimensions:</strong> </Item>
+    <Item>\textbf{Overall Dimensions:} </Item>
 <p>\begin{itemize}</p>
         <Item>Shackle opening: 4" × 9" (fits most bike frames and fixed objects)</Item>
         <Item>Shackle diameter: 13mm (balance between security and weight)</Item>
         <Item>Lock body: 2.5" × 3.5" × 1.2"</Item>
 
 </Itemize>
-<p>\item <strong>Portability:</strong> Must fit in jersey pocket or small backpack</p>
-<p>\item <strong>Weight with Mounting Bracket:</strong> Complete system under 3 lbs</p>
-<p>\item <strong>Ergonomic Minimum:</strong> Key grip area minimum 0.75" diameter</p>
-<p>\item <strong>Market Research:</strong> Users prefer compact designs but prioritize security over extreme minimization</p>
-<p>\item <strong>Compatibility:</strong> Sized to secure bike frame + wheel to standard bike racks</p>
-<p>\item <strong>Storage:</strong> Fits standard bike frame mounts</p>
+<p>\item \textbf{Portability:} Must fit in jersey pocket or small backpack</p>
+<p>\item \textbf{Weight with Mounting Bracket:} Complete system under 3 lbs</p>
+<p>\item \textbf{Ergonomic Minimum:} Key grip area minimum 0.75" diameter</p>
+<p>\item \textbf{Market Research:} Users prefer compact designs but prioritize security over extreme minimization</p>
+<p>\item \textbf{Compatibility:} Sized to secure bike frame + wheel to standard bike racks</p>
+<p>\item \textbf{Storage:} Fits standard bike frame mounts</p>
 <p>\end{itemize}</p>
 <p>\callout</p>
 </SubSubSubSection>
@@ -572,19 +572,19 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
 <SubSubSubSection title="Bike Lock Example" id="Bike Lock Example">
 <Itemize>
 
-    <Item><strong>Target Weight:</strong> 2.5 lbs (1.13 kg) for lock alone</Item>
-    <Item><strong>Maximum Weight:</strong> 3.2 lbs with mounting system</Item>
-    <Item><strong>Weight Justification:</strong> </Item>
+    <Item>\textbf{Target Weight:} 2.5 lbs (1.13 kg) for lock alone</Item>
+    <Item>\textbf{Maximum Weight:} 3.2 lbs with mounting system</Item>
+    <Item>\textbf{Weight Justification:} </Item>
 <p>\begin{itemize}</p>
         <Item>Heavy enough to signal security and quality</Item>
         <Item>Light enough for daily carrying</Item>
         <Item>Competitive with similar security-rated locks</Item>
 
 </Itemize>
-<p>\item <strong>User Impact:</strong> Cyclists comfortable carrying 2-3 lbs on rides</p>
-<p>\item <strong>Shipping Impact:</strong> Weight allows economical shipping rates</p>
-<p>\item <strong>Material Implications:</strong> Requires high-strength steel alloy to minimize weight while maintaining security</p>
-<p>\item <strong>Distribution:</strong> Weight acceptable for retail hanging displays</p>
+<p>\item \textbf{User Impact:} Cyclists comfortable carrying 2-3 lbs on rides</p>
+<p>\item \textbf{Shipping Impact:} Weight allows economical shipping rates</p>
+<p>\item \textbf{Material Implications:} Requires high-strength steel alloy to minimize weight while maintaining security</p>
+<p>\item \textbf{Distribution:} Weight acceptable for retail hanging displays</p>
 <p>\end{itemize}</p>
 <p>\callout</p>
 </SubSubSubSection>
@@ -594,7 +594,7 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
 <p>Define appearance requirements proactively, not reactively.</p>
 </SubSubSubSection>
 <SubSubSubSection title="Key Principle" id="Key Principle">
-<strong>"The customer sees it before they buy it; physical performance comes later."</strong>
+<p>\textbf{"The customer sees it before they buy it; physical performance comes later."}</p>
 </SubSubSubSection>
 <SubSubSubSection title="Specification Areas" id="Specification Areas">
 <Itemize>
@@ -615,22 +615,22 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
 <SubSubSubSection title="Bike Lock Example" id="Bike Lock Example">
 <Itemize>
 
-    <Item><strong>Design Language:</strong> Modern, technical aesthetic suggesting security</Item>
-    <Item><strong>Color Options:</strong> </Item>
+    <Item>\textbf{Design Language:} Modern, technical aesthetic suggesting security</Item>
+    <Item>\textbf{Color Options:} </Item>
 <p>\begin{itemize}</p>
         <Item>Primary: Matte black (appeals to 65\</Item>
         <Item>Secondary: Gunmetal gray, safety orange</Item>
 
 </Itemize>
-<p>\item <strong>Surface Finish:</strong></p>
+<p>\item \textbf{Surface Finish:}</p>
     <Itemize>
 
         <Item>Lock body: Powder-coated matte finish (durable, premium feel)</Item>
         <Item>Shackle: Polished steel with clear protective coating</Item>
 
 </Itemize>
-<p>\item <strong>Branding:</strong> Subtle logo embossed on lock body</p>
-<p>\item <strong>Visual Security Cues:</strong></p>
+<p>\item \textbf{Branding:} Subtle logo embossed on lock body</p>
+<p>\item \textbf{Visual Security Cues:}</p>
     <Itemize>
 
         <Item>Thick shackle appearance</Item>
@@ -638,8 +638,8 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
         <Item>Visible security rating badge</Item>
 
 </Itemize>
-<p>\item <strong>Protective Cover:</strong> Black rubberized coating (prevents scratching bikes)</p>
-<p>\item <strong>Professional Input:</strong> Industrial designer consultation on ergonomic key design and grip surfaces</p>
+<p>\item \textbf{Protective Cover:} Black rubberized coating (prevents scratching bikes)</p>
+<p>\item \textbf{Professional Input:} Industrial designer consultation on ergonomic key design and grip surfaces</p>
 <p>\end{itemize}</p>
 <p>\callout</p>
 </SubSubSubSection>
@@ -651,24 +651,24 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
 <SubSubSubSection title="Specification Types" id="Specification Types">
 <Itemize>
 
-    <Item><strong>Must Use:</strong> Special materials needed for performance</Item>
-    <Item><strong>Must Not Use:</strong> Toxic, inappropriate, or problematic materials</Item>
-    <Item><strong>Market-Driven:</strong> Consumer preferences or expectations</Item>
-    <Item><strong>Policy-Driven:</strong> Company standards or capabilities</Item>
+    <Item>\textbf{Must Use:} Special materials needed for performance</Item>
+    <Item>\textbf{Must Not Use:} Toxic, inappropriate, or problematic materials</Item>
+    <Item>\textbf{Market-Driven:} Consumer preferences or expectations</Item>
+    <Item>\textbf{Policy-Driven:} Company standards or capabilities</Item>
 
 </Itemize>
 <p>\callout</p>
 </SubSubSubSection>
 <SubSubSubSection title="Bike Lock Example" id="Bike Lock Example">
-<strong>Required Materials:</strong>
+<p>\textbf{Required Materials:}</p>
 <Itemize>
 
-    <Item><strong>Shackle:</strong> Hardened boron-manganese steel alloy (resists cutting)</Item>
-    <Item><strong>Lock Cylinder:</strong> Brass pin tumbler mechanism (corrosion resistant)</Item>
-    <Item><strong>Protective Cover:</strong> TPU (thermoplastic polyurethane) - weather resistant, won't scratch bikes</Item>
+    <Item>\textbf{Shackle:} Hardened boron-manganese steel alloy (resists cutting)</Item>
+    <Item>\textbf{Lock Cylinder:} Brass pin tumbler mechanism (corrosion resistant)</Item>
+    <Item>\textbf{Protective Cover:} TPU (thermoplastic polyurethane) - weather resistant, won't scratch bikes</Item>
 
 </Itemize>
-<strong>Prohibited Materials:</strong>
+<p>\textbf{Prohibited Materials:}</p>
 <Itemize>
 
     <Item>No cadmium (toxic, regulatory concerns)</Item>
@@ -676,7 +676,7 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
     <Item>No ABS plastic for structural components (inadequate strength)</Item>
 
 </Itemize>
-<strong>Material Justification:</strong>
+<p>\textbf{Material Justification:}</p>
 <Itemize>
 
     <Item>Hardened steel: Industry standard for security ratings</Item>
@@ -707,8 +707,8 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
 <SubSubSubSection title="Bike Lock Example" id="Bike Lock Example">
 <Itemize>
 
-    <Item><strong>Product Life Span Estimate:</strong> 5-7 years before redesign</Item>
-    <Item><strong>Basis for Estimate:</strong> </Item>
+    <Item>\textbf{Product Life Span Estimate:} 5-7 years before redesign</Item>
+    <Item>\textbf{Basis for Estimate:} </Item>
 <p>\begin{itemize}</p>
         <Item>Security technology evolves gradually</Item>
         <Item>Materials and manufacturing mature slowly</Item>
@@ -716,7 +716,7 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
         <Item>Competitor refresh cycles average 6 years</Item>
 
 </Itemize>
-<p>\item <strong>Implications:</strong></p>
+<p>\item \textbf{Implications:}</p>
     <Itemize>
 
         <Item>Justify permanent tooling investment</Item>
@@ -735,7 +735,7 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
 <p>Identify all applicable standards, regulations, and legal requirements.</p>
 </SubSubSubSection>
 <SubSubSubSection title="Key Principle" id="Key Principle">
-<strong>"It is much easier to design to a standard than to retrospectively modify semi-finalized designs."</strong>
+<p>\textbf{"It is much easier to design to a standard than to retrospectively modify semi-finalized designs."}</p>
 </SubSubSubSection>
 <SubSubSubSection title="Requirements" id="Requirements">
 <Itemize>
@@ -750,18 +750,18 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
 <p>\callout</p>
 </SubSubSubSection>
 <SubSubSubSection title="Bike Lock Example" id="Bike Lock Example">
-<strong>Applicable Standards:</strong>
+<p>\textbf{Applicable Standards:}</p>
 <Itemize>
 
-    <Item><strong>Sold Secure Rating:</strong> Target Gold rating (UK standard)</Item>
-    <Item><strong>ART Rating:</strong> Target 4-5 stars (Dutch/European standard)</Item>
-    <Item><strong>ASTM F2317:</strong> Security rating for bicycle locks (North American standard)</Item>
-    <Item><strong>ISO 4210:</strong> Bicycle safety standards (for mounting hardware compatibility)</Item>
-    <Item><strong>RoHS Compliance:</strong> Restriction of hazardous substances (for EU market)</Item>
-    <Item><strong>California Prop 65:</strong> Lead and cadmium restrictions</Item>
+    <Item>\textbf{Sold Secure Rating:} Target Gold rating (UK standard)</Item>
+    <Item>\textbf{ART Rating:} Target 4-5 stars (Dutch/European standard)</Item>
+    <Item>\textbf{ASTM F2317:} Security rating for bicycle locks (North American standard)</Item>
+    <Item>\textbf{ISO 4210:} Bicycle safety standards (for mounting hardware compatibility)</Item>
+    <Item>\textbf{RoHS Compliance:} Restriction of hazardous substances (for EU market)</Item>
+    <Item>\textbf{California Prop 65:} Lead and cadmium restrictions</Item>
 
 </Itemize>
-<strong>Legal Considerations:</strong>
+<p>\textbf{Legal Considerations:}</p>
 <Itemize>
 
     <Item>Product liability insurance for security claims</Item>
@@ -770,7 +770,7 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
     <Item>Trademark protection for brand elements</Item>
 
 </Itemize>
-<strong>Certification Strategy:</strong>
+<p>\textbf{Certification Strategy:}</p>
 <Itemize>
 
     <Item>Obtain Sold Secure Gold before launch (market requirement)</Item>
@@ -799,17 +799,17 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
 <p>\callout</p>
 </SubSubSubSection>
 <SubSubSubSection title="Bike Lock Example" id="Bike Lock Example">
-<strong>Key Ergonomics:</strong>
+<p>\textbf{Key Ergonomics:}</p>
 <Itemize>
 
-    <Item><strong>Key Grip Diameter:</strong> 0.75" minimum (comfortable for gloved hands)</Item>
-    <Item><strong>Key Insertion Force:</strong> Maximum 2 lbs (achievable with cold, wet hands)</Item>
-    <Item><strong>Key Turn Torque:</strong> 8-15 in-lbs (manageable but signals security)</Item>
-    <Item><strong>Lock Weight Distribution:</strong> Balanced for one-handed operation</Item>
-    <Item><strong>Shackle Release:</strong> Spring-loaded, operates with &lt; 5 lbs force</Item>
+    <Item>\textbf{Key Grip Diameter:} 0.75" minimum (comfortable for gloved hands)</Item>
+    <Item>\textbf{Key Insertion Force:} Maximum 2 lbs (achievable with cold, wet hands)</Item>
+    <Item>\textbf{Key Turn Torque:} 8-15 in-lbs (manageable but signals security)</Item>
+    <Item>\textbf{Lock Weight Distribution:} Balanced for one-handed operation</Item>
+    <Item>\textbf{Shackle Release:} Spring-loaded, operates with &lt; 5 lbs force</Item>
 
 </Itemize>
-<strong>User Population:</strong>
+<p>\textbf{User Population:}</p>
 <Itemize>
 
     <Item>Age range: 16-65 years</Item>
@@ -818,14 +818,14 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
     <Item>Must operate in rain, cold, darkness</Item>
 
 </Itemize>
-<strong>Frequency of Use:</strong>
+<p>\textbf{Frequency of Use:}</p>
 <Itemize>
 
     <Item>2-10 times per day during cycling season</Item>
     <Item>Must remain comfortable with repeated use</Item>
 
 </Itemize>
-<strong>Accessibility:</strong>
+<p>\textbf{Accessibility:}</p>
 <Itemize>
 
     <Item>High-contrast key markings for low-light use</Item>
@@ -854,8 +854,8 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
 <p>\callout</p>
 </SubSubSubSection>
 <SubSubSubSection title="Bike Lock Example" id="Bike Lock Example">
-<strong>Customer Research Findings:</strong>
-<strong>Primary User Profile:</strong>
+<p>\textbf{Customer Research Findings:}</p>
+<p>\textbf{Primary User Profile:}</p>
 <Itemize>
 
     <Item>Urban commuters (55\</Item>
@@ -864,7 +864,7 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
     <Item>Age: 25-45 primarily</Item>
 
 </Itemize>
-<strong>Customer Preferences:</strong>
+<p>\textbf{Customer Preferences:}</p>
 <Itemize>
 
     <Item>Quick, convenient locking (prioritized by 78\</Item>
@@ -875,7 +875,7 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
     <Item>Theft warranty/guarantee valued</Item>
 
 </Itemize>
-<strong>Customer Dislikes:</strong>
+<p>\textbf{Customer Dislikes:}</p>
 <Itemize>
 
     <Item>Complex multi-step locking</Item>
@@ -886,7 +886,7 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
     <Item>Oversized locks</Item>
 
 </Itemize>
-<strong>Customer Prejudices:</strong>
+<p>\textbf{Customer Prejudices:}</p>
 <Itemize>
 
     <Item>Combination locks perceived as less secure (whether true or not)</Item>
@@ -894,7 +894,7 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
     <Item>Brand reputation heavily influences purchase</Item>
 
 </Itemize>
-<strong>Purchase Triggers:</strong>
+<p>\textbf{Purchase Triggers:}</p>
 <Itemize>
 
     <Item>Recent theft (own or friend's bike)</Item>
@@ -925,25 +925,25 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
 <p>\callout</p>
 </SubSubSubSection>
 <SubSubSubSection title="Bike Lock Example" id="Bike Lock Example">
-<strong>Quality Targets:</strong>
+<p>\textbf{Quality Targets:}</p>
 <Itemize>
 
-    <Item><strong>Defect Rate:</strong> &lt; 100 DPMO (defects per million opportunities)</Item>
-    <Item><strong>Field Failure Rate:</strong> &lt; 0.5\</Item>
-    <Item><strong>MTBF:</strong> 15,000 lock/unlock cycles minimum</Item>
-    <Item><strong>Key Durability:</strong> 5,000 uses without excessive wear</Item>
+    <Item>\textbf{Defect Rate:} &lt; 100 DPMO (defects per million opportunities)</Item>
+    <Item>\textbf{Field Failure Rate:} &lt; 0.5\</Item>
+    <Item>\textbf{MTBF:} 15,000 lock/unlock cycles minimum</Item>
+    <Item>\textbf{Key Durability:} 5,000 uses without excessive wear</Item>
 
 </Itemize>
-<strong>Critical Quality Points:</strong>
+<p>\textbf{Critical Quality Points:}</p>
 <Itemize>
 
-    <Item><strong>Lock Cylinder:</strong> Zero key breakage in normal use</Item>
-    <Item><strong>Shackle Release:</strong> 99.9\</Item>
-    <Item><strong>Corrosion:</strong> Zero visible rust after 1 year outdoor exposure</Item>
-    <Item><strong>Coating Adhesion:</strong> No peeling or flaking</Item>
+    <Item>\textbf{Lock Cylinder:} Zero key breakage in normal use</Item>
+    <Item>\textbf{Shackle Release:} 99.9\</Item>
+    <Item>\textbf{Corrosion:} Zero visible rust after 1 year outdoor exposure</Item>
+    <Item>\textbf{Coating Adhesion:} No peeling or flaking</Item>
 
 </Itemize>
-<strong>Quality Assurance:</strong>
+<p>\textbf{Quality Assurance:}</p>
 <Itemize>
 
     <Item>100\</Item>
@@ -952,7 +952,7 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
     <Item>Drop testing for shipping durability</Item>
 
 </Itemize>
-<strong>Supplier Requirements:</strong>
+<p>\textbf{Supplier Requirements:}</p>
 <Itemize>
 
     <Item>Lock cylinder supplier: Maximum 50 PPM defect rate</Item>
@@ -960,7 +960,7 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
     <Item>Coating supplier: ISO 9001 certified</Item>
 
 </Itemize>
-<strong>Reliability Testing:</strong>
+<p>\textbf{Reliability Testing:}</p>
 <Itemize>
 
     <Item>20,000 cycle accelerated life test</Item>
@@ -989,8 +989,8 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
 <p>\callout</p>
 </SubSubSubSection>
 <SubSubSubSection title="Bike Lock Example" id="Bike Lock Example">
-<p><strong>Shelf Life Requirement:</strong> 3 years minimum</p>
-<strong>Storage Conditions:</strong>
+<p>\textbf{Shelf Life Requirement:} 3 years minimum</p>
+<p>\textbf{Storage Conditions:}</p>
 <Itemize>
 
     <Item>Temperature: 0°C to 40°C</Item>
@@ -998,16 +998,16 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
     <Item>Display: Indoor and outdoor retail displays</Item>
 
 </Itemize>
-<strong>Degradation Concerns:</strong>
+<p>\textbf{Degradation Concerns:}</p>
 <Itemize>
 
-    <Item><strong>Lock Cylinder:</strong> Lubricant must not dry out or gum up</Item>
-    <Item><strong>Packaging:</strong> Must not yellow or become brittle</Item>
-    <Item><strong>Protective Coating:</strong> No degradation or stickiness</Item>
-    <Item><strong>Springs:</strong> Maintain tension and function</Item>
+    <Item>\textbf{Lock Cylinder:} Lubricant must not dry out or gum up</Item>
+    <Item>\textbf{Packaging:} Must not yellow or become brittle</Item>
+    <Item>\textbf{Protective Coating:} No degradation or stickiness</Item>
+    <Item>\textbf{Springs:} Maintain tension and function</Item>
 
 </Itemize>
-<strong>Protective Measures:</strong>
+<p>\textbf{Protective Measures:}</p>
 <Itemize>
 
     <Item>Long-life synthetic lubricant in cylinder</Item>
@@ -1017,7 +1017,7 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
     <Item>Sealed packaging prevents contamination</Item>
 
 </Itemize>
-<strong>Retail Reality:</strong>
+<p>\textbf{Retail Reality:}</p>
 <Itemize>
 
     <Item>Average time on shelf: 6-9 months</Item>
@@ -1025,7 +1025,7 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
     <Item>Outdoor display exposure in some stores</Item>
 
 </Itemize>
-<strong>Design Solutions:</strong>
+<p>\textbf{Design Solutions:}</p>
 <Itemize>
 
     <Item>Corrosion-resistant materials throughout</Item>
@@ -1054,50 +1054,50 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
 <p>\callout</p>
 </SubSubSubSection>
 <SubSubSubSection title="Bike Lock Example" id="Bike Lock Example">
-<strong>Specified Processes:</strong>
-<strong>Lock Body Manufacturing:</strong>
+<p>\textbf{Specified Processes:}</p>
+<p>\textbf{Lock Body Manufacturing:}</p>
 <Itemize>
 
-    <Item><strong>Process:</strong> High-pressure die casting (aluminum or zinc alloy)</Item>
-    <Item><strong>Justification:</strong> Cost-effective for 50K+ units, excellent detail reproduction</Item>
-    <Item><strong>Standard:</strong> Company has existing die casting capability</Item>
+    <Item>\textbf{Process:} High-pressure die casting (aluminum or zinc alloy)</Item>
+    <Item>\textbf{Justification:} Cost-effective for 50K+ units, excellent detail reproduction</Item>
+    <Item>\textbf{Standard:} Company has existing die casting capability</Item>
 
 </Itemize>
-<strong>Shackle Production:</strong>
+<p>\textbf{Shackle Production:}</p>
 <Itemize>
 
-    <Item><strong>Process:</strong> Cold-drawn steel bar stock → CNC turning → Heat treatment (through-hardening) → Grinding</Item>
-    <Item><strong>Heat Treatment Spec:</strong> Harden to 58-62 HRC (Rockwell hardness)</Item>
-    <Item><strong>Standard:</strong> ASTM A689 for tool steel</Item>
+    <Item>\textbf{Process:} Cold-drawn steel bar stock → CNC turning → Heat treatment (through-hardening) → Grinding</Item>
+    <Item>\textbf{Heat Treatment Spec:} Harden to 58-62 HRC (Rockwell hardness)</Item>
+    <Item>\textbf{Standard:} ASTM A689 for tool steel</Item>
 
 </Itemize>
-<strong>Surface Finishing:</strong>
+<p>\textbf{Surface Finishing:}</p>
 <Itemize>
 
-    <Item><strong>Lock Body:</strong> Powder coating (electrostatic application)</Item>
-    <Item><strong>Shackle:</strong> Chrome plating (decorative) + clear protective coating</Item>
-    <Item><strong>Standards:</strong> ASTM B633 for zinc coating, ASTM D3363 for coating hardness</Item>
+    <Item>\textbf{Lock Body:} Powder coating (electrostatic application)</Item>
+    <Item>\textbf{Shackle:} Chrome plating (decorative) + clear protective coating</Item>
+    <Item>\textbf{Standards:} ASTM B633 for zinc coating, ASTM D3363 for coating hardness</Item>
 
 </Itemize>
-<strong>Lock Cylinder Assembly:</strong>
+<p>\textbf{Lock Cylinder Assembly:}</p>
 <Itemize>
 
-    <Item><strong>Process:</strong> Automated pin stacking and spring insertion</Item>
-    <Item><strong>Requirement:</strong> Class 100,000 clean room (prevents contamination)</Item>
+    <Item>\textbf{Process:} Automated pin stacking and spring insertion</Item>
+    <Item>\textbf{Requirement:} Class 100,000 clean room (prevents contamination)</Item>
 
 </Itemize>
-<strong>Special Processes:</strong>
+<p>\textbf{Special Processes:}</p>
 <Itemize>
 
-    <Item><strong>Laser Etching:</strong> Security rating and serial number on lock body</Item>
-    <Item><strong>Ultrasonic Welding:</strong> Sealing of protective end caps</Item>
+    <Item>\textbf{Laser Etching:} Security rating and serial number on lock body</Item>
+    <Item>\textbf{Ultrasonic Welding:} Sealing of protective end caps</Item>
 
 </Itemize>
-<strong>Quality Processes:</strong>
+<p>\textbf{Quality Processes:}</p>
 <Itemize>
 
-    <Item><strong>100\</Item>
-    <Item>\textbf{Statistical Sampling:</strong> Destructive shackle strength testing</Item>
+    <Item>\textbf{100\</Item>
+    <Item>\textbf{Statistical Sampling:} Destructive shackle strength testing</Item>
 
 </Itemize>
 <p>\callout</p>
@@ -1122,8 +1122,8 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
 <p>\callout</p>
 </SubSubSubSection>
 <SubSubSubSection title="Bike Lock Example" id="Bike Lock Example">
-<strong>Product Development Timeline:</strong>
-<strong>Phase 1: Concept Development (Months 0-3)</strong>
+<p>\textbf{Product Development Timeline:}</p>
+<p>\textbf{Phase 1: Concept Development (Months 0-3)}</p>
 <Itemize>
 
     <Item>Market research and competitive analysis: 4 weeks</Item>
@@ -1133,7 +1133,7 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
     <Item>Management approval: 2 weeks</Item>
 
 </Itemize>
-<strong>Phase 2: Detail Design (Months 3-6)</strong>
+<p>\textbf{Phase 2: Detail Design (Months 3-6)}</p>
 <Itemize>
 
     <Item>CAD modeling and engineering: 8 weeks</Item>
@@ -1142,7 +1142,7 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
     <Item>Design reviews: 2 weeks</Item>
 
 </Itemize>
-<strong>Phase 3: Prototyping (Months 6-9)</strong>
+<p>\textbf{Phase 3: Prototyping (Months 6-9)}</p>
 <Itemize>
 
     <Item>Prototype tooling: 6 weeks</Item>
@@ -1151,7 +1151,7 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
     <Item>Design iterations: 2 weeks</Item>
 
 </Itemize>
-<strong>Phase 4: Testing and Certification (Months 9-12)</strong>
+<p>\textbf{Phase 4: Testing and Certification (Months 9-12)}</p>
 <Itemize>
 
     <Item>Security certification testing (Sold Secure): 8 weeks</Item>
@@ -1160,7 +1160,7 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
     <Item>Final design freeze: 2 weeks</Item>
 
 </Itemize>
-<strong>Phase 5: Production Preparation (Months 12-15)</strong>
+<p>\textbf{Phase 5: Production Preparation (Months 12-15)}</p>
 <Itemize>
 
     <Item>Production tooling design: 8 weeks</Item>
@@ -1169,7 +1169,7 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
     <Item>Production ramp-up: 4 weeks</Item>
 
 </Itemize>
-<strong>Phase 6: Launch (Month 15-16)</strong>
+<p>\textbf{Phase 6: Launch (Month 15-16)}</p>
 <Itemize>
 
     <Item>Inventory build: 4 weeks</Item>
@@ -1177,14 +1177,14 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
     <Item>Product launch: Month 16</Item>
 
 </Itemize>
-<strong>Critical Path:</strong>
+<p>\textbf{Critical Path:}</p>
 <Itemize>
 
     <Item>Certification testing (cannot be shortened)</Item>
     <Item>Production tooling (long lead time)</Item>
 
 </Itemize>
-<strong>Window of Opportunity:</strong>
+<p>\textbf{Window of Opportunity:}</p>
 <Itemize>
 
     <Item>Target launch: Spring (peak cycling season)</Item>
@@ -1222,12 +1222,12 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
 <p>\callout</p>
 </SubSubSubSection>
 <SubSubSubSection title="Bike Lock Example" id="Bike Lock Example">
-<strong>Manufacturing Tests:</strong>
-<p><strong>100\</p>
-<p>\begin{itemize</strong></p>
-<p>\item Lock cylinder function test (automated)</p>
-    <Itemize>
+<p>\textbf{Manufacturing Tests:}</p>
+<p>\textbf{100\</p>
+<Itemize>
 
+    <Item>Lock cylinder function test (automated) </Item>
+<p>\begin{itemize}</p>
         <Item>Key insertion/extraction: 5 cycles</Item>
         <Item>Lock/unlock operation: 5 cycles</Item>
         <Item>Test duration: 15 seconds per unit</Item>
@@ -1236,7 +1236,7 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
 <p>\item Shackle release function test</p>
 <p>\item Visual inspection (automated vision system)</p>
 <p>\end{itemize}</p>
-<strong>Sample Testing:</strong>
+<p>\textbf{Sample Testing:}</p>
 <Itemize>
 
     <Item>Shackle pull strength: 1 per 500 units (destructive) </Item>
@@ -1246,17 +1246,17 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
     <Item>Drop test: 1 per 1,000 units (from 2 meters)</Item>
 
 </Itemize>
-<strong>Certification Testing (Third-Party):</strong>
+<p>\textbf{Certification Testing (Third-Party):}</p>
 <Itemize>
 
-    <Item><strong>Sold Secure Gold Rating Tests:</strong> </Item>
+    <Item>\textbf{Sold Secure Gold Rating Tests:} </Item>
 <p>\begin{itemize}</p>
         <Item>Attack testing: 5 minutes with hand tools</Item>
         <Item>Advanced attack testing: 5 minutes with power tools</Item>
         <Item>Freeze spray and hammer attacks</Item>
 
 </Itemize>
-<p>\item <strong>Environmental Testing:</strong></p>
+<p>\item \textbf{Environmental Testing:}</p>
     <Itemize>
 
         <Item>Salt spray: 1,000 hours (ASTM B117)</Item>
@@ -1265,7 +1265,7 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
 
 </Itemize>
 <p>\end{itemize}</p>
-<strong>Reliability Testing:</strong>
+<p>\textbf{Reliability Testing:}</p>
 <Itemize>
 
     <Item>Life cycle testing: 20,000 lock/unlock cycles</Item>
@@ -1273,14 +1273,14 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
     <Item>Corrosion chamber: Simulated 5-year outdoor exposure</Item>
 
 </Itemize>
-<strong>Consumer Testing:</strong>
+<p>\textbf{Consumer Testing:}</p>
 <Itemize>
 
     <Item>User can verify: Smooth operation, key turns easily</Item>
     <Item>Packaging includes: Quick function check instructions</Item>
 
 </Itemize>
-<strong>Test Equipment Required:</strong>
+<p>\textbf{Test Equipment Required:}</p>
 <Itemize>
 
     <Item>Automated lock cylinder test station ($45K investment)</Item>
@@ -1288,7 +1288,7 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
     <Item>Environmental test chamber access (contract lab)</Item>
 
 </Itemize>
-<strong>Documentation:</strong>
+<p>\textbf{Documentation:}</p>
 <Itemize>
 
     <Item>Test procedures documented in quality manual</Item>
@@ -1316,31 +1316,31 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
 <p>\callout</p>
 </SubSubSubSection>
 <SubSubSubSection title="Bike Lock Example" id="Bike Lock Example">
-<strong>Safety Considerations:</strong>
-<strong>User Safety:</strong>
+<p>\textbf{Safety Considerations:}</p>
+<p>\textbf{User Safety:}</p>
 <Itemize>
 
-    <Item><strong>Pinch Points:</strong> Shackle release could pinch fingers </Item>
+    <Item>\textbf{Pinch Points:} Shackle release could pinch fingers </Item>
 <p>\begin{itemize}</p>
         <Item>Mitigation: Spring-loaded release with controlled speed</Item>
         <Item>Warning: "Keep fingers clear of shackle when releasing"</Item>
 
 </Itemize>
-<p>\item <strong>Sharp Edges:</strong> Cut hazards on edges</p>
+<p>\item \textbf{Sharp Edges:} Cut hazards on edges</p>
     <Itemize>
 
         <Item>Mitigation: All edges rounded to >2mm radius</Item>
         <Item>Standard: No sharp edges per ASTM F963 (toy safety, conservative standard)</Item>
 
 </Itemize>
-<p>\item <strong>Key Breakage:</strong> Broken key could cause cuts</p>
+<p>\item \textbf{Key Breakage:} Broken key could cause cuts</p>
     <Itemize>
 
         <Item>Mitigation: Key design resists breakage</Item>
         <Item>Material: Ductile brass, not brittle hardened steel</Item>
 
 </Itemize>
-<p>\item <strong>Lock Failure:</strong> Shackle could release unexpectedly causing bike to fall</p>
+<p>\item \textbf{Lock Failure:} Shackle could release unexpectedly causing bike to fall</p>
     <Itemize>
 
         <Item>Mitigation: Redundant locking mechanism, extensive testing</Item>
@@ -1348,32 +1348,32 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
 
 </Itemize>
 <p>\end{itemize}</p>
-<strong>Chemical Safety:</strong>
-<p><strong>Coating Materials:</strong> No toxic heavy metals</p>
+<p>\textbf{Chemical Safety:}</p>
+<p>\textbf{Coating Materials:} No toxic heavy metals</p>
 <Itemize>
 
     <Item>Compliance: RoHS, California Prop 65</Item>
     <Item>Certification: Material safety data sheets from all suppliers</Item>
 
 </Itemize>
-<strong>Standards Compliance:</strong>
+<p>\textbf{Standards Compliance:}</p>
 <Itemize>
 
-    <Item><strong>Consumer Product Safety:</strong> General product safety requirements (CPSA)</Item>
-    <Item><strong>Material Safety:</strong> ASTM standards for corrosion-resistant coatings</Item>
+    <Item>\textbf{Consumer Product Safety:} General product safety requirements (CPSA)</Item>
+    <Item>\textbf{Material Safety:} ASTM standards for corrosion-resistant coatings</Item>
 
 </Itemize>
-<strong>Labeling Requirements:</strong>
+<p>\textbf{Labeling Requirements:}</p>
 <Itemize>
 
-    <Item><strong>Warning Label on Package:</strong> </Item>
+    <Item>\textbf{Warning Label on Package:} </Item>
 <p>\begin{itemize}</p>
         <Item>"CAUTION: Lock may not prevent all theft. Always secure bike in well-lit, visible location."</Item>
         <Item>"Keep fingers clear of shackle mechanism when locking/unlocking."</Item>
         <Item>"Lock may become cold in winter - wear gloves when handling."</Item>
 
 </Itemize>
-<p>\item <strong>Product Markings:</strong></p>
+<p>\item \textbf{Product Markings:}</p>
     <Itemize>
 
         <Item>Security rating</Item>
@@ -1383,7 +1383,7 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
 
 </Itemize>
 <p>\end{itemize}</p>
-<strong>Instruction Manual:</strong>
+<p>\textbf{Instruction Manual:}</p>
 <Itemize>
 
     <Item>Proper locking technique (secure frame AND wheel)</Item>
@@ -1392,7 +1392,7 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
     <Item>Warranty information</Item>
 
 </Itemize>
-<strong>Liability Considerations:</strong>
+<p>\textbf{Liability Considerations:}</p>
 <Itemize>
 
     <Item>Clear disclaimer that lock reduces but doesn't eliminate theft risk</Item>
@@ -1422,7 +1422,7 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
 <p>\callout</p>
 </SubSubSubSection>
 <SubSubSubSection title="Bike Lock Example" id="Bike Lock Example">
-<strong>Manufacturing Constraints:</strong>
+<p>\textbf{Manufacturing Constraints:}</p>
 <Itemize>
 
     <Item>Must use existing die-casting facility</Item>
@@ -1431,7 +1431,7 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
     <Item>Quality system requires ISO 9001 certified suppliers only</Item>
 
 </Itemize>
-<strong>Design Constraints:</strong>
+<p>\textbf{Design Constraints:}</p>
 <Itemize>
 
     <Item>Must align with company's "outdoor durability" brand image</Item>
@@ -1440,7 +1440,7 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
     <Item>Packaging must use company's standard blister-card format</Item>
 
 </Itemize>
-<strong>Resource Constraints:</strong>
+<p>\textbf{Resource Constraints:}</p>
 <Itemize>
 
     <Item>Engineering team: 2 mechanical designers available</Item>
@@ -1470,24 +1470,24 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
 <p>\callout</p>
 </SubSubSubSection>
 <SubSubSubSection title="Bike Lock Example" id="Bike Lock Example">
-<strong>Geographic Restrictions:</strong>
+<p>\textbf{Geographic Restrictions:}</p>
 <Itemize>
 
-    <Item><strong>China Market:</strong> Strong preference for domestic brands; difficult market entry</Item>
-    <Item><strong>Japan Market:</strong> Requires specific certifications and Japanese language packaging</Item>
-    <Item><strong>EU Market:</strong> Must comply with CE marking and REACH regulations</Item>
+    <Item>\textbf{China Market:} Strong preference for domestic brands; difficult market entry</Item>
+    <Item>\textbf{Japan Market:} Requires specific certifications and Japanese language packaging</Item>
+    <Item>\textbf{EU Market:} Must comply with CE marking and REACH regulations</Item>
 
 </Itemize>
-<strong>Cultural Considerations:</strong>
+<p>\textbf{Cultural Considerations:}</p>
 <Itemize>
 
-    <Item><strong>Color Preferences:</strong> </Item>
+    <Item>\textbf{Color Preferences:} </Item>
 <p>\begin{itemize}</p>
         <Item>Safety orange popular in Netherlands and Denmark (cycling culture)</Item>
         <Item>Bright colors less accepted in UK market (prefer understated black/gray)</Item>
 
 </Itemize>
-<p>\item <strong>Security Rating Systems:</strong> Different countries prioritize different standards</p>
+<p>\item \textbf{Security Rating Systems:} Different countries prioritize different standards</p>
     <Itemize>
 
         <Item>UK: Sold Secure rating critical for insurance</Item>
@@ -1496,15 +1496,15 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
 
 </Itemize>
 <p>\end{itemize}</p>
-<strong>Political/Trade Factors:</strong>
+<p>\textbf{Political/Trade Factors:}</p>
 <Itemize>
 
-    <Item><strong>Country of Origin:</strong> "Made in USA" valued by some customers, skepticism of certain manufacturing origins</Item>
-    <Item><strong>Tariffs:</strong> Steel tariffs affect material sourcing decisions</Item>
-    <Item><strong>Trade Agreements:</strong> USMCA, EU trade agreements affect pricing strategy</Item>
+    <Item>\textbf{Country of Origin:} "Made in USA" valued by some customers, skepticism of certain manufacturing origins</Item>
+    <Item>\textbf{Tariffs:} Steel tariffs affect material sourcing decisions</Item>
+    <Item>\textbf{Trade Agreements:} USMCA, EU trade agreements affect pricing strategy</Item>
 
 </Itemize>
-<strong>Consumer Movements:</strong>
+<p>\textbf{Consumer Movements:}</p>
 <Itemize>
 
     <Item>Growing demand for sustainable/recyclable products</Item>
@@ -1513,14 +1513,14 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
     <Item>Anti-theft registration databases expected by some markets</Item>
 
 </Itemize>
-<strong>Market-Specific Constraints:</strong>
+<p>\textbf{Market-Specific Constraints:}</p>
 <Itemize>
 
     <Item>Australian market requires AS/NZS standards compliance</Item>
     <Item>Canadian market requires bilingual packaging (English/French)</Item>
 
 </Itemize>
-<strong>Competitive Market Constraints:</strong>
+<p>\textbf{Competitive Market Constraints:}</p>
 <Itemize>
 
     <Item>Established brand loyalty in bike lock market</Item>
@@ -1548,12 +1548,12 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
 </Itemize>
 </SubSubSubSection>
 <SubSubSubSection title="Key Principle" id="Key Principle">
-<strong>"If patents are known in detail before the design starts, it is usually quite easy to avoid infringing them."</strong>
+<p>\textbf{"If patents are known in detail before the design starts, it is usually quite easy to avoid infringing them."}</p>
 <p>\callout</p>
 </SubSubSubSection>
 <SubSubSubSection title="Bike Lock Example" id="Bike Lock Example">
-<strong>Patent Landscape:</strong>
-<strong>Existing Patents (Must Avoid):</strong>
+<p>\textbf{Patent Landscape:}</p>
+<p>\textbf{Existing Patents (Must Avoid):}</p>
 <Itemize>
 
     <Item>US Patent 9,876,543: "Disc detainer cylinder with anti-pick features" </Item>
@@ -1571,14 +1571,14 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
 
 </Itemize>
 <p>\end{itemize}</p>
-<strong>Expired Patents (Available for Use):</strong>
+<p>\textbf{Expired Patents (Available for Use):}</p>
 <Itemize>
 
     <Item>Several basic U-lock shackle designs now in public domain</Item>
     <Item>Standard pin tumbler mechanisms (patents expired)</Item>
 
 </Itemize>
-<strong>Company Patent Strategy:</strong>
+<p>\textbf{Company Patent Strategy:}</p>
 <Itemize>
 
     <Item>File provisional patent on novel shackle release mechanism</Item>
@@ -1586,7 +1586,7 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
     <Item>Design patent on distinctive lock body shape</Item>
 
 </Itemize>
-<strong>Literature Review:</strong>
+<p>\textbf{Literature Review:}</p>
 <Itemize>
 
     <Item>Academic research on lock-picking resistance</Item>
@@ -1595,7 +1595,7 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
     <Item>Corrosion resistance studies for outdoor equipment</Item>
 
 </Itemize>
-<strong>Competitive Product Data:</strong>
+<p>\textbf{Competitive Product Data:}</p>
 <Itemize>
 
     <Item>Tear-down analysis of 12 competing locks</Item>
@@ -1604,7 +1604,7 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
     <Item>Warranty claim data (where available)</Item>
 
 </Itemize>
-<strong>Trade Publications:</strong>
+<p>\textbf{Trade Publications:}</p>
 <Itemize>
 
     <Item>Bicycle industry standards and trends</Item>
@@ -1612,7 +1612,7 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
     <Item>Materials and manufacturing innovations</Item>
 
 </Itemize>
-<strong>Freedom to Operate Analysis:</strong>
+<p>\textbf{Freedom to Operate Analysis:}</p>
 <Itemize>
 
     <Item>Patent attorney review completed</Item>
@@ -1621,7 +1621,7 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
     <Item>Documented evidence of design decisions to avoid patented features</Item>
 
 </Itemize>
-<strong>Documentation:</strong>
+<p>\textbf{Documentation:}</p>
 <Itemize>
 
     <Item>Complete patent search results archived</Item>
@@ -1651,41 +1651,41 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
 <p>\callout</p>
 </SubSubSubSection>
 <SubSubSubSection title="Bike Lock Example" id="Bike Lock Example">
-<strong>Political Considerations:</strong>
-<strong>Market Stability:</strong>
+<p>\textbf{Political Considerations:}</p>
+<p>\textbf{Market Stability:}</p>
 <Itemize>
 
     <Item>Target markets: North America, Western Europe, Australia (stable)</Item>
     <Item>Deferred markets: Some regions with political instability affecting retail infrastructure</Item>
 
 </Itemize>
-<strong>Regulatory Environment:</strong>
+<p>\textbf{Regulatory Environment:}</p>
 <Itemize>
 
-    <Item><strong>Privacy Regulations:</strong> If smart features added, must comply with GDPR (EU), CCPA (California)</Item>
-    <Item><strong>Security Standards:</strong> Government buildings may require specific certified locks</Item>
-    <Item><strong>Import/Export:</strong> Steel products face varying tariffs and trade restrictions</Item>
+    <Item>\textbf{Privacy Regulations:} If smart features added, must comply with GDPR (EU), CCPA (California)</Item>
+    <Item>\textbf{Security Standards:} Government buildings may require specific certified locks</Item>
+    <Item>\textbf{Import/Export:} Steel products face varying tariffs and trade restrictions</Item>
 
 </Itemize>
-<strong>Social Implications:</strong>
-<strong>Bike Theft and Urban Safety:</strong>
+<p>\textbf{Social Implications:}</p>
+<p>\textbf{Bike Theft and Urban Safety:}</p>
 <Itemize>
 
-    <Item><strong>Positive Impact:</strong> Reduces bike theft, encourages cycling as transportation</Item>
-    <Item><strong>Community Benefit:</strong> More bike commuting reduces traffic, emissions</Item>
-    <Item><strong>Urban Planning:</strong> Supports cities' investments in cycling infrastructure</Item>
+    <Item>\textbf{Positive Impact:} Reduces bike theft, encourages cycling as transportation</Item>
+    <Item>\textbf{Community Benefit:} More bike commuting reduces traffic, emissions</Item>
+    <Item>\textbf{Urban Planning:} Supports cities' investments in cycling infrastructure</Item>
 
 </Itemize>
-<strong>Accessibility and Equity:</strong>
+<p>\textbf{Accessibility and Equity:}</p>
 <Itemize>
 
-    <Item><strong>Price Point:</strong> $29.99 balances security with affordability</Item>
-    <Item><strong>Consideration:</strong> High-end locks ($100+) create security inequality</Item>
-    <Item><strong>Social Concern:</strong> Low-income cyclists most affected by theft but least able to afford premium security</Item>
-    <Item><strong>Company Response:</strong> Offer economy version at lower price point ($19.99) in Year 2</Item>
+    <Item>\textbf{Price Point:} $29.99 balances security with affordability</Item>
+    <Item>\textbf{Consideration:} High-end locks ($100+) create security inequality</Item>
+    <Item>\textbf{Social Concern:} Low-income cyclists most affected by theft but least able to afford premium security</Item>
+    <Item>\textbf{Company Response:} Offer economy version at lower price point ($19.99) in Year 2</Item>
 
 </Itemize>
-<strong>Employment:</strong>
+<p>\textbf{Employment:}</p>
 <Itemize>
 
     <Item>Manufacturing in US creates local jobs (social benefit)</Item>
@@ -1693,30 +1693,30 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
     <Item>"Made in USA" marketing appeals to some consumer segments</Item>
 
 </Itemize>
-<strong>Environmental Impact:</strong>
+<p>\textbf{Environmental Impact:}</p>
 <Itemize>
 
-    <Item><strong>Resource Use:</strong> Steel production energy-intensive</Item>
-    <Item><strong>Product Longevity:</strong> 10-year design life reduces waste</Item>
-    <Item><strong>End-of-Life:</strong> Steel is highly recyclable (promote recycling program)</Item>
-    <Item><strong>Packaging:</strong> Minimize plastic, use recycled materials</Item>
+    <Item>\textbf{Resource Use:} Steel production energy-intensive</Item>
+    <Item>\textbf{Product Longevity:} 10-year design life reduces waste</Item>
+    <Item>\textbf{End-of-Life:} Steel is highly recyclable (promote recycling program)</Item>
+    <Item>\textbf{Packaging:} Minimize plastic, use recycled materials</Item>
 
 </Itemize>
-<strong>Consumer Movements:</strong>
+<p>\textbf{Consumer Movements:}</p>
 <Itemize>
 
-    <Item><strong>Right to Repair:</strong> Provide replacement parts, repair manuals</Item>
-    <Item><strong>Sustainability:</strong> Recyclable materials, durable design</Item>
-    <Item><strong>Data Privacy:</strong> If smart features added, transparent data policies</Item>
-    <Item><strong>Fair Labor:</strong> Ensure supplier compliance with labor standards</Item>
+    <Item>\textbf{Right to Repair:} Provide replacement parts, repair manuals</Item>
+    <Item>\textbf{Sustainability:} Recyclable materials, durable design</Item>
+    <Item>\textbf{Data Privacy:} If smart features added, transparent data policies</Item>
+    <Item>\textbf{Fair Labor:} Ensure supplier compliance with labor standards</Item>
 
 </Itemize>
-<strong>Social Features to Avoid:</strong>
+<p>\textbf{Social Features to Avoid:}</p>
 <Itemize>
 
-    <Item><strong>Aggressive Anti-Theft:</strong> No designs that could harm thieves (liability, ethical concerns)</Item>
-    <Item><strong>Surveillance Features:</strong> Avoid cameras or tracking that could violate privacy norms</Item>
-    <Item><strong>Exclusionary Design:</strong> Ensure usable by people with various physical abilities</Item>
+    <Item>\textbf{Aggressive Anti-Theft:} No designs that could harm thieves (liability, ethical concerns)</Item>
+    <Item>\textbf{Surveillance Features:} Avoid cameras or tracking that could violate privacy norms</Item>
+    <Item>\textbf{Exclusionary Design:} Ensure usable by people with various physical abilities</Item>
 
 </Itemize>
 <p>\callout</p>
@@ -1727,7 +1727,7 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
 <p>Address end-of-life considerations for the product.</p>
 </SubSubSubSection>
 <SubSubSubSection title="Modern Imperative" id="Modern Imperative">
-<strong>"It is no longer possible to forget about the item after ownership has passed to the customer."</strong>
+<p>\textbf{"It is no longer possible to forget about the item after ownership has passed to the customer."}</p>
 </SubSubSubSection>
 <SubSubSubSection title="Considerations" id="Considerations">
 <Itemize>
@@ -1743,28 +1743,32 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
 <p>\callout</p>
 </SubSubSubSection>
 <SubSubSubSection title="Bike Lock Example" id="Bike Lock Example">
-<strong>End-of-Life Strategy:</strong>
-<strong>Material Recyclability:</strong>
+<p>\textbf{End-of-Life Strategy:}</p>
+<p>\textbf{Material Recyclability:}</p>
 <Itemize>
 
-    <Item><strong>Steel Components (90\</Item>
+    <Item>\textbf{Steel Components (90\</Item>
         <Item>Shackle: Steel can be melted and reused indefinitely</Item>
         <Item>Lock body: Die-cast zinc/aluminum alloy recyclable</Item>
         <Item>No need for disassembly - steel recyclers accept mixed metal locks</Item>
-<p>\end{itemize</strong></p>
-    <Item><strong>Plastic Components (8\</Item>
-<p>\begin{itemize</strong></p>
+
+</Itemize>
+<p>\item \textbf{Plastic Components (8\</p>
+    <Itemize>
+
         <Item>Recyclable in specialized facilities (recycling code 7)</Item>
         <Item>Material choice prioritized recyclability over cheaper PVC</Item>
 
 </Itemize>
-<p>\item <strong>Lock Cylinder (2\</p>
-<p>\begin{itemize</strong></p>
-<p>\item Brass has high scrap value, readily recycled</p>
-<p>\item Small springs: Steel, recyclable</p>
+<p>\item \textbf{Lock Cylinder (2\</p>
+    <Itemize>
+
+        <Item>Brass has high scrap value, readily recycled</Item>
+        <Item>Small springs: Steel, recyclable</Item>
+
+</Itemize>
 <p>\end{itemize}</p>
-<p>\end{itemize}</p>
-<strong>Design for Disassembly:</strong>
+<p>\textbf{Design for Disassembly:}</p>
 <Itemize>
 
     <Item>Lock can be disassembled with standard tools (10mm wrench, screwdriver)</Item>
@@ -1773,43 +1777,49 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
     <Item>Minimal fasteners reduce disassembly time</Item>
 
 </Itemize>
-<strong>Disposal Pathways:</strong>
-<p><strong>Primary Path (Expected for 70\</p>
-<p>\begin{itemize</strong></p>
-<p>\item Consumer disposes at end of life (10+ years)</p>
-<p>\item Placed in metal recycling bin or taken to scrap metal dealer</p>
-<p>\item Steel recyclers accept locks without preparation</p>
-<p>\item Material automatically sorted at recycling facility</p>
-<p>\end{itemize}</p>
-<p><strong>Secondary Path (20\</p>
-<p>\begin{itemize</strong></p>
-<p>\item Lock damaged or compromised before end of life</p>
-<p>\item Same recycling pathway as primary</p>
-<p>\end{itemize}</p>
-<p><strong>Premature Disposal (10\</p>
-<p>\begin{itemize</strong></p>
-<p>\item Lost keys, forgotten combination, or lock malfunction</p>
-<p>\item Many users keep lock "just in case" rather than disposing</p>
-<p>\item Eventually enters metal recycling stream</p>
-<p>\end{itemize}</p>
-<strong>Packaging Disposal:</strong>
+<p>\textbf{Disposal Pathways:}</p>
+<p>\textbf{Primary Path (Expected for 70\</p>
 <Itemize>
 
-    <Item><strong>Cardboard Backer:</strong> 60\</Item>
-    <Item><strong>PET Clamshell:</strong> Recyclable code 1 (most recycled plastic)</Item>
+    <Item>Consumer disposes at end of life (10+ years)</Item>
+    <Item>Placed in metal recycling bin or taken to scrap metal dealer</Item>
+    <Item>Steel recyclers accept locks without preparation</Item>
+    <Item>Material automatically sorted at recycling facility</Item>
+
+</Itemize>
+<p>\textbf{Secondary Path (20\</p>
+<Itemize>
+
+    <Item>Lock damaged or compromised before end of life</Item>
+    <Item>Same recycling pathway as primary</Item>
+
+</Itemize>
+<p>\textbf{Premature Disposal (10\</p>
+<Itemize>
+
+    <Item>Lost keys, forgotten combination, or lock malfunction</Item>
+    <Item>Many users keep lock "just in case" rather than disposing</Item>
+    <Item>Eventually enters metal recycling stream</Item>
+
+</Itemize>
+<p>\textbf{Packaging Disposal:}</p>
+<Itemize>
+
+    <Item>\textbf{Cardboard Backer:} 60\</Item>
+    <Item>\textbf{PET Clamshell:} Recyclable code 1 (most recycled plastic)</Item>
     <Item>Instructions printed on recyclable paper with soy-based ink</Item>
     <Item>No laminated or composite materials that complicate recycling</Item>
 
 </Itemize>
-<strong>Hazardous Materials:</strong>
+<p>\textbf{Hazardous Materials:}</p>
 <Itemize>
 
-    <Item><strong>None Present:</strong> No batteries, electronics, toxic coatings</Item>
+    <Item>\textbf{None Present:} No batteries, electronics, toxic coatings</Item>
     <Item>No special disposal requirements</Item>
     <Item>Safe for standard municipal recycling programs</Item>
 
 </Itemize>
-<strong>Environmental Messaging:</strong>
+<p>\textbf{Environmental Messaging:}</p>
 <Itemize>
 
     <Item>Include recycling symbols and instructions on packaging</Item>
