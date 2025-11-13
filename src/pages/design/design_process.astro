@@ -2,6 +2,7 @@
 import Layout from "../../layouts/Layout.astro" 
 import Image from "../../components/Image.astro" 
 import CalloutContainer from "../../components/CalloutContainer.astro" 
+import CalloutCard from "../../components/CalloutCard.astro"
 import Section from "../../components/Section.astro" 
 import SubSection from "../../components/SubSection.astro" 
 import SubSubSection from "../../components/SubSubSection.astro" 
@@ -45,8 +46,11 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
 <p>Early in the design process it is essential to specify the desired outcome or functions of a product as specifically as possible. Thorough specification aids in idea selection and filtering and makes evaluation clear. Given the iterative and cyclical nature of design improvement it is also good practice to document and clearly articulate why decisions were made throughout. Engineers are responsible for the safe design of their systems and products, evidence of how and why design decisions were made is crucial in validating safe performance.</p>
 
 <CalloutContainer slot="cards">
-    <CalloutCard title="Required material">
-        <p>Note: in order to make an informed selection of one idea or another it is often necessary to conduct digital or physical prototyping or detailed engineering analysis.</p>
+    <CalloutCard>
+        <p>
+        Note: in order to make an informed selection of one idea or another it is often necessary to conduct digital or physical prototyping or detailed engineering analysis.
+        </p>
     </CalloutCard>
 </CalloutContainer>
+
 </Layout>
