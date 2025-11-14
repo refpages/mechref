@@ -804,7 +804,7 @@ $(document).ready(function(){
         this.addOption("showLinkage", false);
 
 	this.setUnits(600, 431);
-        this.drawImage("/dyn/four_bar_linkages/aml_7632673158_small.jpg", $V([0, 0]), $V([0, 0]));
+        this.drawImage("/dyn/four_bar_linkages_applications/aml_7632673158_small.jpg", $V([0, 0]), $V([0, 0]));
 
         if (this.getOption("showLinkage")) {
             drawLinkage(this, t, pumpPivots, pumpLinks, true);
@@ -905,7 +905,7 @@ $(document).ready(function(){
         this.addOption("showLinkage", false);
 
 	this.setUnits(600, 400);
-        this.drawImage("/dyn/four_bar_linkages/aml_7705967112_small.jpg", $V([0, 0]), $V([0, 0]));
+        this.drawImage("/dyn/four_bar_linkages_applications/aml_7705967112_small.jpg", $V([0, 0]), $V([0, 0]));
 
         if (this.getOption("showLinkage")) {
             drawLinkage(this, t, bikePivots, bikeLinks, false);
@@ -1152,7 +1152,7 @@ $(document).ready(function(){
             this.addOption("showLinkage", false);
     
         this.setUnits(600, 596);
-            this.drawImage("/dyn/four_bar_linkages/aml_MRT_ACL_PCL_01_small.jpg", $V([0, 0]), $V([0, 0]));
+            this.drawImage("/dyn/four_bar_linkages_applications/aml_MRT_ACL_PCL_01_small.jpg", $V([0, 0]), $V([0, 0]));
     
             if (this.getOption("showLinkage")) {
                 drawLinkage(this, t, kneePivots, kneeLinks, true, 0.25, kneePivotPosFcn);
@@ -1182,7 +1182,7 @@ $(document).ready(function(){
             this.addOption("showPivot", false);
     
         this.setUnits(250, 155);
-            this.drawImage("/dyn/four_bar_linkages/aml_Blaireau_small.jpg", $V([0, 0]), $V([0, 0]));
+            this.drawImage("/dyn/four_bar_linkages_applications/aml_Blaireau_small.jpg", $V([0, 0]), $V([0, 0]));
     
             if (this.getOption("showPivot")) {
                 this.setProp("shapeOutlineColor", "rgb(255, 0, 0)");
@@ -1259,7 +1259,7 @@ $(document).ready(function(){
             this.addOption("showLinkage", false);
     
         this.setUnits(600, 288);
-            this.drawImage("/dyn/four_bar_linkages/aml_GSFRRearViewUnderCropped_small.jpg", $V([0, 0]), $V([0, 0]));
+            this.drawImage("/dyn/four_bar_linkages_applications/aml_GSFRRearViewUnderCropped_small.jpg", $V([0, 0]), $V([0, 0]));
     
             if (this.getOption("showLinkage")) {
                 drawLinkage(this, t, wattPivots, wattLinks, true, 0.15, undefined, true);
@@ -1444,7 +1444,7 @@ $(document).ready(function(){
         this.addOption("movement", "translate");
 
 	this.setUnits(600, 550);
-        this.drawImage("/dyn/four_bar_linkages/aml_id82373_resized.jpg", $V([0, 0]), $V([0, 0]));
+        this.drawImage("/dyn/four_bar_linkages_applications/aml_id82373_resized.jpg", $V([0, 0]), $V([0, 0]));
 
         if (this.getOption("showLinkage")) {
             drawLinkage(this, t, fishPivots, fishLinks, false, 0.25);
@@ -1517,8 +1517,8 @@ $(document).ready(function(){
         this.addOption("showJaws", false);
 
 	this.setUnits(100, 125);
-        this.drawImage("/dyn/four_bar_linkages/aml_moray_pharyngeal_closed.png", $V([0, 0]), $V([0, -1]), 100);
-        this.drawImage("/dyn/four_bar_linkages/aml_moray_pharyngeal_open.png", $V([0, 0]), $V([0, 1]), 100);
+        this.drawImage("/dyn/four_bar_linkages_applications/aml_moray_pharyngeal_closed.png", $V([0, 0]), $V([0, -1]), 100);
+        this.drawImage("/dyn/four_bar_linkages_applications/aml_moray_pharyngeal_open.png", $V([0, 0]), $V([0, 1]), 100);
 
         if (this.getOption("showJaws")) {
             this.setProp("shapeOutlineColor", "rgb(255, 0, 0)");
