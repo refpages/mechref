@@ -166,9 +166,11 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
 <p><SubSection title="What is a PDS?"></p>
 <p>A Product Design Specification (PDS) is a structured document that defines the a distinct set of requirements to be met by all aspects of an enterprise to achieve a successful new product. At a high level, the PDS states <strong>what</strong> the product should do or meet, but <strong>not how</strong> it is achieved.</p>
 
-<p>\callout</p>
+<CalloutContainer slot="cards">
+<CalloutCard title="Callout">
 <p>For example, a new bike lock is desired. An environmental consideration you might specify in the PDS for this product could be "corrosion resistance." This requirement could be met through various solutions, such as stainless steel usage, protective coatings, galvanization, etc. The PDS does not need to dictate the solution, but rather defines the performance requirement.</p>
-<p>\callout</p>
+</CalloutCard>
+</CalloutContainer>
 </SubSection>
 <SubSubSection title="Why do we use a PDS?" id="Why do we use a PDS?">
 <p>In design and production, countless decisions must be made throughout a product's lifecycle. It is impractical to axnticipate and document every action or choice in advance. The PDS serves as a framework that enables team members to make decisions that support the product's goals without requiring exhaustive approval processes.</p>
@@ -197,9 +199,11 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
     <Item><strong>Tolerances:</strong> Acceptable variations in performance</Item>
 
 </Itemize>
-<p>\callout</p>
+<CalloutContainer slot="cards">
+<CalloutCard title="Callout">
 <p>For the bike lock example, one might specify that the lock must resist at least 3,000 lbs of shearing force, or that it must operate in temperatures from -20° C to 50° C.  These specifications define product features rather than the ways in which those might be achieved.</p>
-<p>\callout</p>
+</CalloutCard>
+</CalloutContainer>
 <p><strong>Note:</strong> Be as specific as possible while specifying PDS elements! Vague phrases such as "strong" or "durable" must be avoided to increase the efficiency of the design process. Go back to your user needs and specifications if you need help being more specific. If it isn't measurable in some way, then it is not possible to verify your product meets the specification.</p>
 </SubSubSection>
 <SubSubSection title="2. Environment" id="2. Environment">
@@ -215,9 +219,11 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
 
 </Itemize>
 <p>In each of these environments, consider temperature and humidity ranges, pressure or altitude conditions, exposure to chemicals, noise levels, biological factors, user expertise level, etc.</p>
-<p>\callout</p>
-<p>Returning to the bike lock, one might specify that the lock must withstand high humidity levels (up to 85\</p>
-<p>\callout</p>
+<CalloutContainer slot="cards">
+<CalloutCard title="Callout">
+<p>Returning to the bike lock, one might specify that the lock must withstand high humidity levels (up to 85</p>
+</CalloutCard>
+</CalloutContainer>
 </SubSubSection>
 <SubSubSection title="3. Service Life" id="3. Service Life">
 <p>Service life defines how long the product should remain functional and against what criteria. Measurement criteria could include calendar time, operating hours, distance traveled, number of cycles or revolutions, etc. Some considerations while determining the service life of a product are the following:</p>
@@ -227,9 +233,11 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
     <Item><strong>Long service life benefits:</strong> Enhanced brand image, meets consumer quality expectations, environmental sustainability, reduced resource waste</Item>
 
 </Itemize>
-<p>\callout</p>
+<CalloutContainer slot="cards">
+<CalloutCard title="Callout">
 <p>As a product engineer, you might design the bike lock to maintain full functionality for at least 10 years under normal use, which could correspond to approximately 15,000 lock–unlock cycles.</p>
-<p>\callout</p>
+</CalloutCard>
+</CalloutContainer>
 <p><strong>Note:</strong> Service life is different from the shelf life of a product! While shelf life includes the time that the product remains unused, service life only considers the time over which the product remains in use.</p>
 </SubSubSection>
 <SubSubSection title="4. Maintenance" id="4. Maintenance">
@@ -244,9 +252,11 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
     <Item>Are special tools required, and is this acceptable?</Item>
 
 </Itemize>
-<p>\callout</p>
+<CalloutContainer slot="cards">
+<CalloutCard title="Callout">
 <p>For the bike lock, it is reasonable to expect the product to remain largely maintenance-free, requiring only occasional use of basic tools—such as lubricants—to ensure smooth operation.</p>
-<p>\callout</p>
+</CalloutCard>
+</CalloutContainer>
 </SubSubSection>
 <SubSubSection title="5. Target Costs" id="5. Target Costs">
 </SubSubSection>
@@ -272,17 +282,19 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
     <Item>Market price sensitivity</Item>
 
 </Itemize>
-<p>\callout</p>
+<CalloutContainer slot="cards">
+<CalloutCard title="Callout">
 <strong>Bike Lock Example</strong>
     <Itemize>
 
         <Item><strong>Target Manufacturing Cost:</strong> $8.50 per unit (at 50,000 units/year)</Item>
         <Item><strong>Tooling Investment:</strong> $75,000 (recovered over 2 years)</Item>
         <Item><strong>Retail Price Target:</strong> $29.99 (competitive with mid-range locks)</Item>
-        <Item><strong>Profit Margin:</strong> 40\</Item>
+        <Item><strong>Profit Margin:</strong> 40</Item>
 
 </Itemize>
-<p>\callout</p>
+</CalloutCard>
+</CalloutContainer>
 </SubSubSubSection>
 <SubSubSection title="6. Competition" id="6. Competition">
 </SubSubSection>
@@ -309,14 +321,15 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
     <Item>Determine differentiation strategy</Item>
 
 </Itemize>
-<p>\callout</p>
+<CalloutContainer slot="cards">
+<CalloutCard title="Callout">
 </SubSubSubSection>
 <SubSubSubSection title="Bike Lock Example" id="Bike Lock Example">
 <strong>Competitive Landscape:</strong>
 <Itemize>
 
     <Item><strong>Major Competitors:</strong> Kryptonite, ABUS, OnGuard, Master Lock</Item>
-    <Item><strong>Price Range:</strong> $15-$200 for U-locks</Item>
+    <Item><strong>Price Range:</strong> <InlineEquation equation="15-" />200 for U-locks</Item>
     <Item><strong>Key Features Analysis:</strong> </Item>
 <p>\begin{itemize}</p>
         <Item>Security ratings (Sold Secure, ART)</Item>
@@ -329,7 +342,8 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
 <p>\item <strong>Market Gap Identified:</strong> No mid-priced lock with integrated GPS tracking and smartphone alerts</p>
 <p>\item <strong>Differentiation Strategy:</strong> Smart features at traditional lock pricing</p>
 <p>\end{itemize}</p>
-<p>\callout</p>
+</CalloutCard>
+</CalloutContainer>
 </SubSubSubSection>
 <SubSubSection title="7. Shipping" id="7. Shipping">
 </SubSubSection>
@@ -349,13 +363,14 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
     <Item>Lifting points and handling requirements</Item>
 
 </Itemize>
-<p>\callout</p>
+<CalloutContainer slot="cards">
+<CalloutCard title="Callout">
 </SubSubSubSection>
 <SubSubSubSection title="Bike Lock Example" id="Bike Lock Example">
 <Itemize>
 
     <Item><strong>Primary Distribution:</strong> Bulk shipment to regional warehouses, then to retail stores</Item>
-    <Item><strong>Secondary Distribution:</strong> Direct-to-consumer via e-commerce (20\</Item>
+    <Item><strong>Secondary Distribution:</strong> Direct-to-consumer via e-commerce (20</Item>
     <Item><strong>Transportation:</strong> Truck freight (domestic), container ship (international)</Item>
     <Item><strong>Pallet Configuration:</strong> 200 units per pallet</Item>
     <Item><strong>Package Dimensions:</strong> 8" × 4" × 2" per retail package (fits standard carrier boxes)</Item>
@@ -364,7 +379,8 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
     <Item><strong>Cost Constraint:</strong> Package size optimized to minimize dimensional weight charges for e-commerce</Item>
 
 </Itemize>
-<p>\callout</p>
+</CalloutCard>
+</CalloutContainer>
 </SubSubSubSection>
 <SubSubSection title="8. Product Volume" id="8. Product Volume">
 </SubSubSection>
@@ -385,7 +401,8 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
 
 </Itemize>
 <p>\end{itemize}</p>
-<p>\callout</p>
+<CalloutContainer slot="cards">
+<CalloutCard title="Callout">
 </SubSubSubSection>
 <SubSubSubSection title="Bike Lock Example" id="Bike Lock Example">
 <Itemize>
@@ -404,7 +421,8 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
 
 </Itemize>
 <p>\end{itemize}</p>
-<p>\callout</p>
+</CalloutCard>
+</CalloutContainer>
 </SubSubSubSection>
 <SubSubSection title="9. Packing" id="9. Packing">
 </SubSubSection>
@@ -432,13 +450,14 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
     <Item>Environmental protection requirements</Item>
 
 </Itemize>
-<p>\callout</p>
+<CalloutContainer slot="cards">
+<CalloutCard title="Callout">
 </SubSubSubSection>
 <SubSubSubSection title="Bike Lock Example" id="Bike Lock Example">
 <Itemize>
 
     <Item><strong>Packaging Type:</strong> Clamshell blister pack with cardboard backer</Item>
-    <Item><strong>Cost Target:</strong> $0.85 per package (10\</Item>
+    <Item><strong>Cost Target:</strong> $0.85 per package (10</Item>
     <Item><strong>Protection Requirements:</strong> </Item>
 <p>\begin{itemize}</p>
         <Item>Prevent scratching of lock body during shipping</Item>
@@ -454,11 +473,12 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
         <Item>Clear view of product</Item>
 
 </Itemize>
-<p>\item <strong>Sustainability:</strong> 60\</p>
+<p>\item <strong>Sustainability:</strong> 60</p>
 <p>\item <strong>Dimensions:</strong> Standardized to retail hanging systems</p>
 <p>\item <strong>Anti-Theft:</strong> Difficult to remove from package without damage</p>
 <p>\end{itemize}</p>
-<p>\callout</p>
+</CalloutCard>
+</CalloutContainer>
 </SubSubSubSection>
 <SubSubSection title="10. Manufacturing Facility" id="10. Manufacturing Facility">
 </SubSubSection>
@@ -476,7 +496,8 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
     <Item>What processes are we familiar with?</Item>
 
 </Itemize>
-<p>\callout</p>
+<CalloutContainer slot="cards">
+<CalloutCard title="Callout">
 </SubSubSubSection>
 <SubSubSubSection title="Bike Lock Example" id="Bike Lock Example">
 <Itemize>
@@ -484,7 +505,7 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
     <Item><strong>Facility:</strong> Existing manufacturing plant with metal forming capabilities</Item>
     <Item><strong>Existing Capacity:</strong> </Item>
 <p>\begin{itemize}</p>
-        <Item>Die casting equipment (currently at 70\</Item>
+        <Item>Die casting equipment (currently at 70</Item>
         <Item>CNC machining centers (available capacity)</Item>
         <Item>Heat treatment furnaces (in-house)</Item>
 
@@ -506,7 +527,8 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
 <p>\item <strong>Assembly:</strong> Semi-automated assembly line in existing facility</p>
 <p>\item <strong>Quality Control:</strong> Leverage existing testing infrastructure</p>
 <p>\end{itemize}</p>
-<p>\callout</p>
+</CalloutCard>
+</CalloutContainer>
 </SubSubSubSection>
 <SubSubSection title="11. Size" id="11. Size">
 </SubSubSection>
@@ -530,7 +552,8 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
     <Item>Maintenance access problems</Item>
 
 </Itemize>
-<p>\callout</p>
+<CalloutContainer slot="cards">
+<CalloutCard title="Callout">
 </SubSubSubSection>
 <SubSubSubSection title="Bike Lock Example" id="Bike Lock Example">
 <Itemize>
@@ -549,7 +572,8 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
 <p>\item <strong>Compatibility:</strong> Sized to secure bike frame + wheel to standard bike racks</p>
 <p>\item <strong>Storage:</strong> Fits standard bike frame mounts</p>
 <p>\end{itemize}</p>
-<p>\callout</p>
+</CalloutCard>
+</CalloutContainer>
 </SubSubSubSection>
 <SubSubSection title="12. Weight" id="12. Weight">
 </SubSubSection>
@@ -566,7 +590,8 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
     <Item>Structural support limitations</Item>
 
 </Itemize>
-<p>\callout</p>
+<CalloutContainer slot="cards">
+<CalloutCard title="Callout">
 </SubSubSubSection>
 <SubSubSubSection title="Bike Lock Example" id="Bike Lock Example">
 <Itemize>
@@ -585,7 +610,8 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
 <p>\item <strong>Material Implications:</strong> Requires high-strength steel alloy to minimize weight while maintaining security</p>
 <p>\item <strong>Distribution:</strong> Weight acceptable for retail hanging displays</p>
 <p>\end{itemize}</p>
-<p>\callout</p>
+</CalloutCard>
+</CalloutContainer>
 </SubSubSubSection>
 <SubSubSection title="13. Aesthetics and Finish" id="13. Aesthetics and Finish">
 </SubSubSection>
@@ -609,7 +635,8 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
 </SubSubSubSection>
 <SubSubSubSection title="Expert Input" id="Expert Input">
 <p>Obtain input from sales, marketing, and industrial designers early in the process.</p>
-<p>\callout</p>
+<CalloutContainer slot="cards">
+<CalloutCard title="Callout">
 </SubSubSubSection>
 <SubSubSubSection title="Bike Lock Example" id="Bike Lock Example">
 <Itemize>
@@ -617,7 +644,7 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
     <Item><strong>Design Language:</strong> Modern, technical aesthetic suggesting security</Item>
     <Item><strong>Color Options:</strong> </Item>
 <p>\begin{itemize}</p>
-        <Item>Primary: Matte black (appeals to 65\</Item>
+        <Item>Primary: Matte black (appeals to 65</Item>
         <Item>Secondary: Gunmetal gray, safety orange</Item>
 
 </Itemize>
@@ -640,7 +667,8 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
 <p>\item <strong>Protective Cover:</strong> Black rubberized coating (prevents scratching bikes)</p>
 <p>\item <strong>Professional Input:</strong> Industrial designer consultation on ergonomic key design and grip surfaces</p>
 <p>\end{itemize}</p>
-<p>\callout</p>
+</CalloutCard>
+</CalloutContainer>
 </SubSubSubSection>
 <SubSubSection title="14. Materials" id="14. Materials">
 </SubSubSection>
@@ -656,7 +684,8 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
     <Item><strong>Policy-Driven:</strong> Company standards or capabilities</Item>
 
 </Itemize>
-<p>\callout</p>
+<CalloutContainer slot="cards">
+<CalloutCard title="Callout">
 </SubSubSubSection>
 <SubSubSubSection title="Bike Lock Example" id="Bike Lock Example">
 <strong>Required Materials:</strong>
@@ -683,7 +712,8 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
     <Item>TPU: Superior weather resistance vs. PVC, environmentally preferable</Item>
 
 </Itemize>
-<p>\callout</p>
+</CalloutCard>
+</CalloutContainer>
 </SubSubSubSection>
 <SubSubSection title="15. Product Life Span" id="15. Product Life Span">
 </SubSubSection>
@@ -701,7 +731,8 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
     <Item>Supply chain commitments</Item>
 
 </Itemize>
-<p>\callout</p>
+<CalloutContainer slot="cards">
+<CalloutCard title="Callout">
 </SubSubSubSection>
 <SubSubSubSection title="Bike Lock Example" id="Bike Lock Example">
 <Itemize>
@@ -726,7 +757,8 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
 
 </Itemize>
 <p>\end{itemize}</p>
-<p>\callout</p>
+</CalloutCard>
+</CalloutContainer>
 </SubSubSubSection>
 <SubSubSection title="16. Standards, Specifications, and Legal Aspects" id="16. Standards, Specifications, and Legal Aspects">
 </SubSubSection>
@@ -746,7 +778,8 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
     <Item>Regional regulatory variations</Item>
 
 </Itemize>
-<p>\callout</p>
+<CalloutContainer slot="cards">
+<CalloutCard title="Callout">
 </SubSubSubSection>
 <SubSubSubSection title="Bike Lock Example" id="Bike Lock Example">
 <strong>Applicable Standards:</strong>
@@ -777,7 +810,8 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
     <Item>Legal review of all security claims in marketing</Item>
 
 </Itemize>
-<p>\callout</p>
+</CalloutCard>
+</CalloutContainer>
 </SubSubSubSection>
 <SubSubSection title="17. Ergonomics" id="17. Ergonomics">
 </SubSubSection>
@@ -795,7 +829,8 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
     <Item>Accessibility requirements</Item>
 
 </Itemize>
-<p>\callout</p>
+<CalloutContainer slot="cards">
+<CalloutCard title="Callout">
 </SubSubSubSection>
 <SubSubSubSection title="Bike Lock Example" id="Bike Lock Example">
 <strong>Key Ergonomics:</strong>
@@ -832,7 +867,8 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
     <Item>Key fob large enough for arthritic users</Item>
 
 </Itemize>
-<p>\callout</p>
+</CalloutCard>
+</CalloutContainer>
 </SubSubSubSection>
 <SubSubSection title="18. Customer" id="18. Customer">
 </SubSubSection>
@@ -850,23 +886,24 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
     <Item>Warranty and complaint data</Item>
 
 </Itemize>
-<p>\callout</p>
+<CalloutContainer slot="cards">
+<CalloutCard title="Callout">
 </SubSubSubSection>
 <SubSubSubSection title="Bike Lock Example" id="Bike Lock Example">
 <strong>Customer Research Findings:</strong>
 <strong>Primary User Profile:</strong>
 <Itemize>
 
-    <Item>Urban commuters (55\</Item>
-    <Item>Recreational cyclists (30\</Item>
-    <Item>Casual users (15\</Item>
+    <Item>Urban commuters (55</Item>
+    <Item>Recreational cyclists (30</Item>
+    <Item>Casual users (15</Item>
     <Item>Age: 25-45 primarily</Item>
 
 </Itemize>
 <strong>Customer Preferences:</strong>
 <Itemize>
 
-    <Item>Quick, convenient locking (prioritized by 78\</Item>
+    <Item>Quick, convenient locking (prioritized by 78</Item>
     <Item>Visible security (deterrent effect)</Item>
     <Item>Lightweight (within reason)</Item>
     <Item>Weather resistance</Item>
@@ -902,7 +939,8 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
     <Item>Insurance requirement</Item>
 
 </Itemize>
-<p>\callout</p>
+</CalloutCard>
+</CalloutContainer>
 </SubSubSubSection>
 <SubSubSection title="19. Quality and Reliability" id="19. Quality and Reliability">
 </SubSubSection>
@@ -921,14 +959,15 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
     <Item>Field failure rates</Item>
 
 </Itemize>
-<p>\callout</p>
+<CalloutContainer slot="cards">
+<CalloutCard title="Callout">
 </SubSubSubSection>
 <SubSubSubSection title="Bike Lock Example" id="Bike Lock Example">
 <strong>Quality Targets:</strong>
 <Itemize>
 
     <Item><strong>Defect Rate:</strong> &lt;100 DPMO (defects per million opportunities)</Item>
-    <Item><strong>Field Failure Rate:</strong> &lt;0.5\</Item>
+    <Item><strong>Field Failure Rate:</strong> &lt;0.5</Item>
     <Item><strong>MTBF:</strong> 15,000 lock/unlock cycles minimum</Item>
     <Item><strong>Key Durability:</strong> 5,000 uses without excessive wear</Item>
 
@@ -937,7 +976,7 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
 <Itemize>
 
     <Item><strong>Lock Cylinder:</strong> Zero key breakage in normal use</Item>
-    <Item><strong>Shackle Release:</strong> 99.9\</Item>
+    <Item><strong>Shackle Release:</strong> 99.9</Item>
     <Item><strong>Corrosion:</strong> Zero visible rust after 1 year outdoor exposure</Item>
     <Item><strong>Coating Adhesion:</strong> No peeling or flaking</Item>
 
@@ -945,7 +984,7 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
 <strong>Quality Assurance:</strong>
 <Itemize>
 
-    <Item>100\</Item>
+    <Item>100</Item>
     <Item>Statistical sampling for shackle strength (1 per 500 units destructive test)</Item>
     <Item>Salt spray testing for corrosion resistance</Item>
     <Item>Drop testing for shipping durability</Item>
@@ -967,7 +1006,8 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
     <Item>UV exposure chamber (equivalent to 10 years)</Item>
 
 </Itemize>
-<p>\callout</p>
+</CalloutCard>
+</CalloutContainer>
 </SubSubSubSection>
 <SubSubSection title="20. Shelf Life" id="20. Shelf Life">
 </SubSubSection>
@@ -985,7 +1025,8 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
     <Item>Seasonal factors</Item>
 
 </Itemize>
-<p>\callout</p>
+<CalloutContainer slot="cards">
+<CalloutCard title="Callout">
 </SubSubSubSection>
 <SubSubSubSection title="Bike Lock Example" id="Bike Lock Example">
 <p><strong>Shelf Life Requirement:</strong> 3 years minimum</p>
@@ -993,7 +1034,7 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
 <Itemize>
 
     <Item>Temperature: 0°C to 40°C</Item>
-    <Item>Humidity: Up to 80\</Item>
+    <Item>Humidity: Up to 80</Item>
     <Item>Display: Indoor and outdoor retail displays</Item>
 
 </Itemize>
@@ -1033,7 +1074,8 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
     <Item>Product requires no activation before use</Item>
 
 </Itemize>
-<p>\callout</p>
+</CalloutCard>
+</CalloutContainer>
 </SubSubSubSection>
 <SubSubSection title="21. Processes" id="21. Processes">
 </SubSubSection>
@@ -1050,7 +1092,8 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
     <Item>Industry standards</Item>
 
 </Itemize>
-<p>\callout</p>
+<CalloutContainer slot="cards">
+<CalloutCard title="Callout">
 </SubSubSubSection>
 <SubSubSubSection title="Bike Lock Example" id="Bike Lock Example">
 <strong>Specified Processes:</strong>
@@ -1095,11 +1138,12 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
 <strong>Quality Processes:</strong>
 <Itemize>
 
-    <Item><strong>100\</Item>
-    <Item>\textbf{Statistical Sampling:</strong> Destructive shackle strength testing</Item>
+    <Item><strong>100</Item>
+    <Item><strong>Statistical Sampling:</strong> Destructive shackle strength testing</Item>
 
 </Itemize>
-<p>\callout</p>
+</CalloutCard>
+</CalloutContainer>
 </SubSubSubSection>
 <SubSubSection title="22. Timescales" id="22. Timescales">
 </SubSubSection>
@@ -1118,7 +1162,8 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
     <Item>Window of opportunity for market launch</Item>
 
 </Itemize>
-<p>\callout</p>
+<CalloutContainer slot="cards">
+<CalloutCard title="Callout">
 </SubSubSubSection>
 <SubSubSubSection title="Bike Lock Example" id="Bike Lock Example">
 <strong>Product Development Timeline:</strong>
@@ -1190,7 +1235,8 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
     <Item>Must complete by March for April retail availability</Item>
 
 </Itemize>
-<p>\callout</p>
+</CalloutCard>
+</CalloutContainer>
 </SubSubSubSection>
 <SubSubSection title="23. Testing" id="23. Testing">
 </SubSubSection>
@@ -1218,15 +1264,16 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
     <Item>Documentation requirements</Item>
 
 </Itemize>
-<p>\callout</p>
+<CalloutContainer slot="cards">
+<CalloutCard title="Callout">
 </SubSubSubSection>
 <SubSubSubSection title="Bike Lock Example" id="Bike Lock Example">
 <strong>Manufacturing Tests:</strong>
-<p><strong>100\</p>
-<p>\begin{itemize</strong></p>
-<p>\item Lock cylinder function test (automated)</p>
-    <Itemize>
+<p><strong>100</p>
+<Itemize>
 
+    <Item>Lock cylinder function test (automated) </Item>
+<p>\begin{itemize}</p>
         <Item>Key insertion/extraction: 5 cycles</Item>
         <Item>Lock/unlock operation: 5 cycles</Item>
         <Item>Test duration: 15 seconds per unit</Item>
@@ -1295,7 +1342,8 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
     <Item>Certification results available on company website</Item>
 
 </Itemize>
-<p>\callout</p>
+</CalloutCard>
+</CalloutContainer>
 </SubSubSubSection>
 <SubSubSection title="24. Safety" id="24. Safety">
 </SubSubSection>
@@ -1312,7 +1360,8 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
     <Item>User warnings and instructions</Item>
 
 </Itemize>
-<p>\callout</p>
+<CalloutContainer slot="cards">
+<CalloutCard title="Callout">
 </SubSubSubSection>
 <SubSubSubSection title="Bike Lock Example" id="Bike Lock Example">
 <strong>Safety Considerations:</strong>
@@ -1386,7 +1435,7 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
 <Itemize>
 
     <Item>Proper locking technique (secure frame AND wheel)</Item>
-    <Item>Limitations of security (no lock is 100\</Item>
+    <Item>Limitations of security (no lock is 100</Item>
     <Item>Maintenance recommendations</Item>
     <Item>Warranty information</Item>
 
@@ -1399,7 +1448,8 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
     <Item>Legal review of all marketing claims about security</Item>
 
 </Itemize>
-<p>\callout</p>
+</CalloutCard>
+</CalloutContainer>
 </SubSubSubSection>
 <SubSubSection title="25. Company Constraints" id="25. Company Constraints">
 </SubSubSection>
@@ -1418,7 +1468,8 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
     <Item>Strategic direction</Item>
 
 </Itemize>
-<p>\callout</p>
+<CalloutContainer slot="cards">
+<CalloutCard title="Callout">
 </SubSubSubSection>
 <SubSubSubSection title="Bike Lock Example" id="Bike Lock Example">
 <strong>Manufacturing Constraints:</strong>
@@ -1448,7 +1499,8 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
     <Item>Cannot hire additional manufacturing staff until Year 2</Item>
 
 </Itemize>
-<p>\callout</p>
+</CalloutCard>
+</CalloutContainer>
 </SubSubSubSection>
 <SubSubSection title="26. Market Constraints" id="26. Market Constraints">
 </SubSubSection>
@@ -1466,7 +1518,8 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
     <Item>Local preferences and taboos</Item>
 
 </Itemize>
-<p>\callout</p>
+<CalloutContainer slot="cards">
+<CalloutCard title="Callout">
 </SubSubSubSection>
 <SubSubSubSection title="Bike Lock Example" id="Bike Lock Example">
 <strong>Geographic Restrictions:</strong>
@@ -1527,7 +1580,8 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
     <Item>Insurance company approved lists (must meet certain standards for coverage)</Item>
 
 </Itemize>
-<p>\callout</p>
+</CalloutCard>
+</CalloutContainer>
 </SubSubSubSection>
 <SubSubSection title="27. Patents, Literature, and Product Data" id="27. Patents, Literature, and Product Data">
 </SubSubSection>
@@ -1548,7 +1602,8 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
 </SubSubSubSection>
 <SubSubSubSection title="Key Principle" id="Key Principle">
 <strong>"If patents are known in detail before the design starts, it is usually quite easy to avoid infringing them."</strong>
-<p>\callout</p>
+<CalloutContainer slot="cards">
+<CalloutCard title="Callout">
 </SubSubSubSection>
 <SubSubSubSection title="Bike Lock Example" id="Bike Lock Example">
 <strong>Patent Landscape:</strong>
@@ -1629,7 +1684,8 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
     <Item>Regular patent monitoring for new filings in bike lock category</Item>
 
 </Itemize>
-<p>\callout</p>
+</CalloutCard>
+</CalloutContainer>
 </SubSubSubSection>
 <SubSubSection title="28. Political and Social Implications" id="28. Political and Social Implications">
 </SubSubSection>
@@ -1647,7 +1703,8 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
     <Item>Environmental and sustainability concerns</Item>
 
 </Itemize>
-<p>\callout</p>
+<CalloutContainer slot="cards">
+<CalloutCard title="Callout">
 </SubSubSubSection>
 <SubSubSubSection title="Bike Lock Example" id="Bike Lock Example">
 <strong>Political Considerations:</strong>
@@ -1718,7 +1775,8 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
     <Item><strong>Exclusionary Design:</strong> Ensure usable by people with various physical abilities</Item>
 
 </Itemize>
-<p>\callout</p>
+</CalloutCard>
+</CalloutContainer>
 </SubSubSubSection>
 <SubSubSection title="29. Disposal" id="29. Disposal">
 </SubSubSection>
@@ -1739,29 +1797,34 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
     <Item>Environmental impact of disposal</Item>
 
 </Itemize>
-<p>\callout</p>
+<CalloutContainer slot="cards">
+<CalloutCard title="Callout">
 </SubSubSubSection>
 <SubSubSubSection title="Bike Lock Example" id="Bike Lock Example">
 <strong>End-of-Life Strategy:</strong>
 <strong>Material Recyclability:</strong>
 <Itemize>
 
-    <Item><strong>Steel Components (90\</Item>
+    <Item><strong>Steel Components (90</Item>
         <Item>Shackle: Steel can be melted and reused indefinitely</Item>
         <Item>Lock body: Die-cast zinc/aluminum alloy recyclable</Item>
         <Item>No need for disassembly - steel recyclers accept mixed metal locks</Item>
-<p>\end{itemize</strong></p>
-    <Item><strong>Plastic Components (8\</Item>
-<p>\begin{itemize</strong></p>
+
+</Itemize>
+<p>\item <strong>Plastic Components (8</p>
+    <Itemize>
+
         <Item>Recyclable in specialized facilities (recycling code 7)</Item>
         <Item>Material choice prioritized recyclability over cheaper PVC</Item>
 
 </Itemize>
-<p>\item <strong>Lock Cylinder (2\</p>
-<p>\begin{itemize</strong></p>
-<p>\item Brass has high scrap value, readily recycled</p>
-<p>\item Small springs: Steel, recyclable</p>
-<p>\end{itemize}</p>
+<p>\item <strong>Lock Cylinder (2</p>
+    <Itemize>
+
+        <Item>Brass has high scrap value, readily recycled</Item>
+        <Item>Small springs: Steel, recyclable</Item>
+
+</Itemize>
 <p>\end{itemize}</p>
 <strong>Design for Disassembly:</strong>
 <Itemize>
@@ -1773,28 +1836,34 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
 
 </Itemize>
 <strong>Disposal Pathways:</strong>
-<p><strong>Primary Path (Expected for 70\</p>
-<p>\begin{itemize</strong></p>
-<p>\item Consumer disposes at end of life (10+ years)</p>
-<p>\item Placed in metal recycling bin or taken to scrap metal dealer</p>
-<p>\item Steel recyclers accept locks without preparation</p>
-<p>\item Material automatically sorted at recycling facility</p>
-<p>\end{itemize}</p>
-<p><strong>Secondary Path (20\</p>
-<p>\begin{itemize</strong></p>
-<p>\item Lock damaged or compromised before end of life</p>
-<p>\item Same recycling pathway as primary</p>
-<p>\end{itemize}</p>
-<p><strong>Premature Disposal (10\</p>
-<p>\begin{itemize</strong></p>
-<p>\item Lost keys, forgotten combination, or lock malfunction</p>
-<p>\item Many users keep lock "just in case" rather than disposing</p>
-<p>\item Eventually enters metal recycling stream</p>
-<p>\end{itemize}</p>
+<p><strong>Primary Path (Expected for 70</p>
+<Itemize>
+
+    <Item>Consumer disposes at end of life (10+ years)</Item>
+    <Item>Placed in metal recycling bin or taken to scrap metal dealer</Item>
+    <Item>Steel recyclers accept locks without preparation</Item>
+    <Item>Material automatically sorted at recycling facility</Item>
+
+</Itemize>
+<p><strong>Secondary Path (20</p>
+<Itemize>
+
+    <Item>Lock damaged or compromised before end of life</Item>
+    <Item>Same recycling pathway as primary</Item>
+
+</Itemize>
+<p><strong>Premature Disposal (10</p>
+<Itemize>
+
+    <Item>Lost keys, forgotten combination, or lock malfunction</Item>
+    <Item>Many users keep lock "just in case" rather than disposing</Item>
+    <Item>Eventually enters metal recycling stream</Item>
+
+</Itemize>
 <strong>Packaging Disposal:</strong>
 <Itemize>
 
-    <Item><strong>Cardboard Backer:</strong> 60\</Item>
+    <Item><strong>Cardboard Backer:</strong> 60</Item>
     <Item><strong>PET Clamshell:</strong> Recyclable code 1 (most recycled plastic)</Item>
     <Item>Instructions printed on recyclable paper with soy-based ink</Item>
     <Item>No laminated or composite materials that complicate recycling</Item>
@@ -1817,7 +1886,8 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
     <Item>Communicate recyclability as product benefit</Item>
 
 </Itemize>
-<p>\callout</p>
+</CalloutCard>
+</CalloutContainer>
 
 </SubSubSubSection>
 </Layout>
