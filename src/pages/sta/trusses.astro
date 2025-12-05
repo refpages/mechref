@@ -16,6 +16,8 @@ import CalloutContainer from "../../components/CalloutContainer.astro"
 import CalloutCard from "../../components/CalloutCard.astro"
 import SubSubsection from "../../components/SubSubsection.astro"
 import DisplayEquationCustom from "../../components/DisplayEquationCustom.astro"
+import DisplayTable from "../../components/DisplayTable.astro"
+import Example from "../../components/Example.astro"
 ---
 <Layout title = "Trusses" description = "Learn about truss systems, zero force members, the method of joints, and the method of sections.">
 
@@ -26,10 +28,9 @@ import DisplayEquationCustom from "../../components/DisplayEquationCustom.astro"
       <li class = 'list-group-item py-0'><a class = 'text-decoration-none subsection' href = '#zero_force_member'>Zero force member</a></li>
 		  <li class = 'list-group-item py-0'><a class = 'text-decoration-none subsection' href = '#joints'>Truss analysis: joints</a></li>
 		  <li class = 'list-group-item py-0'><a class = 'text-decoration-none subsection' href = '#sections'>Truss analysis: sections</a></li>
-      <li class = 'list-group-item py-0'><a class = 'text-decoration-none subsection' href = '#truss_determinacy_rigidity_and_stability'>Truss Determinacy, Rigidity, and Stability</a>
+      <li class = 'list-group-item py-0'><a class = 'text-decoration-none subsection' href = '#truss_determinacy_and_stability'>Truss Determinacy and Stability</a>
         <ul class = 'list-group list-group-flush py-0'>
           <li class = 'list-group-item py-0'><a class = 'text-decoration-none subsubsection' href = '#determinate'>Determinacy</a></li>
-          <li class = 'list-group-item py-0'><a class = 'text-decoration-none subsubsection' href = '#rigidity'>Rigidity</a></li>
           <li class = 'list-group-item py-0'><a class = 'text-decoration-none subsubsection' href = '#stability'>Stability</a></li>
         </ul>
       </li>
@@ -175,53 +176,94 @@ Then, you "cut" the truss so that the internal force you want is "exposed" from 
 
 </SubSection>
 
-  <SubSection title = "Truss Determinacy, Rigidity, and Stability" id = "truss_determinacy_rigidity_and_stability">
+  <SubSection title = "Truss Determinacy and Stability" id = "truss_determinacy_and_stability">
     <p>
-      Determinacy, rigidity, and stability are important concepts to understand when analyzing trusses.
+      Determinacy and stability are important concepts to understand when analyzing trusses.
       These concepts are related, but not the same.
-      The following comparison is useful for understanding these concepts.
     </p>
-    <DisplayEquationCustom title = "Comparison" background = "True" id = "comparison">
-      <DisplayEquation equation = "b + r \\ \\text{vs} \\ 2 j"/>
-      <DisplayEquation equation = `\\begin{align}b \\ &\\text{is the number of members} \\\\
-        r \\ &\\text{is the number of reactions} \\\\
-        j \\ &\\text{is the number of joints} \\end{align}`/>
-    </DisplayEquationCustom>
-    </SubSection>
+    <CalloutContainer slot = "cards">
+      <CalloutCard title = "Review?">
+        <p>
+          Need a review of <strong>system classifications?</strong>
+        </p>
+        <p>
+          This content has also been explained <a href = "/sta/reaction_forces#system_classifications">earlier in the course.</a>
+        </p>
+      </CalloutCard>
+    </CalloutContainer>
+  </SubSection>
 
-  <SubSubsection title = "Determinacy" id = "determinate">
+  <SubSubsection title = "Determinacy" id = "determinacy">
     <p>
       Determinacy is defined as whether or not a structure's internal forces can be determined using only the equations of equilibrium.
     </p>
-    <DisplayEquation title = "Determinate" equation = "b + r = 2 j" background = "True" id = "determinate"/>
-    <DisplayEquation title = "Indeterminate" equation = "b + r > 2 j" background = "True" id = "indeterminate"/>
   </SubSubsection>
 
-  <SubSubsection title = "Rigidity" id = "rigidity">
-    <p>
-      Rigidity is defined as a truss's ability to maintain its internal geometry under load.
-      Triangles are considered rigid, because any set of three lengths can only form one set of angles.
-      Quadrilaterals are considered non-rigid, any set of four lengths can form many different sets of angles.
-      A non-rigid truss has internal instability and thus has an internal collapse mechanism.
-    </p>
-  </SubSubsection>
-
-  <SubSubsection title = "Stability">
+  <SubSubsection title = "Stability" id = "stability">
     <p>
       Stability is defined as a truss's ability to maintain overall equilibrium under load.
-      Stability is not the same as determinacy or rigidity.
+      Stability is not the same as determinacy.
       Unstable structures should always be avoided.
       If a structure is unstable, do not bother to discuss determinacy.
     </p>
-	  <DisplayEquation equation = "b + r < 2 j" title = "Unstable, partial constraint" background = "True" id = "unstable_partial_constraint"/>
-    <DisplayEquationCustom title = "Unstable, if improper constraints or internal collapse mechanism" background = "True" id = "unstable2">
-	    <DisplayEquation equation = "b + r \\geq 2 j"/>
-	    <p>
-        It is possible for a structure to be determinate, but unstable.
-        It is also possible for a structure to be indeterminate, but stable.
-        Improper constraints include all reactions being parallel and all reactions being concurrent at one point.
+  </SubSubsection>
+
+  <SubSubsection title = "Procedure">
+    <p>
+      To determine the determinacy and stability of a truss, follow the folllowing procedure.
+      This procedure assumes that the truss is a simple truss, which are made of triangles, which makes them rigid.
+    </p>
+    <DisplayTable id = "id" class = "mb-3">
+      <thead>
+        <tr>
+          <th class = "table-shaded"/>
+          <th class = "table-shaded" style = "border-right: 1px solid var(--bs-border-color);">Determinacy</th>
+          <th class = "table-shaded">Stability</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style = "vertical-align: middle; border-right: 1px solid var(--bs-border-color);"><InlineEquation equation = "b + r < 2 j"/></td>
+          <td style = "vertical-align: middle; border-right: 1px solid var(--bs-border-color);">(determinacy is only meaningful when a structure is stable)</td>
+          <td style = "vertical-align: middle;">Unstable</td>
+        </tr>
+        <tr>
+          <td style = "border-right: 1px solid var(--bs-border-color);"><InlineEquation equation = "b + r = 2 j"/></td>
+          <td style = "border-right: 1px solid var(--bs-border-color);">Determinate</td>
+          <td style = "vertical-align: middle;" rowspan = "2" >Possibly stable, but depends on configuration</td>
+        </tr>
+        <tr>
+          <td style = "border-right: 1px solid var(--bs-border-color);"><InlineEquation equation = "b + r > 2 j"/></td>
+          <td style = "border-right: 1px solid var(--bs-border-color);">Indeterminate</td>
+        </tr>
+      </tbody>
+    </DisplayTable>
+    <p>
+      In the relationship, <InlineEquation equation = "b"/> is the number of members, <InlineEquation equation = "r"/> is the number of reactions, and <InlineEquation equation = "j"/> is the number of joints.
+      The left side of the relationship is the number of unknowns and the right side is the number of equations.
+      If the stability depends on the configuration, check for improper constraints.
+      The following are some examples of improper constraints.
+    </p>
+    <Image src = "/sta/trusses/improperconstraints.jpg" width = "5">[Insert Image Here] All reactions parallel</Image>
+    <Image src = "/sta/trusses/improperconstraints.jpg" width = "5">[Insert Image Here] All reactions concurrent at one point</Image>
+    <Example title = "Truss Determinacy Example 1" solution = "True" id = "truss_determinacy_example_1">
+      <Image src = "/sta/trusses/truss_determinacy_example_1.png" width = "7"/>
+      <p>
+        Is the truss determinate?
       </p>
-    </DisplayEquationCustom>
+      <p>
+        Is the truss stable?
+      </p>
+      <div slot = "solution">
+        <DisplayEquation equation = "b = 11"/>
+        <DisplayEquation equation = "r = 3"/>
+        <DisplayEquation equation = "j = 7"/>
+        <DisplayEquation equation = "11 + 3 = 2 \\cdot 7"/>
+        <p>
+          The truss is determinate and there are no improper constraints, so it is stable.
+        </p>
+      </div>
+    </Example>
   </SubSubsection>
 
 </Layout>
