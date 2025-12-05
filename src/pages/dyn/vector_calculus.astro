@@ -951,11 +951,11 @@ import CalloutCard from "../../components/CalloutCard.astro"
 
     <Example title="Rotating particle." id="vcc-rpt">
         <p>
-          A particle is rotating in the \(XY\) plane with a variable angular velocity
+          A particle is rotating in the <InlineEquation equation = "x"/>-<InlineEquation equation = "y"/> plane with a variable angular velocity
             <InlineEquation equation="\\vec{\\omega}" />. At one instant in time, the particle has: 
 
-          <DisplayEquation equation="\\vec{r} = 2\\hat\\imath - \\jmath m" /> and <DisplayEquation equation="\\vec{a} = -4\\hat\\imath - 3\\jmath m/s^2" />
-
+          <DisplayEquation equation="\\vec{r} = 2\\hat\\imath - \\hat{\\jmath} \\ \\mathrm{m}" /> and <DisplayEquation equation="\\vec{a} = -4\\hat\\imath - 3\\hat{\\jmath} \\ \\mathrm{m}/\\mathrm{s}^2." />
+          What is the angular velocity and angular acceleration at the current instant?
           <ol>
              <li> How many scalar variables? </li>
              <li> How many vector equations? </li>
@@ -965,9 +965,9 @@ import CalloutCard from "../../components/CalloutCard.astro"
 
         <div slot="solution">
           <ol>
-             <li> 2 (<InlineEquation equation="\\vec{\\omega}_z , \\vec{\\alpha}_z" />) </li>
-             <li> 1 (<InlineEquation equation="\\vec{a} = \\alpha_z \\vec{r} - \\omega_z \\vec{r} " />)  </li>
-             <li> 2 (one for each <InlineEquation equation="\\hat\\imath , \\hat\\jmath" />) </li>
+             <li> Two (<InlineEquation equation="\\omega_z , \\alpha_z" />) </li>
+             <li> One (<InlineEquation equation="\\vec{a} = \\alpha_z \\vec{r} ^ \\perp - \\omega_z ^ 2 \\vec{r} " />)  </li>
+             <li> Two (one for each <InlineEquation equation="\\hat\\imath , \\hat\\jmath" />) </li>
           
           </ol>
             
