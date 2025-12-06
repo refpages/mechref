@@ -30,8 +30,9 @@ import Example from "../../components/Example.astro"
 		  <li class = 'list-group-item py-0'><a class = 'text-decoration-none subsection' href = '#sections'>Truss analysis: sections</a></li>
       <li class = 'list-group-item py-0'><a class = 'text-decoration-none subsection' href = '#truss_determinacy_and_stability'>Truss Determinacy and Stability</a>
         <ul class = 'list-group list-group-flush py-0'>
-          <li class = 'list-group-item py-0'><a class = 'text-decoration-none subsubsection' href = '#determinate'>Determinacy</a></li>
+          <li class = 'list-group-item py-0'><a class = 'text-decoration-none subsubsection' href = '#determinacy'>Determinacy</a></li>
           <li class = 'list-group-item py-0'><a class = 'text-decoration-none subsubsection' href = '#stability'>Stability</a></li>
+          <li class = 'list-group-item py-0'><a class = 'text-decoration-none subsubsection' href = '#procedure'>Procedure</a></li>
         </ul>
       </li>
     </ul>
@@ -208,10 +209,9 @@ Then, you "cut" the truss so that the internal force you want is "exposed" from 
     </p>
   </SubSubsection>
 
-  <SubSubsection title = "Procedure">
+  <SubSubsection title = "Procedure" id = "procedure">
     <p>
       To determine the determinacy and stability of a truss, follow the folllowing procedure.
-      This procedure assumes that the truss is a simple truss, which is a truss made of triangles, making it rigid.
     </p>
     <DisplayTable id = "id" class = "mb-3">
       <thead>
@@ -225,7 +225,7 @@ Then, you "cut" the truss so that the internal force you want is "exposed" from 
         <tr>
           <td style = "vertical-align: middle; border-right: 1px solid var(--bs-border-color);"><InlineEquation equation = "b + r < 2 j"/></td>
           <td style = "vertical-align: middle; border-right: 1px solid var(--bs-border-color);">(determinacy is only meaningful when a structure is stable)</td>
-          <td style = "vertical-align: middle;">Unstable</td>
+          <td style = "vertical-align: middle;">Unstable, partial constraint</td>
         </tr>
         <tr>
           <td style = "border-right: 1px solid var(--bs-border-color);"><InlineEquation equation = "b + r = 2 j"/></td>
@@ -244,10 +244,10 @@ Then, you "cut" the truss so that the internal force you want is "exposed" from 
       If the stability depends on the configuration, check for improper constraints.
       The following are some examples of improper constraints.
     </p>
-    <Image src = "/sta/trusses/improperconstraints.jpg" width = "5">[Insert Image Here] All reactions parallel</Image>
-    <Image src = "/sta/trusses/improperconstraints.jpg" width = "5">[Insert Image Here] All reactions concurrent at one point</Image>
-    <Example title = "Truss Determinacy Example 1" solution = "True" id = "truss_determinacy_example_1">
-      <Image src = "/sta/trusses/truss_determinacy_example_1.png" width = "7"/>
+    <Image src = "/sta/trusses/all_reactions_parallel.png" width = "5">[Insert Image Here] All reactions parallel</Image>
+    <Image src = "/sta/trusses/all_reactions_concurrent_at_one_point.png" width = "5">[Insert Image Here] All reactions concurrent at one point</Image>
+    <Example title = "Truss Determinacy 1" solution = "True" id = "truss_determinacy_1">
+      <Image src = "/sta/trusses/truss_determinacy_1.png" width = "7"/>
       <p>
         Is the truss determinate?
       </p>
@@ -255,12 +255,66 @@ Then, you "cut" the truss so that the internal force you want is "exposed" from 
         Is the truss stable?
       </p>
       <div slot = "solution">
-        <DisplayEquation equation = "b = 11"/>
-        <DisplayEquation equation = "r = 3"/>
-        <DisplayEquation equation = "j = 7"/>
-        <DisplayEquation equation = "11 + 3 = 2 \\cdot 7"/>
+        <DisplayEquation equation = `\\begin{align} b &= 11 \\\\
+          r &= 3 \\\\
+          j &= 7 \\\\
+          11 + 3 &= 2 \\cdot 7 \\end{align}`/>
         <p>
-          The truss is determinate and there are no improper constraints, so it is stable.
+          The truss is determinate and stable due to no improper constraints.
+        </p>
+      </div>
+    </Example>
+    <Example title = "Truss Determinacy 2" solution = "True" id = "truss_determinacy_2">
+      <Image src = "/sta/trusses/truss_determinacy_2.png" width = "7"/>
+      <p>
+        Is the truss determinate?
+      </p>
+      <p>
+        Is the truss stable?
+      </p>
+      <div slot = "solution">
+        <DisplayEquation equation = `\\begin{align} b &= 12 \\\\
+          r &= 3 \\\\
+          j &= 8 \\\\
+          12 + 3 &< 2 \\cdot 8 \\end{align}`/>
+        <p>
+          The truss is unstable, partial constraint.
+        </p>
+      </div>
+    </Example>
+    <Example title = "Truss Determinacy 3" solution = "True" id = "truss_determinacy_3">
+      <Image src = "/sta/trusses/truss_determinacy_3.png" width = "7"/>
+      <p>
+        Is the truss determinate?
+      </p>
+      <p>
+        Is the truss stable?
+      </p>
+      <div slot = "solution">
+        <DisplayEquation equation = `\\begin{align} b &= 15 \\\\
+          r &= 3 \\\\
+          j &= 8 \\\\
+          15 + 3 &> 2 \\cdot 8 \\end{align}`/>
+        <p>
+          The truss is indeterminate and stable due to no improper constraints.
+        </p>
+      </div>
+    </Example>
+    <Example title = "Truss Determinacy 4" solution = "True" id = "truss_determinacy_4">
+      <Image src = "/sta/trusses/truss_determinacy_4.png" width = "7"/>
+      <p>
+        Is the truss determinate?
+      </p>
+      <p>
+        Is the truss stable?
+      </p>
+      <div slot = "solution">
+        <DisplayEquation equation = `\\begin{align} b &= 11 \\\\
+          r &= 3 \\\\
+          j &= 7 \\\\
+          11 + 3 &= 2 \\cdot 7 \\end{align}`/>
+        <p>
+          The truss is determinate and unstable due to improper constraints, all reactions concurrent at one point.
         </p>
       </div>
     </Example>
