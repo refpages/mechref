@@ -4,6 +4,7 @@ import Image from "../../components/Image.astro"
 import Section from "../../components/Section.astro" 
 import SubSection from "../../components/SubSection.astro" 
 import SubSubSection from "../../components/SubSubSection.astro" 
+import SubSubSubSection from "../../components/SubSubSubSection.astro" 
 import Itemize from "../../components/Itemize.astro" 
 import Item from "../../components/Item.astro" 
 import InlineEquation from "../../components/InlineEquation.astro" 
@@ -188,7 +189,8 @@ Again, this can be expressed in a more general form.
     </CalloutCard>
 </CalloutContainer>
 
-A <strong>stress-strain diagram</strong> is the relationship of normal stress as a function of normal strain. One way to collect these measurement is a <strong>uniaxial tension test</strong> in which a specimen at a very slow, constant rate (quasi-static). A load <InlineEquation equation="P" /> and distance <InlineEquation equation="L" /> are measured at frequent intervals.
+<Image src='/sol/material_properties/Stress Strain Diagram.png' width='4'> Stress-strain diagram showing key properties</Image>
+A <strong>stress-strain diagram</strong> is the relationship of normal stress as a function of normal strain. One way to collect these measurement is a <strong>uniaxial tension test</strong> in which a specimen is elongated at a very slow, constant rate (quasi-static). The applied load <InlineEquation equation="P" /> and specimen length <InlineEquation equation="L" /> are measured at frequent intervals.
 
 <DisplayEquation equation="\\varepsilon = \\frac{\\delta}{L_0} = \\frac{L-L_0}{L_0}\\" title="Evaluation of average normal strain, or engineering strain (relative to undeformed length)." background="True" />
 
@@ -200,7 +202,6 @@ A <strong>stress-strain diagram</strong> is the relationship of normal stress as
     </p>
    </Warning>
    
-<Image src='/sol/material_properties/Stress Strain Diagram.png' width='4'> Stress-strain diagram showing key properties</Image>
 </SubSubSection>
 
 <SubSubSection title="Elastic Modulus" id="elastic_modulus">
@@ -265,7 +266,8 @@ In the above equation, \(\nu\) refers to <strong>Poisson's ratio</strong>. Only 
     </p>
     
     <p>
-    For an interesting demonstration on auxetic materials, check out <a href= "https://www.youtube.com/watch?v=Ka7Mx-_aoVA"> this video</a>.
+    For an interesting demonstration on auxetic materials, check out this video: 
+    <iframe src="https://www.youtube.com/embed/ErnvTsCRDrs" class="w-100" title="Auxetic Materials Example" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
     </p>
     </CalloutCard>
 </CalloutContainer>
@@ -329,18 +331,20 @@ In the above equation, \(\nu\) refers to <strong>Poisson's ratio</strong>. Only 
     </CalloutCard>
 </CalloutContainer>
 <Image src='/sol/material_properties/Stress Strain PLASTIC.jpg' width='4'> Stress-strain diagram with plastic region highlighted</Image>
+
+<p> Plastic material behaviors occur after the material has been exerted past its yield point. In this region, permanent deformation takes place. Different materials behave differently when plastically deformed, and one major classification for describing these differences is ductility.</p>
 </SubSection>
 
 <SubSubSection title="Ductility" id="ductility">
-Tension failures occur along a cone shaped surface that forms an angle of approximately <InlineEquation equation = "45^\\circ"/> with the original surface of the specimen. Shear is primarily responsible for failure in ductile materials.
+For ductile materials, tension failures occur along a cone shaped surface that forms an angle of approximately <InlineEquation equation = "45^\\circ"/> with the original surface of the specimen. Shear is primarily responsible for failure in ductile materials.
 <p>
 </p>
 
 <p>
 There are many ways to quantify ductility:
 <Itemize>
-    <Item> % elongation = <InlineEquation equation = "100 x (L_f - L_o) / L_o" /> </Item>
-    <Item> % area reduction = <InlineEquation equation = "100 x (A_o - A_f) / A_o" /> </Item>
+    <Item> % elongation = <InlineEquation equation = "100 \\times (L_f - L_o) / L_o" /> </Item>
+    <Item> % area reduction = <InlineEquation equation = "100 \\times (A_o - A_f) / A_o" /> </Item>
 </Itemize>
 </p>
 
@@ -348,7 +352,7 @@ There are many ways to quantify ductility:
 
 <SubSubSection title="Yield Strength" id="yield-strength">
 <p>
-Stresses above the plastic limit (<InlineEquation equation="\\sigma_Y < \\sigma" />) cause the material to permanently deform.
+Stresses above the plastic limit (<InlineEquation equation="\\sigma > \\sigma_Y" />) cause the material to permanently deform. This limit is known as the <strong> yield strength </strong>.
 </p>
 
 <p>
@@ -357,13 +361,13 @@ Stresses above the plastic limit (<InlineEquation equation="\\sigma_Y < \\sigma"
 
 </SubSubSection>
 
-<SubSubSection title = "0.2% Offset Method" id = "offset_method">
+<SubSubSubSection title = "0.2% Offset Method" id = "offset_method">
 
-<Image src='/sol/material_properties/Stress Strain OFFSET.png' width='4'> Stress-strain diagram with offset line highlighted</Image>
+<Image src='/sol/material_properties/offset_Stress_Strain_FIXED.jpg' width='4'> Stress-strain diagram with offset line highlighted</Image>
 
-
+<p> <strong>Note:</strong> The dotted yellow line above represents the 0.2% offset line for calculating yield stress.</p>
 <p>
-The yield stress is the point at which the material begins to plastically deform, and on the stress-strain curve is the point at which the graph is no longer linear. However, most stress-strain curves will have a gradual shift from linearity to nonlinearity, making it difficult to identify an exact yield point. The 0.2% offset method allows for a consistent metric of where yielding in a material occurs.
+On the stress-strain curve, the yield strength is the point at which the graph is no longer linear. However, most stress-strain curves will have a gradual shift from linearity to nonlinearity, making it difficult to identify an exact yield point. The 0.2% offset method allows for a consistent metric to determine where yielding in a material occurs.
 </p>
 
 <p>
@@ -376,7 +380,7 @@ Steps to perform the 0.2% offset method:
     <Item> Find the point where the line from step 2 intersects the stress-strain curve. This is the 0.2% yield stress. </Item>
 </Itemize>
 
-</SubSubSection>
+</SubSubSubSection>
 
 <SubSubSection title="Strain Hardening" id="strain-hardening">
 
