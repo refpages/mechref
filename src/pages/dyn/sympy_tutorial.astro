@@ -1,0 +1,233 @@
+---
+import Layout from "../../layouts/Layout.astro"
+import Section from "../../components/Section.astro"
+import SubSection from "../../components/SubSection.astro"
+import SubSubSection from "../../components/SubSubSection.astro"
+import CodeBox from "../../components/CodeBox.astro"
+---
+
+<Layout title = "SymPy tutorial" description = "Learn how to use SymPy to do symbolic calculations for mechanics.">
+
+  <div slot = "navtree">
+    <ul class = "list-group list-group-flush py-0"> 
+      <li class = "list-group-item py-0"><a class = "text-decoration-none subsection" href = "#importing_sympy">Importing SymPy</a></li>
+      <li class = "list-group-item py-0"><a class = "text-decoration-none subsection" href = "#basics">Basics</a></li>
+      <li class = "list-group-item py-0"><a class = "text-decoration-none subsection" href = "#matrices">Matrices</a>
+        <ul class = "list-group list-group-flush py-0">
+          <li class = "list-group-item py-0"><a class = "text-decoration-none subsubsection" href = "#creating_matrices">Creating matrices</a></li>
+          <li class = "list-group-item py-0"><a class = "text-decoration-none subsubsection" href = "#matrix_indexing">Matrix indexing</a></li>
+          <li class = "list-group-item py-0"><a class = "text-decoration-none subsubsection" href = "#matrix_operations">Matrix operations</a></li>
+        </ul>
+      </li>
+      <li class = "list-group-item py-0"><a class = "text-decoration-none subsection" href = "#trigonometry">Trigonometry</a>
+        <ul class = "list-group list-group-flush py-0">
+          <li class = "list-group-item py-0"><a class = "text-decoration-none subsubsection" href = "#trigonometric_functions">Trigonometric functions</a></li>
+          <li class = "list-group-item py-0"><a class = "text-decoration-none subsubsection" href = "#inverse_trigonometric_functions">Inverse trigonometric functions</a></li>
+        </ul>
+      </li>
+      <li class = "list-group-item py-0"><a class = "text-decoration-none subsection" href = "#symbols_and_substitutions">Symbols and substitutions</a></li>
+      <li class = "list-group-item py-0"><a class = "text-decoration-none subsection" href = "#calculus">Calculus</a>
+        <ul class = "list-group list-group-flush py-0">
+          <li class = "list-group-item py-0"><a class = "text-decoration-none subsubsection" href = "#derivatives">Derivatives</a></li>
+          <li class = "list-group-item py-0"><a class = "text-decoration-none subsubsection" href = "#integrals">Integrals</a></li>
+        </ul>
+      </li>
+      <li class = "list-group-item py-0"><a class = "text-decoration-none subsection" href = "#mathematical_functions">Mathematical functions</a></li>
+      <li class = "list-group-item py-0"><a class = "text-decoration-none subsection" href = "#solving_equations">Solving equations</a></li>
+      <li class = "list-group-item py-0"><a class = "text-decoration-none subsection" href = "#notes_and_warnings">Notes and warnings</a></li>
+    </ul>
+  </div>
+
+  <Section title = "SymPy tutorial" id = "importing_sympy"/>
+
+  <SubSection title = "Importing SymPy" id = "importing_sympy">
+    <CodeBox language = "python" code = "from sympy import *   ## Use functionname()"/>
+    <p>
+      Will load the entire sympy library to your workspace, use with caution as this may make it difficult to determine which function is being called. See the style guide for more info: <a href = "https://peps.python.org/pep-0008/#imports">https://peps.python.org/pep-0008/#imports</a>
+    </p>
+    <CodeBox language = "python" code = "import sympy    ## Use sympy.functionname()"/>
+    <p>
+      This option keeps imported functions separate
+    </p>
+    <CodeBox language = "python" code = "import sympy as sp ## Use sp.functionname()"/>
+    <p>
+      This option also keeps imported functions separate
+    </p>
+  </SubSection>
+
+  <SubSection title = "Basics" id = "basics">
+    <p>
+      SymPy (Symbolic Python) is a Python library that deals with symbolic, not numeric, objects.
+      You can only call SymPy functions on SymPy objects.
+    </p>
+    <CodeBox language = "python" code = `import sympy as sp
+      import numpy as np
+
+      A = sp.Matrix([1, 2, 3])
+      print(type(A))      # <class 'sympy.matrices.dense.MutableDenseMatrix'> : SymPy object
+
+      theta_deg = 45
+      print(type(theta_deg))  # <class 'int'> : native to Python
+
+      theta_rad = sp.rad(theta_deg)
+
+      # NumPy function returns a 64bit floating point number
+      print(type(np.deg2rad(theta_deg))) # <class 'numpy.float64'> 
+
+      # The equivalent SymPy function returns a symbolic object, not a floating point number
+      print(type(theta_rad))  # <class 'sympy.core.mul.Mul'>
+
+      x = sp.cos(theta_rad)
+      print(type(x))      # <class 'sympy.core.mul.Mul'>
+
+      # NumPy expects the input to be a floating point number, not a SymPy symbolic object
+      # x = np.cos(theta_rad)   # error
+
+      sqrt5 = sp.sqrt(5)
+      print(type(sqrt5))  # <class 'sympy.core.power.Pow'>
+
+      x, y, z = sp.symbols('x, y, z')
+      print(type(x))      # <class 'sympy.core.symbol.Symbol'>
+
+      f = x**2*y*z**3
+      print(type(f))      # <class 'sympy.core.mul.Mul'>
+
+      # You can't convert a sympy symbolic expression to a floating point number
+      # without substituting numeric values for the variables
+      # print(float(f))     # error
+
+      # Substituting in numeric values for each SymPy object allows us
+      # to convert our expression to a float
+      f_sub = f.subs({x: 1, y: 2, z: 3})
+      print(type(f_sub)) # <class 'sympy.core.numbers.Integer'>
+
+      f_sub_float = float(f_sub)
+      print(type(f_sub_float)) # <class 'float'>`/>
+  </SubSection>
+
+  <SubSection title = "Matrices" id = "matrices"/>
+  
+  <SubSubSection title = "Creating matrices" id = "creating_matrices">
+    <CodeBox language = "python" code = `A = sp.Matrix([1, 2, 3])   # Returns a 1 × n matrix.
+
+      A = sp.Matrix([[1, 2, 3],  # Returns an m × n matrix.
+                    [4, 5, 6],
+                    [7, 8, 9]])`/>
+  </SubSubSection>
+
+  <SubSubSection title = "Matrix indexing" id = "matrix_indexing">
+    <CodeBox language = "python" code = `i, j = 0, 2
+
+      print(A[i])     # Returns the i-th value of A (0-indexed).
+
+      print(A[i, j])  # Returns the value in the i-th row and j-th column of A.`/>
+  </SubSubSection>
+
+  <SubSubSection title = "Matrix operations" id = "matrix_operations">
+    <CodeBox language = "python" code = `B = A
+
+      print(A * B)   # Returns the result of matrix multiplication of matrices 
+                    # A and B. (# of columns in A must match the # of rows in B.)
+
+      print(A.norm()) # Returns the magnitude (length) of matrix A.`/>
+  </SubSubSection>
+
+  <SubSection title = "Trigonometry" id = "trigonometry">
+    <CodeBox language = "python" code = `theta = 45
+      print(sp.rad(theta))  # Converts theta from degrees to radians: (pi/180)(theta)
+
+      theta = sp.pi / 4
+      print(sp.deg(theta))  # Converts theta from radians to degrees: (180/pi)(theta)`/>
+  </SubSection>
+
+  <SubSubSection title = "Trigonometric functions" id = "trigonometric_functions">
+    <CodeBox language = "python" code = `print(sp.sin(theta))  # Returns sin(theta) (theta must be in radians)
+
+      print(sp.cos(theta))  # Returns cos(theta) (theta must be in radians)
+
+      print(sp.tan(theta))  # Returns tan(theta) (theta must be in radians)`/>
+  </SubSubSection>
+
+  <SubSubSection title = "Inverse trigonometric functions" id = "inverse_trigonometric_functions">
+    <CodeBox language = "python" code = `x, y, r = 3, 4, 5
+
+      print(sp.asin(y/r))   # Returns theta between -pi/2 and pi/2 such that sin(theta) = y/r
+                  
+      print(sp.acos(x/r))    # Returns theta between 0 and pi such that cos(theta) = x/r
+
+      print(sp.atan2(y, x))  # Returns theta such that tan(theta) = y/x
+
+      ## sp.atan(y/x) only returns angles between -pi/2 and pi/2, so always use atan2(y, x)
+
+      ## note that in numpy, this is np.arctan2(y,x)`/>
+  </SubSubSection>
+
+  <SubSection title = "Symbols and substitutions" id = "symbols_and_substitutions">
+    <CodeBox language = "python" code = `x, y, z = sp.symbols('x y z')  # Defines x, y, and z as symbolic variables
+      ## real=True to avoid imaginary answers
+      x_0, y_0, z_0 = 1, 2, 3
+
+      f = x**2
+      print(f)
+
+      print(f.subs(x, x_0))  # Returns f with x_0 substituted for x
+
+      f = sp.sqrt(x) + y**4 + z / 3
+      print(f.subs({x: x_0, y: y_0, z: z_0})) # Multiple substitutions`/>
+  </SubSection>
+
+  <SubSection title = "Calculus" id = "calculus"/>
+
+  <SubSubSection title = "Derivatives" id = "derivatives">
+    <CodeBox language = "python" code = `f = x**2 * y**4
+
+      n = 1
+      print(f.diff(x, n))  # Returns the nth derivative of f w.r.t. x (default n=1)
+
+      print(f.diff(x, 2))  # Equivalent to f.diff(x, x) = sp.diff(f, x, x)
+
+      print(f.diff(x, 2, y, 3))  # Equivalent to sp.diff(f, x, x, y, y, y)`/>
+  </SubSubSection>
+
+  <SubSubSection title = "Integrals" id = "integrals">
+    <CodeBox language = "python" code = `f = x**2 * y**4
+      x_0, x_1, y_0, y_1 = 0, 1, 0, 4
+
+      print(f.integrate(x))  # Returns the indefinite integral of f w.r.t. x
+
+      print(f.integrate([x, x_0, x_1]))  # Returns the definite integral of f from x_0 to x_1
+
+      print(f.integrate([x, x_0, x_1], [y, y_0, y_1]))  # Returns area integral`/>
+  </SubSubSection>
+
+  <SubSection title = "Mathematical functions" id = "mathematical_functions">
+    <CodeBox language = "python" code = `n = -1
+      print(abs(n))      # Returns the absolute value of n
+
+      n = 4
+      print(sp.sqrt(n))  # Returns the square root of n
+
+      f = sp.sqrt(2)
+      print(f.evalf(n))  # Returns a numerical approximation of f to n sig. figures`/>
+  </SubSection>
+
+  <SubSection title = "Solving equations" id = "solving_equations">
+    <CodeBox language = "python" code = `LHS1, RHS1 = x**2 + 5 , y + 8
+      eq1 = sp.Eq(LHS1, RHS1)  # Creates an equation equating LHS to RHS
+
+      LHS2, RHS2 = y**2 + 5 , x + 8
+      eq2 = sp.Eq(LHS2, RHS2)
+
+      print(sp.solve([eq1, eq2], dict=True))  # Returns solution to system of equations
+      ## manual=True to avoid long-running code`/>
+  </SubSection>
+
+  <SubSection title = "Notes and warnings" id = "notes_and_warnings">
+    <p>
+      You can use SymPy functions on Numpy obejcts - e.g. <code>sp.cos(np.pi)</code> - but you cannot use NumPy functions on SymPy objects - e.g. <code>np.cos(sp.pi)</code>
+    </p>
+    <p>
+      To access documentation for any function, run the code with question mark after the function name:
+    </p>
+    <CodeBox language = "python" code = "integrate?"/>
+</Layout>
