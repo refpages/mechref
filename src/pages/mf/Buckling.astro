@@ -1,0 +1,139 @@
+---
+import Layout from "../../layouts/Layout.astro"
+import Image from "../../components/Image.astro"
+import CalloutContainer from "../../components/CalloutContainer.astro"
+import Section from "../../components/Section.astro"
+import SubSection from "../../components/SubSection.astro"
+import SubSubSection from "../../components/SubSubSection.astro"
+import SubSubSubSection from "../../components/SubSubSubSection.astro"
+import OrangeText from "../../components/OrangeText.astro"
+import TealText from "../../components/TealText.astro"
+import Enumerate from "../../components/Enumerate.astro"
+import Item from "../../components/Item.astro"
+import Itemize from "../../components/Itemize.astro"
+import InlineEquation from "../../components/InlineEquation.astro"
+import DisplayEquation from "../../components/DisplayEquation.astro"
+import DisplayTable from "../../components/DisplayTable.astro";
+---
+<Layout title="Buckling">
+    <div slot="navtree">
+        <ul class="list-group list-group-flush py-0">
+                <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Buckling Introduction'>Buckling Introduction</a></li>
+                <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Buckling Criteria'>Buckling Criteria</a></li>
+        </ul>
+    </div>
+    <SubSection title="Buckling Introduction" id="Buckling Introduction">
+        <p>Buckling failure occurs in slender beams under compressive loads. With large enough loads, these beams begin to bend with even slight disturbances. Once this happens, the original load induces further bending, leading the beams to yield at a significantly lower force than they would under pure compression. This document covers the relationship between beam dimensions and susceptibility to buckling, and it specifies the criteria to avoid buckling.</p>
+
+        <Image src='/mf/Buckling/Figures/deflection.png' width='7'> Deflection</Image>
+
+    </SubSection>
+    <SubSection title="Buckling Criteria" id="Buckling Criteria">
+        <p><strong>Critical Load:</strong></p>
+        <p>To figure out the minimum compressive load <InlineEquation equation="P" /> needed for buckling risk, we need the linear beam deflection equation:</p>
+
+        <DisplayEquation equation="M(x)=EI\\frac{d^2y}{dx^2}" title="" />
+
+        <p>We can find the value of <InlineEquation equation="M(x)" /> by isolating a section of the beam and drawing a free body diagram:</p>
+
+        <Image src='/mf/Buckling/Figures/bucklingfbd.png' width='7'> Buckling Free Body Diagram</Image>
+
+        <p>Here it can be seen that the internal bending moment counteracts the force couple <InlineEquation equation="Py" />. We then insert the condition <InlineEquation equation="M=-Py" /> into the deflection equation, obtaining the following:</p>
+
+        <DisplayEquation equation="-Py=EI\\frac{d^2y}{dx^2} \\xrightarrow{} \\frac{Py}{EI}+\\frac{d^2y}{dx^2}=0." title="" />
+
+        <p>This ODE has general solution</p>
+
+        <DisplayEquation equation="y=A\\sin{\\left(x\\sqrt{\\frac{P}{EI}}\\right)}+B\\cos{\\left(x\\sqrt{\\frac{P}{EI}}\\right)}," title="" />
+
+        <p>and the constants <InlineEquation equation="A" /> and <InlineEquation equation="B" /> can be identified by applying boundary conditions.</p>
+        <p>For example, let's say the beam has pinned connections on both ends. The beam deflection at the ends must then equal 0. At the top end, the equation is</p>
+
+        <DisplayEquation equation="0=A\\sin{\\left((0)\\sqrt{\\frac{P}{EI}}\\right)}+B\\cos{\\left((0)\\sqrt{\\frac{P}{EI}}\\right)}=0+B \\xrightarrow{}B=0." title="" />
+
+        <p>Similarly, at the bottom end, the equation is</p>
+
+        <DisplayEquation equation="0=A\\sin{\\left((L)\\sqrt{\\frac{P}{EI}}\\right)}+B\\cos{\\left((L)\\sqrt{\\frac{P}{EI}}\\right)}=A\\sin{\\left(L\\sqrt{\\frac{P}{EI}}\\right)}+0" title="" />
+
+        <p><InlineEquation equation="A" /> is not explicitly 0, so the sine function itself must equal 0:</p>
+
+        <DisplayEquation equation="\\sin{\\left(L\\sqrt{\\frac{P}{EI}}\\right)}=0." title="" />
+
+        <p>For this to be true, the argument of the sine must be a multiple of <InlineEquation equation="\\pi" />. Thus,</p>
+
+        <DisplayEquation equation="L\\sqrt{\\frac{P}{EI}}=n\\pi \\xrightarrow{} P_{cr}=\\frac{n^2\\pi^2EI}{L^2}." title="" />
+
+        <p>We are concerned with the smallest load where buckling will occur, so we take <InlineEquation equation="n=1)" />. Different boundary conditions give slightly different results, but they can all take the form</p>
+
+        <DisplayEquation equation="P_{cr}=\\frac{\\pi^2 EI}{L_{e}^2}," title="" />
+
+        <p>where <InlineEquation equation="L_e" /> is called the <strong>effective length</strong>. This result is the Euler model for critical loading.</p>
+
+        <Image src='/mf/Buckling/Figures/boundconditions.png' width='7'> Boundary Conditions</Image>
+
+
+
+        <DisplayTable id="id" class_="mb-3">
+            <thead>
+            <tr>
+                <th class="table-shaded"><strong>Condition</strong></th>
+                <th class="table-shaded">A</th>
+                <th class="table-shaded">B</th>
+                <th class="table-shaded">C</th>
+                <th class="table-shaded">D</th>
+                <th class="table-shaded">E</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td><strong><InlineEquation equation="L_e" /></strong></td>
+                <td><InlineEquation equation="L" /></td>
+                <td><InlineEquation equation="0.707L" /></td>
+                <td><InlineEquation equation="0.5L" /></td>
+                <td><InlineEquation equation="L" /></td>
+                <td><InlineEquation equation="2L" /></td>
+            </tr>
+            </tbody>
+        </DisplayTable>
+
+
+        <p><strong>Euler Stress Criteria:</strong></p>
+        <p>We now extend the result from the Euler model to find critical stress:</p>
+
+        <DisplayEquation equation="S_{cr}=\\frac{P_{cr}}{A}=\\frac{\\pi^2 EI}{AL_{e}^2}." title="" />
+
+        <p>This result is typically written in a different way. First, we introduce a parameter called <strong>radius of gyration:</strong></p>
+
+        <DisplayEquation equation="\\rho=\\sqrt{\\frac{I}{A}}" title="" />
+
+        <p>The critical stress of the beam can then be written as</p>
+
+        <DisplayEquation equation="S_{cr}=\\frac{\\pi^2E}{(\\frac{L_e}{\\rho})^2}." title="" />
+
+        <p>The fraction <InlineEquation equation="\\frac{L_e}{\\rho}" /> is called the <strong>slenderness ratio</strong>. It is directly related to a beam's susceptibility to buckling.</p>
+
+        <Image src='/mf/Buckling/Figures/slenderness.png' width='7'> Slenderness Visualization</Image>
+
+        <p>For a given material, critical stress can be plotted as a function of slenderness ratio. These plots are called column design curves, and points above the curve indicate failure. Under the Euler model, a column design curve looks like this:</p>
+
+        <Image src='/mf/Buckling/Figures/eulerdesigncurve.png' width='7'> Euler Buckling Curve</Image>
+
+        <p>Notice that for low slenderness ratios, the curve becomes a flat line at the yield stress value. This is because the material is predicted to fail under yield before buckling at these points.</p>
+
+        <p><strong>Johnson Stress Criteria:</strong></p>
+        <p>Empirical evidence indicates that Euler's approach is not accurate at small to moderate slenderness ratios. This is due to complex factors involved in real-world loading conditions.</p>
+        <p>A new empirical model, named the Johnson Criteria, aligns more closely with the observed failure patterns. The model follows this equation:</p>
+
+        <DisplayEquation equation="S_{cr}=S_y-\\frac{S_y^2}{4\\pi^2E}(\\frac{L_e}{\\rho})^2." title="" />
+
+        <p>The most accurate column design curves include a combination of Euler and Johnson curves. The transition point between the curves is at the slenderness ratio</p>
+
+        <DisplayEquation equation="\\frac{L_e}{\\rho}=\\sqrt{\\frac{2 \\pi^2 E}{S_y}}." title="" />
+
+        <p>The Johnson Criteria is used for slenderness ratios smaller than the transition point, while the Euler Criteria is used for larger ratios. A design curve considering both criteria looks like this:</p>
+
+        <Image src='/mf/Buckling/Figures/fulldesigncurve.png' width='7'> Full Buckling Curve</Image>
+
+
+    </SubSection>
+</Layout>
