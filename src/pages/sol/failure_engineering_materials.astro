@@ -23,16 +23,20 @@ import Plotly from "../../components/Plotly.astro"
 <Layout title="Beam Deflection">
     <div slot="navtree">
         <ul class='list-group list-group-flush py-0'> 
-            <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#sign-conventions'>Sign Conventions</a></li>
-            <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#boundary-conditions'>Boundary Conditions</a></li>
-            <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#moment-curvature'>Moment-Curvature Equation</a>
+            <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#brittle-materials'>Brittle Materials</a>
                 <ul class='list-group list-group-flush py-0'> 
-                    <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#assumptions'>Assumptions</a></li> 
+                    <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#max-normal'>Maximum Normal Stress Criterion</a></li> 
                 </ul>
-            </li>  
-            <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#differentiation'>Differentiation</a></li>
-            <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#integration'>Integration</a></li>
-            <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#solutions'>Beam Solutions</a></li>
+            </li>
+            <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#ductile'>Ductile Materials</a>
+                <ul class='list-group list-group-flush py-0'> 
+                    <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#tresca'>Maximum Shear Stress (Tresca) Criterion</a></li> 
+                    <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#tension'>Uniaxial Tension</a></li>
+                    <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#2d-loading'>General 2D Loading State</a></li>
+                    <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#von-mises'>Maximum Distortion Energy (Von Mises) Criterion</a></li>
+                    <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#failure-surfaces'>Interactive 3D Failure Surfaces</a></li>  
+                </ul>
+            </li>
         </ul>
     </div>
 
@@ -66,6 +70,34 @@ Failure of a material depends on (1) nature of loading and (2) type of material.
             </p>
         </CalloutCard>
 </CalloutContainer>
+
+<SubSection title="Brittle Materials" id="brittle-materials">
+ <strong>Brittle</strong> materials are weaker in tension than shear
+
+<Image src="/sol/torsion/brittle.png" width="6"> </Image>
+
+<!-- \begin{multicols}{2} -->
+<Row>
+    <Col values="12 md-6"><li>Axial – maximum normal stress at \(0^o\) angle</li></Col>
+    <Col values="12 md-6"><li>Torsion – maximum normal stress at \(45^o\) angle</li></Col>
+</Row>
+
+</SubSection>
+
+<SubSubSection title="Maximum Normal Stress Criterion" id="max-normal">
+
+For <strong>brittle</strong> materials, failure is caused by the <strong>maximum tensile stress</strong> and NOT compressive stress.
+
+
+<DisplayEquation equation="\\begin{align} |\\sigma_1| = \\sigma_{ult} \\\\ |\\sigma_2| = \\sigma_{ult} \\end{align}" title="Maximum normal stress criterion material failure." background="True" />
+ 
+<Image src='/sol/failure_theories/Brittle.png' width='3'></Image>
+
+ The <InlineEquation equation="\\sigma_1" /> and <InlineEquation equation="\\sigma_2" /> equations can be plotted to show the failure surface. Loading conditions that occur <strong>outside</strong> of the surface are when the material fails.
+
+ Brittle fracture can be difficult to predict, so use this theory with caution
+
+</SubSection>
 
 <SubSection title="Ductile Materials" id="ductile-materials">
 
@@ -180,34 +212,6 @@ Failure of a material depends on (1) nature of loading and (2) type of material.
 
 <em>Note: </em> Click and drag to rotate, scroll to zoom, and click legend entries to toggle. 
 </SubSubSection>
-
-<SubSection title="Brittle Materials" id="brittle-materials">
- <strong>Brittle</strong> materials are weaker in tension than shear
-
-<Image src="/sol/torsion/brittle.png" width="6"> </Image>
-
-<!-- \begin{multicols}{2} -->
-<Row>
-    <Col values="12 md-6"><li>Axial – maximum normal stress at \(0^o\) angle</li></Col>
-    <Col values="12 md-6"><li>Torsion – maximum normal stress at \(45^o\) angle</li></Col>
-</Row>
-
-</SubSection>
-
-<SubSubSection title="Maximum Normal Stress Criterion" id="max-normal">
-
-For <strong>brittle</strong> materials, failure is caused by the <strong>maximum tensile stress</strong> and NOT compressive stress.
-
-
-<DisplayEquation equation="\\begin{align} |\\sigma_1| = \\sigma_{ult} \\\\ |\\sigma_2| = \\sigma_{ult} \\end{align}" title="Maximum normal stress criterion material failure." background="True" />
- 
-<Image src='/sol/failure_theories/Brittle.png' width='3'></Image>
-
- The <InlineEquation equation="\\sigma_1" /> and <InlineEquation equation="\\sigma_2" /> equations can be plotted to show the failure surface. Loading conditions that occur <strong>outside</strong> of the surface are when the material fails.
-
- Brittle fracture can be difficult to predict, so use this theory with caution
-
-</SubSection>
 
 </Layout>
 
