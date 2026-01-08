@@ -41,38 +41,29 @@ import Plotly from "../../components/Plotly.astro"
     </div>
 
 <Section title="Failure Theories" id="failure-theories">
-    
+ 
+<CalloutContainer slot="cards">
+    <CalloutCard title="Extra!">
+        <p>
+            <strong>Fatigue</strong> builds on this content in Engineering Materials and Mechanical Design.                
+        </p>
+        <p>
+            <Image src='/sol/material_properties/SN Curve.png' width='4'>SN curve examples</Image>
+
+            If stress does not exceed the elastic limit, the specimen returns to its original configuration. However, this is not the case if the loading is repeated thousands or millions of times. In such cases, rupture will happen at stress lower than the fracture stress - this phenomenon is known as fatigue.
+        </p>
+    </CalloutCard>
+</CalloutContainer>
+
 <!-- BSM:A table at the end summarizing the three main theories and their failure conditions would be a nice addition. -->
 
 Failure of a material depends on (1) nature of loading and (2) type of material. There are theories that can predict material failure for complex states. 
 
 </Section>
 
-<CalloutContainer slot="cards">
-    <CalloutCard title="Heads  up - Extra!">
-        <p>
-            <strong> Torsion of thin-walled hallow shafts </strong> builds on this content.
-            </p>
-            <p>
-                In general, the maximum shear stress is given by 
-                
-                <DisplayEquation equation="\\phi = \\frac{TL}{GJ}\\"/>
-
-                For thin-walled shafts 
-                
-                <DisplayEquation equation="\\tau_{max} = \\frac{T}{2tA_m}\\"/>
-
-                where 
-                
-                <DisplayEquation equation="\\begin{align} A_m &= \\pi R_{ave}^2 \\\\ R_{ave} &= \\frac{R_o + R_i}{2} \\end{align}"/>
-
-                Note that is NOT the cross sectional area of the hollow shaft!
-            </p>
-        </CalloutCard>
-</CalloutContainer>
-
 <SubSection title="Brittle Materials" id="brittle-materials">
- <strong>Brittle</strong> materials are weaker in tension than shear
+
+<strong>Brittle</strong> materials are weaker in tension than shear
 
 <Image src="/sol/torsion/brittle.png" width="6"> </Image>
 
@@ -121,6 +112,28 @@ For <strong>brittle</strong> materials, failure is caused by the <strong>maximum
 </SubSubSection>
 
 <SubSubSection title="Uniaxial Tension" id="tension">
+<CalloutContainer slot="cards">
+    <CalloutCard title="Extra!">
+        <p>
+            <strong> Torsion of thin-walled hallow shafts </strong> builds on this content.
+            </p>
+            <p>
+                In general, the maximum shear stress is given by 
+                
+                <DisplayEquation equation="\\phi = \\frac{TL}{GJ}\\"/>
+
+                For thin-walled shafts 
+                
+                <DisplayEquation equation="\\tau_{max} = \\frac{T}{2tA_m}\\"/>
+
+                where 
+                
+                <DisplayEquation equation="\\begin{align} A_m &= \\pi R_{ave}^2 \\\\ R_{ave} &= \\frac{R_o + R_i}{2} \\end{align}"/>
+
+                Note that is NOT the cross sectional area of the hollow shaft!
+            </p>
+        </CalloutCard>
+</CalloutContainer>
 
 <Image src='/sol/failure_theories/Tresca.png' width='3'> </Image>
 
