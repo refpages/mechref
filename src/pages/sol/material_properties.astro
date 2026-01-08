@@ -30,9 +30,9 @@ import Warning from "../../components/Warning.astro"
 <div slot="navtree">
     <ul class='list-group list-group-flush py-0'> 
         <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#continuum_mechanics'>Continuum Mechanics Fundamentals</a></li>
+        <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#stress-strain_diagram'>Stress-Strain Diagram</a></li>
         <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#linear_elasticity'>Linear Elasticity</a></li>
             <ul class='list-group list-group-flush py-0'> 
-                    <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#stress-strain_diagram'>Stress-Strain Diagram</a></li>
                     <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#elastic_modulus'>Elastic Modulus</a></li>
                     <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#shear_modulus'>Shear Modulus</a></li>
                     <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href="#poissons_ratio">Poisson's Ratio</a></li>
@@ -172,10 +172,7 @@ Again, this can be expressed in a more general form.
 
 </SubSection>
 
-<SubSection title="Linear Elasticity" id="linear_elasticity">
-</SubSection>
-
-<SubSubSection title="Stress-Strain Diagram" id="stress-strain_diagram">
+<SubSection title="Stress-Strain Diagram" id="stress-strain_diagram">
 <CalloutContainer slot="cards">
     <CalloutCard title="Extra!">
     There are many types of complex material behaviors. A few of them are listed below.
@@ -202,7 +199,10 @@ A <strong>stress-strain diagram</strong> is the relationship of normal stress as
     </p>
    </Warning>
    
-</SubSubSection>
+</SubSection>
+
+<SubSection title="Linear Elasticity" id="linear_elasticity">
+</SubSection>
 
 <SubSubSection title="Elastic Modulus" id="elastic_modulus">
 
@@ -336,16 +336,35 @@ In the above equation, \(\nu\) refers to <strong>Poisson's ratio</strong>. Only 
 </SubSection>
 
 <SubSubSection title="Ductility" id="ductility">
-For ductile materials, tension failures occur along a cone shaped surface that forms an angle of approximately <InlineEquation equation = "45^\\circ"/> with the original surface of the specimen. Shear is primarily responsible for failure in ductile materials.
+<CalloutContainer slot="cards">
+    <CalloutCard title="Extra!">
+        <p>
+        Strain Energy builds on this content in Engineering Materials.
+        </p>
+
+        <p>
+        Deformation does work on the material equal to internal strain energy (by energy conservation).    
+        <DisplayEquation equation="\\Delta U = \\int F_{z}dz = \\int \\sigma_{z}(\\Delta x \\Delta y \\Delta z)d\\varepsilon_{z}\\" />
+        </p>
+
+        <p>
+        Energy density. <DisplayEquation equation="u = \\frac{\\Delta U}{\\Delta V} = \\int \\sigma_{z}d\\varepsilon_{z}\\" />
+        </p>
+
+        <p>
+        Can be generalized to any deformation: areas under stress-strain curves
+        <DisplayEquation equation="u = \\int \\sigma d\\varepsilon\ \\quad \\text{or} \\quad u = \\int \\tau d\\gamma\\" />
+        </p>
+    </CalloutCard>
+</CalloutContainer>
+
 <p>
+For ductile materials, tension failures occur along a cone shaped surface that forms an angle of approximately <InlineEquation equation = "45^\\circ"/> with the original surface of the specimen. Shear is primarily responsible for failure in ductile materials.
 </p>
 
 <p>
-There are many ways to quantify ductility:
-<Itemize>
-    <Item> % elongation = <InlineEquation equation = "100 \\times (L_f - L_o) / L_o" /> </Item>
-    <Item> % area reduction = <InlineEquation equation = "100 \\times (A_o - A_f) / A_o" /> </Item>
-</Itemize>
+There are many ways to quantify ductility. A couple common ones are listed below.
+<DisplayEquation equation="\\begin{align} \\text{% elongation} = 100 \\times (L_f - L_o) / L_o \\\\ \\text{% area reduction} = 100 \\times (A_o - A_f) / A_o \\end{align}" title="Ways to quantify ductility." background="True" id="mat-duct"/>
 </p>
 
 </SubSubSection>
@@ -356,7 +375,7 @@ Stresses above the plastic limit (<InlineEquation equation="\\sigma > \\sigma_Y"
 </p>
 
 <p>
- Perfect plastic or ideal plastic: well-defined <InlineEquation equation="\\sigma_Y" />, stress plateau up to failure. Some materials (e.g. mild steel) have two yield points (stress plateau at <InlineEquation equation="\\sigma_{YL}" />). Most ductile metals do not have a stress plateau; yield strength <InlineEquation equation="\\sigma_{YS}" /> is then defined by the <strong>0.002 (0.2%) offset method</strong>.
+ Perfect plastic or ideal plastic: well-defined <InlineEquation equation="\\sigma_Y" />, stress plateau up to failure. Some materials (e.g. mild steel) have two yield points (stress plateau at <InlineEquation equation="\\sigma_{YL}" />). Most ductile metals do not have a stress plateau; yield strength <InlineEquation equation="\\sigma_{Y}" /> is then defined by the <strong>0.002 (0.2%) offset method</strong>.
 </p>
 
 </SubSubSection>
@@ -443,7 +462,7 @@ Steps to perform the 0.2% offset method:
 </Itemize>
 </SubSubSection>
 
-
+<!--
 <SubSection title="Strain Energy Density" id="energy-density">
     Strain Energy builds on this content in Engineering Materials.
 
@@ -458,7 +477,6 @@ Steps to perform the 0.2% offset method:
     <DisplayEquation equation="u = \\int \\sigma d\\varepsilon\ \\quad \\text{or} \\quad u = \\int \\tau d\\gamma\\" />
 </SubSection>
 
-<!--
 <SubSection title="Anisotropy" id="anisotropy">
 
 <Itemize>
