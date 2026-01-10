@@ -16,14 +16,9 @@ import BlueText from "../../components/BlueText.astro"
 
 <div slot="navtree">
 	<ul class='list-group list-group-flush py-0'> 
-		<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#thin-walled-pressure-vessels'>Thin-Walled Pressure Vessels</a>
-		
-			<ul class='list-group list-group-flush py-0'> 
-				<li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#cylindrical-vessels'>Cylindrical Vessels</a></li> 
-				<li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#spherical-vessels'>SphericalVessels</a></li>
-				<li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#radial-stress'>Radial Stress</a></li>  
-			</ul>
-		</li>
+		<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#strain-units'>Strain</a></li>
+        <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#stress-units'>Stress</a></li>
+        <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#torsion-units'>Torsion</a></li>
 	</ul>
 </div>
 
@@ -32,12 +27,6 @@ import BlueText from "../../components/BlueText.astro"
 <SubSection title="Strain" id="strain-units">
 
 Dimensionless [mm/mm, in/in, or %]
-
-</SubSection>
-
-<SubSection title="Torsion" id="torsion-units">
-
-Force X distance [lb-in or N-m]
 
 </SubSection>
 
@@ -89,6 +78,12 @@ The units of stress can be found in the table below.
         </tr>
     </tbody>
 </table>
+</SubSection>
+
+<SubSection title="Torsion" id="torsion-units">
+
+Force X distance [lb-in or N-m]
+
 </SubSection>
 
 </Layout>
