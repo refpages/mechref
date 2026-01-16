@@ -6,6 +6,7 @@ import SubSection from "../../components/SubSection.astro"
 import SubSubSection from "../../components/SubSubSection.astro" 
 import Itemize from "../../components/Itemize.astro" 
 import Item from "../../components/Item.astro" 
+import Enumerate from "../../components/Enumerate.astro"
 import InlineEquation from "../../components/InlineEquation.astro" 
 import DisplayEquation from "../../components/DisplayEquation.astro" 
 import BlueText from "../../components/BlueText.astro" 
@@ -26,28 +27,8 @@ import CalloutCard from "../../components/CalloutCard.astro"
 
 <div slot="navtree">
   <ul class='list-group list-group-flush py-0'> 
-      <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#general-state'>General State of Stress</a></li>
-      <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#sign-convention-general'>Sign Convention</a></li> 
-      <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#plane-stress'>Plane Stress</a></li> 
-        <ul class='list-group list-group-flush py-0'>
-          <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#stress-inclined-plane'>Stresses on Inclined Planes</a></li>  
-        </ul>
-       <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#plane-stress-transformation'>Plane Stress Transformation</a>
-       <ul class='list-group list-group-flush py-0'> 
-          <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#sign-convention-transformation'>Stress Transformation Equations</a></li>
-          <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#principal-stresses'>Principal Stresses</a></li>
-          <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#max-shear'>Maximum Shear Stress</a></li> 
-          <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#pure-shear'>Pure Shear</a></li> 
-          <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#eigenvalues'>Alternative Approach: Eigenvalues</a></li>
-        </ul>
-      </li>
-      <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#mohr-circle'>Mohr's Circle</a></li> 
-        <ul class='list-group list-group-flush py-0'> 
-            <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#2d'>2D Mohr's Circle</a></li> 
-            <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#circle-anim'>Interactive Mohr's circle</a></li>
-            <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#3d'>3D Mohr's Circle</a></li> 
-        </ul>
-      </li>  
+      <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#deformation'>Deformation</a></li>
+      <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#superposition-stress'>Stress</a></li> 
   </ul>
 </div>
 
@@ -55,15 +36,32 @@ import CalloutCard from "../../components/CalloutCard.astro"
 <Section title="Principle of Superposition" id="superposition">
 </Section>
 
-<SubSection title="Principle of Superposition " id="principle_of_superposition_">
-
+<SubSection title="Deformation" id="deformation"> 
 Superposition: If the displacements are (1) small and (2) linearly related to the force components acting, the displacements caused by the components can be added up:
 
 <DisplayEquation equation='\\delta = \\sum_i \\delta_i = \\sum_i \\frac{F_i L_i}{E_i A_i}\\' title="Superposition." background="True" />
 
+Superposition can also be applied to beam deflection by adding the deflections from different types of loadings.
+<Example id="dfl-spp" title="Deflection from a moment and distributed load using superpositon." solution="False">
+        <div class="d-flex">
+            <p>
+                <Image src='/sol/beam_deflection/Superposition Ex.png' width='3'></Image>
+              </p>
+        </div>
+    </Example>
 </SubSection>
 
-<SubSection title="Deformation" id="deformation"> ADD CONTENT HERE </SubSection>
-<SubSection title="Stress" id="superposition-stress"> ADD CONTENT HERE </SubSection>
+<SubSection title="Stress" id="superposition-stress">
+The goal in combined loading is to determine the stresses at a point in a slender structural member subjected to arbitrary loadings. A cross-section is cut through the point of interest and the internal loading/moments are evaluated at the centroid of the section to maintain equilibrium. This internal system of loading will consist of three force components and three couple vectors (moments). To determine the stress distribution at the point, the principle of superposition is applied.
+
+<Image src='/sol/combined_loading/Superposition.png' width='5'></Image>
+
+<strong>Steps:</strong>
+<Enumerate>
+	<Item>Cut the beam to find the find internal forces/moments in a section of interest.</Item>
+	<Item>Calculate all the stresses acting at a specific point within that section.</Item>
+	<Item>Add up like stresses (matching subscripts) to find the total stress state (superposition).</Item>
+</Enumerate>
+</SubSection>
 
 </Layout>

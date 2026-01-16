@@ -175,7 +175,9 @@ Again, this can be expressed in a more general form.
 <SubSection title="Stress-Strain Diagram" id="stress-strain_diagram">
 <CalloutContainer slot="cards">
     <CalloutCard title="Extra!">
+    <p>
     There are many types of complex material behaviors. A few of them are listed below.
+    </p>
         <p>Anisotropy:
         <Itemize>
             <Item><strong>Isotropic:</strong> material properties are independent of the direction</Item>
@@ -183,6 +185,7 @@ Again, this can be expressed in a more general form.
         </Itemize>
         </p>
         <p>Nonlinearity:</p>
+        <p>Some types of nonlinear material behaviors include viscoelasticity and creep, which introduce time dependency to the material response to loads. An example of this is silly putty, which is a viscoelastic, Non-Newtonian fluid. Silly putty behaves like a solid on quick impact, but flows slowly like a liquid over a long period of time.</p>
     </CalloutCard>
 </CalloutContainer>
 
@@ -463,6 +466,10 @@ Steps to perform the 0.2% offset method:
 	<Item>For this reason, concrete is almost always reinforced with steel bars or rods whenever it is designed to support tensile loads.
     </Item>
 </Itemize>
+
+<Image src='/sol/material_properties/brittle_ductile_graph.png' width='4.5'>Brittle vs ductile failure</Image>
+Whether a material is brittle or ductile can be shown from the stress strain curve. Ductile materials tend to have long plastic regions, such as graph (C) in the diagram above. Brittle materials lack a substantial plastic region, such as in graph (A) above.
+
 </SubSubSection>
 
 <!--

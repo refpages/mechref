@@ -36,10 +36,10 @@ import BlueText from "../../components/BlueText.astro"
 
 <Itemize>
     <Item> <strong>Ultimate load ( <InlineEquation equation="P_u" /> ):</strong> force when specimen fails (breaks).</Item> 
-    <Item> <strong>Ultimate normal stress ( <InlineEquation equation="\\sigma_u" /> ): stress when a specimen fails (breaks).</Item>
+    <Item> <strong>Ultimate normal stress ( <InlineEquation equation="\\sigma_u" /> ):</strong> stress when a specimen fails (breaks). </Item>
 </Itemize>
 
-</strong> <DisplayEquation equation="\\sigma_u = \\frac{P_u}{A}\\" title="Ultimate normal stress" background="True"/>
+<DisplayEquation equation="\\sigma_u = \\frac{P_u}{A}\\" title="Ultimate normal stress" background="True"/>
  
 A structure is safe if its strength exceeds the required strength.
 
@@ -53,6 +53,34 @@ A structure is safe if its strength exceeds the required strength.
 
 </SubSection>
 
-<SubSection title="Load and Resistance Factor Design" id="load_resistance_factor"> </SubSection>
+<SubSection title="Load and Resistance Factor Design" id="load_resistance_factor">
+<p>
+Depending on the industry or application, the acceptability of a design may be interpreted differently. 
+For some applications showing a factor of safety of 4 may be sufficient. 
+For example, a sling used for lifting, such as the one shown below, is specified to have a safety factor of 5 in <a href = https://asmestandardscollection-org.proxy2.library.illinois.edu/GetDoc.aspx?doc=ASME%20B30.9%202021#ASME_B30.9_2021_Page_47> ASME B30.9</a>.
+</p>
+
+<Image src='/sol/design_considerations/Web_Sling.png' width='4'>Web sling</Image>
+
+<p>
+In the civil/structural engineering industry, the variability of loading (wind, seismic, etc.) has been studied extensively. 
+This is also true for various structural capacities in building materials like steel, concrete wood, etc. Given a loading and resistance that are both random variables, a simple “safety factor” does not result in a consistent level of probability of failure across all structures. 
+The structural engineering industry addressed this inconsistency with a different design approach known as Load and Resistance Factor Design (LRFD.) 
+</p>
+
+<p>
+The intent of LRFD is to ensure a reasonably low probability of failure is met. 
+The probability of failure can be calculated using the statistical distributions of loading and resistance.
+Finding the probability that loading exceeds capacity is equivalent to integrating the probability density function (PDF) of the loading multiplied by the cumulative distribution function (CDF) of the resistance (capacity).
+This can be thought of as accumulating the likelihood of all possible instances of loading being relatively high and the capacity being relatively low in order to find a cumulative probability of failure. 
+The example plots shown below assume normal distributions of load and resistance.
+</p>
+
+<Image src='/sol/design_considerations/Prob_plots.png' width='4'>Example of loading probability distribution</Image>
+
+<p>
+For bridge design, both approaches are discussed in AASHTO LRFD  and LRFD for <a href = "https://www.fhwa.dot.gov/bridge/pubs/nhi15047.pdf"> Highway Bridge Superstructures Reference Manual </a> Section 1.2.2.
+</p>
+</SubSection>
 
 </Layout>
