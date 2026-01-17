@@ -241,7 +241,7 @@ Then, you "cut" the truss so that the internal force you want is "exposed" from 
     <p>
       In the relation, <InlineEquation equation = "b"/> is the number of members, <InlineEquation equation = "r"/> is the number of reactions, and <InlineEquation equation = "j"/> is the number of joints.
       <InlineEquation equation = "b + r"/> is the number of unknowns and <InlineEquation equation = "2 j"/> is the number of equations.
-      If the stability depends on the configuration, check for improper constraints.
+      If the stability depends on the configuration, check for improper constraints and internal collapse mechanisms.
       The following are some examples of improper constraints.
     </p>
     <Row>
@@ -252,6 +252,15 @@ Then, you "cut" the truss so that the internal force you want is "exposed" from 
         <Image src = "/sta/trusses/all_reactions_concurrent_at_one_point.png" width = "5">Improper constraints, all reactions concurrent at one point</Image>
       </Col>
     </Row>
+    <p>
+      If all reactions are parallel like in that of the first example, then the truss will be able to move in the <InlineEquation equation = "x"/>-direction.
+      If all reactions are concurrent at one point, then there is no restoring moment that can be created, causing instability.
+    </p>
+    <Image src = "/sta/trusses/square.png" width = "2.5">Internal collapse mechanism, square</Image>
+    <p>
+      Squares (and rectangles) are common examples of internal collapse mechanisms.
+      The geometry (internal angles) of these shapes can change without the member lengths changing, causing instability.
+    </p>
     <Example title = "Truss Determinacy and Stability 1" solution = "True" id = "truss_determinacy_and_stability_1">
       <Image src = "/sta/trusses/truss_determinacy_and_stability_1.png" width = "7"/>
       <p>
@@ -266,7 +275,7 @@ Then, you "cut" the truss so that the internal force you want is "exposed" from 
           j &= 7 \\\\
           11 + 3 &= 2 \\cdot 7 \\end{align}`/>
         <p>
-          The truss is determinate and stable due to no improper constraints.
+          The truss is determinate and stable due to no improper constraints or internal collapse mechanisms.
         </p>
       </div>
     </Example>
@@ -284,7 +293,7 @@ Then, you "cut" the truss so that the internal force you want is "exposed" from 
           j &= 8 \\\\
           12 + 3 &< 2 \\cdot 8 \\end{align}`/>
         <p>
-          The truss is unstable, partial constraint.
+          The truss is unstable, internal collapse mechanism.
         </p>
       </div>
     </Example>
@@ -302,7 +311,7 @@ Then, you "cut" the truss so that the internal force you want is "exposed" from 
           j &= 8 \\\\
           15 + 3 &> 2 \\cdot 8 \\end{align}`/>
         <p>
-          The truss is indeterminate and stable due to no improper constraints.
+          The truss is indeterminate and stable due to no improper constraints or internal collapse mechanisms.
         </p>
       </div>
     </Example>
