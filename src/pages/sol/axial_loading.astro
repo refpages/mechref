@@ -37,7 +37,29 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
 <DisplayEquation equation=" T= \\begin{bmatrix} \\frac{F_x}{A} & 0 & 0 \\\\ 0 & 0 & 0 \\\\ 0 & 0 & 0 \\end{bmatrix} \\" title="Axial loading stress tensor." background="True"/>
 </SubSection>
 
-<SubSection title="Saint-Venant's Principle: slender beam case" id="saint-venants_principle_slender_beam_case">
+<SubSection title="Saint-Venant's Principle: Slender Beam Case" id="saint-venants_principle_slender_beam_case">
+<CalloutContainer slot="cards">
+        <CalloutCard title="Heads up!">
+            <p>
+               <strong> Stress concentration factors </strong> build on this content in engineering materials and <a href = "https://www.mechref.org/mf/Stress_Concentrations/?searched=true&query=stress%20concen&origin=search"> machine failure</a>.
+              </p>
+		<Image src='/sol/axial_loading/Stress_concentration.png' width='5'>  
+		    Stress concentraions
+		</Image>
+              <p>
+                 The stress concentration factor is the highest at lowest cross-sectional area.
+		<DisplayEquation equation='K = \\frac{\\sigma_{max}}{\\sigma_{avg}}\\' title="Stress concentration factor." background="True" />
+		<ul>
+			<li>Found experimentally
+		    </li>
+			<li>Solely based on geometry
+		</li>
+		</ul>
+
+              </p>
+        </CalloutCard>
+ </CalloutContainer>
+
 
     <Image src='/sol/axial_loading/Saint-Venants (FIXED).jpg' width='7'>Notation</Image>
 
@@ -115,28 +137,6 @@ All internal forces can be obtained from equilibrium analysis only
 </SubSection>
 
 <SubSection title="Misfit Problems" id="misfit_problems">
-
-<CalloutContainer slot="cards">
-        <CalloutCard title="Heads up!">
-            <p>
-               <strong> Stress concentration factors </strong> build on this content in engineering materials and <a href = "https://www.mechref.org/mf/Stress_Concentrations/?searched=true&query=stress%20concen&origin=search"> machine failure</a>.
-              </p>
-		<Image src='/sol/axial_loading/Stress_concentration.png' width='5'>  
-		    Stress concentraions
-		</Image>
-              <p>
-                 The stress concentration factor is the highest at lowest cross-sectional area.
-		<DisplayEquation equation='K = \\frac{\\sigma_{max}}{\\sigma_{avg}}\\' title="Stress concentration factor." background="True" />
-		<ul>
-			<li>Found experimentally
-		    </li>
-			<li>Solely based on geometry
-		</li>
-		</ul>
-
-              </p>
-        </CalloutCard>
- </CalloutContainer>
 
 A misfit problem is one in which there is difference between a design distance and the manufactured length of a material. Some misfits are created intentionally to pre-strain a member. (e.g. spokes in a bicycle wheel or strings in a tennis racket). This type of problem neither modifies the equilibrium equations (1) nor the force-extension relations, (2) but the compatibility equations, (3) need to be modified.
 

@@ -18,19 +18,25 @@ import BlueText from "../../components/BlueText.astro"
 	<ul class='list-group list-group-flush py-0'> 
 		<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#thermal_effects_temperature_changes'>Thermal Effects</a>
 		</li>
+			<ul class='list-group list-group-flush py-0'> 
+                <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#notation'>Notation</a></li> 
+                <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#procedure'>General Solving Procedure</a></li>  
+            </ul>
 	</ul>
 </div>
 
 <Section title="Thermal Loading" id="thermal_loading"></Section>
 
-<SubSection title="Thermal Effects: Temperature Changes" id="thermal_effects_temperature_changes">
+<SubSection title="Thermal Effects: Temperature Changes" id="thermal_effects_temperature_changes"> </SubSection>
 
-<strong>Notation</strong>
+<SubSubSection title="Notation" id="notation">
 <ul> 
      <li>  <InlineEquation equation='\\Delta T > 0, \\sigma < 0' /> : Compression</li> 
      <li>   <InlineEquation equation='\\Delta T < 0, \\sigma > 0' /> : Tension</li> 
 </ul> 
+</SubSubSection>
 
+<SubSubSection title="General Solving Procedure" id="procedure">
 <p>
     <InlineEquation equation='\\delta_T' /> ,  <InlineEquation equation='\\varepsilon_T' />  present in addition to elastic  <InlineEquation equation='\\delta_E' /> ,  <InlineEquation equation='\\varepsilon_E' />  (from internal forces). Superposition (small strains):
  <DisplayEquation equation='\\varepsilon_{tot} = \\varepsilon_{E} + \\varepsilon_{T}\\' title="Total strain." background="True" /> 
@@ -63,6 +69,6 @@ import BlueText from "../../components/BlueText.astro"
  The stress in the rod due to change in temperature is given by:
 <DisplayEquation equation='\\sigma = -\\alpha E \\Delta T\\' title="Stress from temperature changes." background="True"  />
 
-</SubSection>
+</SubSubSection>
 
 </Layout>
