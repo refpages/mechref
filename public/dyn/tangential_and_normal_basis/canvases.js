@@ -142,6 +142,68 @@ $(document).ready(function() {
 
     rkt_fb_c.activate3DControl();
 
+    rkt_fs_c = new PrairieDrawAnim("rkt-fs-c", function(t) {
+        this.setUnits(6, 4);
+
+        this.addOption("showLabels", true);
+        this.addOption("showVelocity", false);
+
+        var rad = 1;
+        var thetaMax = 2.8;
+        var theta = 0.5 * thetaMax * (1 - Math.cos(t));
+        var thetaDot = 0.5 * thetaMax * Math.sin(t);
+        var r = $V([-Math.cos(theta), Math.sin(theta)]).x(rad);
+        var v = $V([Math.sin(theta), Math.cos(theta)]).x(rad * thetaDot);
+        var speed = v.modulus();
+
+        var s = (thetaDot < 0) ? (2 * thetaMax - rad * theta) : (rad * theta);
+
+        var O = $V([0, 0]);
+
+        var plotHistoryTime = 10;
+        var sHistory = this.history("s", 0.05, plotHistoryTime * 1.5, t, s);
+        var speedHistory = this.history("speed", 0.05, plotHistoryTime * 1.5, t, speed);
+
+        this.save();
+        this.translate($V([0, 0.2]));
+        this.arc(O, rad, 0, Math.PI);
+        this.save();
+        this.setProp("arrowheadLengthRatio", this.getProp("arrowLineWidthPx") * this.getProp("arrowheadLengthRatio"));
+        this.setProp("arrowLineWidthPx", 1);
+        this.setProp("shapeStrokeWidthPx", 1);
+        this.setProp("shapeOutlineColor", this.getProp("positionColor"));
+        var d = 0.1;
+        this.line($V([-rad - d - 0.05, 0]), $V([-rad - d + 0.05, 0]), "position");
+        if (s < rad * thetaMax) {
+            this.circleArrow(O, rad + d, Math.PI, Math.PI - theta, "position", true, 0.05);
+        } else {
+            this.arc(O, rad + d, Math.PI - thetaMax, Math.PI, false);
+            var erMax = $V([-Math.cos(thetaMax), Math.sin(thetaMax)]);
+            this.line(erMax.x(rad + d), erMax.x(rad - d), "position");
+            this.circleArrow(O, rad - d, Math.PI - thetaMax, Math.PI - theta, "position", true, 0.05);
+        }
+        this.labelCircleLine(O, rad + d, Math.PI, Math.PI - Math.min(s / rad, thetaMax),
+                             $V([0, 1 + 0.5 * Math.exp(-2 * theta)]), "TEX:$s$", true);
+        this.restore();
+        this.setProp("pointRadiusPx", 4);
+        this.point(r);
+        if (this.getOption("showVelocity")) {
+            this.arrow(r, r.add(v), "velocity");
+            this.labelLine(r, r.add(v), $V([0, 1]), "TEX:$\\vec{v}$");
+        }
+        this.restore();
+
+        this.save();
+        this.translate($V([-2.7, -1.7]));
+        this.plot(this.pairsToVectors(sHistory), O, $V([5.4, 1.5]), $V([Math.max(0, t - 0.95 * plotHistoryTime), 0]),
+                  $V([plotHistoryTime, 2 * thetaMax * 1.2]), "TEX:$t$", undefined, "position", true, true, "TEX:$s$", $V([-1, -1]));
+        if (this.getOption("showVelocity")) {
+            this.plot(this.pairsToVectors(speedHistory), O, $V([5.4, 1.5]), $V([Math.max(0, t - 0.95 * plotHistoryTime), 0]),
+                      $V([plotHistoryTime, 1.8]), "TEX:$t$", undefined, "velocity", false, true, "TEX:$v = \\dot{s}$", $V([-1, 1]));
+        }
+        this.restore();
+    });
+
     rkt_ft_c = new PrairieDrawAnim("rkt-ft-c", function(t) {
         this.setUnits(12, 8);
 

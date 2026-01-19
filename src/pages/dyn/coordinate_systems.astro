@@ -306,8 +306,8 @@ import InlineCanvas from "../../components/InlineCanvas.astro"
                     <div class="d-flex  align-items-baseline">
                         <p class="m-0 flex-shrink-1">Radius:</p>
                         <div class="flex-grow-1 d-flex align-items-baseline">
-                            <input min="1" max="6" value="4" step="0.1" type="range" class="data-input:rvy-fd-c:r flex-grow-1 mx-2" onchange="rvs_fd_c.setOption('r', this.value); document.querySelector('span[class*=r]').innerText = this.value;" oninput="rvs_fd_c.setOption('r', this.value); document.querySelector('span[class*=r]').innerText = this.value;"/>
-                                \(r = \; \) <span class="data-option:avb-fp-c:rCyl1">4</span>
+                            <input min="1" max="6" value="4" step="0.1" type="range" class="data-input:rvs-fd-c:r flex-grow-1 mx-2" onchange="rvs_fd_c.setOption('r', this.value); document.querySelector('span[class*=r]').innerText = this.value;" oninput="rvs_fd_c.setOption('r', this.value); document.querySelector('span[class*=r]').innerText = this.value;"/>
+                                \(r = \; \) <span class="data-option:rvs-fd-c:r">4</span>
                         </div>
                     </div>
                 </Col>
@@ -315,8 +315,8 @@ import InlineCanvas from "../../components/InlineCanvas.astro"
                       <div class="d-flex  align-items-baseline">
                           <p class="m-0 flex-shrink-1">Azimuth:</p>
                           <div class="flex-grow-1 d-flex align-items-baseline">
-                              <input type="range" min="-180" max="180" value="45" step="5" class="data-input:rvy-fd-c:thetaDeg flex-grow-1 mx-2" onchange="rvs_fd_c.setOption('thetaDeg', this.value); document.querySelector('span[class*=thetaDeg]').innerText = this.value+'°';" oninput="rvs_fd_c.setOption('thetaDeg', this.value); document.querySelector('span[class*=thetaDeg]').innerText = this.value+'°';"/>
-                                  \(\theta = \; \) <span class="data-option:avb-fp-c:thetaDegCyl1">45</span>\(^\circ\)
+                              <input type="range" min="-180" max="180" value="45" step="5" class="data-input:rvs-fd-c:thetaDeg flex-grow-1 mx-2" onchange="rvs_fd_c.setOption('thetaDeg', this.value); document.querySelector('span[class*=thetaDeg]').innerText = this.value+'°';" oninput="rvs_fd_c.setOption('thetaDeg', this.value); document.querySelector('span[class*=thetaDeg]').innerText = this.value+'°';"/>
+                                  \(\theta = \; \) <span class="data-option:rvs-fd-c:thetaDeg">45</span>\(^\circ\)
                           </div>
                       </div>
                   </Col>
@@ -469,7 +469,7 @@ import InlineCanvas from "../../components/InlineCanvas.astro"
     </p>
     <p>
       and we substitute in the expression for
-      <InlineEquation equation="\\dot{\\hat{e}_r}" /><a href="#rvs-et">from
+      <InlineEquation equation="\\dot{\\hat{e}_r}" /> <a href="#rvs-et">from
       above</a>. Taking another derivative gives:
     </p>
     <p>
@@ -531,19 +531,11 @@ import InlineCanvas from "../../components/InlineCanvas.astro"
     </tbody>
   </DisplayTable>
 
-<CalloutContainer slot="cards">
-        <CalloutCard title="Warning!">
-            <p>
-               We normally write <InlineEquation equation=" \\vec{r}" /> 
-				for the position vector of a point, but if we are using cylindrical coordinates \( r,\theta ,z \)
-				then this is dangerous. This is because \( r \)
-				might mean the magnitude of <InlineEquation equation="\\vec{r}" />
-				or the radial coordinate, which are different. To avoid this confusion we use <InlineEquation equation="\\vec{\\rho} " /> 
-				for the position vector and \( r \)
-				for the radial coordinate.
-              </p>
-        </CalloutCard>
-	  </CalloutContainer>
+  <Warning title = "Use \\(\\vec{\\rho}\\) instead of \\(\\vec{r}\\) for cylindrical coordinates" id = "rho_instead_of_r">
+    We normally write <InlineEquation equation = "\\vec{r}"/> for the position vector of a point, but if we are using cylindrical coordinates \(r, \theta, z\) then this is dangerous.
+    This is because \(r\) might mean the magnitude of <InlineEquation equation = "\\vec{r}"/> or the radial coordinate, which are different. 
+    To avoid this confusion we use <InlineEquation equation = "\\vec{\\rho}"/> for the position vector and \(r\) for the radial coordinate.
+  </Warning>
 
     <p>
       The diagram below shows the cylindrical coordinates of a point
@@ -588,7 +580,7 @@ import InlineCanvas from "../../components/InlineCanvas.astro"
                   <p class="m-0 flex-shrink-1">Radius:</p>
                   <div class="flex-grow-1 d-flex align-items-baseline">
                       <input min="1" max="6" value="4" step="0.1" type="range" class="data-input:rvy-fd-c:r flex-grow-1 mx-2" onchange="rvy_fd_c.setOption('r', this.value); document.querySelector('span[class*=rCyl1]').innerText = this.value; console.log(this.value);" oninput="rvy_fd_c.setOption('r', this.value); document.querySelector('span[class*=rCyl1]').innerText = this.value;"/>
-                          \(r = \; \) <span class="data-option:avb-fp-c:rCyl1">4</span>
+                          \(r = \; \) <span class="data-option:rvy-fd-c:r">4</span>
                   </div>
               </div>
           </Col>
@@ -597,7 +589,7 @@ import InlineCanvas from "../../components/InlineCanvas.astro"
                     <p class="m-0 flex-shrink-1">Azimuth:</p>
                     <div class="flex-grow-1 d-flex align-items-baseline">
                         <input type="range" min="-180" max="180" value="45" step="5" class="data-input:rvy-fd-c:thetaDeg flex-grow-1 mx-2" onchange="rvy_fd_c.setOption('thetaDeg', this.value); document.querySelector('span[class*=thetaDegCyl1]').innerText = this.value; console.log(this.value);" oninput="rvy_fd_c.setOption('thetaDeg', this.value); document.querySelector('span[class*=thetaDegCyl1]').innerText = this.value;"/>
-                            \(\theta = \; \) <span class="data-option:avb-fp-c:thetaDegCyl1">45</span>\(^\circ\)
+                            \(\theta = \; \) <span class="data-option:rvy-fd-c:thetaDeg">45</span>\(^\circ\)
                     </div>
                 </div>
             </Col>
@@ -606,7 +598,7 @@ import InlineCanvas from "../../components/InlineCanvas.astro"
                   <p class="m-0 flex-shrink-1">Elevation:</p>
                   <div class="flex-grow-1 d-flex align-items-baseline">
                       <input type="range" min="-180" max="180" value="45" step="5" class="data-input:rvy-fd-c:z flex-grow-1 mx-2" onchange="rvy_fd_c.setOption('z', this.value); document.querySelector('span[class*=zCyl1]').innerText = this.value; console.log(this.value);" oninput="rvy_fd_c.setOption('z', this.value); document.querySelector('span[class*=zCyl1]').innerText = this.value;"/>
-                          \(z = \; \) <span class="data-option:avb-fp-c:zCyl1">4</span>
+                          \(z = \; \) <span class="data-option:rvy-fd-c:z">4</span>
                   </div>
               </div>
           </Col>
@@ -713,3 +705,69 @@ import InlineCanvas from "../../components/InlineCanvas.astro"
 
 <script src="/dyn/coordinate_systems/worldCoastlineCompressed.js" is:inline></script>
 <script src="/dyn/coordinate_systems/canvases.js" is:inline></script>
+
+<script is:inline>
+document.addEventListener('DOMContentLoaded', () => {
+  // parse a class token like "data-option:aml-fr-c:a" -> { varName: "aml_fr_c", option: "a", token: "aml-fr-c" }
+  function parseDataToken(token) {
+    const parts = token.split(':');
+    if (parts.length < 3) return null;
+    const controllerToken = parts[1]; // "aml-fr-c"
+    const option = parts.slice(2).join(':'); // "a" (handles extra colons if any)
+    const varName = controllerToken.replace(/-/g, '_'); // "aml_fr_c"
+    return { controllerToken, varName, option };
+  }
+
+  function updateOptionSpan(varName, option, controllerToken) {
+    try {
+      const controller = window[varName];
+      const value = (controller && typeof controller.getOption === 'function') ? controller.getOption(option) : '';
+      // class in DOM uses the dashed controller token, e.g. data-option:aml-fr-c:a
+      const className = `data-option:${controllerToken}:${option}`;
+      const els = document.getElementsByClassName(className);
+      Array.from(els).forEach(el => {
+        el.textContent = (value === null || value === undefined) ? '' : String(value);
+      });
+    } catch (err) {
+      // non-fatal; helpful while debugging
+      // console.warn('updateOptionSpan error', err);
+    }
+  }
+
+  function updateAllOptionSpans() {
+    // scan elements' classList for tokens that start with "data-option:"
+    document.querySelectorAll('[class]').forEach(el => {
+      Array.from(el.classList).forEach(cls => {
+        if (!cls.startsWith('data-option:')) return;
+        const info = parseDataToken(cls);
+        if (!info) return;
+        updateOptionSpan(info.varName, info.option, info.controllerToken);
+      });
+    });
+  }
+
+  // Wire inputs that have data-input:... classes so sliding updates the displayed value from the controller
+  document.querySelectorAll('input').forEach(input => {
+    Array.from(input.classList).forEach(cls => {
+      if (!cls.startsWith('data-input:')) return;
+      const parts = cls.split(':');
+      if (parts.length < 3) return;
+      const controllerToken = parts[1];
+      const option = parts.slice(2).join(':');
+      const varName = controllerToken.replace(/-/g, '_');
+      const handler = () => updateOptionSpan(varName, option, controllerToken);
+      input.addEventListener('input', handler);
+      input.addEventListener('change', handler);
+    });
+  });
+
+  // initial sync (delay a bit so canvases.js can initialize controllers)
+  setTimeout(updateAllOptionSpans, 100);
+
+  // keep UI in sync (optional; adjusts if controller updates from other sources)
+  const syncHandle = setInterval(updateAllOptionSpans, 500);
+
+  // expose for console debugging
+  window.updateOptionSpans = updateAllOptionSpans;
+});
+</script>

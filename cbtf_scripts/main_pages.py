@@ -31,17 +31,17 @@ def change_links(home, scripts, links, courses, special_rewrites):
     for page in ['index.html'] + [f'{c}.html' for c in courses]:
         print(os.path.join(page))
 
-        with open(os.path.join(home, page), 'r') as file:
+        with open(os.path.join(home, page), 'r', encoding='utf8') as file:
             data = file.read()
 
         for wrong, correct in links_to_replace.items():
             data = data.replace(wrong, correct)
         
-        with open(os.path.join(home, page), 'w') as file:
+        with open(os.path.join(home, page), 'w', encoding='utf8') as file:
             file.write(data)  
 
     ## REPLACING HOME PAGE LOGOS AND LINKS TO OTHER PAGES
-    with open(os.path.join(home, 'index.html'), 'r') as file:
+    with open(os.path.join(home, 'index.html'), 'r', encoding='utf8') as file:
         data = file.read()  
 
     for c in courses:
@@ -50,7 +50,7 @@ def change_links(home, scripts, links, courses, special_rewrites):
     for logo in os.listdir(os.path.join(home, 'home_page')):
         data = data.replace(f'\"/home_page/{logo}\"', f'\"./home_page/{logo}\"')
 
-    with open(os.path.join(home, 'index.html'), 'w') as file:
+    with open(os.path.join(home, 'index.html'), 'w', encoding='utf8') as file:
         file.write(data) 
 
     return

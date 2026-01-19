@@ -1,0 +1,203 @@
+---
+import Layout from "../../layouts/Layout.astro" 
+import Image from "../../components/Image.astro" 
+import CalloutContainer from "../../components/CalloutContainer.astro" 
+import Section from "../../components/Section.astro" 
+import SubSection from "../../components/SubSection.astro" 
+import SubSubSection from "../../components/SubSubSection.astro" 
+import SubSubSubSection from "../../components/SubSubSubSection.astro" 
+import OrangeText from "../../components/OrangeText.astro" 
+import TealText from "../../components/TealText.astro" 
+import Enumerate from "../../components/Enumerate.astro" 
+import Item from "../../components/Item.astro" 
+import Itemize from "../../components/Itemize.astro" 
+import InlineEquation from "../../components/InlineEquation.astro" 
+import DisplayEquation from "../../components/DisplayEquation.astro"
+import Row from "../../components/Row.astro";
+import Col from "../../components/Col.astro";
+import Example from "../../components/Example.astro";
+
+import CalloutCard from "../../components/CalloutCard.astro"
+import CalloutContainer from "../../components/CalloutContainer.astro"
+
+
+---
+<Layout title="Impact">
+<div slot="navtree">
+
+    <ul class='list-group list-group-flush py-0'>
+        <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Impact Introduction'>Impact Introduction</a></li>
+        <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Impact Theory'>Impact Theory</a></li>
+        <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Design considerations'>Design considerations</a></li>
+    </ul>
+
+</div>
+
+<SubSubSection title="Impact Introduction" id="Impact Introduction">
+<p>Impact deals with loads from collisions where at least one object is moving. Intuitively, we know that impact will increase the forces that a mechanical element experiences. For example, placing a bowling ball gently on your foot would likely cause no pain, while dropping the ball from eye level would likely cause a fracture. This document will quantify the effects of impact loading in comparison to static loading, and it will discuss the design considerations engineers should make regarding impact.</p>
+</SubSubSection>
+<SubSubSection title="Impact Theory" id="Impact Theory">
+<strong>Impact and Energy:</strong>
+<p>One easy way to quantify the effect of impact is to look at the mechanical system through the lens of energy conservation. Assuming losses are negligible, we know all of the kinetic energy of an object in motion is transferred into elastic potential energy during a collision. If we know the kinetic energy before the collision, we can determine the deformation and stress experienced as a result of the impact.</p>
+
+<strong>Impact Factor:</strong>
+<p>Consider the compression of an object when placing a rigid weight onto it gently. From Hooke's Law, we get</p>
+
+<DisplayEquation equation="\\delta_{st}=\\frac{W}{k}," title="" />
+
+<p>where <InlineEquation equation="W" /> is the applied weight, <InlineEquation equation="k" /> is the material stiffness, and <InlineEquation equation="\\delta_{st}" /> is the resulting deformation. If we instead dropped the weight from a height <InlineEquation equation="h" />, we can find the resulting deformation by equating the initial gravitational energy with the final elastic energy.</p>
+
+    <Image src='/mf/Impact/energycons.png' width='7'></Image>
+
+<p>The resulting equation is</p>
+
+<DisplayEquation equation="W(h+\\delta)=\\frac{1}{2}k \\delta^2," title="" />
+
+<p>where <InlineEquation equation="\\delta" /> is the new deformation and the other variables are unchanged. Substituting for <InlineEquation equation="k" /> using our previous expression and rearranging for <InlineEquation equation="\\delta" /> gives us</p>
+
+<DisplayEquation equation="\\delta=\\delta_{st}\\left(1+\\sqrt{1+\\frac{2h}{\\delta_{st}}}\\right)." title="" />
+
+<p>Deflection can also be calculated in terms of the falling object's speed. We know that just before the objects collide, all of the initial potential energy has been converted to kinetic energy. Setting up another energy balance gives us</p>
+
+<DisplayEquation equation="mgh=\\frac{1}{2}mv^2" title="" />
+
+<p>where <InlineEquation equation="g" /> is Earth's gravitational constant and <InlineEquation equation="v" /> is the impact velocity. Solving for <InlineEquation equation="h" /> and substituting the result into the expression for <InlineEquation equation="\\delta" />, we get</p>
+
+<DisplayEquation equation="\\delta=\\delta_{st}\\left(1+\\sqrt{1+\\frac{v^2}{g\\delta_{st}}}\\right)" title="" />
+
+<p>We define the <strong>impact factor</strong> IF as the ratio of actual deflection <InlineEquation equation="\\delta" /> to the static deflection <InlineEquation equation="\\delta_{st}" />:</p>
+
+<DisplayEquation equation="IF\\equiv\\frac{\\delta}{\\delta_{st}}=\\left(1+\\sqrt{1+\\frac{2h}{\\delta_{st}}}\\right)=\\left(1+\\sqrt{1+\\frac{v^2}{g\\delta_{st}}}\\right)." title="" />
+
+<p>Invoking Hooke's Law again, the <strong>equivalent static force</strong> causing the same deflection on the object is then</p>
+
+<DisplayEquation equation="F_e=k \\delta=W\\left(1+\\sqrt{1+\\frac{2h}{\\delta_{st}}}\\right)=W\\left(1+\\sqrt{1+\\frac{v^2}{g\\delta_{st}}}\\right)=IF \\times W." title="" />
+
+
+    <Image src='/mf/Impact/impactfactor.png' width='7'></Image>
+
+
+<strong>Approximations for Large Height:</strong>
+<p>For small deflections relative to drop height (<InlineEquation equation="\\delta << h" />), the deflection and equivalent force equations can be simplified:</p>
+
+<DisplayEquation equation="\\delta=\\delta_{st}\\sqrt{\\frac{v^2}{g\\delta_{st}}}=\\sqrt{\\frac{\\delta_{st}v^2}{g}}," title="" />
+
+
+<DisplayEquation equation="F_e=W\\sqrt{\\frac{v^2}{g\\delta_{st}}}=\\sqrt{\\frac{v^2kW}{g}}." title="" />
+
+<p>Rewriting these equations in terms of kinetic energy <InlineEquation equation="U" />, we have</p>
+
+<DisplayEquation equation="\\delta=\\sqrt{\\frac{2U}{k}}," title="" />
+
+
+<DisplayEquation equation="F_e=\\sqrt{2Uk}." title="" />
+
+<p>Through these expressions, we see that the deflection and equivalent force both scale with the square root of kinetic energy.</p>
+</SubSubSection>
+
+<SubSubSection title="Design considerations" id="Design considerations">
+<strong>Thickness and Uniformity:</strong>
+<p>To find the effective stress under an axial impact load, we divide equivalent force by cross sectional area. Rewriting the equation from above assuming <InlineEquation equation="\\delta<<h" />, the resulting equation is</p>
+
+<DisplayEquation equation="\\sigma_e=\\sqrt{\\frac{2UE}{V}}." title="" />
+
+<p>Unlike static loading, the stress under impact depends on volume <InlineEquation equation="V" /> rather than cross-sectional area. This means a long, thin rod will perform just as well as a short, thick rod of the same volume.</p>
+<p>Uniform cross sections are also vital to withstanding impact loads. If one section is thicker than another, the thin section will limit the allowable force while also taking most of the impact energy. In other words, adding thickness actually makes performance worse if it sacrifices uniformity.</p>
+
+
+    <Example id="EX1" title="Example: Imact Load Beam" solution="True">
+        <div class="d-flex flex-row">
+            <Row>
+                <Col values="12 md-4">
+                    <p>A compressive impact load is applied to a beam with compressive yield strength <InlineEquation equation="S_{cy}" /> and dimensions described by the figure below. How much energy can it absorb?</p>
+                </Col>
+                <Col values="12 md-8">
+                    <Image src='/mf/Impact/uniformbeam.png' width='7'></Image>
+                </Col>
+            </Row>
+        </div>
+        <div slot="solution">
+            <p>First, calculate the volume of the beam:</p>
+            <DisplayEquation equation="V=(2L)\\left(\\frac{L}{2}\\right)^2=\\frac{L^3}{2}" title="" />
+            <p>Then, we can simply rewrite the effective axial stress equation to solve for energy absorbed and plug in the calculated volume:</p>
+            <DisplayEquation equation="U=\\frac{S_{cy}^2V}{2E}=\\frac{S_{cy}^2L^3}{4E}" title="" />
+            <p>Instead, what if the bottom half of the beam had its width and depth doubled? How much energy can this nonuniform beam absorb?</p>
+            <Image src='/mf/Impact/nonuniformbeam.png' width='7'></Image>
+            <p>In this case, each section of the beam must be handled separately. Calculate the volume of the top half and bottom half:</p>
+            <DisplayEquation equation="V_t=(L)\\left(\\frac{L}{2}\\right)^2=\\frac{L^3}{4}; V_b=L^3" title="" />
+            <p>The thinner top section dictates the amount of force the body can take, so the maximum stress is just the yield strength <InlineEquation equation="S_{cy}" />. The energy absorbed by the top section is then</p>
+            <DisplayEquation equation="U_t=\\frac{S_{cy}^2V}{2E}=\\frac{S_{cy}^2L^3}{8E}." title="" />
+            <p>Simultaneously, the same force is exerted on the bottom section, but the area is four times larger, so the maximum stress is only a quarter of the stress at the top. The resulting energy absorbed is</p>
+            <DisplayEquation equation="U_b=\\frac{(S_{cy}/4)^2V}{2E}=\\frac{S_{cy}^2L^3}{32E}" title="" />
+            <p>Sum the energy from each section for the total energy:</p>
+            <DisplayEquation equation="U=U_t+U_b=\\frac{S_{cy}^2L^3}{8E}+\\frac{S_{cy}^2L^3}{32E}=\\frac{5S_{cy}^2L^3}{32E}" title="" />
+            <p>The nonuniform beam performs worse than the uniform beam, even though it has a greater total volume! Non-uniformity can be detrimental to impact design.</p>
+        </div>
+    </Example>
+
+
+
+
+<strong>Material Selection:</strong>
+<p>Another way to design for impact absorption is through careful material choice. Ductile materials are often better suited for impact than hard materials because even if they yield, they can handle much more strain before complete failure. This feature is evident in Stress-Strain curves, where the area under the entire curve represents the energy density before fracture.</p>
+
+    <Image src='/mf/Impact/energydensitycurves.png' width='7'></Image>
+
+<p>Similarly, flexible materials are uniquely helpful impact loads. In particular, using flexible supports can reduce the stresses experienced by bodies under impact, as shown in the example below.</p>
+
+
+    <Example id="EX2" title="Example: Impact Load Spring" solution="True">
+        <div class="d-flex flex-row">
+            <Row>
+                <Col values="12 md-4">
+                    <p>A ball weighing 20 pounds is dropped on a platform with an elastic modulus of 100 ksi, held up by a spring with a stiffness of 20 lb/in. The drop height is 6 inches, and the platform is half an inch thick with an area of 50 square inches on the top surface. What is the effective force on the platform if the weights of the spring and platform are negligible?</p>
+                </Col>
+                <Col values="12 md-8">
+                    <Image src='/mf/Impact/flexiblesupport.png' width='7'> </Image>
+                </Col>
+            </Row>
+        </div>
+        <div slot="solution">
+            <p>First, we calculate the static deflection of each part:</p>
+            <DisplayEquation equation="\\delta_{st,plat}=\\frac{FL}{AE_{plat}}=\\frac{(20 \\text{ lb})(0.5 \\text{ in})}{(50 \\text{ in}^2)(100 \\text{ ksi})}=2\\times10^{-6} \\text{ in}" title="" />
+            <DisplayEquation equation="\\delta_{st,spr}=\\frac{F}{k_{spr}}=\\frac{20 \\text{ lb}}{20 \\text{ lb/in}} = 1 \\text{ in}" title="" />
+            <DisplayEquation equation="\\delta_{st}=\\delta_{st,plat}+\\delta_{st,spr}=1.000002 \\text{ in}" title="" />
+            <p>Next, calculate the impact factor from the known static deflection:</p>
+            <DisplayEquation equation="\\text{IF}=1+\\sqrt{1+\\frac{2h}{\\delta_{st}}}=1+\\sqrt{1+\\frac{2(6 \\text{ in})}{1.000002 \\text{ in}}}=4.61" title="" />
+            <p>Now, we can easily find the equivalent static force on the platform:</p>
+            <DisplayEquation equation="F_e=\\text{IF} \\times W=4.61(20 \\text{ lb})=92.2 \\text{ lb}" title="" />
+            <p></p>
+            <p>To highlight the importance of flexible supports, let's see what happens when we use a much stiffer spring (<InlineEquation equation="k=80" /> lb/in), with all else equal.</p>
+            <Image src='/mf/Impact/stiffsupport2.png' width='7'></Image>
+            <p>The new setup does not affect the static platform deflection, but the total deflection decreases along with the spring compression:</p>
+            <DisplayEquation equation="\\delta_{st,spr}=0.25 \\text{ in}\\xrightarrow{} \\delta_{st}=0.250002 \\text{ in}" title="" />
+            <p>This results in a higher impact factor and effective force:</p>
+            <DisplayEquation equation="\\text{IF}=8.00\\xrightarrow{}F_e=160 \\text{ lb}" title="" />
+            <p>The key lesson here is that using flexible supports increases the static deflection under impact. While increasing deflection is unhelpful in static loading, it reduces the impact factor and in turn reduces the stresses on the body being supported.</p>
+        </div>
+    </Example>
+
+
+
+<strong>Stress Concentrations:</strong>
+<p>Unlike with static loading, ductile materials are still susceptible to stress concentrations under impact loading. Normally, ductile materials are able to redistribute stress throughout the cross section if one point yields in the presence of stress concentrations. However, in impact loading, the stress is applied so quickly that the material may not have time to deform and redistribute stress before the concentration point fails. Thus, regardless of material, stress concentrations should be factored in when designing machines with impact loading.</p>
+
+
+    <CalloutContainer slot="cards">
+        <CalloutCard title="Did you know?">
+            <p>
+                One clever way to achieve high energy absorption is to employ gaps and internal structures that can dissipate the energy.
+            </p>
+            <p>
+                <Image src='/mf/Impact/hexagonalinfill.png' width='7'></Image>
+            </p>
+            <p>
+                If you are designing a part to be 3D printed, try changing the infill pattern to a structure that absorbs energy well, such as a hexagonal tile pattern.
+            </p>
+        </CalloutCard>
+    </CalloutContainer>
+
+
+
+</SubSubSection>
+</Layout>

@@ -15,8 +15,17 @@ import "../../public/static/css/course_home_pages.css"
         <div class="mt-sm-4 mt-2 row">
             <div class="col-md-12 col-12">
                 <SimplifiedView id="here" title="Machine failure" title_style="h1 fw-bold" style="enumerate">
-                    
-        
+
+        <CourseCard href="/mf/Mechanics_Review" img_src="/mf/home_page/mohrcircle3d.png" title="Mechanics Review">
+            <ul class="list-group list-group-flush py-0">
+                <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='/mf/Mechanics_Review#Solid Mechanics Review'> Solid Mechanics Review</a><ul class='list-group list-group-flush py-0'>
+                    <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='/mf/Mechanics_Review#Solid Mechanics Review Introduction'>Solid Mechanics Review Introduction</a></li>
+                    <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='/mf/Mechanics_Review#Loads on Machines'>Loads on Machines</a></li>
+                    <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='/mf/Mechanics_Review#Types of Stress'>Types of Stress</a></li>
+                    <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='/mf/Mechanics_Review#Stress Transformations'>Stress Transformations</a></li>
+                </ul>
+            </ul>
+        </CourseCard>
         
         <CourseCard href="/mf/Stress_Concentrations" img_src="/mf/home_page/sc.png" title="Stress concentrations">
             <ul class='list-group list-group-flush py-0'> 
@@ -44,6 +53,13 @@ import "../../public/static/css/course_home_pages.css"
             <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='/mf/Failure_Theories#Conclusion'>Conclusion</a></li>
         </ul>
         </CourseCard>
+
+        <CourseCard href="/mf/Fatigue" img_src="/mf/home_page/Fatigue GIF.gif" title="Fatigue">
+            <ul class="list-group list-group-flush py-0">
+                <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='/mf/Fatigue#Fatigue Introduction'>Fatigue Introduction </a></li>
+                <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='/mf/Fatigue#Fatigue Theory'>Fatigue Theory </a></li>
+            </ul>
+        </CourseCard>
         
         <CourseCard href="/mf/Threaded_Components" img_src="/mf/home_page/tc.png" title="Threaded components">
             <ul class='list-group list-group-flush py-0'> 
@@ -61,21 +77,91 @@ import "../../public/static/css/course_home_pages.css"
                     <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='/mf/Threaded_Components#thread_stripping'>Thread Stripping</a></li>
                 </ul>
             <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='/mf/Threaded_Components#Extra'>Additional Considerations</a></li>
-
-
         </ul>
         </CourseCard>
-        
-                   
-                    <li slot="list"><a href="/mf/Stress_Concentrations?origin=coursemenu">Stress concentrations</a></li>
-                    <li slot="list"><a href="/mf/Failure_Theories?origin=coursemenu">Failure theories</a></li>
-                    <li slot="list"><a href="/mf/Threaded_Components?origin=coursemenu">Threaded components</a></li>
+
+
+        <CourseCard href="/mf/Impact" img_src="/mf/home_page/energy_density.png" title="Impact">
+            <ul class='list-group list-group-flush py-0'>
+                <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='/mf/Impact#Impact Introduction'>Impact Introduction</a></li>
+                <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='/mf/Impact#Impact Theory'>Impact Theory</a></li>
+                <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='/mf/Impact#Design considerations'>Design considerations</a></li>
+            </ul>
+        </CourseCard>
+
+        <CourseCard href="/mf/Springs" img_src="/mf/home_page/coilfbd.png" title="Springs">
+            <ul class='list-group list-group-flush py-0'>
+                <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='/mf/Springs#Introduction to Springs'>Introduction to Springs</a></li>
+                <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='/mf/Springs#Stress in Springs'>Stress in Springs</a></li>
+                <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='/mf/Springs#Static Loading, Fatigue, and Deflection'>Static Loading, Fatigue, and Deflection</a></li>
+                <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='/mf/Springs#Solid Length'>Solid Length</a></li>
+                <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='/mf/Springs#Spring failure'>Spring failure</a></li>
+            </ul>
+        </CourseCard>
+
+        <CourseCard href="/mf/Buckling" img_src="/mf/home_page/fulldesigncurve.png" title="Buckling">
+            <ul class='list-group list-group-flush py-0'>
+                <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='/mf/Buckling#Buckling Introduction'>Buckling Introduction</a></li>
+                <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='/mf/Buckling#Buckling Criteria'>Buckling Criteria</a></li>
+            </ul>
+        </CourseCard>
+
+
+                    <li slot="list"><a href="/mf/Mechanics_Review?origin=coursemenu">Mechanics Review</a></li>
+                    <li slot="list"><a href="/mf/Stress_Concentrations?origin=coursemenu">Stress Concentrations</a></li>
+                    <li slot="list"><a href="/mf/Failure_Theories?origin=coursemenu">Failure Theories</a></li>
+                    <li slot="list"><a href="/mf/Fatigue?origin=coursemenu">Fatigue</a></li>
+                    <li slot="list"><a href="/mf/Threaded_Components?origin=coursemenu">Threaded Components</a></li>
+                    <li slot="list"><a href="/mf/Impact?origin=coursemenu">Impact</a></li>
+                    <li slot="list"><a href="/mf/Springs?origin=coursemenu">Springs</a></li>
+                    <li slot="list"><a href="/mf/Buckling?origin=coursemenu">Buckling</a></li>
 
                 </SimplifiedView>
             </div>
             <div class="col-md-0 col-0">
             </div>
         </div>
+        
+        <div style="height:40px"></div>
+        <h2 class="site-title">Faculty Authors:</h2>
+        <div style="height:10px"></div>
 
-    </Layout>
-    
+        <div>
+            <ul class="list-unstyled d-flex flex-wrap text-center mb-1 ml-4">
+                    <li class="me-5 text-center">
+                                    <a href="https://grainger.illinois.edu/about/directory/faculty/wandke2">
+                                    <img class="border-orange small-img rounded-circle" src="https://ws.engr.illinois.edu/directory/viewphoto.aspx?photo=19440&s=300"/>
+                                    </a>
+                                    <h2 style="font-size:20px" class="site-title mt-2">Kevin Wandke</h2>
+                    </li>
+            </ul>
+        </div>
+        <div style="height:20px"></div>
+
+        <div>
+            <h2 style="font-size:25px" class="site-title"> Student Authors: </h2>
+            <ul>
+            <li> <h2 style="font-size:20px;" class="site-title">Kyle Slavin</h2> </li>
+            <li> <h2 style="font-size:20px;" class="site-title">Dave Whatcott</h2> </li>
+            </ul>
+        </div>
+
+        <div style="height:20px"></div>
+            </Layout>
+
+            <style>
+            h2 {
+                    font-weight: 700;
+                    letter-spacing: -0.7px;
+            }
+            .small-img {
+                    width: 120px;
+                    height: 120px;
+            }
+            .border-orange {
+                    border: 6px solid #C84113;
+            }
+            .border-blue {
+                    border: 6px solid #13294B;
+            }
+            </style>

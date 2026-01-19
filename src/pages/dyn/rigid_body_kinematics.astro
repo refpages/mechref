@@ -823,21 +823,20 @@ import DisplayTable from "../../components/DisplayTable.astro"
 </Example>
 
 <CalloutContainer slot="cards">
-  <CalloutCard title="Reference material">
-    <ul>
-      <li>Calculus and vectors</li>
-      <li>Rigid bodies</li>
-      <li>Kinetics of point masses</li>
-      <li>Kinetics of rigid bodies</li>
-      <li>Free body diagrams</li>
-      <li>Energy and work</li>
-    </ul>
-  </CalloutCard>
   <CalloutCard title="Applications alert!">
-    <a href = "/dyn/four_bar_linkages">Four-bar linkages</a> uses <strong>constrained motion</strong> by analyzing four rigid bodies connected with pins.
+    <a href = "/dyn/four_bar_linkages_applications">Four-bar linkages applications</a> uses <strong>constrained motion</strong> by analyzing four rigid bodies connected with pins.
     <PrairieDrawCanvas id = "aml-ft-c" width = "250" height = "250"/>
     <p>
       Four-bar linkages are a prominent example of constrained motion being in effect.
+    </p>
+  </CalloutCard>
+  <CalloutCard title = "Heads up!">
+    <p>
+      <strong>Slider cranks</strong> builds on this content <a href = "/dyn/multi_body_systems#slider_cranks">later in the course.</a>
+    </p>
+    <Image src = "/dyn/rigid_body_kinematics/Slider_Crank_animation.svg" width = "6"/>
+    <p>
+      A slider crank mechanism is a common mechanical system that converts rotational motion into linear motion.
     </p>
   </CalloutCard>
 </CalloutContainer>

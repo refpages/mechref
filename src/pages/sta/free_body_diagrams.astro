@@ -11,6 +11,7 @@ import PrairieDrawCanvas from "../../components/PrairieDrawCanvas.astro"
 import CalloutContainer from "../../components/CalloutContainer.astro"
 import CalloutCard from "../../components/CalloutCard.astro"
 import DisplayTable from "../../components/DisplayTable.astro"
+import Warning from "../../components/Warning.astro"
 ---
 <Layout title = "Free body diagrams" description = "Learn how to represent the external forces on a system graphically.">
 
@@ -49,28 +50,39 @@ import DisplayTable from "../../components/DisplayTable.astro"
 		<li> Kinematic quantities (velocity and acceleration). </li>
 	</ul>
 
-<CalloutContainer slot="cards">
-        <CalloutCard title="Warning!">
-            <p>
-                Always assume the direction of forces/moments to be positive according to the appropriate coordinate system. The calculations from Newton/Euler equations will provide you with the correct direction of those forces/moments. Things that should not follow this are:
-              </p>
-              <ul>
-                <li> Gravity </li>
-				<li> Tension </li>
-				<li> Friction if the velocity <InlineEquation equation="\\vec{v}" /> is provided </li>
-              </ul>
-        </CalloutCard>
-        <CalloutCard title="Warning!">
-            <p>
-                If forces/moments are present, always begin with a free-body diagram. Do not write down equations before drawing the FBD as those are often simple kinematic equations, or Newton/Euler equations.
-              </p>
-        </CalloutCard>
-    </CalloutContainer>
+  <Warning title = "Always assume the direction of forces/moments to be positive according to the appropriate coordinate system." id = "warning1">
+    <p>
+      The calculations from Newton/Euler equations will provide you with the correct direction of those forces/moments. Things that should not follow this are:
+    </p>
+    <ul>
+        <li>Gravity</li>
+        <li>Tension</li>
+				<li>Friction if the velocity <InlineEquation equation = "\\vec{v}" /> is provided</li>
+    </ul>
+  </Warning>
+  <Warning title = "If forces/moments are present, always begin with a free-body diagram." id = "warning2">
+    <p>
+      Do not write down equations before drawing the FBD as those are often simple kinematic equations, or Newton/Euler equations.
+    </p>
+  </Warning>
 
 
 </Section>
 
-<SubSection title = "Vector representation in FBDs" id = "vector_representation_in_fbds"/>
+<SubSection title = "Vector representation in FBDs" id = "vector_representation_in_fbds">
+  <CalloutContainer slot = "cards">
+    <CalloutCard title = "Heads up!">
+      <p>
+        <strong><a href = "/sta/trusses#assumptions">Truss assumptions</a></strong> builds on this content later in the course.
+      </p>
+    </CalloutCard>
+  </CalloutContainer>
+  <p>
+    Many problems involve setting up a free body diagram with assumed directions for unknown forces or moments.
+    <li>When solving for the magnitude of vectors with assumed directions, if the value is found to be negative, it means that the direction of that vector is the opposite of what was assumed.</li>
+    <li>The negative output says nothing about the signs of x, y, or z-components of the vector, only that the direction of the entire vector is the opposite of what was assumed in the free body diagram setup.</li>
+  </p>
+</SubSection>
 
 <SubSection title="Pulley idealizations" id="pulley_idealizations">
 

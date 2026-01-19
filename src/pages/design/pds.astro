@@ -1,0 +1,1773 @@
+---
+import Layout from "../../layouts/Layout.astro" 
+import Image from "../../components/Image.astro" 
+import Section from "../../components/Section.astro" 
+import SubSection from "../../components/SubSection.astro" 
+import SubSubSection from "../../components/SubSubSection.astro" 
+import SubSubSubSection from "../../components/SubSubSubSection.astro" 
+import CalloutContainer from "../../components/CalloutContainer.astro" 
+import OrangeText from "../../components/OrangeText.astro" 
+import TealText from "../../components/TealText.astro" 
+import Enumerate from "../../components/Enumerate.astro" 
+import Item from "../../components/Item.astro" 
+import Itemize from "../../components/Itemize.astro" 
+import InlineEquation from "../../components/InlineEquation.astro" 
+import DisplayEquation from "../../components/DisplayEquation.astro" 
+---
+<Layout title="PDS">
+<div slot="navtree">
+<ul class="list-group list-group-flush py-0">
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Product Design Specification (PDS)'>Product Design Specification (PDS)</a><ul class='list-group list-group-flush py-0'>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Why do we use a PDS?'>Why do we use a PDS?</a></li></ul>
+</li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#The Design Boundary: 29 Primary Elements'>The Design Boundary: 29 Primary Elements</a><ul class='list-group list-group-flush py-0'>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#1. Performance'>1. Performance</a></li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#2. Environment'>2. Environment</a></li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#3. Service Life'>3. Service Life</a></li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#4. Maintenance'>4. Maintenance</a></li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#5. Target Costs'>5. Target Costs</a><ul class='list-group list-group-flush py-0'>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#What to Specify'>What to Specify</a></li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Design and Manufacturing Costs'>Design and Manufacturing Costs</a></li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Retail Costs'>Retail Costs</a></li></ul>
+</li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#6. Competition'>6. Competition</a><ul class='list-group list-group-flush py-0'>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#What to Specify'>What to Specify</a></li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Analysis Methods'>Analysis Methods</a></li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Critical Actions'>Critical Actions</a></li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Bike Lock Example'>Bike Lock Example</a></li></ul>
+</li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#7. Shipping'>7. Shipping</a><ul class='list-group list-group-flush py-0'>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#What to Specify'>What to Specify</a></li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Key Considerations'>Key Considerations</a></li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Bike Lock Example'>Bike Lock Example</a></li></ul>
+</li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#8. Product Volume'>8. Product Volume</a><ul class='list-group list-group-flush py-0'>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#What to Specify'>What to Specify</a></li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Volume Impact on Design'>Volume Impact on Design</a></li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Bike Lock Example'>Bike Lock Example</a></li></ul>
+</li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#9. Packing'>9. Packing</a><ul class='list-group list-group-flush py-0'>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#What to Specify'>What to Specify</a></li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Packaging Functions'>Packaging Functions</a></li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Key Considerations'>Key Considerations</a></li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Bike Lock Example'>Bike Lock Example</a></li></ul>
+</li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#10. Manufacturing Facility'>10. Manufacturing Facility</a><ul class='list-group list-group-flush py-0'>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#What to Specify'>What to Specify</a></li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Key Questions'>Key Questions</a></li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Bike Lock Example'>Bike Lock Example</a></li></ul>
+</li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#11. Size'>11. Size</a><ul class='list-group list-group-flush py-0'>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#What to Specify'>What to Specify</a></li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Size Considerations'>Size Considerations</a></li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Common Issues'>Common Issues</a></li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Bike Lock Example'>Bike Lock Example</a></li></ul>
+</li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#12. Weight'>12. Weight</a><ul class='list-group list-group-flush py-0'>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#What to Specify'>What to Specify</a></li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Weight Importance'>Weight Importance</a></li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Bike Lock Example'>Bike Lock Example</a></li></ul>
+</li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#13. Aesthetics and Finish'>13. Aesthetics and Finish</a><ul class='list-group list-group-flush py-0'>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#What to Specify'>What to Specify</a></li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Key Principle'>Key Principle</a></li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Specification Areas'>Specification Areas</a></li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Expert Input'>Expert Input</a></li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Bike Lock Example'>Bike Lock Example</a></li></ul>
+</li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#14. Materials'>14. Materials</a><ul class='list-group list-group-flush py-0'>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#What to Specify'>What to Specify</a></li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Specification Types'>Specification Types</a></li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Bike Lock Example'>Bike Lock Example</a></li></ul>
+</li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#15. Product Life Span'>15. Product Life Span</a><ul class='list-group list-group-flush py-0'>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#What to Specify'>What to Specify</a></li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Impact on Decisions'>Impact on Decisions</a></li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Bike Lock Example'>Bike Lock Example</a></li></ul>
+</li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#16. Standards, Specifications, and Legal Aspects'>16. Standards, Specifications, and Legal Aspects</a><ul class='list-group list-group-flush py-0'>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#What to Specify'>What to Specify</a></li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Key Principle'>Key Principle</a></li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Requirements'>Requirements</a></li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Bike Lock Example'>Bike Lock Example</a></li></ul>
+</li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#17. Ergonomics'>17. Ergonomics</a><ul class='list-group list-group-flush py-0'>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#What to Specify'>What to Specify</a></li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Considerations'>Considerations</a></li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Bike Lock Example'>Bike Lock Example</a></li></ul>
+</li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#18. Customer'>18. Customer</a><ul class='list-group list-group-flush py-0'>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#What to Specify'>What to Specify</a></li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Information Sources'>Information Sources</a></li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Bike Lock Example'>Bike Lock Example</a></li></ul>
+</li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#19. Quality and Reliability'>19. Quality and Reliability</a><ul class='list-group list-group-flush py-0'>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#What to Specify'>What to Specify</a></li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Quality Measures'>Quality Measures</a></li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Bike Lock Example'>Bike Lock Example</a></li></ul>
+</li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#20. Shelf Life'>20. Shelf Life</a><ul class='list-group list-group-flush py-0'>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#What to Specify'>What to Specify</a></li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Considerations'>Considerations</a></li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Bike Lock Example'>Bike Lock Example</a></li></ul>
+</li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#21. Processes'>21. Processes</a><ul class='list-group list-group-flush py-0'>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#What to Specify'>What to Specify</a></li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Considerations'>Considerations</a></li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Bike Lock Example'>Bike Lock Example</a></li></ul>
+</li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#22. Timescales'>22. Timescales</a><ul class='list-group list-group-flush py-0'>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#What to Specify'>What to Specify</a></li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Critical Timeline Elements'>Critical Timeline Elements</a></li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Bike Lock Example'>Bike Lock Example</a></li></ul>
+</li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#23. Testing'>23. Testing</a><ul class='list-group list-group-flush py-0'>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#What to Specify'>What to Specify</a></li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Testing Stages'>Testing Stages</a></li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Test Infrastructure'>Test Infrastructure</a></li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Bike Lock Example'>Bike Lock Example</a></li></ul>
+</li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#24. Safety'>24. Safety</a><ul class='list-group list-group-flush py-0'>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#What to Specify'>What to Specify</a></li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Key Elements'>Key Elements</a></li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Bike Lock Example'>Bike Lock Example</a></li></ul>
+</li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#25. Company Constraints'>25. Company Constraints</a><ul class='list-group list-group-flush py-0'>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#What to Specify'>What to Specify</a></li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Constraint Categories'>Constraint Categories</a></li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Bike Lock Example'>Bike Lock Example</a></li></ul>
+</li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#26. Market Constraints'>26. Market Constraints</a><ul class='list-group list-group-flush py-0'>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#What to Specify'>What to Specify</a></li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Considerations'>Considerations</a></li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Bike Lock Example'>Bike Lock Example</a></li></ul>
+</li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#27. Patents, Literature, and Product Data'>27. Patents, Literature, and Product Data</a><ul class='list-group list-group-flush py-0'>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#What to Specify'>What to Specify</a></li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Key Activities'>Key Activities</a></li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Key Principle'>Key Principle</a></li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Bike Lock Example'>Bike Lock Example</a></li></ul>
+</li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#28. Political and Social Implications'>28. Political and Social Implications</a><ul class='list-group list-group-flush py-0'>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#What to Specify'>What to Specify</a></li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Considerations'>Considerations</a></li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Bike Lock Example'>Bike Lock Example</a></li></ul>
+</li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#29. Disposal'>29. Disposal</a><ul class='list-group list-group-flush py-0'>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#What to Specify'>What to Specify</a></li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Modern Imperative'>Modern Imperative</a></li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Considerations'>Considerations</a></li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Bike Lock Example'>Bike Lock Example</a></li>
+</ul>
+</ul>
+</ul>
+</div>
+<SubSection title="Product Design Specification (PDS)" id="Product Design Specification (PDS)">
+<p><SubSection title="What is a PDS?"></p>
+<p>A Product Design Specification (PDS) is a structured document that defines the a distinct set of requirements to be met by all aspects of an enterprise to achieve a successful new product. At a high level, the PDS states <strong>what</strong> the product should do or meet, but <strong>not how</strong> it is achieved.</p>
+
+<p>For example, a new bike lock is desired. An environmental consideration you might specify in the PDS for this product could be "corrosion resistance." This requirement could be met through various solutions, such as stainless steel usage, protective coatings, galvanization, etc. The PDS does not need to dictate the solution, but rather defines the performance requirement.</p>
+</SubSection>
+<SubSubSection title="Why do we use a PDS?" id="Why do we use a PDS?">
+<p>In design and production, countless decisions must be made throughout a product's lifecycle. It is impractical to axnticipate and document every action or choice in advance. The PDS serves as a framework that enables team members to make decisions that support the product's goals without requiring exhaustive approval processes.</p>
+<p>Some key benefits of a PDS include the following:</p>
+<Itemize>
+
+    <Item><strong>Unifying Document:</strong> Reconciles what marketing requests, what engineering designs, what sales orders, what is manufactured, and what is installed</Item>
+    <Item><strong>Main Control Mechanism:</strong> When combined with effective product reviews, the PDS controls product development activities</Item>
+    <Item><strong>Communication Tool:</strong> Prevents interdepartmental miscommunication that leads to products not meeting customer needs</Item>
+    <Item><strong>Decision Criteria:</strong> Provides criteria for making design, manufacturing, and business decisions</Item>
+
+</Itemize>
+<p>The PDS <em>evolves over time</em>. The PDS is not a static document. It evolves and changes throughout the product development process. A multidisciplinary team can utilize the structure of a PDS to be aware of changes across all business areas.</p>
+</SubSubSection>
+<SubSection title="The Design Boundary: 29 Primary Elements" id="The Design Boundary: 29 Primary Elements">
+<p>The following 29 elements help prepare a comprehensive PDS. Each element should be considered and documented as applicable to your product.</p>
+</SubSection>
+<SubSubSection title="1. Performance" id="1. Performance">
+<p>Consider the following factors:</p>
+<Itemize>
+
+    <Item><strong>Speed:</strong> Maximum/minimum operating speeds</Item>
+    <Item><strong>Operating Mode:</strong> Continuous or intermittent use</Item>
+    <Item><strong>Loadings:</strong> Electrical, hydraulic, pneumatic, or mechanical forces</Item>
+    <Item><strong>Precision:</strong> Accuracy, repeatability, resolution</Item>
+    <Item><strong>Tolerances:</strong> Acceptable variations in performance</Item>
+
+</Itemize>
+<p>For the bike lock example, one might specify that the lock must resist at least 3,000 lbs of shearing force, or that it must operate in temperatures from -20° C to 50° C.  These specifications define product features rather than the ways in which those might be achieved.</p>
+<p><strong>Note:</strong> Be as specific as possible while specifying PDS elements! Vague phrases such as "strong" or "durable" must be avoided to increase the efficiency of the design process. Go back to your user needs and specifications if you need help being more specific. If it isn't measurable in some way, then it is not possible to verify your product meets the specification.</p>
+</SubSubSection>
+<SubSubSection title="2. Environment" id="2. Environment">
+<p>Any product might encounter a variety of environments during its lifetime including:</p>
+<Itemize>
+
+    <Item>Manufacturing and assembly</Item>
+    <Item>Storage and warehousing</Item>
+    <Item>Transportation and shipping</Item>
+    <Item>Display and retail</Item>
+    <Item>Extensive customer use</Item>
+    <Item>Potential abuse scenarios</Item>
+
+</Itemize>
+<p>In each of these environments, consider temperature and humidity ranges, pressure or altitude conditions, exposure to chemicals, noise levels, biological factors, user expertise level, etc.</p>
+<p>Returning to the bike lock, one might specify that the lock must withstand high humidity levels (up to 85</p>
+</SubSubSection>
+<SubSubSection title="3. Service Life" id="3. Service Life">
+<p>Service life defines how long the product should remain functional and against what criteria. Measurement criteria could include calendar time, operating hours, distance traveled, number of cycles or revolutions, etc. Some considerations while determining the service life of a product are the following:</p>
+<Itemize>
+
+    <Item><strong>Short service life benefits:</strong> Higher product turnover, job creation, lower costs, customers enjoy new products</Item>
+    <Item><strong>Long service life benefits:</strong> Enhanced brand image, meets consumer quality expectations, environmental sustainability, reduced resource waste</Item>
+
+</Itemize>
+<p>As a product engineer, you might design the bike lock to maintain full functionality for at least 10 years under normal use, which could correspond to approximately 15,000 lock–unlock cycles.</p>
+<p><strong>Note:</strong> Service life is different from the shelf life of a product! While shelf life includes the time that the product remains unused, service life only considers the time over which the product remains in use.</p>
+</SubSubSection>
+<SubSubSection title="4. Maintenance" id="4. Maintenance">
+<p>Not every product will remain maintenance-free throughout its lifetime. When developing the PDS, the designer should clearly define the product’s maintenance philosophy and associated requirements. Some key questions to consider are listed below:</p>
+<Itemize>
+
+    <Item>Should it be maintenance-free?</Item>
+    <Item>Is maintenance economically feasible?</Item>
+    <Item>What does the target market expect regarding maintenance?</Item>
+    <Item>Is maintenance infrastructure available in target markets?</Item>
+    <Item>What components are likely to need maintenance?</Item>
+    <Item>Are special tools required, and is this acceptable?</Item>
+
+</Itemize>
+<p>For the bike lock, it is reasonable to expect the product to remain largely maintenance-free, requiring only occasional use of basic tools—such as lubricants—to ensure smooth operation.</p>
+</SubSubSection>
+<SubSubSection title="5. Target Costs" id="5. Target Costs">
+</SubSubSection>
+<SubSubSubSection title="What to Specify" id="What to Specify">
+<p>Establish cost targets from the project outset and validate against market realities.</p>
+</SubSubSubSection>
+<SubSubSubSection title="Design and Manufacturing Costs" id="Design and Manufacturing Costs">
+<Itemize>
+
+    <Item>Target production cost per unit</Item>
+    <Item>Tooling investment required</Item>
+    <Item>Tooling cost recovery period</Item>
+    <Item>Break-even analysis</Item>
+    <Item>Company's financial capacity</Item>
+
+</Itemize>
+</SubSubSubSection>
+<SubSubSubSection title="Retail Costs" id="Retail Costs">
+<Itemize>
+
+    <Item>Competitive price positioning</Item>
+    <Item>Profit margins for all supply chain participants</Item>
+    <Item>Market price sensitivity</Item>
+
+</Itemize>
+<strong>Bike Lock Example</strong>
+    <Itemize>
+
+        <Item><strong>Target Manufacturing Cost:</strong> $8.50 per unit (at 50,000 units/year)</Item>
+        <Item><strong>Tooling Investment:</strong> $75,000 (recovered over 2 years)</Item>
+        <Item><strong>Retail Price Target:</strong> $29.99 (competitive with mid-range locks)</Item>
+        <Item><strong>Profit Margin:</strong> 40</Item>
+
+</Itemize>
+</SubSubSubSection>
+<SubSubSection title="6. Competition" id="6. Competition">
+</SubSubSection>
+<SubSubSubSection title="What to Specify" id="What to Specify">
+<p>Conduct thorough competitive analysis to avoid "reinventing an inferior wheel."</p>
+</SubSubSubSection>
+<SubSubSubSection title="Analysis Methods" id="Analysis Methods">
+<Itemize>
+
+    <Item>Parametric studies</Item>
+    <Item>Literature searches</Item>
+    <Item>Trade show evaluations</Item>
+    <Item>Detailed product examination</Item>
+    <Item>Benchmark testing</Item>
+    <Item>Market positioning analysis</Item>
+
+</Itemize>
+</SubSubSubSection>
+<SubSubSubSection title="Critical Actions" id="Critical Actions">
+<Itemize>
+
+    <Item>Identify serious mismatches with existing products</Item>
+    <Item>Understand competitive advantages and disadvantages</Item>
+    <Item>Determine differentiation strategy</Item>
+
+</Itemize>
+</SubSubSubSection>
+<SubSubSubSection title="Bike Lock Example" id="Bike Lock Example">
+<strong>Competitive Landscape:</strong>
+<Itemize>
+
+    <Item><strong>Major Competitors:</strong> Kryptonite, ABUS, OnGuard, Master Lock</Item>
+    <Item><strong>Price Range:</strong> <InlineEquation equation="15-" />200 for U-locks</Item>
+    <Item><strong>Key Features Analysis:</strong> </Item>
+<p><Itemize></p>
+        <Item>Security ratings (Sold Secure, ART)</Item>
+        <Item>Weight: 1.5-4.5 lbs for comparable products</Item>
+        <Item>Shackle diameter: 13-18mm standard</Item>
+        <Item>Mounting bracket systems</Item>
+        <Item>Key vs. combination locks</Item>
+
+</Itemize>
+<p>\item <strong>Market Gap Identified:</strong> No mid-priced lock with integrated GPS tracking and smartphone alerts</p>
+<p>\item <strong>Differentiation Strategy:</strong> Smart features at traditional lock pricing</p>
+<p></Itemize></p>
+</SubSubSubSection>
+<SubSubSection title="7. Shipping" id="7. Shipping">
+</SubSubSection>
+<SubSubSubSection title="What to Specify" id="What to Specify">
+<p>Determine distribution and delivery logistics.</p>
+</SubSubSubSection>
+<SubSubSubSection title="Key Considerations" id="Key Considerations">
+<Itemize>
+
+    <Item>Destination: Warehouse, retailer, or direct to consumer</Item>
+    <Item>Transportation mode: Land, sea, air</Item>
+    <Item>Market: Domestic or international</Item>
+    <Item>Vehicle type and size constraints</Item>
+    <Item>Distribution ownership</Item>
+    <Item>Packaging type: Pallets, containers, transit cases</Item>
+    <Item>Shipping costs and dimensional limitations</Item>
+    <Item>Lifting points and handling requirements</Item>
+
+</Itemize>
+</SubSubSubSection>
+<SubSubSubSection title="Bike Lock Example" id="Bike Lock Example">
+<Itemize>
+
+    <Item><strong>Primary Distribution:</strong> Bulk shipment to regional warehouses, then to retail stores</Item>
+    <Item><strong>Secondary Distribution:</strong> Direct-to-consumer via e-commerce (20</Item>
+    <Item><strong>Transportation:</strong> Truck freight (domestic), container ship (international)</Item>
+    <Item><strong>Pallet Configuration:</strong> 200 units per pallet</Item>
+    <Item><strong>Package Dimensions:</strong> 8" × 4" × 2" per retail package (fits standard carrier boxes)</Item>
+    <Item><strong>Shipping Weight:</strong> 2.2 lbs per unit (packaged)</Item>
+    <Item><strong>International:</strong> ISO container compatible; no special handling required</Item>
+    <Item><strong>Cost Constraint:</strong> Package size optimized to minimize dimensional weight charges for e-commerce</Item>
+
+</Itemize>
+</SubSubSubSection>
+<SubSubSection title="8. Product Volume" id="8. Product Volume">
+</SubSubSection>
+<SubSubSubSection title="What to Specify" id="What to Specify">
+<p>Project annual sales volume, as this profoundly impacts all design decisions.</p>
+</SubSubSubSection>
+<SubSubSubSection title="Volume Impact on Design" id="Volume Impact on Design">
+<Itemize>
+
+    <Item>Aesthetics and styling possibilities</Item>
+    <Item>Manufacturing process selection</Item>
+    <Item>Assembly methods</Item>
+    <Item>Tooling investment level </Item>
+<p><Itemize></p>
+        <Item>Low volume: Minimal tooling, possibly hand assembly</Item>
+        <Item>Medium volume: Temporary or soft tooling</Item>
+        <Item>High volume: Permanent, expensive hard tooling</Item>
+
+</Itemize>
+<p></Itemize></p>
+</SubSubSubSection>
+<SubSubSubSection title="Bike Lock Example" id="Bike Lock Example">
+<Itemize>
+
+    <Item><strong>Year 1 Target:</strong> 25,000 units</Item>
+    <Item><strong>Year 2 Target:</strong> 50,000 units</Item>
+    <Item><strong>Year 3-5 Target:</strong> 75,000 units annually</Item>
+    <Item><strong>Design Implications:</strong> </Item>
+<p><Itemize></p>
+        <Item>Die-cast lock body (economical at 50K+ units)</Item>
+        <Item>Injection-molded protective cover</Item>
+        <Item>Automated shackle machining</Item>
+        <Item>Semi-automated assembly acceptable initially</Item>
+        <Item>Investment in full automation deferred until Year 3</Item>
+        <Item>Moderate tooling investment justified</Item>
+
+</Itemize>
+<p></Itemize></p>
+</SubSubSubSection>
+<SubSubSection title="9. Packing" id="9. Packing">
+</SubSubSection>
+<SubSubSubSection title="What to Specify" id="What to Specify">
+<p>Define packaging requirements for multiple purposes.</p>
+</SubSubSubSection>
+<SubSubSubSection title="Packaging Functions" id="Packaging Functions">
+<Itemize>
+
+    <Item>Protection during transport</Item>
+    <Item>Storage stability</Item>
+    <Item>Retail display and advertising</Item>
+    <Item>Shelf appeal</Item>
+    <Item>Environmental protection</Item>
+    <Item>Theft deterrence (retail)</Item>
+
+</Itemize>
+</SubSubSubSection>
+<SubSubSubSection title="Key Considerations" id="Key Considerations">
+<Itemize>
+
+    <Item>Packaging can represent significant product cost percentage</Item>
+    <Item>Packaging may impose design constraints</Item>
+    <Item>Market survey may inform packaging decisions</Item>
+    <Item>Environmental protection requirements</Item>
+
+</Itemize>
+</SubSubSubSection>
+<SubSubSubSection title="Bike Lock Example" id="Bike Lock Example">
+<Itemize>
+
+    <Item><strong>Packaging Type:</strong> Clamshell blister pack with cardboard backer</Item>
+    <Item><strong>Cost Target:</strong> $0.85 per package (10</Item>
+    <Item><strong>Protection Requirements:</strong> </Item>
+<p><Itemize></p>
+        <Item>Prevent scratching of lock body during shipping</Item>
+        <Item>Moisture barrier for corrosion prevention</Item>
+        <Item>Drop-test rated packaging</Item>
+
+</Itemize>
+<p>\item <strong>Retail Display:</strong></p>
+    <Itemize>
+
+        <Item>Hang-sell configuration</Item>
+        <Item>Visible security rating badge</Item>
+        <Item>Clear view of product</Item>
+
+</Itemize>
+<p>\item <strong>Sustainability:</strong> 60</p>
+<p>\item <strong>Dimensions:</strong> Standardized to retail hanging systems</p>
+<p>\item <strong>Anti-Theft:</strong> Difficult to remove from package without damage</p>
+<p></Itemize></p>
+</SubSubSubSection>
+<SubSubSection title="10. Manufacturing Facility" id="10. Manufacturing Facility">
+</SubSubSection>
+<SubSubSubSection title="What to Specify" id="What to Specify">
+<p>Define manufacturing constraints and opportunities.</p>
+</SubSubSubSection>
+<SubSubSubSection title="Key Questions" id="Key Questions">
+<Itemize>
+
+    <Item>Are we designing for existing plant capacity?</Item>
+    <Item>Do we have excess capacity to utilize?</Item>
+    <Item>Are there plans for new equipment?</Item>
+    <Item>What is the make vs. buy policy?</Item>
+    <Item>Do we need a new facility for this product?</Item>
+    <Item>What processes are we familiar with?</Item>
+
+</Itemize>
+</SubSubSubSection>
+<SubSubSubSection title="Bike Lock Example" id="Bike Lock Example">
+<Itemize>
+
+    <Item><strong>Facility:</strong> Existing manufacturing plant with metal forming capabilities</Item>
+    <Item><strong>Existing Capacity:</strong> </Item>
+<p><Itemize></p>
+        <Item>Die casting equipment (currently at 70</Item>
+        <Item>CNC machining centers (available capacity)</Item>
+        <Item>Heat treatment furnaces (in-house)</Item>
+
+</Itemize>
+<p>\item <strong>New Equipment Needed:</strong></p>
+    <Itemize>
+
+        <Item>Lock cylinder assembly station ($25K investment)</Item>
+        <Item>UV coating line for weather protection ($40K investment)</Item>
+
+</Itemize>
+<p>\item <strong>Make vs. Buy:</strong></p>
+    <Itemize>
+
+        <Item>Make: Lock body, shackle, mounting bracket (core competencies)</Item>
+        <Item>Buy: Lock cylinders, keys, rubber protective cover (specialized suppliers)</Item>
+
+</Itemize>
+<p>\item <strong>Assembly:</strong> Semi-automated assembly line in existing facility</p>
+<p>\item <strong>Quality Control:</strong> Leverage existing testing infrastructure</p>
+<p></Itemize></p>
+</SubSubSubSection>
+<SubSubSection title="11. Size" id="11. Size">
+</SubSubSection>
+<SubSubSubSection title="What to Specify" id="What to Specify">
+<p>Define maximum, minimum, or optimum size constraints.</p>
+</SubSubSubSection>
+<SubSubSubSection title="Size Considerations" id="Size Considerations">
+<Itemize>
+
+    <Item><strong>Maximum Size:</strong> Portability, storage, access limitations, user preference</Item>
+    <Item><strong>Minimum Size:</strong> Ergonomic requirements, functionality constraints</Item>
+    <Item><strong>Optimum Size:</strong> User surveys, market standards, compatibility requirements</Item>
+
+</Itemize>
+</SubSubSubSection>
+<SubSubSubSection title="Common Issues" id="Common Issues">
+<Itemize>
+
+    <Item>Products growing during design process</Item>
+    <Item>Loss of portability or compactness</Item>
+    <Item>Maintenance access problems</Item>
+
+</Itemize>
+</SubSubSubSection>
+<SubSubSubSection title="Bike Lock Example" id="Bike Lock Example">
+<Itemize>
+
+    <Item><strong>Overall Dimensions:</strong> </Item>
+<p><Itemize></p>
+        <Item>Shackle opening: 4" × 9" (fits most bike frames and fixed objects)</Item>
+        <Item>Shackle diameter: 13mm (balance between security and weight)</Item>
+        <Item>Lock body: 2.5" × 3.5" × 1.2"</Item>
+
+</Itemize>
+<p>\item <strong>Portability:</strong> Must fit in jersey pocket or small backpack</p>
+<p>\item <strong>Weight with Mounting Bracket:</strong> Complete system under 3 lbs</p>
+<p>\item <strong>Ergonomic Minimum:</strong> Key grip area minimum 0.75" diameter</p>
+<p>\item <strong>Market Research:</strong> Users prefer compact designs but prioritize security over extreme minimization</p>
+<p>\item <strong>Compatibility:</strong> Sized to secure bike frame + wheel to standard bike racks</p>
+<p>\item <strong>Storage:</strong> Fits standard bike frame mounts</p>
+<p></Itemize></p>
+</SubSubSubSection>
+<SubSubSection title="12. Weight" id="12. Weight">
+</SubSubSection>
+<SubSubSubSection title="What to Specify" id="What to Specify">
+<p>Define weight targets considering maximum, minimum, and optimum values.</p>
+</SubSubSubSection>
+<SubSubSubSection title="Weight Importance" id="Weight Importance">
+<Itemize>
+
+    <Item>User portability and handling</Item>
+    <Item>Shipping costs</Item>
+    <Item>Manufacturing and assembly handling</Item>
+    <Item>Installation requirements</Item>
+    <Item>Structural support limitations</Item>
+
+</Itemize>
+</SubSubSubSection>
+<SubSubSubSection title="Bike Lock Example" id="Bike Lock Example">
+<Itemize>
+
+    <Item><strong>Target Weight:</strong> 2.5 lbs (1.13 kg) for lock alone</Item>
+    <Item><strong>Maximum Weight:</strong> 3.2 lbs with mounting system</Item>
+    <Item><strong>Weight Justification:</strong> </Item>
+<p><Itemize></p>
+        <Item>Heavy enough to signal security and quality</Item>
+        <Item>Light enough for daily carrying</Item>
+        <Item>Competitive with similar security-rated locks</Item>
+
+</Itemize>
+<p>\item <strong>User Impact:</strong> Cyclists comfortable carrying 2-3 lbs on rides</p>
+<p>\item <strong>Shipping Impact:</strong> Weight allows economical shipping rates</p>
+<p>\item <strong>Material Implications:</strong> Requires high-strength steel alloy to minimize weight while maintaining security</p>
+<p>\item <strong>Distribution:</strong> Weight acceptable for retail hanging displays</p>
+<p></Itemize></p>
+</SubSubSubSection>
+<SubSubSection title="13. Aesthetics and Finish" id="13. Aesthetics and Finish">
+</SubSubSection>
+<SubSubSubSection title="What to Specify" id="What to Specify">
+<p>Define appearance requirements proactively, not reactively.</p>
+</SubSubSubSection>
+<SubSubSubSection title="Key Principle" id="Key Principle">
+<strong>"The customer sees it before they buy it; physical performance comes later."</strong>
+</SubSubSubSection>
+<SubSubSubSection title="Specification Areas" id="Specification Areas">
+<Itemize>
+
+    <Item>Color palette</Item>
+    <Item>Shape and form language</Item>
+    <Item>Surface texture and finish</Item>
+    <Item>Material appearance</Item>
+    <Item>Brand consistency</Item>
+    <Item>Market trends</Item>
+
+</Itemize>
+</SubSubSubSection>
+<SubSubSubSection title="Expert Input" id="Expert Input">
+<p>Obtain input from sales, marketing, and industrial designers early in the process.</p>
+</SubSubSubSection>
+<SubSubSubSection title="Bike Lock Example" id="Bike Lock Example">
+<Itemize>
+
+    <Item><strong>Design Language:</strong> Modern, technical aesthetic suggesting security</Item>
+    <Item><strong>Color Options:</strong> </Item>
+<p><Itemize></p>
+        <Item>Primary: Matte black (appeals to 65</Item>
+        <Item>Secondary: Gunmetal gray, safety orange</Item>
+
+</Itemize>
+<p>\item <strong>Surface Finish:</strong></p>
+    <Itemize>
+
+        <Item>Lock body: Powder-coated matte finish (durable, premium feel)</Item>
+        <Item>Shackle: Polished steel with clear protective coating</Item>
+
+</Itemize>
+<p>\item <strong>Branding:</strong> Subtle logo embossed on lock body</p>
+<p>\item <strong>Visual Security Cues:</strong></p>
+    <Itemize>
+
+        <Item>Thick shackle appearance</Item>
+        <Item>Robust lock body design</Item>
+        <Item>Visible security rating badge</Item>
+
+</Itemize>
+<p>\item <strong>Protective Cover:</strong> Black rubberized coating (prevents scratching bikes)</p>
+<p>\item <strong>Professional Input:</strong> Industrial designer consultation on ergonomic key design and grip surfaces</p>
+<p></Itemize></p>
+</SubSubSubSection>
+<SubSubSection title="14. Materials" id="14. Materials">
+</SubSubSection>
+<SubSubSubSection title="What to Specify" id="What to Specify">
+<p>Define required or prohibited materials based on technical needs, company policy, and market requirements.</p>
+</SubSubSubSection>
+<SubSubSubSection title="Specification Types" id="Specification Types">
+<Itemize>
+
+    <Item><strong>Must Use:</strong> Special materials needed for performance</Item>
+    <Item><strong>Must Not Use:</strong> Toxic, inappropriate, or problematic materials</Item>
+    <Item><strong>Market-Driven:</strong> Consumer preferences or expectations</Item>
+    <Item><strong>Policy-Driven:</strong> Company standards or capabilities</Item>
+
+</Itemize>
+</SubSubSubSection>
+<SubSubSubSection title="Bike Lock Example" id="Bike Lock Example">
+<strong>Required Materials:</strong>
+<Itemize>
+
+    <Item><strong>Shackle:</strong> Hardened boron-manganese steel alloy (resists cutting)</Item>
+    <Item><strong>Lock Cylinder:</strong> Brass pin tumbler mechanism (corrosion resistant)</Item>
+    <Item><strong>Protective Cover:</strong> TPU (thermoplastic polyurethane) - weather resistant, won't scratch bikes</Item>
+
+</Itemize>
+<strong>Prohibited Materials:</strong>
+<Itemize>
+
+    <Item>No cadmium (toxic, regulatory concerns)</Item>
+    <Item>No low-grade steel (insufficient security)</Item>
+    <Item>No ABS plastic for structural components (inadequate strength)</Item>
+
+</Itemize>
+<strong>Material Justification:</strong>
+<Itemize>
+
+    <Item>Hardened steel: Industry standard for security ratings</Item>
+    <Item>Brass cylinder: Proven corrosion resistance in outdoor applications</Item>
+    <Item>TPU: Superior weather resistance vs. PVC, environmentally preferable</Item>
+
+</Itemize>
+</SubSubSubSection>
+<SubSubSection title="15. Product Life Span" id="15. Product Life Span">
+</SubSubSection>
+<SubSubSubSection title="What to Specify" id="What to Specify">
+<p>Estimate how long the product will remain marketable.</p>
+</SubSubSubSection>
+<SubSubSubSection title="Impact on Decisions" id="Impact on Decisions">
+<Itemize>
+
+    <Item>Design approach (quick iteration vs. long-term platform)</Item>
+    <Item>Marketing and promotion strategy</Item>
+    <Item>Tooling investment level</Item>
+    <Item>Manufacturing facility planning</Item>
+    <Item>Make vs. buy decisions</Item>
+    <Item>Supply chain commitments</Item>
+
+</Itemize>
+</SubSubSubSection>
+<SubSubSubSection title="Bike Lock Example" id="Bike Lock Example">
+<Itemize>
+
+    <Item><strong>Product Life Span Estimate:</strong> 5-7 years before redesign</Item>
+    <Item><strong>Basis for Estimate:</strong> </Item>
+<p><Itemize></p>
+        <Item>Security technology evolves gradually</Item>
+        <Item>Materials and manufacturing mature slowly</Item>
+        <Item>Consumer preferences in locks are stable</Item>
+        <Item>Competitor refresh cycles average 6 years</Item>
+
+</Itemize>
+<p>\item <strong>Implications:</strong></p>
+    <Itemize>
+
+        <Item>Justify permanent tooling investment</Item>
+        <Item>Establish long-term supplier relationships</Item>
+        <Item>Design platform for incremental updates (colors, smart features)</Item>
+        <Item>Plan for mid-cycle refresh (Year 3) with minor updates</Item>
+        <Item>Develop patent protection strategy for full product cycle</Item>
+
+</Itemize>
+<p></Itemize></p>
+</SubSubSubSection>
+<SubSubSection title="16. Standards, Specifications, and Legal Aspects" id="16. Standards, Specifications, and Legal Aspects">
+</SubSubSection>
+<SubSubSubSection title="What to Specify" id="What to Specify">
+<p>Identify all applicable standards, regulations, and legal requirements.</p>
+</SubSubSubSection>
+<SubSubSubSection title="Key Principle" id="Key Principle">
+<strong>"It is much easier to design to a standard than to retrospectively modify semi-finalized designs."</strong>
+</SubSubSubSection>
+<SubSubSubSection title="Requirements" id="Requirements">
+<Itemize>
+
+    <Item>International and national standards</Item>
+    <Item>Industry-specific certifications</Item>
+    <Item>Safety regulations</Item>
+    <Item>Product liability considerations</Item>
+    <Item>Regional regulatory variations</Item>
+
+</Itemize>
+</SubSubSubSection>
+<SubSubSubSection title="Bike Lock Example" id="Bike Lock Example">
+<strong>Applicable Standards:</strong>
+<Itemize>
+
+    <Item><strong>Sold Secure Rating:</strong> Target Gold rating (UK standard)</Item>
+    <Item><strong>ART Rating:</strong> Target 4-5 stars (Dutch/European standard)</Item>
+    <Item><strong>ASTM F2317:</strong> Security rating for bicycle locks (North American standard)</Item>
+    <Item><strong>ISO 4210:</strong> Bicycle safety standards (for mounting hardware compatibility)</Item>
+    <Item><strong>RoHS Compliance:</strong> Restriction of hazardous substances (for EU market)</Item>
+    <Item><strong>California Prop 65:</strong> Lead and cadmium restrictions</Item>
+
+</Itemize>
+<strong>Legal Considerations:</strong>
+<Itemize>
+
+    <Item>Product liability insurance for security claims</Item>
+    <Item>Clear disclaimers about security limitations</Item>
+    <Item>Patent clearance for locking mechanism</Item>
+    <Item>Trademark protection for brand elements</Item>
+
+</Itemize>
+<strong>Certification Strategy:</strong>
+<Itemize>
+
+    <Item>Obtain Sold Secure Gold before launch (market requirement)</Item>
+    <Item>Independent security testing documented</Item>
+    <Item>Legal review of all security claims in marketing</Item>
+
+</Itemize>
+</SubSubSubSection>
+<SubSubSection title="17. Ergonomics" id="17. Ergonomics">
+</SubSubSection>
+<SubSubSubSection title="What to Specify" id="What to Specify">
+<p>Define the man-machine interface requirements.</p>
+</SubSubSubSection>
+<SubSubSubSection title="Considerations" id="Considerations">
+<Itemize>
+
+    <Item>Operating heights and reach distances</Item>
+    <Item>Required forces and torques</Item>
+    <Item>User population characteristics (5th to 95th percentile)</Item>
+    <Item>Frequency of use</Item>
+    <Item>Environmental conditions during use</Item>
+    <Item>Accessibility requirements</Item>
+
+</Itemize>
+</SubSubSubSection>
+<SubSubSubSection title="Bike Lock Example" id="Bike Lock Example">
+<strong>Key Ergonomics:</strong>
+<Itemize>
+
+    <Item><strong>Key Grip Diameter:</strong> 0.75" minimum (comfortable for gloved hands)</Item>
+    <Item><strong>Key Insertion Force:</strong> Maximum 2 lbs (achievable with cold, wet hands)</Item>
+    <Item><strong>Key Turn Torque:</strong> 8-15 in-lbs (manageable but signals security)</Item>
+    <Item><strong>Lock Weight Distribution:</strong> Balanced for one-handed operation</Item>
+    <Item><strong>Shackle Release:</strong> Spring-loaded, operates with &lt;5 lbs force</Item>
+
+</Itemize>
+<strong>User Population:</strong>
+<Itemize>
+
+    <Item>Age range: 16-65 years</Item>
+    <Item>5th percentile female to 95th percentile male hand sizes</Item>
+    <Item>Must operate with cycling gloves (adds 0.25" to finger dimensions)</Item>
+    <Item>Must operate in rain, cold, darkness</Item>
+
+</Itemize>
+<strong>Frequency of Use:</strong>
+<Itemize>
+
+    <Item>2-10 times per day during cycling season</Item>
+    <Item>Must remain comfortable with repeated use</Item>
+
+</Itemize>
+<strong>Accessibility:</strong>
+<Itemize>
+
+    <Item>High-contrast key markings for low-light use</Item>
+    <Item>Tactile key orientation guide</Item>
+    <Item>Key fob large enough for arthritic users</Item>
+
+</Itemize>
+</SubSubSubSection>
+<SubSubSection title="18. Customer" id="18. Customer">
+</SubSubSection>
+<SubSubSubSection title="What to Specify" id="What to Specify">
+<p>Document customer preferences, prejudices, likes, and dislikes.</p>
+</SubSubSubSection>
+<SubSubSubSection title="Information Sources" id="Information Sources">
+<Itemize>
+
+    <Item>Customer surveys and interviews</Item>
+    <Item>Focus groups</Item>
+    <Item>User observation studies</Item>
+    <Item>Competitor product reviews</Item>
+    <Item>Retail feedback</Item>
+    <Item>Warranty and complaint data</Item>
+
+</Itemize>
+</SubSubSubSection>
+<SubSubSubSection title="Bike Lock Example" id="Bike Lock Example">
+<strong>Customer Research Findings:</strong>
+<strong>Primary User Profile:</strong>
+<Itemize>
+
+    <Item>Urban commuters (55</Item>
+    <Item>Recreational cyclists (30</Item>
+    <Item>Casual users (15</Item>
+    <Item>Age: 25-45 primarily</Item>
+
+</Itemize>
+<strong>Customer Preferences:</strong>
+<Itemize>
+
+    <Item>Quick, convenient locking (prioritized by 78</Item>
+    <Item>Visible security (deterrent effect)</Item>
+    <Item>Lightweight (within reason)</Item>
+    <Item>Weather resistance</Item>
+    <Item>Doesn't damage bike finish</Item>
+    <Item>Theft warranty/guarantee valued</Item>
+
+</Itemize>
+<strong>Customer Dislikes:</strong>
+<Itemize>
+
+    <Item>Complex multi-step locking</Item>
+    <Item>Keys that wear out quickly</Item>
+    <Item>Difficult key insertion</Item>
+    <Item>Rust and corrosion</Item>
+    <Item>Mounting systems that rattle or fall off</Item>
+    <Item>Oversized locks</Item>
+
+</Itemize>
+<strong>Customer Prejudices:</strong>
+<Itemize>
+
+    <Item>Combination locks perceived as less secure (whether true or not)</Item>
+    <Item>Heavier = more secure (psychological association)</Item>
+    <Item>Brand reputation heavily influences purchase</Item>
+
+</Itemize>
+<strong>Purchase Triggers:</strong>
+<Itemize>
+
+    <Item>Recent theft (own or friend's bike)</Item>
+    <Item>New bike purchase</Item>
+    <Item>Moving to urban area</Item>
+    <Item>Insurance requirement</Item>
+
+</Itemize>
+</SubSubSubSection>
+<SubSubSection title="19. Quality and Reliability" id="19. Quality and Reliability">
+</SubSubSection>
+<SubSubSubSection title="What to Specify" id="What to Specify">
+<p>Define quality metrics and reliability requirements.</p>
+</SubSubSubSection>
+<SubSubSubSection title="Quality Measures" id="Quality Measures">
+<Itemize>
+
+    <Item>Six Sigma targets (±6σ)</Item>
+    <Item>Defects per unit (DPU)</Item>
+    <Item>Defects per million opportunities (DPMO)</Item>
+    <Item>Mean Time Between Failure (MTBF)</Item>
+    <Item>Mean Time To Repair (MTTR)</Item>
+    <Item>Supplier quality requirements</Item>
+    <Item>Field failure rates</Item>
+
+</Itemize>
+</SubSubSubSection>
+<SubSubSubSection title="Bike Lock Example" id="Bike Lock Example">
+<strong>Quality Targets:</strong>
+<Itemize>
+
+    <Item><strong>Defect Rate:</strong> &lt;100 DPMO (defects per million opportunities)</Item>
+    <Item><strong>Field Failure Rate:</strong> &lt;0.5</Item>
+    <Item><strong>MTBF:</strong> 15,000 lock/unlock cycles minimum</Item>
+    <Item><strong>Key Durability:</strong> 5,000 uses without excessive wear</Item>
+
+</Itemize>
+<strong>Critical Quality Points:</strong>
+<Itemize>
+
+    <Item><strong>Lock Cylinder:</strong> Zero key breakage in normal use</Item>
+    <Item><strong>Shackle Release:</strong> 99.9</Item>
+    <Item><strong>Corrosion:</strong> Zero visible rust after 1 year outdoor exposure</Item>
+    <Item><strong>Coating Adhesion:</strong> No peeling or flaking</Item>
+
+</Itemize>
+<strong>Quality Assurance:</strong>
+<Itemize>
+
+    <Item>100</Item>
+    <Item>Statistical sampling for shackle strength (1 per 500 units destructive test)</Item>
+    <Item>Salt spray testing for corrosion resistance</Item>
+    <Item>Drop testing for shipping durability</Item>
+
+</Itemize>
+<strong>Supplier Requirements:</strong>
+<Itemize>
+
+    <Item>Lock cylinder supplier: Maximum 50 PPM defect rate</Item>
+    <Item>Steel supplier: Certified material composition</Item>
+    <Item>Coating supplier: ISO 9001 certified</Item>
+
+</Itemize>
+<strong>Reliability Testing:</strong>
+<Itemize>
+
+    <Item>20,000 cycle accelerated life test</Item>
+    <Item>Environmental chamber testing (-30°C to +60°C)</Item>
+    <Item>UV exposure chamber (equivalent to 10 years)</Item>
+
+</Itemize>
+</SubSubSubSection>
+<SubSubSection title="20. Shelf Life" id="20. Shelf Life">
+</SubSubSection>
+<SubSubSubSection title="What to Specify" id="What to Specify">
+<p>Define storage duration and conditions before sale.</p>
+</SubSubSubSection>
+<SubSubSubSection title="Considerations" id="Considerations">
+<Itemize>
+
+    <Item>Storage environment</Item>
+    <Item>Retail display environment</Item>
+    <Item>Degradation mechanisms</Item>
+    <Item>Protective measures</Item>
+    <Item>Typical retail cycle time</Item>
+    <Item>Seasonal factors</Item>
+
+</Itemize>
+</SubSubSubSection>
+<SubSubSubSection title="Bike Lock Example" id="Bike Lock Example">
+<p><strong>Shelf Life Requirement:</strong> 3 years minimum</p>
+<strong>Storage Conditions:</strong>
+<Itemize>
+
+    <Item>Temperature: 0°C to 40°C</Item>
+    <Item>Humidity: Up to 80</Item>
+    <Item>Display: Indoor and outdoor retail displays</Item>
+
+</Itemize>
+<strong>Degradation Concerns:</strong>
+<Itemize>
+
+    <Item><strong>Lock Cylinder:</strong> Lubricant must not dry out or gum up</Item>
+    <Item><strong>Packaging:</strong> Must not yellow or become brittle</Item>
+    <Item><strong>Protective Coating:</strong> No degradation or stickiness</Item>
+    <Item><strong>Springs:</strong> Maintain tension and function</Item>
+
+</Itemize>
+<strong>Protective Measures:</strong>
+<Itemize>
+
+    <Item>Long-life synthetic lubricant in cylinder</Item>
+    <Item>UV-stabilized packaging materials</Item>
+    <Item>Desiccant packet in blister pack</Item>
+    <Item>Protective cap over keyway</Item>
+    <Item>Sealed packaging prevents contamination</Item>
+
+</Itemize>
+<strong>Retail Reality:</strong>
+<Itemize>
+
+    <Item>Average time on shelf: 6-9 months</Item>
+    <Item>Seasonal inventory: May sit 12+ months</Item>
+    <Item>Outdoor display exposure in some stores</Item>
+
+</Itemize>
+<strong>Design Solutions:</strong>
+<Itemize>
+
+    <Item>Corrosion-resistant materials throughout</Item>
+    <Item>Sealed design prevents contamination</Item>
+    <Item>No battery-powered components to deplete</Item>
+    <Item>Product requires no activation before use</Item>
+
+</Itemize>
+</SubSubSubSection>
+<SubSubSection title="21. Processes" id="21. Processes">
+</SubSubSection>
+<SubSubSubSection title="What to Specify" id="What to Specify">
+<p>Define required or preferred manufacturing processes.</p>
+</SubSubSubSection>
+<SubSubSubSection title="Considerations" id="Considerations">
+<Itemize>
+
+    <Item>Company preferred processes</Item>
+    <Item>Special process requirements</Item>
+    <Item>Process capabilities and limitations</Item>
+    <Item>Supplier process specifications</Item>
+    <Item>Industry standards</Item>
+
+</Itemize>
+</SubSubSubSection>
+<SubSubSubSection title="Bike Lock Example" id="Bike Lock Example">
+<strong>Specified Processes:</strong>
+<strong>Lock Body Manufacturing:</strong>
+<Itemize>
+
+    <Item><strong>Process:</strong> High-pressure die casting (aluminum or zinc alloy)</Item>
+    <Item><strong>Justification:</strong> Cost-effective for 50K+ units, excellent detail reproduction</Item>
+    <Item><strong>Standard:</strong> Company has existing die casting capability</Item>
+
+</Itemize>
+<strong>Shackle Production:</strong>
+<Itemize>
+
+    <Item><strong>Process:</strong> Cold-drawn steel bar stock → CNC turning → Heat treatment (through-hardening) → Grinding</Item>
+    <Item><strong>Heat Treatment Spec:</strong> Harden to 58-62 HRC (Rockwell hardness)</Item>
+    <Item><strong>Standard:</strong> ASTM A689 for tool steel</Item>
+
+</Itemize>
+<strong>Surface Finishing:</strong>
+<Itemize>
+
+    <Item><strong>Lock Body:</strong> Powder coating (electrostatic application)</Item>
+    <Item><strong>Shackle:</strong> Chrome plating (decorative) + clear protective coating</Item>
+    <Item><strong>Standards:</strong> ASTM B633 for zinc coating, ASTM D3363 for coating hardness</Item>
+
+</Itemize>
+<strong>Lock Cylinder Assembly:</strong>
+<Itemize>
+
+    <Item><strong>Process:</strong> Automated pin stacking and spring insertion</Item>
+    <Item><strong>Requirement:</strong> Class 100,000 clean room (prevents contamination)</Item>
+
+</Itemize>
+<strong>Special Processes:</strong>
+<Itemize>
+
+    <Item><strong>Laser Etching:</strong> Security rating and serial number on lock body</Item>
+    <Item><strong>Ultrasonic Welding:</strong> Sealing of protective end caps</Item>
+
+</Itemize>
+<strong>Quality Processes:</strong>
+<Itemize>
+
+    <Item><strong>100</Item>
+    <Item><strong>Statistical Sampling:</strong> Destructive shackle strength testing</Item>
+
+</Itemize>
+</SubSubSubSection>
+<SubSubSection title="22. Timescales" id="22. Timescales">
+</SubSubSection>
+<SubSubSubSection title="What to Specify" id="What to Specify">
+<p>Define lead times for all development phases to meet launch targets.</p>
+</SubSubSubSection>
+<SubSubSubSection title="Critical Timeline Elements" id="Critical Timeline Elements">
+<Itemize>
+
+    <Item>Concept design phase</Item>
+    <Item>Detail design and engineering</Item>
+    <Item>Prototype development</Item>
+    <Item>Testing and certification</Item>
+    <Item>Tooling design and manufacture</Item>
+    <Item>Production ramp-up</Item>
+    <Item>Window of opportunity for market launch</Item>
+
+</Itemize>
+</SubSubSubSection>
+<SubSubSubSection title="Bike Lock Example" id="Bike Lock Example">
+<strong>Product Development Timeline:</strong>
+<strong>Phase 1: Concept Development (Months 0-3)</strong>
+<Itemize>
+
+    <Item>Market research and competitive analysis: 4 weeks</Item>
+    <Item>Initial PDS development: 2 weeks</Item>
+    <Item>Concept ideation and sketching: 4 weeks</Item>
+    <Item>Concept selection and refinement: 2 weeks</Item>
+    <Item>Management approval: 2 weeks</Item>
+
+</Itemize>
+<strong>Phase 2: Detail Design (Months 3-6)</strong>
+<Itemize>
+
+    <Item>CAD modeling and engineering: 8 weeks</Item>
+    <Item>Material selection and testing: 4 weeks (parallel)</Item>
+    <Item>Supplier identification: 4 weeks (parallel)</Item>
+    <Item>Design reviews: 2 weeks</Item>
+
+</Itemize>
+<strong>Phase 3: Prototyping (Months 6-9)</strong>
+<Itemize>
+
+    <Item>Prototype tooling: 6 weeks</Item>
+    <Item>Prototype production: 2 weeks</Item>
+    <Item>Internal testing: 4 weeks</Item>
+    <Item>Design iterations: 2 weeks</Item>
+
+</Itemize>
+<strong>Phase 4: Testing and Certification (Months 9-12)</strong>
+<Itemize>
+
+    <Item>Security certification testing (Sold Secure): 8 weeks</Item>
+    <Item>Environmental testing: 6 weeks (parallel)</Item>
+    <Item>User testing: 4 weeks (parallel)</Item>
+    <Item>Final design freeze: 2 weeks</Item>
+
+</Itemize>
+<strong>Phase 5: Production Preparation (Months 12-15)</strong>
+<Itemize>
+
+    <Item>Production tooling design: 8 weeks</Item>
+    <Item>Tooling manufacture: 8 weeks</Item>
+    <Item>First article inspection: 2 weeks</Item>
+    <Item>Production ramp-up: 4 weeks</Item>
+
+</Itemize>
+<strong>Phase 6: Launch (Month 15-16)</strong>
+<Itemize>
+
+    <Item>Inventory build: 4 weeks</Item>
+    <Item>Marketing campaign launch: 2 weeks (parallel)</Item>
+    <Item>Product launch: Month 16</Item>
+
+</Itemize>
+<strong>Critical Path:</strong>
+<Itemize>
+
+    <Item>Certification testing (cannot be shortened)</Item>
+    <Item>Production tooling (long lead time)</Item>
+
+</Itemize>
+<strong>Window of Opportunity:</strong>
+<Itemize>
+
+    <Item>Target launch: Spring (peak cycling season)</Item>
+    <Item>Must complete by March for April retail availability</Item>
+
+</Itemize>
+</SubSubSubSection>
+<SubSubSection title="23. Testing" id="23. Testing">
+</SubSubSection>
+<SubSubSubSection title="What to Specify" id="What to Specify">
+<p>Define all testing requirements and procedures.</p>
+</SubSubSubSection>
+<SubSubSubSection title="Testing Stages" id="Testing Stages">
+<Itemize>
+
+    <Item>During manufacturing</Item>
+    <Item>Post-manufacturing</Item>
+    <Item>At retail (if applicable)</Item>
+    <Item>By consumer</Item>
+    <Item>Certification testing</Item>
+    <Item>Reliability testing</Item>
+
+</Itemize>
+</SubSubSubSection>
+<SubSubSubSection title="Test Infrastructure" id="Test Infrastructure">
+<Itemize>
+
+    <Item>Automated test equipment (ATE) needs</Item>
+    <Item>Special test fixtures</Item>
+    <Item>Retailer equipment requirements</Item>
+    <Item>Documentation requirements</Item>
+
+</Itemize>
+</SubSubSubSection>
+<SubSubSubSection title="Bike Lock Example" id="Bike Lock Example">
+<strong>Manufacturing Tests:</strong>
+<p><strong>100</p>
+<Itemize>
+
+    <Item>Lock cylinder function test (automated) </Item>
+<p><Itemize></p>
+        <Item>Key insertion/extraction: 5 cycles</Item>
+        <Item>Lock/unlock operation: 5 cycles</Item>
+        <Item>Test duration: 15 seconds per unit</Item>
+
+</Itemize>
+<p>\item Shackle release function test</p>
+<p>\item Visual inspection (automated vision system)</p>
+<p></Itemize></p>
+<strong>Sample Testing:</strong>
+<Itemize>
+
+    <Item>Shackle pull strength: 1 per 500 units (destructive) </Item>
+<p>Must withstand &gt;3,000 lbs before failure</p>
+    <Item>Shackle cutting resistance: 1 per 5,000 units (destructive) </Item>
+<p>Must resist 42" bolt cutters for &gt;60 seconds</p>
+    <Item>Drop test: 1 per 1,000 units (from 2 meters)</Item>
+
+</Itemize>
+<strong>Certification Testing (Third-Party):</strong>
+<Itemize>
+
+    <Item><strong>Sold Secure Gold Rating Tests:</strong> </Item>
+<p><Itemize></p>
+        <Item>Attack testing: 5 minutes with hand tools</Item>
+        <Item>Advanced attack testing: 5 minutes with power tools</Item>
+        <Item>Freeze spray and hammer attacks</Item>
+
+</Itemize>
+<p>\item <strong>Environmental Testing:</strong></p>
+    <Itemize>
+
+        <Item>Salt spray: 1,000 hours (ASTM B117)</Item>
+        <Item>UV exposure: 2,000 hours</Item>
+        <Item>Temperature cycling: -30°C to +60°C, 100 cycles</Item>
+
+</Itemize>
+<p></Itemize></p>
+<strong>Reliability Testing:</strong>
+<Itemize>
+
+    <Item>Life cycle testing: 20,000 lock/unlock cycles</Item>
+    <Item>Key durability: 5,000 insertions</Item>
+    <Item>Corrosion chamber: Simulated 5-year outdoor exposure</Item>
+
+</Itemize>
+<strong>Consumer Testing:</strong>
+<Itemize>
+
+    <Item>User can verify: Smooth operation, key turns easily</Item>
+    <Item>Packaging includes: Quick function check instructions</Item>
+
+</Itemize>
+<strong>Test Equipment Required:</strong>
+<Itemize>
+
+    <Item>Automated lock cylinder test station ($45K investment)</Item>
+    <Item>Hydraulic pull-test machine (existing equipment)</Item>
+    <Item>Environmental test chamber access (contract lab)</Item>
+
+</Itemize>
+<strong>Documentation:</strong>
+<Itemize>
+
+    <Item>Test procedures documented in quality manual</Item>
+    <Item>Certificate of testing included with each production batch</Item>
+    <Item>Certification results available on company website</Item>
+
+</Itemize>
+</SubSubSubSection>
+<SubSubSection title="24. Safety" id="24. Safety">
+</SubSubSection>
+<SubSubSubSection title="What to Specify" id="What to Specify">
+<p>Define safety requirements, standards, and warnings.</p>
+</SubSubSubSection>
+<SubSubSubSection title="Key Elements" id="Key Elements">
+<Itemize>
+
+    <Item>Relevant safety standards</Item>
+    <Item>Applicable legislation</Item>
+    <Item>Hazard analysis</Item>
+    <Item>Required safety labeling</Item>
+    <Item>User warnings and instructions</Item>
+
+</Itemize>
+</SubSubSubSection>
+<SubSubSubSection title="Bike Lock Example" id="Bike Lock Example">
+<strong>Safety Considerations:</strong>
+<strong>User Safety:</strong>
+<Itemize>
+
+    <Item><strong>Pinch Points:</strong> Shackle release could pinch fingers </Item>
+<p><Itemize></p>
+        <Item>Mitigation: Spring-loaded release with controlled speed</Item>
+        <Item>Warning: "Keep fingers clear of shackle when releasing"</Item>
+
+</Itemize>
+<p>\item <strong>Sharp Edges:</strong> Cut hazards on edges</p>
+    <Itemize>
+
+        <Item>Mitigation: All edges rounded to &gt;2mm radius</Item>
+        <Item>Standard: No sharp edges per ASTM F963 (toy safety, conservative standard)</Item>
+
+</Itemize>
+<p>\item <strong>Key Breakage:</strong> Broken key could cause cuts</p>
+    <Itemize>
+
+        <Item>Mitigation: Key design resists breakage</Item>
+        <Item>Material: Ductile brass, not brittle hardened steel</Item>
+
+</Itemize>
+<p>\item <strong>Lock Failure:</strong> Shackle could release unexpectedly causing bike to fall</p>
+    <Itemize>
+
+        <Item>Mitigation: Redundant locking mechanism, extensive testing</Item>
+        <Item>Reliability target: &lt;1 failure per million lock operations</Item>
+
+</Itemize>
+<p></Itemize></p>
+<strong>Chemical Safety:</strong>
+<p><strong>Coating Materials:</strong> No toxic heavy metals</p>
+<Itemize>
+
+    <Item>Compliance: RoHS, California Prop 65</Item>
+    <Item>Certification: Material safety data sheets from all suppliers</Item>
+
+</Itemize>
+<strong>Standards Compliance:</strong>
+<Itemize>
+
+    <Item><strong>Consumer Product Safety:</strong> General product safety requirements (CPSA)</Item>
+    <Item><strong>Material Safety:</strong> ASTM standards for corrosion-resistant coatings</Item>
+
+</Itemize>
+<strong>Labeling Requirements:</strong>
+<Itemize>
+
+    <Item><strong>Warning Label on Package:</strong> </Item>
+<p><Itemize></p>
+        <Item>"CAUTION: Lock may not prevent all theft. Always secure bike in well-lit, visible location."</Item>
+        <Item>"Keep fingers clear of shackle mechanism when locking/unlocking."</Item>
+        <Item>"Lock may become cold in winter - wear gloves when handling."</Item>
+
+</Itemize>
+<p>\item <strong>Product Markings:</strong></p>
+    <Itemize>
+
+        <Item>Security rating</Item>
+        <Item>Serial number (theft registration)</Item>
+        <Item>Manufacturer contact information</Item>
+        <Item>Recycling symbols</Item>
+
+</Itemize>
+<p></Itemize></p>
+<strong>Instruction Manual:</strong>
+<Itemize>
+
+    <Item>Proper locking technique (secure frame AND wheel)</Item>
+    <Item>Limitations of security (no lock is 100</Item>
+    <Item>Maintenance recommendations</Item>
+    <Item>Warranty information</Item>
+
+</Itemize>
+<strong>Liability Considerations:</strong>
+<Itemize>
+
+    <Item>Clear disclaimer that lock reduces but doesn't eliminate theft risk</Item>
+    <Item>Product liability insurance in place</Item>
+    <Item>Legal review of all marketing claims about security</Item>
+
+</Itemize>
+</SubSubSubSection>
+<SubSubSection title="25. Company Constraints" id="25. Company Constraints">
+</SubSubSection>
+<SubSubSubSection title="What to Specify" id="What to Specify">
+<p>Identify internal limitations and requirements that affect the design.</p>
+</SubSubSubSection>
+<SubSubSubSection title="Constraint Categories" id="Constraint Categories">
+<Itemize>
+
+    <Item>Company practices and policies</Item>
+    <Item>Previous product legacy</Item>
+    <Item>Corporate identity and branding</Item>
+    <Item>In-house capabilities</Item>
+    <Item>Resource availability</Item>
+    <Item>Financial limitations</Item>
+    <Item>Strategic direction</Item>
+
+</Itemize>
+</SubSubSubSection>
+<SubSubSubSection title="Bike Lock Example" id="Bike Lock Example">
+<strong>Manufacturing Constraints:</strong>
+<Itemize>
+
+    <Item>Must use existing die-casting facility</Item>
+    <Item>Limited to 304 stainless steel (company approved material)</Item>
+    <Item>Cannot exceed $100K tooling investment without board approval</Item>
+    <Item>Quality system requires ISO 9001 certified suppliers only</Item>
+
+</Itemize>
+<strong>Design Constraints:</strong>
+<Itemize>
+
+    <Item>Must align with company's "outdoor durability" brand image</Item>
+    <Item>Product family color scheme: Black, gray, and safety orange only</Item>
+    <Item>Logo placement and size specifications defined by brand guidelines</Item>
+    <Item>Packaging must use company's standard blister-card format</Item>
+
+</Itemize>
+<strong>Resource Constraints:</strong>
+<Itemize>
+
+    <Item>Engineering team: 2 mechanical designers available</Item>
+    <Item>Budget for outside industrial design: $15K maximum</Item>
+    <Item>Testing: Must use company's existing test lab (limited specialized equipment)</Item>
+    <Item>Cannot hire additional manufacturing staff until Year 2</Item>
+
+</Itemize>
+</SubSubSubSection>
+<SubSubSection title="26. Market Constraints" id="26. Market Constraints">
+</SubSubSection>
+<SubSubSubSection title="What to Specify" id="What to Specify">
+<p>Document market-driven limitations and considerations.</p>
+</SubSubSubSection>
+<SubSubSubSection title="Considerations" id="Considerations">
+<Itemize>
+
+    <Item>Geographic restrictions</Item>
+    <Item>Cultural sensitivities</Item>
+    <Item>Political factors</Item>
+    <Item>Consumer movements</Item>
+    <Item>Trade restrictions</Item>
+    <Item>Local preferences and taboos</Item>
+
+</Itemize>
+</SubSubSubSection>
+<SubSubSubSection title="Bike Lock Example" id="Bike Lock Example">
+<strong>Geographic Restrictions:</strong>
+<Itemize>
+
+    <Item><strong>China Market:</strong> Strong preference for domestic brands; difficult market entry</Item>
+    <Item><strong>Japan Market:</strong> Requires specific certifications and Japanese language packaging</Item>
+    <Item><strong>EU Market:</strong> Must comply with CE marking and REACH regulations</Item>
+
+</Itemize>
+<strong>Cultural Considerations:</strong>
+<Itemize>
+
+    <Item><strong>Color Preferences:</strong> </Item>
+<p><Itemize></p>
+        <Item>Safety orange popular in Netherlands and Denmark (cycling culture)</Item>
+        <Item>Bright colors less accepted in UK market (prefer understated black/gray)</Item>
+
+</Itemize>
+<p>\item <strong>Security Rating Systems:</strong> Different countries prioritize different standards</p>
+    <Itemize>
+
+        <Item>UK: Sold Secure rating critical for insurance</Item>
+        <Item>Netherlands: ART rating most recognized</Item>
+        <Item>US: Less standardized, brand reputation more important</Item>
+
+</Itemize>
+<p></Itemize></p>
+<strong>Political/Trade Factors:</strong>
+<Itemize>
+
+    <Item><strong>Country of Origin:</strong> "Made in USA" valued by some customers, skepticism of certain manufacturing origins</Item>
+    <Item><strong>Tariffs:</strong> Steel tariffs affect material sourcing decisions</Item>
+    <Item><strong>Trade Agreements:</strong> USMCA, EU trade agreements affect pricing strategy</Item>
+
+</Itemize>
+<strong>Consumer Movements:</strong>
+<Itemize>
+
+    <Item>Growing demand for sustainable/recyclable products</Item>
+    <Item>"Right to Repair" movement (must provide replacement parts)</Item>
+    <Item>Privacy concerns about smart lock data collection</Item>
+    <Item>Anti-theft registration databases expected by some markets</Item>
+
+</Itemize>
+<strong>Market-Specific Constraints:</strong>
+<Itemize>
+
+    <Item>Australian market requires AS/NZS standards compliance</Item>
+    <Item>Canadian market requires bilingual packaging (English/French)</Item>
+
+</Itemize>
+<strong>Competitive Market Constraints:</strong>
+<Itemize>
+
+    <Item>Established brand loyalty in bike lock market</Item>
+    <Item>Retail shelf space limited to proven brands</Item>
+    <Item>Insurance company approved lists (must meet certain standards for coverage)</Item>
+
+</Itemize>
+</SubSubSubSection>
+<SubSubSection title="27. Patents, Literature, and Product Data" id="27. Patents, Literature, and Product Data">
+</SubSubSection>
+<SubSubSubSection title="What to Specify" id="What to Specify">
+<p>Document the landscape of intellectual property and the prior art.</p>
+</SubSubSubSection>
+<SubSubSubSection title="Key Activities" id="Key Activities">
+<Itemize>
+
+    <Item>Patent searches</Item>
+    <Item>Literature review</Item>
+    <Item>Competitive product analysis</Item>
+    <Item>Freedom to operate assessment</Item>
+    <Item>Prior art documentation</Item>
+    <Item>IP strategy</Item>
+
+</Itemize>
+</SubSubSubSection>
+<SubSubSubSection title="Key Principle" id="Key Principle">
+<strong>"If patents are known in detail before the design starts, it is usually quite easy to avoid infringing them."</strong>
+</SubSubSubSection>
+<SubSubSubSection title="Bike Lock Example" id="Bike Lock Example">
+<strong>Patent Landscape:</strong>
+<strong>Existing Patents (Must Avoid):</strong>
+<Itemize>
+
+    <Item>US Patent 9,876,543: "Disc detainer cylinder with anti-pick features" </Item>
+<p><Itemize></p>
+        <Item>Owned by competitor; expires 2027</Item>
+        <Item>Constraint: Cannot use specific disc detainer mechanism</Item>
+        <Item>Solution: Use pin tumbler design instead</Item>
+
+</Itemize>
+<p>\item US Patent 8,765,432: "U-lock mounting bracket with automatic release"</p>
+    <Itemize>
+
+        <Item>Owned by competitor; expires 2025</Item>
+        <Item>Strategy: Wait for expiration or design alternative mounting system</Item>
+
+</Itemize>
+<p></Itemize></p>
+<strong>Expired Patents (Available for Use):</strong>
+<Itemize>
+
+    <Item>Several basic U-lock shackle designs now in public domain</Item>
+    <Item>Standard pin tumbler mechanisms (patents expired)</Item>
+
+</Itemize>
+<strong>Company Patent Strategy:</strong>
+<Itemize>
+
+    <Item>File provisional patent on novel shackle release mechanism</Item>
+    <Item>Patent smart lock integration method (future version)</Item>
+    <Item>Design patent on distinctive lock body shape</Item>
+
+</Itemize>
+<strong>Literature Review:</strong>
+<Itemize>
+
+    <Item>Academic research on lock-picking resistance</Item>
+    <Item>Material science papers on hardened steel alloys</Item>
+    <Item>Security testing methodology standards</Item>
+    <Item>Corrosion resistance studies for outdoor equipment</Item>
+
+</Itemize>
+<strong>Competitive Product Data:</strong>
+<Itemize>
+
+    <Item>Tear-down analysis of 12 competing locks</Item>
+    <Item>Security rating documentation</Item>
+    <Item>User manuals and specifications</Item>
+    <Item>Warranty claim data (where available)</Item>
+
+</Itemize>
+<strong>Trade Publications:</strong>
+<Itemize>
+
+    <Item>Bicycle industry standards and trends</Item>
+    <Item>Security industry best practices</Item>
+    <Item>Materials and manufacturing innovations</Item>
+
+</Itemize>
+<strong>Freedom to Operate Analysis:</strong>
+<Itemize>
+
+    <Item>Patent attorney review completed</Item>
+    <Item>No blocking patents identified for pin tumbler  and U-lock design</Item>
+    <Item>Clear path to manufacture and sell</Item>
+    <Item>Documented evidence of design decisions to avoid patented features</Item>
+
+</Itemize>
+<strong>Documentation:</strong>
+<Itemize>
+
+    <Item>Complete patent search results archived</Item>
+    <Item>Design notebook documenting independent development</Item>
+    <Item>Competitive analysis file maintained</Item>
+    <Item>Regular patent monitoring for new filings in bike lock category</Item>
+
+</Itemize>
+</SubSubSubSection>
+<SubSubSection title="28. Political and Social Implications" id="28. Political and Social Implications">
+</SubSubSection>
+<SubSubSubSection title="What to Specify" id="What to Specify">
+<p>Consider broader societal impact of the product.</p>
+</SubSubSubSection>
+<SubSubSubSection title="Considerations" id="Considerations">
+<Itemize>
+
+    <Item>Political stability of target markets</Item>
+    <Item>Social impact of product introduction</Item>
+    <Item>Cultural sensitivity</Item>
+    <Item>Consumer movement alignment</Item>
+    <Item>Employment and economic effects</Item>
+    <Item>Environmental and sustainability concerns</Item>
+
+</Itemize>
+</SubSubSubSection>
+<SubSubSubSection title="Bike Lock Example" id="Bike Lock Example">
+<strong>Political Considerations:</strong>
+<strong>Market Stability:</strong>
+<Itemize>
+
+    <Item>Target markets: North America, Western Europe, Australia (stable)</Item>
+    <Item>Deferred markets: Some regions with political instability affecting retail infrastructure</Item>
+
+</Itemize>
+<strong>Regulatory Environment:</strong>
+<Itemize>
+
+    <Item><strong>Privacy Regulations:</strong> If smart features added, must comply with GDPR (EU), CCPA (California)</Item>
+    <Item><strong>Security Standards:</strong> Government buildings may require specific certified locks</Item>
+    <Item><strong>Import/Export:</strong> Steel products face varying tariffs and trade restrictions</Item>
+
+</Itemize>
+<strong>Social Implications:</strong>
+<strong>Bike Theft and Urban Safety:</strong>
+<Itemize>
+
+    <Item><strong>Positive Impact:</strong> Reduces bike theft, encourages cycling as transportation</Item>
+    <Item><strong>Community Benefit:</strong> More bike commuting reduces traffic, emissions</Item>
+    <Item><strong>Urban Planning:</strong> Supports cities' investments in cycling infrastructure</Item>
+
+</Itemize>
+<strong>Accessibility and Equity:</strong>
+<Itemize>
+
+    <Item><strong>Price Point:</strong> $29.99 balances security with affordability</Item>
+    <Item><strong>Consideration:</strong> High-end locks ($100+) create security inequality</Item>
+    <Item><strong>Social Concern:</strong> Low-income cyclists most affected by theft but least able to afford premium security</Item>
+    <Item><strong>Company Response:</strong> Offer economy version at lower price point ($19.99) in Year 2</Item>
+
+</Itemize>
+<strong>Employment:</strong>
+<Itemize>
+
+    <Item>Manufacturing in US creates local jobs (social benefit)</Item>
+    <Item>Higher cost than offshore manufacturing (political consideration)</Item>
+    <Item>"Made in USA" marketing appeals to some consumer segments</Item>
+
+</Itemize>
+<strong>Environmental Impact:</strong>
+<Itemize>
+
+    <Item><strong>Resource Use:</strong> Steel production energy-intensive</Item>
+    <Item><strong>Product Longevity:</strong> 10-year design life reduces waste</Item>
+    <Item><strong>End-of-Life:</strong> Steel is highly recyclable (promote recycling program)</Item>
+    <Item><strong>Packaging:</strong> Minimize plastic, use recycled materials</Item>
+
+</Itemize>
+<strong>Consumer Movements:</strong>
+<Itemize>
+
+    <Item><strong>Right to Repair:</strong> Provide replacement parts, repair manuals</Item>
+    <Item><strong>Sustainability:</strong> Recyclable materials, durable design</Item>
+    <Item><strong>Data Privacy:</strong> If smart features added, transparent data policies</Item>
+    <Item><strong>Fair Labor:</strong> Ensure supplier compliance with labor standards</Item>
+
+</Itemize>
+<strong>Social Features to Avoid:</strong>
+<Itemize>
+
+    <Item><strong>Aggressive Anti-Theft:</strong> No designs that could harm thieves (liability, ethical concerns)</Item>
+    <Item><strong>Surveillance Features:</strong> Avoid cameras or tracking that could violate privacy norms</Item>
+    <Item><strong>Exclusionary Design:</strong> Ensure usable by people with various physical abilities</Item>
+
+</Itemize>
+</SubSubSubSection>
+<SubSubSection title="29. Disposal" id="29. Disposal">
+</SubSubSection>
+<SubSubSubSection title="What to Specify" id="What to Specify">
+<p>Address end-of-life considerations for the product.</p>
+</SubSubSubSection>
+<SubSubSubSection title="Modern Imperative" id="Modern Imperative">
+<strong>"It is no longer possible to forget about the item after ownership has passed to the customer."</strong>
+</SubSubSubSection>
+<SubSubSubSection title="Considerations" id="Considerations">
+<Itemize>
+
+    <Item>Recyclability of materials</Item>
+    <Item>Disassembly for recycling</Item>
+    <Item>Biodegradability (where applicable)</Item>
+    <Item>Take-back programs</Item>
+    <Item>Hazardous material handling</Item>
+    <Item>Environmental impact of disposal</Item>
+
+</Itemize>
+</SubSubSubSection>
+<SubSubSubSection title="Bike Lock Example" id="Bike Lock Example">
+<strong>End-of-Life Strategy:</strong>
+<strong>Material Recyclability:</strong>
+<Itemize>
+
+    <Item><strong>Steel Components (90</Item>
+        <Item>Shackle: Steel can be melted and reused indefinitely</Item>
+        <Item>Lock body: Die-cast zinc/aluminum alloy recyclable</Item>
+        <Item>No need for disassembly - steel recyclers accept mixed metal locks</Item>
+
+</Itemize>
+<p>\item <strong>Plastic Components (8</p>
+    <Itemize>
+
+        <Item>Recyclable in specialized facilities (recycling code 7)</Item>
+        <Item>Material choice prioritized recyclability over cheaper PVC</Item>
+
+</Itemize>
+<p>\item <strong>Lock Cylinder (2</p>
+    <Itemize>
+
+        <Item>Brass has high scrap value, readily recycled</Item>
+        <Item>Small springs: Steel, recyclable</Item>
+
+</Itemize>
+<p></Itemize></p>
+<strong>Design for Disassembly:</strong>
+<Itemize>
+
+    <Item>Lock can be disassembled with standard tools (10mm wrench, screwdriver)</Item>
+    <Item>No permanent adhesives bonding different materials</Item>
+    <Item>Snap-fit protective cover easily removed for material separation</Item>
+    <Item>Minimal fasteners reduce disassembly time</Item>
+
+</Itemize>
+<strong>Disposal Pathways:</strong>
+<p><strong>Primary Path (Expected for 70</p>
+<Itemize>
+
+    <Item>Consumer disposes at end of life (10+ years)</Item>
+    <Item>Placed in metal recycling bin or taken to scrap metal dealer</Item>
+    <Item>Steel recyclers accept locks without preparation</Item>
+    <Item>Material automatically sorted at recycling facility</Item>
+
+</Itemize>
+<p><strong>Secondary Path (20</p>
+<Itemize>
+
+    <Item>Lock damaged or compromised before end of life</Item>
+    <Item>Same recycling pathway as primary</Item>
+
+</Itemize>
+<p><strong>Premature Disposal (10</p>
+<Itemize>
+
+    <Item>Lost keys, forgotten combination, or lock malfunction</Item>
+    <Item>Many users keep lock "just in case" rather than disposing</Item>
+    <Item>Eventually enters metal recycling stream</Item>
+
+</Itemize>
+<strong>Packaging Disposal:</strong>
+<Itemize>
+
+    <Item><strong>Cardboard Backer:</strong> 60</Item>
+    <Item><strong>PET Clamshell:</strong> Recyclable code 1 (most recycled plastic)</Item>
+    <Item>Instructions printed on recyclable paper with soy-based ink</Item>
+    <Item>No laminated or composite materials that complicate recycling</Item>
+
+</Itemize>
+<strong>Hazardous Materials:</strong>
+<Itemize>
+
+    <Item><strong>None Present:</strong> No batteries, electronics, toxic coatings</Item>
+    <Item>No special disposal requirements</Item>
+    <Item>Safe for standard municipal recycling programs</Item>
+
+</Itemize>
+<strong>Environmental Messaging:</strong>
+<Itemize>
+
+    <Item>Include recycling symbols and instructions on packaging</Item>
+    <Item>Website page on product end-of-life and recycling</Item>
+    <Item>Partner with metal recycling organizations</Item>
+    <Item>Communicate recyclability as product benefit</Item>
+
+</Itemize>
+
+</SubSubSubSection>
+</Layout>

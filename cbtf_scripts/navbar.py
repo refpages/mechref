@@ -19,7 +19,7 @@ def change_links(css):
         for wrong, correct in links_to_replace.items():
             data = data.replace(wrong, correct)
         
-        with open(name, 'w') as f:
+        with open(name, 'w', encoding='utf8') as f:
             f.write(data)
 
     return

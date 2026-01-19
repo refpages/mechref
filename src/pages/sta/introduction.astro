@@ -10,6 +10,8 @@ import InlineEquation from "../../components/InlineEquation.astro"
 import DisplayEquation from "../../components/DisplayEquation.astro" 
 import PrairieDrawCanvas from "../../components/PrairieDrawCanvas.astro"
 import DisplayTable from "../../components/DisplayTable.astro"
+import Enumerate from "../../components/Enumerate.astro"
+import Item from "../../components/Item.astro"
 ---
 <Layout title = "Introduction" description = "This page explains the essence of statics, the branch of mechanics dealing with forces in equilibrium.">
 
@@ -30,6 +32,7 @@ import DisplayTable from "../../components/DisplayTable.astro"
                 <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#rigid_bodies'>Rigid bodies</a></li> 
             </ul>
         </li>
+        <li class = 'list-group-item py-0'><a class = 'text-decoration-none subsection' href = '#solving_equilibrium_equations'>Solving Equilibrium Problems</a></li>
     </ul>
 </div>
 
@@ -46,7 +49,7 @@ import DisplayTable from "../../components/DisplayTable.astro"
         <thead>
             <tr>
                 <th class = "table-shaded"/>
-                <th class = "table-shaded" style = "vertical-align: middle; border-right: 1px solid var(--bs-border-color);">
+                <th class = "table-shaded" style = "border-right: 1px solid var(--bs-border-color);">
                     Rigid
                 </th>
                 <th class = "table-shaded">
@@ -56,7 +59,7 @@ import DisplayTable from "../../components/DisplayTable.astro"
         </thead>
         <tbody>
             <tr>
-                <td class = "table-shaded" style = "vertical-align: middle;">
+                <td class = "table-shaded">
                     <p>
                         No motion
                     </p>
@@ -69,11 +72,11 @@ import DisplayTable from "../../components/DisplayTable.astro"
                 </td>
                 <td style = "vertical-align: middle; border-right: 1px solid var(--bs-border-color);">
                     <mark>
-                        <a href = "/sta?origin=sidebar">Statics</a>
+                        <a href = "/sta">Statics</a>
                     </mark>
                 </td>
                 <td style = "vertical-align: middle;">
-                    <a href = "/sol?origin=sidebar">Solid mechanics</a>
+                    <a href = "/sol">Introductory solid mechanics</a>
                 </td>
             </tr>
             <tr>
@@ -89,7 +92,7 @@ import DisplayTable from "../../components/DisplayTable.astro"
                     </p>
                 </td>
                 <td style = "vertical-align: middle; border-right: 1px solid var(--bs-border-color);">
-                    <a href = "/dyn?origin=sidebar">Dynamics</a></li>
+                    <a href = "/dyn">Introductory dynamics</a></li>
                 </td>
                 <td style = "vertical-align: middle;">
                     Vibration, FEA, robotics, etc.
@@ -171,12 +174,12 @@ A <em>rigid body</em> is an extended area of material that
           rotation angle of the body (one angle in 2D, three angles in
           3D).
 </p>
-    <DisplayTable id="pos">
+    <DisplayTable id="pos" class = "mb-3">
         <thead>
             <tr>
                 <th></th>
                 <th>location description</th>
-            <tr>
+            </tr>
         </thead>
         <tbody>
             <tr>
@@ -208,6 +211,49 @@ A <em>rigid body</em> is an extended area of material that
       </p>
 
 </SubSubSection>
+
+<SubSection title = "Solving Equilibrium Problems" id = "solving_equilibrium_equations">
+    <p>
+        This section is adapted from <em><a href = "https://engineeringstatics.org/Chapter_01-problem-solving.html" target = "_blank" rel = "noopener noreferrer">Engineering Statics</a></em> by Daniel Baker and William Haynes.
+    </p>
+    <p>
+        The vast majority of problems in this class are equilibrium problems.
+        Here is the general procedure you should follow when going about solving these problems.
+    </p>
+    <style>
+        ol.alpha{list-style: none; padding-left: 1.4em;}
+        ol.alpha li::marker{
+            content: "("counter(list-item, lower-alpha)") ";
+        }
+    </style>
+    <Enumerate>
+        <Item>Read the problem and make sure you understand the situation.</Item>
+        <Item>Identify what is given from the problem and what the problem is asking you to find.</Item>
+        <Item>Stop, think, and come up with an approach to solve the problem.</Item>
+        <Item>
+            Draw a <a href = "/sta/free_body_diagrams">free-body diagram</a> with all of the following required elements:
+                <ol class = "alpha">
+                    <li>An isolated body or group of bodies</li>
+                    <li><a href = "/sta/force_systems">All applied loads</a></li>
+                    <li><a href = "/sta/reaction_forces">All support reactions</a></li>
+                    <li><a href = "/sta/cartesian_coordinates">A coordinate system</a></li>
+                    <li><a href = "/sta/vectors_scalars#vectors">Labeled vectors</a></li>
+                </ol>
+        </Item>
+        <Item>Write the equilibrium equations based on the free-body diagram.</Item>
+        <Item>
+            Check if the number of equations is equal to the number of unknowns.
+            If they are equal, the system is considered statically determinate and you can proceed in solving the problem.
+            If they are not equal, the system is considered <a href = "/sta/reaction_forces#redundant_constraints">statically indeterminate,</a> so something is missing.
+            You may need additional free-body diagrams or other relationships.
+        </Item>
+        <Item>Solve for unknowns, then check if your answer(s) are reasonable in terms of magnitude, units, and sign/direction.</Item>
+    </Enumerate>
+    <p>
+        Using these steps does not guarantee that you will get the right solution, and they might not be enough alone for every problem, but they will help you be critical and conscious when choosing your approach.
+        This reflection will help you learn more quickly and increase the odds that you choose a winning strategy.
+    </p>
+</SubSection>
 
 </Layout>
 

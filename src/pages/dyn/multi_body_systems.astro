@@ -36,6 +36,7 @@ import DisplayTable from "../../components/DisplayTable.astro"
       <li class = 'list-group-item py-0'><a class = 'text-decoration-none subsubsection' href = '#gear_kinetics'>Gear kinetics</a></li>
         </ul>
     </li>
+    <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#four_bar_linkages'>Four-bar linkages</a></li>
     <li class = 'list-group-item py-0'><a class = 'text-decoration-none subsection' href = '#slider_cranks'>Slider cranks</a></li>
 </ul>
 </div>
@@ -60,16 +61,9 @@ import DisplayTable from "../../components/DisplayTable.astro"
 	
 
   <CalloutContainer slot = "cards">
-    <CalloutCard title="Application alert!">
-      <a href = "/dyn/four_bar_linkages">Four-bar linkages</a> uses <strong>multi-body systems</strong> by combining several members to create a mechanism.
-      <PrairieDrawCanvas id = "aml-ft-c" width = "250" height = "250"/>
-      <p>
-        Four-bar linkages are a prominent example of a multi-body system.
-      </p>
-    </CalloutCard>
     <CalloutCard title = "Heads up!">
       <p>
-        <strong><a href = "/md/Gears">Gears</a></strong> builds on this content in mechanism design.
+        <strong>Gears</strong> builds on this content in <a href = "/md/Gears">mechanism design.</a>
       </p>
       <Image src = "/dyn/multi_body_systems/MDGears.png" width = "6"/>
       <p>
@@ -115,9 +109,87 @@ import DisplayTable from "../../components/DisplayTable.astro"
     <Image src="/dyn/multi_body_systems/GearsContact.png" width="7"></Image>
 </SubSubSection>
 
-<SubSubSection title = "Gear kinetics"  id = "gear_kinetics"/>
+<SubSubSection title = "Gear kinetics"  id = "gear_kinetics">
+    <Image src = "/dyn/multi_body_systems/gear_kinetics.png" width = "3"/>
+    <p>
+      When two gears in equilibrium mesh,
+      <ul>
+        <li>There is a "contact force" between the gears—this comes from Newton's third law.</li>
+        <li>This contact force is perpendicular to the radius of the gear and produces a moment on each gear.</li>
+        <li>For each gear,
+          <DisplayEquation equation = "I \\alpha = M + F_c \\ r"/>
+          where <InlineEquation equation = "M"/> is an external moment and <InlineEquation equation = "F_c \\ r"/> is the moment created by the contact force.</li>
+      </ul>
+    </p>
+</SubSubSection>
 
-<SubSection title = "Slider cranks"  id = "slider_cranks"/>
+<SubSection title = "Four-bar linkages" id = "four_bar_linkages">
+  <Image src = "/dyn/multi_body_systems/Crank-Rocker_4-bar_Linkage.gif" width = "5">Image from <a target = "_blank" rel = "noopener noreferrer" href = "https://commons.wikimedia.org/wiki/File:Crank-Rocker_4-bar_Linkage.gif">Wikimedia.</a> CC BY 2.0</Image>
+  <p>
+    A four-bar linkage is a common mechanism that is the simplest closed-chain movable linkage.
+    It consists of four members, connected in a loop by four joints.
+    One member is typically fixed to the ground by pin supports.
+  </p>
+  <p>
+    Here is is something to keep in mind when solving problems involving four-bar linkages:
+  </p>
+  <ul>
+      <li>The tangential velocity of the points at the pins is zero.</li>
+  </ul>
+  <CalloutContainer slot = "cards">
+    <CalloutCard title = "Application alert!">
+      <a href = "/dyn/four_bar_linkages_applications">Four-bar linkages applications</a> uses <strong>four-bar-linkages</strong> by going far more in depth into specific instances of four-bar linkages.
+      <PrairieDrawCanvas id = "aml-ft-c" width = "250" height = "250"/>
+      <p>
+        Four-bar linkages are found in many mechanical systems, including pumpjacks, bicycles, and suspensions.
+      </p>
+    </CalloutCard>
+    <CalloutCard title = "Heads up!">
+      <p>
+        <strong>4 bar linkage</strong> builds on this content in <a href = "/md/Planar_mechanisms#4%20bar%20linkage">mechanism design.</a>
+      </p>
+      <Image src = "/dyn/multi_body_systems/4Bar.png" width = "6"/>
+      <p>
+        Four-bar linkages are one of the most common mechanisms.
+      </p>
+    </CalloutCard>
+  </CalloutContainer>
+</SubSection>
+
+<SubSection title = "Slider cranks"  id = "slider_cranks">
+  <Image src = "/dyn/multi_body_systems/Slider_Crank_animation.svg" width = "5">Image from <a target = "_blank" rel = "noopener noreferrer" href = "https://commons.wikimedia.org/wiki/File:Slider_Crank_animation.svg">Wikimedia.</a> CC BY 2.0</Image>
+  <p>
+    A slider crank mechanism is a common mechanical system that converts rotational motion into linear motion.
+    It consists of a crank, a connecting rod, and a slider.
+    The crank rotates about a fixed axis, the connecting rod connects the crank to the slider, and the slider moves linearly along a guide or track.
+  </p>
+  <p>
+    Here are some things to keep in mind when solving problems involving slider-crank mechanisms:
+  </p>
+  <ul>
+      <li>The velocity of the slider is purely tangential to the path of the slider.</li>
+      <li>The acceleration of the slider is purely tangential to the path of the slider.</li>
+			<li>The slider has a reaction force normal to the path of the slider.</li>
+  </ul>
+  <CalloutContainer slot = "cards">
+    <CalloutCard title = "Review?">
+      <p>
+        Need a review of <strong>types of connections?</strong>
+      </p>
+      <p>
+        This content has also been in <a href = "/sta/reaction_forces#types_of_connections">statics.</a>
+      </p>
+    </CalloutCard>
+    <CalloutCard title = "Review?">
+			<p>
+				Need a review of <strong>constrained motion?</strong>
+		 	</p>
+		  	<p>
+				This content has also been explained <a href = "/dyn/rigid_body_kinematics#constrained_motion">earlier in the course.</a>
+			</p>
+		</CalloutCard>
+  </CalloutContainer>
+</SubSection>
 
 </Layout>
 

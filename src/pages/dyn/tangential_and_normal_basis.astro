@@ -108,6 +108,65 @@ import InlineCanvas from "../../components/InlineCanvas.astro"
     </PrairieDrawCanvas>
 </SubSection>
 
+<SubSection title = "Path length" id = "rkt-sl">
+        <p>
+          The distance along the path is <InlineEquation equation = "s,"/> which can be found by
+          integrating the speed <InlineEquation equation = "v"/> with respect to
+          time. Correspondingly, the speed is the derivative of path
+          length.
+        </p>
+        <DisplayEquation equation = `\\begin{align} v &= \\dot{s} \\\\
+          s &= \\int_0 ^ t v(\\tau) \\,d\\tau \\end{align}` title = "Path length \\(s\\) and speed \\(v\\)." background = "True" derivation = "True" id = "rkt-es">
+            <p>
+              Either equation can serve as the definition of path
+              length, and then the other equation is obtained by the
+              <a
+              href="http://en.wikipedia.org/wiki/Fundamental_theorem_of_calculus">fundamental
+              theorem of calculus</a>, with the assumption that the
+              path length is measured from the position at time <InlineEquation equation = "t = 0."/>
+            </p>
+        </DisplayEquation>
+        <p>
+        </p>
+        <div class="figureContainer width600" id="rkt-fs">
+          <PrairieDrawCanvas id="rkt-fs-c" width="600" height="400" class="figureImage">
+          </PrairieDrawCanvas>
+          <p class="controls">
+            <button class="anim-toggle:rkt-fs-c" onclick = "rkt_fs_c.toggleAnim()">animate</button>
+            <button class="reset:rkt-fs-c" onclick = "rkt_fs_c.reset()">reset</button>
+          </p>
+          <p class="controls">
+            Show:
+            <button class="option-toggle:rkt-fs-c:showVelocity" onclick = "rkt_fs_c.toggleOption('showVelocity')">velocity and speed</button>
+          </p>
+          <p class="figureCaption">
+            Path length <InlineEquation equation = "s"/> and speed <InlineEquation equation = "v"/> shown for motion back and
+            forth along a curve. Observe that the path length is
+            always increasing, even when moving “backwards”, as speed
+            cannot be negative. For ease of visualization, this figure
+            resets the path length to zero when the particle returns
+            to the starting point.
+          </p>
+        </div>
+        <p>
+          When differentiating geometric quantities related to paths,
+          it is often convenient to differentiate with respect to path
+          length rather than with respect to time. These derivatives
+          are related by:
+        </p>
+        <DisplayEquation equation = `\\begin{align} \\frac{d}{dt} &= v \\frac{d}{ds} \\\\
+          \\frac{d}{ds} &= \\frac{1}{v} \\frac{d}{dt} \\end{align}` title = "Derivatives with respect to path length \\(s\\) and time \\(t\\)." background = "True" derivation = "True" id = "rkt-ea">
+            <p>
+              This is essentially a re-statement of the chain
+              rule. In particular, the first equation is the following.
+
+              <DisplayEquation equation = "\\frac{d}{dt} = \\frac{ds}{dt} \\frac{d}{ds} = \\dot{s} \\frac{d}{ds} = v \\frac{d}{ds}"/>
+              
+              The second equation is a simple re-arrangement.
+            </p>
+        </DisplayEquation>
+</SubSection>
+
 <SubSection title="Curvature and torsion" id="curvature">
     
   <DisplayEquationCustom title="Curvature and torsion." id="rkt-ek" background="True" derivation="True">
@@ -155,7 +214,7 @@ import InlineCanvas from "../../components/InlineCanvas.astro"
 
       Now the basis vector derivatives are given by the cross
       product by <InlineEquation equation="\\vec{\\omega}" /> from <a
-      href="#rkr-ew">#rkr-ew</a>, so we can evaluate
+      href="/dyn/particle_kinematics#rkr-ew">#rkr-ew</a>, so we can evaluate
       the expressions <a href="#rkt-ek">#rkt-ek</a> for
       curvature and torsion to give:
 
@@ -188,7 +247,7 @@ import InlineCanvas from "../../components/InlineCanvas.astro"
     <p>
       We can use the expression <a href="#rkt-ew">#rkt-ew</a>
       for <InlineEquation equation="\\vec{\\omega}" /> together with <a
-      href="#rkr-ew">#rkr-ew</a> to find the basis
+      href="/dyn/particle_kinematics#rkr-ew">#rkr-ew</a> to find the basis
       vector derivatives:
 
       <DisplayEquation equation="\\begin{aligned}\\dot{\\hat{e}}_t &amp;= \\vec{\\omega} \\times \\hat{e}_t= (v\\tau \\,\\hat{e}_t + v \\kappa \\,\\hat{e}_b) \\times \\hat{e}_t= v \\kappa \\,\\hat{e}_n \\\\\\dot{\\hat{e}}_n &amp;= \\vec{\\omega} \\times \\hat{e}_n= (v\\tau \\,\\hat{e}_t + v \\kappa \\,\\hat{e}_b) \\times \\hat{e}_n= - v \\kappa \\,\\hat{e}_t + v \\tau \\,\\hat{e}_b \\\\\\dot{\\hat{e}}_b &amp;= \\vec{\\omega} \\times \\hat{e}_b= (v\\tau \\,\\hat{e}_t + v \\kappa \\,\\hat{e}_b) \\times \\hat{e}_b= -v \\tau \\,\\hat{e}_n.\\end{aligned}" />
@@ -259,7 +318,7 @@ import InlineCanvas from "../../components/InlineCanvas.astro"
 
     <DisplayEquation title="Radius of curvature \\(\\rho\\) for velocity \\(\\vec{v}\\) and acceleration \\(\\vec{a}\\) with angle \\(\\theta\\) between them." id="rkt-er" background="True" derivation="True"  equation="\\rho = \\frac{v^2}{a_n} = \\frac{v^2}{|a\\sin\\theta|}">
       <p>
-        From <a href="#rkt-ev">#rkt-ev</a> we known that the
+        From <a href="#rkt-e">#rkt-e</a> we known that the
         normal component of the acceleration is given by <InlineEquation equation="a_n =\\dot{s}^2/\\rho" /> and from the definition <a
         href="#rkt-es">#rkt-es</a> of path length we have
         <InlineEquation equation="\\dot{s} = v" />, so this equation can be rearranged to
@@ -276,7 +335,7 @@ import InlineCanvas from "../../components/InlineCanvas.astro"
         direction of <InlineEquation equation="\\vec{v}" />, that
         <InlineEquation equation="\\operatorname{Comp}(\\vec{a},\\vec{v})" /> does not depend
         on the magnitude of <InlineEquation equation="\\vec{v}" />, and equation <a
-        href="#rvv-em">#rvv-em</a> for the magnitude of
+        href="/dyn/vectors#rvv-em">#rvv-em</a> for the magnitude of
         the complementary projection.
       </p>
     </DisplayEquation>
@@ -417,7 +476,7 @@ import InlineCanvas from "../../components/InlineCanvas.astro"
   <InlineEquation equation="\\hat{e}_b" />. At the current instant when the particles
   are at the same position, this means that <InlineEquation equation="\\hat{e}_r =  -\\hat{e}_n" /> and <InlineEquation equation="\\hat{e}_\\theta = \\hat{e}_t" />. Using the
   circular motion expressions <a
-  href="https://en.wikipedia.org/wiki/Circular_motion" target="_blank">#rke-ec</a> we have that the
+  href="https://en.wikipedia.org/wiki/Circular_motion" target="_blank">here</a> we have that the
   velocity of \(Q\) is:
 
   <DisplayEquation equation="\\begin{aligned}  \\vec{v}_Q &amp;= v_Q \\,\\hat{e}_\\theta \\\\  &amp;= \\dot{s}_Q \\,\\hat{e}_\\theta \\\\  &amp;= \\dot{s}_P \\,\\hat{e}_t = \\vec{v}_P. \\\\  \\end{aligned}" />
@@ -562,3 +621,69 @@ import InlineCanvas from "../../components/InlineCanvas.astro"
 </Layout>
 
 <script src="/dyn/tangential_and_normal_basis/canvases.js" is:inline></script>
+
+<script is:inline>
+document.addEventListener('DOMContentLoaded', () => {
+  // parse a class token like "data-option:aml-fr-c:a" -> { varName: "aml_fr_c", option: "a", token: "aml-fr-c" }
+  function parseDataToken(token) {
+    const parts = token.split(':');
+    if (parts.length < 3) return null;
+    const controllerToken = parts[1]; // "aml-fr-c"
+    const option = parts.slice(2).join(':'); // "a" (handles extra colons if any)
+    const varName = controllerToken.replace(/-/g, '_'); // "aml_fr_c"
+    return { controllerToken, varName, option };
+  }
+
+  function updateOptionSpan(varName, option, controllerToken) {
+    try {
+      const controller = window[varName];
+      const value = (controller && typeof controller.getOption === 'function') ? controller.getOption(option) : '';
+      // class in DOM uses the dashed controller token, e.g. data-option:aml-fr-c:a
+      const className = `data-option:${controllerToken}:${option}`;
+      const els = document.getElementsByClassName(className);
+      Array.from(els).forEach(el => {
+        el.textContent = (value === null || value === undefined) ? '' : String(value);
+      });
+    } catch (err) {
+      // non-fatal; helpful while debugging
+      // console.warn('updateOptionSpan error', err);
+    }
+  }
+
+  function updateAllOptionSpans() {
+    // scan elements' classList for tokens that start with "data-option:"
+    document.querySelectorAll('[class]').forEach(el => {
+      Array.from(el.classList).forEach(cls => {
+        if (!cls.startsWith('data-option:')) return;
+        const info = parseDataToken(cls);
+        if (!info) return;
+        updateOptionSpan(info.varName, info.option, info.controllerToken);
+      });
+    });
+  }
+
+  // Wire inputs that have data-input:... classes so sliding updates the displayed value from the controller
+  document.querySelectorAll('input').forEach(input => {
+    Array.from(input.classList).forEach(cls => {
+      if (!cls.startsWith('data-input:')) return;
+      const parts = cls.split(':');
+      if (parts.length < 3) return;
+      const controllerToken = parts[1];
+      const option = parts.slice(2).join(':');
+      const varName = controllerToken.replace(/-/g, '_');
+      const handler = () => updateOptionSpan(varName, option, controllerToken);
+      input.addEventListener('input', handler);
+      input.addEventListener('change', handler);
+    });
+  });
+
+  // initial sync (delay a bit so canvases.js can initialize controllers)
+  setTimeout(updateAllOptionSpans, 100);
+
+  // keep UI in sync (optional; adjusts if controller updates from other sources)
+  const syncHandle = setInterval(updateAllOptionSpans, 500);
+
+  // expose for console debugging
+  window.updateOptionSpans = updateAllOptionSpans;
+});
+</script>

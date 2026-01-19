@@ -1,0 +1,260 @@
+---
+import Layout from "../../layouts/Layout.astro" 
+import Image from "../../components/Image.astro" 
+import CalloutContainer from "../../components/CalloutContainer.astro" 
+import Section from "../../components/Section.astro" 
+import SubSection from "../../components/SubSection.astro" 
+import SubSubSection from "../../components/SubSubSection.astro" 
+import SubSubSubSection from "../../components/SubSubSubSection.astro" 
+import OrangeText from "../../components/OrangeText.astro" 
+import TealText from "../../components/TealText.astro" 
+import Enumerate from "../../components/Enumerate.astro" 
+import Item from "../../components/Item.astro" 
+import Itemize from "../../components/Itemize.astro" 
+import InlineEquation from "../../components/InlineEquation.astro" 
+import DisplayEquation from "../../components/DisplayEquation.astro"
+import Row from "../../components/Row.astro";
+import Col from "../../components/Col.astro";
+import Example from "../../components/Example.astro";
+
+import Warning from "../../components/Warning.astro"
+import DisplayTable from "../../components/DisplayTable.astro"
+
+
+---
+<Layout title="Fatigue">
+<div slot="navtree">
+<ul class="list-group list-group-flush py-0">
+    <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Fatigue Introduction'>Fatigue Introduction </a></li>
+    <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Fatigue Theory'>Fatigue Theory </a></li>
+</ul>
+</div>
+
+
+<SubSubSection title="Fatigue Introduction" id="Fatigue Introduction">
+<p>Fatigue is a common type of failure for ductile materials under cyclical loads, caused by the formation of small cracks and the propagation of those cracks under a large number of loading cycles. It is important to account for fatigue in designs as the stresses needed for fatigue failure are often far lower than those that would be needed to cause plastic failure. This document covers fatigue theory and the methods to analyze the risk of fatigue failure in a mechanism.</p>
+</SubSubSection>
+
+<SubSubSection title="Fatigue Theory " id="Fatigue Theory ">
+
+<p>Fatigue occurs when cyclical loading allows a series of dislocations to line up and form a slip band. Sometimes when the slip plane intersects with a free surface on an object, it can cause a small crack to form. As the cyclical loading continues, the crack can slowly grow and cause catastrophic failure.</p>
+
+
+    <Image src='/mf/Fatigue/fatiguefailure.png' width='7'> </Image>
+    <!--<Image src='/mf/Fatigue/Fatigue GIF.gif' width='7'> </Image>-->
+<!--<p>Available in GIF form</p>-->
+
+
+ <strong>Characterizing Cyclical Loads:</strong>
+
+<p>To characterize a cyclical load, there are two key parameters: Stress amplitude <InlineEquation equation="\\sigma_a" /> and mean stress <InlineEquation equation="\\sigma_m" />.</p>
+<p>Stress amplitude describes the magnitude of change in stress within a cycle. It is defined with the equation</p>
+
+<DisplayEquation equation="\\sigma_a=\\frac{\\sigma_{max}-\\sigma_{min}}{2}." title="" />
+
+<p>Mean stress describes how much stress is experienced on average within a cycle. It is defined by</p>
+
+<DisplayEquation equation="\\sigma_m=\\frac{\\sigma_{max}+\\sigma_{min}}{2}." title="" />
+
+<p>Here, <InlineEquation equation="\\sigma_{max}" /> and <InlineEquation equation="\\sigma_{min}" /> are the maximum and minimum stress values reached in the cycle, respectively.</p>
+
+    <Image src='/mf/Fatigue/cyclicstress.png' width='7'> </Image>
+
+ <strong>S-N Curves:</strong>
+<p>As intuition would suggest, the higher the stress amplitude on a specimen, the fewer cycles it can withstand before failing. This relationship has been examined in carefully designed experiments and expressed in S-N curves, plots of standard fatigue strength (S) vs number of cycles (N).</p>
+
+    <Image src='/mf/Fatigue/sncurverevised.png' width='7'></Image>
+
+<p>For some materials, including many steels, the S-N curve has asymptotic behavior as the number of cycles becomes very large, like in the figure above. This feature suggests that there is a certain stress threshold where the material could theoretically withstand an infinite number of cycles. This threshold is called the endurance limit.</p>
+
+
+
+    <Warning title="Differing Types of Fatigue" id="id">
+        <p>Note: The S-N curve above shows both low cycle and high cycle fatigue, but the theory introduced in this page applies only to high cycle fatigue. Low cycle fatigue models involve different principles based on strain-life rather than stress-life analysis.</p>
+    </Warning>
+
+
+ <strong>Failure Criteria:</strong>
+<p>There are two different expressions for the criteria to avoid failure depending on the mean stress value. The simplest case is when <InlineEquation equation="\\sigma_m=0" />, where the criterion is</p>
+
+<DisplayEquation equation="\\sigma_a<S_n." title="" />
+
+<p>If the load has a nonzero <InlineEquation equation="\\sigma_m" />, the criterion instead follows the "Goodman Equation":</p>
+
+<DisplayEquation equation="\\frac{\\sigma_a}{S_n}+\\frac{\\sigma_m}{S_u}\\leq1," title="" />
+
+<p>where <InlineEquation equation="S_u" /> is the ultimate tensile strength and <InlineEquation equation="S_n" /> is the endurance limit. This equation can be visualized with a "Goodman line," which connects <InlineEquation equation="S_n" /> on the <InlineEquation equation="\\sigma_a" /> axis with <InlineEquation equation="S_u" /> on the <InlineEquation equation="\\sigma_m" /> axis.</p>
+
+    <Image src='/mf/Fatigue/goodmanline.png' width='7'> </Image>
+
+<p>This line  It forms a part of the broader "Infinite Life Diagram," which accounts for both fatigue and yield conditions. To construct the diagram, a flat line is extended from the top of the Goodman line as a conservative estimate of the fatigue failure condition under compression. Additionally, "yield lines" are plotted by connecting the value of the yield strength <InlineEquation equation="\\sigma_y" /> on each axis:</p>
+
+    <Image src='/mf/Fatigue/infinitelife.png' width='7'> </Image>
+
+<p>For a part to avoid failure, the stress state <InlineEquation equation="(\\sigma_m, \\sigma_a)" /> must lie below both the yield line and the Goodman (fatigue) line:</p>
+
+    <Image src='/mf/Fatigue/infinitelifefulllabels.png' width='7'> </Image>
+
+
+ <strong>Calculating Endurance Limit:</strong>
+<p>To make the criteria above useful, we need to know how to calculate the endurance limit. It is calculated based on the material and external conditions, using the following equation:</p>
+
+<DisplayEquation equation="S_n=S_n' C_L C_G C_S C_T C_R" title="" />
+
+<p>One common point of confusion with this equation is differentiating <InlineEquation equation="S_n" /> (true endurance limit) from <InlineEquation equation="S_n'" /> (idealized endurance limit). <InlineEquation equation="S_n'" /> is a known material property, whereas <InlineEquation equation="S_n" /> must be calculated through accounting for conditions in the particular setup. A detailed explanation of each factor follows:</p>
+<Enumerate>
+
+    <Item><InlineEquation equation="S'_n" /> - Idealized Endurance Limit:</Item>
+<p>The idealized endurance limit is the maximum possible value for endurance limit of a material. It is a <strong>material property</strong>, and the best way to find it is through real data on a S-N curve. It can also be roughly approximated with a known ultimate strength or hardness. For <strong>ductile steel specifically</strong>, approximations follow:</p>
+    <DisplayTable id="id" class_="mb-3">
+        <thead>
+        <tr>
+            <th class="table-shaded"><strong>Expression</strong></th>
+            <th class="table-shaded"><strong>Unit</strong></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td><InlineEquation equation="S_n'\\approx 0.5 \\cdot S_u" /></td>
+            <td>MPa or ksi</td>
+
+        </tr>
+        <tr>
+            <td><InlineEquation equation="S_n'\\approx 0.25 \\cdot" />Bhn</td>
+            <td>ksi</td>
+
+        </tr>
+        <tr>
+            <td><InlineEquation equation="S_n'\\approx 1.73 \\cdot" />Bhn </td>
+            <td>MPa</td>
+        </tr>
+
+        </tbody>
+    </DisplayTable>
+
+
+    <Item><InlineEquation equation="C_L" /> - Load Factor:</Item>
+<p>The load factor accounts for the type of loading applied to the material. Fatigue life is greatly reduced under torsion compared to bending or axial loading, so <InlineEquation equation="C_L" /> is smaller under torsion:</p>
+
+    <DisplayTable id="id" class_="mb-3">
+        <thead>
+        <tr>
+            <th class="table-shaded"><strong>Load Type</strong></th>
+            <th class="table-shaded">Bending</th>
+            <th class="table-shaded">Axial</th>
+            <th class="table-shaded">Torsion</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td><strong><InlineEquation equation="C_L" /></strong></td>
+            <td>1.0</td>
+            <td>1.0</td>
+            <td>0.58</td>
+        </tr>
+        </tbody>
+    </DisplayTable>
+
+    <Item><InlineEquation equation="C_G" /> - Gradient Factor:</Item>
+<p>For most types of loading, there is a gradient of stress between the center and outer edge of the material. This gradient benefits the life of a material, but it does not benefit all setups equally. The gradient factor accounts for the fact that the gradient benefit is reduced for axial loading and for thicker beams:</p>
+
+
+    <DisplayTable id="id" class_="mb-3">
+        <thead>
+        <tr>
+            <th class="table-shaded"><strong>Load Type</strong></th>
+            <th class="table-shaded">Bending</th>
+            <th class="table-shaded">Axial</th>
+            <th class="table-shaded">Torsion</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td><strong><InlineEquation equation="C_L (d < 10 mm)" /></strong></td>
+            <td>1.0</td>
+            <td>0.7-0.9</td>
+            <td>1.0</td>
+        </tr>
+        <tr>
+            <td><strong><InlineEquation equation="C_L (10 mm < d < 50mm)" /></strong></td>
+            <td>0.9</td>
+            <td>0.7-0.9</td>
+            <td>0.9</td>
+        </tr>
+        </tbody>
+    </DisplayTable>
+
+<p>Note that these are merely the typical suggested values as the gradient effect is complex. Also note that in the table, <InlineEquation equation="d" /> represents <strong>effective diameter</strong>, a characteristic length that depends on the shape of the beam.</p>
+
+    <Item><InlineEquation equation="C_S" /> - Surface Factor:</Item>
+<p>The surface factor accounts for a specimen's surface smoothness. A rough surface contains many defect sites that are vulnerable to crack propagation. Also, the stronger a material is, the greater the impact these defects make. Specific <InlineEquation equation="C_S" /> values can be found in a textbook.</p>
+
+    <Image src='/mf/Fatigue/surfacefactor.png' width='7'> </Image>
+
+    <Item><InlineEquation equation="C_T" /> - Temperature Factor:</Item>
+<p>The temperature factor accounts for crack sensitivity at high temperatures. For steel at temperatures below 840F, <InlineEquation equation="C_T" /> is assumed to be 1. Above 840F, we use the formula</p>
+
+<DisplayEquation equation="C_F=1-(0.0032T-2.688)." title="" />
+
+<p>Note that this formula is applicable to ductile steels only.</p>
+
+    <Item><InlineEquation equation="C_R" /> - Reliability Factor:</Item>
+<p>Due to the random nature of crack propagation, calculated endurance limits are merely approximations that do not predict the exact point at which every specimen will fail. The required reliability of a design needs to be evaluated, and the endurance limit should be lowered accordingly by applying the reliability factor, akin to a factor of safety:</p>
+
+    <DisplayTable id="id" class_="mb-3">
+        <thead>
+        <tr>
+            <th class="table-shaded"><strong>Desired Reliability</strong></th>
+            <th class="table-shaded"><strong><InlineEquation equation="C_R" /></strong></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>50%</td>
+            <td>1.000</td>
+        </tr>
+        <tr>
+            <td>90%</td>
+            <td>0.897</td>
+        </tr>
+        <tr>
+            <td>95%</td>
+            <td>0.868</td>
+        </tr>
+        <tr>
+            <td>99%</td>
+            <td>0.814</td>
+        </tr>
+        <tr>
+            <td>99.9%</td>
+            <td>0.753</td>
+        </tr>
+        </tbody>
+    </DisplayTable>
+
+
+</Enumerate>
+
+
+<p>If each correction factor has a value of 1.0, the endurance limit <InlineEquation equation="S_n" /> is equal to the standard fatigue strength <InlineEquation equation="S_n'" />. Thus, the correction factors can be seen as an account of adverse effects within the setup <strong>increasing</strong> the likelihood of defect propagation and <strong>reducing</strong> the real-world endurance limit.</p>
+
+ <strong>Fatigue with Stress Concentrations:</strong>
+<p>Just like with static stresses, the risk of fatigue failure is worsened in the presence of stress concentrations. These effects are quantified with the <strong>fatigue stress concentration factor</strong> <InlineEquation equation="K_f" />, related to the ordinary stress concentration factor <InlineEquation equation="K_t" /> through the following equation:</p>
+
+<DisplayEquation equation="K_f=1+(K_t-1)q" title="" />
+
+<p>Here, <InlineEquation equation="q" /> is called the <strong>notch sensitivity factor</strong>. It ranges between 0 and 1, and it increases with the size of the notch present and the material hardness.</p>
+
+    <Image src='/mf/Fatigue/notch.png' width='7'> </Image>
+
+<p>On careful observation, you may notice that <InlineEquation equation="K_f \\leq K_t" />. Though the underlying reasons are outside the scope of these pages, stress concentrations do not affect fatigue stresses as much as static stress. Like <InlineEquation equation="K_t" />, however, <InlineEquation equation="K_f" /> serves as a multiplier for the effective stress, adjusting <InlineEquation equation="\\sigma_a" /> and <InlineEquation equation="\\sigma_m" /> as follows:</p>
+
+<DisplayEquation equation="\\sigma_a=K_f\\sigma_{a,nom}" title="" />
+
+
+<DisplayEquation equation="\\sigma_m=K_f\\sigma_{m,nom}" title="" />
+
+<p>In the best case, <InlineEquation equation="q=0" />, and thus <InlineEquation equation="K_f=1" />, and the stresses are unaffected. With extreme notch sensitivity, <InlineEquation equation="q \\approx 1" />, so <InlineEquation equation="K_f \\approx K_t" />, signaling large effective stresses. Using the modified <InlineEquation equation="\\sigma_a" /> and <InlineEquation equation="\\sigma_m" />, failure criteria are applied in the usual way.</p>
+
+</SubSubSection>
+</Layout>

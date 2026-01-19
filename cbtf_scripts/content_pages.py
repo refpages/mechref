@@ -35,7 +35,7 @@ def change_links(home, scripts, links, courses, special_rewrites):
         pages = [p for p in os.listdir(os.path.join(home, dir)) if p[-5:] == '.html']
         for page in pages:
             print(os.path.join(dir, page))
-            with open(os.path.join(home, os.path.join(dir, page)), 'r') as file:
+            with open(os.path.join(home, os.path.join(dir, page)), 'r', encoding='utf8') as file:
                 data = file.read()
 
             for wrong, correct in links_to_replace.items():
@@ -46,7 +46,7 @@ def change_links(home, scripts, links, courses, special_rewrites):
 
             data = data.replace(f"{page.replace('.html', '')}/canvases.js", f"{page.replace('.html', '')}.js")
             
-            with open(os.path.join(home, os.path.join(dir, page)), 'w') as file:
+            with open(os.path.join(home, os.path.join(dir, page)), 'w', encoding='utf8') as file:
                 file.write(data)        
 
     return

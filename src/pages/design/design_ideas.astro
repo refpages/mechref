@@ -1,0 +1,96 @@
+---
+import Layout from "../../layouts/Layout.astro" 
+import Image from "../../components/Image.astro" 
+import Section from "../../components/Section.astro" 
+import SubSection from "../../components/SubSection.astro" 
+import SubSubSection from "../../components/SubSubSection.astro" 
+import SubSubSubSection from "../../components/SubSubSubSection.astro" 
+import CalloutCard from "../../components/CalloutCard.astro" 
+import CalloutContainer from "../../components/CalloutContainer.astro" 
+import OrangeText from "../../components/OrangeText.astro" 
+import TealText from "../../components/TealText.astro" 
+import Enumerate from "../../components/Enumerate.astro" 
+import Item from "../../components/Item.astro" 
+import Itemize from "../../components/Itemize.astro" 
+import InlineEquation from "../../components/InlineEquation.astro" 
+import DisplayEquation from "../../components/DisplayEquation.astro" 
+---
+<Layout title="Design_ideas">
+<div slot="navtree">
+<ul class="list-group list-group-flush py-0">
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Generate Design Ideas'>Generate Design Ideas</a></li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Avoiding Ideation Roadblocks'>Avoiding Ideation Roadblocks</a><ul class='list-group list-group-flush py-0'>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Types of Mental Blocks'>Types of Mental Blocks</a></li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Four-Stages of Creative Thinking Process'>Four-Stages of Creative Thinking Process</a></li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Morphological Chart'>Morphological Chart</a></li>
+</ul>
+</ul>
+</div>
+<SubSection title="Generate Design Ideas" id="Generate Design Ideas">
+<p>The second step in the design process is to generate a multitude of <strong>design ideas</strong>. After you have identified the need and as you continue to do your background research, this step allows exploration of existing and original possibilities before choosing an option to progress.</p>
+<p>Some ways to generate design ideas are:</p>
+<Itemize>
+
+    <Item><strong>Brainstorming</strong>: Come up with as many ideas as possible in a short amount of time without judgment or filtering. </Item>
+    <Item><strong>Brainwriting</strong>: As a group, write down ideas individually first. Then, share and develop each others' ideas. </Item>
+    <Item><a target='_blank' rel='noopener noreferrer' href=https://en.wikipedia.org/wiki/SCAMPER><strong>SCAMPER</strong></a>: Substitute, Combine, Adapt, Modify (Also Magnify and Minify), Put to another use, Eliminate, Rearrange</Item>
+    <Item><a target='_blank' rel='noopener noreferrer' href=https://en.wikipedia.org/wiki/TRIZ><strong>TRIZ</strong></a>: Theory of Inventive Machines uses patterns of innovation from past inventions.</Item>
+    <Item><strong>Sketching Ideas</strong>: Make quick sketches of the ideas. 2D sketches of the ideas are a more straightforward and accurate recording and communication of the ideas.</Item>
+    <Item><strong>Low Fidelity Prototyping</strong>: Build simple prototypes using basic materials such as paper, cardboard, and clay. This is not a final prototype, but these early 3D prototypes help discover physical challenges and possibilities.</Item>
+    <Item>And many other methods</Item>
+
+</Itemize>
+    <CalloutContainer slot="cards">
+<CalloutCard title="A key rule of generating ideas">
+<p> There should be no criticism or prejudgment of ideas. Create a free flow of ideas and record all suggestions!</p>
+    </CalloutCard>
+</CalloutContainer>
+</SubSection>
+<SubSection title="Avoiding Ideation Roadblocks" id="Avoiding Ideation Roadblocks">
+</SubSection>
+<SubSubSection title="Types of Mental Blocks" id="Types of Mental Blocks">
+<Itemize>
+
+    <Item><strong>Perceptual Block</strong>: Assuming a new solution should look like previous solutions</Item>
+    <Item><strong>Emotional or Environmental Block</strong>: Fear of unfamiliar ideas and criticism</Item>
+    <Item><strong>Intellectual Block</strong>: Lack of background knowledge, rigid thinking, or poor problem-solving strategies. </Item>
+
+</Itemize>
+</SubSubSection>
+<SubSubSection title="Four-Stages of Creative Thinking Process" id="Four-Stages of Creative Thinking Process">
+<p>The four stages of creative thinking process by Graham Wallas are...</p>
+<Itemize>
+
+<p> <strong>1. Preparation</strong>: Examine and gather information about the different elements of the problem (ex. tradeoffs, boundaries)</p>
+<p> <strong>2. Incubation</strong>: Take a break from thinking about the problem for the subconscious mind to work on it.</p>
+<p> <strong>3. Inspiration</strong>: Let insights guide you to the path toward the solution.</p>
+<p> <strong>4. Verification</strong>: Evaluate and test the solution. Then, modify repeatedly until there is no improvement to be made.</p>
+
+</Itemize>
+<p> <em>(Graham Wallas, The Art of Thought, 1926)</em> </p>
+</SubSubSection>
+<SubSubSection title="Morphological Chart" id="Morphological Chart">
+<p>A <strong>morphological chart</strong> is a tool used to explore design options in an organized manner. It breaks down a product into its key functions and records multiple design options for each function. The chart is intended to show different combinations of possible features for creation of the best solution. Ideate within each function, then mix and match for new solutions.</p>
+<p>For example, if you were designing a can opener, you could identify key functions such as:</p>
+<Itemize>
+
+    <Item>Material (steel, aluminum, plastic, wood)</Item>
+    <Item>Handle Type (straight, curved, round, squishy/deformable)</Item>
+    <Item>Cutting Mechanism (piercing blade, rotating blade, laser)</Item>
+    <Item>Environment (recycle, biodegradable, compostable)</Item>
+
+</Itemize>
+<p>By creating different combinations of key functions, you can generate and evaluate multiple designs to come up with the most practical and feasible solution.</p>
+<Image id="avb-ft" src="/design/images/morphological_chart.png" style="width:35%; height:auto;">
+        <p class="figureCaption">
+          Example Morphological Chart</a>
+        </p>
+</Image>
+<p> One of the numerous resulting combinations could be a carbon steel can opener with an ergonimic handle, magnetic clamp, and rotating blade that is compostable and disposable after use. This may not be the most optimal design. Explore and evaluate multiple combminations before selecting the best combinations. </p>
+<CalloutContainer slot="cards">
+<CalloutCard title="Key Note">
+<p>Keep in mind this is only a simplified example. When you create your own, try to make it more detailed and incorporate a wider range of ideas.</p>
+    </CalloutCard>
+</CalloutContainer>
+</SubSubSection>
+</Layout>

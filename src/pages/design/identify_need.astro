@@ -1,0 +1,118 @@
+---
+import Layout from "../../layouts/Layout.astro" 
+import Image from "../../components/Image.astro" 
+import CalloutContainer from "../../components/CalloutContainer.astro" 
+import Section from "../../components/Section.astro" 
+import SubSection from "../../components/SubSection.astro" 
+import SubSubSection from "../../components/SubSubSection.astro" 
+import SubSubSubSection from "../../components/SubSubSubSection.astro" 
+import CalloutCard from "../../components/CalloutCard.astro" 
+import OrangeText from "../../components/OrangeText.astro" 
+import TealText from "../../components/TealText.astro" 
+import Enumerate from "../../components/Enumerate.astro" 
+import Item from "../../components/Item.astro" 
+import Itemize from "../../components/Itemize.astro" 
+import InlineEquation from "../../components/InlineEquation.astro" 
+import DisplayEquation from "../../components/DisplayEquation.astro" 
+import BlueText from "../../components/BlueText.astro"
+---
+<Layout title="Identify_need">
+<div slot="navtree">
+<ul class="list-group list-group-flush py-0">
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Identify Need'>Identify Need</a><ul class='list-group list-group-flush py-0'>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Example Need Statement'>Example Need Statement</a></li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Stakeholders'>Stakeholders</a></li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Methods of Engagement'>Methods of Engagement</a></li></ul>
+</li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Human-Centered Engineering Design (HCED)'>Human-Centered Engineering Design (HCED)</a></li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Background Research'>Background Research</a><ul class='list-group list-group-flush py-0'>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Types of Background Research'>Types of Background Research</a></li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Based on the research...'>Based on the research...</a></li>
+</ul>
+</ul>
+</div>
+<SubSection title="Identify Need" id="Identify Need">
+<p>In design process, the first step is to clearly identify the <strong>need</strong>. The needs are driven by marketing or business plan, customer request, cost reduction, and design improvement.</p>
+<p>A proper need statement should answer:</p>
+<Itemize>
+
+    <Item>Who are the <strong>stakeholders</strong>?  </Item>
+    <Item>What are the <strong>methods of engagement</strong>?  </Item>
+    <Item>What are the <strong>customer's exact language</strong> vs. <strong>your interpretation</strong>?</Item>
+
+</Itemize>
+</SubSection>
+<SubSubSection title="Example Need Statement" id="Example Need Statement">
+<p><em>"Through the <strong>interviews</strong> we had with the <strong>college students who attend in person lectures</strong>, we realized that <strong>'the seats in the lecture hall are narrow and hard to sit in for long,'</strong> which we interpret as <strong>a need for improved lecture seating that balances comfort with space efficiency</strong>, which prioritizes the mobility and comfort of college students in the seats to support the student learning experience rather than simply maximizing room capacity."</em></p>
+</SubSubSection>
+<SubSubSection title="Stakeholders" id="Stakeholders">
+<p>Stakeholders are the individuals or groups who are directly or indirectly affected by the final product. They may be the users of the product or the clients who make decisions about the product. Identifying stakeholders ensures that the perspectives and priorities of those who are affected are considered.</p>
+<p>There are different levels to stakeholders:</p>
+<Itemize>
+
+    <Item><strong>Primary stakeholders:</strong> Individuals or groups who are <strong>directly</strong> affected (ex. <em>College students who attend in person lectures</em>)</Item>
+    <Item><strong>Secondary stakeholders:</strong> Individuals or groups who are <strong>indirectly</strong> affected (ex. <em>Professors and University Facility Managers</em>)</Item>
+
+</Itemize>
+</SubSubSection>
+<SubSubSection title="Methods of Engagement" id="Methods of Engagement">
+<p>Engagement with stakeholders provides authentic insights into needs and ensures the design reflects the users’ voices. Different methods can be used depending on the situation.</p>
+<Itemize>
+
+    <Item><strong>Interviews:</strong> One-on-one or small group conversations with stakeholders to gather personal experiences.</Item>
+    <Item><strong>Surveys:</strong> Quasi-quantitative data collection from a large number of stakeholders to understand the scale of the problem and perceptions of it and potential solutions.</Item>
+    <Item><strong>Observation:</strong> Observing stakeholders experience the problem.</Item>
+    <Item><strong>Focus Groups:</strong> Facilitated discussions with different types of stakeholders to reveal different perspectives, priorities, and trade-offs.</Item>
+
+</Itemize>
+</SubSubSection>
+<SubSection title="Human-Centered Engineering Design (HCED)" id="Human-Centered Engineering Design (HCED)">
+<p>Human-Centered Engineering Design ensures that the solution to the problem prioritizes and stays focused on the individuals or groups who are affected by the product throughout the design process. HCED emphasizes empathy, iteration, and usability.</p>
+<Itemize>
+
+    <Item><strong>Empathy:</strong> Look at the problem through the users' perspective to clearly identify what problem needs to be addressed.  </Item>
+    <Item><strong>Inclusion:</strong> Consider physical, mental, and social diversity in stakeholders when brainstorming solutions</Item>
+    <Item><strong>Iteration:</strong> Test prototypes with real stakeholders and refining the design based on feedback, rather than finalizing at first trial.</Item>
+    <Item><strong>Sustainability:</strong> Think of solutions that not only addresses the problem but also are cost-efficient, durable, and environmentally sustainable.  </Item>
+    
+    </Itemize>
+    <CalloutContainer slot = 'cards'>
+        <CalloutCard title="Key Point">
+    <p>Human-Centered Engineering Design ensures that solutions are not only technically feasible and cost-effective but also truly beneficial to the individuals or groups affected.</p>
+        </CalloutCard>
+        <CalloutCard title="Reminder">
+    <p>Needs identified early in the design process should be revisited upon design iteration to check that they are still relevant and the priorities are accurately captured.</BlueText></p>
+        </CalloutCard>
+    </CalloutContainer>
+</SubSection>
+<SubSection title="Background Research" id="Background Research">
+<p>After identifying the need, the next step is to conduct <strong>background research</strong>. This step helps to ensure a deeper understanding of the problem and the needs by identifying design constraints and learning existing solutions.</p>
+</SubSection>
+<SubSubSection title="Types of Background Research" id="Types of Background Research">
+<Enumerate>
+
+    <Item><strong>User Research:</strong> Understand user needs through methods of engagement such as interviews and surveys.</Item>
+    <Item><strong>Market Research:</strong> Analyze existing products, market trends, and competitors to identify aspects such as opportunities and pricing strategies.</Item>
+    <Item><strong>Industry Research:</strong> Understand regulations, materials, and technologies that apply to the product industry.</Item>
+    <Item><strong>Technical Research:</strong> Study physical feasibility, manufacturing materials, and manufacturing processes.</Item>
+    <Item><strong>Sustainability Research:</strong> Analyze environmental impact the product creates from the materials' life cycle, recyclability, and production methods.</Item>
+    <Item><strong>Cultural and Social Research:</strong> Understand ethical standards, cultural values, social contexts that influence product use and perception.</Item>
+
+</Enumerate>
+</SubSubSection>
+<SubSubSection title="Based on the research..." id="Based on the research...">
+<Itemize>
+
+<Item>Identify constraints.</Item>
+<Item>Set measurable design criteria.</Item>
+<Item>Apply findings to ideation and future steps.</Item>
+
+</Itemize>
+<CalloutContainer slot = 'cards'>
+    <CalloutCard title="Key Point">
+<p>Background research is not a single step that occurs once after identifying a need. Rather, it should be performed and constantly reviewed throughout the design process whenever it may be needed.</p>
+    </CalloutCard>
+</CalloutContainer>
+
+</SubSubSection>
+</Layout>

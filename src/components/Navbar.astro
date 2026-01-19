@@ -417,7 +417,7 @@ const path = Astro.url.pathname;
                                     <li><a href = "/dyn/accelerating_and_braking?origin=sidebar">Accelerating and braking</a></li>
                                     <li><a href = "/dyn/banked_turns?origin=sidebar">Banked turns</a></li>
                                     <li><a href = "/dyn/steering_geometry?origin=sidebar">Steering geometry</a></li>
-                                    <li><a href = "/dyn/four_bar_linkages?origin=sidebar">Four-bar linkages</a></li>
+                                    <li><a href = "/dyn/four_bar_linkages_applications?origin=sidebar">Four-bar linkages applications</a></li>
                                     <li><a href = "/dyn/capsizing_ships?origin=sidebar">Capsizing ships</a></li>
                                 </ol>
                         </section>
@@ -528,10 +528,15 @@ const path = Astro.url.pathname;
                     <div class="d-flex">
                         <section class="tile menu white-box col">
                             <h2><a href="/mf">Machine Failure</a></h2>
-                            <ol style="column-fill: balance; columns: 3 <= how many columns do you want your menu to have?;" class="course-menu">
-                                <li><a href="/mf/Stress_Concentrations?origin=sidebar">Stress concentrations</a></li>
-                                <li><a href="/mf/Failure_Theories?origin=sidebar">Failure theories</a></li>
-                                <li><a href="/mf/Threaded_Components?origin=sidebar">Threaded components</a></li>
+                            <ol style="column-fill: balance; columns: 1 <= how many columns do you want your menu to have?;" class="course-menu">
+                                <li slot="list"><a href="/mf/Mechanics_Review?origin=coursemenu">Mechanics Review</a></li>
+                                <li slot="list"><a href="/mf/Stress_Concentrations?origin=coursemenu">Stress Concentrations</a></li>
+                                <li slot="list"><a href="/mf/Failure_Theories?origin=coursemenu">Failure Theories</a></li>
+                                <li slot="list"><a href="/mf/Fatigue?origin=coursemenu">Fatigue</a></li>
+                                <li slot="list"><a href="/mf/Threaded_Components?origin=coursemenu">Threaded Components</a></li>
+                                <li slot="list"><a href="/mf/Impact?origin=coursemenu">Impact</a></li>
+                                <li slot="list"><a href="/mf/Springs?origin=coursemenu">Springs</a></li>
+                                <li slot="list"><a href="/mf/Springs?origin=coursemenu">Buckling</a></li>
                             </ol>
                         </section>
                     </div>
