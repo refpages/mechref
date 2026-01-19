@@ -4,45 +4,124 @@ import Image from "../../components/Image.astro"
 import Section from "../../components/Section.astro" 
 import SubSection from "../../components/SubSection.astro" 
 import SubSubSection from "../../components/SubSubSection.astro" 
+import BlueText from "../../components/BlueText.astro" 
 import InlineEquation from "../../components/InlineEquation.astro" 
 import DisplayEquation from "../../components/DisplayEquation.astro" 
-import BlueText from "../../components/BlueText.astro" 
-import RedText from "../../components/RedText.astro" 
+import Item from "../../components/Item.astro"
+import Itemize from "../../components/Itemize.astro"
+import Enumerate from "../../components/Enumerate.astro"
+import Example from "../../components/Example.astro"
+import InlineCanvas from "../../components/InlineCanvas.astro"
+import DisplayTable from "../../components/DisplayTable.astro"
+import CalloutContainer from "../../components/CalloutContainer.astro"
+import CalloutCard from "../../components/CalloutCard.astro"
+import Row from "../../components/Row.astro"
+import Col from "../../components/Col.astro"
+import Center from "../../components/Center.astro"
 import Plotly from "../../components/Plotly.astro"
+import Warning from "../../components/Warning.astro"
 ---
 <Layout title="Failure Theories">
+    <div slot="navtree">
+        <ul class='list-group list-group-flush py-0'> 
+            <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#brittle-materials'>Brittle Materials</a>
+                <ul class='list-group list-group-flush py-0'> 
+                    <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#max-normal'>Maximum Normal</a></li> 
+                </ul>
+            </li>
+            <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#ductile-materials'>Ductile Materials</a>
+                <ul class='list-group list-group-flush py-0'> 
+                    <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#tresca'>Tresca</a></li> 
+                    <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#tension'>Uniaxial Tension</a></li>
+                    <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#2d-loading'>General 2D Loading State</a></li>
+                    <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#von-mises'>Von Mises</a></li>
+                    <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#failure-surfaces'>Interactive 3D Failure Surfaces</a></li>  
+                </ul>
+            </li>
+        </ul>
+    </div>
 
-<div slot="navtree">
-    <ul class='list-group list-group-flush py-0'> 
-        <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#tresca'>Maximum Shear Stress (Tresca) Criterion</a>
-            <ul class='list-group list-group-flush py-0'> 
-                <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#tension'>Uniaxial Tension</a></li> 
-                <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#2d-loading'>General 2D Loading State</a></li> 
-            </ul>
-        </li> 
-        <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#von-mises'>Maximum Distortion Energy (Von Mises) Criterion</a>
-            <ul class='list-group list-group-flush py-0'> 
-                <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#failure-surfaces'>Interactive 3D Failure Surfaces</a></li> 
-            </ul>
-        </li>
-        <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#max-normal'>Maximum Normal Stress Criterion</a></li>
-    </ul>
-</div>
-<Section title="Failure Theories" id="units">
-    
+<Section title="Failure Theories" id="failure-theories">
+
 <!-- BSM:A table at the end summarizing the three main theories and their failure conditions would be a nice addition. -->
 
 Failure of a material depends on (1) nature of loading and (2) type of material. There are theories that can predict material failure for complex states. 
 
 </Section>
 
-<SubSection title="Maximum Shear Stress (Tresca) Criterion" id="tresca">
+<SubSection title="Brittle Materials" id="brittle-materials">
 
- If a material is <strong>ductile</strong>, failure is defined by <strong>yield stress</strong> (<InlineEquation equation="\\sigma_Y" />) and occurs at <strong>max shear stress</strong> (<InlineEquation equation="\\tau_{max}" />).
+<strong>Brittle</strong> materials are weaker in tension than shear
+
+<Image src="/sol/torsion/brittle.png" width="6"> </Image>
+
+<!-- \begin{multicols}{2} -->
+<Row>
+    <Col values="12 md-6"><li>Axial – maximum normal stress at \(0^o\) angle</li></Col>
+    <Col values="12 md-6"><li>Torsion – maximum normal stress at \(45^o\) angle</li></Col>
+</Row>
 
 </SubSection>
 
+<SubSubSection title="Maximum Normal Stress Criterion" id="max-normal">
+
+For <strong>brittle</strong> materials, failure is caused by the <strong>maximum tensile stress</strong> and NOT compressive stress.
+
+
+<DisplayEquation equation="\\begin{align} |\\sigma_1| = \\sigma_{ult} \\\\ |\\sigma_2| = \\sigma_{ult} \\end{align}" title="Maximum normal stress criterion material failure." background="True" />
+ 
+<Image src='/sol/failure_theories/Brittle.png' width='3'></Image>
+
+ The <InlineEquation equation="\\sigma_1" /> and <InlineEquation equation="\\sigma_2" /> equations can be plotted to show the failure surface. Loading conditions that occur <strong>outside</strong> of the surface are when the material fails.
+
+ Brittle fracture can be difficult to predict, so use this theory with caution
+
+</SubSection>
+
+<SubSection title="Ductile Materials" id="ductile-materials">
+
+<strong>Ductile </strong>materials generally fail in shear
+
+<Image src="/sol/torsion/ductile.png" width="6"> </Image>
+
+<!-- \begin{multicols}{2} -->
+<Row>
+    <Col values="12 md-6"><li>Axial – maximum shear stress at \(45^o\) angle</li></Col>
+    <Col values="12 md-6"><li>Torsion – maximum shear stress at \(0^o\) angle</li></Col>
+</Row>
+
+</SubSection>
+
+
+<SubSubSection title="Maximum Shear Stress (Tresca) Criterion" id="tresca">
+
+ If a material is <strong>ductile</strong>, failure is defined by <strong>yield stress</strong> (<InlineEquation equation="\\sigma_Y" />) and occurs at <strong>max shear stress</strong> (<InlineEquation equation="\\tau_{max}" />).
+
+</SubSubSection>
+
 <SubSubSection title="Uniaxial Tension" id="tension">
+<CalloutContainer slot="cards">
+    <CalloutCard title="Extra!">
+        <p>
+            <strong> Torsion of thin-walled hallow shafts </strong> builds on this content.
+            </p>
+            <p>
+                In general, the maximum shear stress is given by 
+                
+                <DisplayEquation equation="\\phi = \\frac{TL}{GJ}\\"/>
+
+                For thin-walled shafts 
+                
+                <DisplayEquation equation="\\tau_{max} = \\frac{T}{2tA_m}\\"/>
+
+                where 
+                
+                <DisplayEquation equation="\\begin{align} A_m &= \\pi R_{ave}^2 \\\\ R_{ave} &= \\frac{R_o + R_i}{2} \\end{align}"/>
+
+                Note that is NOT the cross sectional area of the hollow shaft!
+            </p>
+        </CalloutCard>
+</CalloutContainer>
 
 <Image src='/sol/failure_theories/Tresca.png' width='3'> </Image>
 
@@ -54,7 +133,6 @@ Failure of a material depends on (1) nature of loading and (2) type of material.
 <strong>Shear stress</strong> is responsible for causing the ductile material to yield and <InlineEquation equation="\\sigma_Y" /> is the <strong>tensile</strong> yield strength.
 
 <DisplayEquation equation="\\tau_{max} \\ge \\frac{\\sigma_Y}{2}\\" title="Max  shear." background="True" />
-
 
 
 </SubSubSection>
@@ -85,9 +163,13 @@ Failure of a material depends on (1) nature of loading and (2) type of material.
 
 <DisplayEquation equation="|\\sigma_1 - \\sigma_2| = \\sigma_Y\\" title="Tresca with opposite signs." background="True" />
 
+<p>
+<em> Note: </em> These formulas operate under the assumption that <InlineEquation equation = "\\sigma_1 > \\sigma_2"/>, and <InlineEquation equation = "\\sigma_3 = \\sigma_z = 0"/>. For 3D loading scenarios, a more standard notation uses <InlineEquation equation = "\\sigma_1 > \\sigma_2 > \\sigma_3"/>, where <InlineEquation equation = "\\sigma_3"/> is not necessarily <InlineEquation equation = "\\sigma_z"/>.
+</p>
 </SubSubSection>
 
-<SubSection title="Maximum Distortion Energy (Von Mises) Criterion" id="von-mises">
+
+<SubSubSection title="Maximum Distortion Energy (Von Mises) Criterion" id="von-mises">
 
 <strong>Ductile</strong> materials likely do not fail due to stresses that only result in a <strong>volume change</strong>. It is hypothesized that failure is driven by <strong>distortion strain energy</strong>.
 
@@ -119,9 +201,22 @@ Failure of a material depends on (1) nature of loading and (2) type of material.
 
  The equating equation be plotted to show the failure surface. The elliptical surface is the Von Mises surface overlaid with the Teresca surface. Loading conditions that occur <strong>outside</strong> of the surface are when the material fails.
 
-</SubSection>
+</SubSubSection>
 
 <SubSubSection id="failure-surfaces" title="Interactive 3D Failure Surfaces">
+
+<CalloutContainer slot="cards">
+    <CalloutCard title="Extra!">
+        <p>
+            <strong>Fatigue</strong> builds on this content in Engineering Materials and Mechanical Design.                
+        </p>
+        <p>
+            <Image src='/sol/material_properties/SN Curve.png' width='4'>SN curve examples</Image>
+
+            If stress does not exceed the elastic limit, the specimen returns to its original configuration. However, this is not the case if the loading is repeated thousands or millions of times. In such cases, rupture will happen at stress lower than the fracture stress - this phenomenon is known as fatigue.
+        </p>
+    </CalloutCard>
+</CalloutContainer>
 
 <p>
     The following figure shows the failure surfaces of <span style="color: blue;">Tresca</span> and <span style="color: red;">von Mises</span> criteria in term of the principal stresses in 3 dimensions. 
@@ -135,21 +230,5 @@ Failure of a material depends on (1) nature of loading and (2) type of material.
 <em>Note: </em> Click and drag to rotate, scroll to zoom, and click legend entries to toggle. 
 </SubSubSection>
 
-<SubSection title="Maximum Normal Stress Criterion" id="max-normal">
-
-For <strong>brittle</strong> materials, failure is caused by the <strong>maximum tensile stress</strong> and NOT compressive stress.
-
-
-
-
-<DisplayEquation equation="\\begin{align} |\\sigma_1| = \\sigma_{ult} \\\\ |\\sigma_2| = \\sigma_{ult} \\end{align}" title="Maximum normal stress criterion material failure." background="True" />
- 
-<Image src='/sol/failure_theories/Brittle.png' width='3'></Image>
-
- The <InlineEquation equation="\\sigma_1" /> and <InlineEquation equation="\\sigma_2" /> equations can be plotted to show the failure surface. Loading conditions that occur <strong>outside</strong> of the surface are when the material fails.
-
- Brittle fracture can be difficult to predict, so use this theory with caution
-
-</SubSection>
-
 </Layout>
+

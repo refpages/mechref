@@ -1,0 +1,82 @@
+---
+import Layout from "../../layouts/Layout.astro" 
+import Image from "../../components/Image.astro" 
+import Section from "../../components/Section.astro" 
+import SubSection from "../../components/SubSection.astro" 
+import SubSubSection from "../../components/SubSubSection.astro" 
+import Itemize from "../../components/Itemize.astro" 
+import Item from "../../components/Item.astro" 
+import InlineEquation from "../../components/InlineEquation.astro" 
+import DisplayEquation from "../../components/DisplayEquation.astro" 
+import BlueText from "../../components/BlueText.astro" 
+
+
+---
+<Layout title="Design Considerations">
+
+<div slot="navtree">
+	<ul class='list-group list-group-flush py-0'> 
+		<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#limit_states'>Limit States</a>
+		<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#allowable_strength_design'>Allowable Strength Design</a>
+		<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#load_resistance_factor'>Load Resistance Factor</a>
+		</li>
+	</ul>
+</div>
+
+<Section title="Design Considerations" id="design_considerations"></Section>
+<SubSection title="Limit States" id="limit_states"> </SubSection>
+
+<SubSection title="Allowable Strength Design" id="allowable_strength_design">
+
+<strong>Design Requirement:</strong> A structural design is intended to support and/or transmit loads while maintaining safety and utility: <strong><em>don't break</em></strong>. Strength of a structure reflects its ability to resist failure.
+
+<Itemize>
+    <Item> <strong>Ultimate load ( <InlineEquation equation="P_u" /> ):</strong> force when specimen fails (breaks).</Item> 
+    <Item> <strong>Ultimate normal stress ( <InlineEquation equation="\\sigma_u" /> ):</strong> stress when a specimen fails (breaks). </Item>
+</Itemize>
+
+<DisplayEquation equation="\\sigma_u = \\frac{P_u}{A}\\" title="Ultimate normal stress" background="True"/>
+ 
+A structure is safe if its strength exceeds the required strength.
+
+<p>
+ <strong>Factor of Safety (FS):</strong> Ratio of structural strength to maximum (allowed) applied load (<InlineEquation equation="P_{all}" />).
+</p>
+
+<DisplayEquation equation="P_{all} \\le \\frac{P_u}{FS}\\" title="Maximum allowed applied load." background="True"/>
+
+ Similarly, <DisplayEquation equation="\\sigma_{all} \\le \\frac{\\sigma_u}{FS}\\" title="Maximum allowed applied stress." background="True"/>
+
+</SubSection>
+
+<SubSection title="Load and Resistance Factor Design" id="load_resistance_factor">
+<p>
+Depending on the industry or application, the acceptability of a design may be interpreted differently. 
+For some applications showing a factor of safety of 4 may be sufficient. 
+For example, a sling used for lifting, such as the one shown below, is specified to have a safety factor of 5 in <a href = https://asmestandardscollection-org.proxy2.library.illinois.edu/GetDoc.aspx?doc=ASME%20B30.9%202021#ASME_B30.9_2021_Page_47> ASME B30.9</a>.
+</p>
+
+<Image src='/sol/design_considerations/Web_Sling.png' width='8'><a href="https://www.mcmaster.com/8864T51/">Web sling</a></Image>
+
+<p>
+In the civil/structural engineering industry, the variability of loading (wind, seismic, etc.) has been studied extensively. 
+This is also true for various structural capacities in building materials like steel, concrete wood, etc. Given a loading and resistance that are both random variables, a simple “safety factor” does not result in a consistent level of probability of failure across all structures. 
+The structural engineering industry addressed this inconsistency with a different design approach known as <strong>Load and Resistance Factor Design </strong> (LRFD.) 
+</p>
+
+<p>
+The intent of LRFD is to ensure a reasonably low probability of failure is met. 
+The probability of failure can be calculated using the statistical distributions of loading and resistance.
+Finding the probability that loading exceeds capacity is equivalent to integrating the <strong> probability density function </strong> (PDF) of the loading multiplied by the <strong> cumulative distribution function </strong> (CDF) of the resistance (capacity).
+This can be thought of as accumulating the likelihood of all possible instances of loading being relatively high and the capacity being relatively low in order to find a cumulative probability of failure. 
+The example plots shown below assume normal distributions of load and resistance.
+</p>
+
+<Image src='/sol/design_considerations/Prob_plots.png' width='4'>Example of loading probability distribution</Image>
+
+<p>
+For bridge design, both approaches are discussed in AASHTO LRFD  and LRFD for <a href = "https://www.fhwa.dot.gov/bridge/pubs/nhi15047.pdf"> Highway Bridge Superstructures Reference Manual </a> Section 1.2.2.
+</p>
+</SubSection>
+
+</Layout>

@@ -21,11 +21,12 @@ import Col from "../../components/Col.astro"
 
   <div slot="navtree">
     <ul class='list-group list-group-flush py-0'> 
+        <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#transverse_shear_tensor'>Pure Transverse Shear Tensor</a></li>
         <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#shear_in_beams'>Shear Stress in Beams</a></li>
         <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#avg_shear_stress'>Average Shear Stress</a>
             <ul class='list-group list-group-flush py-0'> 
-                <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#rect_beam'>Rectangular Beam Cross-Section</a></li> 
-                <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#i_beam'>I-Shaped Beam Cross-Section</a></li>  
+                <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#rect_beam'>Rectangular Beam</a></li> 
+                <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#i_beam'>I-Shaped Beam</a></li>  
             </ul>
         <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#shear_flow'>Built-up Members/Beams: Shear Flow</a></li> 
     </ul>
@@ -37,6 +38,15 @@ import Col from "../../components/Col.astro"
 Transverse loading creates corresponding <strong>longitudinal shear stresses</strong> which will act along longitudinal planes of the beam
 
 </Section>
+
+<SubSection title="Pure Transverse Shear Tensor" id="transverse_shear_tensor">
+<p>
+ For pure transverse shear loading conditions, the stress tensor can be simplified as shown below, depending on whether shearing occurs along the y or z axis.
+</p>
+
+<DisplayEquation equation="\\begin{align} T= \\begin{bmatrix} 0 & \\frac{V_yQ_y}{I_yt} & 0 \\\\ \\frac{V_yQ_y}{I_yt} & 0 & 0 \\\\ 0 & 0 & 0 \\end{bmatrix} \\\\ T = \\begin{bmatrix} 0 & 0 & \\frac{V_zQ_z}{I_zt} \\\\ 0 & 0 & 0 \\\\ \\frac{V_zQ_z}{I_zt} & 0 & 0 \\end{bmatrix} \\ \\end{align}" title="Transverse shear stress tensor." background="True" id="ts-tsr"/>
+
+</SubSection>
 
 <SubSection title="Shear Stress in Beams" id="shear_in_beams">
 

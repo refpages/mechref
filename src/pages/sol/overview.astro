@@ -1,0 +1,50 @@
+---
+import Layout from "../../layouts/Layout.astro" 
+import Image from "../../components/Image.astro" 
+import Section from "../../components/Section.astro" 
+import SubSection from "../../components/SubSection.astro" 
+import SubSubSection from "../../components/SubSubSection.astro" 
+import Itemize from "../../components/Itemize.astro" 
+import Item from "../../components/Item.astro" 
+import InlineEquation from "../../components/InlineEquation.astro" 
+import DisplayEquation from "../../components/DisplayEquation.astro" 
+import BlueText from "../../components/BlueText.astro" 
+
+
+---
+<Layout title="Overview">
+
+<div slot="navtree">
+	<ul class='list-group list-group-flush py-0'> 
+		<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#big-picture'>Big Picture</a>
+		<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#tensor'>General Stress Tensor</a>
+		</li>
+	</ul>
+</div>
+
+<Section title="Overview" id="overview"></Section>
+
+<SubSection title="Big Picture" id="big-picture">
+<p>
+ Loading, deformation, stress, and strain are all related. A diagram illustrating the connections between these concepts is shown below.
+</p>
+
+<Image src="/sol/simple_loading_overview/big_picture.png" width="6"> Big Picture of Solid Mechanics </Image>
+</SubSection>
+
+<SubSection title="General Stress Tensor" id="tensor">
+<p>
+ For a beam, assume the given coordinate system, where the x direction is axial as shown below.
+</p>
+
+<Image src="/sol/simple_loading_overview/beam_coordinates.png" width="6"> Beam Coordinate System </Image>
+
+<p>
+ The components of normal and shear stress from different kinds of simple loading can be combined into the stress tensor to represent the overall loading scenario. This is a symmetric matrix representing the state of stress with respect to three directions.
+</p>
+
+<DisplayEquation equation=" T= \\begin{bmatrix} \\sigma_{xx} & \\sigma_{xy} & \\sigma_{xz} \\\\ \\sigma_{yx}& \\sigma_{yy} & \\sigma_{yz} \\\\ \\sigma_{zx}&\\sigma_{zy}&\\sigma_{zz} \\end{bmatrix} \\" title="Stress tensor." background="True"/>
+
+</SubSection>
+
+</Layout>

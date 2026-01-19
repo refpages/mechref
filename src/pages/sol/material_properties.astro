@@ -4,6 +4,7 @@ import Image from "../../components/Image.astro"
 import Section from "../../components/Section.astro" 
 import SubSection from "../../components/SubSection.astro" 
 import SubSubSection from "../../components/SubSubSection.astro" 
+import SubSubSubSection from "../../components/SubSubSubSection.astro" 
 import Itemize from "../../components/Itemize.astro" 
 import Item from "../../components/Item.astro" 
 import InlineEquation from "../../components/InlineEquation.astro" 
@@ -28,22 +29,25 @@ import Warning from "../../components/Warning.astro"
 
 <div slot="navtree">
     <ul class='list-group list-group-flush py-0'> 
-        <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#stress-strain_diagram'>Stress-Strain Diagram</a>
+        <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#continuum_mechanics'>Continuum Mechanics Fundamentals</a></li>
+        <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#stress-strain_diagram'>Stress-Strain Diagram</a></li>
+        <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#linear_elasticity'>Linear Elasticity</a></li>
             <ul class='list-group list-group-flush py-0'> 
-                <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#elastic_behavior'>Elastic Behavior</a></li> 
-                <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#plastic_behavior'>Plastic Behavior</a></li> 
+                    <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#elastic_modulus'>Elastic Modulus</a></li>
+                    <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#shear_modulus'>Shear Modulus</a></li>
+                    <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href="#poissons_ratio">Poisson's Ratio</a></li>
             </ul>
-        </li> 
-        <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#other_derived_properties'>Other Derived Properties</a>
+        <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#plasticity'>Plasticity</a></li> 
             <ul class='list-group list-group-flush py-0'> 
-                <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#directional_materials'>Directional Materials</a></li>
-                <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href="#poissons_ratio">Poisson's Ratio</a></li>
+                <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#ductility'>Ductility</a></li>
+                <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href="#yield-strength">Yield Strength</a></li>
+                <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href="#ultimate-strength">Ultimate Strength</a></li>
+                <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href="#failure">Failure</a></li>
             </ul>
-        </li> 
     </ul>
 </div>
 
-<Section title="Material Properties" id="material_properties"></Section>
+<Section title="Material Properties" id="material_properties"> </Section>
 
 <SubSection title="Continuum Mechanics Fundamentals" id="continuum_mechanics">
 
@@ -75,19 +79,19 @@ import Warning from "../../components/Warning.astro"
 <p>
 Generally, the state of stress a 3D material can be represented as a second-rank tensor (i.e. a matrix) with <InlineEquation equation="3^2 = 9" /> components.
 </p>
-<!-- <Image src="/sol/material_properties/Modified stress tensor.jpg" id="stress-element" width="7"> Infinitesimal Stress element</Image> -->
+<Image src="/sol/material_properties/Modified stress tensor.jpg" id="stress-element" width="7"> Infinitesimal Stress element</Image>
 <DisplayEquation equation=  "\\boldsymbol{\\sigma} = \\begin{bmatrix} \\sigma_{11} & \\sigma_{12} & \\sigma_{13} \\\\ \\sigma_{21} & \\sigma_{22} & \\sigma_{23} \\\\ \\sigma_{31} & \\sigma_{32} & \\sigma_{33} \\end{bmatrix} \\" title="Stress tensor." background="True"/>
 
 <p>
-Using indicial notation, component <InlineEquation equation = "(i, j)"/> of this tensor is denoted as <InlineEquation equation="\\sigma_{ij}" />. When <InlineEquation equation = "i"/> and <InlineEquation equation = "j"/> are not equal, <InlineEquation equation="\\sigma_{ij}" /> is commonly denoted as <InlineEquation equation="\\tau_{ij}" /> outside of tensor form. Indicial notation can also be used for a material strain tensor.
+Using indicial notation, component <InlineEquation equation = "(i, j)"/> of this tensor is denoted as <InlineEquation equation="\\sigma_{ij}" />. The same can be said for a material strain tensor.
 </p>
 
-<!-- <Image src="/sol/material_properties/Modified Strain Tensor.jpg" width="5"> Infinitesimal Strain Element </Image> -->
+<Image src="/sol/material_properties/Modified Strain Tensor.jpg" width="5"> Infinitesimal Strain Element </Image>
 <DisplayEquation equation= "\\boldsymbol{\\varepsilon} = \\begin{bmatrix} \\varepsilon_{11} & \\varepsilon_{12} & \\varepsilon_{13} \\\\ \\varepsilon_{21} & \\varepsilon_{22} & \\varepsilon_{23} \\\\ \\varepsilon_{31} & \\varepsilon_{32} & \\varepsilon_{33} \\end{bmatrix} \\" title="Strain tensor." background="True"/>
 
 <p>
 
-Using indicial notation, component <InlineEquation equation = "(k, l)"/> of this tensor is denoted as <InlineEquation equation="\\varepsilon_{kl}" />. Similarly to the stress tensor, when <InlineEquation equation = "i"/>  and <InlineEquation equation = "j"/>  are not equal and not using tensor form, <InlineEquation equation="\\varepsilon_{ij}" /> is often written as <InlineEquation equation="\\frac{1}{2}\\tau_{ij}" />. Note
+Using indicial notation, component <InlineEquation equation = "(k, l)"/> of this tensor is denoted as <InlineEquation equation="\\varepsilon_{kl}" />. Note
 that both the stress and strain tensors are symmetric, that is <InlineEquation equation="\\sigma_{ij} = \\sigma_{ji}" /> and
 <InlineEquation equation="\\varepsilon_{kl} = \\varepsilon_{lk}" />.
 
@@ -168,8 +172,30 @@ Again, this can be expressed in a more general form.
 </SubSection>
 
 <SubSection title="Stress-Strain Diagram" id="stress-strain_diagram">
+<CalloutContainer slot="cards">
+    <CalloutCard title="Extra!">
+    <p>
+    There are many types of complex material behaviors. A few of them are listed below.
+    </p>
+        <p>Anisotropy:
+        <Itemize>
+            <Item><strong>Isotropic:</strong> material properties are independent of the direction</Item>
+            <Item><strong>Anisotropic:</strong> material properties depend on the direction (ie; composites, wood, and tissues)</Item>
+        </Itemize>
+        </p>
+        <p>Nonlinearity:</p>
+        <p>Some types of nonlinear material behaviors include viscoelasticity and creep, which introduce time dependency to the material response to loads. An example of this is silly putty, which is a viscoelastic, Non-Newtonian fluid. Silly putty behaves like a solid on quick impact, but flows slowly like a liquid over a long period of time.</p>
+    </CalloutCard>
+</CalloutContainer>
 
-A <strong>stress-strain diagram</strong> is the relationship of normal stress as a function of normal strain. One way to collect these measurement is a <strong>uniaxial tension test</strong> in which a specimen at a very slow, constant rate (quasi-static). A load <InlineEquation equation="P" /> and distance <InlineEquation equation="L" /> are measured at frequent intervals.
+<Image src='/sol/material_properties/Stress Strain Diagram.png' width='4'> Stress-strain diagram showing key properties</Image>
+<p>
+A <strong>stress-strain diagram</strong> is the relationship of normal stress as a function of normal strain. This diagram typically consists of a linear region, before the yield point, and a plastic region, after the yield point.
+</p>
+
+<p>
+One way to collect these measurements is a <strong>uniaxial tension test</strong> in which a specimen is elongated at a very slow, constant rate (quasi-static). The applied load <InlineEquation equation="P" /> and specimen length <InlineEquation equation="L" /> are measured at frequent intervals.
+</p>
 
 <DisplayEquation equation="\\varepsilon = \\frac{\\delta}{L_0} = \\frac{L-L_0}{L_0}\\" title="Evaluation of average normal strain, or engineering strain (relative to undeformed length)." background="True" />
 
@@ -181,18 +207,18 @@ A <strong>stress-strain diagram</strong> is the relationship of normal stress as
     </p>
    </Warning>
    
-<Image src='/sol/material_properties/Stress Strain Diagram.png' width='4'> Stress-strain diagram showing key properties</Image>
 </SubSection>
 
-<SubSubSection title="Elastic Behavior" id="elastic_behavior">
-Loading in this region results <strong>elastic behavior</strong>, meaning the material returns to its original shape when unloaded. This region of the diagram is mostly a straight line, limited by the proportional limit). This region ends at <InlineEquation equation="\\sigma_Y" /> (yielding). For <InlineEquation equation="\\sigma \\le \\sigma_{pl}" />, the diagram is linear, and the behavior is elastic. For <InlineEquation equation="\\sigma_{pl} < \\sigma < \\sigma_Y" />, the diagram is nonlinear, but the behavior is still elastic.
+<SubSection title="Linear Elasticity" id="linear_elasticity">
+</SubSection>
 
+<SubSubSection title="Elastic Modulus" id="elastic_modulus">
 
- <strong>Young's Modulus</strong>
+<Image src='/sol/material_properties/Stress Strain LINEAR.jpg' width='4'> Stress-strain diagram with linear region highlighted</Image>
+Loading in this region results in <strong>elastic behavior</strong>, meaning the material returns to its original shape when unloaded. This region of the diagram is mostly a straight line, limited by the proportional limit. This region ends at <InlineEquation equation="\\sigma_Y" /> (yielding). For <InlineEquation equation="\\sigma \\le \\sigma_{pl}" />, the diagram is linear, and the behavior is elastic. For <InlineEquation equation="\\sigma_{pl} < \\sigma < \\sigma_Y" />, the diagram is nonlinear, but the behavior is still elastic.
 
+Hooke's law is used for small deformations in the elastic region. The Young's modulus (also known as the elastic modulus) is the slope <InlineEquation equation="E" />.
 
-
- Hooke's law is used for small deformations in the elastic region. The Young's modulus is the slope <InlineEquation equation="E" />.
 <DisplayEquation equation="\\sigma = E\\varepsilon\\" title="Hooke's law." background="True" />
 
 <table class="table table-responsive table-bordered table-sm">
@@ -226,8 +252,9 @@ Loading in this region results <strong>elastic behavior</strong>, meaning the ma
     </tbody>
 </table>
 
+</SubSubSection>
 
-<strong>Shear Modulus</strong>
+<SubSubSection title = "Shear Modulus" id="shear_modulus">
 
 <Image src='/sol/material_properties/Shear Diagram.png' width='4'>Shear stress strain diagram</Image>
 
@@ -235,138 +262,30 @@ Loading in this region results <strong>elastic behavior</strong>, meaning the ma
 <DisplayEquation equation="\\tau_{xy} = G\\gamma_{xy}\\" title="Hooke's law." background="True" />
 
 <DisplayEquation equation="G = \\frac{E}{2(1+\\nu)}\\" title="Shear modulus." background="True" id="v_modulus"/>
-In the above equation, \(\nu\) refers to <strong>Poisson's ratio</strong>, further explained in a <a href="#poissons_ratio">subsequent section</a>. Only two of the three material constants (ie; <InlineEquation equation="G" />, <InlineEquation equation="E" />, <InlineEquation equation="\\nu" />) are independent in isotropic materials.
-
-</SubSubSection>
-
-<SubSubSection title="Plastic Behavior" id="plastic_behavior">
-
-Stresses above the plastic limit (<InlineEquation equation="\\sigma_Y < \\sigma" />) cause the material to permanently deform.
-
-<p>
- <strong>Yield Strength</strong>
-</p>
-
-<p>
- Perfect plastic or ideal plastic: well-defined <InlineEquation equation="\\sigma_Y" />, stress plateau up to failure. Some materials (e.g. mild steel) have two yield points (stress plateau at <InlineEquation equation="\\sigma_{YL}" />). Most ductile metals do not have a stress plateau; yield strength <InlineEquation equation="\\sigma_{YS}" /> is then defined by the <strong>0.002 (0.2%) offset method</strong>.
-</p>
-
- <strong>Strain Hardening</strong>
-
-<Image src='/sol/material_properties/Strain Hardening.png' width='5.5'>Strain hardening</Image>
-
-<p>
- <em>Atoms rearrange</em> in plastic region of ductile materials when a higher stress is sustained. Plastic strain remains after unloading as <em>permanent set</em>, resulting in permanent deformation. Reloading is linear elastic up to the new, higher yield stress (at <strong>A'</strong>) and a reduced ductility.
-</p>
-
- <strong>Ultimate Strength</strong>
-
-
-<p>
- The ultimate strength (<InlineEquation equation="\\sigma_u" />) is the maximum stress the material can withstand.
-</p>
-
- <strong>Necking</strong>
-
-<Image src='/sol/material_properties/Necking.png' width='3'>Necking</Image>
-<p>
- After ultimate stress (<InlineEquation equation="\\sigma_u < \\sigma" />), the middle of the material elongates before failure.
-</p>
-
-</SubSubSection>
-
-<SubSubSection title="Failure" id="failure">
-
-
-<p>
- Also called fracture or rupture stress (<InlineEquation equation="\\sigma_f" />) is the stress at the point of failure for the material. Brittle and Ductile materials fail differently.
-</p>
-
-<p><strong>Ductile</strong> materials generally fail in shear. There is a large region of plastic deformation before failure (fracture) at higher strain and necking.</p>
-
-<Image src='/sol/material_properties/ductile.png' width='4.5'>Ductile failure</Image>
-
-<Row>
-    <Col values="12 md-6"><li>Axial – maximum shear stress at \(45^o\) angle</li></Col>
-    <Col values="12 md-6"><li>Torsion – maximum shear stress at \(0^o\) angle</li></Col>
-</Row>
-
-<p class="mt-2"><strong>Brittle</strong> materials are weaker in tension than shear. There is a small plastic region between yield and failure (fracture) and no necking.</p>
-
-<Image src='/sol/material_properties/brittle.png' width='4.5'>Brittle failure</Image>
-
-<Row>
-    <Col values="12 md-6"><li>Axial – maximum normal stress at \(0^o\) angle</li></Col>
-    <Col values="12 md-6"><li>Torsion – maximum normal stress at \(45^o\) angle</li></Col>
-</Row>
-
-<p class="mt-2">
- Note the difference between engineering and true stress/strain diagrams: ultimate stress is a consequence of necking, and the true maximum is the true fracture stress.
-</p>
-
- <strong>Example:</strong> Concrete is a brittle material.
-
-<Itemize>
-	<Item>Maximum compressive strength is substantially larger than the maximum tensile strength.
-    </Item>
-	<Item>For this reason, concrete is almost always reinforced with steel bars or rods whenever it is designed to support tensile loads.
-    </Item>
-</Itemize>
-
-<CalloutContainer slot="cards">
-    <CalloutCard title="Heads up!">
-        <p>
-           <strong> Strain Energy</strong> builds on this content in Engineering Materials.
-        </p>
-        <p>
-            Deformation does work on the material: equal to internal strain energy (by energy conservation).
-
-            <DisplayEquation equation="\\Delta U = \\int F_{z}dz = \\int \\sigma_{z}(\\Delta x \\Delta y \\Delta z)d\\varepsilon_{z}\\" />
-
-            Energy density. <DisplayEquation equation="u = \\frac{\\Delta U}{\\Delta V} = \\int \\sigma_{z}d\\varepsilon_{z}\\" />
-
-            Can be generalized to any deformation: areas under stress-strain curves
-
-            <DisplayEquation equation="u = \\int \\sigma d\\varepsilon\ \\quad \\text{or} \\quad u = \\int \\tau d\\gamma\\" />
-        </p>
-    </CalloutCard>
-
-    <CalloutCard title="Heads up!">
-        <p>
-            <strong>Fatigue</strong> builds on this content in Engineering Materials and Mechanical Design.                
-        </p>
-        <p>
-            <Image src='/sol/material_properties/SN Curve.png' width='4'>SN curve examples</Image>
-
-            If stress does not exceed the elastic limit, the specimen returns to its original configuration. However, this is not the case if the loading is repeated thousands or millions of times. In such cases, rupture will happen at stress lower than the fracture stress - this phenomenon is known as fatigue.
-        </p>
-    </CalloutCard>
-</CalloutContainer>
-
-</SubSubSection>
-
-<SubSection title="Other Derived Properties" id="other_derived_properties"></SubSection>
-  
-<SubSubSection title="Directional Materials" id="directional_materials">
-
-<Itemize>
-    <Item><strong>Isotropic:</strong> material properties are independent of the direction</Item>
-    <Item><strong>Anisotropic:</strong> material properties depend on the direction (ie; composites, wood, and tissues)</Item>
-</Itemize>
+In the above equation, \(\nu\) refers to <strong>Poisson's ratio</strong>. Only two of the three material constants (ie; <InlineEquation equation="G" />, <InlineEquation equation="E" />, <InlineEquation equation="\\nu" />) are independent in isotropic materials.
 
 </SubSubSection>
 
 <SubSubSection title="Poisson's Ratio" id="poissons_ratio">
-
+<CalloutContainer slot="cards">
+    <CalloutCard title="Heads Up!">
+    <p>
+    Though typically the Poisson ratio will be positive, there are some materials (known as auxetic materials) which have a negative Poisson ratio. This means that these materials expand in all directions when pulled.
+    </p>
+    
+    <p>
+    For an interesting demonstration on auxetic materials, check out this video: 
+    <iframe src="https://www.youtube.com/embed/ErnvTsCRDrs" class="w-100" title="Auxetic Materials Example" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </p>
+    </CalloutCard>
+</CalloutContainer>
 <Image src="/sol/material_properties/Poisson's Ratio.png" width='4'>Poisson's ratio</Image>
 
 <p>
     As illustrated in the figure above, when an object is being compressed it expands outward, and when stretched it will become thinner. Depending on the material, it may experience more or less lateral deformation for a given amount of axial deformation. The ratio that governs the amount of lateral strain per unit of axial strain is called <strong>Poisson's ratio</strong>.
 </p>
 
-<DisplayEquation equation="\\varepsilon_{x} = \\frac{\\delta_x}{L}\\" title="Axial (normal) strain." background="True" />
-
- <DisplayEquation equation="\\nu = -\\frac{\\text{lateral strain}}{\\text{axial strain}} = -\\frac{\\varepsilon_y}{\\varepsilon_x}" title=" Poisson's ratio \\(\\nu\\)." background="True" />
+<DisplayEquation equation="\\nu = -\\frac{\\text{lateral strain}}{\\text{axial strain}} = -\\frac{\\varepsilon_y}{\\varepsilon_x}" title=" Poisson's ratio \\(\\nu\\)." background="True" />
 
 <DisplayEquation equation="0 < \\nu < 0.5\\" title="Typical range." background="True" derivation="True" id="poisson_range">
     <p class="m-0">Consider a cylinder with volume <InlineEquation equation="V = A\\cdot L" />. We know that <InlineEquation equation="A = \\frac{\\pi}{4}d^2" />. Since the diameter is dependant on the change in length \(dx\) due to Poisson's ratio, we get </p> 
@@ -403,12 +322,190 @@ Stresses above the plastic limit (<InlineEquation equation="\\sigma_Y < \\sigma"
 </DisplayEquation> 
 
 <DisplayEquation equation="\\varepsilon_{z} = \\varepsilon_{y} = -\\nu\\varepsilon_{x}\\" title="Lateral strain." background="True" />
-
-<Warning title="Negative Poisson's Ratio (auxetics)" id="ngt-psn">
-    <p>
-      A negative Poisson's  ratio is possible when the material structure is non-trival.
-    </p>
-   </Warning>
-   
 </SubSubSection>
+
+
+<SubSection title="Plasticity" id="plasticity">
+<CalloutContainer slot="cards">
+    <CalloutCard title="Extra!">
+        <p>
+            <strong>Fatigue</strong> builds on this content in Engineering Materials and Mechanical Design.                
+        </p>
+        <p>
+            <Image src='/sol/material_properties/SN Curve.png' width='4'>SN curve examples</Image>
+
+            If stress does not exceed the elastic limit, the specimen returns to its original configuration. However, this is not the case if the loading is repeated thousands or millions of times. In such cases, rupture will happen at stress lower than the fracture stress - this phenomenon is known as fatigue.
+        </p>
+    </CalloutCard>
+</CalloutContainer>
+<Image src='/sol/material_properties/Stress Strain PLASTIC.jpg' width='4'> Stress-strain diagram with plastic region highlighted</Image>
+
+<p> Plastic material behaviors occur after the material has been exerted past its yield point. In this region, permanent deformation takes place. Different materials behave differently when plastically deformed, and one major classification for describing these differences is ductility.</p>
+</SubSection>
+
+<SubSubSection title="Ductility" id="ductility">
+<CalloutContainer slot="cards">
+    <CalloutCard title="Extra!">
+        <p>
+           <strong> Strain Energy</strong> builds on this content in Engineering Materials.
+        </p>
+        <p>
+            Deformation does work on the material: equal to internal strain energy (by energy conservation).
+
+            <DisplayEquation equation="\\Delta U = \\int F_{z}dz = \\int \\sigma_{z}(\\Delta x \\Delta y \\Delta z)d\\varepsilon_{z}\\" />
+
+            Energy density. <DisplayEquation equation="u = \\frac{\\Delta U}{\\Delta V} = \\int \\sigma_{z}d\\varepsilon_{z}\\" />
+
+            Can be generalized to any deformation: areas under stress-strain curves
+
+            <DisplayEquation equation="u = \\int \\sigma d\\varepsilon\ \\quad \\text{or} \\quad u = \\int \\tau d\\gamma\\" />
+        </p>
+    </CalloutCard>
+</CalloutContainer>
+
+<p>
+For ductile materials, tension failures occur along a cone shaped surface that forms an angle of approximately <InlineEquation equation = "45^\\circ"/> with the original surface of the specimen. Shear is primarily responsible for failure in ductile materials.
+</p>
+
+<p>
+There are many ways to quantify ductility. A couple common ones are listed below.
+<DisplayEquation equation="\\begin{align} \\text{% elongation} = 100 \\times (L_f - L_o) / L_o \\\\ \\text{% area reduction} = 100 \\times (A_o - A_f) / A_o \\end{align}" title="Ways to quantify ductility." background="True" id="mat-duct"/>
+</p>
+
+</SubSubSection>
+
+<SubSubSection title="Yield Strength" id="yield-strength">
+<p>
+Stresses above the plastic limit (<InlineEquation equation="\\sigma > \\sigma_Y" />) cause the material to permanently deform. This limit is known as the <strong> yield strength </strong>.
+</p>
+
+<p>
+ Perfect plastic or ideal plastic: well-defined <InlineEquation equation="\\sigma_Y" />, stress plateau up to failure. Some materials (e.g. mild steel) have two yield points (stress plateau at <InlineEquation equation="\\sigma_{YL}" />). Most ductile metals do not have a stress plateau; yield strength <InlineEquation equation="\\sigma_{Y}" /> is then defined by the <strong>0.002 (0.2%) offset method</strong>.
+</p>
+
+</SubSubSection>
+
+<SubSubSubSection title = "0.2% Offset Method" id = "offset_method">
+
+<Image src='/sol/material_properties/offset_Stress_Strain_FIXED.jpg' width='4'> Stress-strain diagram with offset line highlighted</Image>
+
+<p> <strong>Note:</strong> The dotted yellow line above represents the 0.2% offset line for calculating yield stress.</p>
+<p>
+On the stress-strain curve, the yield strength is the point at which the graph is no longer linear. However, most stress-strain curves will have a gradual shift from linearity to nonlinearity, making it difficult to identify an exact yield point. The 0.2% offset method allows for a consistent metric to determine where yielding in a material occurs.
+</p>
+
+<p>
+Steps to perform the 0.2% offset method:
+</p>
+
+<Itemize>
+    <Item> Determine the slope of the linear region of the stress-strain curve (the Young's modulus, E). </Item>
+    <Item> Start at 0.002 on the horizontal (strain) axis, and draw a line with slope E. </Item>
+    <Item> Find the point where the line from step 2 intersects the stress-strain curve. This is the 0.2% yield stress. </Item>
+</Itemize>
+
+</SubSubSubSection>
+
+<SubSubSection title="Strain Hardening" id="strain-hardening">
+
+<Image src='/sol/material_properties/Strain Hardening.png' width='5.5'>Strain hardening</Image>
+
+<p>
+ <em>Atoms rearrange</em> in plastic region of ductile materials when a stress higher than the yield strength is sustained. Plastic strain remains after unloading as <em>permanent set</em>, resulting in permanent deformation. Reloading is linear elastic up to the new, higher yield stress (at <strong>A'</strong>) and a reduced ductility.
+</p>
+
+</SubSubSection>
+
+<SubSubSection title="Ultimate Strength" id="ultimate-strength">
+<p>
+ The ultimate strength (<InlineEquation equation="\\sigma_u" />) is the maximum stress the material can withstand.
+</p>
+
+ <strong>Necking</strong>
+
+<Image src='/sol/material_properties/Necking.png' width='3'>Necking</Image>
+<p>
+ After ultimate stress (<InlineEquation equation="\\sigma_u < \\sigma" />), the middle of the material elongates before failure. Necking only occurs in ductile materials.
+</p>
+
+</SubSubSection>
+
+<SubSubSection title="Failure" id="failure">
+<p>
+ Also called fracture or rupture stress (<InlineEquation equation="\\sigma_f" />) is the stress at the point of failure for the material. Brittle and Ductile materials fail differently.
+</p>
+
+<p><strong>Ductile</strong> materials generally fail in shear. There is a large region of plastic deformation before failure (fracture) at higher strain and necking.</p>
+
+<Image src='/sol/material_properties/ductile.png' width='4.5'>Ductile failure</Image>
+
+<Row>
+    <Col values="12 md-6"><li>Axial – maximum shear stress at \(45^o\) angle</li></Col>
+    <Col values="12 md-6"><li>Torsion – maximum shear stress at \(0^o\) angle</li></Col>
+</Row>
+
+<p class="mt-2"><strong>Brittle</strong> materials are weaker in tension than shear. There is a small plastic region between yield and failure (fracture) and no necking.</p>
+
+<Image src='/sol/material_properties/brittle.png' width='4.5'>Brittle failure</Image>
+
+<Row>
+    <Col values="12 md-6"><li>Axial – maximum normal stress at \(0^o\) angle</li></Col>
+    <Col values="12 md-6"><li>Torsion – maximum normal stress at \(45^o\) angle</li></Col>
+</Row>
+
+<p class="mt-2">
+ Note the difference between engineering and true stress/strain diagrams: ultimate stress is a consequence of necking, and the true maximum is the true fracture stress.
+</p>
+
+ <strong>Example:</strong> Concrete is a brittle material.
+
+<Itemize>
+	<Item>Maximum compressive strength is substantially larger than the maximum tensile strength.
+    </Item>
+	<Item>For this reason, concrete is almost always reinforced with steel bars or rods whenever it is designed to support tensile loads.
+    </Item>
+</Itemize>
+
+<Image src='/sol/material_properties/brittle_ductile_graph.png' width='4.5'>Brittle vs ductile failure</Image>
+Whether a material is brittle or ductile can be shown from the stress strain curve. Ductile materials tend to have long plastic regions, such as graph (C) in the diagram above. Brittle materials lack a substantial plastic region, such as in graph (A) above.
+
+</SubSubSection>
+
+<!--
+<SubSection title="Strain Energy Density" id="energy-density">
+    Strain Energy builds on this content in Engineering Materials.
+
+    Deformation does work on the material: equal to internal strain energy (by energy conservation).
+
+    <DisplayEquation equation="\\Delta U = \\int F_{z}dz = \\int \\sigma_{z}(\\Delta x \\Delta y \\Delta z)d\\varepsilon_{z}\\" />
+
+    Energy density. <DisplayEquation equation="u = \\frac{\\Delta U}{\\Delta V} = \\int \\sigma_{z}d\\varepsilon_{z}\\" />
+
+    Can be generalized to any deformation: areas under stress-strain curves
+
+    <DisplayEquation equation="u = \\int \\sigma d\\varepsilon\ \\quad \\text{or} \\quad u = \\int \\tau d\\gamma\\" />
+</SubSection>
+
+<SubSection title="Anisotropy" id="anisotropy">
+
+<Itemize>
+    <Item><strong>Isotropic:</strong> material properties are independent of the direction</Item>
+    <Item><strong>Anisotropic:</strong> material properties depend on the direction (ie; composites, wood, and tissues)</Item>
+</Itemize>
+
+</SubSection>
+
+<SubSection title="Nonlinearity" id="nonlinearity">
+
+ADD CONTENT HERE
+
+</SubSection>
+
+<SubSection title="Viscoelasticity" id="viscoelasticity">
+
+ADD CONTENT HERE
+
+</SubSection>
+-->
+
 </Layout>

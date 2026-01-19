@@ -16,7 +16,6 @@ import CalloutContainer from "../../components/CalloutContainer.astro"
 
 <div slot="navtree">
     <ul class='list-group list-group-flush py-0'> 
-        <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#units'>Units</a></li>
         <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#normal_strain'>Normal Strain</a>
             <ul class='list-group list-group-flush py-0'> 
                 <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#average_normal_(extensional)_strain'>Average Normal (extensional) Strain</a></li> 
@@ -30,8 +29,8 @@ import CalloutContainer from "../../components/CalloutContainer.astro"
             <ul class='list-group list-group-flush py-0'> 
                 <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#direct_measurement'>Direct Measurement</a></li>
                 <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#contact_extensometer'>Contact Extensometer</a></li>
-                <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#electrical_resistance_strain_gauges'>Electrical Resistance Strain Gauges</a></li>
-                <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#vibrating_wire_strain_gauge'>Vibrating Wire Strain Gauge</a></li>
+                <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#electrical_resistance_strain_gauges'>Electrical Resistance</a></li>
+                <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#vibrating_wire_strain_gauge'>Vibrating Wire</a></li>
                 <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#digital_image_correlation_(dic)'>Digital Image Correlation (DIC)</a></li>
             </ul>
         </li>
@@ -44,15 +43,21 @@ import CalloutContainer from "../../components/CalloutContainer.astro"
     When forces are applied to a body, <strong>deformation</strong>, the change in length or shape, occurs. The change in length, divided by the original length, is the <strong>strain</strong>. We use strain to <strong>normalize deformations</strong> with respect to the size of the geometry.
 </p>
 
+<DisplayEquation equation=" E = \\begin{bmatrix} \\varepsilon_{xx} & \\varepsilon_{xy} & \\varepsilon_{xz} \\\\ \\varepsilon_{yx} & \\varepsilon_{yy} & \\varepsilon_{yz} \\\\ \\varepsilon_{zx} & \\varepsilon_{zy} & \\varepsilon_{zz} \\end{bmatrix}\\" title="General strain tensor." background="True"/>
+
+<p>
+    The components of strain in different directions can be represented using a tensor as shown above.
+</p>
+
 </Section>
 
-<SubSection title="Units" id="units">
-
-Dimensionless [mm/mm, in/in, or %]
-
-</SubSection>
-
 <SubSection title="Normal Strain" id="normal_strain">
+
+<p>
+    The normal strain components are represented by the values along the diagonal of a tensor. These indicate strain along an axis.
+</p>
+
+<DisplayEquation equation=" E = \\begin{bmatrix} \\varepsilon_{xx} & - & - \\\\ - & \\varepsilon_{yy} & - \\\\ - & - & \\varepsilon_{zz} \\end{bmatrix}\\" title="Normal strain tensor." background="True"/>
 
 <Image src="/sol/strain/Normal Strain.png" width="4"> Normal strain</Image>
 
@@ -84,8 +89,8 @@ Dimensionless [mm/mm, in/in, or %]
     <Image src="/sol/strain/True Strain.png" width="5.5"> True strain</Image>
     
 
-    <DisplayEquation equation=" \\varepsilon_{true} = ln(1 + \\frac{\\delta}{L_0})\\" id="sta-ts"  derivation="True" background="True" title="True strain.">
-        <DisplayEquation equation="\\begin{align} \\varepsilon_{true} &= \\Sigma\\Delta\\varepsilon_0 = \\int d\\varepsilon \\\\ \\varepsilon_{true} &= \\int_{L_0}^{L_f}\\frac{1}{L}dL \\\\ \\varepsilon_{true} &= ln(L)|_{L_0}^{L_f} = ln(\\frac{L_f}{L_0}) \\\\ \\varepsilon_{true} &= ln(\\frac{L_0+\\delta}{L_0}) = ln(1+\\frac{\\delta}{L_0}) \\\\ \\varepsilon_{true} &= \\varepsilon_{eng}-\\frac{1}{2}\\varepsilon_{eng}^2 + \\frac{1}{3}\\varepsilon_{eng}^{3} + ...\\end{align}" />
+    <DisplayEquation equation=" \\varepsilon_{true} = \\ln(1 + \\frac{\\delta}{L_0})\\" id="sta-ts"  derivation="True" background="True" title="True strain.">
+        <DisplayEquation equation="\\begin{align} \\varepsilon_{true} &= \\Sigma\\Delta\\varepsilon_0 = \\int d\\varepsilon \\\\ \\varepsilon_{true} &= \\int_{L_0}^{L_f}\\frac{1}{L}dL \\\\ \\varepsilon_{true} &= \\ln(L)|_{L_0}^{L_f} = \\ln(\\frac{L_f}{L_0}) \\\\ \\varepsilon_{true} &= \\ln(\\frac{L_0+\\delta}{L_0}) = \\ln(1+\\frac{\\delta}{L_0}) \\\\ \\varepsilon_{true} &= \\varepsilon_{eng}-\\frac{1}{2}\\varepsilon_{eng}^2 + \\frac{1}{3}\\varepsilon_{eng}^{3} + ...\\end{align}" />
     </DisplayEquation>
     </Item>
     <Item> For small strain: 
@@ -96,6 +101,13 @@ Dimensionless [mm/mm, in/in, or %]
 </SubSubSection>
 
 <SubSection title="Shear Strain" id="shear_strain">
+<p>
+    Shear strain components make up all of the values besides those along the diagonal of the tensor.
+</p>
+
+<DisplayEquation equation=" E = \\begin{bmatrix} - & \\varepsilon_{xy} & \\varepsilon_{xz} \\\\ \\varepsilon_{yx} & - & \\varepsilon_{yz} \\\\ \\varepsilon_{zx} & \\varepsilon_{zy} & - \\end{bmatrix}\\" title="Shear strain tensor." background="True"/>
+
+
 <p>
     Change in <strong>angle</strong> between line segments oriented in perpendicular directions <InlineEquation equation="n" /> and <InlineEquation equation="t" />:
 </p>

@@ -1,0 +1,89 @@
+---
+import Layout from "../../layouts/Layout.astro" 
+import Image from "../../components/Image.astro" 
+import Section from "../../components/Section.astro" 
+import SubSection from "../../components/SubSection.astro" 
+import SubSubSection from "../../components/SubSubSection.astro" 
+import Itemize from "../../components/Itemize.astro" 
+import Item from "../../components/Item.astro" 
+import InlineEquation from "../../components/InlineEquation.astro" 
+import DisplayEquation from "../../components/DisplayEquation.astro" 
+import BlueText from "../../components/BlueText.astro" 
+
+
+---
+<Layout title="Units">
+
+<div slot="navtree">
+	<ul class='list-group list-group-flush py-0'> 
+		<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#strain-units'>Strain</a></li>
+        <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#stress-units'>Stress</a></li>
+        <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#torsion-units'>Torsion</a></li>
+	</ul>
+</div>
+
+<Section title="Units" id="units"></Section>
+
+<SubSection title="Strain" id="strain-units">
+
+Dimensionless [mm/mm, in/in, or %]
+
+</SubSection>
+
+<SubSection title="Stress" id="stress-units">
+The units of stress can be found in the table below.
+
+<table class="table table-responsive table-bordered table-sm">
+    <thead>
+        <tr>
+            <th>Measure</th>
+            <th>SI units</th>
+            <th>Imperial units</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Force</td>
+            <td>[\(\rm N\)]</td>
+            <td>[\(\rm lb\)]</td>
+        </tr>
+        <tr>
+            <td>Area</td>
+            <td>[\(\rm m^2\)]</td>
+            <td>[\(\rm in^2\)]</td>
+        </tr>
+        <tr>
+            <td>Stress</td>
+            <td>pascal = [\(\rm Pa\)] = [\(\rm N/m^2\)]</td>
+            <td>pound per square inch = [\(\rm psi\)] = [\(\rm lb/in^2\)]</td>
+        </tr>
+    </tbody>
+</table>
+
+ It is also important to recall some of the most common prefixes used to denote quantity.
+
+ <table class="table table-responsive table-bordered table-sm">
+    <tbody>
+        <tr>
+            <td>kilopascal [\(\rm kPa\)]</td>
+            <td>\(10^3\) [\(\rm Pa\)]</td>
+        </tr>
+        <tr>
+            <td>megapascal [\(\rm MPa\)]</td>
+            <td>\(10^6\) [\(\rm Pa\)]</td>
+        </tr>
+        <tr>
+            <td>gigapascal [\(\rm GPa\)]</td>
+            <td>\(10^9\) [\(\rm Pa\)]</td>
+        </tr>
+    </tbody>
+</table>
+</SubSection>
+
+<SubSection title="Torsion" id="torsion-units">
+
+Force X distance [lb-in or N-m]
+
+</SubSection>
+
+</Layout>
