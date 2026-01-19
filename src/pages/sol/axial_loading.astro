@@ -15,11 +15,10 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
 
 <div slot="navtree">
     <ul class='list-group list-group-flush py-0'> 
-        <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#notation_and_convention'>Notation and Convention</a></li>
+        <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#tensor'>Pure Axial Loading Tensor</a></li>
         <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#saint-venants_principle_slender_beam_case'>Saint-Venant's Principle: slender beam case</a>
         <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#force-deformation_relation'>Force-Deformation Relation</a>
         <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#axially_varying_properties'>Axially Varying Properties</a>
-        <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#principle_of_superposition_'>Principle of Superposition</a>
         <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#general_solving_procedure'>General Solving Procedure</a>
         <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#statically_determinate_problems'>Statically Determinate Problems</a>
         <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#statically_indeterminate_problems'>Statically Indeterminate Problems</a>
@@ -36,26 +35,6 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
 </p>
 
 <DisplayEquation equation=" T= \\begin{bmatrix} \\frac{F_x}{A} & 0 & 0 \\\\ 0 & 0 & 0 \\\\ 0 & 0 & 0 \\end{bmatrix} \\" title="Axial loading stress tensor." background="True"/>
-</SubSection>
-
-<SubSection title="Notation and Convention" id="notation_and_convention">
-
-<Image src='/sol/axial_loading/Notation.png' width='5'>Notation</Image>
-
-<ul>
-    <li>   <strong>Displacement of points in space:</strong>  the movement of a point relative to its initial position in space (ex;  <InlineEquation equation='\\delta_B' /> )</li>
-     <li><strong>Change in length of a segment:</strong>  the relative displacement of a point with respect to another point (ex;  <InlineEquation equation='\\delta_{B/A} = \\delta_B - \\delta_A = \\delta_1' /> ). This can be written multiple ways:
-     <DisplayEquation equation='\\delta_{AD} \\equiv \\delta_{DA} \\equiv \\delta_{A/D} \\equiv \\delta_{D/A}\\' title="Notation." background="True"/></li>
-</ul>
-
-<strong>Sign Conventions for internal forces in a bar.</strong>
-<ul>
-     <li><InlineEquation equation='F>0' /> : tension</li>
-     <li><InlineEquation equation='F<0' /> : compression</li>
-     <li><InlineEquation equation='\\delta>0' /> : elongation</li>
-     <li><InlineEquation equation='\\delta<0' /> : contraction</li>
-</ul>
-
 </SubSection>
 
 <SubSection title="Saint-Venant's Principle: slender beam case" id="saint-venants_principle_slender_beam_case">
@@ -97,14 +76,6 @@ For non-uniform load, material property and cross-section area:
 </DisplayEquation>
 
  Assume variations with <InlineEquation equation='x' /> are "mild" (on length scale longer than cross-sectional length scales)
-
-</SubSection>
-
-<SubSection title="Principle of Superposition " id="principle_of_superposition_">
-
-Superposition: If the displacements are (1) small and (2) linearly related to the force components acting, the displacements caused by the components can be added up:
-
-<DisplayEquation equation='\\delta = \\sum_i \\delta_i = \\sum_i \\frac{F_i L_i}{E_i A_i}\\' title="Superposition." background="True" />
 
 </SubSection>
 
