@@ -431,22 +431,44 @@ const path = Astro.url.pathname;
                 <div class="dropdown-menu tile-list px-2" id="mainnav-solids"> 
                     <div class="d-flex" >
                         <section class="tile menu white-box col">
-                            <h2><a href="/sol" aria-label="About">Solid mechanics</a></h2>
-                                <ol style="column-fill: balance;" class="course-menu solids-menu">
-                                    <li><a href="/sol/stress?origin=sidebar">Stress</a></li>
+                            <h2><a href="/sol" aria-label="About">Material Behavior</a></h2>
+                                <ol style="column-fill: balance-all;" class="course-menu solids-menu">
                                     <li><a href="/sol/strain?origin=sidebar">Strain</a></li>
+                                    <li><a href="/sol/stress?origin=sidebar">Stress</a></li>
+                                    <li><a href="/sol/stress_transformation?origin=sidebar">Stress transformation</a></li>
                                     <li><a href="/sol/material_properties?origin=sidebar">Material properties</a></li>
+                                    <li><a href="/sol/failure_engineering_materials?origin=sidebar">Failure theories</a></li>
+                                    <li><a href="/sol/design_considerations?origin=sidebar">Design considerations</a></li>
+                                </ol>
+                        </section>
+                        <section class = "tile menu white-box col">
+                            <h2><a href = "/dyn" aria-label = "About">Simple Loading</a></h2>
+                                <ol style = "column-fill: balance-all;" class = "course-menu dynamics-menu">
+                                    <li><a href="/sol/overview?origin=sidebar">Overview</a></li>
                                     <li><a href="/sol/axial_loading?origin=sidebar">Axial loading</a></li>
                                     <li><a href="/sol/torsion?origin=sidebar">Torsion</a></li>
-                                    <li><a href="/sol/shear_moment_diagrams?origin=sidebar">Shear moment diagrams</a></li>
                                     <li><a href="/sol/bending?origin=sidebar">Bending</a></li>
                                     <li><a href="/sol/transverse_shear?origin=sidebar">Transverse shear</a></li>
-                                    <li><a href="/sol/pressure_vessels?origin=sidebar">Pressure vessels</a></li>
-                                    <li><a href="/sol/combined_loading?origin=sidebar">Combined loading</a></li>
-                                    <li><a href="/sol/stress_transformation?origin=sidebar">Stress transformation</a></li>
-                                    <li><a href="/sol/failure_theories?origin=sidebar">Failure theories</a></li>
+                                </ol>
+                        </section>
+                        <section class = "tile menu white-box col">
+                            <h2><a href = "/dyn" aria-label = "About">Combined Loading</a></h2>
+                                <ol style = "column-fill: balance-all;" class = "course-menu dynamics-menu">
+                                    <li><a href="/sol/shear_moment_diagrams?origin=sidebar">Shear & moment diagrams</a></li>
                                     <li><a href="/sol/beam_deflection?origin=sidebar">Beam deflection</a></li>
+                                    <li><a href="/sol/pressure_vessels?origin=sidebar">Pressure vessels</a></li>
                                     <li><a href="/sol/buckling?origin=sidebar">Buckling</a></li>
+                                    <li><a href="/sol/thermal_loading?origin=sidebar">Thermal Loading</a></li>
+                                    <li><a href="/sol/superposition?origin=sidebar">Principle of Superposition</a></li>
+                                </ol>
+                        </section>
+                                    
+                        <section class="tile menu white-box col">
+                            <h2><a href="/sol" aria-label="About">Appendix</a></h2>
+                                <ol style="column-fill: balance;" class="course-menu solids-menu">
+                                    <li><a href="/sol/units?origin=sidebar">Units</a></li>
+                                    <li><a href="/sol/sign_conventions?origin=sidebar">Sign Conventions</a></li>
+                                    <li><a href="/sol/geometric_properties?origin=sidebar">Geometric Properties</a></li>
                                 </ol>
                         </section>
                     </div>
