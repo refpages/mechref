@@ -104,6 +104,18 @@ import CodeBox from "../../components/CodeBox.astro"
 
       f_sub_float = float(f_sub)
       print(type(f_sub_float)) # <class 'float'>`/>
+    <pre style = "border-radius: 0;">
+&lt;class 'sympy.matrices.dense.MutableDenseMatrix'&gt;
+&lt;class 'int'&gt;
+&lt;class 'numpy.float64'&gt;
+&lt;class 'sympy.core.mul.Mul'&gt;
+&lt;class 'sympy.core.mul.Mul'&gt;
+&lt;class 'sympy.core.power.Pow'&gt;
+&lt;class 'sympy.core.symbol.Symbol'&gt;
+&lt;class 'sympy.core.mul.Mul'&gt;
+&lt;class 'sympy.core.numbers.Integer'&gt;
+&lt;class 'float'&gt;
+    </pre>
   </SubSection>
 
   <SubSection title = "Matrices" id = "matrices"/>
@@ -122,6 +134,10 @@ import CodeBox from "../../components/CodeBox.astro"
       print(A[i])     # Returns the i-th value of A (0-indexed).
 
       print(A[i, j])  # Returns the value in the i-th row and j-th column of A.`/>
+    <pre style = "border-radius: 0;">
+1
+3
+    </pre>
   </SubSubSection>
 
   <SubSubSection title = "Matrix operations" id = "matrix_operations">
@@ -131,6 +147,24 @@ import CodeBox from "../../components/CodeBox.astro"
                     # A and B. (# of columns in A must match the # of rows in B.)
 
       print(A.norm()) # Returns the magnitude (length) of matrix A.`/>
+    <pre style = "border-radius: 0;">
+Matrix([[30, 36, 42], [66, 81, 96], [102, 126, 150]])
+sqrt(285)
+    </pre>
+  </SubSubSection>
+
+  <SubSubSection title = "Vector operations" id = "vector_operations">
+    <CodeBox language = "python" code = `u = sp.Matrix([1, 2, 3])
+      v = sp.Matrix([4, 5, 6])
+
+      print(u.dot(v))      # Returns the dot product of u and v
+      print(u.cross(v))    # Returns the cross product of u and v
+      print(u.project(v))  # Returns the projection of u onto v`/>
+    <pre style = "border-radius: 0;">
+32
+Matrix([[-3], [6], [-3]])
+Matrix([[128/77], [160/77], [192/77]])
+    </pre>
   </SubSubSection>
 
   <SubSection title = "Trigonometry" id = "trigonometry">
@@ -139,6 +173,10 @@ import CodeBox from "../../components/CodeBox.astro"
 
       theta = sp.pi / 4
       print(sp.deg(theta))  # Converts theta from radians to degrees: (180/pi)(theta)`/>
+    <pre style = "border-radius: 0;">
+pi/4
+45
+    </pre>
   </SubSection>
 
   <SubSubSection title = "Trigonometric functions" id = "trigonometric_functions">
@@ -147,6 +185,11 @@ import CodeBox from "../../components/CodeBox.astro"
       print(sp.cos(theta))  # Returns cos(theta) (theta must be in radians)
 
       print(sp.tan(theta))  # Returns tan(theta) (theta must be in radians)`/>
+    <pre style = "border-radius: 0;">
+sqrt(2)/2
+sqrt(2)/2
+1
+    </pre>
   </SubSubSection>
 
   <SubSubSection title = "Inverse trigonometric functions" id = "inverse_trigonometric_functions">
@@ -161,6 +204,11 @@ import CodeBox from "../../components/CodeBox.astro"
       ## sp.atan(y/x) only returns angles between -pi/2 and pi/2, so always use atan2(y, x)
 
       ## note that in numpy, this is np.arctan2(y,x)`/>
+    <pre style = "border-radius: 0;">
+0.927295218001612
+0.927295218001612
+atan(4/3)
+    </pre>
   </SubSubSection>
 
   <SubSection title = "Symbols and substitutions" id = "symbols_and_substitutions">
@@ -175,6 +223,11 @@ import CodeBox from "../../components/CodeBox.astro"
 
       f = sp.sqrt(x) + y**4 + z / 3
       print(f.subs({x: x_0, y: y_0, z: z_0})) # Multiple substitutions`/>
+    <pre style = "border-radius: 0;">
+x**2
+1
+18
+    </pre>
   </SubSection>
 
   <SubSection title = "Calculus" id = "calculus"/>
@@ -188,6 +241,12 @@ import CodeBox from "../../components/CodeBox.astro"
       print(f.diff(x, 2))  # Equivalent to f.diff(x, x) = sp.diff(f, x, x)
 
       print(f.diff(x, 2, y, 3))  # Equivalent to sp.diff(f, x, x, y, y, y)`/>
+    <pre style = "border-radius: 0;">
+2*x*y**4
+2*y**4
+48*y
+48*y
+    </pre>
   </SubSubSection>
 
   <SubSubSection title = "Integrals" id = "integrals">
@@ -199,6 +258,11 @@ import CodeBox from "../../components/CodeBox.astro"
       print(f.integrate([x, x_0, x_1]))  # Returns the definite integral of f from x_0 to x_1
 
       print(f.integrate([x, x_0, x_1], [y, y_0, y_1]))  # Returns area integral`/>
+    <pre style = "border-radius: 0;">
+x**3*y**4/3
+y**4/3
+1024/15
+    </pre>
   </SubSubSection>
 
   <SubSection title = "Mathematical functions" id = "mathematical_functions">
@@ -210,6 +274,11 @@ import CodeBox from "../../components/CodeBox.astro"
 
       f = sp.sqrt(2)
       print(f.evalf(n))  # Returns a numerical approximation of f to n sig. figures`/>
+    <pre style = "border-radius: 0;">
+1
+2
+1.414
+    </pre>
   </SubSection>
 
   <SubSection title = "Solving equations" id = "solving_equations">
@@ -221,6 +290,9 @@ import CodeBox from "../../components/CodeBox.astro"
 
       print(sp.solve([eq1, eq2], dict=True))  # Returns solution to system of equations
       ## manual=True to avoid long-running code`/>
+    <pre style = "white-space: pre-wrap; overflow-wrap: anywhere;">
+[&#123;x: -2, y: 1&#125;, &#123;x: 1, y: -2&#125;, &#123;x: -3 + (1/2 - sqrt(13)/2)**2, y: 1/2 - sqrt(13)/2&#125;, &#123;x: -3 + (1/2 + sqrt(13)/2)**2, y: 1/2 + sqrt(13)/2&#125;]
+    </pre>
   </SubSection>
 
   <SubSection title = "Notes and warnings" id = "notes_and_warnings">
