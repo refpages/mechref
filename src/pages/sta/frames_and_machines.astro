@@ -100,35 +100,35 @@ Frame and machine analysis involves the following steps:
 			<p>
 				First, analyze the free body diagram of the entire system. Take the moment about pin <InlineEquation equation = "A"/> and solve for the reaction force at roller <InlineEquation equation = "E."/>
 			</p>
-			<DisplayEquation equation = `\\begin{align} \\sum M_A = 0 &= -\\frac{3 h}{4} P + w F_E \\\\
-				\\rightarrow F_E &= \\frac{3 h}{4 w} P \\end{align}`/>
+			<DisplayEquation equation = `\\begin{align} \\sum M_A = 0 &= -\\frac{5 w}{8} P + w F_E \\\\
+				\\rightarrow F_E &= \\frac{5}{8} P \\end{align}`/>
 			<p>
 				Next, analyze the free body diagram for member <InlineEquation equation = "CDE."/> Take the moment about point <InlineEquation equation = "C"/> on member <InlineEquation equation = "CDE"/> and solve for the internal force at point <InlineEquation equation = "D."/>
 			</p>
-			<DisplayEquation equation = `\\begin{align} \\sum M_{C, CDE} = 0 &= \\frac{h}{4} P - \\frac{h}{2} F_D + \\frac{w}{2} F_E \\\\
-				&= \\frac{h}{4} P - \\frac{h}{2} F_D + \\frac{3 h}{8} P \\\\
-				\\rightarrow F_D &= \\frac{5}{4} P \\end{align}`/>
+			<DisplayEquation equation = `\\begin{align} \\sum M_{C, CDE} = 0 &= -\\frac{w}{8} P - \\frac{h}{2} F_D + \\frac{w}{2} F_E \\\\
+				&= -\\frac{w}{8} P - \\frac{h}{2} F_D + \\frac{w}{2} \\cdot \\frac{5}{8} P \\\\
+				\\rightarrow F_D &= \\frac{3 w}{8 h} P \\end{align}`/>
 			<p>
 				Since the magnitude of the force <InlineEquation equation = "F_D"/> was found to be positive, the assumption that the force <InlineEquation equation = "F_D"/> is in the direction shown on free body diagram of member <InlineEquation equation = "CDE"/> is correct.
 			</p>
 			<p>
 				Therefore, on member <InlineEquation equation = "CDE,"/>
 			</p>
-			<DisplayEquation equation = "F_D = -\\frac{5}{4} P"/>
+			<DisplayEquation equation = "F_D = -\\frac{3 w}{8 h} P"/>
 			<p>
 				Next, Analyze the free body diagram for member <InlineEquation equation = "BD."/> Analyze the forces along the x-direction and solve for the internal force <InlineEquation equation = "F_B."/>
 				Remember, on member <InlineEquation equation = "BD,"/> the force <InlineEquation equation = "F_D"/> acts in the direction opposite of the direction it acts on member <InlineEquation equation = "CDE."/>
 			</p>
 			<DisplayEquation equation = `\\begin{align} \\sum F_{x, BD} = 0 &= F_B + F_D \\\\
-				0 &= F_B + \\frac{5}{4} P \\\\
-				\\rightarrow F_B &= -\\frac{5}{4} P \\end{align}`/>
+				0 &= F_B + \\frac{3 w}{8 h} P \\\\
+				\\rightarrow F_B &= -\\frac{3 w}{8 h} P \\end{align}`/>
 			<p>
 				On member <InlineEquation equation = "ABC,"/> the force <InlineEquation equation = "F_B"/> acts in the direction opposite of the direction it acts on member <InlineEquation equation = "BD."/>
 			</p>
 			<p>
 				Therefore, on member <InlineEquation equation = "ABC,"/>
 			</p>
-			<DisplayEquation equation = "F_B = \\frac{5}{4} P"/>
+			<DisplayEquation equation = "F_B = \\frac{3 w}{8 h} P"/>
 		</div>
 	</Example>
 
