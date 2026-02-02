@@ -23,7 +23,8 @@ import DisplayTable from "../../components/DisplayTable.astro"
         <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#first-moi'>Centroid</a></li>
         <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#second-moi'>Area Moment of Inertia</a></li>
         <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#polar_moment_of_inertia'>Polar Moment of Inertia</a></li>
-        <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#summary-moi'>Summary: Moment of Inertia</a></li>
+        <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#typical_shapes'>Moment of inertia for typical shapes</a></li>
+        <li class = 'list-group-item py-0'><a class = 'text-decoration-none subsection' href = '#summary_moment_of_inertia'>Summary: moment of inertia</a></li>
 	</ul>
 </div>
 
@@ -97,7 +98,7 @@ The moment of inertia of the area <InlineEquation equation='A' /> with respect t
 
 </SubSection>
 
-<SubSection title="Summary: Moment of Inertia" id="summary-moi">
+<SubSection title="Moment of inertia for typical shapes" id="typical_shapes">
 
     <center><em>Common shapes about the origin: <InlineEquation equation='I'/> and <InlineEquation equation='J_O'/></em></center>
     <center><em>Common shapes about the centroid: <InlineEquation equation='\\bar{I}'/> and <InlineEquation equation='J_c'/></em></center>
@@ -226,141 +227,142 @@ The moment of inertia of the area <InlineEquation equation='A' /> with respect t
         </tbody>
         
     </DisplayTable>
-    
-
-    <DisplayTable class_="text-center" id="inertia-table">
-        <thead>
-            <tr>
-                <th class="nosideborderleft">
-                    
-                </th>
-                <th>
-                    <strong>Mass moment of inertia</strong>
-                </th>
-                <th class="table-shaded" colspan="3">
-                    <strong>Area moment of inertia (used in solid mechanics!)</strong>
-                </th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-
-                <td class="nosideborderleft">
-                    <strong>Other names</strong>
-                </td>
-                    
-                <td>
-                    
-                </td>
-
-                <td class="table-shaded">First moment of area</td>
-                <td class="table-shaded">Second moment of area</td>
-                <td class="table-shaded">Polar moment of area</td>
-
-
-            </tr>
-            <tr>
-                <td class="nosideborderleft">
-                    <strong>Description</strong>
-                </td>
-                <td>
-                    Determines the torque needed to produce a desired angular rotation about an axis of rotation (resistance to rotation)
-                </td>
-                <td class = "table-shaded">Determines the centroid of an area </td>
-                <td class = "table-shaded">
-                    Determines the moment needed to produce a desired curvature about an axis(resistance to bending)
-                </td>
-                <td class = "table-shaded">Determines the torque needed to produce a desired twist a shaft or beam(resistance to torsion) </td>
-                
-            </tr>
-            <tr>
-                <td class="nosideborderleft">
-                    <strong>Equations</strong>
-                </td>
-                <td>
-                    <DisplayEquation equation='I_{P,\\hat{a}} = \\iiint_\\mathcal{B} \\rho r^2 \\,dV\\' /> 
-                </td>
-                <td class = "table-shaded">
-                    <DisplayEquation equation="Q_z = \\int_A y dA = \\Sigma yA" />
-                    <DisplayEquation equation="Q_y = \\int_A z dA  = \\Sigma zA" />
-                    <DisplayEquation equation="\\bar{y} = \\frac{1}{A}\\int_A y dA" />
-                    <DisplayEquation equation="\\bar{z} = \\frac{1}{A}\\int_A z dA" />
-                </td>
-                <td class = "table-shaded">
-                    <DisplayEquation equation='I_x = \\int_{A}^{} y^2 \\,dA \\' />
-                    <DisplayEquation equation='I_y = \\int_{A}^{} x^2 \\,dA \\' />
-                </td>
-                <td class = "table-shaded">
-                    <DisplayEquation equation='\\begin{aligned} J_O &= \\int_{A}^{} r^2 \\,dA \\\\ &= \\int_{A}^{} (x^2+y^2) \\,dA\\ \\end{aligned}' />
-                </td>
-            </tr>
-            <tr>
-                <td class="nosideborderleft">
-                    <strong>Units</strong> 
-                </td>
-                <td>
-                    <InlineEquation equation="\\mathrm{mass} \\ \\mathrm{length} ^ 2"/>
-                </td>
-                <td class = "table-shaded">
-                    <InlineEquation equation="\\mathrm{length} ^ 3"/>
-                </td>
-                <td class = "table-shaded">
-                    <InlineEquation equation="\\mathrm{length} ^ 4"/>
-                </td>
-                <td class = "table-shaded">
-                    <InlineEquation equation="\\mathrm{length} ^ 4"/>
-                </td>
-            </tr>
-            <tr>
-                <td class="nosideborderleft">
-                    <strong>Typical Equations</strong>
-                </td>
-                <td>
-                    <DisplayEquation equation='\\tau = I\\alpha' /> 
-                </td>
-                <td class = "table-shaded">
-                    <DisplayEquation equation='\\tau = \\frac{VQ}{It}' /> 
-                </td>
-                <td class = "table-shaded">
-                    <DisplayEquation equation='\\sigma = \\frac{My}{I}' />
-                    <DisplayEquation equation='\\tau = \\frac{VQ}{It}' /> 
-                </td>
-                <td class = "table-shaded">
-                    <DisplayEquation equation='\\tau = \\frac{T\\rho}{J}' />
-                </td>
-            </tr>
-            <tr>
-                <td class="nosideborderleft">
-                    <strong>Courses</strong>
-                </td>
-                <td>
-                    Dynamics
-                </td>
-                <td class = "table-shaded">
-                    Solid mechanics
-                </td>
-                <td class = "table-shaded">
-                    Statics, solid mechanics
-                </td>
-                <td class = "table-shaded">
-                    Solid mechanics
-                </td>
-            </tr>
-        </tbody>
-    </DisplayTable>
-    <CalloutContainer slot = "cards">
-        <CalloutCard title = "Review?">
-            <p>
-                Need a review of <strong>moment of inertia (second moment of area)?</strong>
-            </p>
-            <p>
-                This content has also been in <a href = "/sta/geometric_properties#second_moment">statics.</a>
-            </p>
-            <p>
-                The second moment of area determines the moment needed to produce a desired curvature about an axis (resistance to bending).
-            </p>
-        </CalloutCard>
-    </CalloutContainer>
 </SubSection>
+
+    <SubSection title="Summary: moment of inertia" id="summary_moment_of_inertia">
+        <DisplayTable class_="text-center" id="inertia-table">
+            <thead>
+                <tr>
+                    <th class="nosideborderleft">
+                        
+                    </th>
+                    <th>
+                        <strong>Mass moment of inertia</strong>
+                    </th>
+                    <th class="table-shaded" colspan="3">
+                        <strong>Area moment of inertia (used in solid mechanics!)</strong>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+
+                    <td class="nosideborderleft">
+                        <strong>Other names</strong>
+                    </td>
+                        
+                    <td>
+                        
+                    </td>
+
+                    <td class="table-shaded">First moment of area</td>
+                    <td class="table-shaded">Second moment of area</td>
+                    <td class="table-shaded">Polar moment of area</td>
+
+
+                </tr>
+                <tr>
+                    <td class="nosideborderleft">
+                        <strong>Description</strong>
+                    </td>
+                    <td>
+                        Determines the torque needed to produce a desired angular rotation about an axis of rotation (resistance to rotation)
+                    </td>
+                    <td class = "table-shaded">Determines the centroid of an area </td>
+                    <td class = "table-shaded">
+                        Determines the moment needed to produce a desired curvature about an axis(resistance to bending)
+                    </td>
+                    <td class = "table-shaded">Determines the torque needed to produce a desired twist a shaft or beam(resistance to torsion) </td>
+                    
+                </tr>
+                <tr>
+                    <td class="nosideborderleft">
+                        <strong>Equations</strong>
+                    </td>
+                    <td>
+                        <DisplayEquation equation='I_{P,\\hat{a}} = \\iiint_\\mathcal{B} \\rho r^2 \\,dV\\' /> 
+                    </td>
+                    <td class = "table-shaded">
+                        <DisplayEquation equation="Q_z = \\int_A y dA = \\Sigma yA" />
+                        <DisplayEquation equation="Q_y = \\int_A z dA  = \\Sigma zA" />
+                        <DisplayEquation equation="\\bar{y} = \\frac{1}{A}\\int_A y dA" />
+                        <DisplayEquation equation="\\bar{z} = \\frac{1}{A}\\int_A z dA" />
+                    </td>
+                    <td class = "table-shaded">
+                        <DisplayEquation equation='I_x = \\int_{A}^{} y^2 \\,dA \\' />
+                        <DisplayEquation equation='I_y = \\int_{A}^{} x^2 \\,dA \\' />
+                    </td>
+                    <td class = "table-shaded">
+                        <DisplayEquation equation='\\begin{aligned} J_O &= \\int_{A}^{} r^2 \\,dA \\\\ &= \\int_{A}^{} (x^2+y^2) \\,dA\\ \\end{aligned}' />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="nosideborderleft">
+                        <strong>Units</strong> 
+                    </td>
+                    <td>
+                        <InlineEquation equation="\\mathrm{mass} \\ \\mathrm{length} ^ 2"/>
+                    </td>
+                    <td class = "table-shaded">
+                        <InlineEquation equation="\\mathrm{length} ^ 3"/>
+                    </td>
+                    <td class = "table-shaded">
+                        <InlineEquation equation="\\mathrm{length} ^ 4"/>
+                    </td>
+                    <td class = "table-shaded">
+                        <InlineEquation equation="\\mathrm{length} ^ 4"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="nosideborderleft">
+                        <strong>Typical Equations</strong>
+                    </td>
+                    <td>
+                        <DisplayEquation equation='\\tau = I\\alpha' /> 
+                    </td>
+                    <td class = "table-shaded">
+                        <DisplayEquation equation='\\tau = \\frac{VQ}{It}' /> 
+                    </td>
+                    <td class = "table-shaded">
+                        <DisplayEquation equation='\\sigma = \\frac{My}{I}' />
+                        <DisplayEquation equation='\\tau = \\frac{VQ}{It}' /> 
+                    </td>
+                    <td class = "table-shaded">
+                        <DisplayEquation equation='\\tau = \\frac{T\\rho}{J}' />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="nosideborderleft">
+                        <strong>Courses</strong>
+                    </td>
+                    <td>
+                        Dynamics
+                    </td>
+                    <td class = "table-shaded">
+                        Solid mechanics
+                    </td>
+                    <td class = "table-shaded">
+                        Statics, solid mechanics
+                    </td>
+                    <td class = "table-shaded">
+                        Solid mechanics
+                    </td>
+                </tr>
+            </tbody>
+        </DisplayTable>
+        <CalloutContainer slot = "cards">
+            <CalloutCard title = "Review?">
+                <p>
+                    Need a review of <strong>moment of inertia (second moment of area)?</strong>
+                </p>
+                <p>
+                    This content has also been in <a href = "/sta/geometric_properties#second_moment">statics.</a>
+                </p>
+                <p>
+                    The second moment of area determines the moment needed to produce a desired curvature about an axis (resistance to bending).
+                </p>
+            </CalloutCard>
+        </CalloutContainer>
+    </SubSection>
 
 </Layout>
