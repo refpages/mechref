@@ -29,8 +29,6 @@ import Row from "../../components/Row.astro"
   <ul class='list-group list-group-flush py-0'> 
     <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#euler-motion'>Euler's laws of motion</a>
     </li>
-    <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#rotation-arbitrary'>Rotation about arbitrary reference points</a>
-    </li>
   </ul>
 </div>
 
@@ -102,55 +100,6 @@ import Row from "../../components/Row.astro"
     </CalloutContainer>
 
   </SubSection>
-  
-  <SubSection title="Rotation about arbitrary reference points" id="rotation-arbitrary">
-    <p>
-      In some cases, using the center of mass as a reference point is not ideal, and we might encounter
-      situations in which we would need to consider the dynamics about another point. We will begin by
-      finding the angular momentum of a rigid body about any arbitrary point, and extend that from there.
-  </p>
-  
-  <DisplayEquation equation="\\vec{L}_P = \\vec{r}_{PC} \\times m\\vec{v}_C + I_C \\, \\vec\\omega" title="Angular momentum of a rigid body about an arbitrary point \\(P\\)." id="reg-lp" background="True"/>
-  
-  <p>
-    We can differentiate the above expression with respect to time and obtain the time derivative of
-    the angular momentum of the rigid body about point \(P\). This will yield two important special cases of
-    rotations. 
-  </p>
-  
-  <DisplayEquation equation="\\frac{d\\vec{L}_P}{dt} = \\vec{M}_P - \\vec{r}_{PC} \\times m\\vec{a}_P" title="Rate of change of angular momentum about an arbitrary point \\(P\\)." id="reg-lt" background="True"/>
-  
-  <p>
-    The important special cases are outlined below.
-  </p>
-  
-  <DisplayTable id="reg-lm" >
-    <thead>
-      <tr class="lineBelow">
-        <th>case</th>
-        <th>result</th>
-        <th>consequence</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr class="lineBelow">
-        <th>\(P = C\)</th>
-        <td><InlineEquation equation="\\vec{M}_P = \\vec{M}_C = \\frac{d\\vec{L}_C}{dt}" />      </td>
-        <td>This is Euler's 2nd law.</td>
-      </tr>
-      <tr class="lineBelow">
-        <th><InlineEquation equation="\\vec{a}_P = \\vec{0}" />
-        </th>
-        <td><InlineEquation equation="\\vec{M}_P = \\frac{d\\vec{L}_P}{dt}" />
-        </td>
-        <td>The rigid body is rotating about a fixed point \(P\). This is another
-        form of Euler's 2nd law.</td>
-      </tr>
-    </tbody>
-  </DisplayTable>
-  
-  </SubSection>
-
 
 </Layout>
 
