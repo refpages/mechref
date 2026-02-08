@@ -138,9 +138,8 @@ import InlineEquation from "../../components/InlineEquation.astro"
     <SubSubSection title="Method 2: Javascript in Astro" id="script">
         <p>Once your define a canvas within the template, you can embed the corresponding Javascript code for interacting with that canvas directly within the same component using a script tag. Use this method for a short and quick method to access the animations.</p>
         <CodeBox code=`<script type="application/javascript" is:inline>
-                        &nbsp;&nbsp;&nbsp;<variableName> = new PrairieDraw("canvasid>", function () {
-                            
-                        &nbsp;&nbsp;&nbsp;&nbsp;});
+                       <variableName> = new PrairieDraw("canvasid>", function () {
+                        });
                     </script>` />
         <p>Creating a canvas and assigning a variable to it allows   to redraw the canvas for resizing later.</p>
     </SubSubSection>
