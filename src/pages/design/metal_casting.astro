@@ -15,7 +15,7 @@ import Itemize from "../../components/Itemize.astro"
 import InlineEquation from "../../components/InlineEquation.astro" 
 import DisplayEquation from "../../components/DisplayEquation.astro" 
 ---
-<Layout title="Metal_casting (1)">
+<Layout title="Metal_casting">
 <div slot="navtree">
 <ul class="list-group list-group-flush py-0">
 <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Metal Casting'>Metal Casting</a><ul class='list-group list-group-flush py-0'>
@@ -27,7 +27,6 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
 </li>
 <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Example Problem: Solidification Time'>Example Problem: Solidification Time</a></li>
 <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Casting Methods'>Casting Methods</a><ul class='list-group list-group-flush py-0'>
-<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Selection Table'>Selection Table</a></li></ul>
 </li>
 <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Sand Casting'>Sand Casting</a><ul class='list-group list-group-flush py-0'>
 <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Buoyancy'>Buoyancy</a></li>
@@ -149,6 +148,11 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
 </Itemize>
 </SubSubSection>
 <SubSubSubSection title="Selection Table" id="Selection Table">
+<Image id="avb-ft" src="/design/images/metal_casting_selection_table.png" style="width:35%; height:auto;">
+        <p class="figureCaption">
+          Selection Table</a>
+        </p>
+</Image>
 <p>Casting Methods Comparison</p>
 </SubSubSubSection>
 <SubSubSection title="Sand Casting" id="Sand Casting">
@@ -202,7 +206,12 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
 
 <DisplayEquation equation="\\text{Bottom} = \\lceil 0.035/0.01 \\rceil = 4" title="" />
 
-<p>table 2</p>
+
+<Image id="avb-ft" src="/design/images/metal_casting_design_advisor.png" style="width:35%; height:auto;">
+        <p class="figureCaption">
+          Design Advisor</a>
+        </p>
+</Image>
     <CalloutContainer slot="cards">
 <CalloutCard title="Callout">
 <p>Good casting design promotes smooth metal flow, uniform cooling, minimal coring, and easy mold separation.</p>
