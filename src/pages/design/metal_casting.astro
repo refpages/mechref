@@ -74,7 +74,7 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
 <strong>How long should the pattern be for a 100 mm aluminum casting?</strong>
 <p>Given:</p>
 
-<DisplayEquation equation="s = 1.3\\" title="" />
+<DisplayEquation equation="s = 0.013" title="" />
 
 
 <DisplayEquation equation="L_{\\text{pattern}} = 100(1.013) = 101.3\\ \\text{mm}" title="" />
@@ -82,8 +82,16 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
 <p><strong>This means the pattern must be oversized by 1.3\</p>
 </SubSubSubSection>
 <SubSubSubSection title="Cooling Curves" id="Cooling Curves">
-<em>Cooling Curve of Pure Metal Image</strong>
-<p>\textit{Cooling Curve of Alloys Image</em></p>
+<em>Cooling Curve of Pure Metal Image</em>
+<p><em>Cooling Curve of Alloys Image</em></p>
+
+<CalloutContainer slot="cards">
+  <CalloutCard title="Callout">
+    <p>Most alloys solidify over a temperature range rather than at a single temperature as shown in the curves.</p>
+  </CalloutCard>
+</CalloutContainer>
+</SubSubSubSection>
+
     <CalloutContainer slot="cards">
 <CalloutCard title="Callout">
 <p>Most alloys solidify over a temperature range rather than at a single temperature as shown in the curves.</p>
@@ -130,7 +138,7 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
 <p>Therefore, the solidification time of the cylindrical casting is 10.7 minutes.</p>
 </SubSubSection>
 <SubSubSection title="Casting Methods" id="Casting Methods">
-<p>Selected based on the part design, volume, material, cost, PDS, etc... \\</p>
+<p>Selected based on the part design, volume, material, cost, PDS, etc.</p>
 <p><strong>Temporary/Expandable Molds:</strong> Molds that are destroyed to remove the casting.</p>
 <Itemize>
 
@@ -172,7 +180,7 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
 
 <DisplayEquation equation="F_{\\text{bottom, prior}} = F_g = \\rho_{\\text{core}} V g" title="" />
 
-<p>---</p>
+<hr />
 </SubSubSubSection>
 <SubSubSubSection title="Example Problem: Number of Chaplets Required" id="Example Problem: Number of Chaplets Required">
 <p><strong>Question: </strong>Determine how many chaplets are needed to hold the core in place.</p>
