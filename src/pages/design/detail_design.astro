@@ -1,0 +1,645 @@
+---
+import Layout from "../../layouts/Layout.astro" 
+import Image from "../../components/Image.astro" 
+import Section from "../../components/Section.astro" 
+import SubSection from "../../components/SubSection.astro" 
+import SubSubSection from "../../components/SubSubSection.astro" 
+import SubSubSubSection from "../../components/SubSubSubSection.astro" 
+import CalloutContainer from "../../components/CalloutContainer.astro" 
+import OrangeText from "../../components/OrangeText.astro" 
+import TealText from "../../components/TealText.astro" 
+import Enumerate from "../../components/Enumerate.astro" 
+import Item from "../../components/Item.astro" 
+import Itemize from "../../components/Itemize.astro" 
+import InlineEquation from "../../components/InlineEquation.astro" 
+import DisplayEquation from "../../components/DisplayEquation.astro" 
+---
+<Layout title="Detail Design">
+<div slot="navtree">
+<ul class="list-group list-group-flush py-0">
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Detail Design'>Detail Design</a><ul class='list-group list-group-flush py-0'>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Introduction'>Introduction</a><ul class='list-group list-group-flush py-0'>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#What is Detail Design?'>What is Detail Design?</a></li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Why Detail Design Matters'>Why Detail Design Matters</a></li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Design Intent vs. Manufacturing Method'>Design Intent vs. Manufacturing Method</a></li></ul>
+</li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Component 1: Computer-Aided Design (CAD)'>Component 1: Computer-Aided Design (CAD)</a><ul class='list-group list-group-flush py-0'>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Purpose of CAD Models'>Purpose of CAD Models</a></li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#CAD Best Practices'>CAD Best Practices</a></li></ul>
+</li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Component 2: Detailed Engineering Drawings'>Component 2: Detailed Engineering Drawings</a><ul class='list-group list-group-flush py-0'>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Purpose of Engineering Drawings'>Purpose of Engineering Drawings</a></li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Drawing Standards - ASME Y14 Series'>Drawing Standards - ASME Y14 Series</a></li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Drawing Best Practices'>Drawing Best Practices</a></li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Drawing Template Setup'>Drawing Template Setup</a></li></ul>
+</li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Component 4: Bill of Materials (BOM)'>Component 4: Bill of Materials (BOM)</a><ul class='list-group list-group-flush py-0'>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Purpose of the BOM'>Purpose of the BOM</a></li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#BOM Types and Structures'>BOM Types and Structures</a></li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#BOM Best Practices'>BOM Best Practices</a></li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Complete Bike Lock BOM Example'>Complete Bike Lock BOM Example</a></li>
+</ul>
+</ul>
+</ul>
+</div>
+<SubSection title="Detail Design" id="Detail Design">
+</SubSection>
+<SubSubSection title="Introduction" id="Introduction">
+</SubSubSection>
+<SubSubSubSection title="What is Detail Design?" id="What is Detail Design?">
+<p>Detail Design is the phase where conceptual ideas are transformed into fully specified, manufacturable products. This phase translates design intent into precise technical documentation that manufacturing, quality control, procurement, and other stakeholders can use to produce the product exactly as intended. Detail Design encompasses four critical components:</p>
+<Enumerate>
+
+    <Item><strong>Computer-Aided Design (CAD)</strong> - 3D models that define geometry</Item>
+    <Item><strong>Detailed Engineering Drawings</strong> - 2D documentation with dimensions and tolerances</Item>
+    <Item><strong>Analysis</strong> - Analytical and computational validation</Item>
+    <Item><strong>Bill of Materials (BOM)</strong> - Complete list of parts, assemblies, and materials</Item>
+
+</Enumerate>
+</SubSubSubSection>
+<SubSubSubSection title="Why Detail Design Matters" id="Why Detail Design Matters">
+<p>Detail Design serves as the bridge between concept and reality. Without thorough detail design:</p>
+<Itemize>
+
+    <Item>Manufacturing cannot produce parts to specification</Item>
+    <Item>Quality control cannot verify conformance</Item>
+    <Item>Procurement cannot order correct materials</Item>
+    <Item>Assembly teams cannot understand how components fit together</Item>
+    <Item>Cost estimation becomes guesswork</Item>
+
+</Itemize>
+<p><strong>The fundamental principle</strong>: Detail Design documents <em>what</em> must be achieved (specifications, dimensions, materials) to enable others to determine <em>how</em> to achieve it (manufacturing processes, assembly sequences).</p>
+</SubSubSubSection>
+<SubSubSubSection title="Design Intent vs. Manufacturing Method" id="Design Intent vs. Manufacturing Method">
+<p>A well-executed detail design specifies requirements without over-constraining the solution. For example, specifying "corrosion resistant in saltwater for 5 years" as a requirement allows manufacturing to choose from stainless steel, protective coatings, or other solutions. Specifying "must use 316 stainless steel" removes flexibility and may increase cost unnecessarily.</p>
+</SubSubSubSection>
+<SubSubSection title="Component 1: Computer-Aided Design (CAD)" id="Component 1: Computer-Aided Design (CAD)">
+</SubSubSection>
+<SubSubSubSection title="Purpose of CAD Models" id="Purpose of CAD Models">
+<p>CAD enables engineers and designers to develop product designs with accuracy, efficiency, and innovation. 3D CAD models serve as the master definition of product geometry and are used throughout the product lifecycle for:</p>
+<Itemize>
+
+    <Item>Design visualization and iteration</Item>
+    <Item>Manufacturing process planning</Item>
+    <Item>Assembly simulation</Item>
+    <Item>Interference checking</Item>
+    <Item>Documentation generation</Item>
+    <Item>Prototyping and tooling development</Item>
+
+</Itemize>
+</SubSubSubSection>
+<SubSubSubSection title="CAD Best Practices" id="CAD Best Practices">
+<h4><strong>Master the Fundamentals</strong></h4>
+<p>A strong foundation in basic CAD skills is paramount, with proficiency required in 3D modeling, drawing, and dimensions for detailed and precise CAD designs. Before implementing advanced techniques, ensure mastery of:</p> 
+
+<Itemize>
+
+    <Item>Sketch constraints and relationships</Item>
+    <Item>Feature creation and editing</Item>
+    <Item>Assembly mates and constraints</Item>
+    <Item>Part configurations and design tables</Item>
+
+</Itemize>
+<h4><strong>Use Parametric Design</strong></h4>
+<p>Parametric design enables easy modifications by linking parameters, ensuring that changes automatically propagate throughout the entire model. This approach:</p> 
+
+<Itemize>
+
+    <Item>Links dimensions through equations and relationships</Item>
+    <Item>Allows rapid design iterations</Item>
+    <Item>Maintains design intent when dimensions change</Item>
+    <Item>Reduces errors from manual updates</Item>
+
+</Itemize>
+<strong>Bike Lock Example:</strong>
+<Itemize>
+
+    <Item>Link shackle diameter to required strength calculations</Item>
+    <Item>Tie mounting bracket dimensions to lock body size</Item>
+    <Item>Connect key dimensions to cylinder requirements</Item>
+    <Item>Any change to shackle diameter automatically updates dependent features</Item>
+
+</Itemize>
+<h4><strong>Implement Naming Conventions</strong></h4>
+<p><p>Implement a standardized naming convention for files, layers, and components, as it promotes organization and ensures that team members can quickly locate and understand the various elements within the CAD project.</p>
+<strong>File Naming Standards:</strong></p> 
+
+<Itemize>
+
+    <Item>Use consistent prefixes: \verb|BL-| (Bike Lock), \verb|SH-| (Shackle), \verb|CYL-| (Cylinder)</Item>
+    <Item>Include version numbers: \verb|BL-LockBody-v03.sldprt|</Item>
+    <Item>Add descriptive names: \verb|BL-ShackleCap-HardenedSteel-v02.sldprt|</Item>
+    <Item>Avoid spaces; use hyphens or underscores</Item>
+
+</Itemize>
+<strong>Layer/Feature Naming:</strong>
+<Itemize>
+
+    <Item>Use descriptive names: "Keyway-Cut" not "Cut-Extrude3"</Item>
+    <Item>Group related features: "Mounting-Holes" for all mounting features</Item>
+    <Item>Identify critical features: "CRITICAL-SealingSurface"</Item>
+
+</Itemize>
+<h4><strong>Optimize Model Performance</strong></h4>
+<p><p>As CAD models become more complex, optimizing them for performance becomes essential through techniques such as simplifying geometry, utilizing lightweight components, and strategically using levels of detail.</p>
+<strong>Performance Optimization:</strong></p> 
+
+<Itemize>
+
+    <Item>Suppress unnecessary features when not needed</Item>
+    <Item>Use simplified representations for large assemblies</Item>
+    <Item>Avoid overly complex surfaces where simple geometry suffices</Item>
+    <Item>Use sub-assemblies to manage complexity</Item>
+    <Item>Employ lightweight or envelope modes for standard components</Item>
+
+</Itemize>
+<strong>Bike Lock Example:</strong>
+<Itemize>
+
+    <Item>Suppress detailed threading on screws during assembly work</Item>
+    <Item>Use simplified cylinder representation (no internal pins) for top-level assembly</Item>
+    <Item>Create detailed sub-assembly only when working on lock mechanism</Item>
+
+</Itemize>
+<h4><strong>Establish Drawing Templates</strong></h4>
+<p><p>Drawing templates are CAD drawing files that store preferred settings and can include layer standards, plot configurations, annotation styles, and many other details, creating a method of standardizing drawing features with little to no effort.</p>
+<strong>Template Elements:</strong></p> 
+
+<Itemize>
+
+    <Item>Title blocks with company information</Item>
+    <Item>Standard views and projections (1st or 3rd angle)</Item>
+    <Item>Default tolerances (per ASME Y14.5)</Item>
+    <Item>Standard note blocks</Item>
+    <Item>Layer structures</Item>
+    <Item>Dimension styles</Item>
+    <Item>Line weights and types</Item>
+
+</Itemize>
+<h4><strong>Build Detail Libraries</strong></h4>
+<p><p>Standardized detail libraries are key to success as this single innovation in production practice can yield a massive return on investment in terms of wasted billable hours, resulting in increased effectiveness.</p>
+<strong>Standard Components Library:</strong></p> 
+
+<Itemize>
+
+    <Item>Fasteners (screws, bolts, washers)</Item>
+    <Item>Bearings and bushings</Item>
+    <Item>O-rings and seals</Item>
+    <Item>Springs</Item>
+    <Item>Standard electronic components</Item>
+    <Item>Common purchased parts</Item>
+
+</Itemize>
+<strong>Benefits:</strong>
+<Itemize>
+
+    <Item>Eliminates redundant modeling</Item>
+    <Item>Ensures consistency across projects</Item>
+    <Item>Reduces design time</Item>
+    <Item>Maintains accurate supplier information</Item>
+
+</Itemize>
+<h4><strong>Maintain CAD Standards</strong></h4>
+<p><p>CAD standards are a set of guidelines for the appearance of computer-aided design drawings and for how CAD data is organized, intended to improve productivity and facilitate the interchange of information between different organizations and computer platforms.</p>
+<strong>Key CAD Standards:</strong></p> 
+
+<Itemize>
+
+    <Item><strong>ISO 128</strong> - Technical drawings standards (widely used internationally)</Item>
+    <Item><strong>ISO 13567</strong> - Layer organization and terminology</Item>
+    <Item><strong>ASME Y14</strong> series - US engineering drawing standards</Item>
+    <Item><strong>Company-specific standards</strong> - Tailored to organizational needs</Item>
+
+</Itemize>
+<strong>Bike Lock CAD Standards:</strong>
+<Itemize>
+
+    <Item>Units: Millimeters for all mechanical parts</Item>
+    <Item>Decimal places: 2 places for non-critical, 3 for critical dimensions</Item>
+    <Item>Material specification in part properties</Item>
+    <Item>Origin location: Bottom-left-front corner for prismatic parts, geometric center for cylindrical parts</Item>
+    <Item>Feature naming: Descriptive and consistent</Item>
+    <Item>Configurations: Clearly labeled (e.g., "Left-Hand" vs "Right-Hand")</Item>
+
+</Itemize>
+</SubSubSubSection>
+<SubSubSection title="Component 2: Detailed Engineering Drawings" id="Component 2: Detailed Engineering Drawings">
+</SubSubSection>
+<SubSubSubSection title="Purpose of Engineering Drawings" id="Purpose of Engineering Drawings">
+<p>Engineers need to understand engineering drawings (also known as technical diagrams, blueprints, prints, mechanical or manufacturing drawings, or schematics) to effectively understand project development, outcomes, and functions. Engineering drawings provide:</p>
+<Itemize>
+
+    <Item>Complete dimensional specification</Item>
+    <Item>Tolerance requirements</Item>
+    <Item>Material specifications</Item>
+    <Item>Surface finish requirements</Item>
+    <Item>Manufacturing and assembly instructions</Item>
+    <Item>Inspection criteria</Item>
+
+</Itemize>
+</SubSubSubSection>
+<SubSubSubSection title="Drawing Standards - ASME Y14 Series" id="Drawing Standards - ASME Y14 Series">
+<p>ASME Y14.5-2018 and ASME Y14.1-2020 establish uniform practices for stating and interpreting dimensioning, tolerancing, and related requirements for use on engineering drawings to assure consistency, clarity, and communication across teams and organizations.</p>
+<h4><strong>ASME Y14.5 - Geometric Dimensioning & Tolerancing</strong></h4>
+<p><p>The Y14.5 standard is considered the authoritative guideline for the design language of geometric dimensioning and tolerancing, establishing symbols, rules, definitions, requirements, defaults, and recommended practices.</p>
+<strong>GD&T provides:</strong></p> 
+
+<Itemize>
+
+    <Item>Precise geometric control of features</Item>
+    <Item>Clear definition of datum reference frames</Item>
+    <Item>Consistent interpretation across organizations</Item>
+    <Item>Reduced ambiguity in manufacturing</Item>
+    <Item>Improved quality and reduced costs</Item>
+
+</Itemize>
+<strong>Key GD&T Elements:</strong>
+<Itemize>
+
+    <Item><strong>Form tolerances:</strong> Flatness, straightness, circularity, cylindricity</Item>
+    <Item><strong>Orientation tolerances:</strong> Perpendicularity, parallelism, angularity</Item>
+    <Item><strong>Location tolerances:</strong> Position, concentricity, symmetry</Item>
+    <Item><strong>Profile tolerances:</strong> Profile of a line, profile of a surface</Item>
+    <Item><strong>Runout tolerances:</strong> Circular runout, total runout</Item>
+
+</Itemize>
+<strong>Bike Lock GD&T Example:</strong>
+<Itemize>
+
+    <Item>Lock body mounting face: Flatness within 0.1mm (ensures proper seal)</Item>
+    <Item>Shackle hole: Position tolerance ±0.2mm relative to datum reference frame (ensures shackle fits)</Item>
+    <Item>Cylinder bore: Cylindricity within 0.05mm (ensures smooth key operation)</Item>
+    <Item>Key slot: Profile tolerance to ensure proper key engagement</Item>
+
+</Itemize>
+<h4><strong>ASME Y14.1 - Drawing Organization</strong></h4>
+<p><p>ASME Y14.1 defines the general requirements for creating and interpreting engineering drawings, helping assure consistency across teams and companies.</p>
+<strong>Drawing organization includes:</strong></p> 
+
+<Itemize>
+
+    <Item>Standard sheet sizes (A through E)</Item>
+    <Item>Title block information</Item>
+    <Item>Drawing scale</Item>
+    <Item>View arrangement</Item>
+    <Item>Section view conventions</Item>
+    <Item>Detail view standards</Item>
+
+</Itemize>
+</SubSubSubSection>
+<SubSubSubSection title="Drawing Best Practices" id="Drawing Best Practices">
+<h4><strong>Convey Design Intent Clearly</strong></h4>
+<p><p>Remember that the purpose of the drawing is to specify geometry in such a way that the design intent of the part is preserved despite the natural variability of all manufacturing processes.</p>
+<strong>Clear Communication:</strong></p> 
+
+<Itemize>
+
+    <Item>Use appropriate number of views (not too few, not excessive)</Item>
+    <Item>Apply section views to show internal features</Item>
+    <Item>Include detail views for small features</Item>
+    <Item>Add isometric views for complex geometry</Item>
+    <Item>Write clear, concise notes</Item>
+
+</Itemize>
+<h4><strong>Use Section and Detail Views Effectively</strong></h4>
+<p><p>Use as many section views, detail views, and pages as necessary to convey design and manufacturing intent without ambiguity, but nothing more.</p>
+<strong>Section Views:</strong></p> 
+
+<Itemize>
+
+    <Item>Show internal features not visible in standard views</Item>
+    <Item>Use appropriate section line patterns for different materials</Item>
+    <Item>Label sections clearly (SECTION A-A)</Item>
+    <Item>Use partial sections when full sections aren't needed</Item>
+
+</Itemize>
+<p><strong>Detail Views:</strong> Detail views apply local scaling of features to allow better feature and dimension legibility.</p>
+<strong>Bike Lock Drawing Example:</strong>
+<Itemize>
+
+    <Item>Section A-A: Through lock body showing cylinder bore and internal mechanism space</Item>
+    <Item>Section B-B: Through shackle showing hardened outer layer and core material</Item>
+    <Item>Detail C (Scale 2:1): Keyway profile showing precise geometry</Item>
+    <Item>Detail D (Scale 3:1): Seal groove dimensions</Item>
+
+</Itemize>
+<h4><strong>Set Appropriate Tolerances</strong></h4>
+<p><p>Set up a good title block for your company with appropriate default tolerances, as over-specifying tight tolerances is a path to wasting money and driving manufacturers crazy.</p>
+<strong>Tolerance Guidelines:</strong></p> 
+
+<Itemize>
+
+    <Item>Establish sensible default tolerances in title block</Item>
+    <Item>Tighten tolerances only where functionally necessary</Item>
+    <Item>Consider manufacturing capabilities</Item>
+    <Item>Balance cost vs. performance requirements</Item>
+
+</Itemize>
+<strong>Bike Lock Tolerance Example:</strong>
+<p>Default Tolerances (in title block):</p>
+<Itemize>
+
+    <Item>Linear dimensions: ±0.5mm</Item>
+    <Item>Angular dimensions: ±1°</Item>
+    <Item>Hole diameters: ±0.2mm</Item>
+
+</Itemize>
+<p>Critical Tolerances (specified on drawing):</p>
+<Itemize>
+
+    <Item>Cylinder bore: Ø15.00 +0.02/-0.00 mm (tight for proper fit)</Item>
+    <Item>Shackle hole position: ±0.1mm (critical for function)</Item>
+    <Item>Mounting face flatness: 0.05mm (sealing surface)</Item>
+
+</Itemize>
+<p>Non-critical Tolerances (use defaults):</p>
+<Itemize>
+
+    <Item>Overall body length: 65mm ±0.5mm (appearance only)</Item>
+    <Item>Corner radii: R2mm ±0.5mm (not functional)</Item>
+
+</Itemize>
+<h4><strong>Write Clear Drawing Notes</strong></h4>
+<p><p>Write simple and direct notes that clarify any ambiguity in the drawing or add extra information to convey design intent.</p>
+<strong>Effective Notes:</strong></p> 
+
+<Itemize>
+
+    <Item>Material specifications: "MATERIAL: AISI 4140 STEEL, HEAT TREAT TO 58-62 HRC"</Item>
+    <Item>Surface finish: "SURFACE ROUGHNESS: Ra 0.8μm MAX ON SEALING SURFACES"</Item>
+    <Item>Processing: "DEBURR ALL EDGES 0.2mm MAX RADIUS"</Item>
+    <Item>Assembly: "APPLY LOCTITE 243 TO THREADS DURING ASSEMBLY"</Item>
+    <Item>Special features: "DRILL Ø6.5mm, TAP M8x1.25 - 6H"</Item>
+
+</Itemize>
+<strong>Bike Lock Drawing Notes:</strong>
+<p>\begin{verbatim}</p>
+<p>GENERAL NOTES: 1. INTERPRET DIMENSIONS AND TOLERANCES PER ASME Y14.5-2018 2. REMOVE ALL BURRS AND SHARP EDGES 3. MATERIAL: LOCK BODY - ZINC ALLOY ASTM B86-13, ALLOY 5 4. FINISH: POWDER COAT PER COMPANY SPEC CS-PC-001, MATTE BLACK 5. HEAT TREATMENT: NOT REQUIRED FOR THIS COMPONENT CRITICAL DIMENSIONS MARKED WITH ⊕</p>
+<p>\end{verbatim}</p>
+<h4><strong>Understand Line Types</strong></h4>
+<p><p>Modern CAD tools automate much of the line-work, but it helps to have a basic understanding of the various line types used across drawing views.</p>
+<strong>Standard Line Types:</strong></p> 
+
+<Itemize>
+
+    <Item><strong>Continuous solid</strong> (thick): Visible edges and surfaces</Item>
+    <Item><strong>Hidden line</strong> (dashed): Features obscured by other geometry</Item>
+    <Item><strong>Center line</strong> (thin, long-short-long): Axes of symmetry, bolt circles</Item>
+    <Item><strong>Center mark</strong>: Center point of holes and cylindrical features</Item>
+    <Item><strong>Section line</strong> (thin, solid): Cut surface hatching</Item>
+    <Item><strong>Break line</strong>: Shortened views of long features</Item>
+    <Item><strong>Phantom line</strong> (thin, long-short-short-long): Adjacent parts, alternate positions</Item>
+
+</Itemize>
+</SubSubSubSection>
+<SubSubSubSection title="Drawing Template Setup" id="Drawing Template Setup">
+<p>Whatever CAD software you use, be sure to set up drawing sheet templates in the common sizes you will use, including appropriate default tolerances, references to standards, and drawing borders with alphanumeric grid lines.</p>
+<strong>Template Components:</strong>
+<Itemize>
+
+    <Item><strong>Title block:</strong> Company name, logo, drawing number, revision, date, approvals</Item>
+    <Item><strong>Revision block:</strong> Track design changes</Item>
+    <Item><strong>General notes section:</strong> Standard requirements applicable to all drawings</Item>
+    <Item><strong>Material/finish callout areas</strong></Item>
+    <Item><strong>Drawing scale indicator</strong></Item>
+    <Item><strong>Projection type:</strong> 1st angle (Europe) or 3rd angle (US)</Item>
+    <Item><strong>Standard reference:</strong> "INTERPRET DIMENSIONS PER ASME Y14.5-2018"</Item>
+
+</Itemize>
+<strong>Bike Lock Drawing Template:</strong>
+<p>\begin{verbatim}</p>
+<p>Sheet Size: A (8.5" × 11") for most components B (11" × 17") for assemblies Title Block Contains: - Company: [Company Name] - Part Name: [From CAD model] - Part Number: [From CAD model] - Material: [From CAD model properties] - Finish: [Specified] - Scale: [As shown on each view] - Sheet: [X of Y] - Drawn By: [Name] Date: [Date] - Checked By: [Name] Date: [Date] - Approved By: [Name] Date: [Date] Default Tolerances: - .X = ±0.5mm - .XX = ±0.2mm - .XXX = ±0.05mm - Angular = ±1° Standard: ASME Y14.5-2018 Projection: Third Angle</p>
+<p>\end{verbatim}</p>
+</SubSubSubSection>
+<SubSubSection title="Component 4: Bill of Materials (BOM)" id="Component 4: Bill of Materials (BOM)">
+</SubSubSection>
+<SubSubSubSection title="Purpose of the BOM" id="Purpose of the BOM">
+<p>A bill of materials is a structured list identifying all materials and components required to construct a product, as well as the instructions for procuring and using the materials. The BOM serves multiple critical functions:</p>
+<Itemize>
+
+    <Item>Enables procurement to order correct parts</Item>
+    <Item>Supports production planning and scheduling</Item>
+    <Item>Facilitates cost estimation and pricing</Item>
+    <Item>Provides inventory management data</Item>
+    <Item>Documents product structure</Item>
+
+</Itemize>
+<p>An accurate, complete BOM helps identify the cause of a product failure and enables quick replacement of faulty parts, materials, and components.</p>
+</SubSubSubSection>
+<SubSubSubSection title="BOM Types and Structures" id="BOM Types and Structures">
+<h4><strong>Engineering BOM (EBOM)</strong></h4>
+<p><p>An engineering bill of materials defines assemblies and parts designed by the engineering department and shows the component structure from a functional perspective, consisting of a mechanical or technical drawing of a product.</p>
+<strong>EBOM Characteristics:</strong></p> 
+
+<Itemize>
+
+    <Item>Created during design phase</Item>
+    <Item>Organized by functional groups</Item>
+    <Item>May include alternative components</Item>
+    <Item>Contains CAD file references</Item>
+    <Item>Focuses on design intent</Item>
+
+</Itemize>
+<strong>Bike Lock EBOM Structure:</strong>
+<p>\begin{verbatim}</p>
+<p>BL-2000 Bike Lock Assembly ├── BL-2100 Lock Body Sub-Assembly │ ├── BL-2110 Lock Body (die cast zinc) │ ├── BL-2120 Lock Cylinder (purchased) │ ├── BL-2130 Cylinder Retaining Ring (spring steel) │ └── BL-2140 Weather Seal (TPU) ├── BL-2200 Shackle Sub-Assembly │ ├── BL-2210 Shackle (hardened steel) │ ├── BL-2220 Shackle Cap (rubber overmold) │ └── BL-2230 Spring (stainless steel) ├── BL-2300 Mounting Bracket Assembly │ ├── BL-2310 Mounting Bracket (aluminum) │ └── BL-2320 Mounting Hardware Kit └── BL-2400 Packaging & Documentation ├── BL-2410 Instruction Manual ├── BL-2420 Warranty Card └── BL-2430 Retail Package</p>
+<p>\end{verbatim}</p>
+<h4><strong>Manufacturing BOM (MBOM)</strong></h4>
+<p><p>A manufacturing bill of materials includes a comprehensive list of all the items and subassemblies required to make a manufactured, shippable finished product.</p>
+<strong>MBOM Characteristics:</strong></p> 
+
+<Itemize>
+
+    <Item>Organized by manufacturing sequence</Item>
+    <Item>Includes consumables (adhesives, lubricants)</Item>
+    <Item>Specifies assembly operations</Item>
+    <Item>Contains process routing information</Item>
+    <Item>Optimized for production flow</Item>
+
+</Itemize>
+<p>The MBOM includes information about the parts that require processing before assembly and explains how various components in a product relate to one another.</p>
+<h4><strong>Single-Level vs. Multi-Level BOMs</strong></h4>
+<p><p><strong>Single-Level BOM:</strong> A simple list of each assembly or subassembly needed for a product and the corresponding quantity required, suitable for simple products but not for complex products as it doesn't specify relationships between parts.</p>
+<p><strong>Multi-Level (Hierarchical) BOM:</strong> Start with the highest level assembly at the top and then break it down into sub-assemblies, components, or raw materials. This structure helps understand the product's architecture and simplifies the process of locating and managing individual components.</p>
+</SubSubSubSection>
+<SubSubSubSection title="BOM Best Practices" id="BOM Best Practices"></p> 
+
+<h4><strong>1. Establish Clear Part Numbering</strong></h4>
+<p><p>Give each item within the BOM a unique part number, which allows anyone involved in the manufacturing cycle to reference and identify parts easily.</p>
+<strong>Part Numbering System:</strong></p> 
+
+<Itemize>
+
+    <Item>Use intelligent numbering with logical structure</Item>
+    <Item>Include category prefix (BL- for bike lock)</Item>
+    <Item>Use sequential numbers within categories</Item>
+    <Item>Avoid special characters and spaces</Item>
+    <Item>Keep numbers consistent length</Item>
+
+</Itemize>
+<strong>Bike Lock Part Numbering:</strong>
+<p>\begin{verbatim}</p>
+<p>Format: XX-YYYY-ZZ XX = Product line (BL = Bike Lock) YYYY = Component number ZZ = Variant code (optional) Examples: BL-2110 = Lock Body, standard BL-2110-BK = Lock Body, black finish BL-2110-OR = Lock Body, orange finish BL-2210 = Shackle, 13mm diameter BL-2211 = Shackle, 14mm diameter</p>
+<p>\end{verbatim}</p>
+<h4><strong>2. Define BOM Levels</strong></h4>
+<p><p>Assign each part or assembly a number to detail where it fits in the hierarchy of the BOM, making it easy for anyone to understand the structure and all of the elements.</p>
+<strong>Level Structure:</strong></p> 
+
+<Itemize>
+
+    <Item>Level 0: Final product (complete bike lock)</Item>
+    <Item>Level 1: Major sub-assemblies (lock body, shackle assembly)</Item>
+    <Item>Level 2: Components within sub-assemblies</Item>
+    <Item>Level 3: Hardware and fasteners</Item>
+
+</Itemize>
+<h4><strong>3. Include Complete Information</strong></h4>
+<p><strong>Essential BOM Fields:</strong></p> 
+
+<Itemize>
+
+    <Item>Part Number</Item>
+    <Item>Part Description</Item>
+    <Item>Quantity per assembly</Item>
+    <Item>Unit of Measure (EA, IN, FT, LBS, etc.)</Item>
+    <Item>Material specification</Item>
+    <Item>Source (Make/Buy/Purchase)</Item>
+    <Item>Supplier/Vendor information</Item>
+    <Item>Cost (unit price)</Item>
+    <Item>Lead time</Item>
+    <Item>CAD file reference</Item>
+    <Item>Notes/Special instructions</Item>
+
+</Itemize>
+<p>Include packaging materials in a BOM, as forgetting about packaging can lead to a big miss in cost analyses, and modern packaging can be expensive and impact the way you sell your finished product.</p>
+<h4><strong>4. Categorize Items</strong></h4>
+<p><p>Start by building categories of items you are going to use in a BOM, with every item having its own category that will help organize BOM-based work, such as Standard parts, Electronics parts, Mechanical Parts, Custom Parts, Fasteners, and Packaging.</p>
+<strong>Bike Lock Categories:</strong></p> 
+
+<Itemize>
+
+    <Item><strong>Custom Mechanical:</strong> Lock body, shackle (designed and manufactured)</Item>
+    <Item><strong>Standard Components:</strong> Cylinder, springs (purchased to spec)</Item>
+    <Item><strong>Fasteners:</strong> Screws, retaining rings (standard catalog items)</Item>
+    <Item><strong>Elastomers:</strong> Seals, overmolds (purchased to spec)</Item>
+    <Item><strong>Packaging:</strong> Retail package, instruction manual</Item>
+    <Item><strong>Consumables:</strong> Assembly lubricant, adhesive</Item>
+
+</Itemize>
+<h4><strong>5. Track Cost and Lead Time</strong></h4>
+<p><p>With modern supply chain shortages, lead time is becoming king of the manufacturing process, making it paramount to have the right components on time and at cost as ultimately part of the success of any manufacturing operation.</p>
+<strong>Bike Lock BOM - Cost & Lead Time Tracking:</strong></p> 
+
+<p>\begin{table}</p>
+<p>\centering</p>
+<p>\begin{tabular}{l l l l l l l}</p>
+<p>Part Number & Description & Qty & Unit Cost & Ext. Cost & Lead Time & Supplier \\</p>
+<p>BL-2110 & Lock Body & 1 & <InlineEquation equation="3.20 &" />3.20 & 3 weeks & ABC Die Cast \\</p>
+<p>BL-2120 & Cylinder & 1 & <InlineEquation equation="2.80 &" />2.80 & 4 weeks & SecureLock Inc \\</p>
+<p>BL-2210 & Shackle & 1 & <InlineEquation equation="1.90 &" />1.90 & 2 weeks & Steel Fab Co \\</p>
+<p>BL-2130 & Retaining Ring & 1 & <InlineEquation equation="0.08 &" />0.08 & 1 week & McMaster-Carr \\</p>
+<p>... & ... & ... & ... & ... & ... & ... \\</p>
+<p><strong>TOTAL</strong> &  &  &  & <strong>$8.52</strong> & <strong>Critical: 4 weeks</strong> &  \\</p>
+<p>\end{tabular}</p>
+<p>\end{table}</p>
+<h4><strong>6. Manage BOM Revisions</strong></h4>
+<p><p>Bill of materials is a live structure and process, so from the beginning think about how you can manage the BOM history of changes, revisions, and dates, as using wrong data can lead to delays, cost impact, and many problems.</p>
+<strong>Revision Control Best Practices:</strong></p> 
+
+<Itemize>
+
+    <Item>Use revision letters or numbers (A, B, C... or Rev 1, Rev 2, Rev 3...)</Item>
+    <Item>Document change reason and date</Item>
+    <Item>Maintain revision history</Item>
+    <Item>Ensure all stakeholders use current revision</Item>
+    <Item>Link BOM revision to drawing revisions</Item>
+    <Item>Use PDM/PLM system for automatic version control</Item>
+
+</Itemize>
+<strong>Bike Lock BOM Revision Example:</strong>
+<p>\begin{verbatim}</p>
+<p>Part: BL-2000 Complete Lock Assembly Current Revision: C Date: 2024-03-15 Revision History: Rev A (2023-11-01): Initial release Rev B (2024-01-10): Changed shackle material from 4140 to 4340 steel for improved strength Rev C (2024-03-15): Added weather seal (BL-2140) to improve corrosion resistance</p>
+<p>\end{verbatim}</p>
+<h4><strong>7. Specify Make vs. Buy</strong></h4>
+<p><p>Provide procurement information including how materials are procured - whether bought pre-fabricated, custom-produced for your business, or made in-house.</p>
+<strong>Make vs. Buy Decision Factors:</strong></p> 
+
+<Itemize>
+
+    <Item>Core competency (can we make it well?)</Item>
+    <Item>Cost (make vs. purchase)</Item>
+    <Item>Quality control requirements</Item>
+    <Item>Lead time</Item>
+    <Item>Production capacity</Item>
+    <Item>Intellectual property considerations</Item>
+
+</Itemize>
+<strong>Bike Lock Make/Buy:</strong>
+<Itemize>
+
+    <Item><strong>MAKE:</strong> Lock body (die casting capability in-house)</Item>
+    <Item><strong>MAKE:</strong> Shackle (machining capability in-house)</Item>
+    <Item><strong>BUY:</strong> Lock cylinder (specialized vendor)</Item>
+    <Item><strong>BUY:</strong> Springs (standard vendor)</Item>
+    <Item><strong>BUY:</strong> Fasteners (catalog items)</Item>
+    <Item><strong>CUSTOM BUY:</strong> Weather seals (custom tooling at vendor)</Item>
+
+</Itemize>
+<h4><strong>8. Integrate with CAD</strong></h4>
+<p><p>Live BOM natively integrated into CAD software ensures adherence to engineering BOM best practices and provides engineers visibility into their supply chain.</p>
+<strong>CAD-BOM Integration Benefits:</strong></p> 
+
+<Itemize>
+
+    <Item>Automatic BOM generation from assembly</Item>
+    <Item>Real-time updates when design changes</Item>
+    <Item>Reduced manual data entry errors</Item>
+    <Item>Direct access to supplier data</Item>
+    <Item>Easier design optimization based on cost</Item>
+
+</Itemize>
+<strong>Implementation:</strong>
+<Itemize>
+
+    <Item>Populate CAD part properties (part number, description, material)</Item>
+    <Item>Use CAD configurations for variants</Item>
+    <Item>Export BOM directly from CAD assembly</Item>
+    <Item>Validate exported BOM against requirements</Item>
+
+</Itemize>
+<h4><strong>9. Maintain BOM Accuracy</strong></h4>
+<p><p><strong>Accuracy is critical:</strong> An effective BOM ensures that all individual parts and components necessary for the final product are documented, reducing the risk of missing items during assembly.</p>
+<strong>Verification Steps:</strong></p> 
+
+<Itemize>
+
+    <Item>Cross-check BOM against CAD assembly</Item>
+    <Item>Verify quantities by counting in 3D model</Item>
+    <Item>Confirm part numbers match drawings</Item>
+    <Item>Validate material specifications</Item>
+    <Item>Check supplier part numbers</Item>
+    <Item>Review with manufacturing team</Item>
+    <Item>Physical prototype verification (build one unit from BOM)</Item>
+
+</Itemize>
+<strong>Common BOM Errors to Avoid:</strong>
+<Itemize>
+
+    <Item>Missing consumables (adhesives, lubricants)</Item>
+    <Item>Incorrect quantities</Item>
+    <Item>Wrong part numbers</Item>
+    <Item>Missing hardware (screws, washers)</Item>
+    <Item>Omitted packaging materials</Item>
+    <Item>Obsolete part numbers</Item>
+    <Item>Incorrect units of measure</Item>
+
+</Itemize>
+</SubSubSubSection>
+<SubSubSubSection title="Complete Bike Lock BOM Example" id="Complete Bike Lock BOM Example">
+<strong>Multi-Level Engineering BOM:</strong>
+<p>\begin{verbatim}</p>
+<p>LEVEL 0: BL-2000 COMPLETE BIKE LOCK (Qty: 1) │ ├─ LEVEL 1: BL-2100 LOCK BODY SUB-ASSEMBLY (Qty: 1) │ ├─ BL-2110 Lock Body, Die Cast Zinc, Black (Qty: 1) [MAKE] │ ├─ BL-2120 Pin Tumbler Cylinder, 5-pin (Qty: 1) [BUY - SecureLock Inc] │ ├─ BL-2130 Retaining Ring, Spring Steel, Ø15mm (Qty: 1) [BUY - McMaster] │ ├─ BL-2140 Weather Seal, TPU, Black (Qty: 1</p>
+<p>\end{verbatim}</p>
+
+</SubSubSubSection>
+</Layout>
