@@ -16,7 +16,8 @@ import BlueText from "../../components/BlueText.astro"
 
 <div slot="navtree">
 	<ul class='list-group list-group-flush py-0'> 
-		<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#stress_sign_convention'>General Stress</a></li>
+		<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#drawing_convention'>Drawing</a></li>
+        <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#stress_sign_convention'>General Stress</a></li>
         <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#axial_sign_convention'>Axial (Normal) Stress</a></li>
         <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#torsion_sign_convention'>Torsion</a></li>
         <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#shear_moment_convention'>Shear and Moment Diagrams</a></li>
@@ -24,6 +25,12 @@ import BlueText from "../../components/BlueText.astro"
 </div>
 
 <Section title="Sign Conventions" id="sign_conventions"></Section>
+
+<SubSection title="Drawing Convention" id="drawing_convention">
+For a profile view depiction of a 3D force and moment diagram, the following convention is used for notating arrows going into or out of the page.
+<Image src='/sol/shear_moment_diagrams/into_outof_page_convention_handdrawn.png' width='6'> Sign conventions for internal forces and moments</Image>
+
+</SubSection>
 
 <SubSection title="General Stress Sign Convention" id="stress_sign_convention">
 <Image src="/sol/sign_convention/Sign Convention.png" width="7"> Sign conventions on 2D elements</Image>
@@ -87,10 +94,6 @@ These conventions assume the analysis is conducted on a horizontal beam with pos
 <Image src='/sol/bending/Internal sign convention - correct branding.png' width='5'> </Image>
 
 <Image src='/sol/bending/External sign convention - correct branding.png' width='4.5'> </Image>
-
-For a profile view depiction of a 3D force and moment diagram, the following convention is used for notating arrows going into or out of the page.
-<Image src='/sol/shear_moment_diagrams/into_outof_page_convention_handdrawn.png' width='6'> Sign conventions for internal forces and moments</Image>
-
 
 </SubSection>
 

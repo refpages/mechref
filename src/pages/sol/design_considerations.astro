@@ -36,20 +36,19 @@ failure modes which need to be considered simultaneously.
 For example, consider just 2 plates bolted together and loaded to failure:
 
 <Itemize>
-	<Item><a href="https://www.youtube.com/watch?v=5EjQUEBQyuY&t=4s">Example 1</a></Item>
-	<Item><a href="https://www.youtube.com/watch?v=sTAkcSVlIWE&t=1s">Example 2</a></Item>
-	<Item><a href="https://www.youtube.com/watch?v=GrIgQAAsVsI&t=1s">Example 3</a></Item>
-	<Item>This one simple connection shows three different modes of failure: tension, shear & bolt failures.</Item>
+	<Item><iframe src="https://www.youtube.com/embed/5EjQUEBQyuY" class="w-50" title="Normal Failure" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></Item>
+  <Item><iframe src="https://www.youtube.com/embed/sTAkcSVlIWE" class="w-50" title="Shear Failure" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></Item>
+  <Item><iframe src="https://www.youtube.com/embed/GrIgQAAsVsI" class="w-50" title="Bolt Failure" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></Item>
 </Itemize>
 </p>
 
 <p>
 It is the job of the engineer to anticipate and design for all relevant failure modes.For a given design, successful operation may require:
 <Itemize>
-	<Item> Stresses stay below material limits (see Von Mises failure criteria) </Item>
-	<Item> Stress from cyclic loading stays below the fatigue limit (see ME370 page) </Item>
-	<Item> Buckling is prevented (see buckling page) </Item>
-	<Item> Deformation stays below a prescribed limit (see beam deflection page) </Item>
+	<Item> Stresses stay below material limits (see <a href = "https://www.mechref.org/sol/failure_theories/?origin=coursemenu#von-mises"> Von Mises failure criteria </a>) </Item>
+	<Item> Stress from cyclic loading stays below the fatigue limit (see the <a href = "https://www.mechref.org/mf/Fatigue/?origin=coursemenu"> Fatigue reference page </a>) </Item>
+	<Item> Buckling is prevented (see the <a href = "https://www.mechref.org/sol/buckling/?origin=coursemenu"> Buckling reference page </a>) </Item>
+	<Item> Deformation stays below a prescribed limit (see the <a href = "https://www.mechref.org/sol/beam_deflection/?origin=coursemenu"> Beam Deflection reference page </a>) </Item>
 	<Item> Vibration deformation from dynamic loads stays below a prescribed limit <!-- (see ME340 page doesn’t exist yet) --!> </Item>
 	<Item> And more </Item>
 </p>
@@ -67,8 +66,7 @@ Any way a product or component can fail to meet the desired performance can be r
 
 <p>
 It can be very difficult to anticipate every possible failure mode. This broad view
-of component performance is discussed in ME270 (Design) as “product design
-specifications” https://www.mechref.org/design/pds/?origin=coursemenu) In solid
+of component performance is discussed in the <a href = "https://www.mechref.org/design/pds/?origin=coursemenu"> Product Design Specifications reference</a> page. In solid
 mechanics, we’ll focus on the strength failure modes.
 
 <p>
@@ -77,12 +75,9 @@ same, to identify potential failures and design to prevent them, or reduce the r
 (probability x severity) to an acceptably low level. 
 </p>
 
-<Example id="dfl-spp" title="Some examples from various industries." solution="False">
+<Example id="auto" title="Automotive" solution="False">
   <div class="d-flex flex-column">
     <p class="w-100">
-
-      <strong> Automotive </strong>
-      <div class="mb-2 w-100"></div>
 
       <em> Design Failure Mode and Effects Analysis: </em>
       Design FMEA is a type of FMEA that analyzes the product design, focusing on potential design-related
@@ -90,51 +85,52 @@ same, to identify potential failures and design to prevent them, or reduce the r
       during useful life.
       <div class="mb-2 w-100"></div>
 
-      <em> SAE J1739_202101: </em>
-      https://saemobilus-sae-org.proxy2.library.illinois.edu/standards/j1739_202101
-      -potential-failure-mode-effects-analysis-fmea-including-design-fmea-
-      supplemental-fmea-msr-process-fmea#view
+      For more information, check out: <a href = "https://saemobilus-sae-org.proxy2.library.illinois.edu/standards/j1739_202101-potential-failure-mode-effects-analysis-fmea-including-design-fmea-supplemental-fmea-msr-process-fmea"> SAE J1739_202101 </a>
       <div class="mb-3 w-100"></div>
+    </p>
+  </div>
+</Example>
 
-      <strong> Aerospace </strong>
-      <div class="mb-2 w-100"></div>
-
+<Example id="aero" title="Aerospace" solution="False">
+  <div class="d-flex flex-column">
+    <p class="w-100">
       <em> Failure Mode and Effects Analysis (FMEA): </em>
       A procedure by which each potential failure mode or fault of a system is analyzed to determine the
       consequences or effects thereof on the system, to classify each potential failure mode according to its
       severity, and to recommend actions to eliminate, or compensate for, unacceptable effects.
       <div class="mb-2 w-100"></div>
 
-      <em> SAE ARP5580: </em>
-      https://saemobilus-sae-org.proxy2.library.illinois.edu/standards/arp5580-
-      recommended-failure-modes-effects-analysis-fmea-practices-non-automobile-
-      applications#view
+      For more information, check out: <a href = "https://saemobilus-sae-org.proxy2.library.illinois.edu/standards/arp5580-recommended-failure-modes-effects-analysis-fmea-practices-non-automobile-applications"> SAE ARP5580 </a>
       <div class="mb-3 w-100"></div>
+    </p>
+  </div>
+</Example>
 
-      <strong> Civil </strong>
-      <div class="mb-2 w-100"></div>
-
+<Example id="civil" title="Civil" solution="False">
+  <div class="d-flex flex-column">
+    <p class="w-100">
       <em> Limit State: </em>
       A condition beyond which a structure or member becomes unfit for service and is judged either to be no
       longer useful for its intended function (serviceability limit state) or to be unsafe (strength limit state).
       <div class="mb-2 w-100"></div>
 
-      <em> ASCE7: </em>
-      https://ascelibrary-org.proxy2.library.illinois.edu/doi/epdf/10.1061/9780784415
-      788
+      For more information, check out: <a href = "https://ascelibrary-org.proxy2.library.illinois.edu/doi/epdf/10.1061/9780784415788"> ASCE7 </a>
+      
       <div class="mb-3 w-100"></div>
+    </p>
+  </div>
+</Example>
 
-      <strong> US Government </strong>
-      <div class="mb-2 w-100"></div>
-
+<Example id="gov" title="US Government" solution="False">
+  <div class="d-flex flex-column">
+    <p class="w-100">
       <em> Failure mode and effects analysis (FMEA): </em>
       A procedure by which each potential failure mode in a system is analyzed to determine the results or
       effects thereof on the system and to classify each potential failure mode according to its severity.
       <div class="mb-2 w-100"></div>
 
-      <em> MIL-STD-1629A: </em>
-      https://www.dsiintl.com/wp-content/uploads/2017/04/mil_std_1629a.pdf
-
+      For more information, check out: <a href = "https://www.dsiintl.com/wp-content/uploads/2017/04/mil_std_1629a.pdf"> MIL-STD-1629A </a>
+      
     </p>
   </div>
 </Example>

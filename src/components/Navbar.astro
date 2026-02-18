@@ -221,7 +221,7 @@ const path = Astro.url.pathname;
     }
 
     .solids-menu{
-        columns: 2;
+        columns: 1;
     }
 
     @media (width <= 578px){
@@ -426,7 +426,7 @@ const path = Astro.url.pathname;
             </li>
             <li class="dropdown mega nav-item " class-value="sol">
                 <a class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false" aria-label="About" class-value="sol">
-                    <span>Solid mechanics</a></span>
+                    <span>Solid mechanics</span>
                 </a>
                 <div class="dropdown-menu tile-list px-2" id="mainnav-solids"> 
                     <div class="d-flex" >
@@ -443,7 +443,7 @@ const path = Astro.url.pathname;
                         </section>
                         <section class = "tile menu white-box col">
                             <h2><a href = "/dyn" aria-label = "About">Simple Loading</a></h2>
-                                <ol style = "column-fill: balance-all;" class = "course-menu dynamics-menu">
+                                <ol style = "column-fill: balance-all;" class = "course-menu solids-menu">
                                     <li><a href="/sol/overview?origin=sidebar">Overview</a></li>
                                     <li><a href="/sol/axial_loading?origin=sidebar">Axial loading</a></li>
                                     <li><a href="/sol/torsion?origin=sidebar">Torsion</a></li>
@@ -453,7 +453,7 @@ const path = Astro.url.pathname;
                         </section>
                         <section class = "tile menu white-box col">
                             <h2><a href = "/dyn" aria-label = "About">Combined Loading</a></h2>
-                                <ol style = "column-fill: balance-all;" class = "course-menu dynamics-menu">
+                                <ol style = "column-fill: balance-all;" class = "course-menu solids-menu">
                                     <li><a href="/sol/shear_&_moment_diagrams?origin=sidebar">Shear & moment diagrams</a></li>
                                     <li><a href="/sol/beam_deflection?origin=sidebar">Beam deflection</a></li>
                                     <li><a href="/sol/pressure_vessels?origin=sidebar">Pressure vessels</a></li>
