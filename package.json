@@ -16,7 +16,7 @@
     "fuse.js": "^7.0.0",
     "highlight.js": "^11.10.0",
     "mathjax": "^3.2.2",
-    "svelte": "^5.41.1",
+    "svelte": "^5.53.0",
     "typescript": "^5.5.4"
   }
 }
