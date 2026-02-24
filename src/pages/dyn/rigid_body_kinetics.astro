@@ -108,6 +108,57 @@ import Row from "../../components/Row.astro"
             &3. \\ \\text{Kinematics: determine } \\vec{a}_c, \\vec{a}. \\\\
             &4. \\ \\text{Kinetics: use} \\sum \\vec{F} = m \\vec{a}_c, \\sum M_{CZ} = I_{CZ} \\alpha_Z. \\\\
             &5. \\ \\text{Algebra: rearrange and solve as needed.} \\end{align}` background = "True"/>
+        <Example title = "Pendulum" id = "pendulum">
+            <div class = "d-flex flex-row">
+                <div class = "w-50">
+                    Consider the 2D pendulum with a rigid rod of length <InlineEquation equation = "l" /> and mass <InlineEquation equation = "m."/>
+                    What is the equation of angular acceleration <InlineEquation equation = "\\alpha" /> as a fuction of <InlineEquation equation = "\\theta, \\dot{\\theta}?"/>
+                </div>
+                <div class = "w-50">
+                    <Image src = "/dyn/rigid_body_kinetics/pendulum.png" width = "5"/>
+                </div>
+            </div>
+            <div slot = "solution">
+                <p>
+                    <strong>1. System diagram:</strong> The system diagram for the pendulum is:
+                </p>
+                <Image src = "/dyn/rigid_body_kinetics/pendulum.png" width = "5"/>
+                <p>
+                    <strong>2. FBD:</strong> The free body diagram for the point mass is:
+                </p>
+                <Image src = "/dyn/rigid_body_kinetics/pendulum_fbd.png" width = "5"/>
+                <p>
+                    The forces on the free body diagram are:
+                </p>
+                <p>
+                    <strong>3. Kinematics:</strong> <InlineEquation equation = "\\vec{a}_c, \\vec{\\alpha}"/>
+                    <DisplayEquation equation = "\\vec{\\alpha} = \\alpha_z \\hat{k}"/>
+                    <DisplayEquation equation = "\\vec{a}_c = (\\ddot{r} - r \\dot{\\theta} ^ 2) \\hat{e}_r + (r \\ddot{\\theta} + 2 \\dot{r} \\dot{\\theta}) \\hat{e}_{\\theta}"/>
+                </p>
+                <p>
+                    <strong>4. Kinetics:</strong> <InlineEquation equation = "\\sum \\vec{F} = m \\vec{a}_c, \\sum M_{CZ} = I_{CZ} \\alpha_Z"/>
+                    <DisplayEquation equation = `\\begin{align} \\sum M_{CZ} &= I_{CZ} \\alpha_Z \\\\
+                        &= -\\frac{l}{2} R_{\\theta} \\end{align}`/>
+
+                </p>
+                <p>
+                    <strong>5. Algebra:</strong> To compare components
+                    in the above equation we need to switch to a single
+                    basis. We will convert to <InlineEquation equation="\\hat{e}_r,\\hat{e}_\\theta" />
+                    using: 
+                    <DisplayEquation equation="\\hat\\jmath = -\\cos\\theta \\,\\hat{e}_r + \\sin\\theta \\,\\hat{e}_\\theta," />
+
+                    which gives:
+
+                    <DisplayEquation equation="(-T + mg\\cos\\theta)\\,\\hat{e}_r - mg\\sin\\theta\\,\\hat{e}_\\theta = -m\\ell \\dot\\theta^2 \\,\\hat{e}_r + m\\ell\\ddot\\theta \\,\\hat{e}_\\theta." />
+
+                    Equating the <InlineEquation equation="\\hat{e}_\\theta" /> and <InlineEquation equation="\\hat{e}_r" /> terms
+                    gives <InlineEquation equation="\\ddot\\theta" /> and <InlineEquation equation="T" /> by:
+
+                    <DisplayEquation equation="\\begin{aligned} \\ddot\\theta &amp;= - \\frac{g}{\\ell} \\sin\\theta \\\\ T &amp;= mg\\cos\\theta + m\\ell\\dot\\theta^2. \\end{aligned}" />
+                </p>
+            </div>
+        </Example>
     </SubSection>
 
 </Layout>
