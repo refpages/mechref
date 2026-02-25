@@ -270,6 +270,7 @@ Then, you "cut" the truss so that the internal force you want is "exposed" from 
         Is the truss stable?
       </p>
       <div slot = "solution">
+        <Image src = "/sta/trusses/truss_determinacy_and_stability_1_solution.png" width = "7"/>
         <DisplayEquation equation = `\\begin{align} b &= 11 \\\\
           r &= 3 \\\\
           j &= 7 \\\\
@@ -288,6 +289,7 @@ Then, you "cut" the truss so that the internal force you want is "exposed" from 
         Is the truss stable?
       </p>
       <div slot = "solution">
+        <Image src = "/sta/trusses/truss_determinacy_and_stability_2_solution.png" width = "7"/>
         <DisplayEquation equation = `\\begin{align} b &= 12 \\\\
           r &= 3 \\\\
           j &= 8 \\\\
@@ -306,6 +308,7 @@ Then, you "cut" the truss so that the internal force you want is "exposed" from 
         Is the truss stable?
       </p>
       <div slot = "solution">
+        <Image src = "/sta/trusses/truss_determinacy_and_stability_3_solution.png" width = "7"/>
         <DisplayEquation equation = `\\begin{align} b &= 15 \\\\
           r &= 3 \\\\
           j &= 8 \\\\
@@ -324,12 +327,34 @@ Then, you "cut" the truss so that the internal force you want is "exposed" from 
         Is the truss stable?
       </p>
       <div slot = "solution">
+        <Image src = "/sta/trusses/truss_determinacy_and_stability_4_solution.png" width = "7"/>
+        <DisplayEquation equation = `\\begin{align} b &= 13 \\\\
+          r &= 3 \\\\
+          j &= 8 \\\\
+          13 + 3 &= 2 \\cdot 8 \\end{align}`/>
+        <p>
+          The truss is unstable due to an internal collapse mechanism.
+          The equation would indicate that the truss is determinate, but because the truss is unstable, determinacy is not meaningful.
+        </p>
+      </div>
+    </Example>
+    <Example title = "Truss Determinacy and Stability 5" solution = "True" id = "truss_determinacy_and_stability_5">
+      <Image src = "/sta/trusses/truss_determinacy_and_stability_5.png" width = "7"/>
+      <p>
+        Is the truss determinate?
+      </p>
+      <p>
+        Is the truss stable?
+      </p>
+      <div slot = "solution">
+        <Image src = "/sta/trusses/truss_determinacy_and_stability_5_solution.png" width = "7"/>
         <DisplayEquation equation = `\\begin{align} b &= 11 \\\\
           r &= 3 \\\\
           j &= 7 \\\\
           11 + 3 &= 2 \\cdot 7 \\end{align}`/>
         <p>
-          The truss is determinate and unstable due to improper constraints, all reactions concurrent at one point.
+          The truss is unstable due to improper constraints, all reactions concurrent at one point.
+          The equation would indicate that the truss is determinate, but because the truss is unstable, determinacy is not meaningful.
         </p>
       </div>
     </Example>

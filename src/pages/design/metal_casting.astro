@@ -1,0 +1,287 @@
+---
+import Layout from "../../layouts/Layout.astro" 
+import Image from "../../components/Image.astro" 
+import Section from "../../components/Section.astro" 
+import SubSection from "../../components/SubSection.astro" 
+import SubSubSection from "../../components/SubSubSection.astro" 
+import SubSubSubSection from "../../components/SubSubSubSection.astro" 
+import CalloutCard from "../../components/CalloutCard.astro" 
+import CalloutContainer from "../../components/CalloutContainer.astro" 
+import OrangeText from "../../components/OrangeText.astro" 
+import TealText from "../../components/TealText.astro" 
+import Enumerate from "../../components/Enumerate.astro" 
+import Item from "../../components/Item.astro" 
+import Itemize from "../../components/Itemize.astro" 
+import InlineEquation from "../../components/InlineEquation.astro" 
+import DisplayEquation from "../../components/DisplayEquation.astro" 
+---
+<Layout title="Metal_casting">
+<div slot="navtree">
+<ul class="list-group list-group-flush py-0">
+
+  <li class='list-group-item py-0'>
+    <a class='text-decoration-none subsection' href='#Metal Casting'>Metal Casting</a>
+    <ul class='list-group list-group-flush py-0'>
+
+      <li class='list-group-item py-0'>
+        <a class='text-decoration-none subsection' href='#Mold Filling'>Mold Filling</a>
+      </li>
+
+      <li class='list-group-item py-0'>
+        <a class='text-decoration-none subsection' href='#Solidification'>Solidification</a>
+        <ul class='list-group list-group-flush py-0'>
+
+          <li class='list-group-item py-0'>
+            <a class='text-decoration-none subsection' href='#Example Problem: Shrinkage Allowance'>
+              Example Problem: Shrinkage Allowance
+            </a>
+          </li>
+
+          <li class='list-group-item py-0'>
+            <a class='text-decoration-none subsection' href='#Cooling Curves'>
+              Cooling Curves
+            </a>
+          </li>
+
+          <li class='list-group-item py-0'>
+            <a class='text-decoration-none subsection' href="#Chvorinov's Rule">
+              Chvorinov's Rule
+            </a>
+          </li>
+
+        </ul>
+      </li>
+
+      <li class='list-group-item py-0'>
+        <a class='text-decoration-none subsection' href='#Example Problem: Solidification Time'>
+          Example Problem: Solidification Time
+        </a>
+      </li>
+
+      <li class='list-group-item py-0'>
+        <a class='text-decoration-none subsection' href='#Casting Methods'>
+          Casting Methods
+        </a>
+        <ul class='list-group list-group-flush py-0'>
+
+          <li class='list-group-item py-0'>
+            <a class='text-decoration-none subsection' href='#Sand Casting'>
+              Sand Casting
+            </a>
+            <ul class='list-group list-group-flush py-0'>
+
+              <li class='list-group-item py-0'>
+                <a class='text-decoration-none subsection' href='#Buoyancy'>
+                  Buoyancy
+                </a>
+              </li>
+
+              <li class='list-group-item py-0'>
+                <a class='text-decoration-none subsection' href='#Example Problem: Number of Chaplets Required'>
+                  Example Problem: Number of Chaplets Required
+                </a>
+              </li>
+
+            </ul>
+          </li>
+
+        </ul>
+      </li>
+
+    </ul>
+  </li>
+
+</ul>
+</div>
+
+<SubSection title="Metal Casting" id="Metal Casting">
+<p><strong>Metal casting</strong> is a manufacturing process where molten metal is poured into a mold cavity that represents the negative shape of a desired part. Once the metal solidifies, the mold is removed to obtain the finished casting.</p>
+<Itemize>
+
+    <Item><strong>Pattern:</strong> A replica of the final part, slightly oversized to account for shrinkage, used to make an impression in the mold. </Item>
+    <Item><strong>Mold:</strong> The hollow cavity that the metal is poured into.  </Item>
+    <Item><strong>Core:</strong> A sand or ceramic insert used to form internal cavities in a casting.  </Item>
+    <Item><strong>Riser:</strong> A reservoir that feeds molten metal to the part during solidification to prevent shrinkage defects. The riser should cool slower than the part.</Item>
+
+</Itemize>
+<p>Casting processes are chosen based on complexity, surface finish, material, and required dimensional accuracy.</p>
+</SubSection>
+
+<SubSection title="Mold Filling" id="Mold Filling">
+<p>When metal is poured, smooth (laminar) flow is preferred to avoid oxide formation from turbulent flow.</p>
+<p>How to prevent the molten metal from splashing and oxidizing at free surface:</p>
+<Itemize>
+
+    <Item>Bottom-up filling structure</Item>
+    <Item>Low viscosity (<InlineEquation equation="\\mu" />)</Item>
+    <Item>Low filling speed (v)</Item>
+    <Item>Short flow length (L)</Item>
+
+</Itemize>
+
+</SubSection>
+
+<SubSection title="Solidification" id="Solidification">
+<p>As metal cools, it contracts and eventually solidifies.</p>
+<em>Solidification Process Image</em>
+<p>When casting metal, you must consider the possibility of shrinkage by creating pattern shrinkage allowance where the mold is made larger than the final casting size.</p>
+<p>Shrinkage Allowance:</p>
+
+<DisplayEquation equation="L_{\\text{pattern}} = L_{\\text{final}}(1 + s)" title="" />
+
+<p>where <InlineEquation equation="s" /> is the alloy’s shrinkage over the temperature change.</p>
+<CalloutContainer slot="cards">
+  <CalloutCard title="Key Note">
+    <p>Most alloys solidify over a temperature range rather than at a single temperature as shown in the curves.</p>
+  </CalloutCard>
+</CalloutContainer>
+</SubSection>
+
+<SubSubSection title="Example Problem: Shrinkage Allowance" id="Example Problem: Shrinkage Allowance">
+<strong>How long should the pattern be for a 100 mm aluminum casting?</strong>
+<p>Given:</p>
+
+<DisplayEquation equation="s = 0.013" title="" />
+
+
+<DisplayEquation equation="L_{\\text{pattern}} = 100(1.013) = 101.3\\ \\text{mm}" title="" />
+
+<p><strong>This means the pattern must be oversized by 1.3</p></strong>
+
+</SubSubSection>
+
+<SubSection title="Cooling Curves" id="Cooling Curves">
+<em>Cooling Curve of Pure Metal Image</em>
+<p><em>Cooling Curve of Alloys Image</em></p>
+
+</SubSection>
+<SubSection title="Chvorinov's Rule" id="Chvorinov's Rule">
+<p>The total solidification time depends on size and shape of casting which is modeled by <strong>Chvorinov's Rule:</strong></p>
+
+<DisplayEquation equation="t_{TS} = C_m \\left(\\frac{V}{A}\\right)^n" title="" />
+
+<p>where</p>
+<Itemize>
+
+    <Item><InlineEquation equation="t_{TS}" /> = total solidification time</Item>
+    <Item><InlineEquation equation="V" /> = volume</Item>
+    <Item><InlineEquation equation="A" /> = surface area</Item>
+    <Item><InlineEquation equation="n" /> = exponent (typically <InlineEquation equation="n = 2" />)</Item>
+    <Item><InlineEquation equation="C_m" /> = mold constant</Item>
+    <Item><InlineEquation equation="M = \\frac{V}{A}" />, thermal modulus </Item>
+
+</Itemize>
+<p>Solidification time can be minimized by minimizing thermal modulus.</p>
+</SubSection>
+<SubSubSection title="Example Problem: Solidification Time" id="Example Problem: Solidification Time">
+<p><strong>Question: </strong>Find the solidification time of a cylindrical casting with a diameter of 75mm when mold constant is 3 <InlineEquation equation="s/mm^2" />.</p>
+<p>Given:</p>
+
+<DisplayEquation equation="d = 75\\,\\text{mm},\\quad h = 125\\,\\text{mm},\\quad C_m = 3\\ \\text{s/mm}^2" title="" />
+
+<strong>Solution:</strong> 
+
+<DisplayEquation equation="V = \\pi\\left(\\frac{75}{2}\\right)^2 (125) = 5.51\\times 10^5\\ \\text{mm}^3" title="" />
+
+
+<DisplayEquation equation="A = \\pi (75)(125) + 2\\pi \\left(\\frac{75}{2}\\right)^2 = 3.77\\times10^4\\ \\text{mm}^2" title="" />
+
+
+<DisplayEquation equation="M = \\frac{V}{A} = 14.6" title="" />
+
+
+<DisplayEquation equation="t_{TS} = 3(14.6)^2 = 640\\ \\text{s} \\approx 10.7\\ \\text{min}" title="" />
+
+<p>Therefore, the solidification time of the cylindrical casting is 10.7 minutes.</p>
+</SubSubSection>
+<SubSection title="Casting Methods" id="Casting Methods">
+<p>Selected based on the part design, volume, material, cost, PDS, etc.</p>
+<p><strong>Temporary/Expandable Molds:</strong> Molds that are destroyed to remove the casting.</p>
+<Itemize>
+
+    <Item><strong>Sand casting:</strong> Molten metal is poured into a mold made of compacted sand; after solidification, the mold is broken to remove the part. Suitable for large or complex shapes and low-cost production.</Item>
+    <Item><strong>Investment casting:</strong> A wax pattern is coated with ceramic to form a shell; the wax is melted out and metal is poured into the cavity, producing parts with excellent surface finish and fine detail.</Item>
+
+</Itemize>
+<p><strong>Permanent Molds:</strong> Molds that are reusable and made from durable metals such as steel or iron.</p>
+<Itemize>
+
+    <Item><strong>Gravity die casting:</strong> Molten metal flows into the reusable mold under gravity only; produces parts with better dimensional accuracy and surface finish than sand casting.</Item>
+    <Item><strong>Low-pressure die casting:</strong> Molten metal is pushed gently into the mold using low gas pressure from below, providing smooth filling and reduced defects like turbulence and porosity.</Item>
+    <Item><strong>High-pressure die casting:</strong> Molten metal is injected into the mold at very high pressure and speed, allowing production of thin-walled parts with excellent surface quality and tight tolerances for high-volume manufacturing.</Item>
+
+</Itemize>
+</SubSection>
+<SubSection title="Selection Table" id="Selection Table">
+<Image id="avb-ft" src="/design/images/metal_casting_selection_table.png" style="width:35%; height:auto;">
+        <p class="figureCaption">
+          Casting Methods Comparison</a>
+        </p>
+</Image>
+</SubSection>
+<SubSection title="Sand Casting" id="Sand Casting">
+<em>Sand Casting Diagram</em>
+</SubSection>
+<SubSection title="Buoyancy" id="Buoyancy">
+<p>Cores inside molds float because molten metal is typically denser. The buoyant force is:</p>
+
+<DisplayEquation equation="F_b = \\rho_{\\text{metal}} V g" title="" />
+
+<p>and core weight is:</p>
+
+<DisplayEquation equation="F_g = \\rho_{\\text{core}} V g" title="" />
+
+<p>Chaplets must resist:</p>
+
+<DisplayEquation equation="F_{\\text{top}} = F_b - F_g" title="" />
+
+<h4><strong>Bottom Chaplet Force (Prior to Filling)</strong></h4>
+<p>Before pouring, no buoyant force exists. The bottom chaplets must therefore support the entire weight of the core:</p> 
+
+
+<DisplayEquation equation="F_{\\text{bottom, prior}} = F_g = \\rho_{\\text{core}} V g" title="" />
+
+<hr />
+</SubSection>
+<SubSubSection title="Example Problem: Number of Chaplets Required" id="Example Problem: Number of Chaplets Required">
+<p><strong>Question: </strong>Determine how many chaplets are needed to hold the core in place.</p>
+<em>Image</em>
+<p>Given:</p>
+
+<DisplayEquation equation="\\rho_{\\text{metal}} = 2.7,\\ \\rho_{\\text{core}} = 0.9,\\ V = 4\\text{ cm}^3" title="" />
+
+
+<DisplayEquation equation="g=9.81,\\quad F_{\\text{chaplet}} = 0.01\\text{ N}" title="" />
+
+<strong>Solution:</strong>
+
+<DisplayEquation equation="F_g = 0.9(4)(9.81) = 0.035\\text{ N}" title="" />
+
+
+<DisplayEquation equation="F_b = 2.7(4)(9.81) = 0.106\\text{ N}" title="" />
+
+
+<DisplayEquation equation="F_{\\text{top}} = 0.071\\text{ N}" title="" />
+
+<p>Chaplets needed:</p>
+
+<DisplayEquation equation="\\text{Top} = \\lceil 0.071/0.01 \\rceil = 8" title="" />
+
+
+<DisplayEquation equation="\\text{Bottom} = \\lceil 0.035/0.01 \\rceil = 4" title="" />
+</SubSubSection>
+
+<SubSection title="Design Advisor" id="Design Advisor">
+<Image id="avb-ft" src="/design/images/metal_casting_design_advisor.png" style="width:35%; height:auto;">
+        <p class="figureCaption">
+          Recommended vs. Avoided Design Aspects</a>
+        </p>
+
+</Image>
+<CalloutContainer slot="cards">
+<CalloutCard title="Key Note">
+<p>Good casting design promotes smooth metal flow, uniform cooling, minimal coring, and easy mold separation.</p>
+    </CalloutCard>
+</CalloutContainer>
+</SubSection>
+</Layout>
