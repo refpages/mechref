@@ -66,6 +66,65 @@ The goal in combined loading is to determine the stresses at a point in a slende
 	<Item>Calculate all the stresses acting at a specific point within that section.</Item>
 	<Item>Add up like stresses (matching subscripts) to find the total stress state (superposition).</Item>
 </Enumerate>
+
+<Example id="com-lds" title="Combined loading in pipe" solution="True">
+    <div class="d-flex">
+        <p>
+          Find the state of stress at points H and K in the given pipe system.
+          <Image src="/sol/transverse_shear/AdhesiveExample.png" width="5"></Image>
+        </p>
+    </div>
+  <div slot="solution">
+      <p>
+        First, write all of the relevant force and moment balance equations.
+        <DisplayEquation equation="\\sum{F_x} = V_{x} = 0"/>
+        <DisplayEquation equation="\\sum{F_y} = -600 + V_{y} = 0"/>
+        <DisplayEquation equation="\\sum{F_y} = -2500 + V_{z} = 0"/>
+
+        
+        <DisplayEquation equation="\\sum{M_x} = M_{x} + 600\\times 3.5 = 0"/>
+        <DisplayEquation equation="\\sum{M_y} = M_{y} = 0"/>
+        <DisplayEquation equation="\\sum{M_z} = -T_{z} + 2500\\times 2.5 = 0"/>
+
+        <DisplayEquation equation="\\begin{align*} &\\tau_{AB} = \\frac{V Q_A}{I t_A},\\  &\\tau_{BD} = \\frac{V Q_D}{I t_D}\\ \\end{align*}"/>
+        
+        <InlineEquation equation="V" /> : shear force
+
+        <DisplayEquation equation="V = 100 \\text{ } N" />
+        
+        <InlineEquation equation="Q" /> : First area moment of inertia of cut section ( <InlineEquation equation="Q = \\Sigma \\bar{y}'A'" /> )
+
+        <Image src="/sol/transverse_shear/IBeamQ.png" width="2"></Image>
+
+        <DisplayEquation equation="Q_A = A \\bar{y_A} = 3.13*10^4 \\text{ } mm^3" />
+        <DisplayEquation equation="Q_D = A \\bar{y_D} = 9.38*10^4 \\text{ } mm^3" />
+
+        <InlineEquation equation="I" /> : Second area moment of inertia of whole cross-sectional area
+        
+        <Image src="/sol/transverse_shear/IBeamMOI.png" width="1.5"></Image>
+      
+        <DisplayEquation equation="I = I_1 + 2 I_2 = 1.04*10^7 \\text{ } mm^4" />
+        <DisplayEquation equation="I_1 = \\frac{1}{12}b_1 h_1^3 = 8.79*10^5 \\text{ } mm^4" />
+        <DisplayEquation equation="I_2 = \\frac{1}{12}b_2 h_2^3 +A_2d_2^2 = 47.85*10^5 \\text{ } mm^4 " />
+        
+        <InlineEquation equation="t" /> : length of connected region
+
+        <Image src="/sol/transverse_shear/IBeamThick.png" width="1.5"></Image>
+      
+        <DisplayEquation equation="t_A = 25 \\text{ } mm" />
+        <DisplayEquation equation="t_D = 25 \\text{ } mm" />
+        
+        Solve.
+
+        <DisplayEquation equation="\\tau_{AB} = 12.0 \\text{ } kPa" />
+        <DisplayEquation equation="\\tau_{BD} = 36.1 \\text{ } kPa" />
+      
+        <DisplayEquation equation="\\begin{align*} &\\tau_{AB} < \\tau_{BD} \\  &\\tau_{glue} = 36.1 \\text{ } kPa\\ \\end{align*}" />
+
+        
+        </p>
+  </div>
+</Example>
 </SubSection>
 
 </Layout>
