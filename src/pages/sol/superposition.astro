@@ -71,57 +71,48 @@ The goal in combined loading is to determine the stresses at a point in a slende
     <div class="d-flex">
         <p>
           Find the state of stress at points H and K in the given pipe system.
-          <Image src="/sol/transverse_shear/AdhesiveExample.png" width="5"></Image>
+          <Image src='/sol/superposition/Combined Loading Example.jpg' width='5'></Image>
         </p>
     </div>
   <div slot="solution">
       <p>
-        First, write all of the relevant force and moment balance equations.
+        First, write all of the six force and moment balance equations.
+        </p>
+
+        <p>
         <DisplayEquation equation="\\sum{F_x} = V_{x} = 0"/>
         <DisplayEquation equation="\\sum{F_y} = -600 + V_{y} = 0"/>
         <DisplayEquation equation="\\sum{F_y} = -2500 + V_{z} = 0"/>
-
+        </p>
         
+        <p>
         <DisplayEquation equation="\\sum{M_x} = M_{x} + 600\\times 3.5 = 0"/>
         <DisplayEquation equation="\\sum{M_y} = M_{y} = 0"/>
         <DisplayEquation equation="\\sum{M_z} = -T_{z} + 2500\\times 2.5 = 0"/>
+        </p>
 
-        <DisplayEquation equation="\\begin{align*} &\\tau_{AB} = \\frac{V Q_A}{I t_A},\\  &\\tau_{BD} = \\frac{V Q_D}{I t_D}\\ \\end{align*}"/>
-        
-        <InlineEquation equation="V" /> : shear force
+        <p>
+        Next, compute the relevant stresses produced by each force or moment. Note that for this example, <InlineEquation equation="\\sigma_x"/> and <InlineEquation equation="\\sigma_y"/> would be zero. This is because the normal axis is in the z direction, and there is no internal pressure to create normal stresses in the x or y directions.
+        </p>
 
-        <DisplayEquation equation="V = 100 \\text{ } N" />
-        
-        <InlineEquation equation="Q" /> : First area moment of inertia of cut section ( <InlineEquation equation="Q = \\Sigma \\bar{y}'A'" /> )
+        <p>
+        For point H:
+        <Itemize>
+            <Item> Axial: <InlineEquation equation = "\\sigma_z = \\frac{P_L}{A} = 2500/(\\frac{\\pi (d^2)}{4})" /> </Item>
+            <Item> Shear: <InlineEquation equation = "\\tau_{zy} = \\frac{V_y Q}{It} = 0" /> </Item>
+            <Item> Moment: <InlineEquation equation = "\\sigma_z = \\frac{Mc}{I} = ((600\\times (3.5-1)\\times d/2))/(\\frac{\\pi (d^2)}{32})" /> </Item>
+            <Item> Torsion: <InlineEquation equation = "\\tau_{zx} = \\frac{T_z r}{I} = ((600\\times (2.5)\\times d/2))/(\\frac{\\pi (d^2)}{64})" /> </Item>
+        </Itemize>
+        </p>
 
-        <Image src="/sol/transverse_shear/IBeamQ.png" width="2"></Image>
-
-        <DisplayEquation equation="Q_A = A \\bar{y_A} = 3.13*10^4 \\text{ } mm^3" />
-        <DisplayEquation equation="Q_D = A \\bar{y_D} = 9.38*10^4 \\text{ } mm^3" />
-
-        <InlineEquation equation="I" /> : Second area moment of inertia of whole cross-sectional area
-        
-        <Image src="/sol/transverse_shear/IBeamMOI.png" width="1.5"></Image>
-      
-        <DisplayEquation equation="I = I_1 + 2 I_2 = 1.04*10^7 \\text{ } mm^4" />
-        <DisplayEquation equation="I_1 = \\frac{1}{12}b_1 h_1^3 = 8.79*10^5 \\text{ } mm^4" />
-        <DisplayEquation equation="I_2 = \\frac{1}{12}b_2 h_2^3 +A_2d_2^2 = 47.85*10^5 \\text{ } mm^4 " />
-        
-        <InlineEquation equation="t" /> : length of connected region
-
-        <Image src="/sol/transverse_shear/IBeamThick.png" width="1.5"></Image>
-      
-        <DisplayEquation equation="t_A = 25 \\text{ } mm" />
-        <DisplayEquation equation="t_D = 25 \\text{ } mm" />
-        
-        Solve.
-
-        <DisplayEquation equation="\\tau_{AB} = 12.0 \\text{ } kPa" />
-        <DisplayEquation equation="\\tau_{BD} = 36.1 \\text{ } kPa" />
-      
-        <DisplayEquation equation="\\begin{align*} &\\tau_{AB} < \\tau_{BD} \\  &\\tau_{glue} = 36.1 \\text{ } kPa\\ \\end{align*}" />
-
-        
+        <p>
+        For point K:
+        <Itemize>
+            <Item> Axial: <InlineEquation equation = "\\sigma_z = \\frac{P_L}{A} = 2500/(\\frac{\\pi (d^2)}{4})" /> </Item>
+            <Item> Shear: <InlineEquation equation = "\\tau_{zy} = \\frac{V_y Q}{It} = \\frac{600\\times Q}{It}" /> </Item>
+            <Item> Moment: <InlineEquation equation = "\\sigma_z = \\frac{Mc}{I} = 0" /> </Item>
+            <Item> Torsion: <InlineEquation equation = "\\tau_{zx} = \\frac{T_z r}{I} = ((600\\times (2.5)\\times d/2))/(\\frac{\\pi (d^2)}{64})" /> </Item>
+        </Itemize>
         </p>
   </div>
 </Example>
