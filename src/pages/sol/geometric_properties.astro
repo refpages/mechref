@@ -23,8 +23,8 @@ import DisplayTable from "../../components/DisplayTable.astro"
         <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#first-moi'>Centroid</a></li>
         <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#second-moi'>Area Moment of Inertia</a></li>
         <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#polar_moment_of_inertia'>Polar Moment of Inertia</a></li>
-        <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#typical_shapes'>Moment of inertia for typical shapes</a></li>
-        <li class = 'list-group-item py-0'><a class = 'text-decoration-none subsection' href = '#summary_moment_of_inertia'>Summary: moment of inertia</a></li>
+        <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#simple_shapes_moi'>Simple Shapes Moment of Inertia</a></li>
+        <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#summary-moi'>Summary: Moment of Inertia</a></li>
 	</ul>
 </div>
 
@@ -98,7 +98,7 @@ The moment of inertia of the area <InlineEquation equation='A' /> with respect t
 
 </SubSection>
 
-<SubSection title="Moment of inertia for typical shapes" id="typical_shapes">
+<SubSection title="Moment of Inertia of Simple Shapes" id="simple_shapes_moi">
 
     <center><em>Common shapes about the origin: <InlineEquation equation='I'/> and <InlineEquation equation='J_O'/></em></center>
     <center><em>Common shapes about the centroid: <InlineEquation equation='\\bar{I}'/> and <InlineEquation equation='J_c'/></em></center>
@@ -228,6 +228,24 @@ The moment of inertia of the area <InlineEquation equation='A' /> with respect t
         
     </DisplayTable>
 </SubSection>
+
+<SubSection title="Summary: Moment of Inertia" id="summary-moi">
+    <DisplayTable class_="text-center" id="inertia-table">
+        <thead>
+            <tr>
+                <th class="table-shaded" class="nosideborderleft">
+                    
+                </th>
+                <th class="table-shaded">
+                    <strong>Mass moment of inertia</strong>
+                </th>
+                <th class="table-shaded" colspan="3">
+                    <strong>Area moment of inertia</strong>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
 
     <SubSection title="Summary: moment of inertia" id="summary_moment_of_inertia">
         <DisplayTable class_="text-center" id="inertia-table">
