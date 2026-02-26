@@ -9,6 +9,7 @@ import Item from "../../components/Item.astro"
 import InlineEquation from "../../components/InlineEquation.astro" 
 import DisplayEquation from "../../components/DisplayEquation.astro" 
 import BlueText from "../../components/BlueText.astro" 
+import Example from "../../components/Example.astro"
 
 
 ---
@@ -16,7 +17,7 @@ import BlueText from "../../components/BlueText.astro"
 
 <div slot="navtree">
 	<ul class='list-group list-group-flush py-0'> 
-		<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#limit_states'>Limit States</a>
+		<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#failure_modes'>Limit States</a>
 		<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#allowable_strength_design'>Allowable Strength Design</a>
 		<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#load_resistance_factor'>Load Resistance Factor</a>
 		</li>
@@ -24,7 +25,117 @@ import BlueText from "../../components/BlueText.astro"
 </div>
 
 <Section title="Design Considerations" id="design_considerations"></Section>
-<SubSection title="Limit States" id="limit_states"> </SubSection>
+<SubSection title="Failure Modes" id="failure_modes">
+<p>
+Broadly speaking, the goal of a design is to prevent unwanted behaviors (or
+failure modes) from occurring. There can be, and usually are, many different
+failure modes which need to be considered simultaneously.
+</p>
+
+<p>
+For example, consider just 2 plates bolted together and loaded to failure:
+
+<Itemize>
+	<Item><iframe src="https://www.youtube.com/embed/5EjQUEBQyuY" class="w-50" title="Normal Failure" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></Item>
+  <Item><iframe src="https://www.youtube.com/embed/sTAkcSVlIWE" class="w-50" title="Shear Failure" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></Item>
+  <Item><iframe src="https://www.youtube.com/embed/GrIgQAAsVsI" class="w-50" title="Bolt Failure" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></Item>
+</Itemize>
+</p>
+
+<p>
+It is the job of the engineer to anticipate and design for all relevant failure modes. For a given design, successful operation may require:
+<Itemize>
+	<Item> Stresses stay below material limits (see <a href = "https://www.mechref.org/sol/failure_theories/?origin=coursemenu#von-mises"> Von Mises failure criteria </a>) </Item>
+	<Item> Stress from cyclic loading stays below the fatigue limit (see the <a href = "https://www.mechref.org/mf/Fatigue/?origin=coursemenu"> Fatigue reference page </a>) </Item>
+	<Item> Buckling is prevented (see the <a href = "https://www.mechref.org/sol/buckling/?origin=coursemenu"> Buckling reference page </a>) </Item>
+	<Item> Deformation stays below a prescribed limit (see the <a href = "https://www.mechref.org/sol/beam_deflection/?origin=coursemenu"> Beam Deflection reference page </a>) </Item>
+	<Item> Vibration deformation from dynamic loads stays below a prescribed limit <!-- (see ME340 page doesn’t exist yet) --!> </Item>
+	<Item> And more </Item>
+</p>
+
+<p>
+Any way a product or component can fail to meet the desired performance can be referred to as a failure mode. These are occasionally categorized as
+<Itemize>
+	<Item> <strong> Strength: </strong> exceeding the limit state results in material failure </Item>
+	<Item> <strong> Stability: </strong> exceeding the limit state results in a stability failure (like
+	<a href = "https://www.mechref.org/sol/buckling/?origin=coursemenu"> buckling</a> or 
+	<a href="https://www.mechref.org/sta/friction/?origin=coursemenu#tip_slip"> overturning</a>) </Item>
+	<Item> <strong> Serviceability: </strong> exceeding the limit state results in compromised performance (excessive deflection) </Item>
+</Itemize>
+</p>
+
+<p>
+It can be very difficult to anticipate every possible failure mode. This broad view
+of component performance is discussed in the <a href = "https://www.mechref.org/design/pds/?origin=coursemenu"> Product Design Specifications reference</a> page. In solid
+mechanics, we’ll focus on the strength failure modes.
+
+<p>
+Note that the nomenclature can vary between industries, but the intent is the
+same, to identify potential failures and design to prevent them, or reduce the risk
+(probability x severity) to an acceptably low level. 
+</p>
+
+<Example id="auto" title="Automotive" solution="False">
+  <div class="d-flex flex-column">
+    <p class="w-100">
+
+      <em> Design Failure Mode and Effects Analysis: </em>
+      Design FMEA is a type of FMEA that analyzes the product design, focusing on potential design-related
+      deficiencies, with emphasis on improving the design and ensuring product operation is safe and reliable
+      during useful life.
+      <div class="mb-2 w-100"></div>
+
+      For more information, check out: <a href = "https://saemobilus-sae-org.proxy2.library.illinois.edu/standards/j1739_202101-potential-failure-mode-effects-analysis-fmea-including-design-fmea-supplemental-fmea-msr-process-fmea"> SAE J1739_202101 </a>
+      <div class="mb-3 w-100"></div>
+    </p>
+  </div>
+</Example>
+
+<Example id="aero" title="Aerospace" solution="False">
+  <div class="d-flex flex-column">
+    <p class="w-100">
+      <em> Failure Mode and Effects Analysis (FMEA): </em>
+      A procedure by which each potential failure mode or fault of a system is analyzed to determine the
+      consequences or effects thereof on the system, to classify each potential failure mode according to its
+      severity, and to recommend actions to eliminate, or compensate for, unacceptable effects.
+      <div class="mb-2 w-100"></div>
+
+      For more information, check out: <a href = "https://saemobilus-sae-org.proxy2.library.illinois.edu/standards/arp5580-recommended-failure-modes-effects-analysis-fmea-practices-non-automobile-applications"> SAE ARP5580 </a>
+      <div class="mb-3 w-100"></div>
+    </p>
+  </div>
+</Example>
+
+<Example id="civil" title="Civil" solution="False">
+  <div class="d-flex flex-column">
+    <p class="w-100">
+      <em> Limit State: </em>
+      A condition beyond which a structure or member becomes unfit for service and is judged either to be no
+      longer useful for its intended function (serviceability limit state) or to be unsafe (strength limit state).
+      <div class="mb-2 w-100"></div>
+
+      For more information, check out: <a href = "https://ascelibrary-org.proxy2.library.illinois.edu/doi/epdf/10.1061/9780784415788"> ASCE7 </a>
+      
+      <div class="mb-3 w-100"></div>
+    </p>
+  </div>
+</Example>
+
+<Example id="gov" title="US Government" solution="False">
+  <div class="d-flex flex-column">
+    <p class="w-100">
+      <em> Failure mode and effects analysis (FMEA): </em>
+      A procedure by which each potential failure mode in a system is analyzed to determine the results or
+      effects thereof on the system and to classify each potential failure mode according to its severity.
+      <div class="mb-2 w-100"></div>
+
+      For more information, check out: <a href = "https://www.dsiintl.com/wp-content/uploads/2017/04/mil_std_1629a.pdf"> MIL-STD-1629A </a>
+      
+    </p>
+  </div>
+</Example>
+
+</SubSection>
 
 <SubSection title="Allowable Strength Design" id="allowable_strength_design">
 
@@ -47,9 +158,6 @@ A structure is safe if its strength exceeds the required strength.
 
  Similarly, <DisplayEquation equation="\\sigma_{all} \\le \\frac{\\sigma_u}{FS}\\" title="Maximum allowed applied stress." background="True"/>
 
-</SubSection>
-
-<SubSection title="Load and Resistance Factor Design" id="load_resistance_factor">
 <p>
 Depending on the industry or application, the acceptability of a design may be interpreted differently. 
 For some applications showing a factor of safety of 4 may be sufficient. 
@@ -58,6 +166,10 @@ For example, a sling used for lifting, such as the one shown below, is specified
 
 <Image src='/sol/design_considerations/Web_Sling.png' width='8'><a href="https://www.mcmaster.com/8864T51/">Web sling</a></Image>
 
+
+</SubSection>
+
+<SubSection title="Load and Resistance Factor Design" id="load_resistance_factor">
 <p>
 In the civil/structural engineering industry, the variability of loading (wind, seismic, etc.) has been studied extensively. 
 This is also true for various structural capacities in building materials like steel, concrete wood, etc. Given a loading and resistance that are both random variables, a simple “safety factor” does not result in a consistent level of probability of failure across all structures. 
