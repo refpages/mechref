@@ -1,0 +1,1017 @@
+---
+import Layout from "../../layouts/Layout.astro" 
+import Image from "../../components/Image.astro" 
+import Section from "../../components/Section.astro" 
+import SubSection from "../../components/SubSection.astro" 
+import SubSubSection from "../../components/SubSubSection.astro" 
+import SubSubSubSection from "../../components/SubSubSubSection.astro" 
+import CalloutContainer from "../../components/CalloutContainer.astro" 
+import OrangeText from "../../components/OrangeText.astro" 
+import TealText from "../../components/TealText.astro" 
+import Enumerate from "../../components/Enumerate.astro" 
+import Item from "../../components/Item.astro" 
+import Itemize from "../../components/Itemize.astro" 
+import InlineEquation from "../../components/InlineEquation.astro" 
+import DisplayEquation from "../../components/DisplayEquation.astro" 
+---
+<Layout title="Analyze and Select Design">
+<div slot="navtree">
+<ul class="list-group list-group-flush py-0">
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Analyze and Select Design'>Analyze and Select Design</a><ul class='list-group list-group-flush py-0'>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Introduction'>Introduction</a><ul class='list-group list-group-flush py-0'>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#What is the Analyze and Select Phase?'>What is the Analyze and Select Phase?</a></li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Why This Phase is Critical'>Why This Phase is Critical</a></li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Three Key Components'>Three Key Components</a></li></ul>
+</li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Component 1: Preliminary Design Evaluation and Calculations'>Component 1: Preliminary Design Evaluation and Calculations</a><ul class='list-group list-group-flush py-0'>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Purpose of Preliminary Evaluation'>Purpose of Preliminary Evaluation</a></li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#What to Evaluate'>What to Evaluate</a></li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Preliminary Calculations'>Preliminary Calculations</a></li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Bike Lock Example: Preliminary Shackle Analysis'>Bike Lock Example: Preliminary Shackle Analysis</a></li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Preliminary Evaluation Checklist'>Preliminary Evaluation Checklist</a></li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Preliminary Evaluation Documentation'>Preliminary Evaluation Documentation</a></li></ul>
+</li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Component 2: Structured Concept Selection - The Pugh Matrix'>Component 2: Structured Concept Selection - The Pugh Matrix</a><ul class='list-group list-group-flush py-0'>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#What is the Pugh Matrix?'>What is the Pugh Matrix?</a></li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Why Use the Pugh Matrix?'>Why Use the Pugh Matrix?</a></li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#How the Pugh Matrix Works'>How the Pugh Matrix Works</a></li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Step-by-Step Pugh Matrix Process'>Step-by-Step Pugh Matrix Process</a></li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Pugh Matrix Best Practices'>Pugh Matrix Best Practices</a></li></ul>
+</li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Component 3: Present to Client and Defend Decision'>Component 3: Present to Client and Defend Decision</a><ul class='list-group list-group-flush py-0'>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Purpose of Design Presentation'>Purpose of Design Presentation</a></li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Presentation Structure'>Presentation Structure</a></li></ul>
+</li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Component 3: Analysis (Analytical & Computational)'>Component 3: Analysis (Analytical & Computational)</a><ul class='list-group list-group-flush py-0'>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Purpose of Engineering Analysis'>Purpose of Engineering Analysis</a></li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Analysis Documentation'>Analysis Documentation</a></li>
+</ul>
+</ul>
+</ul>
+</div>
+<SubSection title="Analyze and Select Design" id="Analyze and Select Design">
+</SubSection>
+<SubSubSection title="Introduction" id="Introduction">
+</SubSubSection>
+<SubSubSubSection title="What is the Analyze and Select Phase?" id="What is the Analyze and Select Phase?">
+<p>The goal is to make informed decisions about how to progress the design/product development. In order to make these informed decisions we must analyze our current design status with reference to our intended functions/performance metrics and use structured decision making to select a path forward. After generating multiple design concepts, systematically evaluate alternatives and select the a solution that best meets project requirements.</p>
+</SubSubSubSection>
+<SubSubSubSection title="Why This Phase is Critical" id="Why This Phase is Critical">
+<p>Changing course late in product development can be very costly and time-consuming. Making the evidence supported decisions after detailed design begins ensures the team continues on a suitable path forward and progresses effectively. It also allows for clear documentation of why and how decisions were reached when, inevitably, they are reexamined later.</p>
+<p>The Analyze and Select phase ensures:</p>
+<Itemize>
+
+    <Item><strong>Objective Decision-Making:</strong> Reduces bias and personal preferences in favor of data-driven choices</Item>
+    <Item><strong>Risk Mitigation:</strong> Identifies potential problems before significant resources are committed</Item>
+    <Item><strong>Stakeholder Alignment:</strong> Ensures all parties agree on the selected direction</Item>
+    <Item><strong>Resource Optimization:</strong> Focuses detailed design efforts on the most promising solution based on currently available information</Item>
+    <Item><strong>Documentation:</strong> Creates a traceable record of why decisions were made</Item>
+
+</Itemize>
+</SubSubSubSection>
+<SubSubSubSection title="Three Key Components" id="Three Key Components">
+<Enumerate>
+
+    <Item><strong>Preliminary Design Evaluation and Calculations</strong> - Technical feasibility assessment</Item>
+    <Item><strong>Structured Concept Selection</strong> - Systematic comparison to alternative options</Item>
+    <Item><strong>Client Presentation and Defense</strong> - Communicating and justifying the selected design</Item>
+
+</Enumerate>
+</SubSubSubSection>
+<SubSubSection title="Component 1: Preliminary Design Evaluation and Calculations" id="Component 1: Preliminary Design Evaluation and Calculations">
+</SubSubSection>
+<SubSubSubSection title="Purpose of Preliminary Evaluation" id="Purpose of Preliminary Evaluation">
+<p>The preliminary design phase ultimately answers whether the idea is viable, exposing potential problems as well as possible solutions to those problems. Before investing significant time in detailed design, engineers must verify that concepts are technically sound and practically achievable.</p>
+</SubSubSubSection>
+<SubSubSubSection title="What to Evaluate" id="What to Evaluate">
+<h4><strong>Technical Feasibility</strong></h4>
+<p><strong>Can it actually work?</strong></p> 
+
+<Itemize>
+
+    <Item>Does the concept violate any physical laws?</Item>
+    <Item>Are the required technologies mature and available?</Item>
+    <Item>Can the design achieve the required performance specifications?</Item>
+    <Item>Are there fundamental technical obstacles?</Item>
+
+</Itemize>
+<strong>Bike Lock Example - Technical Feasibility Questions:</strong>
+<Itemize>
+
+    <Item>Can a 13mm hardened steel shackle withstand 3,000 lbs of cutting force?</Item>
+    <Item>Will a pin tumbler cylinder operate reliably in -20°C temperatures?</Item>
+    <Item>Can die-cast zinc alloy provide adequate strength for the lock body?</Item>
+    <Item>Is the locking mechanism geometry physically possible to manufacture?</Item>
+
+</Itemize>
+<h4><strong>Manufacturing Feasibility</strong></h4>
+<p><strong>Can we make it?</strong></p> 
+
+<Itemize>
+
+    <Item>Do we have (or can we access) the required manufacturing capabilities?</Item>
+    <Item>Are the proposed processes cost-effective at target volumes?</Item>
+    <Item>Can required tolerances be achieved with available equipment?</Item>
+    <Item>Are materials readily available from suppliers?</Item>
+
+</Itemize>
+<strong>Bike Lock Example - Manufacturing Assessment:</strong>
+<Itemize>
+
+    <Item>Die casting: In-house capability for 50K+ units/year ✓</Item>
+    <Item>Hardening process: Must outsource heat treatment ✓</Item>
+    <Item>Lock cylinder: Buy from specialized supplier ✓</Item>
+    <Item>Assembly: Semi-automated, 15 seconds/unit target ✓</Item>
+
+</Itemize>
+<h4><strong>Economic Feasibility</strong></h4>
+<p><strong>Can we afford it?</strong></p> 
+
+<Itemize>
+
+    <Item>Does estimated manufacturing cost meet target cost?</Item>
+    <Item>Is required tooling investment within budget?</Item>
+    <Item>What is the projected ROI and payback period?</Item>
+    <Item>Are development costs reasonable?</Item>
+
+</Itemize>
+<strong>Bike Lock Example - Economic Analysis:</strong>
+<p>\begin{verbatim}</p>
+<p>Target Retail Price: <InlineEquation equation="29.99 Required Manufacturing Cost:" />8.50/unit (at 50K units) Preliminary Cost Estimate: - Die-cast lock body: <InlineEquation equation="3.20 - Hardened shackle:" />1.90 - Lock cylinder: <InlineEquation equation="2.80 - Hardware & assembly:" />0.60 TOTAL: <InlineEquation equation="8.50 ✓ Meets target Tooling Investment:" />75,000 Break-even: 50,000 units × 18 months ROI: Acceptable ✓</p>
+<p>\end{verbatim}</p>
+</SubSubSubSection>
+<SubSubSubSection title="Preliminary Calculations" id="Preliminary Calculations">
+<p>Perform simplified engineering calculations to verify critical performance parameters. These are typically hand calculations using conservative assumptions.</p>
+<h4><strong>Types of Preliminary Calculations</strong></h4>
+<p><strong>Structural Analysis:</strong></p> 
+
+<Itemize>
+
+    <Item>Stress and strain under loading</Item>
+    <Item>Factor of safety verification</Item>
+    <Item>Deflection and deformation</Item>
+    <Item>Buckling analysis (if applicable)</Item>
+
+</Itemize>
+<strong>Thermal Analysis:</strong>
+<Itemize>
+
+    <Item>Heat transfer rates</Item>
+    <Item>Temperature distribution</Item>
+    <Item>Thermal expansion effects</Item>
+
+</Itemize>
+<strong>Fluid Analysis:</strong>
+<Itemize>
+
+    <Item>Flow rates and pressures</Item>
+    <Item>Pressure drops</Item>
+    <Item>Reynolds numbers</Item>
+
+</Itemize>
+<strong>Kinematics/Dynamics:</strong>
+<Itemize>
+
+    <Item>Motion paths</Item>
+    <Item>Velocities and accelerations</Item>
+    <Item>Required forces and torques</Item>
+
+</Itemize>
+</SubSubSubSection>
+<SubSubSubSection title="Bike Lock Example: Preliminary Shackle Analysis" id="Bike Lock Example: Preliminary Shackle Analysis">
+<p><strong>Design Concept:</strong> U-shaped shackle, 13mm diameter, hardened steel</p>
+<p><strong>Critical Loading:</strong> Bolt cutter attack (15,000 N applied at shackle center)</p>
+<strong>Simplified Calculation:</strong>
+<p>\begin{verbatim}</p>
+<p>GIVEN: Shackle diameter: d = 13 mm Applied force: F = 15,000 N Effective beam length: L = 100 mm (half the U-shape) Material: 4340 Steel, heat treated Yield strength: σ_y = 1,520 MPa Modulus: E = 200 GPa ANALYSIS - Bending Stress: Treat as cantilever beam with end load: Maximum moment: M = F × L = 15,000 N × 0.10 m = 1,500 N⋅m Section modulus (solid cylinder): S = πd³/32 = π(0.013)³/32 = 2.15 × 10⁻⁷ m³ Bending stress: σ_bending = M/S = 1,500/(2.15×10⁻⁷) = 6,977 MPa ANALYSIS - Direct Shear Stress: Cross-sectional area: A = πd²/4 = π(0.013)²/4 = 1.33 × 10⁻⁴ m² Shear stress: τ = F/A = 15,000/(1.33×10⁻⁴) = 113 MPa RESULTS: Combined stress ≈ 7,000 MPa >> σ_y (1,520 MPa) CONCLUSION: FAIL! 13mm diameter is insufficient. Try 14mm or higher strength material. REVISED CALCULATION (14mm diameter): S = 2.69 × 10⁻⁷ m³ σ_bending = 5,576 MPa (still too high) Try 16mm: S = 4.02 × 10⁻⁷ m³ σ_bending = 3,731 MPa (still marginal) RECOMMENDATION: - Increase to 16mm diameter minimum - Consider ultra-high strength steel (σ_y > 2,000 MPa) - Perform detailed FEA to account for stress concentrations</p>
+<p>\end{verbatim}</p>
+<p><strong>Documentation:</strong> This preliminary calculation shows the initial 13mm concept won't meet strength requirements. Recommend moving forward with 16mm shackle for detailed analysis.</p>
+</SubSubSubSection>
+<SubSubSubSection title="Preliminary Evaluation Checklist" id="Preliminary Evaluation Checklist">
+<p>Use this checklist to ensure thorough preliminary evaluation:</p>
+<strong>Technical Assessment:</strong>
+<Itemize>
+
+    <Item>[ ] Performance requirements can be met</Item>
+    <Item>[ ] No physical impossibilities identified</Item>
+    <Item>[ ] Required technologies are available and mature</Item>
+    <Item>[ ] Critical dimensions and geometries are feasible</Item>
+    <Item>[ ] Preliminary calculations support feasibility</Item>
+
+</Itemize>
+<strong>Manufacturing Assessment:</strong>
+<Itemize>
+
+    <Item>[ ] Manufacturing processes identified</Item>
+    <Item>[ ] Required capabilities available or accessible</Item>
+    <Item>[ ] Tolerances achievable with selected processes</Item>
+    <Item>[ ] Material availability confirmed</Item>
+    <Item>[ ] Assembly sequence is practical</Item>
+
+</Itemize>
+<strong>Economic Assessment:</strong>
+<Itemize>
+
+    <Item>[ ] Preliminary cost estimate within target</Item>
+    <Item>[ ] Tooling investment acceptable</Item>
+    <Item>[ ] Development timeline reasonable</Item>
+    <Item>[ ] ROI analysis supports project</Item>
+    <Item>[ ] Supply chain risks identified</Item>
+
+</Itemize>
+<strong>Risk Assessment:</strong>
+<Itemize>
+
+    <Item>[ ] Technical risks identified and rated</Item>
+    <Item>[ ] Manufacturing risks assessed</Item>
+    <Item>[ ] Market/business risks considered</Item>
+    <Item>[ ] Mitigation strategies outlined</Item>
+    <Item>[ ] Go/no-go decision criteria established</Item>
+
+</Itemize>
+</SubSubSubSection>
+<SubSubSubSection title="Preliminary Evaluation Documentation" id="Preliminary Evaluation Documentation">
+<p>Document your preliminary evaluation in a concise report:</p>
+<strong>Structure:</strong>
+<Enumerate>
+
+    <Item><strong>Concept Description:</strong> Brief overview with sketches</Item>
+    <Item><strong>Evaluation Criteria:</strong> List of requirements being assessed</Item>
+    <Item><strong>Technical Analysis:</strong> Calculations and feasibility assessment</Item>
+    <Item><strong>Manufacturing Analysis:</strong> Process selection and capability review</Item>
+    <Item><strong>Cost Analysis:</strong> Preliminary cost breakdown</Item>
+    <Item><strong>Risk Assessment:</strong> Identified risks and mitigation strategies</Item>
+    <Item><strong>Recommendation:</strong> Pass/fail decision with supporting rationale</Item>
+
+</Enumerate>
+</SubSubSubSection>
+<SubSubSection title="Component 2: Structured Concept Selection - The Pugh Matrix" id="Component 2: Structured Concept Selection - The Pugh Matrix">
+</SubSubSection>
+<SubSubSubSection title="What is the Pugh Matrix?" id="What is the Pugh Matrix?">
+<p>The Pugh method is a qualitative technique used to rank multi-dimensional options of an option set, frequently used in engineering for making design decisions. The matrix uses a criteria-based approach to compare and evaluate multiple design options against a standard set of evaluation criteria to find the best possible solution.</p>
+<p>The Pugh Matrix was developed by Stuart Pugh, a professor of engineering design at the University of Strathclyde in Scotland, who recognized the need for a more objective and transparent decision-making process in product design and development.</p>
+</SubSubSubSection>
+<SubSubSubSection title="Why Use the Pugh Matrix?" id="Why Use the Pugh Matrix?">
+<strong>Benefits:</strong>
+<Itemize>
+
+    <Item>Encourages self-reflection amongst design team members to analyze each candidate with minimized bias</Item>
+    <Item>Provides structured, repeatable process</Item>
+    <Item>Creates documented rationale for decisions</Item>
+    <Item>Facilitates team discussion and consensus</Item>
+    <Item>Identifies hybrid solutions combining best features</Item>
+    <Item>Performs sensitivity analysis on criteria importance</Item>
+
+</Itemize>
+<strong>When to Use:</strong>
+<Itemize>
+
+    <Item>Multiple viable design concepts exist</Item>
+    <Item>Decision criteria are multi-dimensional</Item>
+    <Item>Team consensus is needed</Item>
+    <Item>Objective comparison is required</Item>
+    <Item>Documentation of decision rationale is important</Item>
+
+</Itemize>
+</SubSubSubSection>
+<SubSubSubSection title="How the Pugh Matrix Works" id="How the Pugh Matrix Works">
+<p>A basic decision matrix establishes a set of criteria and a group of potential candidate designs, with one design selected as a reference candidate. Other designs are then compared to this reference and ranked as better, worse, or same based on each criterion.</p>
+<strong>Core Concept:</strong>
+<Itemize>
+
+    <Item>Select a <strong>baseline (datum)</strong> design for comparison</Item>
+    <Item>Score alternatives as <strong>+1</strong> (better), <strong>0</strong> (same), or <strong>-1</strong> (worse) than baseline</Item>
+    <Item>Sum scores to identify strongest concepts</Item>
+    <Item>May use weighted criteria for more refined analysis</Item>
+
+</Itemize>
+</SubSubSubSection>
+<SubSubSubSection title="Step-by-Step Pugh Matrix Process" id="Step-by-Step Pugh Matrix Process">
+<h4><strong>Step 1: Establish Evaluation Criteria</strong></h4>
+<p><p>List key criteria from which to evaluate concept options, which may include critical-to-customer, critical-to-business, critical-to-quality, and critical design characteristics.</p>
+<strong>Sources for Criteria:</strong></p> 
+
+<Itemize>
+
+    <Item>Product Design Specification (PDS)</Item>
+    <Item>Customer requirements (Voice of Customer)</Item>
+    <Item>Technical requirements</Item>
+    <Item>Manufacturing constraints</Item>
+    <Item>Business objectives</Item>
+    <Item>Regulatory requirements</Item>
+
+</Itemize>
+<strong>Bike Lock Example - Selection Criteria:</strong>
+<p>\begin{table}</p>
+<p>\centering</p>
+<p>\begin{tabular}{l l l}</p>
+<p>Criterion & Source & Importance \\</p>
+<p><strong>Security Level</strong> & Customer requirement & Critical \\</p>
+<p><strong>Weight</strong> & PDS - portability & High \\</p>
+<p><strong>Manufacturing Cost</strong> & Business constraint & Critical \\</p>
+<p><strong>Ease of Use</strong> & Customer preference & High \\</p>
+<p><strong>Weather Resistance</strong> & PDS - environment & High \\</p>
+<p><strong>Aesthetic Appeal</strong> & Marketing input & Medium \\</p>
+<p><strong>Mounting System</strong> & Customer feedback & Medium \\</p>
+<p><strong>Tooling Investment</strong> & Business constraint & High \\</p>
+<p>\end{tabular}</p>
+<p>\end{table}</p>
+<h4><strong>Step 2: Define Design Concepts</strong></h4>
+<p><p>Clearly describe each alternative design concept being evaluated. Include sketches, key features, and distinguishing characteristics.</p>
+<strong>Bike Lock Concept Alternatives:</strong>
+<strong>DATUM (Baseline): Concept A - Traditional U-Lock</strong></p> 
+
+<Itemize>
+
+    <Item>16mm hardened steel shackle, U-shape</Item>
+    <Item>Die-cast zinc lock body</Item>
+    <Item>Pin tumbler cylinder (5-pin)</Item>
+    <Item>Plastic frame mount bracket</Item>
+    <Item>Estimated cost: $8.75/unit</Item>
+
+</Itemize>
+<strong>Concept B - Heavy-Duty U-Lock</strong>
+<Itemize>
+
+    <Item>18mm hardened steel shackle, U-shape</Item>
+    <Item>Steel lock body (heavier, more robust)</Item>
+    <Item>Pin tumbler cylinder (7-pin, pick-resistant)</Item>
+    <Item>Metal frame mount with rubber coating</Item>
+    <Item>Estimated cost: $11.25/unit</Item>
+
+</Itemize>
+<strong>Concept C - Folding Link Lock</strong>
+<Itemize>
+
+    <Item>Six 5mm hardened steel plates, articulated links</Item>
+    <Item>Compact folded design</Item>
+    <Item>Disc detainer cylinder</Item>
+    <Item>Integrated frame mount</Item>
+    <Item>Estimated cost: $10.50/unit</Item>
+
+</Itemize>
+<strong>Concept D - Lightweight Cable-Reinforced</strong>
+<Itemize>
+
+    <Item>14mm shackle with steel cable core + hardened shell</Item>
+    <Item>Aluminum lock body with steel internals</Item>
+    <Item>Pin tumbler cylinder (5-pin)</Item>
+    <Item>Lightweight frame mount</Item>
+    <Item>Estimated cost: $7.90/unit</Item>
+
+</Itemize>
+<strong>Concept E - Smart Lock U-Lock</strong>
+<Itemize>
+
+    <Item>16mm hardened steel shackle</Item>
+    <Item>Die-cast zinc body with electronic module</Item>
+    <Item>Smartphone app unlock + physical key backup</Item>
+    <Item>Standard frame mount</Item>
+    <Item>Estimated cost: $12.50/unit</Item>
+
+</Itemize>
+<h4><strong>Step 3: Build the Pugh Matrix</strong></h4>
+<p><p>Draw a Pugh matrix with criteria listed vertically and design concepts listed horizontally, entering the current design as the baseline for comparative ranking.</p>
+<strong>Basic (Unweighted) Pugh Matrix:</strong></p> 
+
+<p>\begin{table}</p>
+<p>\centering</p>
+<p>\begin{tabular}{l l l l l l}</p>
+<p><strong>Criteria</strong> & <strong>Datum: Concept A</strong> & <strong>Concept B</strong> & <strong>Concept C</strong> & <strong>Concept D</strong> & <strong>Concept E</strong> \\</p>
+<p><strong>Security Level</strong> & S (baseline) & + & 0 & - & + \\</p>
+<p><strong>Weight</strong> & S & - & + & + & 0 \\</p>
+<p><strong>Manufacturing Cost</strong> & S & - & + & + & - \\</p>
+<p><strong>Ease of Use</strong> & S & 0 & - & + & + \\</p>
+<p><strong>Weather Resistance</strong> & S & + & 0 & - & + \\</p>
+<p><strong>Aesthetic Appeal</strong> & S & 0 & + & 0 & + \\</p>
+<p><strong>Mounting System</strong> & S & + & - & + & 0 \\</p>
+<p><strong>Tooling Investment</strong> & S & - & - & + & - \\</p>
+<p>&  &  &  &  &  \\</p>
+<p><strong>TOTAL +</strong> & - & 3 & 3 & 5 & 4 \\</p>
+<p><strong>TOTAL -</strong> & - & 4 & 3 & 2 & 2 \\</p>
+<p><strong>TOTAL S</strong> & - & 1 & 2 & 1 & 2 \\</p>
+<p><strong>OVERALL SCORE</strong> & 0 & -1 & 0 & +3 & +2 \\</p>
+<p>\end{tabular}</p>
+<p>\end{table}</p>
+<strong>Scoring Rationale:</strong>
+<strong>Concept B vs. Datum A:</strong>
+<Itemize>
+
+    <Item>Security: + (thicker shackle, better cylinder)</Item>
+    <Item>Weight: - (heavier due to 18mm shackle and steel body)</Item>
+    <Item>Cost: - (higher material and component costs)</Item>
+    <Item>Ease of Use: 0 (similar operation)</Item>
+    <Item>Weather: + (steel body more corrosion resistant than zinc)</Item>
+    <Item>Aesthetics: 0 (similar appearance)</Item>
+    <Item>Mounting: + (more robust metal mount)</Item>
+    <Item>Tooling: - (requires more expensive tooling)</Item>
+
+</Itemize>
+<strong>Concept C vs. Datum A:</strong>
+<Itemize>
+
+    <Item>Security: 0 (similar overall security rating)</Item>
+    <Item>Weight: + (folding design slightly lighter when compact)</Item>
+    <Item>Cost: + (articulated design, simpler manufacturing in some aspects but material costs moderate)</Item>
+    <Item>Ease of Use: - (folding mechanism less intuitive)</Item>
+    <Item>Weather: 0 (similar materials and coatings)</Item>
+    <Item>Aesthetics: + (modern, unique folding appearance)</Item>
+    <Item>Mounting: - (integrated mount less flexible)</Item>
+    <Item>Tooling: - (complex articulation requires specialized tooling)</Item>
+
+</Itemize>
+<strong>Concept D vs. Datum A:</strong>
+<Itemize>
+
+    <Item>Security: - (cable core less secure than solid steel)</Item>
+    <Item>Weight: + (aluminum body reduces weight)</Item>
+    <Item>Cost: + (lower material costs)</Item>
+    <Item>Ease of Use: + (lighter, easier to handle)</Item>
+    <Item>Weather: - (cable construction susceptible to corrosion)</Item>
+    <Item>Aesthetics: 0 (similar U-lock appearance)</Item>
+    <Item>Mounting: + (lightweight mount easier to use)</Item>
+    <Item>Tooling: + (simpler, less expensive tooling)</Item>
+
+</Itemize>
+<strong>Concept E vs. Datum A:</strong>
+<Itemize>
+
+    <Item>Security: + (electronic monitoring, theft alerts)</Item>
+    <Item>Weight: 0 (electronics add minimal weight)</Item>
+    <Item>Cost: - (electronics significantly increase cost)</Item>
+    <Item>Ease of Use: + (smartphone convenience, no key to carry)</Item>
+    <Item>Weather: + (sealed electronic compartment, good ratings)</Item>
+    <Item>Aesthetics: + (modern, tech-forward appearance)</Item>
+    <Item>Mounting: 0 (standard mount)</Item>
+    <Item>Tooling: - (additional electronics assembly tooling)</Item>
+
+</Itemize>
+<p><strong>Initial Results:</strong> Concept D (Lightweight Cable-Reinforced) scores highest (+3), followed by Concept E (Smart Lock, +2).</p>
+<h4><strong>Step 4: Apply Weighting (Optional but Recommended)</strong></h4>
+<p><p>Determine a weighting factor for each criterion, which may be determined using pairwise comparison or simply ranking on a scale of 1 to 5.</p>
+<strong>Weighting Scale:</strong> 1 (Low importance) to 5 (Critical)</p> 
+
+<p>\begin{table}</p>
+<p>\centering</p>
+<p>\begin{tabular}{l l l}</p>
+<p><strong>Criteria</strong> & <strong>Weight</strong> & <strong>Rationale</strong> \\</p>
+<p>Security Level & 5 & Primary product function, critical customer requirement \\</p>
+<p>Weight & 3 & Important for portability, but secondary to security \\</p>
+<p>Manufacturing Cost & 5 & Must meet cost target or project fails \\</p>
+<p>Ease of Use & 4 & Strong customer preference, affects adoption \\</p>
+<p>Weather Resistance & 4 & PDS requirement, product must work in all conditions \\</p>
+<p>Aesthetic Appeal & 2 & Nice to have, but not primary purchase driver \\</p>
+<p>Mounting System & 3 & Convenience feature, moderate importance \\</p>
+<p>Tooling Investment & 4 & Business constraint, affects ROI \\</p>
+<p>\end{tabular}</p>
+<p>\end{table}</p>
+<strong>Weighted Pugh Matrix:</strong>
+<p>\begin{table}</p>
+<p>\centering</p>
+<p>\begin{tabular}{l l l l l l l}</p>
+<p><strong>Criteria</strong> & <strong>Weight</strong> & <strong>Datum: A</strong> & <strong>Concept B</strong> & <strong>Concept C</strong> & <strong>Concept D</strong> & <strong>Concept E</strong> \\</p>
+<p>Security Level & 5 & 0 & +5 & 0 & -5 & +5 \\</p>
+<p>Weight & 3 & 0 & -3 & +3 & +3 & 0 \\</p>
+<p>Manufacturing Cost & 5 & 0 & -5 & +5 & +5 & -5 \\</p>
+<p>Ease of Use & 4 & 0 & 0 & -4 & +4 & +4 \\</p>
+<p>Weather Resistance & 4 & 0 & +4 & 0 & -4 & +4 \\</p>
+<p>Aesthetic Appeal & 2 & 0 & 0 & +2 & 0 & +2 \\</p>
+<p>Mounting System & 3 & 0 & +3 & -3 & +3 & 0 \\</p>
+<p>Tooling Investment & 4 & 0 & -4 & -4 & +4 & -4 \\</p>
+<p><strong>WEIGHTED TOTAL</strong> &  & <strong>0</strong> & <strong>0</strong> & <strong>-1</strong> & <strong>+10</strong> & <strong>+6</strong> \\</p>
+<p>\end{tabular}</p>
+<p>\end{table}</p>
+<strong>Weighted Results:</strong>
+<Itemize>
+
+    <Item><strong>Concept D</strong> remains strongest (+10)</Item>
+    <Item><strong>Concept E</strong> second (+6)</Item>
+    <Item><strong>Datum A</strong> baseline (0)</Item>
+    <Item><strong>Concept B</strong> neutral (0)</Item>
+    <Item><strong>Concept C</strong> weakest (-1)</Item>
+
+</Itemize>
+<h4><strong>Step 5: Analyze Results and Iterate</strong></h4>
+<p><p>After the best design concept is identified, each criterion that performed worse than the datum should be examined, leading to design improvement on the selected concept.</p>
+<strong>Analysis of Concept D (Winner):</strong>
+<strong>Strengths:</strong></p> 
+
+<Itemize>
+
+    <Item>Excellent cost position (+5 weighted)</Item>
+    <Item>Good weight performance (+3)</Item>
+    <Item>Strong ease of use (+4)</Item>
+    <Item>Favorable tooling investment (+4)</Item>
+
+</Itemize>
+<strong>Weaknesses:</strong>
+<Itemize>
+
+    <Item><strong>Security concern</strong> (-5 weighted) - cable core less secure</Item>
+    <Item><strong>Weather resistance</strong> (-4 weighted) - cable corrosion risk</Item>
+
+</Itemize>
+<p><strong>Improvement Opportunities:</strong> Create a <strong>Hybrid Concept D+</strong> by addressing weaknesses:</p>
+<Itemize>
+
+    <Item>Increase cable core quality: Use stainless steel braided cable</Item>
+    <Item>Improve weather sealing: Add rubber boot over cable ends</Item>
+    <Item>Consider: Can we achieve Concept A security level while maintaining weight advantage?</Item>
+
+</Itemize>
+<h4><strong>Step 6: Consider Hybrid Solutions</strong></h4>
+<p><p>The process can identify hybrid concepts that combine strengths from multiple alternatives.</p>
+<strong>Hybrid Concept: "D+"</strong></p> 
+
+<Itemize>
+
+    <Item>Base: Concept D (lightweight, low cost, good usability)</Item>
+    <Item>Enhance: Upgrade cable to braided stainless (from Concept B philosophy)</Item>
+    <Item>Add: Improved weather sealing (from Concept E approach)</Item>
+    <Item>Result: Addresses security and weather weaknesses while maintaining advantages</Item>
+
+</Itemize>
+<strong>Re-evaluate Hybrid D+:</strong>
+<p>\begin{table}</p>
+<p>\centering</p>
+<p>\begin{tabular}{l l l l}</p>
+<p><strong>Criteria</strong> & <strong>Weight</strong> & <strong>Concept D</strong> & <strong>Hybrid D+</strong> \\</p>
+<p>Security Level & 5 & -5 & 0 (improved to baseline level) \\</p>
+<p>Weight & 3 & +3 & +2 (slightly heavier with upgrades) \\</p>
+<p>Manufacturing Cost & 5 & +5 & +3 (materials cost increase) \\</p>
+<p>Ease of Use & 4 & +4 & +4 (unchanged) \\</p>
+<p>Weather Resistance & 4 & -4 & +2 (significant improvement) \\</p>
+<p>Aesthetic Appeal & 2 & 0 & +1 (better finish on upgraded cable) \\</p>
+<p>Mounting System & 3 & +3 & +3 (unchanged) \\</p>
+<p>Tooling Investment & 4 & +4 & +4 (unchanged) \\</p>
+<p><strong>WEIGHTED TOTAL</strong> &  & <strong>+10</strong> & <strong>+19</strong> \\</p>
+<p>\end{tabular}</p>
+<p>\end{table}</p>
+<strong>Hybrid D+ significantly outperforms original Concept D!</strong>
+<h4><strong>Step 7: Make Final Selection</strong></h4>
+<p><p>Based on weighted Pugh analysis:</p>
+<strong>SELECTED DESIGN: Hybrid Concept D+</strong></p> 
+
+<Itemize>
+
+    <Item>Lightweight cable-reinforced U-lock</Item>
+    <Item>Upgraded stainless steel braided cable core</Item>
+    <Item>Hardened steel shell</Item>
+    <Item>Aluminum lock body with steel internals</Item>
+    <Item>Enhanced weather sealing</Item>
+    <Item>Estimated cost: $8.90/unit (still under target)</Item>
+    <Item>Weighted score: +19 (best performance)</Item>
+
+</Itemize>
+<strong>Rationale:</strong>
+<Itemize>
+
+    <Item>Meets security requirements (improved from Concept D)</Item>
+    <Item>Excellent weight and usability</Item>
+    <Item>Achieves cost targets</Item>
+    <Item>Addresses weather resistance concerns</Item>
+    <Item>Favorable tooling investment</Item>
+    <Item>Strong overall value proposition</Item>
+
+</Itemize>
+</SubSubSubSection>
+<SubSubSubSection title="Pugh Matrix Best Practices" id="Pugh Matrix Best Practices">
+<strong>Do:</strong>
+<Itemize>
+
+    <Item>Involve cross-functional team in scoring</Item>
+    <Item>Clearly define what each criterion means</Item>
+    <Item>Document rationale for each score</Item>
+    <Item>Use consistent scoring scale</Item>
+    <Item>Consider weighted and unweighted results</Item>
+    <Item>Iterate and create hybrid concepts</Item>
+    <Item>Perform sensitivity analysis on critical criteria</Item>
+
+</Itemize>
+<strong>Don't:</strong>
+<Itemize>
+
+    <Item>Let personal bias influence scores</Item>
+    <Item>Include ambiguous or redundant criteria</Item>
+    <Item>Score without team discussion</Item>
+    <Item>Ignore negative scores on critical criteria</Item>
+    <Item>Stop after first matrix - iterate!</Item>
+    <Item>Forget to document assumptions</Item>
+
+</Itemize>
+<strong>Common Pitfalls:</strong>
+<Itemize>
+
+    <Item>Incorrect, incomplete, and inadequate selection criteria fundamentally affect the quality of the decision</Item>
+    <Item>Granularity of scale may not differentiate well</Item>
+    <Item>Wrong team expertise leads to poor scores</Item>
+    <Item>Over-reliance on matrix without engineering judgment</Item>
+
+</Itemize>
+</SubSubSubSection>
+<SubSubSection title="Component 3: Present to Client and Defend Decision" id="Component 3: Present to Client and Defend Decision">
+</SubSubSection>
+<SubSubSubSection title="Purpose of Design Presentation" id="Purpose of Design Presentation">
+<p>After completing preliminary evaluation and concept selection, you must present your findings and recommendation to stakeholders (client, management, project sponsors). The presentation serves to:</p>
+<Itemize>
+
+    <Item>Communicate the selected design solution</Item>
+    <Item>Explain the decision-making process</Item>
+    <Item>Demonstrate technical competence</Item>
+    <Item>Obtain approval and buy-in</Item>
+    <Item>Address concerns and objections</Item>
+    <Item>Align team on next steps</Item>
+
+</Itemize>
+</SubSubSubSection>
+<SubSubSubSection title="Presentation Structure" id="Presentation Structure">
+<h4><strong>1. Restate Project Goals and Requirements</strong></h4>
+<p><p>At the beginning of the presentation, re-state the business goals, which serves as your anchor for all subsequent discussions.</p>
+<strong>Bike Lock Example Opening:</strong>
+<p>"Before presenting our design recommendation, let's review our project objectives:</p>
+<strong>Primary Goals:</strong></p> 
+
+<Itemize>
+
+    <Item>Deliver mid-market bike lock with Sold Secure Gold rating</Item>
+    <Item>Target retail price: $29.99</Item>
+    <Item>Manufacturing cost: $8.50/unit maximum</Item>
+    <Item>Launch: Q2 next year to capture cycling season</Item>
+
+</Itemize>
+<strong>Key Requirements from PDS:</strong>
+<Itemize>
+
+    <Item>Security: 3,000 lbs shackle strength, pick-resistant</Item>
+    <Item>Weight: Maximum 3 lbs with mounting system</Item>
+    <Item>Environment: -30°C to +60°C, saltwater resistant</Item>
+    <Item>Life: 10 years service life, 15,000 cycles minimum</Item>
+
+</Itemize>
+<p>These objectives guided our concept evaluation process."</p>
+<h4><strong>2. Overview of Design Process</strong></h4>
+<p><p>Briefly explain the methodology used to arrive at the recommendation. This demonstrates rigor and builds confidence.</p>
+<strong>Example:</strong> "Our design team followed a structured three-step process:</p> 
+
+<Enumerate>
+
+    <Item><strong>Preliminary Evaluation:</strong> We developed five distinct concepts and performed initial feasibility analysis including strength calculations, manufacturing assessment, and cost estimation.</Item>
+    <Item><strong>Pugh Matrix Analysis:</strong> We systematically compared all concepts against eight weighted criteria derived from the PDS and customer research.</Item>
+    <Item><strong>Hybrid Optimization:</strong> Based on matrix results, we created an optimized hybrid design that addresses weaknesses while maintaining strengths.</Item>
+
+</Enumerate>
+<p>This structured approach ensures our recommendation is objective and data-driven."</p>
+<h4><strong>3. Present Alternative Concepts Considered</strong></h4>
+<p><p>Bringing alternatives—especially those that aren't the right solution—complicates the conversation but forces well-articulated explanation for choices, and if you can't convince stakeholders that your solution is better, either you aren't communicating well or you don't understand their needs.</p>
+<strong>Show, don't just tell:</strong></p> 
+
+<Itemize>
+
+    <Item>Include sketches or renderings of each concept</Item>
+    <Item>Highlight distinguishing features</Item>
+    <Item>Briefly note strengths and weaknesses</Item>
+    <Item>Explain why concepts were not selected</Item>
+
+</Itemize>
+<strong>Bike Lock Example:</strong>
+<p>"We evaluated five concepts:</p>
+<p><strong>Concept A - Traditional U-Lock (Baseline)</strong> [Show image]</p>
+<Itemize>
+
+    <Item>Standard approach, proven design</Item>
+    <Item>Good balance of features</Item>
+    <Item>Mid-range performance across all criteria</Item>
+
+</Itemize>
+<p><strong>Concept B - Heavy-Duty U-Lock</strong> [Show image]</p>
+<Itemize>
+
+    <Item>Excellent security, robust construction</Item>
+    <Item>Issues: Too heavy (3.8 lbs), cost overrun (<InlineEquation equation="11.25 vs." />8.50 target)</Item>
+    <Item>Would require price increase to $39.99, outside target market</Item>
+
+</Itemize>
+<p><strong>Concept C - Folding Link Lock</strong> [Show image]</p>
+<Itemize>
+
+    <Item>Unique aesthetic, compact storage</Item>
+    <Item>Issues: Complex mechanism affects usability, expensive tooling, no cost advantage</Item>
+    <Item>User testing showed 40</Item>
+
+</Itemize>
+<p><strong>Concept D - Lightweight Cable-Reinforced</strong> [Show image]</p>
+<Itemize>
+
+    <Item>Excellent weight (2.3 lbs) and cost ($7.90)</Item>
+    <Item>Initial concerns: Cable core security and weather resistance</Item>
+    <Item>Identified as promising base for optimization</Item>
+
+</Itemize>
+<p><strong>Concept E - Smart Lock</strong> [Show image]</p>
+<Itemize>
+
+    <Item>Strong user interest in smartphone features</Item>
+    <Item>Issues: Cost (<InlineEquation equation="12.50), requires" />95K additional tooling for electronics</Item>
+    <Item>Recommended for Version 2.0 product line extension"</Item>
+
+</Itemize>
+<h4><strong>4. Explain the Evaluation Methodology</strong></h4>
+<p><p>Walk through your Pugh Matrix or other selection tool.</p>
+<strong>Presentation Tips:</strong></p> 
+
+<Itemize>
+
+    <Item>Show the actual matrix (weighted preferred)</Item>
+    <Item>Explain each criterion and its importance</Item>
+    <Item>Describe the scoring rationale</Item>
+    <Item>Highlight critical trade-offs</Item>
+    <Item>Be transparent about assumptions</Item>
+
+</Itemize>
+<p><strong>Example:</strong> "We used a weighted Pugh Matrix to objectively compare concepts.</p>
+<p>[Show matrix on slide]</p>
+<p>Eight criteria were weighted based on their importance:</p>
+<Itemize>
+
+    <Item>Security (5/5): Core product requirement</Item>
+    <Item>Manufacturing Cost (5/5): Business constraint</Item>
+    <Item>Ease of Use (4/5): Strong customer preference</Item>
+    <Item>Weather Resistance (4/5): PDS requirement ...</Item>
+
+</Itemize>
+<p>Initial scoring showed Concept D with highest score (+10), but identified two concerns: security and weather resistance.</p>
+<p>Rather than accept these weaknesses, we developed a hybrid solution..."</p>
+<h4><strong>5. Present Your Recommended Solution</strong></h4>
+<p><p>Clearly present the selected design with supporting rationale.</p>
+<strong>Structure:</strong></p> 
+
+<Itemize>
+
+    <Item>Overview: What is it?</Item>
+    <Item>Key Features: What makes it special?</Item>
+    <Item>How It Addresses Requirements: Map to PDS</Item>
+    <Item>Technical Validation: Show preliminary calculations</Item>
+    <Item>Advantages: Why it's the best choice</Item>
+    <Item>Risks and Mitigation: Honest assessment</Item>
+
+</Itemize>
+<strong>Bike Lock Example:</strong>
+<p>"<strong>Recommended Design: Hybrid Concept D+ - Lightweight Reinforced U-Lock</strong></p>
+<p>[Show detailed rendering]</p>
+<strong>Key Features:</strong>
+<Itemize>
+
+    <Item>14mm hardened steel shell with stainless steel braided cable core</Item>
+    <Item>Aluminum lock body with steel internal mechanism</Item>
+    <Item>Pin tumbler cylinder (5-pin, brass)</Item>
+    <Item>Enhanced weather sealing with rubber cable boots</Item>
+    <Item>Integrated frame mount bracket</Item>
+
+</Itemize>
+<strong>How It Meets Requirements:</strong>
+<p>\begin{table}</p>
+<p>\centering</p>
+<p>\begin{tabular}{l l l l}</p>
+<p>Requirement & Target & Concept D+ & Status \\</p>
+<p>Security & 3,000 lbs & 3,200 lbs (calc) & ✓ Exceeds \\</p>
+<p>Weight & &lt;3 lbs & 2.5 lbs & ✓ Meets \\</p>
+<p>Cost & <InlineEquation equation="8.50 &" />8.90 & \~ Acceptable* \\</p>
+<p>Weather & 5 years outdoor & Stainless core + sealing & ✓ Meets \\</p>
+<p>Cycles & 15,000 & 18,000 (est) & ✓ Exceeds \\</p>
+<p>\end{tabular}</p>
+<p>\end{table}</p>
+<p>*<InlineEquation equation="0.40 over target manageable with modest retail price adjustment to" />30.99</p>
+<p><strong>Technical Validation:</strong> [Show key calculation slide]</p>
+<Itemize>
+
+    <Item>Shackle strength analysis: 3,200 lbs before failure (FS = 1.07)</Item>
+    <Item>Corrosion testing: Stainless cable shows &lt;2</Item>
+    <Item>Cycle testing: Preliminary prototype achieved 18,000 cycles without failure</Item>
+
+</Itemize>
+<strong>Advantages:</strong>
+<Enumerate>
+
+    <Item><strong>Lightweight:</strong> 17</Item>
+    <Item><strong>Cost-Effective:</strong> Near target cost, positive ROI</Item>
+    <Item><strong>User-Friendly:</strong> Reduced weight improves daily usability</Item>
+    <Item><strong>Manufacturable:</strong> Leverages existing die-casting capability</Item>
+    <Item><strong>Differentiated:</strong> Cable-reinforced construction is unique in market segment</Item>
+
+</Enumerate>
+<strong>Risks and Mitigation:</strong>
+<Itemize>
+
+    <Item>Risk: Cable core design unproven in production Mitigation: Prototype testing phase, work with cable specialist supplier</Item>
+    <Item>Risk: Weather sealing effectiveness Mitigation: Environmental chamber testing before tooling commitment</Item>
+    <Item>Risk: Cost may creep during detailed design Mitigation: Target costing approach, design-to-cost discipline"</Item>
+
+</Itemize>
+<h4><strong>6. Show Next Steps</strong></h4>
+<p><p>Outline what happens after approval.</p>
+<p><strong>Example:</strong> "Upon approval, we recommend:</p>
+<strong>Phase 1 (Weeks 1-4): Functional Prototyping</strong></p> 
+
+<Itemize>
+
+    <Item>Build 10 functional prototypes</Item>
+    <Item>Conduct strength testing to failure</Item>
+    <Item>Perform 10,000 cycle endurance test</Item>
+    <Item>Environmental chamber testing</Item>
+
+</Itemize>
+<strong>Phase 2 (Weeks 5-8): Design Refinement</strong>
+<Itemize>
+
+    <Item>Detail design based on test results</Item>
+    <Item>Supplier selection for cable and seals</Item>
+    <Item>Cost validation with quotes</Item>
+    <Item>Design for manufacturing review</Item>
+
+</Itemize>
+<strong>Phase 3 (Weeks 9-16): Certification & Tooling</strong>
+<Itemize>
+
+    <Item>Submit for Sold Secure testing</Item>
+    <Item>Order production tooling ($75K)</Item>
+    <Item>Prepare manufacturing process documentation</Item>
+
+</Itemize>
+<p><strong>Target Tooling Release: Week 16</strong> <strong>Target Production Start: Week 20</strong>"</p>
+</SubSubSubSection>
+<SubSubSection title="Component 3: Analysis (Analytical & Computational)" id="Component 3: Analysis (Analytical & Computational)">
+</SubSubSection>
+<SubSubSubSection title="Purpose of Engineering Analysis" id="Purpose of Engineering Analysis">
+<p>Engineering analysis validates that the design meets functional requirements before manufacturing. Analysis identifies potential failures, optimizes designs, and provides confidence that the product will perform as intended. Two primary analysis approaches are used:</p>
+<h4><strong>Analytical Analysis (Hand Calculations)</strong></h4>
+<p><strong>Purpose:</strong></p> 
+
+<Itemize>
+
+    <Item>Quick verification of critical design parameters</Item>
+    <Item>Sanity checks on computational results</Item>
+    <Item>Understanding fundamental behavior</Item>
+    <Item>Design optimization</Item>
+
+</Itemize>
+<strong>Common Analytical Methods:</strong>
+<Itemize>
+
+    <Item>Stress calculations (tension, compression, bending, torsion)</Item>
+    <Item>Beam deflection equations</Item>
+    <Item>Pressure vessel formulas</Item>
+    <Item>Heat transfer calculations</Item>
+    <Item>Fluid flow equations</Item>
+    <Item>Fatigue life estimation</Item>
+
+</Itemize>
+<strong>Advantages:</strong>
+<Itemize>
+
+    <Item>Fast results for simple geometries</Item>
+    <Item>Transparent assumptions and calculations</Item>
+    <Item>Easy to verify and document</Item>
+    <Item>No special software required</Item>
+    <Item>Builds engineering intuition</Item>
+
+</Itemize>
+<strong>Limitations:</strong>
+<Itemize>
+
+    <Item>Limited to simplified geometries</Item>
+    <Item>May not capture complex interactions</Item>
+    <Item>Conservative assumptions often necessary</Item>
+
+</Itemize>
+<strong>Bike Lock Analytical Example:</strong>
+<strong>Shackle Bending Stress Analysis:</strong>
+<p>\begin{verbatim}</p>
+<p>Given: - Shackle diameter: d = 13mm - Applied force: F = 15,000 N (3,370 lbf) - bolt cutter force - Distance from force to lock body: L = 60mm - Material: Hardened steel, yield strength σ_y = 1,800 MPa Calculate Maximum Bending Stress: M = F × L = 15,000 N × 0.060 m = 900 N⋅m Section modulus: S = πd³/32 = π(0.013m)³/32 = 2.15×10⁻⁷ m³ Bending stress: σ = M/S = 900/(2.15×10⁻⁷) = 4,186 MPa Analysis: σ > σ_y ... FAIL! Conclusion: 13mm diameter insufficient. Increase to 14mm and re-analyze, or use higher strength material.</p>
+<p>\end{verbatim}</p>
+<h4><strong>Computational Analysis (FEA, CFD, etc.)</strong></h4>
+<p><strong>Finite Element Analysis (FEA):</strong></p> 
+
+<Itemize>
+
+    <Item>Simulates stress, strain, and deformation</Item>
+    <Item>Handles complex geometries and loading</Item>
+    <Item>Identifies stress concentrations</Item>
+    <Item>Predicts failure locations</Item>
+    <Item>Optimizes material distribution</Item>
+
+</Itemize>
+<strong>Other Computational Methods:</strong>
+<Itemize>
+
+    <Item><strong>Computational Fluid Dynamics (CFD):</strong> Airflow, water flow, heat transfer</Item>
+    <Item><strong>Dynamic simulation:</strong> Motion analysis, collision detection</Item>
+    <Item><strong>Thermal analysis:</strong> Heat distribution, cooling</Item>
+    <Item><strong>Fatigue analysis:</strong> Cyclic loading life prediction</Item>
+    <Item><strong>Topology optimization:</strong> Material layout optimization</Item>
+
+</Itemize>
+<strong>FEA Best Practices:</strong>
+<Enumerate>
+
+    <Item><strong>Simplify Geometry Appropriately</strong></Item>
+    <Itemize>
+
+        <Item>Remove small features that don't affect stress distribution</Item>
+        <Item>Use symmetry to reduce model size</Item>
+        <Item>Ignore purely cosmetic features</Item>
+        <Item>Keep critical features that affect loading</Item>
+
+</Itemize>
+    <Item><strong>Apply Realistic Boundary Conditions</strong></Item>
+    <Itemize>
+
+        <Item>Accurately represent supports and constraints</Item>
+        <Item>Apply loads at correct locations and directions</Item>
+        <Item>Consider load distribution (point vs. distributed)</Item>
+        <Item>Account for thermal effects if relevant</Item>
+
+</Itemize>
+    <Item><strong>Use Appropriate Mesh</strong></Item>
+    <Itemize>
+
+        <Item>Refine mesh in high-stress regions</Item>
+        <Item>Use coarser mesh in low-interest areas</Item>
+        <Item>Verify mesh convergence (results stable with finer mesh)</Item>
+        <Item>Choose element type suitable for analysis (tetrahedral vs. hex)</Item>
+
+</Itemize>
+    <Item><strong>Validate Results</strong></Item>
+    <Itemize>
+
+        <Item>Compare with hand calculations where possible</Item>
+        <Item>Check that deformations are reasonable</Item>
+        <Item>Verify force equilibrium</Item>
+        <Item>Look for stress concentrations in expected locations</Item>
+        <Item>Compare with test data if available</Item>
+
+</Itemize>
+
+</Enumerate>
+<strong>Bike Lock FEA Example:</strong>
+<strong>Lock Body Stress Analysis:</strong>
+<p><em>Objective:</em> Verify lock body can withstand 20,000 N pulling force on shackle</p>
+<em>Model Setup:</em>
+<Itemize>
+
+    <Item>Imported CAD geometry (simplified - removed logo, small radii)</Item>
+    <Item>Material: Zinc alloy (E = 85 GPa, ν = 0.33, σ\_y = 280 MPa)</Item>
+    <Item>Constraints: Fixed all surfaces where lock mounts to bike</Item>
+    <Item>Loads: 20,000 N distributed around shackle hole</Item>
+
+</Itemize>
+<em>Mesh:</em>
+<Itemize>
+
+    <Item>Tetrahedral elements</Item>
+    <Item>0.5mm element size in shackle hole region</Item>
+    <Item>2mm element size elsewhere</Item>
+    <Item>Total elements: 125,000</Item>
+    <Item>Mesh refinement study: Results converged at this density</Item>
+
+</Itemize>
+<em>Results:</em>
+<Itemize>
+
+    <Item>Maximum stress: 245 MPa (in radius at base of shackle hole)</Item>
+    <Item>Factor of Safety: 280/245 = 1.14 ... MARGINAL</Item>
+    <Item>Maximum displacement: 0.8mm</Item>
+
+</Itemize>
+<em>Conclusions:</em>
+<Itemize>
+
+    <Item>Increase radius at base of shackle hole from 2mm to 3mm</Item>
+    <Item>Re-analyze with modified geometry</Item>
+    <Item>Target FOS > 1.5 for production</Item>
+
+</Itemize>
+</SubSubSubSection>
+<SubSubSubSection title="Analysis Documentation" id="Analysis Documentation">
+<strong>Document all analysis thoroughly:</strong>
+<Enumerate>
+
+    <Item><strong>Objective:</strong> What are you trying to verify?</Item>
+    <Item><strong>Assumptions:</strong> Material properties, loading conditions, boundary conditions</Item>
+    <Item><strong>Methodology:</strong> Analytical equations or FEA setup</Item>
+    <Item><strong>Results:</strong> Numerical results, plots, stress contours</Item>
+    <Item><strong>Interpretation:</strong> Pass/fail against requirements</Item>
+    <Item><strong>Recommendations:</strong> Design changes if needed</Item>
+
+</Enumerate>
+<strong>Include in design package:</strong>
+<Itemize>
+
+    <Item>Calculation sheets (hand calcs)</Item>
+    <Item>FEA reports with setup details and results</Item>
+    <Item>Comparison of multiple design iterations</Item>
+    <Item>Validation against test data (if available)</Item>
+
+</Itemize>
+
+</SubSubSubSection>
+</Layout>
