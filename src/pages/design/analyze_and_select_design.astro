@@ -136,9 +136,9 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
 
 </Itemize>
 <strong>Bike Lock Example - Economic Analysis:</strong>
-<p>\begin{verbatim}</p>
+<!-- <p>\begin{verbatim}</p>
 <p>Target Retail Price: <InlineEquation equation="29.99 Required Manufacturing Cost:" />8.50/unit (at 50K units) Preliminary Cost Estimate: - Die-cast lock body: <InlineEquation equation="3.20 - Hardened shackle:" />1.90 - Lock cylinder: <InlineEquation equation="2.80 - Hardware & assembly:" />0.60 TOTAL: <InlineEquation equation="8.50 ✓ Meets target Tooling Investment:" />75,000 Break-even: 50,000 units × 18 months ROI: Acceptable ✓</p>
-<p>\end{verbatim}</p>
+<p>\end{verbatim}</p> -->
 </SubSubSubSection>
 <SubSubSubSection title="Preliminary Calculations" id="Preliminary Calculations">
 <p>Perform simplified engineering calculations to verify critical performance parameters. These are typically hand calculations using conservative assumptions.</p>
@@ -182,9 +182,9 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
 <p><strong>Design Concept:</strong> U-shaped shackle, 13mm diameter, hardened steel</p>
 <p><strong>Critical Loading:</strong> Bolt cutter attack (15,000 N applied at shackle center)</p>
 <strong>Simplified Calculation:</strong>
-<p>\begin{verbatim}</p>
+<!-- <p>\begin{verbatim}</p>
 <p>GIVEN: Shackle diameter: d = 13 mm Applied force: F = 15,000 N Effective beam length: L = 100 mm (half the U-shape) Material: 4340 Steel, heat treated Yield strength: σ_y = 1,520 MPa Modulus: E = 200 GPa ANALYSIS - Bending Stress: Treat as cantilever beam with end load: Maximum moment: M = F × L = 15,000 N × 0.10 m = 1,500 N⋅m Section modulus (solid cylinder): S = πd³/32 = π(0.013)³/32 = 2.15 × 10⁻⁷ m³ Bending stress: σ_bending = M/S = 1,500/(2.15×10⁻⁷) = 6,977 MPa ANALYSIS - Direct Shear Stress: Cross-sectional area: A = πd²/4 = π(0.013)²/4 = 1.33 × 10⁻⁴ m² Shear stress: τ = F/A = 15,000/(1.33×10⁻⁴) = 113 MPa RESULTS: Combined stress ≈ 7,000 MPa >> σ_y (1,520 MPa) CONCLUSION: FAIL! 13mm diameter is insufficient. Try 14mm or higher strength material. REVISED CALCULATION (14mm diameter): S = 2.69 × 10⁻⁷ m³ σ_bending = 5,576 MPa (still too high) Try 16mm: S = 4.02 × 10⁻⁷ m³ σ_bending = 3,731 MPa (still marginal) RECOMMENDATION: - Increase to 16mm diameter minimum - Consider ultra-high strength steel (σ_y > 2,000 MPa) - Perform detailed FEA to account for stress concentrations</p>
-<p>\end{verbatim}</p>
+<p>\end{verbatim}</p> -->
 <p><strong>Documentation:</strong> This preliminary calculation shows the initial 13mm concept won't meet strength requirements. Recommend moving forward with 16mm shackle for detailed analysis.</p>
 </SubSubSubSection>
 <SubSubSubSection title="Preliminary Evaluation Checklist" id="Preliminary Evaluation Checklist">
@@ -302,9 +302,9 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
 
 </Itemize>
 <strong>Bike Lock Example - Selection Criteria:</strong>
-<p>\begin{table}</p>
+<!-- <p>\begin{table}</p>
 <p>\centering</p>
-<p>\begin{tabular}{l l l}</p>
+<p>\begin{tabular}{l l l}</p> -->
 <p>Criterion & Source & Importance \\</p>
 <p><strong>Security Level</strong> & Customer requirement & Critical \\</p>
 <p><strong>Weight</strong> & PDS - portability & High \\</p>
@@ -314,8 +314,8 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
 <p><strong>Aesthetic Appeal</strong> & Marketing input & Medium \\</p>
 <p><strong>Mounting System</strong> & Customer feedback & Medium \\</p>
 <p><strong>Tooling Investment</strong> & Business constraint & High \\</p>
-<p>\end{tabular}</p>
-<p>\end{table}</p>
+<!-- <p>\end{tabular}</p>
+<p>\end{table}</p> -->
 <h4><strong>Step 2: Define Design Concepts</strong></h4>
 <p><p>Clearly describe each alternative design concept being evaluated. Include sketches, key features, and distinguishing characteristics.</p>
 <strong>Bike Lock Concept Alternatives:</strong>
@@ -374,9 +374,9 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
 <p><p>Draw a Pugh matrix with criteria listed vertically and design concepts listed horizontally, entering the current design as the baseline for comparative ranking.</p>
 <strong>Basic (Unweighted) Pugh Matrix:</strong></p> 
 
-<p>\begin{table}</p>
+<!-- <p>\begin{table}</p>
 <p>\centering</p>
-<p>\begin{tabular}{l l l l l l}</p>
+<p>\begin{tabular}{l l l l l l}</p> -->
 <p><strong>Criteria</strong> & <strong>Datum: Concept A</strong> & <strong>Concept B</strong> & <strong>Concept C</strong> & <strong>Concept D</strong> & <strong>Concept E</strong> \\</p>
 <p><strong>Security Level</strong> & S (baseline) & + & 0 & - & + \\</p>
 <p><strong>Weight</strong> & S & - & + & + & 0 \\</p>
@@ -391,8 +391,8 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
 <p><strong>TOTAL -</strong> & - & 4 & 3 & 2 & 2 \\</p>
 <p><strong>TOTAL S</strong> & - & 1 & 2 & 1 & 2 \\</p>
 <p><strong>OVERALL SCORE</strong> & 0 & -1 & 0 & +3 & +2 \\</p>
-<p>\end{tabular}</p>
-<p>\end{table}</p>
+<!-- <p>\end{tabular}</p>
+<p>\end{table}</p> -->
 <strong>Scoring Rationale:</strong>
 <strong>Concept B vs. Datum A:</strong>
 <Itemize>
@@ -451,9 +451,9 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
 <p><p>Determine a weighting factor for each criterion, which may be determined using pairwise comparison or simply ranking on a scale of 1 to 5.</p>
 <strong>Weighting Scale:</strong> 1 (Low importance) to 5 (Critical)</p> 
 
-<p>\begin{table}</p>
+<!-- <p>\begin{table}</p>
 <p>\centering</p>
-<p>\begin{tabular}{l l l}</p>
+<p>\begin{tabular}{l l l}</p> -->
 <p><strong>Criteria</strong> & <strong>Weight</strong> & <strong>Rationale</strong> \\</p>
 <p>Security Level & 5 & Primary product function, critical customer requirement \\</p>
 <p>Weight & 3 & Important for portability, but secondary to security \\</p>
@@ -463,7 +463,7 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
 <p>Aesthetic Appeal & 2 & Nice to have, but not primary purchase driver \\</p>
 <p>Mounting System & 3 & Convenience feature, moderate importance \\</p>
 <p>Tooling Investment & 4 & Business constraint, affects ROI \\</p>
-<p>\end{tabular}</p>
+<!-- <p>\end{tabular}</p>
 <p>\end{table}</p>
 <strong>Weighted Pugh Matrix:</strong>
 <p>\begin{table}</p>
@@ -478,9 +478,9 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
 <p>Aesthetic Appeal & 2 & 0 & 0 & +2 & 0 & +2 \\</p>
 <p>Mounting System & 3 & 0 & +3 & -3 & +3 & 0 \\</p>
 <p>Tooling Investment & 4 & 0 & -4 & -4 & +4 & -4 \\</p>
-<p><strong>WEIGHTED TOTAL</strong> &  & <strong>0</strong> & <strong>0</strong> & <strong>-1</strong> & <strong>+10</strong> & <strong>+6</strong> \\</p>
-<p>\end{tabular}</p>
-<p>\end{table}</p>
+<p><strong>WEIGHTED TOTAL</strong> &  & <strong>0</strong> & <strong>0</strong> & <strong>-1</strong> & <strong>+10</strong> & <strong>+6</strong> \\</p> -->
+<!-- <p>\end{tabular}</p>
+<p>\end{table}</p> -->
 <strong>Weighted Results:</strong>
 <Itemize>
 
@@ -532,9 +532,9 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
 
 </Itemize>
 <strong>Re-evaluate Hybrid D+:</strong>
-<p>\begin{table}</p>
+<!-- <p>\begin{table}</p>
 <p>\centering</p>
-<p>\begin{tabular}{l l l l}</p>
+<p>\begin{tabular}{l l l l}</p> -->
 <p><strong>Criteria</strong> & <strong>Weight</strong> & <strong>Concept D</strong> & <strong>Hybrid D+</strong> \\</p>
 <p>Security Level & 5 & -5 & 0 (improved to baseline level) \\</p>
 <p>Weight & 3 & +3 & +2 (slightly heavier with upgrades) \\</p>
@@ -545,8 +545,8 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
 <p>Mounting System & 3 & +3 & +3 (unchanged) \\</p>
 <p>Tooling Investment & 4 & +4 & +4 (unchanged) \\</p>
 <p><strong>WEIGHTED TOTAL</strong> &  & <strong>+10</strong> & <strong>+19</strong> \\</p>
-<p>\end{tabular}</p>
-<p>\end{table}</p>
+<!-- <p>\end{tabular}</p>
+<p>\end{table}</p> -->
 <strong>Hybrid D+ significantly outperforms original Concept D!</strong>
 <h4><strong>Step 7: Make Final Selection</strong></h4>
 <p><p>Based on weighted Pugh analysis:</p>
@@ -769,17 +769,17 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
 
 </Itemize>
 <strong>How It Meets Requirements:</strong>
-<p>\begin{table}</p>
+<!-- <p>\begin{table}</p>
 <p>\centering</p>
-<p>\begin{tabular}{l l l l}</p>
+<p>\begin{tabular}{l l l l}</p> -->
 <p>Requirement & Target & Concept D+ & Status \\</p>
 <p>Security & 3,000 lbs & 3,200 lbs (calc) & ✓ Exceeds \\</p>
 <p>Weight & &lt;3 lbs & 2.5 lbs & ✓ Meets \\</p>
 <p>Cost & <InlineEquation equation="8.50 &" />8.90 & \~ Acceptable* \\</p>
 <p>Weather & 5 years outdoor & Stainless core + sealing & ✓ Meets \\</p>
 <p>Cycles & 15,000 & 18,000 (est) & ✓ Exceeds \\</p>
-<p>\end{tabular}</p>
-<p>\end{table}</p>
+<!-- <p>\end{tabular}</p>
+<p>\end{table}</p> -->
 <p>*<InlineEquation equation="0.40 over target manageable with modest retail price adjustment to" />30.99</p>
 <p><strong>Technical Validation:</strong> [Show key calculation slide]</p>
 <Itemize>
@@ -884,10 +884,10 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
 
 </Itemize>
 <strong>Bike Lock Analytical Example:</strong>
-<strong>Shackle Bending Stress Analysis:</strong>
+<!-- <strong>Shackle Bending Stress Analysis:</strong>
 <p>\begin{verbatim}</p>
 <p>Given: - Shackle diameter: d = 13mm - Applied force: F = 15,000 N (3,370 lbf) - bolt cutter force - Distance from force to lock body: L = 60mm - Material: Hardened steel, yield strength σ_y = 1,800 MPa Calculate Maximum Bending Stress: M = F × L = 15,000 N × 0.060 m = 900 N⋅m Section modulus: S = πd³/32 = π(0.013m)³/32 = 2.15×10⁻⁷ m³ Bending stress: σ = M/S = 900/(2.15×10⁻⁷) = 4,186 MPa Analysis: σ > σ_y ... FAIL! Conclusion: 13mm diameter insufficient. Increase to 14mm and re-analyze, or use higher strength material.</p>
-<p>\end{verbatim}</p>
+<p>\end{verbatim}</p> -->
 <h4><strong>Computational Analysis (FEA, CFD, etc.)</strong></h4>
 <p><strong>Finite Element Analysis (FEA):</strong></p> 
 
@@ -959,7 +959,7 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
 <Itemize>
 
     <Item>Imported CAD geometry (simplified - removed logo, small radii)</Item>
-    <Item>Material: Zinc alloy (E = 85 GPa, ν = 0.33, σ\_y = 280 MPa)</Item>
+    <Item>Material: Zinc alloy (E = 85 GPa, &nu; = 0.33, &sigma;<sub>y</sub> = 280 MPa)</Item>
     <Item>Constraints: Fixed all surfaces where lock mounts to bike</Item>
     <Item>Loads: 20,000 N distributed around shackle hole</Item>
 
@@ -987,7 +987,7 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
 
     <Item>Increase radius at base of shackle hole from 2mm to 3mm</Item>
     <Item>Re-analyze with modified geometry</Item>
-    <Item>Target FOS > 1.5 for production</Item>
+    <Item>Target FOS greater than 1.5 for production</Item>
 
 </Itemize>
 </SubSubSubSection>
