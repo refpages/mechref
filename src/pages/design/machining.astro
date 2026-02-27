@@ -88,7 +88,7 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
 
     <Item>Normal force <InlineEquation equation="N_s = R \\sin(\\beta - \\alpha + \\phi)" />    </Item>
     <Item>Shear force <InlineEquation equation="F_s = R \\cos(\\beta - \\alpha + \\phi)" />    </Item>
-    <Item>Shear Stress <InlineEquation equation={String.raw`T = \frac{F_s}{A_s} = \frac{R \cos(\beta-\alpha+\phi)\sin\phi}{w t_0}`}/> </Item>
+    <Item>Shear Stress <InlineEquation equation="T = \\frac{F_s}{A_s} = \\frac{R \\cos(\\beta - \\alpha + \\phi) \\sin\\phi}{w t_0}" /></Item>
 
 </Itemize>
 <p>*box</p>
@@ -102,7 +102,7 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
   title="Differentiation with Respect to φ" 
   id="Differentiation-with-Respect-to-phi">
 <DisplayEquation 
-  equation="0 &= \\frac{d}{d\\phi}\\left(\\frac{R}{w t_o}\\cos(\\beta - \\alpha + \\phi)\\sin\\phi\\right)" 
+  equation="0 = \\frac{d}{d\\phi}\\left(\\frac{R}{w t_o}\\cos(\\beta - \\alpha + \\phi)\\sin\\phi\\right)" 
   title="" 
 />
  
