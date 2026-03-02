@@ -18,23 +18,82 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
 <Layout title="Metal_casting">
 <div slot="navtree">
 <ul class="list-group list-group-flush py-0">
-<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Metal Casting'>Metal Casting</a><ul class='list-group list-group-flush py-0'>
-<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Mold Filling'>Mold Filling</a></li>
-<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Solidification'>Solidification</a><ul class='list-group list-group-flush py-0'>
-<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Example Problem: Shrinkage Allowance'>Example Problem: Shrinkage Allowance</a></li>
-<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Cooling Curves'>Cooling Curves</a></li>
-<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Chvorinov's Rule'>Chvorinov's Rule</a></li></ul>
-</li>
-<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Example Problem: Solidification Time'>Example Problem: Solidification Time</a></li>
-<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Casting Methods'>Casting Methods</a><ul class='list-group list-group-flush py-0'>
-</li>
-<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Sand Casting'>Sand Casting</a><ul class='list-group list-group-flush py-0'>
-<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Buoyancy'>Buoyancy</a></li>
-<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Example Problem: Number of Chaplets Required'>Example Problem: Number of Chaplets Required</a></li>
-</ul>
-</ul>
+
+  <li class='list-group-item py-0'>
+    <a class='text-decoration-none subsection' href='#Metal Casting'>Metal Casting</a>
+    <ul class='list-group list-group-flush py-0'>
+
+      <li class='list-group-item py-0'>
+        <a class='text-decoration-none subsection' href='#Mold Filling'>Mold Filling</a>
+      </li>
+
+      <li class='list-group-item py-0'>
+        <a class='text-decoration-none subsection' href='#Solidification'>Solidification</a>
+        <ul class='list-group list-group-flush py-0'>
+
+          <li class='list-group-item py-0'>
+            <a class='text-decoration-none subsection' href='#Example Problem: Shrinkage Allowance'>
+              Example Problem: Shrinkage Allowance
+            </a>
+          </li>
+
+          <li class='list-group-item py-0'>
+            <a class='text-decoration-none subsection' href='#Cooling Curves'>
+              Cooling Curves
+            </a>
+          </li>
+
+          <li class='list-group-item py-0'>
+            <a class='text-decoration-none subsection' href="#Chvorinov's Rule">
+              Chvorinov's Rule
+            </a>
+          </li>
+
+        </ul>
+      </li>
+
+      <li class='list-group-item py-0'>
+        <a class='text-decoration-none subsection' href='#Example Problem: Solidification Time'>
+          Example Problem: Solidification Time
+        </a>
+      </li>
+
+      <li class='list-group-item py-0'>
+        <a class='text-decoration-none subsection' href='#Casting Methods'>
+          Casting Methods
+        </a>
+        <ul class='list-group list-group-flush py-0'>
+
+          <li class='list-group-item py-0'>
+            <a class='text-decoration-none subsection' href='#Sand Casting'>
+              Sand Casting
+            </a>
+            <ul class='list-group list-group-flush py-0'>
+
+              <li class='list-group-item py-0'>
+                <a class='text-decoration-none subsection' href='#Buoyancy'>
+                  Buoyancy
+                </a>
+              </li>
+
+              <li class='list-group-item py-0'>
+                <a class='text-decoration-none subsection' href='#Example Problem: Number of Chaplets Required'>
+                  Example Problem: Number of Chaplets Required
+                </a>
+              </li>
+
+            </ul>
+          </li>
+
+        </ul>
+      </li>
+
+    </ul>
+  </li>
+
 </ul>
 </div>
+
 <SubSection title="Metal Casting" id="Metal Casting">
 <p><strong>Metal casting</strong> is a manufacturing process where molten metal is poured into a mold cavity that represents the negative shape of a desired part. Once the metal solidifies, the mold is removed to obtain the finished casting.</p>
 <Itemize>
@@ -47,7 +106,8 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
 </Itemize>
 <p>Casting processes are chosen based on complexity, surface finish, material, and required dimensional accuracy.</p>
 </SubSection>
-<SubSubSection title="Mold Filling" id="Mold Filling">
+
+<SubSection title="Mold Filling" id="Mold Filling">
 <p>When metal is poured, smooth (laminar) flow is preferred to avoid oxide formation from turbulent flow.</p>
 <p>How to prevent the molten metal from splashing and oxidizing at free surface:</p>
 <Itemize>
@@ -58,39 +118,43 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
     <Item>Short flow length (L)</Item>
 
 </Itemize>
-</SubSubSection>
-<SubSubSection title="Solidification" id="Solidification">
+
+</SubSection>
+
+<SubSection title="Solidification" id="Solidification">
 <p>As metal cools, it contracts and eventually solidifies.</p>
 <em>Solidification Process Image</em>
 <p>When casting metal, you must consider the possibility of shrinkage by creating pattern shrinkage allowance where the mold is made larger than the final casting size.</p>
 <p>Shrinkage Allowance:</p>
 
-<DisplayEquation equation="L_{\\text{pattern}} = L_{\\text{final}}(1 + s)" title="" />
+<DisplayEquation equation="L_{\\text{pattern}} = \\frac{L_{\\text{final}}}{1 - s}" />
 
 <p>where <InlineEquation equation="s" /> is the alloy’s shrinkage over the temperature change.</p>
-</SubSubSection>
-<SubSubSubSection title="Example Problem: Shrinkage Allowance" id="Example Problem: Shrinkage Allowance">
-<strong>How long should the pattern be for a 100 mm aluminum casting?</strong>
-<p>Given:</p>
-
-<DisplayEquation equation="s = 0.013" title="" />
-
-
-<DisplayEquation equation="L_{\\text{pattern}} = 100(1.013) = 101.3\\ \\text{mm}" title="" />
-
-<p><strong>This means the pattern must be oversized by 1.3</p>
-</SubSubSubSection>
-<SubSubSubSection title="Cooling Curves" id="Cooling Curves">
-<em>Cooling Curve of Pure Metal Image</em>
-<p><em>Cooling Curve of Alloys Image</em></p>
-
 <CalloutContainer slot="cards">
-  <CalloutCard title="Callout">
+  <CalloutCard title="Key Note">
     <p>Most alloys solidify over a temperature range rather than at a single temperature as shown in the curves.</p>
   </CalloutCard>
 </CalloutContainer>
-</SubSubSubSection>
-<SubSubSubSection title="Chvorinov's Rule" id="Chvorinov's Rule">
+</SubSection>
+
+<SubSubSection title="Example Problem: Shrinkage Allowance" id="Example Problem: Shrinkage Allowance">
+<strong>How long should the pattern be for a 100 mm aluminum casting?</strong>
+<p>Given:</p>
+
+<DisplayEquation equation="s = 0.013 (1.3\\%)" title="" />
+
+<DisplayEquation equation="L_{\\text{pattern}} = \\frac{100}{1 - 0.013} = 101.3\\ \\text{mm}" />
+
+<p><strong>This means the pattern should be 101.3mm long.</p></strong>
+
+</SubSubSection>
+
+<SubSection title="Cooling Curves" id="Cooling Curves">
+<em>Cooling Curve of Pure Metal Image</em>
+<p><em>Cooling Curve of Alloys Image</em></p>
+
+</SubSection>
+<SubSection title="Chvorinov's Rule" id="Chvorinov's Rule">
 <p>The total solidification time depends on size and shape of casting which is modeled by <strong>Chvorinov's Rule:</strong></p>
 
 <DisplayEquation equation="t_{TS} = C_m \\left(\\frac{V}{A}\\right)^n" title="" />
@@ -107,7 +171,7 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
 
 </Itemize>
 <p>Solidification time can be minimized by minimizing thermal modulus.</p>
-</SubSubSubSection>
+</SubSection>
 <SubSubSection title="Example Problem: Solidification Time" id="Example Problem: Solidification Time">
 <p><strong>Question: </strong>Find the solidification time of a cylindrical casting with a diameter of 75mm when mold constant is 3 <InlineEquation equation="s/mm^2" />.</p>
 <p>Given:</p>
@@ -129,7 +193,7 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
 
 <p>Therefore, the solidification time of the cylindrical casting is 10.7 minutes.</p>
 </SubSubSection>
-<SubSubSection title="Casting Methods" id="Casting Methods">
+<SubSection title="Casting Methods" id="Casting Methods">
 <p>Selected based on the part design, volume, material, cost, PDS, etc.</p>
 <p><strong>Temporary/Expandable Molds:</strong> Molds that are destroyed to remove the casting.</p>
 <Itemize>
@@ -146,19 +210,18 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
     <Item><strong>High-pressure die casting:</strong> Molten metal is injected into the mold at very high pressure and speed, allowing production of thin-walled parts with excellent surface quality and tight tolerances for high-volume manufacturing.</Item>
 
 </Itemize>
-</SubSubSection>
-<SubSubSubSection title="Selection Table" id="Selection Table">
+</SubSection>
+<SubSection title="Selection Table" id="Selection Table">
 <Image id="avb-ft" src="/design/images/metal_casting_selection_table.png" style="width:35%; height:auto;">
         <p class="figureCaption">
-          Selection Table</a>
+          Casting Methods Comparison</a>
         </p>
 </Image>
-<p>Casting Methods Comparison</p>
-</SubSubSubSection>
-<SubSubSection title="Sand Casting" id="Sand Casting">
+</SubSection>
+<SubSection title="Sand Casting" id="Sand Casting">
 <em>Sand Casting Diagram</em>
-</SubSubSection>
-<SubSubSubSection title="Buoyancy" id="Buoyancy">
+</SubSection>
+<SubSection title="Buoyancy" id="Buoyancy">
 <p>Cores inside molds float because molten metal is typically denser. The buoyant force is:</p>
 
 <DisplayEquation equation="F_b = \\rho_{\\text{metal}} V g" title="" />
@@ -178,8 +241,8 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
 <DisplayEquation equation="F_{\\text{bottom, prior}} = F_g = \\rho_{\\text{core}} V g" title="" />
 
 <hr />
-</SubSubSubSection>
-<SubSubSubSection title="Example Problem: Number of Chaplets Required" id="Example Problem: Number of Chaplets Required">
+</SubSection>
+<SubSubSection title="Example Problem: Number of Chaplets Required" id="Example Problem: Number of Chaplets Required">
 <p><strong>Question: </strong>Determine how many chaplets are needed to hold the core in place.</p>
 <em>Image</em>
 <p>Given:</p>
@@ -205,18 +268,19 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
 
 
 <DisplayEquation equation="\\text{Bottom} = \\lceil 0.035/0.01 \\rceil = 4" title="" />
+</SubSubSection>
 
-
+<SubSection title="Design Advisor" id="Design Advisor">
 <Image id="avb-ft" src="/design/images/metal_casting_design_advisor.png" style="width:35%; height:auto;">
         <p class="figureCaption">
-          Design Advisor</a>
+          Recommended vs. Avoided Design Aspects</a>
         </p>
+
 </Image>
-    <CalloutContainer slot="cards">
-<CalloutCard title="Callout">
+<CalloutContainer slot="cards">
+<CalloutCard title="Key Note">
 <p>Good casting design promotes smooth metal flow, uniform cooling, minimal coring, and easy mold separation.</p>
     </CalloutCard>
 </CalloutContainer>
-
-</SubSubSubSection>
+</SubSection>
 </Layout>

@@ -30,8 +30,7 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
 <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Component 2: Detailed Engineering Drawings'>Component 2: Detailed Engineering Drawings</a><ul class='list-group list-group-flush py-0'>
 <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Purpose of Engineering Drawings'>Purpose of Engineering Drawings</a></li>
 <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Drawing Standards - ASME Y14 Series'>Drawing Standards - ASME Y14 Series</a></li>
-<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Drawing Best Practices'>Drawing Best Practices</a></li>
-<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Drawing Template Setup'>Drawing Template Setup</a></li></ul>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Drawing Best Practices'>Drawing Best Practices</a></li></ul>
 </li>
 <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Component 4: Bill of Materials (BOM)'>Component 4: Bill of Materials (BOM)</a><ul class='list-group list-group-flush py-0'>
 <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Purpose of the BOM'>Purpose of the BOM</a></li>
@@ -59,6 +58,7 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
 </SubSubSubSection>
 <SubSubSubSection title="Why Detail Design Matters" id="Why Detail Design Matters">
 <p>Detail Design serves as the bridge between concept and reality. Without thorough detail design:</p>
+
 <Itemize>
 
     <Item>Manufacturing cannot produce parts to specification</Item>
@@ -111,33 +111,37 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
     <Item>Reduces errors from manual updates</Item>
 
 </Itemize>
-<strong>Bike Lock Example:</strong>
-<Itemize>
+<details style="margin-bottom: 10px;">
+  <summary><strong>Bike Lock Example:</strong></summary>
+
+  <Itemize>
 
     <Item>Link shackle diameter to required strength calculations</Item>
     <Item>Tie mounting bracket dimensions to lock body size</Item>
     <Item>Connect key dimensions to cylinder requirements</Item>
     <Item>Any change to shackle diameter automatically updates dependent features</Item>
 
-</Itemize>
+  </Itemize>
+</details>
+
 <h4><strong>Implement Naming Conventions</strong></h4>
 <p><p>Implement a standardized naming convention for files, layers, and components, as it promotes organization and ensures that team members can quickly locate and understand the various elements within the CAD project.</p>
 <strong>File Naming Standards:</strong></p> 
 
 <Itemize>
 
-    <Item>Use consistent prefixes: \verb|BL-| (Bike Lock), \verb|SH-| (Shackle), \verb|CYL-| (Cylinder)</Item>
-    <Item>Include version numbers: \verb|BL-LockBody-v03.sldprt|</Item>
-    <Item>Add descriptive names: \verb|BL-ShackleCap-HardenedSteel-v02.sldprt|</Item>
+    <Item>Use consistent prefixes: <code>BL-</code>(Bike Lock), <code>SH-</code>(Shackle), <code>CYL-</code>(Cylinder)</Item>
+    <Item>Include version numbers: <code>BL-LockBody-v03.sldprt</code></Item>
+    <Item>Add descriptive names: <code>BL-ShackleCap-HardenedSteel-v02.sldprt</code></Item>
     <Item>Avoid spaces; use hyphens or underscores</Item>
 
 </Itemize>
 <strong>Layer/Feature Naming:</strong>
 <Itemize>
 
-    <Item>Use descriptive names: "Keyway-Cut" not "Cut-Extrude3"</Item>
-    <Item>Group related features: "Mounting-Holes" for all mounting features</Item>
-    <Item>Identify critical features: "CRITICAL-SealingSurface"</Item>
+    <Item>Use descriptive names: <code>Keyway-Cut</code> not <code>Cut-Extrude3</code></Item>
+    <Item>Group related features: <code>Mounting-Holes</code> for all mounting features</Item>
+    <Item>Identify critical features: <code>CRITICAL-SealingSurface</code></Item>
 
 </Itemize>
 <h4><strong>Optimize Model Performance</strong></h4>
@@ -153,29 +157,39 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
     <Item>Employ lightweight or envelope modes for standard components</Item>
 
 </Itemize>
-<strong>Bike Lock Example:</strong>
-<Itemize>
+<details style="margin-bottom: 10px;">
+  <summary><strong>Bike Lock Example:</strong></summary>
+
+  <Itemize>
 
     <Item>Suppress detailed threading on screws during assembly work</Item>
     <Item>Use simplified cylinder representation (no internal pins) for top-level assembly</Item>
     <Item>Create detailed sub-assembly only when working on lock mechanism</Item>
 
-</Itemize>
+  </Itemize>
+</details>
+
 <h4><strong>Establish Drawing Templates</strong></h4>
 <p><p>Drawing templates are CAD drawing files that store preferred settings and can include layer standards, plot configurations, annotation styles, and many other details, creating a method of standardizing drawing features with little to no effort.</p>
 <strong>Template Elements:</strong></p> 
 
 <Itemize>
 
-    <Item>Title blocks with company information</Item>
-    <Item>Standard views and projections (1st or 3rd angle)</Item>
-    <Item>Default tolerances (per ASME Y14.5)</Item>
-    <Item>Standard note blocks</Item>
-    <Item>Layer structures</Item>
-    <Item>Dimension styles</Item>
-    <Item>Line weights and types</Item>
+    <Item><strong>Title block:</strong> Company name, logo, drawing number, revision, date, approvals</Item>
+    <Item><strong>Projection type:</strong> 1st angle (Europe) or 3rd angle (US)</Item>
+    <Item><strong>Standard reference:</strong> "INTERPRET DIMENSIONS PER ASME Y14.5-2018"</Item>
+    <Item><strong>Revision block:</strong> Track design changes</Item>
+    <Item><strong>General notes section:</strong> Standard requirements applicable to all drawings</Item>
+    <Item><strong>Material/finish callout areas</strong></Item>
+    <Item><strong>Drawing scale indicator</strong></Item>
 
 </Itemize>
+
+<!-- <strong>Bike Lock Drawing Template:</strong>
+<p>\begin{verbatim}</p>
+<p>Sheet Size: A (8.5" × 11") for most components B (11" × 17") for assemblies Title Block Contains: - Company: [Company Name] - Part Name: [From CAD model] - Part Number: [From CAD model] - Material: [From CAD model properties] - Finish: [Specified] - Scale: [As shown on each view] - Sheet: [X of Y] - Drawn By: [Name] Date: [Date] - Checked By: [Name] Date: [Date] - Approved By: [Name] Date: [Date] Default Tolerances: - .X = ±0.5mm - .XX = ±0.2mm - .XXX = ±0.05mm - Angular = ±1° Standard: ASME Y14.5-2018 Projection: Third Angle</p>
+<p>\end{verbatim}</p> -->
+
 <h4><strong>Build Detail Libraries</strong></h4>
 <p><p>Standardized detail libraries are key to success as this single innovation in production practice can yield a massive return on investment in terms of wasted billable hours, resulting in increased effectiveness.</p>
 <strong>Standard Components Library:</strong></p> 
@@ -211,17 +225,21 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
     <Item><strong>Company-specific standards</strong> - Tailored to organizational needs</Item>
 
 </Itemize>
-<strong>Bike Lock CAD Standards:</strong>
-<Itemize>
 
-    <Item>Units: Millimeters for all mechanical parts</Item>
-    <Item>Decimal places: 2 places for non-critical, 3 for critical dimensions</Item>
-    <Item>Material specification in part properties</Item>
-    <Item>Origin location: Bottom-left-front corner for prismatic parts, geometric center for cylindrical parts</Item>
-    <Item>Feature naming: Descriptive and consistent</Item>
-    <Item>Configurations: Clearly labeled (e.g., "Left-Hand" vs "Right-Hand")</Item>
+<details style="margin-bottom: 10px;">
+  <summary><strong>Bike Lock Example:</strong></summary>
 
-</Itemize>
+    <Itemize>
+
+        <Item>Units: Millimeters for all mechanical parts</Item>
+        <Item>Decimal places: 2 places for non-critical, 3 for critical dimensions</Item>
+        <Item>Material specification in part properties</Item>
+        <Item>Origin location: Bottom-left-front corner for prismatic parts, geometric center for cylindrical parts</Item>
+        <Item>Feature naming: Descriptive and consistent</Item>
+        <Item>Configurations: Clearly labeled (e.g., "Left-Hand" vs "Right-Hand")</Item>
+
+    </Itemize>
+</details>
 </SubSubSubSection>
 <SubSubSection title="Component 2: Detailed Engineering Drawings" id="Component 2: Detailed Engineering Drawings">
 </SubSubSection>
@@ -263,15 +281,19 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
     <Item><strong>Runout tolerances:</strong> Circular runout, total runout</Item>
 
 </Itemize>
-<strong>Bike Lock GD&T Example:</strong>
-<Itemize>
+<details style="margin-bottom: 10px;">
+  <summary><strong>Bike Lock Example:</strong></summary>
 
-    <Item>Lock body mounting face: Flatness within 0.1mm (ensures proper seal)</Item>
-    <Item>Shackle hole: Position tolerance ±0.2mm relative to datum reference frame (ensures shackle fits)</Item>
-    <Item>Cylinder bore: Cylindricity within 0.05mm (ensures smooth key operation)</Item>
-    <Item>Key slot: Profile tolerance to ensure proper key engagement</Item>
+    <Itemize>
 
-</Itemize>
+        <Item>Lock body mounting face: Flatness within 0.1mm (ensures proper seal)</Item>
+        <Item>Shackle hole: Position tolerance ±0.2mm relative to datum reference frame (ensures shackle fits)</Item>
+        <Item>Cylinder bore: Cylindricity within 0.05mm (ensures smooth key operation)</Item>
+        <Item>Key slot: Profile tolerance to ensure proper key engagement</Item><Item>Units: Millimeters for all mechanical parts</Item>
+
+    </Itemize>
+</details>
+
 <h4><strong>ASME Y14.1 - Drawing Organization</strong></h4>
 <p><p>ASME Y14.1 defines the general requirements for creating and interpreting engineering drawings, helping assure consistency across teams and companies.</p>
 <strong>Drawing organization includes:</strong></p> 
@@ -314,15 +336,19 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
 
 </Itemize>
 <p><strong>Detail Views:</strong> Detail views apply local scaling of features to allow better feature and dimension legibility.</p>
-<strong>Bike Lock Drawing Example:</strong>
-<Itemize>
+<details style="margin-bottom: 10px;">
+  <summary><strong>Bike Lock Example:</strong></summary>
 
-    <Item>Section A-A: Through lock body showing cylinder bore and internal mechanism space</Item>
-    <Item>Section B-B: Through shackle showing hardened outer layer and core material</Item>
-    <Item>Detail C (Scale 2:1): Keyway profile showing precise geometry</Item>
-    <Item>Detail D (Scale 3:1): Seal groove dimensions</Item>
+    <Itemize>
 
-</Itemize>
+        <Item>Section A-A: Through lock body showing cylinder bore and internal mechanism space</Item>
+        <Item>Section B-B: Through shackle showing hardened outer layer and core material</Item>
+        <Item>Detail C (Scale 2:1): Keyway profile showing precise geometry</Item>
+        <Item>Detail D (Scale 3:1): Seal groove dimensions</Item><Item>Units: Millimeters for all mechanical parts</Item>
+        
+    </Itemize>
+</details>
+
 <h4><strong>Set Appropriate Tolerances</strong></h4>
 <p><p>Set up a good title block for your company with appropriate default tolerances, as over-specifying tight tolerances is a path to wasting money and driving manufacturers crazy.</p>
 <strong>Tolerance Guidelines:</strong></p> 
@@ -335,30 +361,34 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
     <Item>Balance cost vs. performance requirements</Item>
 
 </Itemize>
-<strong>Bike Lock Tolerance Example:</strong>
-<p>Default Tolerances (in title block):</p>
-<Itemize>
+<details style="margin-bottom: 10px;">
+  <summary><strong>Bike Lock Example:</strong></summary>
 
-    <Item>Linear dimensions: ±0.5mm</Item>
-    <Item>Angular dimensions: ±1°</Item>
-    <Item>Hole diameters: ±0.2mm</Item>
+    <p>Default Tolerances (in title block):</p>
+    <Itemize>
 
-</Itemize>
-<p>Critical Tolerances (specified on drawing):</p>
-<Itemize>
+        <Item>Linear dimensions: ±0.5mm</Item>
+        <Item>Angular dimensions: ±1°</Item>
+        <Item>Hole diameters: ±0.2mm</Item>
 
-    <Item>Cylinder bore: Ø15.00 +0.02/-0.00 mm (tight for proper fit)</Item>
-    <Item>Shackle hole position: ±0.1mm (critical for function)</Item>
-    <Item>Mounting face flatness: 0.05mm (sealing surface)</Item>
+    </Itemize>
+    <p>Critical Tolerances (specified on drawing):</p>
+    <Itemize>
 
-</Itemize>
-<p>Non-critical Tolerances (use defaults):</p>
-<Itemize>
+        <Item>Cylinder bore: Ø15.00 +0.02/-0.00 mm (tight for proper fit)</Item>
+        <Item>Shackle hole position: ±0.1mm (critical for function)</Item>
+        <Item>Mounting face flatness: 0.05mm (sealing surface)</Item>
 
-    <Item>Overall body length: 65mm ±0.5mm (appearance only)</Item>
-    <Item>Corner radii: R2mm ±0.5mm (not functional)</Item>
+    </Itemize>
+    <p>Non-critical Tolerances (use defaults):</p>
+    <Itemize>
 
-</Itemize>
+        <Item>Overall body length: 65mm ±0.5mm (appearance only)</Item>
+        <Item>Corner radii: R2mm ±0.5mm (not functional)</Item>
+
+    </Itemize>
+</details>
+
 <h4><strong>Write Clear Drawing Notes</strong></h4>
 <p><p>Write simple and direct notes that clarify any ambiguity in the drawing or add extra information to convey design intent.</p>
 <strong>Effective Notes:</strong></p> 
@@ -392,25 +422,7 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
 
 </Itemize>
 </SubSubSubSection>
-<SubSubSubSection title="Drawing Template Setup" id="Drawing Template Setup">
-<p>Whatever CAD software you use, be sure to set up drawing sheet templates in the common sizes you will use, including appropriate default tolerances, references to standards, and drawing borders with alphanumeric grid lines.</p>
-<strong>Template Components:</strong>
-<Itemize>
 
-    <Item><strong>Title block:</strong> Company name, logo, drawing number, revision, date, approvals</Item>
-    <Item><strong>Revision block:</strong> Track design changes</Item>
-    <Item><strong>General notes section:</strong> Standard requirements applicable to all drawings</Item>
-    <Item><strong>Material/finish callout areas</strong></Item>
-    <Item><strong>Drawing scale indicator</strong></Item>
-    <Item><strong>Projection type:</strong> 1st angle (Europe) or 3rd angle (US)</Item>
-    <Item><strong>Standard reference:</strong> "INTERPRET DIMENSIONS PER ASME Y14.5-2018"</Item>
-
-</Itemize>
-<!-- <strong>Bike Lock Drawing Template:</strong>
-<p>\begin{verbatim}</p>
-<p>Sheet Size: A (8.5" × 11") for most components B (11" × 17") for assemblies Title Block Contains: - Company: [Company Name] - Part Name: [From CAD model] - Part Number: [From CAD model] - Material: [From CAD model properties] - Finish: [Specified] - Scale: [As shown on each view] - Sheet: [X of Y] - Drawn By: [Name] Date: [Date] - Checked By: [Name] Date: [Date] - Approved By: [Name] Date: [Date] Default Tolerances: - .X = ±0.5mm - .XX = ±0.2mm - .XXX = ±0.05mm - Angular = ±1° Standard: ASME Y14.5-2018 Projection: Third Angle</p>
-<p>\end{verbatim}</p> -->
-</SubSubSubSection>
 <SubSubSection title="Component 4: Bill of Materials (BOM)" id="Component 4: Bill of Materials (BOM)">
 </SubSubSection>
 <SubSubSubSection title="Purpose of the BOM" id="Purpose of the BOM">
@@ -513,22 +525,28 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
 </Itemize>
 <p>Include packaging materials in a BOM, as forgetting about packaging can lead to a big miss in cost analyses, and modern packaging can be expensive and impact the way you sell your finished product.</p>
 <h4><strong>4. Categorize Items</strong></h4>
-<p><p>Start by building categories of items you are going to use in a BOM, with every item having its own category that will help organize BOM-based work, such as Standard parts, Electronics parts, Mechanical Parts, Custom Parts, Fasteners, and Packaging.</p>
-<strong>Bike Lock Categories:</strong></p> 
+<p>Start by building categories of items you are going to use in a BOM, with every item having its own category that will help organize BOM-based work, such as Standard Parts, Electronics Parts, Mechanical Parts, Custom Parts, Fasteners, and Packaging.</p>
+<details style="margin-bottom: 10px;">
+  <summary><strong>Bike Lock Example:</strong></summary>
 
-<Itemize>
+    <Itemize>
 
-    <Item><strong>Custom Mechanical:</strong> Lock body, shackle (designed and manufactured)</Item>
-    <Item><strong>Standard Components:</strong> Cylinder, springs (purchased to spec)</Item>
-    <Item><strong>Fasteners:</strong> Screws, retaining rings (standard catalog items)</Item>
-    <Item><strong>Elastomers:</strong> Seals, overmolds (purchased to spec)</Item>
-    <Item><strong>Packaging:</strong> Retail package, instruction manual</Item>
-    <Item><strong>Consumables:</strong> Assembly lubricant, adhesive</Item>
+        <Item><strong>Custom Mechanical:</strong> Lock body, shackle (designed and manufactured)</Item>
+        <Item><strong>Standard Components:</strong> Cylinder, springs (purchased to spec)</Item>
+        <Item><strong>Fasteners:</strong> Screws, retaining rings (standard catalog items)</Item>
+        <Item><strong>Elastomers:</strong> Seals, overmolds (purchased to spec)</Item>
+        <Item><strong>Packaging:</strong> Retail package, instruction manual</Item>
+        <Item><strong>Consumables:</strong> Assembly lubricant, adhesive</Item>
 
-</Itemize>
+    </Itemize>
+</details>
+
 <h4><strong>5. Track Cost and Lead Time</strong></h4>
-<p><p>With modern supply chain shortages, lead time is becoming king of the manufacturing process, making it paramount to have the right components on time and at cost as ultimately part of the success of any manufacturing operation.</p>
-<strong>Bike Lock BOM - Cost & Lead Time Tracking:</strong></p> 
+<p>With modern supply chain shortages, lead time is becoming king of the manufacturing process, making it paramount to have the right components on time and at cost as ultimately part of the success of any manufacturing operation.</p>
+<details style="margin-bottom: 10px;">
+  <summary><strong>Bike Lock Example:</strong></summary>
+  <p>Bike Lock BOM - Cost & Lead Time Tracking:</p> 
+</details>
 
 <!-- <p>\begin{table}</p>
 <p>\centering</p>
@@ -574,17 +592,21 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
     <Item>Intellectual property considerations</Item>
 
 </Itemize>
-<strong>Bike Lock Make/Buy:</strong>
-<Itemize>
+<details style="margin-bottom: 10px;">
+  <summary><strong>Bike Lock Example:</strong></summary>
 
-    <Item><strong>MAKE:</strong> Lock body (die casting capability in-house)</Item>
-    <Item><strong>MAKE:</strong> Shackle (machining capability in-house)</Item>
-    <Item><strong>BUY:</strong> Lock cylinder (specialized vendor)</Item>
-    <Item><strong>BUY:</strong> Springs (standard vendor)</Item>
-    <Item><strong>BUY:</strong> Fasteners (catalog items)</Item>
-    <Item><strong>CUSTOM BUY:</strong> Weather seals (custom tooling at vendor)</Item>
+    <Itemize>
 
-</Itemize>
+        <Item><strong>MAKE:</strong> Lock body (die casting capability in-house)</Item>
+        <Item><strong>MAKE:</strong> Shackle (machining capability in-house)</Item>
+        <Item><strong>BUY:</strong> Lock cylinder (specialized vendor)</Item>
+        <Item><strong>BUY:</strong> Springs (standard vendor)</Item>
+        <Item><strong>BUY:</strong> Fasteners (catalog items)</Item>
+        <Item><strong>CUSTOM BUY:</strong> Weather seals (custom tooling at vendor)</Item>
+
+    </Itemize>
+</details>
+
 <h4><strong>8. Integrate with CAD</strong></h4>
 <p><p>Live BOM natively integrated into CAD software ensures adherence to engineering BOM best practices and provides engineers visibility into their supply chain.</p>
 <strong>CAD-BOM Integration Benefits:</strong></p> 
