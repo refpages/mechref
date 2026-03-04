@@ -121,6 +121,7 @@ import Row from "../../components/Row.astro"
             <div slot = "solution">
                 <p>
                     <strong>1. System diagram:</strong> The following is the system diagram for the pendulum.
+                    Use the polar coordinate system with theta defined as shown.
                 </p>
                 <Image src = "/dyn/rigid_body_kinetics/pendulum_system_diagram.png" width = "5"/>
                 <p>
@@ -129,8 +130,9 @@ import Row from "../../components/Row.astro"
                 <Image src = "/dyn/rigid_body_kinetics/pendulum_fbd.png" width = "5"/>
                 <p>
                     The following forces are on the free body diagram.
-                    <DisplayEquation equation = `\\begin{align} F_O &= F_{Ox} \\hat{\\imath} + F_{Oy} \\hat{\\jmath} \\\\
-                    \\vec{F}_g &= - mg \\hat{\\jmath} \\end{align}`/>
+                    <DisplayEquation equation = `\\begin{align} F_O &= F_{O} \\hat{e}_r + F_{O} \\hat{e}_{\\theta} \\\\
+                    \\vec{F}_g &= F_g \\cos \\theta \\hat{e}_r - F_g \\sin \\theta \\hat{e}_{\\theta} \\\\ 
+                    &= m g \\cos \\theta \\hat{e}_r - m g \\sin \\theta \\hat{e}_{\\theta} \\end{align}`/>
                 </p>
                 <p>
                     <strong>3. Kinematics:</strong> <InlineEquation equation = "\\vec{a}_c, \\vec{\\alpha}"/>
@@ -141,8 +143,10 @@ import Row from "../../components/Row.astro"
                     <DisplayEquation equation = "\\alpha_z = \\ddot{\\theta}"/>
                 </p>
                 <p>
-                    <strong>4. Kinetics:</strong> <InlineEquation equation = "\\sum \\vec{F} = m \\vec{a}_c, \\sum M_{CZ} = I_{CZ} \\alpha_Z"/> or <InlineEquation equation = "\\sum M_{OZ} = I_{OZ} \\alpha_Z"/>
-                    Use <InlineEquation equation = "\\sum M_{OZ} = I_{OZ} \\alpha_Z"/> in order to avoid having to deal with the reaction forces at point <InlineEquation equation = "O."/>
+                    <strong>4. Kinetics:</strong> <InlineEquation equation = "\\sum \\vec{F} = m \\vec{a}_c, \\sum M_{CZ} = I_{CZ} \\alpha_Z"/> where <InlineEquation equation = "c"/> is the center of mass or <InlineEquation equation = "\\sum M_{OZ} = I_{OZ} \\alpha_Z"/> where <InlineEquation equation = "O"/> is a fixed point.
+                </p>
+                <p>
+                    Using <InlineEquation equation = "\\sum M_{OZ} = I_{OZ} \\alpha_Z"/> eliminates the reaction forces at point <InlineEquation equation = "O."/>
                     <DisplayEquation equation = `\\begin{align} \\sum M_{OZ} &= I_{OZ} \\alpha_{Z} \\\\
                         &= -m g \\frac{l}{2} \\sin \\theta \\end{align}`/>
                     Also, the following equation is true.
