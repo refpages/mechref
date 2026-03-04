@@ -141,21 +141,20 @@ import Row from "../../components/Row.astro"
                     <DisplayEquation equation = "\\alpha_z = \\ddot{\\theta}"/>
                 </p>
                 <p>
-                    <strong>4. Kinetics:</strong> <InlineEquation equation = "\\sum \\vec{F} = m \\vec{a}_c, \\sum M_{CZ} = I_{CZ} \\alpha_Z"/>
-                    <DisplayEquation equation = `\\begin{align} \\sum M_{CZ} &= I_{CZ} \\alpha_Z \\\\
-                        &= -\\frac{l}{2} R_{\\theta} \\end{align}`/>
+                    <strong>4. Kinetics:</strong> <InlineEquation equation = "\\sum \\vec{F} = m \\vec{a}_c, \\sum M_{CZ} = I_{CZ} \\alpha_Z"/> or <InlineEquation equation = "\\sum M_{OZ} = I_{OZ} \\alpha_Z"/>
+                    Use <InlineEquation equation = "\\sum M_{OZ} = I_{OZ} \\alpha_Z"/> in order to avoid having to deal with the reaction forces at point <InlineEquation equation = "O."/>
                     <DisplayEquation equation = `\\begin{align} \\sum M_{OZ} &= I_{OZ} \\alpha_{Z} \\\\
-                        &= -m g \\frac{l}{2} \\cos \\theta \\end{align}`/>
+                        &= -m g \\frac{l}{2} \\sin \\theta \\end{align}`/>
                     Also, the following equation is true.
                     <DisplayEquation equation = "I_{OZ} = \\frac{1}{3} m l ^ 2"/>
                 </p>
                 <p>
                     <strong>5. Algebra:</strong>
-                    <DisplayEquation equation = `\\begin{align} I_{OZ} \\alpha_Z &= -m g \\frac{l}{2} \\cos \\theta \\\\
-                        \\frac{1}{3} m l ^ 2 \\ddot{\\theta} &= -m g \\frac{l}{2} \\cos \\theta \\end{align}`/>
+                    <DisplayEquation equation = `\\begin{align} I_{OZ} \\alpha_Z &= -m g \\frac{l}{2} \\sin \\theta \\\\
+                        \\frac{1}{3} m l ^ 2 \\ddot{\\theta} &= -m g \\frac{l}{2} \\sin \\theta \\end{align}`/>
                     Solving for <InlineEquation equation = "\\ddot{\\theta}"/> gives the following expression.
-                    <DisplayEquation equation = `\\begin{align} \\ddot{\\theta} &= -\\frac{3 g}{2 l} \\cos \\theta \\\\
-                        \\alpha(\\theta, \\dot{\\theta}) &= -\\frac{3 g}{2 l} \\cos \\theta \\end{align}`/>
+                    <DisplayEquation equation = `\\begin{align} \\ddot{\\theta} &= -\\frac{3 g}{2 l} \\sin \\theta \\\\
+                        \\alpha(\\theta, \\dot{\\theta}) &= -\\frac{3 g}{2 l} \\sin \\theta \\end{align}`/>
                 </p>
             </div>
         </Example>
