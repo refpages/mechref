@@ -68,11 +68,26 @@ The goal in combined loading is to determine the stresses at a point in a slende
 </Enumerate>
 
 <Example id="com-lds" title="Combined loading in pipe" solution="True">
-    <div class="d-flex">
+    <div class="d-flex flex-row">
+    <Row>
+      <Col values="4 md-4">
         <p>
-          Find the state of stress at points H and K in the given pipe system.
-          <Image src='/sol/superposition/Combined Loading Example.jpg' width='5'></Image>
+            <p>
+            Find the state of stress at points H and K in the given pipe system. 
+            </p>
+            <p>
+            Assume that <InlineEquation equation = "F_1"/> = 2500 lbs, <InlineEquation equation = "F_2"/> = 600 lbs, and the pipe diameter is 1 inch.
+            </p>
+            <p>
+            Also note that <InlineEquation equation = "a"/> = 2.5 inches, and <InlineEquation equation = "b"/> = 3.5 inches.
+            </p>
+            <br>
         </p>
+      </Col>
+      <Col values="8 md-8">
+          <Image src='/sol/superposition/Combined Loading Practice.jpg' width='10'></Image>
+      </Col>
+    </Row>
     </div>
   <div slot="solution">
       <p>
@@ -81,14 +96,14 @@ The goal in combined loading is to determine the stresses at a point in a slende
 
         <p>
         <DisplayEquation equation="\\sum{F_x} = V_{x} = 0"/>
-        <DisplayEquation equation="\\sum{F_y} = -600 + V_{y} = 0"/>
-        <DisplayEquation equation="\\sum{F_y} = -2500 + V_{z} = 0"/>
+        <DisplayEquation equation="\\sum{F_y} = -F_2 + V_{y} = 0"/>
+        <DisplayEquation equation="\\sum{F_y} = -F_1 + V_{z} = 0"/>
         </p>
         
         <p>
-        <DisplayEquation equation="\\sum{M_x} = M_{x} + 600\\times 3.5 = 0"/>
+        <DisplayEquation equation="\\sum{M_x} = M_{x} + F_2\\times (b-1) = 0"/>
         <DisplayEquation equation="\\sum{M_y} = M_{y} = 0"/>
-        <DisplayEquation equation="\\sum{M_z} = -T_{z} + 2500\\times 2.5 = 0"/>
+        <DisplayEquation equation="\\sum{M_z} = -T_{z} + F_1\\times a = 0"/>
         </p>
 
         <p>
@@ -98,20 +113,20 @@ The goal in combined loading is to determine the stresses at a point in a slende
         <p>
         For point H:
         <Itemize>
-            <Item> Axial: <InlineEquation equation = "\\sigma_z = \\frac{P_L}{A} = 2500/(\\frac{\\pi (d^2)}{4})" /> </Item>
+            <Item> Axial: <InlineEquation equation = "\\sigma_z = \\frac{P_L}{A} = F_1/(\\frac{\\pi (d^2)}{4})" /> </Item>
             <Item> Shear: <InlineEquation equation = "\\tau_{zy} = \\frac{V_y Q}{It} = 0" /> </Item>
-            <Item> Moment: <InlineEquation equation = "\\sigma_z = \\frac{Mc}{I} = ((600\\times (3.5-1)\\times d/2))/(\\frac{\\pi (d^2)}{32})" /> </Item>
-            <Item> Torsion: <InlineEquation equation = "\\tau_{zx} = \\frac{T_z r}{I} = ((600\\times (2.5)\\times d/2))/(\\frac{\\pi (d^2)}{64})" /> </Item>
+            <Item> Moment: <InlineEquation equation = "\\sigma_z = \\frac{Mc}{I} = ((F_2\\times (b-1))\\times d/2)/(\\frac{\\pi (d^2)}{64})" /> </Item>
+            <Item> Torsion: <InlineEquation equation = "\\tau_{zx} = \\frac{T_z r}{J} = ((F_2\\times a)\\times d/2)/(\\frac{\\pi (d^2)}{32})" /> </Item>
         </Itemize>
         </p>
 
         <p>
         For point K:
         <Itemize>
-            <Item> Axial: <InlineEquation equation = "\\sigma_z = \\frac{P_L}{A} = 2500/(\\frac{\\pi (d^2)}{4})" /> </Item>
-            <Item> Shear: <InlineEquation equation = "\\tau_{zy} = \\frac{V_y Q}{It} = \\frac{600\\times Q}{It}" /> </Item>
+            <Item> Axial: <InlineEquation equation = "\\sigma_z = \\frac{P_L}{A} = F_1/(\\frac{\\pi (d^2)}{4})" /> </Item>
+            <Item> Shear: <InlineEquation equation = "\\tau_{zy} = \\frac{V_y Q}{It} = (F_2 \\times \\frac{2(d/2)^3}{3})/(\\frac{\\pi (d^2)}{64} \\times d)" /> </Item>
             <Item> Moment: <InlineEquation equation = "\\sigma_z = \\frac{Mc}{I} = 0" /> </Item>
-            <Item> Torsion: <InlineEquation equation = "\\tau_{zx} = \\frac{T_z r}{I} = ((600\\times (2.5)\\times d/2))/(\\frac{\\pi (d^2)}{64})" /> </Item>
+            <Item> Torsion: <InlineEquation equation = "\\tau_{zx} = \\frac{T_z r}{J} = ((F_2\\times a)\\times d/2)/(\\frac{\\pi (d^2)}{32})" /> </Item>
         </Itemize>
         </p>
   </div>
