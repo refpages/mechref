@@ -68,8 +68,10 @@ import DisplayTable from "../../components/DisplayTable.astro"
 
     <CalloutContainer slot="cards">
       <CalloutCard title="Reference material">
-        <li><a href = "/dyn/rigid_body_kinematics#rigid_bodies">Rigid bodies</a></li>
-        <li><a href = "/dyn/rigid_body_kinematics#constrained_motion">Constrained motion</a></li>
+        <ul>
+          <li><a href = "/dyn/rigid_body_kinematics#rigid_bodies">Rigid bodies</a></li>
+          <li><a href = "/dyn/rigid_body_kinematics#constrained_motion">Constrained motion</a></li>
+      </ul>
       </CalloutCard>
     </CalloutContainer>
 </Section>
@@ -180,6 +182,60 @@ import DisplayTable from "../../components/DisplayTable.astro"
 </SubSection>
 
 <SubSection title="Ackerman steering geometry"  id="ackerman_steering">
+  <CalloutContainer slot="cards">
+    <CalloutCard>
+      <p>
+            Three wheeled vehicles with two wheels in back and one in
+            front (a <em>delta</em> or <em>tricycle</em>
+            configuration) avoid the need for complicated steering
+            geometry, leading Karl Benz to use this system in the
+            world's <a
+            href="http://en.wikipedia.org/wiki/Benz_Patent_Motorwagen">first
+            automobile</a>.
+        </p>
+
+      <Image src="/dyn/steering_geometry/avs_Motorwagen_Serienversion_shaved_small.jpg" alt="Benz Patent-Motorwagen Nr. 3." width="8">
+        <p class="caption">
+          Benz Patent-Motorwagen Nr. 3 from 1888. Image credit:
+          <a
+          href="http://commons.wikimedia.org/wiki/File:Motorwagen_Serienversion.jpg">Wikimedia
+          Commons</a> (<a
+          href="http://creativecommons.org/licenses/publicdomain/">public
+          domain</a>) (<a
+          href="/dyn/steering_geometry/avs_Motorwagen_Serienversion.jpg">full-sized
+          image</a>).
+        </p>
+      </Image>
+      <p>
+        <a href="">Episode 4 of Season 9</a> of <a
+        href="http://en.wikipedia.org/wiki/Top_Gear_(2002_TV_series)">Top
+        Gear</a> featured the following segment</a>
+        on the <a
+        href="http://en.wikipedia.org/wiki/Reliant_Robin">Reliant
+        Robin</a>, a three-wheel car produced in the 1970s in the
+        United Kingdom:
+        <iframe src = "https://www.youtube.com/embed/QQh56geU0X8" class = "w-100" title = "YouTube video player" frameborder = "0" allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy = "strict-origin-when-cross-origin" allowfullscreen></iframe>
+        This Top Gear episode clearly demonstrates
+        some of the reasons that single-wheel steering systems for
+        cars have not achieved long-lasting commercial success.
+      </p>
+      <p>
+        <a
+        href="http://en.wikipedia.org/wiki/Three_wheeled_car">Three-wheeled
+        cars</a> were rather popular with British manufacturers in
+        the 1960s and 1970s. As well as single-wheel-in-front
+        models like the Reliant Robin, there were also production
+        cars with a single wheel in the back (a <em>tadpole</em>
+        configuration). An example of this is the smallest
+        production car ever made, the <a
+        href="http://en.wikipedia.org/wiki/Peel_P50">Peel 50</a>,
+        shown in the following
+        Top Gear
+        episode (Series 10, Episode 3):
+        <iframe src = "http://www.youtube.com/embed/dJfSS0ZXYdo" class = "w-100" title = "YouTube video player" frameborder = "0" allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy = "strict-origin-when-cross-origin" allowfullscreen></iframe>
+      </p>
+    </CalloutCard>
+  </CalloutContainer>
   <p>
     In a conventional car, the rear two wheels are fixed to
     point straight ahead, while the front two wheels must turn
@@ -216,59 +272,6 @@ import DisplayTable from "../../components/DisplayTable.astro"
       of the rack offset \(d\).
     </p>
   </PrairieDrawCanvas>
-
-  <CalloutContainer slot="cards">
-    <CalloutCard>
-      <p>
-            Three wheeled vehicles with two wheels in back and one in
-            front (a <em>delta</em> or <em>tricycle</em>
-            configuration) avoid the need for complicated steering
-            geometry, leading Karl Benz to use this system in the
-            world's <a
-            href="http://en.wikipedia.org/wiki/Benz_Patent_Motorwagen">first
-            automobile</a>.
-        </p>
-
-      <Image src="/dyn/steering_geometry/avs_Motorwagen_Serienversion_shaved_small.jpg" alt="Benz Patent-Motorwagen Nr. 3." width="8">
-        <p class="caption">
-          Benz Patent-Motorwagen Nr. 3 from 1888. Image credit:
-          <a
-          href="http://commons.wikimedia.org/wiki/File:Motorwagen_Serienversion.jpg">Wikimedia
-          Commons</a> (<a
-          href="http://creativecommons.org/licenses/publicdomain/">public
-          domain</a>) (<a
-          href="/dyn/steering_geometry/avs_Motorwagen_Serienversion.jpg">full-sized
-          image</a>).
-        </p>
-      </Image>
-      <p>
-        <a href="">Episode 4 of Season 9</a> of <a
-        href="http://en.wikipedia.org/wiki/Top_Gear_(2002_TV_series)">Top
-        Gear</a> featured a <a
-        href="http://www.youtube.com/watch?v=_bIn_ZgHJaE">segment</a>
-        on the <a
-        href="http://en.wikipedia.org/wiki/Reliant_Robin">Reliant
-        Robin</a>, a three-wheel car produced in the 1970s in the
-        United Kingdom. This Top Gear episode clearly demonstrates
-        some of the reasons that single-wheel steering systems for
-        cars have not achieved long-lasting commercial success.
-      </p>
-      <p>
-        <a
-        href="http://en.wikipedia.org/wiki/Three_wheeled_car">Three-wheeled
-        cars</a> were rather popular with British manufacturers in
-        the 1960s and 1970s. As well as single-wheel-in-front
-        models like the Reliant Robin, there were also production
-        cars with a single wheel in the back (a <em>tadpole</em>
-        configuration). An example of this is the smallest
-        production car ever made, the <a
-        href="http://en.wikipedia.org/wiki/Peel_P50">Peel 50</a>,
-        shown in another <a
-        href="http://www.youtube.com/watch?v=dJfSS0ZXYdo">Top Gear
-        episode</a> (Series 10, Episode 3).
-      </p>
-    </CalloutCard>
-  </CalloutContainer>
 </SubSection>
 
 <script src="/dyn/steering_geometry/canvases.js" is:inline></script>
