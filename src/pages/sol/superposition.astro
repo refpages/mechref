@@ -103,9 +103,9 @@ The goal in combined loading is to determine the stresses at a point in a slende
         </p>
         
         <p>
-        <DisplayEquation equation="\\sum{M_x} = M_{x} + F_2\\times (b-1) = 0"/>
+        <DisplayEquation equation="\\sum{M_x} = M_{x} + F_2 (b-1) = 0"/>
         <DisplayEquation equation="\\sum{M_y} = M_{y} = 0"/>
-        <DisplayEquation equation="\\sum{M_z} = -T_{z} + F_1\\times a = 0"/>
+        <DisplayEquation equation="\\sum{M_z} = -T_{z} + F_2 a = 0"/>
         </p>
 
         <p>
@@ -117,8 +117,8 @@ The goal in combined loading is to determine the stresses at a point in a slende
         <Itemize>
             <Item> Axial: <InlineEquation equation = "\\sigma_z = \\frac{P_z}{A} = \\frac{F_1}{\\frac{\\pi d^2}{4}}" /> </Item>
             <Item> Shear: <InlineEquation equation = "\\tau_{zy} = \\frac{V_y Q}{It} = 0" /> </Item>
-            <Item> Moment: <InlineEquation equation = "\\sigma_z = \\frac{Mc}{I} = \\frac{F_2(b-1)(\\frac{d}{2})}{(\\frac{\\pi d^4}{64})}" /> </Item>
-            <Item> Torsion: <InlineEquation equation = "\\tau_{zx} = \\frac{T_z r}{J} = \\frac{F_2 a (\\frac{d}{2})}{\\frac{\\pi d^4}{32}}" /> </Item>
+            <Item> Moment: <InlineEquation equation = "\\sigma_z = \\frac{Mc}{I} = \\frac{F_2(b-1)(r)}{\\frac{\\pi d^4}{64}}" /> </Item>
+            <Item> Torsion: <InlineEquation equation = "\\tau_{zx} = \\frac{T_z r}{J} = \\frac{F_2 (a) (r)}{\\frac{\\pi d^4}{32}}" /> </Item>
         </Itemize>
         </p>
 
@@ -126,9 +126,9 @@ The goal in combined loading is to determine the stresses at a point in a slende
         For point K:
         <Itemize>
             <Item> Axial: <InlineEquation equation = "\\sigma_z = \\frac{P_z}{A} = \\frac{F_1}{\\frac{\\pi d^2}{4}}" /> </Item>
-            <Item> Shear: <InlineEquation equation = "\\tau_{zy} = \\frac{V_y Q}{It} = \\frac{F_2\\frac{2 (\\frac{d}{2})^3}{3}}{\\frac{\\pi \d^4}{64} \\times d}" /> </Item>
+            <Item> Shear: <InlineEquation equation = "\\tau_{zy} = \\frac{V_y Q}{It} = \\frac{F_2\\frac{2 (r^3)}{3}}{\\frac{\\pi \d^4}{64} \\times d}" /> </Item>
             <Item> Moment: <InlineEquation equation = "\\sigma_z = \\frac{Mc}{I} = 0" /> </Item>
-            <Item> Torsion: <InlineEquation equation = "\\tau_{zx} = \\frac{T_z r}{J} = \\frac{F_2 a (\\frac{d}{2})}{\\frac{\\pi d^4}{32}}" /> </Item>
+            <Item> Torsion: <InlineEquation equation = "\\tau_{zx} = \\frac{T_z r}{J} = \\frac{F_2 (a) (r)}{\\frac{\\pi d^4}{32}}" /> </Item>
         </Itemize>
         </p>
   </div>
