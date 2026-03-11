@@ -126,7 +126,7 @@ import Col from "../../components/Col.astro"
 
 	<Warning title="Angular momentum is conserved if and only if the sum of external moments is zero." id="rec-wamc">
 		<p>
-			As seen from <a href="#rec-lmc">#rec-amc</a>, angular momentum is conserved if the sum of the external moments
+			As seen from <a href="#rec-amc">#rec-amc,</a> angular momentum is conserved if the sum of the external moments
 			is zero. This is why choosing an appropriate system and
 			and drawing a free-body diagram is crucial in determining whether angular momentum is conserved.
 			See examples below.
@@ -256,7 +256,7 @@ import Col from "../../components/Col.astro"
 		</p>
 		<p>
 			The cross product of a vector with itself is zero 
-			(<a href="rvi.html#rvi-ez">cross product self-annihilation</a>). So the
+			(<a href="/dyn/vector_calculus#rvi-ez">cross product self-annihilation).</a> So the
 			integral of <InlineEquation equation="\\int m\\vec{v}_P \\times \\vec{v}_P \\, dt" />			is a constant, which is 
 			the initial angular momentum. Assuming this is zero, we arrive at the 
 			desired expression.
@@ -300,7 +300,7 @@ import Col from "../../components/Col.astro"
 
 	<Example title="The Rocket Equation" id="rec-xr" solution="false">
 		<p>
-			As stated in the warning at <a href="#rec-wm">#rec-wm</a>, the 
+			As stated in the warning at <a href="#warning_rec-wm">#rec-wm,</a> the 
 			relationship between Newton's equations and linear momentum are 
 			not applicable for a system whose mass is changing with time. To use
 			that relationship, a few things must be changed. Consider the figure 
@@ -399,7 +399,31 @@ import Col from "../../components/Col.astro"
 </SubSection>
 
 <SubSection title="Collisions" id="collisions">
-
+	<CalloutContainer slot="cards">
+		<CalloutCard>
+			<p>
+				Counting the number of collisions with two simple objects, such as blocks,
+				billiard balls, can be used to estimate \(\pi\) to any accuracy. Mathematician
+				<a href="https://www.ux1.eiu.edu/~ggalperin"><i>Gregory Galperin</i></a> of
+				Eastern Illinois University discovered this in 1995 and 
+				<a href="https://www.maths.tcd.ie/~lebed/Galperin.%20Playing%20pool%20with%20pi.pdf">published</a> this in 2003.
+				Famous YouTuber <a href="https://www.youtube.com/c/3blue1brown"><i>3Blue1Brown</i></a> 
+				made the following video on this explaining this
+				seemingly paradoxical result.
+				<iframe src = "https://www.youtube.com/embed/HEfHFsfGXjs" class = "w-100" title = "YouTube video player" frameborder ="0" allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy = "strict-origin-when-cross-origin" allowfullscreen></iframe>
+				However, looking at the velocity phase space,
+				which is graphing the velocity of \(m_1\) on one axis, and the velocity of \(m_2\)
+				on another. This arises from conservation of kinetic energy in elastic collisions.
+			</p>
+		</CalloutCard>
+		<CalloutCard>
+			<p>
+				There was a time when hitting the perfect shot in a game of billiards could result in the ball to explode. 
+				They were made from <a href="https://pubchem.ncbi.nlm.nih.gov/compound/Nitrocellulose"><em>nitrocellulose</em></a>, which is
+				a plastic that is easily combustible, as an alternative to ivory. This corresponds to a coefficient of restitution greater than 1.
+			</p>
+		</CalloutCard>
+	</CalloutContainer>
 	<p>
 		A collision is when two or more objects exert forces on each other in a relatively short time. These problems are usually
 		solved using conservation of momentum and energy. There are two general types of collisions: elastic and inelastic collisions.
@@ -649,31 +673,6 @@ import Col from "../../components/Col.astro"
 		</tbody>
 		
 	</DisplayTable>
-
-	<CalloutContainer slot="cards">
-		<CalloutCard>
-			<p>
-				Counting the number of collisions with two simple objects, such as blocks,
-				billiard balls, can be used to estimate \(\pi\) to any accuracy. Mathematician
-				<a href="https://www.ux1.eiu.edu/~cfgg/"><i>Gregory Galperin</i></a> of
-				Eastern Illinois University discovered this in 1995 and 
-				<a href="https://www.maths.tcd.ie/~lebed/Galperin.%20Playing%20pool%20with%20pi.pdf">published</a> this in 2003.
-				Famous YouTuber <a href="https://www.youtube.com/c/3blue1brown"><i>3Blue1Brown</i></a> 
-				made a <a href="https://www.youtube.com/watch?v=HEfHFsfGXjs">video</a> on this explaining this
-				seemingly paradoxical result. However, looking at the velocity phase space,
-				which is graphing the velocity of \(m_1\) on one axis, and the velocity of \(m_2\)
-				on another. This arises from conservation of kinetic energy in elastic collisions.
-			</p>
-		</CalloutCard>
-		<CalloutCard>
-			<p>
-				There was a time when hitting the perfect shot in a game of billiards could result in the ball to explode. 
-				They were made from <a href="https://pubchem.ncbi.nlm.nih.gov/compound/Nitrocellulose"><em>nitrocellulose</em></a>, which is
-				a plastic that is easily combustible, as an alternative to ivory. This corresponds to a coefficient of restitution greater than 1.
-			</p>
-		</CalloutCard>
-	</CalloutContainer>
-
 </SubSection>
 
   <SubSection title = "Rotation about arbitrary reference points" id = "rotation_about_arbitrary_reference_points">
