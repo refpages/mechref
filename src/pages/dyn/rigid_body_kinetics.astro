@@ -107,7 +107,7 @@ import Row from "../../components/Row.astro"
         <DisplayEquation equation = `\\begin{align} &1. \\ \\text{System diagram: coordinate system + label variables} \\\\
             &2. \\ \\text{FBD: one per rigid body} \\\\
             &3. \\ \\text{Kinematics: determine } \\vec{a}_c \\ \\text{and } \\alpha_z \\\\
-            &4. \\ \\text{Kinetics:} \\sum \\vec{F} = m \\vec{a}_c \\ \\text{and} \\sum M_{CZ} = I_{CZ} \\alpha_z. \\\\
+            &4. \\ \\text{Kinetics:} \\sum \\vec{F} = m \\vec{a}_c \\ \\text{and} \\sum M_{Cz} = I_{Cz} \\alpha_z. \\\\
             &5. \\ \\text{Algebra: solve} \\end{align}` background = "True"/>
         <Example title = "Pendulum" id = "pendulum">
             <div class = "d-flex flex-row">
@@ -144,7 +144,7 @@ import Row from "../../components/Row.astro"
                     <DisplayEquation equation = "\\alpha_z = \\ddot{\\theta}"/>
                 </p>
                 <p>
-                    <strong>4. Kinetics:</strong> <InlineEquation equation = "\\sum \\vec{F} = m \\vec{a}_c, \\sum M_{CZ} = I_{CZ} \\alpha_z"/> where <InlineEquation equation = "c"/> is the center of mass or <InlineEquation equation = "\\sum M_{Oz} = I_{Oz} \\alpha_z"/> where <InlineEquation equation = "O"/> is a fixed point.
+                    <strong>4. Kinetics:</strong> <InlineEquation equation = "\\sum \\vec{F} = m \\vec{a}_c, \\sum M_{Cz} = I_{Cz} \\alpha_z"/> where <InlineEquation equation = "c"/> is the center of mass or <InlineEquation equation = "\\sum M_{Oz} = I_{Oz} \\alpha_z"/> where <InlineEquation equation = "O"/> is a fixed point.
                 </p>
                 <p>
                     Using <InlineEquation equation = "\\sum M_{Oz} = I_{Oz} \\alpha_z"/> makes it so that the force equation is not needed, since point <InlineEquation equation = "O"/> is fixed and therefore has no acceleration, which vastly simplifies the problem.
