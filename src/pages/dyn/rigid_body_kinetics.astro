@@ -107,7 +107,7 @@ import Row from "../../components/Row.astro"
         <DisplayEquation equation = `\\begin{align} &1. \\ \\text{System diagram: coordinate system + label variables} \\\\
             &2. \\ \\text{FBD: one per rigid body} \\\\
             &3. \\ \\text{Kinematics: determine } \\vec{a}_c \\ \\text{and } \\alpha_z \\\\
-            &4. \\ \\text{Kinetics:} \\sum \\vec{F} = m \\vec{a}_c \\ \\text{and} \\sum M_{CZ} = I_{CZ} \\alpha_Z. \\\\
+            &4. \\ \\text{Kinetics:} \\sum \\vec{F} = m \\vec{a}_c \\ \\text{and} \\sum M_{CZ} = I_{CZ} \\alpha_z. \\\\
             &5. \\ \\text{Algebra: solve} \\end{align}` background = "True"/>
         <Example title = "Pendulum" id = "pendulum">
             <div class = "d-flex flex-row">
@@ -144,18 +144,18 @@ import Row from "../../components/Row.astro"
                     <DisplayEquation equation = "\\alpha_z = \\ddot{\\theta}"/>
                 </p>
                 <p>
-                    <strong>4. Kinetics:</strong> <InlineEquation equation = "\\sum \\vec{F} = m \\vec{a}_c, \\sum M_{CZ} = I_{CZ} \\alpha_Z"/> where <InlineEquation equation = "c"/> is the center of mass or <InlineEquation equation = "\\sum M_{OZ} = I_{OZ} \\alpha_Z"/> where <InlineEquation equation = "O"/> is a fixed point.
+                    <strong>4. Kinetics:</strong> <InlineEquation equation = "\\sum \\vec{F} = m \\vec{a}_c, \\sum M_{CZ} = I_{CZ} \\alpha_z"/> where <InlineEquation equation = "c"/> is the center of mass or <InlineEquation equation = "\\sum M_{Oz} = I_{Oz} \\alpha_z"/> where <InlineEquation equation = "O"/> is a fixed point.
                 </p>
                 <p>
-                    Using <InlineEquation equation = "\\sum M_{OZ} = I_{OZ} \\alpha_Z"/> makes it so that the force equation is not needed, since point <InlineEquation equation = "O"/> is fixed and therefore has no acceleration, which vastly simplifies the problem.
+                    Using <InlineEquation equation = "\\sum M_{Oz} = I_{Oz} \\alpha_z"/> makes it so that the force equation is not needed, since point <InlineEquation equation = "O"/> is fixed and therefore has no acceleration, which vastly simplifies the problem.
                     Taking the moment about point <InlineEquation equation = "O"/> gives the following equation.
-                     <DisplayEquation equation = "I_{OZ} \\alpha_{Z} = -m g \\frac{l}{2} \\sin \\theta"/>
-                    The mass moment of inertia at point <InlineEquation equation = "O"/> is defined by <a href = "/dyn/geometric_properties#rem-eo">#rem-eo.</a>
-                    <DisplayEquation equation = "I_{OZ} = \\frac{1}{3} m l ^ 2"/>
+                     <DisplayEquation equation = "I_{Oz} \\alpha_z = -m g \\frac{l}{2} \\sin \\theta"/>
+                    The mass moment of inertia at point <InlineEquation equation = "O"/> is defined using the mass moment of inertia of the end of a rod.
+                    <DisplayEquation equation = "I_{Oz} = \\frac{1}{3} m l ^ 2"/>
                 </p>
                 <p>
                     <strong>5. Algebra:</strong>
-                    <DisplayEquation equation = `\\begin{align} I_{O} \\alpha_Z &= -m g \\frac{l}{2} \\sin \\theta \\\\
+                    <DisplayEquation equation = `\\begin{align} I_{Oz} \\alpha_z &= -m g \\frac{l}{2} \\sin \\theta \\\\
                         \\frac{1}{3} m l ^ 2 \\ddot{\\theta} &= -m g \\frac{l}{2} \\sin \\theta \\end{align}`/>
                     Solving for <InlineEquation equation = "\\ddot{\\theta}"/> gives the following expression.
                     <DisplayEquation equation = `\\begin{align} \\ddot{\\theta} &= -\\frac{3 g}{2 l} \\sin \\theta \\\\
