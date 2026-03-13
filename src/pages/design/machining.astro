@@ -86,21 +86,21 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
 </Itemize>
 <p>*box</p>
 <p>To minimize the shear stress, differentiate with respect to the shear plane angle <InlineEquation equation="\\phi" /> and set the derivative equal to zero:</p>
-<DisplayEquation 
-  equation="\\frac{d}{d\\phi}\\left(\\cos(\\beta - \\alpha + \\phi)\\sin\\phi\\right)" 
-  title="" 
+<DisplayEquation
+  equation="\\frac{d}{d\\phi}\\left(\\cos(\\beta - \\alpha + \\phi)\\sin\\phi\\right)"
+  title=""
 />
 </SubSubSection>
 
-<SubSubSection 
-  title="Differentiation with Respect to phi" 
+<SubSubSection
+  title="Differentiation with Respect to phi"
   id="Differentiation-with-Respect-to-phi">
 
-<DisplayEquation 
-  equation="0 = \\frac{d}{d\\phi}\\left(\\frac{R}{w t_o}\\cos(\\beta - \\alpha + \\phi)\\sin\\phi\\right)" 
-  title="" 
+<DisplayEquation
+  equation="0 = \\frac{d}{d\\phi}\\left(\\frac{R}{w t_o}\\cos(\\beta - \\alpha + \\phi)\\sin\\phi\\right)"
+  title=""
 />
- 
+
 <DisplayEquation
   equation="\\frac{d}{d\\phi}\\left(\\cos(\\beta - \\alpha + \\phi)\\sin\\phi\\right)"
   title=""
@@ -109,35 +109,33 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
 Applying the product rule:
 
 <DisplayEquation
-  equation="0 = \cos(\beta - \alpha + \phi)\cos\phi - \sin(\beta - \alpha + \phi)\sin\phi"
+  equation="0 = \\cos(\\beta - \\alpha + \\phi)\\cos\\phi - \\sin(\\beta - \\alpha + \\phi)\\sin\\phi"
   title=""
 />
 
 Rearranging terms:
 
+
 <DisplayEquation
-  equation="\\sin(\\beta - \\alpha + \\phi)\\sin\\phi
-           = \\cos(\\beta - \\alpha + \\phi)\\cos\\phi"
+  equation="\\sin(\\beta - \\alpha + \\phi)\\sin\\phi   = \\cos(\\beta - \\alpha + \\phi)\\cos\\phi"
   title=""
 />
 
 Dividing both sides:
 
 <DisplayEquation
-  equation="\\tan(\\beta - \\alpha + \\phi)
-           = \\frac{\\cos\\phi}{\\sin\\phi}
-           = \\cot\\phi"
+  equation="\\tan(\\beta - \\alpha + \\phi)          = \\frac{\\cos\\phi}{\\sin\\phi}           = \\cot\\phi"
   title=""
 />
 
 Using identity:
 
 <DisplayEquation
-  equation="\\tan(\\beta - \\alpha + \\phi)
-           = \\tan(90^\\circ - \\phi)"
+  equation="\\tan(\\beta - \\alpha + \\phi)    = \\tan(90^\\circ - \\phi)"
   title=""
 />
 
+    <!--FYI equations have to be on one line or else the newline character gets interpreted and everythign breaks - Kevin Wandke-->
 Equating arguments:
 
 <DisplayEquation
@@ -154,8 +152,8 @@ Solving for phi:
 
 This proves:
 
-Increase in rake angle (<InlineEquation equation="\\alpha" />)  
-and decrease in friction angle (<InlineEquation equation="\\beta" />)  
+Increase in rake angle (<InlineEquation equation="\\alpha" />)
+and decrease in friction angle (<InlineEquation equation="\\beta" />)
 
 <Itemize>
 
