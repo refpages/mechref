@@ -51,7 +51,7 @@ import DisplayTable from "../../components/DisplayTable.astro";
 
             <Item><InlineEquation equation="L" /> is the expected bearing life in revolutions.</Item>
             <Item><InlineEquation equation="L_r" /> is the reference life, <InlineEquation equation="90 \\times 10^6" /> revolutions for ball bearings.</Item>
-            <p>This is the number of cycles that 90 percent of a group of identical bearings can endure under a constant radial load without the onset of surface fatigue.</p>
+            <p>This is the number of cycles that 90% percent of a group of identical bearings can endure under a constant radial load without the onset of surface fatigue.</p>
             <Item><InlineEquation equation="F_r" /> is the applied radial load on the bearing.</Item>
             <Item><InlineEquation equation="C" /> is the rated load capacity, which is linked to <InlineEquation equation="L_R" /> and represents the</Item>
             <p>constant radial load that a bearing can sustain for the reference life.</p>
@@ -59,7 +59,7 @@ import DisplayTable from "../../components/DisplayTable.astro";
         </Itemize>
         <p>Rolling bearings experience cyclical stresses and can fail due to fatigue.</p>
         <p>Impacts, load excursions, and shock loads increase stress, so a shock load factor <InlineEquation equation="K_a" /> is used to account for these effects. Bearings are also analyzed statistically because their fatigue life varies across a set of identical components.</p>
-        <p>The distribution of bearing life is typically a Weibull distribution, which is asymmetric. The median life, or L50, is the point where 50\</p>
+        <p>The distribution of bearing life is typically a Weibull distribution, which is asymmetric. The median life, or L50, is the point where 50% of bearings have failed. The L10 life corresponds to 90% reliability and is roughly 1/5th of the median. To account for reliability greater than 90%, a reliability factor Kr is applied.</p>
         <p>Combining the effects of applied load, shock loading, and reliability, the modified equation for bearing life is:</p>
 
         <DisplayEquation equation="\\frac{L}{L_r\\times K_r} = \\left(\\frac{C}{K_a\\times F_r}\\right)^{3.33}" title="" />
