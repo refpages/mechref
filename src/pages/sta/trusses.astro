@@ -111,14 +111,29 @@ Specifically, the two forces act <strong>along the line between the two points w
 
 Zero force members are members in a truss structure that experience no force. They act as support trusses to add stability, but are not load bearing. There are 2 cases where zero force members occur: 
 <Enumerate>
-	<Item> Two noncolinear members share a pin with no support or external forces; the two noncolinear members are zero force members (Zero force member example, left - look at pin C!)
+	<Item> Two noncolinear members share a pin with no support or external forces; the two noncolinear members are zero force members (Zero force member example, left - look at pin <InlineEquation equation = "C!)"/>
     </Item>
-	<Item> Two colinear forces with a third noncolinear force on a pin; the third noncolinear member is a zero force member (zero force member example, right - look at pins B and D!)
+	<Item> Two colinear members with a third noncolinear member on a pin with no support or external forces; the third noncolinear member is a zero force member (zero force member example, right - look at pins <InlineEquation equation = "B"/> and <InlineEquation equation = "D!)"/>
 </Item>
 </Enumerate>
 
 <Image src='/sta/trusses/0ForceMembers.jpg' width='5'> Examples of different zero force members, highlighted in red. Note that when you remove those members there are more zero force members in each system that can also be eliminated! </Image>
-
+<Example title = "Zero force members" id = "zero_force_members" solution = "True">
+  Identify and remove the zero force members in the above trusses.
+  <div slot = "solution">
+    <p>
+      In the left truss, member <InlineEquation equation = "BC"/> and member <InlineEquation equation = "CD"/> are two noncolinear members that share a pin with no support or external forces, so <InlineEquation equation = "BC"/> and <InlineEquation equation = "CD"/> are zero force members and are removed.
+      In the right truss, member <InlineEquation equation = "AB"/> and member <InlineEquation equation = "BC"/> are two colinear members and member <InlineEquation equation = "BF"/> is a third noncolinear member on a pin with no support or external forces, so member <InlineEquation equation = "BF"/> is a zero force member and is removed.
+      In the right truss, member <InlineEquation equation = "CD"/> and member <InlineEquation equation = "DE"/> are two colinear members and member <InlineEquation equation = "DF"/> is a third noncolinear member on a pin with no support or external forces, so member <InlineEquation equation = "DF"/> is a zero force member and is removed.
+    </p>
+    <Image src = "/sta/trusses/0ForceMembers_solution_1.png" width = "5"/>
+    <p>
+      In the left truss, member <InlineEquation equation = "AB"/> and member <InlineEquation equation = "BD"/> are two noncolinear members that share a pin with no support or external forces, so <InlineEquation equation = "AB"/> and <InlineEquation equation = "BD"/> are zero force members and are removed.
+      In the right truss, member <InlineEquation equation = "AF"/> and member <InlineEquation equation = "EF"/> are two colinear members and member <InlineEquation equation = "CF"/> is a third noncolinear member on a pin with no support or external forces, so member <InlineEquation equation = "CF"/> is a zero force member and is removed.
+    </p>
+    <Image src = "/sta/trusses/0ForceMembers_solution_2.png" width = "5">
+  </div>
+</Example>
 <p>
    These rules will help us simplify trusses and solve for the internal forces in the desired members.
 	</p>
