@@ -132,7 +132,8 @@ import Row from "../../components/Row.astro"
                 <p>
                     The following forces are on the free body diagram.
                     <DisplayEquation equation = `\\begin{align} \\vec{F}_O &= F_{Or} \\hat{e}_r + F_{O\\theta} \\hat{e}_{\\theta} \\\\
-                    \\vec{F}_g &= F_g \\cos \\theta \\hat{e}_r - F_g \\sin \\theta \\hat{e}_{\\theta} \\\\ 
+                    \\vec{F}_g &= F_r \\hat{e}_r - F_{\\theta} \\hat{e}_{\\theta} \\\\ 
+                    &= F_g \\cos \\theta \\hat{e}_r - F_g \\sin \\theta \\hat{e}_{\\theta} \\\\
                     &= m g \\cos \\theta \\hat{e}_r - m g \\sin \\theta \\hat{e}_{\\theta} \\end{align}`/>
                 </p>
                 <p>
@@ -148,9 +149,14 @@ import Row from "../../components/Row.astro"
                 </p>
                 <p>
                     Using <InlineEquation equation = "\\sum M_{Oz} = I_{Oz} \\alpha_z"/> makes it so that the force equation is not needed, since point <InlineEquation equation = "O"/> is fixed and therefore has no acceleration, which vastly simplifies the problem.
-                    Taking the moment about point <InlineEquation equation = "O"/> gives the following equation.
-                     <DisplayEquation equation = "I_{Oz} \\alpha_z = -m g \\frac{l}{2} \\sin \\theta"/>
-                    The mass moment of inertia at point <InlineEquation equation = "O"/> is defined using the mass moment of inertia of the end of a rod.
+                    The following steps can be used to take the moment about point <InlineEquation equation = "O."/>
+                    From the FBD, <InlineEquation equation = "r"/> and <InlineEquation equation = "F_{\\theta}"/> are perpendicular, so the following equation is true.
+                    <DisplayEquation equation = "I_{Oz} \\alpha_z = -F_{\\theta} r"/>
+                    Substituting <InlineEquation equation = "F_{\\theta} = m g \\sin \\theta"/> (defined in the FBD step) gives the following equation.
+                    <DisplayEquation equation = "I_{Oz} \\alpha_z = -m g r \\sin \\theta"/>
+                    Substituting <InlineEquation equation = "r = \\frac{l}{2}"/> (from the FBD) gives the following equation.
+                    <DisplayEquation equation = "I_{Oz} \\alpha_z = -m g \\frac{l}{2} \\sin \\theta"/>
+                    Additionally, the mass moment of inertia at point <InlineEquation equation = "O"/> is defined using the mass moment of inertia of the end of a rod.
                     <DisplayEquation equation = "I_{Oz} = \\frac{1}{3} m l ^ 2"/>
                 </p>
                 <p>
