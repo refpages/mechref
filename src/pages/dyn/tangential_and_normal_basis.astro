@@ -243,7 +243,7 @@ import InlineCanvas from "../../components/InlineCanvas.astro"
     each tangential/normal basis vector, as follows:
   </p>
 
-  <DisplayEquation title="Tangential/normal basis vector derivatives." id="rkt-ed" background="True" derivation="True" equation="\\begin{aligned}\\dot{\\hat{e}}_t &amp;= \\phantom{-v\\kappa\\,\\hat{e}_t - } v\\kappa\\,\\hat{e}_n \\\\\\dot{\\hat{e}}_n &amp;= -v\\kappa\\,\\hat{e}_t \\phantom{ - v\\kappa\\,\\hat{e}_n + } + v\\tau\\,\\hat{e}_b \\\\\\dot{\\hat{e}}_b &amp;=\\phantom{-v\\kappa\\,\\hat{e}_t } - v\\tau\\,\\hat{e}_n\\end{aligned}">
+  <DisplayEquation title="Tangential/normal basis vector derivatives." id="rkt-ed" background="True" derivation="True" equation="\\begin{aligned}\\dot{\\hat{e}}_t &amp;= \\phantom{-v}0\\phantom{\\,\\hat{e}_t} + v\\kappa\\,\\hat{e}_n\\phantom{ + } + \\phantom{v}0\\phantom{\\,\\hat{e}_b} \\\\\\dot{\\hat{e}}_n &amp;= -v\\kappa\\,\\hat{e}_t + \\phantom{v}0\\phantom{\\,\\hat{e}_n + } + v\\tau\\,\\hat{e}_b \\\\\\dot{\\hat{e}}_b &amp;=\\phantom{-v}0\\phantom{\\,\\hat{e}_t } - v\\tau\\,\\hat{e}_n\\phantom{ + } + \\phantom{v}0\\phantom{\\,\\hat{e}_b} \\end{aligned}">
     <p>
       We can use the expression <a href="#rkt-ew">#rkt-ew</a>
       for <InlineEquation equation="\\vec{\\omega}" /> together with <a
@@ -269,7 +269,7 @@ import InlineCanvas from "../../components/InlineCanvas.astro"
         formulas</a>, typically written in terms of \(s\) derivatives:
       </p>
 
-      <DisplayEquation equation="\\begin{aligned}\\frac{d\\hat{e}_t}{ds} &amp;= \\phantom{-\\kappa\\,\\hat{e}_t - } \\kappa\\,\\hat{e}_n \\\\\\frac{d\\hat{e}_n}{ds} &amp;= -\\kappa\\,\\hat{e}_t \\phantom{ - \\kappa\\,\\hat{e}_n + } + \\tau\\,\\hat{e}_b \\\\\\frac{d\\hat{e}_b}{ds} &amp;=\\phantom{-\\kappa\\,\\hat{e}_t } - \\tau\\,\\hat{e}_n.\\end{aligned}" />
+      <DisplayEquation equation="\\begin{aligned}\\frac{d\\hat{e}_t}{ds} &amp;= \\phantom{-}0\\phantom{\\,\\hat{e}_t} + \\kappa\\,\\hat{e}_n\\phantom{ + } + 0\\phantom{\\,\\hat{e}_b} \\\\\\frac{d\\hat{e}_n}{ds} &amp;= -\\kappa\\,\\hat{e}_t + 0\\phantom{\\,\\hat{e}_n + } + \\tau\\,\\hat{e}_b \\\\\\frac{d\\hat{e}_b}{ds} &amp;=\\phantom{-}0\\phantom{\\,\\hat{e}_t } - \\tau\\,\\hat{e}_n\\phantom{ + } + 0\\phantom{\\,\\hat{e}_b} \\end{aligned}" />
 
       <p class="mb-0">
         If we divide the angular velocity vector <a href="#rkt-ew">#rkt-ew</a> by \(v\) then we obtain the vector
