@@ -558,7 +558,9 @@ import InlineCanvas from "../../components/InlineCanvas.astro"
       evaluated with:
     </p>
 
-    <DisplayEquation title=" \Curvature of parametric curve \\(\\vec{r}(u)\\) in 3D." id="rkt-ec" background="True" derivation="True" equation="\\kappa = \\frac{\\|\\vec{r}' \\times \\vec{r}''\\|}{\\|\\vec{r}'\\|^3}">
+    <DisplayEquation title=" \Curvature of parametric curve \\(\\vec{r}(u)\\) in 3D." id="rkt-ec" background="True" derivation="True" equation=`\\begin{align} r' &= \\frac{dr}{du} \\\\
+      r'' &= \\frac{d ^ 2r}{du ^ 2} \\\\
+      \\kappa &= \\frac{\\|\\vec{r}' \\times \\vec{r}''\\|}{\\|\\vec{r}'\\|^3} \\end{align}`>
       <p>
         Because the tangential/normal basis vectors <a
         href="#rkt-eb">#rkt-eb</a> are all normalized, it does
@@ -584,7 +586,11 @@ import InlineCanvas from "../../components/InlineCanvas.astro"
       explicitly 2D form:
     </p>
 
-    <DisplayEquation title="Curvature of parametric curve \\(x = x(u)\\), \\(y = y(u)\\) in 2D." id="rkt-e2" background="True" derivation="True" equation="\\kappa = \\frac{|x''y' - y''x'|}{(x'^2 + y'^2)^{3/2}}">
+    <DisplayEquation title="Curvature of parametric curve \\(x = x(u)\\), \\(y = y(u)\\) in 2D." id="rkt-e2" background="True" derivation="True" equation=`\\begin{align} x' &= \\frac{dx}{du} \\\\
+      x'' &= \\frac{d ^ 2x}{du ^ 2} \\\\
+      y' &= \\frac{dy}{du} \\\\
+      y'' &= \\frac{d ^ 2y}{du ^ 2} \\\\
+      \\kappa &= \\frac{|x''y' - y''x'|}{(x'^2 + y'^2)^{3/2}} \\end{align}`>
       <p>
         This equation is just <a href="#rkt-ec">#rkt-ec</a>
         written in explicit 2D coordinates. To see this, we
@@ -605,7 +611,9 @@ import InlineCanvas from "../../components/InlineCanvas.astro"
       We can take this a step further, and obtain an expression for an explicitly defined function.
     </p>
 
-    <DisplayEquation title="Curvature of an explicitly defined function \\(y = f(x).\\)" id="rkt-e3" background="True" derivation="True" equation="\\kappa = \\frac{|y''(x)|}{(1 + y'(x)^2)^{3/2}}">
+    <DisplayEquation title="Curvature of an explicitly defined function \\(y = f(x).\\)" id="rkt-e3" background="True" derivation="True" equation=`\\begin{align} y'(x) &= \\frac{dy}{dx} \\\\
+      y''(x) &= \\frac{d ^ 2y}{dx ^ 2} \\\\
+      \\kappa &= \\frac{|y''(x)|}{(1 + y'(x)^2)^{3/2}} \\end{align}`>
       <p>
         Use equation <a
         href="#rkt-e2">#rkt‑e2</a> and parametrize the curve using \(x\) as the parametrization variable. Namely:
