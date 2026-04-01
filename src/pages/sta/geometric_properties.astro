@@ -37,7 +37,7 @@ import Col from "../../components/Col.astro"
           <li class = 'list-group-item py-0'><a class = 'text-decoration-none subsection' href = '#second_moment'>Moment of inertia (second moment of area)</a></li> 
           <li class = 'list-group-item py-0'><a class = 'text-decoration-none subsection' href = '#parallel_axis_theorem'>Parallel axis theorem</a></li>
           <li class = 'list-group-item py-0'><a class = 'text-decoration-none subsection' href = '#combining_moments'>Combining moments of inertia</a></li>
-          <li class = 'list-group-item py-0'><a class = 'text-decoration-none subsection' href = '#typical_shapes'>Moment of inertia for typical shapes</a></li>
+          <li class = 'list-group-item py-0'><a class = 'text-decoration-none subsection' href = '#simple_shapes_moi'>Moment of inertia of simple shapes</a></li>
       </ul>
       </div>
 
@@ -488,7 +488,7 @@ The dimension of the area moment of inertia is <InlineEquation equation='\\mathr
 
 <DisplayEquation equation='I_y = \\int_{A}^{} x^2 \\,dA \\' title="Moment of inertia about the y-axis" background="True" />
 
-<DisplayEquation equation='J_O = \\int_{A}^{} r^2 \\,dA = \\int_{A}^{} (x^2+y^2) \\,dA\\' title="Polar moment of inertia." background="True" />
+<DisplayEquation equation='J_O = \\int_{A}^{} r^2 \\,dA = \\int_{A}^{} (x^2+y^2) \\,dA\\ = I_x + I_y' title="Polar moment of inertia." background="True" />
 
 <em>Note:</em> the polar moment of inertia depicts the measure of the distribution of area about a point (usually the origin), rather than about an axis.
     <CalloutContainer slot = "cards">
@@ -554,10 +554,10 @@ Moments of inertia of simple shapes can be combined to calculate the moments of 
 
 </SubSection>
 
-<SubSection title="Moment of inertia for typical shapes" id="typical_shapes">
+<SubSection title="Moment of inertia of simple shapes" id="simple_shapes_moi">
 
+    <center><em>Common shapes about the centroid: <InlineEquation equation="I_{x'}, I_{y'}"/> and <InlineEquation equation='J_c'/></em></center>
     <center><em>Common shapes about the origin: <InlineEquation equation='I'/> and <InlineEquation equation='J_O'/></em></center>
-    <center><em>Common shapes about the centroid: <InlineEquation equation='\\bar{I}'/> and <InlineEquation equation='J_c'/></em></center>
     <DisplayTable class_="text-center" id="shapes_table">
         <thead>
             <tr>
@@ -581,13 +581,13 @@ Moments of inertia of simple shapes can be combined to calculate the moments of 
                     Rectangle
                 </td>
                 <td>
-                    <Image src='/sta/geometric_properties/CommonShapes_Rect.png' width='5'> </Image>
+                    <Image src='/sta/geometric_properties/CommonShapes_Rect.png' width='6'> </Image>
                 </td>
             <td style="vertical-align: middle">
-                <InlineEquation equation="\\bar{I}_{x'} = \\frac{1}{12}b h^3" />    
+                <InlineEquation equation="I_{x'} = \\frac{1}{12}b h^3" />    
                 <br>
                 <br>
-                <InlineEquation equation="\\bar{I}_{y'} = \\frac{1}{12}b^3 h" />
+                <InlineEquation equation="I_{y'} = \\frac{1}{12}b^3 h" />
                 <br>
                 <br>
                 <InlineEquation equation="J_c = \\frac{1}{12}bh(b^2+h^2)"/>
@@ -607,10 +607,10 @@ Moments of inertia of simple shapes can be combined to calculate the moments of 
                     Triangle
                 </td>
                 <td>
-                    <Image src='/sta/geometric_properties/CommonShapes_Tri.png' width='5'> </Image>
+                    <Image src='/sta/geometric_properties/CommonShapes_Tri.png' width='6'> </Image>
                 </td>
             <td style="vertical-align: middle">
-                <InlineEquation equation="\\bar{I}_{x'} = \\frac{1}{36}bh^3" />
+                <InlineEquation equation="I_{x'} = \\frac{1}{36}bh^3" />
                 <br>
                 <br>
             </td>
@@ -623,10 +623,10 @@ Moments of inertia of simple shapes can be combined to calculate the moments of 
                     Circle
                 </td>
                 <td>
-                    <Image src='/sta/geometric_properties/CommonShapes_Circle.png' width='5'> </Image>
+                    <Image src='/sta/geometric_properties/CommonShapes_Circle.png' width='6'> </Image>
                 </td>
             <td style="vertical-align: middle">
-                <InlineEquation equation="\\bar{I}_{x'} = \\bar{I}_{y'}  = \\frac{1}{4} \\pi r^4" />
+                <InlineEquation equation="I_{x'} = I_{y'}  = \\frac{1}{4} \\pi r^4" />
             </td>
             <td style="vertical-align: middle">
                 <br>
@@ -639,13 +639,13 @@ Moments of inertia of simple shapes can be combined to calculate the moments of 
                     Semicircle
                 </td>
                 <td>
-                    <Image src='/sta/geometric_properties/CommonShapes_Semi.png' width='5'> </Image>
+                    <Image src='/sta/geometric_properties/CommonShapes_Semi.png' width='6'> </Image>
                 </td>
             <td style="vertical-align: middle">
-                <InlineEquation equation="\\bar{I}_{x'} = (\\frac{\\pi}{8} - \\frac{8}{9\\pi}) r^4" />
+                <InlineEquation equation="I_{x'} = (\\frac{\\pi}{8} - \\frac{8}{9\\pi}) r^4" />
                 <br>
                 <br>
-                <InlineEquation equation="\\bar{I}_{y'} = \\frac{\\pi}{8}r^4" />
+                <InlineEquation equation="I_{y'} = \\frac{\\pi}{8}r^4" />
             </td>
             <td style="vertical-align: middle">
                 <InlineEquation equation="I_x = I_y = \\frac{1}{8} \\pi r^4" />
@@ -659,10 +659,10 @@ Moments of inertia of simple shapes can be combined to calculate the moments of 
                     Quarter circle
                 </td>
                 <td>
-                    <Image src='/sta/geometric_properties/CommonShapes_Quart.png' width='5'> </Image>
+                    <Image src='/sta/geometric_properties/CommonShapes_Quart.png' width='6'> </Image>
                 </td>
             <td style="vertical-align: middle">
-            <InlineEquation equation="\\bar{I}_{x'} = \\bar{I}_{y'} = \\frac{1}{2}(\\frac{\\pi}{8} - \\frac{8}{9\\pi}) r^4" />
+            <InlineEquation equation="I_{x'} = I_{y'} = \\frac{1}{2}(\\frac{\\pi}{8} - \\frac{8}{9\\pi}) r^4" />
 
             </td>
             <td style="vertical-align: middle">
@@ -677,13 +677,13 @@ Moments of inertia of simple shapes can be combined to calculate the moments of 
                     Ellipse
                 </td>
                 <td>
-                    <Image src='/sta/geometric_properties/CommonShapes_Elipse.png' width='5'> </Image>
+                    <Image src='/sta/geometric_properties/CommonShapes_Elipse.png' width='6'> </Image>
                 </td>
             <td style="vertical-align: middle">
-                <InlineEquation equation="\\bar{I}_{x'} = \\frac{1}{4} \\pi a b^3" />
+                <InlineEquation equation="I_{x'} = \\frac{1}{4} \\pi a b^3" />
                 <br>
                 <br>
-                <InlineEquation equation="\\bar{I}_{y'} = \\frac{1}{4} \\pi a^3 b"/>
+                <InlineEquation equation="I_{y'} = \\frac{1}{4} \\pi a^3 b"/>
                 <br>
                 <br>
             </td>
