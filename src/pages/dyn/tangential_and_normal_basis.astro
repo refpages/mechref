@@ -28,11 +28,11 @@ import InlineCanvas from "../../components/InlineCanvas.astro"
 <div slot="navtree">
   <ul class='list-group list-group-flush py-0'> 
     <li class = 'list-group-item py-0'><a class = 'text-decoration-none subsection' href = '#normal_basis'>Normal basis</a></li>
-    <li class = 'list-group-item py-0'><a class = 'text-decoration-none subsection' href = '#curvature'>Curvature and torsion</a></li>  
+    <li class = 'list-group-item py-0'><a class = 'text-decoration-none subsection' href = '#curvature_and_torsion'>Curvature and torsion</a></li>  
 		<li class = 'list-group-item py-0'><a class = 'text-decoration-none subsection' href = '#derivatives_angular_velocity'>Basis derivatives and angular velocity</a></li> 
 		<li class = 'list-group-item py-0'><a class = 'text-decoration-none subsection' href = '#normal_tangential_acceleration'>Normal and tangential kinematics</a></li>
 		<li class = 'list-group-item py-0'><a class = 'text-decoration-none subsection' href = '#tangent_lines_osc_circle'>Tangent lines and osculating circles</a></li>
-    <li class = 'list-group-item py-0'><a class = 'text-decoration-none subsection' href = '#curvature_on_curves'>Curvature on curves</a></li>
+    <li class = 'list-group-item py-0'><a class = 'text-decoration-none subsection' href = '#curvature'>Curvature</a></li>
   </ul>
 </div>
 
@@ -167,7 +167,7 @@ import InlineCanvas from "../../components/InlineCanvas.astro"
         </DisplayEquation>
 </SubSection>
 
-<SubSection title="Curvature and torsion" id="curvature">
+<SubSection title="Curvature and torsion" id="curvature_and_torsion">
     
   <DisplayEquationCustom title="Curvature and torsion." id="rkt-ek" background="True" derivation="True">
     <p>
@@ -243,7 +243,7 @@ import InlineCanvas from "../../components/InlineCanvas.astro"
     each tangential/normal basis vector, as follows:
   </p>
 
-  <DisplayEquation title="Tangential/normal basis vector derivatives." id="rkt-ed" background="True" derivation="True" equation="\\begin{aligned}\\dot{\\hat{e}}_t &amp;= \\phantom{-v\\kappa\\,\\hat{e}_t - } v\\kappa\\,\\hat{e}_n \\\\\\dot{\\hat{e}}_n &amp;= -v\\kappa\\,\\hat{e}_t \\phantom{ - v\\kappa\\,\\hat{e}_n + } + v\\tau\\,\\hat{e}_b \\\\\\dot{\\hat{e}}_b &amp;=\\phantom{-v\\kappa\\,\\hat{e}_t } - v\\tau\\,\\hat{e}_n\\end{aligned}">
+  <DisplayEquation title="Tangential/normal basis vector derivatives." id="rkt-ed" background="True" derivation="True" equation="\\begin{aligned}\\dot{\\hat{e}}_t &amp;= \\phantom{-v}0\\phantom{\\,\\hat{e}_t} + v\\kappa\\,\\hat{e}_n\\phantom{ + } + \\phantom{v}0\\phantom{\\,\\hat{e}_b} \\\\\\dot{\\hat{e}}_n &amp;= -v\\kappa\\,\\hat{e}_t + \\phantom{v}0\\phantom{\\,\\hat{e}_n + } + v\\tau\\,\\hat{e}_b \\\\\\dot{\\hat{e}}_b &amp;=\\phantom{-v}0\\phantom{\\,\\hat{e}_t } - v\\tau\\,\\hat{e}_n\\phantom{ + } + \\phantom{v}0\\phantom{\\,\\hat{e}_b} \\end{aligned}">
     <p>
       We can use the expression <a href="#rkt-ew">#rkt-ew</a>
       for <InlineEquation equation="\\vec{\\omega}" /> together with <a
@@ -269,7 +269,7 @@ import InlineCanvas from "../../components/InlineCanvas.astro"
         formulas</a>, typically written in terms of \(s\) derivatives:
       </p>
 
-      <DisplayEquation equation="\\begin{aligned}\\frac{d\\hat{e}_t}{ds} &amp;= \\phantom{-\\kappa\\,\\hat{e}_t - } \\kappa\\,\\hat{e}_n \\\\\\frac{d\\hat{e}_n}{ds} &amp;= -\\kappa\\,\\hat{e}_t \\phantom{ - \\kappa\\,\\hat{e}_n + } + \\tau\\,\\hat{e}_b \\\\\\frac{d\\hat{e}_b}{ds} &amp;=\\phantom{-\\kappa\\,\\hat{e}_t } - \\tau\\,\\hat{e}_n.\\end{aligned}" />
+      <DisplayEquation equation="\\begin{aligned}\\frac{d\\hat{e}_t}{ds} &amp;= \\phantom{-}0\\phantom{\\,\\hat{e}_t} + \\kappa\\,\\hat{e}_n\\phantom{ + } + 0\\phantom{\\,\\hat{e}_b} \\\\\\frac{d\\hat{e}_n}{ds} &amp;= -\\kappa\\,\\hat{e}_t + 0\\phantom{\\,\\hat{e}_n + } + \\tau\\,\\hat{e}_b \\\\\\frac{d\\hat{e}_b}{ds} &amp;=\\phantom{-}0\\phantom{\\,\\hat{e}_t } - \\tau\\,\\hat{e}_n\\phantom{ + } + 0\\phantom{\\,\\hat{e}_b} \\end{aligned}" />
 
       <p class="mb-0">
         If we divide the angular velocity vector <a href="#rkt-ew">#rkt-ew</a> by \(v\) then we obtain the vector
@@ -552,13 +552,15 @@ import InlineCanvas from "../../components/InlineCanvas.astro"
 </SubSection>
 
 
-<SubSection title="Curvature on curves " id="curvature_on_curves">
+<SubSection title="Curvature" id="curvature">
     <p>
       Given a parametric curve, its curvature can be directly
       evaluated with:
     </p>
 
-    <DisplayEquation title=" \Curvature of parametric curve \\(\\vec{r}(u)\\) in 3D." id="rkt-ec" background="True" derivation="True" equation="\\kappa = \\frac{\\|\\vec{r}' \\times \\vec{r}''\\|}{\\|\\vec{r}'\\|^3}">
+    <DisplayEquation title=" \Curvature of parametric curve \\(\\vec{r}(u)\\) in 3D." id="rkt-ec" background="True" derivation="True" equation=`\\begin{align} r' &= \\frac{dr}{du} \\\\
+      r'' &= \\frac{d ^ 2r}{du ^ 2} \\\\
+      \\kappa &= \\frac{\\|\\vec{r}' \\times \\vec{r}''\\|}{\\|\\vec{r}'\\|^3} \\end{align}`>
       <p>
         Because the tangential/normal basis vectors <a
         href="#rkt-eb">#rkt-eb</a> are all normalized, it does
@@ -584,7 +586,11 @@ import InlineCanvas from "../../components/InlineCanvas.astro"
       explicitly 2D form:
     </p>
 
-    <DisplayEquation title="Curvature of parametric curve \\(x = x(u)\\), \\(y = y(u)\\) in 2D." id="rkt-e2" background="True" derivation="True" equation="\\kappa = \\frac{|x''y' - y''x'|}{(x'^2 + y'^2)^{3/2}}">
+    <DisplayEquation title="Curvature of parametric curve \\(x = x(u)\\), \\(y = y(u)\\) in 2D." id="rkt-e2" background="True" derivation="True" equation=`\\begin{align} x' &= \\frac{dx}{du} \\\\
+      x'' &= \\frac{d ^ 2x}{du ^ 2} \\\\
+      y' &= \\frac{dy}{du} \\\\
+      y'' &= \\frac{d ^ 2y}{du ^ 2} \\\\
+      \\kappa &= \\frac{|x''y' - y''x'|}{(x'^2 + y'^2)^{3/2}} \\end{align}`>
       <p>
         This equation is just <a href="#rkt-ec">#rkt-ec</a>
         written in explicit 2D coordinates. To see this, we
@@ -605,7 +611,9 @@ import InlineCanvas from "../../components/InlineCanvas.astro"
       We can take this a step further, and obtain an expression for an explicitly defined function.
     </p>
 
-    <DisplayEquation title="Curvature of an explicitly defined function \\(y = f(x).\\)" id="rkt-e3" background="True" derivation="True" equation="\\kappa = \\frac{|y''(x)|}{(1 + y'(x)^2)^{3/2}}">
+    <DisplayEquation title="Curvature of an explicitly defined function \\(y = f(x).\\)" id="rkt-e3" background="True" derivation="True" equation=`\\begin{align} y'(x) &= \\frac{dy}{dx} \\\\
+      y''(x) &= \\frac{d ^ 2y}{dx ^ 2} \\\\
+      \\kappa &= \\frac{|y''(x)|}{(1 + y'(x)^2)^{3/2}} \\end{align}`>
       <p>
         Use equation <a
         href="#rkt-e2">#rkt‑e2</a> and parametrize the curve using \(x\) as the parametrization variable. Namely:
