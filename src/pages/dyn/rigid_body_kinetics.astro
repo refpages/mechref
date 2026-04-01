@@ -107,13 +107,13 @@ import Row from "../../components/Row.astro"
         <DisplayEquation equation = `\\begin{align} &1. \\ \\text{System diagram: coordinate system + label variables} \\\\
             &2. \\ \\text{FBD: one per rigid body} \\\\
             &3. \\ \\text{Kinematics: determine } \\vec{a}_c \\ \\text{and } \\alpha_z \\\\
-            &4. \\ \\text{Kinetics:} \\sum \\vec{F} = m \\vec{a}_c \\ \\text{and} \\sum M_{CZ} = I_{CZ} \\alpha_Z. \\\\
+            &4. \\ \\text{Kinetics:} \\sum \\vec{F} = m \\vec{a}_c \\ \\text{and} \\sum M_{Cz} = I_{Cz} \\alpha_z. \\\\
             &5. \\ \\text{Algebra: solve} \\end{align}` background = "True"/>
-        <!--<Example title = "Pendulum" id = "pendulum">
+        <Example title = "Pendulum" id = "pendulum">
             <div class = "d-flex flex-row">
                 <div class = "w-50">
                     Consider the 2D pendulum with a rigid rod of length <InlineEquation equation = "l" /> and mass <InlineEquation equation = "m."/>
-                    What is the equation of angular acceleration <InlineEquation equation = "\\alpha" /> as a fuction of <InlineEquation equation = "\\theta, \\dot{\\theta}?"/>
+                    What is the equation of angular acceleration <InlineEquation equation = "\\alpha_z" /> as a fuction of <InlineEquation equation = "\\theta, \\dot{\\theta}?"/>
                 </div>
                 <div class = "w-50">
                     <Image src = "/dyn/rigid_body_kinetics/pendulum.png" width = "5"/>
@@ -132,7 +132,9 @@ import Row from "../../components/Row.astro"
                 <p>
                     The following forces are on the free body diagram.
                     <DisplayEquation equation = `\\begin{align} \\vec{F}_O &= F_{Or} \\hat{e}_r + F_{O\\theta} \\hat{e}_{\\theta} \\\\
-                    \\vec{F}_g &= F_g \\cos \\theta \\hat{e}_r - F_g \\sin \\theta \\hat{e}_{\\theta} \\\\ 
+                    &= F_O \\cos \\theta \\hat{e}_r + F_O \\sin \\theta \\hat{e}_{\\theta} \\\\
+                    \\vec{F}_g &= F_r \\hat{e}_r - F_{\\theta} \\hat{e}_{\\theta} \\\\ 
+                    &= F_g \\cos \\theta \\hat{e}_r - F_g \\sin \\theta \\hat{e}_{\\theta} \\\\
                     &= m g \\cos \\theta \\hat{e}_r - m g \\sin \\theta \\hat{e}_{\\theta} \\end{align}`/>
                 </p>
                 <p>
@@ -144,25 +146,32 @@ import Row from "../../components/Row.astro"
                     <DisplayEquation equation = "\\alpha_z = \\ddot{\\theta}"/>
                 </p>
                 <p>
-                    <strong>4. Kinetics:</strong> <InlineEquation equation = "\\sum \\vec{F} = m \\vec{a}_c, \\sum M_{CZ} = I_{CZ} \\alpha_Z"/> where <InlineEquation equation = "c"/> is the center of mass or <InlineEquation equation = "\\sum M_{OZ} = I_{OZ} \\alpha_Z"/> where <InlineEquation equation = "O"/> is a fixed point.
+                    <strong>4. Kinetics:</strong> <InlineEquation equation = "\\sum \\vec{F} = m \\vec{a}_c, \\sum M_{Cz} = I_{Cz} \\alpha_z"/> where <InlineEquation equation = "c"/> is the center of mass or <InlineEquation equation = "\\sum M_{Oz} = I_{Oz} \\alpha_z"/> where <InlineEquation equation = "O"/> is a fixed point.
                 </p>
                 <p>
-                    Using <InlineEquation equation = "\\sum M_{OZ} = I_{OZ} \\alpha_Z"/> eliminates the reaction forces at point <InlineEquation equation = "O."/>
-                    <DisplayEquation equation = `\\begin{align} \\sum M_{OZ} &= I_{OZ} \\alpha_{Z} \\\\
-                        &= -m g \\frac{l}{2} \\sin \\theta \\end{align}`/>
-                    Also, the following equation is true.
-                    <DisplayEquation equation = "I_{OZ} = \\frac{1}{3} m l ^ 2"/>
+                    Using <InlineEquation equation = "\\sum M_{Oz} = I_{Oz} \\alpha_z"/> makes it so that the force equation is not needed, since point <InlineEquation equation = "O"/> is fixed and therefore has no acceleration, which vastly simplifies the problem.
+                    The following steps can be used to take the moment about point <InlineEquation equation = "O."/>
+                    From the FBD, <InlineEquation equation = "r"/> and <InlineEquation equation = "F_{\\theta}"/> are perpendicular, so the following equation is true.
+                    <DisplayEquation equation = "I_{Oz} \\alpha_z = -F_{\\theta} r"/>
+                    Substituting <InlineEquation equation = "F_{\\theta} = m g \\sin \\theta"/> (defined in the FBD step) gives the following equation.
+                    <DisplayEquation equation = "I_{Oz} \\alpha_z = -m g r \\sin \\theta"/>
+                    Substituting <InlineEquation equation = "r = \\frac{l}{2}"/> (from the FBD) gives the following equation.
+                    <DisplayEquation equation = "I_{Oz} \\alpha_z = -m g \\frac{l}{2} \\sin \\theta"/>
+                    Additionally, the mass moment of inertia at point <InlineEquation equation = "O"/> is defined using the mass moment of inertia of the end of a rod.
+                    <DisplayEquation equation = "I_{Oz} = \\frac{1}{3} m l ^ 2"/>
                 </p>
                 <p>
                     <strong>5. Algebra:</strong>
-                    <DisplayEquation equation = `\\begin{align} I_{OZ} \\alpha_Z &= -m g \\frac{l}{2} \\sin \\theta \\\\
+                    <DisplayEquation equation = `\\begin{align} I_{Oz} \\alpha_z &= -m g \\frac{l}{2} \\sin \\theta \\\\
                         \\frac{1}{3} m l ^ 2 \\ddot{\\theta} &= -m g \\frac{l}{2} \\sin \\theta \\end{align}`/>
                     Solving for <InlineEquation equation = "\\ddot{\\theta}"/> gives the following expression.
                     <DisplayEquation equation = `\\begin{align} \\ddot{\\theta} &= -\\frac{3 g}{2 l} \\sin \\theta \\\\
-                        \\alpha(\\theta, \\dot{\\theta}) &= -\\frac{3 g}{2 l} \\sin \\theta \\end{align}`/>
+                        \\alpha_z(\\theta, \\dot{\\theta}) &= -\\frac{3 g}{2 l} \\sin \\theta \\end{align}`/>
+                    Here, <InlineEquation equation = "\\alpha_z"/> only depends on <InlineEquation equation = "\\theta."/>
+                    <InlineEquation equation = "\\dot{\\theta}"/> is a damping term that would have influence if the pendulum were to slow down.
                 </p>
             </div>
-        </Example>-->
+        </Example>
     </SubSection>
 
 </Layout>
