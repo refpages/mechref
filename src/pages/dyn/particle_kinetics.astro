@@ -279,7 +279,9 @@ import DisplayTable from "../../components/DisplayTable.astro"
 </SubSubSection>
 
 <SubSection title="Numerical integration"   id="numerical_integration">
-
+  <p>
+    The numerical integration rule shown here is Euler integration for time integration. 
+  </p>
 <ol>
 	<li> Independent variable (time). </li>
 	<li> State variables come in pairs (position, velocity)(<InlineEquation equation=" \\theta , \\omega" />).  </li>
@@ -293,7 +295,16 @@ import DisplayTable from "../../components/DisplayTable.astro"
 		</li>
 	<li> Need to compute second derivatives (<InlineEquation equation=" \\ddot{\\theta}=\\alpha" /> ) at each timestep. </li>
 </ol>
-
+    <CalloutContainer slot = "cards">
+      <CalloutCard title = "Extra!">
+        <p>
+          Euler integration uses straight line approximation, causing it to be first order <InlineEquation equation = "(O(\\Delta t))"/> accurate.
+          This is the least accurate classification of numerical integration rules.
+          Euler integration is a type of <a href = "https://en.wikipedia.org/wiki/Runge–Kutta_methods" target = "_blank" rel = "noopener noreferrer">Runge–Kutta method.</a>
+          Other Runge-Kutta methods cleverly use higher-order approximations.
+        </p>
+      </CalloutCard>
+    </CalloutContainer>
 </SubSection>
 
 <script src="/dyn/particle_kinetics/canvases.js" is:inline></script>
