@@ -54,6 +54,7 @@ import CalloutCard from "../../components/CalloutCard.astro"
         </ul>
     </li> 
     <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#solving_equations'>Solving equations</a></li>
+    <li class = 'list-group-item py-0'><a class = 'text-decoration-none subsection' href = '#vector_identities'>Vector identities</a></li>
 </ul>
 </div>
 
@@ -286,7 +287,7 @@ import CalloutCard from "../../components/CalloutCard.astro"
 
     <DisplayEquation id="rvv-el2" title="Cross product length." equation="\\| \\vec{a} \\times \\vec{b} \\| = a b \\sin\\theta" background="true" derivation="true">
       <p>
-        Using <a href="https://en.wikipedia.org/wiki/Lagrange%27s_identity"  target="_blank">Lagrange's identity</a> we can calculate:
+        Using <a href="#rvi-el">Lagrange's identity</a> we can calculate:
 
         <DisplayEquation equation="\\begin{aligned}        \\| \\vec{a} \\times \\vec{b} \\|^2        &amp;= \\|\\vec{a}\\|^2 \\|\\vec{b}\\|^2        - (\\vec{a} \\cdot \\vec{b})^2 \\\\        &amp;= a^2 b^2 - (a b \\cos\\theta)^2 \\\\        &amp;= a^2 b^2 (1 - \\cos^2\\theta) \\\\        &amp;= a^2 b^2 \\sin^2\\theta.        \\end{aligned}" />
 
@@ -1024,6 +1025,94 @@ import CalloutCard from "../../components/CalloutCard.astro"
       </Example>
 
 </SubSection>
+  <SubSection title = "Vector Identities" id = "vector_identities">
+    <p>
+      The scalar triple product is <InlineEquation equation = "\\vec{a} \\cdot (\\vec{b} \\times \\vec{c}),"/> which gives the volume of the parallelepiped defined by <InlineEquation equation = "\\vec{a}, \\vec{b}, \\vec{c}."/>
+      It satisfies the following.
+    </p>
+    <DisplayEquation equation = "\\vec{a} \\cdot (\\vec{b} \\times \\vec{c}) = \\vec{b} \\cdot (\\vec{c} \\times \\vec{a}) = \\vec{c} \\cdot (\\vec{a} \\times \\vec{b})" title = "Scalar triple product formula." background = "true" derivation = "true" id = "rvi-es">
+      <p>
+        Writing the first two expressions out in components, we can check that they give the same result.
+      </p>
+      <DisplayEquation equation = `\\begin{align} \\vec{a} \\cdot (\\vec{b} \\times \\vec{c}) &= (a_1 \\hat{\\imath} + a_2 \\hat{\\jmath} + a_3 \\hat{k}) \\\\
+        &\\qquad \\cdot \\big{(}(b_1 \\hat{\\imath} + b_2 \\hat{\\jmath} + b_3 \\hat{k}) \\times (c_1 \\hat{\\imath} + c_2 \\hat{\\jmath} + c_3 \\hat{k})\\big{)} \\\\
+        &= (a_1 \\hat{\\imath} + a_2 \\hat{\\jmath} + a_3 \\hat{k}) \\\\
+        &\\qquad \\cdot \\big{(}(b_2 c_3 - b_3 c_2) \\hat{\\imath} + (b_3 c_1 - b_1 c_3) \\hat{\\jmath} + (b_1 c_2 - b_2 c_1) \\hat{k}\\big{)} \\\\
+        &= a_1 b_2 c_3 - a_1 b_3 c_2 + a_2 b_3 c_1 - a_2 b_1 c_3 + a_3 b_1 c_2 - a_3 b_2 c_1 \\\\
+        \\vec{b} \\cdot (\\vec{c} \\times \\vec{a}) &= (b_1 \\hat{\\imath} + b_2 \\hat{\\jmath} + b_3 \\hat{k}) \\\\
+        &\\qquad \\cdot \\big{(}(c_1 \\hat{\\imath} + c_2 \\hat{\\jmath} + c_3 \\hat{k}) \\times (a_1 \\hat{\\imath} + a_2 \\hat{\\jmath} + a_3 \\hat{k})\\big{)} \\\\
+        &= (b_1 \\hat{\\imath} + b_2 \\hat{\\jmath} + b_3 \\hat{k}) \\\\
+        &\\qquad \\cdot \\big{(}(c_2 a_3 - c_3 a_2) \\hat{\\imath} + (c_3 a_1 - c_1 a_3) \\hat{\\jmath} + (c_1 a_2 - c_2 a_1) \\hat{k}\\big{)} \\\\
+        &= b_1 c_2 a_3 - b_1 c_3 a_2 + b_2 c_3 a_1 - b_2 c_1 a_3 + b_3 c_1 a_2 - b_3 c_2 a_1 \\end{align}`/>
+      <p>
+        The third expression is also the same.
+      </p>
+    </DisplayEquation>
+    <p>
+      The vector triple product is <InlineEquation equation = "\\vec{a} \\times (\\vec{b} \\times \\vec{c})."/>
+      It satisfies the following.
+    </p>
+    <DisplayEquation equation = "\\vec{a} \\times (\\vec{b} \\times \\vec{c}) = (\\vec{a} \\cdot \\vec{c}) \\vec{b} - (\\vec{a} \\cdot \\vec{b}) \\vec{c}" title = "Vector triple product expansion." background = "true" derivation = "true" id = "rvi-ev">
+      <p>
+        In components we have the following.
+      </p>
+      <DisplayEquation equation = `\\begin{align} \\vec{a} \\times (\\vec{b} \\times \\vec{c}) &= (a_1 \\hat{\\imath} + a_2 \\hat{\\jmath} + a_3 \\hat{k}) \\\\
+        &\\qquad \\times \\Big{(}(b_1 \\hat{\\imath} + b_2 \\hat{\\jmath} + b_3 \\hat{k}) \\times (c_1 \\hat{\\imath} + c_2 \\hat{\\jmath} + c_3 \\hat{k})\\Big{)} \\\\
+        &= (a_1 \\hat{\\imath} + a_2 \\hat{\\jmath} + a_3 \\hat{k}) \\\\
+        &\\qquad \\times \\Big{(}(b_2 c_3 - b_3 c_2) \\hat{\\imath} + (b_3 c_1 - b_1 c_3) \\hat{\\jmath} + (b_1 c_2 - b_2 c_1) \\hat{k}\\Big{)} \\\\
+        &= \\Big{(}a_2 (b_1 c_2 - b_2 c_1) - a_3 (b_3 c_1 - b_1 c_3)\\Big{)} \\hat{\\imath} \\\\
+        &\\quad + \\Big{(}a_3 (b_2 c_3 - b_3 c_2) - a_1 (b_1 c_2 - b_2 c_1)\\Big{)} \\hat{\\jmath} \\\\
+        &\\quad + \\Big{(}a_1 (b_3 c_1 - b_1 c_3) - a_2 (b_2 c_3 - b_3 c_2)\\Big{)} \\hat{k} \\\\
+        &= (a_2 b_1 c_2 - a_2 b_2 c_1 - a_3 b_3 c_1 + a_3 b_1 c_3) \\hat{\\imath} \\\\
+        &\\quad + (a_3 b_2 c_3 - a_3 b_3 c_2 - a_1 b_1 c_2 + a_1 b_2 c_1) \\hat{\\jmath} \\\\
+        &\\quad + (a_1 b_3 c_1 - a_1 b_1 c_3 - a_2 b_2 c_3 + a_2 b_3 c_2) \\hat{k} \\\\
+        &= (a_1 b_1 c_1 + a_2 b_1 c_2 + a_3 b_1 c_3 - a_1 b_1 c_1 - a_2 b_2 c_1 - a_3 b_3 c_1) \\hat{\\imath} \\\\
+        &\\quad + (a_1 b_2 c_1 + a_2 b_2 c_2 + a_3 b_2 c_3 - a_1 b_1 c_2 - a_2 b_2 c_2 - a_3 b_3 c_2) \\hat{\\jmath} \\\\
+        &\\quad + (a_1 b_3 c_1 + a_2 b_3 c_2 + a_3 b_3 c_3 - a_1 b_1 c_3 - a_2 b_2 c_3 - a_3 b_3 c_3) \\hat{k} \\\\
+        &= (a_1 b_1 + a_2 c_2 + a_3 c_3) b_1 \\hat{\\imath} + (a_1 c_1 + a_2 c_2 + a_3 c_3) b_2 \\hat{\\jmath} \\\\
+        &\\qquad + (a_1 c_1 + a_2 c_2 + a_3 c_3) b_3 \\hat{k} \\\\
+        &\\quad - (a_1 b_1 + a_2 b_2 + a_3 b_3) c_1 \\hat{\\imath} - (a_1 b_1 + a_2 b_2 + a_3 b_3) c_2 \\hat{\\jmath} \\\\
+        &\\qquad - (a_1 b_1 + a_2 b_2 + a_3 b_3) c_3 \\hat{k} \\\\
+        &= (\\vec{a} \\cdot \\vec{c}) \\vec{b} - (\\vec{a} \\cdot \\vec{b}) \\vec{c} \\end{align}`/>
+    </DisplayEquation>
+    <DisplayEquation equation = "(\\vec{a} \\times \\vec{b}) \\cdot (\\vec{c} \\times \\vec{d}) = (\\vec{a} \\cdot \\vec{c}) (\\vec{b} \\cdot \\vec{d}) - (\\vec{a} \\cdot \\vec{d}) (\\vec{b} \\cdot \\vec{c})" title = "Binet-Cauchy identity." background = "true" derivation = "true" id = "rv-eb">
+      <p>
+        The following comes from the scalar triple product formula <a href = "#rvi-es">#rvi-es</a> and the vector triple product expansion <a href = "#rvi-ev">#rvi-ev.</a>
+      </p>
+      <DisplayEquation equation = `\\begin{align} (\\vec{a} \\times \\vec{b}) \\cdot (\\vec{c} \\times \\vec{d}) &= \\vec{c} \\cdot \\big{(}\\vec{d} \\times (\\vec{a} \\times \\vec{b})\\big{)} \\\\
+        &= \\vec{c} \\cdot \\big{(}(\\vec{d} \\cdot \\vec{b}) \\vec{a} - (\\vec{d} \\cdot \\vec{a}) \\vec{b}\\big{)} \\\\
+        &= (\\vec{d} \\cdot \\vec{b}) (\\vec{c} \\cdot \\vec{a}) - (\\vec{d} \\cdot \\vec{a}) (\\vec{c} \\cdot \\vec{b}) \\end{align}`/>
+    </DisplayEquation>
+    <DisplayEquation equation = "\\|\\vec{a} \\times \\vec{b}\\| ^ 2 = \\|\\vec{a}\\| ^ 2 \\|\\vec{b}\\| ^ 2 - (\\vec{a} \\cdot \\vec{b}) ^ 2" title = "Lagrange's identity." background = "true" derivation = "true" id = "rvi-el">
+      <p>
+        This follows immediately from the Binet-Cauchy identity <a href = "#rvi-eb">#rvi-eb.</a>
+      </p>
+    </DisplayEquation>
+    <DisplayEquation equation = "\\vec{a} \\times (\\vec{b} \\times \\vec{c}) + \\vec{b} \\times (\\vec{c} \\times \\vec{a}) + \\vec{c} \\times (\\vec{a} \\times \\vec{b}) = 0" title = "Jacobi's identity." background = "true" derivation = "true" id = "rvi-ej">
+      <p>
+        Using the vector triple product expansion <a href = "#rvi-ev">#rvi-ev</a> gives the following.
+      </p>
+      <DisplayEquation equation = `\\begin{align} &\\vec{a} \\times (\\vec{b} \\times \\vec{c}) + \\vec{b} \\times (\\vec{c} \\times \\vec{a}) + \\vec{c} \\times (\\vec{a} \\times \\vec{b}) \\\\
+        &\\qquad = (\\vec{a} \\cdot \\vec{c}) \\vec{b} - (\\vec{a} \\cdot \\vec{b}) \\vec{c} + (\\vec{b} \\cdot \\vec{a}) \\vec{c} - (\\vec{b} \\cdot \\vec{c}) \\vec{a} + (\\vec{c} \\cdot \\vec{b}) \\vec{a} - (\\vec{c} \\cdot \\vec{a}) \\vec{b} \\\\
+        &\\qquad = 0 \\end{align}`/>
+    </DisplayEquation>
+    <DisplayEquation equation = "(\\vec{a} \\times \\vec{b}) \\times (\\vec{a} \\times \\vec{c}) = (\\vec{a} \\cdot (\\vec{b} \\times \\vec{c})) \\vec{a}" title = "Vector quadruple product expansion." background = "true" derivation = "true" id = "rvi-eq">
+      <p>
+        Take <InlineEquation equation = "\\vec{d} = (\\vec{a} \\times \\vec{b}) \\times (\\vec{a} \\times \\vec{c})."/>
+        Then <InlineEquation equation = "\\vec{d}"/> is in the <InlineEquation equation = "\\vec{a}, \\vec{b}"/> plane and in the <InlineEquation equation = "\\vec{a}, \\vec{c}"/> plane, so it is a scalar multiple of <InlineEquation equation = "\\vec{a}."/>
+        We use the scalar triple product formula <a href = "#rvi-es">#rvi-es</a> and the vector triple product expansion <a href = "#rvi-ev">#rvi-ev</a> to compute the following.
+      </p>
+      <DisplayEquation equation = `\\begin{align} \\vec{d} \\cdot \\vec{a} &= \\vec{a} \\cdot \\big{(}(\\vec{a} \\times \\vec{b}) \\times (\\vec{a} \\times \\vec{c})\\big{)} \\\\
+        &= (\\vec{a} \\times \\vec{c}) \\cdot \\big{(}\\vec{a} \\times (\\vec{a} \\times \\vec{b})\\big{)} \\\\
+        &= (\\vec{a} \\times \\vec{c}) \\cdot \\big{(}(\\vec{a} \\cdot \\vec{b}) \\vec{a} - (\\vec{a} \\cdot \\vec{a}) \\vec{b}\\big{)} \\\\
+        &= -(\\vec{a} \\cdot \\vec{a}) \\vec{b} \\cdot (\\vec{a} \\times \\vec{c}) \\\\
+        &= (\\vec{a} \\cdot \\vec{a}) \\big{(}\\vec{a} \\cdot (\\vec{b} \\times \\vec{c})\\big{)} \\end{align}`/>
+      <p>
+        Then the following is true.
+      </p>
+      <DisplayEquation equation = "\\vec{d} = \\operatorname{Proj}(\\vec{d}, \\vec{a}) = \\left(\\frac{\\vec{d} \\cdot \\vec{a}}{\\vec{a} \\cdot \\vec{a}}\\right) \\vec{a} = \\big{(}\\vec{a} \\cdot (\\vec{b} \\times \\vec{c})\\big{)} \\vec{a}"/>
+    </DisplayEquation>
+  </SubSection>
 </Layout>
 
 <script src="/dyn/coordinate_systems/worldCoastlineCompressed.js" is:inline></script>
