@@ -90,40 +90,40 @@ The goal in combined loading is to determine the stresses at a point in a slende
     </Row>
     </div>
   <div slot="solution">
-      <Image src='/sol/superposition/Combined_Loading_Example_FBD_FINAL.jpg' width='6'>Positive Sign Convention FBD at Cross Section</Image>
+      <Image src='/sol/superposition/Combined_Loading_Example_FBD_Final.jpg' width='4'>Positive Sign Convention FBD at Cross Section</Image>
 
       <p>
         First, write all of the six force and moment balance equations.
         </p>
 
         <p>
-        <DisplayEquation equation="\\sum{F_x} = V_{x} = 0"/>
+        <DisplayEquation equation="\\sum{F_x} = F_1 + P_{x} = 0"/>
         <DisplayEquation equation="\\sum{F_y} = F_2 + V_{y} = 0"/>
-        <DisplayEquation equation="\\sum{F_z} = F_1 + P_{z} = 0"/>
+        <DisplayEquation equation="\\sum{F_z} = V_{z} = 0"/>
         </p>
         
         <p>
-        <DisplayEquation equation="\\sum{M_x} = M_{x} + F_2 (b-1) = 0"/>
+        <DisplayEquation equation="\\sum{M_x} = T_{x} + F_2 a = 0"/>
         <DisplayEquation equation="\\sum{M_y} = M_{y} = 0"/>
-        <DisplayEquation equation="\\sum{M_z} = T_{z} + F_2 a = 0"/>
+        <DisplayEquation equation="\\sum{M_z} = M_{z} + F_2 (b-1) = 0"/>
         </p>
 
-        <Image src='/sol/superposition/Simplified_FBD.jpg' width='4'>Simplified FBD for Right Hand Side</Image>
+        <Image src='/sol/superposition/Simplified_FBD.jpg' width='3'>Simplified FBD for Right Hand Side</Image>
 
         <p>
-        Next, compute the relevant stresses produced by each force or moment. Note that for this example, <InlineEquation equation="\\sigma_x"/> and <InlineEquation equation="\\sigma_y"/> would be zero. This is because the normal axis is in the z direction, and there is no internal pressure to create normal stresses in the x or y directions.
+        Next, compute the relevant stresses produced by each force or moment. Note that for this example, <InlineEquation equation="\\sigma_z"/> and <InlineEquation equation="\\sigma_y"/> would be zero. This is because the normal axis is in the x direction, and there is no internal pressure to create normal stresses in the z or y directions.
         </p>
 
         <p>
         <strong> For point H: </strong>
         <Itemize>
-            <Item> Axial: <InlineEquation equation = "\\sigma_z = \\dfrac{P_z}{A} = \\dfrac{F_1}{\\dfrac{\\pi d^2}{4}} = 3.183" /> ksi </Item>
+            <Item> Axial: <InlineEquation equation = "\\sigma_x = \\dfrac{P_x}{A} = \\dfrac{F_1}{\\dfrac{\\pi d^2}{4}} = 3.183" /> ksi </Item>
             <br></br>
-            <Item> Shear: <InlineEquation equation = "\\tau_{zy} = \\dfrac{V_y Q}{It} = 0" /> </Item>
+            <Item> Shear: <InlineEquation equation = "\\tau_{xy} = \\dfrac{V_y Q}{It} = 0" /> </Item>
             <br></br>
-            <Item> Moment: <InlineEquation equation = "\\sigma_z = \\dfrac{Mc}{I} = \\dfrac{F_2 (b-1) r}{\\dfrac{\\pi d^4}{64}} = 15.279" /> ksi </Item>
+            <Item> Moment: <InlineEquation equation = "\\sigma_x = \\dfrac{Mc}{I} = \\dfrac{F_2 (b-1) r}{\\dfrac{\\pi d^4}{64}} = 15.279" /> ksi </Item>
             <br></br>
-            <Item> Torsion: <InlineEquation equation = "\\tau_{zx} = \\dfrac{T_z r}{J} = \\dfrac{F_2 a r}{\\dfrac{\\pi d^4}{32}} = 7.639" /> ksi </Item>
+            <Item> Torsion: <InlineEquation equation = "\\tau_{xy} = \\dfrac{T_x r}{J} = \\dfrac{F_2 a r}{\\dfrac{\\pi d^4}{32}} = 7.639" /> ksi </Item>
         </Itemize>
         </p>
 
@@ -131,13 +131,13 @@ The goal in combined loading is to determine the stresses at a point in a slende
 
         <strong> For point K: </strong>
         <Itemize>
-            <Item> Axial: <InlineEquation equation = "\\sigma_z = \\dfrac{P_z}{A} = \\dfrac{F_1}{\\dfrac{\\pi d^2}{4}} = 3.183" /> ksi </Item>
+            <Item> Axial: <InlineEquation equation = "\\sigma_x = \\dfrac{P_x}{A} = \\dfrac{F_1}{\\dfrac{\\pi d^2}{4}} = 3.183" /> ksi </Item>
             <br></br>
-            <Item> Shear: <InlineEquation equation = "\\tau_{zy} = \\dfrac{V_y Q}{It} = \\dfrac{F_2\\dfrac{2 r^3}{3}}{(\\dfrac{\\pi \d^4}{64}) d} = 1.019" /> ksi </Item>
+            <Item> Shear: <InlineEquation equation = "\\tau_{zx} = \\dfrac{V_y Q}{It} = \\dfrac{F_2\\dfrac{2 r^3}{3}}{(\\dfrac{\\pi \d^4}{64}) d} = 1.019" /> ksi </Item>
             <br></br>
-            <Item> Moment: <InlineEquation equation = "\\sigma_z = \\dfrac{Mc}{I} = 0" /> </Item>
+            <Item> Moment: <InlineEquation equation = "\\sigma_x = \\dfrac{Mc}{I} = 0" /> </Item>
             <br></br>
-            <Item> Torsion: <InlineEquation equation = "\\tau_{zx} = \\dfrac{T_z r}{J} = \\dfrac{F_2 a r}{\\dfrac{\\pi d^4}{32}} = 7.639" /> ksi </Item>
+            <Item> Torsion: <InlineEquation equation = "\\tau_{zx} = \\dfrac{T_x r}{J} = \\dfrac{F_2 a r}{\\dfrac{\\pi d^4}{32}} = 7.639" /> ksi </Item>
         </Itemize>
         </p>
   </div>
