@@ -57,7 +57,7 @@ import InlineCanvas from "../../components/InlineCanvas.astro"
 
     <p>
       Geographic coordinates are typically given
-      in <a href="/dyn/coordinate_systems#spherical_coordinates">spherical coordinates</a>, but without
+      in <a href="/dyn/coordinate_systems#spherical_coordinate_system">spherical coordinates</a>, but without
       the radius and with the angles given
       in <a target="_blank" rel="noopener noreferrer" href="http://en.wikipedia.org/wiki/Arcminute">degrees,
       minutes, and seconds</a>, with the latitude first, and the
@@ -90,7 +90,7 @@ import InlineCanvas from "../../components/InlineCanvas.astro"
       <CalloutCard title="Reference material">
         <ul>
           <li><a href="/dyn/vector_calculus#dot_product">Dot product</a></li>
-          <li><a href="/dyn/coordinate_systems#spherical_coordinates">Spherical coordinates</a></li>
+          <li><a href="/dyn/coordinate_systems#spherical_coordinate_system">Spherical coordinates</a></li>
         </ul>
       </CalloutCard>
       <CalloutCard>
@@ -119,14 +119,14 @@ import InlineCanvas from "../../components/InlineCanvas.astro"
   <p>
     Finding the shortest distance between two points on the
     sphere is not a simple calculation given their latitude and
-    longitude. As <a href="#aos-fd-c">proved below</a>, the
+    longitude. As <a href="#proof_that_great_circles_are_shortest_paths">proved below</a>, the
     shortest path on the sphere is always a <i>great circle</i>,
     which is the intersection of the sphere with a plane through
     the origin. The shortest distance calculation thus reduces
     to finding the angle between the vectors <InlineEquation equation="\\vec{OA}" /> and
     <InlineEquation equation="\\vec{OB}" />, which can be easily done by finding their <a
     href="/dyn/vector_calculus#dot_product">dot product</a> after changing them
-    to <a href="/dyn/vectors#rvs-ec">rectangular coordinates</a>.
+    to <a href="/dyn/coordinate_systems#rvs-ec">rectangular coordinates</a>.
   </p>
   <Center>
   <PrairieDrawCanvas id="aos-fd-c" width="600" height="600">
@@ -187,7 +187,7 @@ import InlineCanvas from "../../components/InlineCanvas.astro"
 </Center>
 
 <CalloutContainer slot="cards">
-  <CalloutCard title="Reference material">
+  <CalloutCard title="Reference material" id = "aos-ip">
     <p>
       There are many different <a
       target="_blank" rel="noopener noreferrer" href="http://en.wikipedia.org/wiki/Map_projection">map
@@ -241,7 +241,7 @@ import InlineCanvas from "../../components/InlineCanvas.astro"
   <p>
     Given any two points <InlineEquation equation="A" /> and <InlineEquation equation="B" /> on the surface of the
     Earth, we choose coordinate axes and use <a
-    href="#spherical_coordinates">spherical coordinates</a> so that <InlineEquation equation="A" /> is at
+    href="/dyn/coordinate_systems#spherical_coordinate_system">spherical coordinates</a> so that <InlineEquation equation="A" /> is at
     <InlineEquation equation="(r = r_0, \\theta = 0, \\phi = \\frac{\\pi}{2} - \\phi_0)" /> and <InlineEquation equation="B" /> is at
     <InlineEquation equation="(r = r_0, \\theta = 0, \\phi = \\frac{\\pi}{2} + \\phi_0)" />. Here <InlineEquation equation="r_0" /> is
     the radius of the Earth and <InlineEquation equation="0 \\le \\phi_0 \\le \\frac{\\pi}{2}" />. The
@@ -266,14 +266,14 @@ import InlineCanvas from "../../components/InlineCanvas.astro"
   </p>
   <p>
     To switch from rectangular to spherical coordinates we use
-    this <a href="#rvs-ec">conversion.</a>
+    this <a href="/dyn/coordinate_systems#rvs-ec">conversion.</a>
   </p>
   <p>
     <DisplayEquation equation="\\begin{aligned}    x &amp;= r \\cos\\theta \\sin\\phi \\\\    y &amp;= r \\sin\\theta \\sin\\phi \\\\    z &amp;= r \\cos\\phi    \\end{aligned}" />
   </p>
   <p>
     Differentiating these expressions and substituting (or using
-    the <a href="#rvs-ep">spherical velocity
+    the <a href="/dyn/coordinate_systems#rvs-ep">spherical velocity
     expression</a>) gives the path length expression.
   </p>
   <p>
