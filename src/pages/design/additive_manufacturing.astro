@@ -1,0 +1,387 @@
+---
+import Layout from "../../layouts/Layout.astro" 
+import Image from "../../components/Image.astro" 
+import Section from "../../components/Section.astro" 
+import SubSection from "../../components/SubSection.astro" 
+import SubSubSection from "../../components/SubSubSection.astro" 
+import SubSubSubSection from "../../components/SubSubSubSection.astro" 
+import CalloutCard from "../../components/CalloutCard.astro" 
+import CalloutContainer from "../../components/CalloutContainer.astro" 
+import OrangeText from "../../components/OrangeText.astro" 
+import TealText from "../../components/TealText.astro" 
+import Enumerate from "../../components/Enumerate.astro" 
+import Item from "../../components/Item.astro" 
+import Itemize from "../../components/Itemize.astro" 
+import InlineEquation from "../../components/InlineEquation.astro" 
+import DisplayEquation from "../../components/DisplayEquation.astro" 
+---
+<Layout title="Additive_manufacturing">
+<div slot="navtree">
+<ul class="list-group list-group-flush py-0">
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Additive Manufacturing'>Additive Manufacturing</a></li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#3D Printing Process'>3D Printing Process</a></li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Advantages and Disadvantages'>Advantages and Disadvantages</a></li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Types of 3D Printing Processes'>Types of 3D Printing Processes</a><ul class='list-group list-group-flush py-0'>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Material Extrusion (MEX)'>Material Extrusion (MEX)</a><ul class='list-group list-group-flush py-0'>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#MEX Numerical Example'>MEX Numerical Example</a></li></ul>
+</li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Vat Polymerization (VAT)'>Vat Polymerization (VAT)</a><ul class='list-group list-group-flush py-0'>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#VAT Build Time Model'>VAT Build Time Model</a></li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#VAT Numerical Example'>VAT Numerical Example</a></li></ul>
+</li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Material Jetting'>Material Jetting</a></li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Powder Bed Fusion (PBF)'>Powder Bed Fusion (PBF)</a></li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Directed Energy Deposition (DED)'>Directed Energy Deposition (DED)</a></li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Binder Jetting'>Binder Jetting</a></li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Laminated Object Manufacturing'>Laminated Object Manufacturing</a></li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Design Guidance for AM'>Design Guidance for AM</a></li>
+</ul>
+</ul>
+</div>
+<SubSection title="Additive Manufacturing" id="Additive Manufacturing">
+<p>Additive Manufacturing (AM) is a process that builds parts layer-by-layer directly from a digital model, rather than subtracting from a bulk material like conventional manufacturing processes. Additive manufacturing enables complex geometry, lightweighting, and part consolidation. 3D Printing is one category of additive manufacturing.</p>
+</SubSection>
+<SubSection title="3D Printing Process" id="3D Printing Process">
+<Itemize>
+
+    <Item>1. 3D CAD model is converted to STL (Standard Tessellation Language)</Item>
+    <Item>2. Model is sliced into 2D layers</Item>
+    <Item>3. Each layer is fabricated sequentially</Item>
+    <Item>4. Support material may be required, depending on geometry and process.</Item>
+
+</Itemize>
+    <CalloutContainer slot="cards">
+<CalloutCard title="Callout">
+<p>Standard Tessellation Language (STL) represents surfaces using triangular facets</p>
+<p>Tessellation: surface represented by triangles</p>
+<p>image</p>
+    </CalloutCard>
+</CalloutContainer>
+</SubSection>
+<SubSection title="Advantages and Disadvantages" id="Advantages and Disadvantages">
+<p>There are a wide range of 3D Printing technologies that each have their own unique properties. Between them, you can optimize certain qualities with other tradeoffs, but these refer to 3D Printing as a whole.</p>
+<p>Advantages</p>
+<Itemize>
+
+    <Item>Easy and quick to change part design and produce a new version (rapid prototyping)</Item>
+    <Item>Limited skills or training needed to make parts</Item>
+    <Item>Reduced individual manufacturing time with no prep time required</Item>
+    <Item>Cost of production unique parts in small quantities is relatively low</Item>
+    <Item>Some parts can be made pre-assembled</Item>
+
+</Itemize>
+<p>Disadvantages</p>
+<Itemize>
+
+    <Item>Part tolerances/surface finish:</Item>
+<p>\begin{itemize}</p>
+            <Item>"Staircase" Effect on sloped surfaces from slicing and layer thickness</Item>
+            <Item>Shrinkage or distortion of manufactured parts from uneven cooling</Item>
+            <Item>Holes come out smaller and posts bigger than CAD dimensions</Item>
+
+</Itemize>
+<p>\item Limited variety of possible materials</p>
+<p>\item Post-processing of parts may be required</p>
+<p>\item Cost and time does not improve with increased volume</p>
+<p>\item Part size is generally limited</p>
+<p>\item Porosity and mechanical property challenges</p>
+<p>\item Material anisotropy, i.e. mechanical properties within layers vary from those between layers</p>
+<p>\end{itemize}</p>
+</SubSection>
+<SubSection title="Types of 3D Printing Processes" id="Types of 3D Printing Processes">
+<Enumerate>
+
+    <Item>Material Extrusion (MEX)</Item>
+    <Itemize>
+
+        <Item>Fused Deposition Modeling (<InlineEquation equation="(FDM)^{TM}" />)</Item>
+        <Item>Fused Filament Fabrication (FFF)</Item>
+
+</Itemize>
+    <Item>Vat Polymerization (VAT)</Item>
+    <Itemize>
+
+        <Item>Stereolithography (SLA)</Item>
+        <Item>Digital Light Processing (DLP)</Item>
+        <Item>Continuous Digital Light Processing (CLIP)</Item>
+        <Item>Liquid Crystal Display (LCD)</Item>
+
+</Itemize>
+    <Item>Material Jetting</Item>
+    <Itemize>
+
+        <Item>Poly Jet</Item>
+        <Item>Nanoparticle Jetting</Item>
+        <Item>Drop on Demand (DOD)</Item>
+
+</Itemize>
+    <Item>Directed Energy Deposition (DED)</Item>
+    <Itemize>
+
+        <Item>Laser Engineered Net Shaping (<InlineEquation equation="LENS^{TM}" />)</Item>
+        <Item>Electron Beam Additive Manufacturing (EBAM)</Item>
+        <Item>Wire Arc Additive Manufacturing (WAAM)</Item>
+        <Item>Friction Stir Additive Manufacturing (FSAM)</Item>
+
+</Itemize>
+    <Item>Powder Bed Fusion (PBF)</Item>
+    <Itemize>
+
+        <Item>Selective Laser Sintering (SLS)</Item>
+        <Item>Selective Laser Melting (SLM)</Item>
+        <Item>Direct Metal Laser Sintering (DMLS)</Item>
+        <Item>Electron Beam Melting (EBM)</Item>
+        <Item>Selective Heat Sintering (SHS)</Item>
+        <Item>High-Speed Sintering</Item>
+        <Item>Multi-Jet Fusion (MJF)</Item>
+
+</Itemize>
+    <Item>Binder Jetting</Item>
+    <Item>Sheet Lamination </Item>
+    <Itemize>
+
+        <Item>Laminate Object Manufacturing (LOM)</Item>
+        <Item>Selective Lamination Composite Object Manufacturing</Item>
+        <Item>Plastic Sheet Lamination</Item>
+        <Item>Selective Deposition Lamination</Item>
+        <Item>Composite Based Additive Manufacturing</Item>
+        <Item>Ultrasonic Consolidation</Item>
+        <Item>Ultrasonic Additive Manufacturing (UAM)</Item>
+
+</Itemize>
+
+</Enumerate>
+</SubSection>
+<SubSubSection title="Material Extrusion (MEX)" id="Material Extrusion (MEX)">
+<p>This is what most people picture when they think of 3D Printing</p>
+<p><strong>Also known as:</strong> Fused Deposition Modeling (FDM), Fused Filament Fabrication (FFF)</p>
+<Itemize>
+
+    <Item>Heated thermoplastic filament extruded through a nozzle, layers fusing together in cooler air</Item>
+    <Item>Machine deposits layers by moving nozzle horizontally, tracing 2D cross sections, then moving vertically and repeating</Item>
+<p>\begin{itemize}</p>
+        <Item>3+ DOF machines exist for non-planar "slices", but much more complex and less common</Item>
+
+</Itemize>
+<p>\item Support structure needed for steeply overhanging parts</p>
+<p>\item Main Materials: PLA, ABS, PC, Nylon</p>
+<p>\item Typical layer thickness: <InlineEquation equation="0.1" />–<InlineEquation equation="0.3" /> mm</p>
+<p>\item Surface finish is generally not as good as other methods</p>
+<p>\end{itemize}</p>
+</SubSubSection>
+<SubSubSubSection title="MEX Numerical Example" id="MEX Numerical Example">
+<p>Given:</p>
+<Itemize>
+
+    <Item>Nozzle diameter <InlineEquation equation="d = 0.4" /> mm</Item>
+    <Item>Layer height <InlineEquation equation="h = 0.25" /> mm</Item>
+    <Item>Extrusion speed <InlineEquation equation="v = 50" /> mm/s</Item>
+    <Item>Delay between layers = 5 s</Item>
+    <Item>Part: <InlineEquation equation="30 \\times 30 \\times 30" /> mm cube</Item>
+
+</Itemize>
+<p>Volumetric flow rate:</p>
+
+<DisplayEquation equation="Q = v \\cdot d \\cdot h = 50 \\times 0.4 \\times 0.25 = \\boxed{5\\ \\text{mm}^3/\\text{s}}" title="" />
+
+<p>Number of layers:</p>
+
+<DisplayEquation equation="N = \\frac{30}{0.25} = 120" title="" />
+
+<p>Total inactive time:</p>
+
+<DisplayEquation equation="t_{\\text{idle}} = 120 \\times 5 = 600 \\text{ s} = 10 \\text{ min}" title="" />
+
+<h4><strong>(a) Solid Cube</strong></h4>
+<p>Volume:</p> 
+
+
+<DisplayEquation equation="V = 30^3 = 27{,}000 \\ \\text{mm}^3" title="" />
+
+<p>Time to extrude:</p>
+
+<DisplayEquation equation="t = \\frac{V}{Q} = \\frac{27{,}000}{5} = 5400 \\text{ s} = 90 \\text{ min}" title="" />
+
+<p>Total production time:</p>
+
+<DisplayEquation equation="t_{\\text{total}} = 90 + 10 = \\boxed{100 \\text{ min}}" title="" />
+
+<p><h4><strong>(b) 25\</p>
+<p>Interior dimensions:</p>
+
+<DisplayEquation equation="30 - 2(0.4) = 29.2 \\text{ mm</strong></h4> <p>,</p> \\quad \\text{height} \\approx 29.5 \\text{ mm}" title="" />
+
+<p>Interior volume:</p>
+
+<DisplayEquation equation="V_{\\text{int}} = 29.2^2 \\times 29.5" title="" />
+
+<p>Material used:</p>
+
+<DisplayEquation equation="V_{\\text{total}} = (30^3) - (29.2^2 \\cdot 29.5)\\cdot 0.75 = 8{,}135 \\ \\text{mm}^3" title="" />
+
+<p>Extrusion time:</p>
+
+<DisplayEquation equation="t = \\frac{8{,}135}{5} = 1627.3 \\text{ s} \\approx 27.1 \\text{ min}" title="" />
+
+<p>Total production time:</p>
+
+<DisplayEquation equation="t_{\\text{total}} = 27.1 + 10 = \\boxed{37.1 \\text{ min}}" title="" />
+
+<h4><strong>Traverse Path Method (Check)</strong></h4>
+<p>Tracks per layer:</p> 
+
+
+<DisplayEquation equation="\\frac{30}{0.4} = 75" title="" />
+
+<p>Travel distance per layer:</p>
+
+<DisplayEquation equation="75 \\times 30 = 2250 \\ \\text{mm}" title="" />
+
+<p>Time per layer:</p>
+
+<DisplayEquation equation="\\frac{2250}{50} = 45 \\text{ s}" title="" />
+
+<p>Total extrusion time:</p>
+
+<DisplayEquation equation="45 \\times 120 = 5400 \\text{ s} = 90 \\text{ min}" title="" />
+
+<p>Total production time:</p>
+
+<DisplayEquation equation="90 + 10 = 100 \\text{ min}" title="" />
+
+</SubSubSubSection>
+<SubSubSection title="Vat Polymerization (VAT)" id="Vat Polymerization (VAT)">
+<Itemize>
+
+    <Item>UltraViolet laser cures UV-curable polymer (or "resin") dissolved in a solvent- Liquid Deposition Process</Item>
+    <Item>Laser may be positioned above or below resin tank (top-down vs bottom-up)</Item>
+    <Item>Support structures required when overhang angle exceeds <InlineEquation equation="45^\\circ" />, since cured resin is denser than uncured</Item>
+    <Item>SLA, DLP, CLIP are common variants</Item>
+    <Item>Typical layer thickness: <InlineEquation equation="0.025" />–<InlineEquation equation="0.1" /> mm</Item>
+
+</Itemize>
+</SubSubSection>
+<SubSubSubSection title="VAT Build Time Model" id="VAT Build Time Model">
+<p>Time for layer <InlineEquation equation="i" />:</p>
+
+<DisplayEquation equation="T_i = \\frac{A_i}{vD} + t_d" title="" />
+
+<p>Total build time:</p>
+
+<DisplayEquation equation="T = \\sum_{i=1}^{n} T_i" title="" />
+
+</SubSubSubSection>
+<SubSubSubSection title="VAT Numerical Example" id="VAT Numerical Example">
+<p>A rectangular part with dimensions <InlineEquation equation="20 \\text{ mm} \\times 10 \\text{ mm} \\times 10 \\text{ mm}" /> is fabricated using a vat photopolymerization process.</p>
+<p>Given:</p>
+<Itemize>
+
+    <Item>Layer thickness <InlineEquation equation="t = 0.2" /> mm</Item>
+    <Item>Part height <InlineEquation equation="H = 10" /> mm</Item>
+    <Item>Laser scanning speed <InlineEquation equation="v = 1000" /> mm/s</Item>
+    <Item>Laser spot diameter <InlineEquation equation="D = 0.2" /> mm</Item>
+    <Item>Delay per layer (stage movement in <InlineEquation equation="z" />-direction) <InlineEquation equation="t_d = 10" /> s</Item>
+    <Item>Cross-sectional area per layer <InlineEquation equation="A = 200" /> mm<InlineEquation equation="^2" /></Item>
+
+</Itemize>
+<strong>Find:</strong>
+<Enumerate>
+
+    <Item>Number of layers</Item>
+    <Item>Time to write one layer (including delay)</Item>
+    <Item>Total fabrication time</Item>
+    <Item>Volumetric method approximation for fabrication time</Item>
+
+</Enumerate>
+<strong>Solution:</strong>
+<Enumerate>
+
+    <Item>Number of layers:</Item>
+
+<DisplayEquation equation="n = \\frac{H}{t} = \\frac{10}{0.2} = 50" title="" />
+
+    <Item>Time to write one layer:</Item>
+
+<DisplayEquation equation="T_i = \\frac{A}{v \\cdot D} + t_d = \\frac{200}{1000 \\times 0.2} + 10 = 11 \\ \\text{s}" title="" />
+
+    <Item>Total fabrication time:</Item>
+
+<DisplayEquation equation="T = n \\cdot T_i = 50 \\times 11 = \\boxed{550 \\ \\text{s}}" title="" />
+
+    <Item>Volumetric method:</Item>
+<p>Total part volume:</p>
+
+<DisplayEquation equation="V_{\\text{part}} = A \\cdot H = 200 \\times 10 = 2000 \\ \\text{mm}^3" title="" />
+
+<p>Volumetric build rate:</p>
+
+<DisplayEquation equation="\\dot{V} = D \\cdot t \\cdot v = (0.2)(0.2)(1000)" title="" />
+
+<p>Total time:</p>
+
+<DisplayEquation equation="T = \\frac{V_{\\text{part}}}{D \\cdot t \\cdot v} + n \\cdot t_d = \\frac{2000}{(0.2)(0.2)(1000)} + 50 \\times 10 = 50 + 500 = \\boxed{550 \\ \\text{s}}" title="" />
+
+
+</Enumerate>
+</SubSubSubSection>
+<SubSubSection title="Material Jetting" id="Material Jetting">
+<Itemize>
+
+    <Item>Individual droplets of photopolymer deposited layer-by-layer and UV-cured</Item>
+    <Item>Machines typically have 2 sets of print heads, one for main material and one for support, with multiple nozzles on each head</Item>
+    <Item>Uses viscous thermosetting resin that is cured by high intensity UV, with a secondary support material that is water-soluble.</Item>
+    <Item>Multiple materials and colors possible</Item>
+    <Item>Typical layer thickness ~0.02 mm</Item>
+
+</Itemize>
+</SubSubSection>
+<SubSubSection title="Powder Bed Fusion (PBF)" id="Powder Bed Fusion (PBF)">
+<Itemize>
+
+    <Item>Laser or electron beam selectively melts heat-fusible powder (thermoplastics, metals, or ceramics)</Item>
+    <Item>After each layer, a new layer of loose powder is spread across the surface</Item>
+    <Item>Unfused powder acts as support structure for overhanging parts, but powder in a 10 mm thick shell around the part is thermally damaged</Item>
+    <Item>Undamaged powder can be poured out of complete part to be reused</Item>
+    <Item>Typical layer thickness: <InlineEquation equation="50" />–<InlineEquation equation="100\\ \\mu" />m</Item>
+
+</Itemize>
+</SubSubSection>
+<SubSubSection title="Directed Energy Deposition (DED)" id="Directed Energy Deposition (DED)">
+<Itemize>
+
+    <Item>The material (usually a metal powder) and the energy for fusion (usually laser heating) are simultaneously focused at the same location</Item>
+    <Item>The metal powder is projected onto a surface where the laser directly melts the powder in place</Item>
+    <Item>Can be combined with in-situ machining, combining both machining and deposition in a single machine</Item>
+    <Item>Suitable for repair and large structures</Item>
+    <Item>Tool change or part shifting required, requires specialized toolpath planning</Item>
+
+</Itemize>
+</SubSubSection>
+<SubSubSection title="Binder Jetting" id="Binder Jetting">
+<Itemize>
+
+    <Item>Liquid adhesive is selectively deposited to join powder materials (gypsum or starch), which are deposited in thin layers</Item>
+    <Item>Parts are weak before post-processing</Item>
+
+</Itemize>
+</SubSubSection>
+<SubSubSection title="Laminated Object Manufacturing" id="Laminated Object Manufacturing">
+<Itemize>
+
+    <Item>The input is a roll of thin sheet material (paper, plastic, or metal) coated with an adhesive</Item>
+    <Item>Successive layers are cut by a laser in the required shape and stacked to build up the part</Item>
+
+</Itemize>
+</SubSubSection>
+<SubSubSection title="Design Guidance for AM" id="Design Guidance for AM">
+<Itemize>
+
+    <Item>1. Minimize unnecessary material</Item>
+    <Item>2. Choose a print orientation that is aware of the direction of anisotropy, mechanical properties, surface finish, roundness of holes, support materials, etc.</Item>
+    <Item>3. Reduce support structures</Item>
+    <Item>4. Iterate steps 1-3</Item>
+
+</Itemize>
+
+</SubSubSection>
+</Layout>
