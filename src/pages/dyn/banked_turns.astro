@@ -76,10 +76,10 @@ import Row from "../../components/Row.astro"
         to understand friction and sliding, and then move on to a 2D
         rigid-body body to understand roll behavior.
       </p>
-        <Image src="/dyn/banked_turns/avb_09A186_small.jpg">
+        <Image src="/dyn/banked_turns/avb_09A186_small.jpg" id = "avb-fc">
             <p class="figureCaption">
             <a
-            target="_blank" rel="noopener noreferrer" href="http://www.setra.de/en/coaches-buses/topclass/models/s-411-hd.html">
+            target="_blank" rel="noopener noreferrer" href="https://web.archive.org/web/20130225093458/http://www.setra.de/en/coaches-buses/topclass/models/s-411-hd.html">
             Setra
             S 411 HD coach</a> from the TopClass 400 series on the
             Mercedes-Benz Untertürkheim test track. This 10.16 m long
@@ -111,10 +111,6 @@ import Row from "../../components/Row.astro"
                     <li><a
                     target="_blank" rel="noopener noreferrer" href="http://www.youtube.com/watch?v=TK59zTPlL4g">Video of
                     the bus</a> shown in coach figure.</li>
-                    <li><a
-                    target="_blank" rel="noopener noreferrer" href="http://www.youtube.com/watch?v=MXtfsxhAHfs">Video
-                    taken from inside a car</a> driving around the
-                    Untertürkheim track.</li>
                   </ul>
             </CalloutCard>
         </CalloutContainer>
@@ -263,7 +259,7 @@ import Row from "../../components/Row.astro"
         class="seq-toggle:avb-fp-c:fbd" onclick="avb_fp_c.stepSequence('fbd')">free body diagram</button>
         is visible. Now increase the speed of the bus to produce a
         centripetal acceleration. <a
-        href="/sta/introduction#rkn-en">Newton's law</a> implies that there
+        href="/sta/introduction#newtons_second_law">Newton's law</a> implies that there
         must be a centripetal friction force producing this
         acceleration. As the speed increases, we will eventually
         reach a point when the friction force required is too large
@@ -332,7 +328,7 @@ import Row from "../../components/Row.astro"
             down onto the road. Physically this cannot happen, so at
             this point the bus would tip over. We needed this rigid-body
             model to understand this tipping behavior, as we couldn't
-            model this with the <a href="#avb-sp">point mass
+            model this with the <a href="#point_mass_model">point mass
             model</a>. Depending on the value of the friction
             coefficient, the bus may either slide or roll first as
             \(\theta\) increases.
