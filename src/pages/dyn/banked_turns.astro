@@ -76,10 +76,10 @@ import Row from "../../components/Row.astro"
         to understand friction and sliding, and then move on to a 2D
         rigid-body body to understand roll behavior.
       </p>
-        <Image src="/dyn/banked_turns/avb_09A186_small.jpg">
+        <Image src="/dyn/banked_turns/avb_09A186_small.jpg" id = "avb-fc">
             <p class="figureCaption">
             <a
-            target="_blank" rel="noopener noreferrer" href="http://www.setra.de/en/coaches-buses/topclass/models/s-411-hd.html">
+            target="_blank" rel="noopener noreferrer" href="https://web.archive.org/web/20130225093458/http://www.setra.de/en/coaches-buses/topclass/models/s-411-hd.html">
             Setra
             S 411 HD coach</a> from the TopClass 400 series on the
             Mercedes-Benz Untertürkheim test track. This 10.16 m long
@@ -87,9 +87,7 @@ import Row from "../../components/Row.astro"
             allowing it to traverse the sharp banked corner at about
             100 km/h. The vehicle is powered by an OM 501 LA V6-engine
             developing 300 kW (408 hp). Image source:
-            <a href=
-            "http://media.daimler.com/dcmedia/0-921-657769-1-1183792-1-0-1-0-0-1-12639-854946-0-1-0-0-0-0-0.html">
-            Daimler Global Media Site</a> (<a
+            Daimler Global Media Site (<a
             href="/dyn/banked_turns/avb_09A186.jpg">full-sized image</a>).
             </p>
         </Image>
@@ -108,13 +106,6 @@ import Row from "../../components/Row.astro"
                     target="_blank" rel="noopener noreferrer" href="http://www.youtube.com/watch?v=yukC-zdj2Y8#t=05m20s">Video of
                     a Dodge Challenger</a> on the Untertürkheim track
                     curve.</li>
-                    <li><a
-                    target="_blank" rel="noopener noreferrer" href="http://www.youtube.com/watch?v=TK59zTPlL4g">Video of
-                    the bus</a> shown in coach figure.</li>
-                    <li><a
-                    target="_blank" rel="noopener noreferrer" href="http://www.youtube.com/watch?v=MXtfsxhAHfs">Video
-                    taken from inside a car</a> driving around the
-                    Untertürkheim track.</li>
                   </ul>
             </CalloutCard>
         </CalloutContainer>
@@ -263,7 +254,7 @@ import Row from "../../components/Row.astro"
         class="seq-toggle:avb-fp-c:fbd" onclick="avb_fp_c.stepSequence('fbd')">free body diagram</button>
         is visible. Now increase the speed of the bus to produce a
         centripetal acceleration. <a
-        href="/sta/introduction#rkn-en">Newton's law</a> implies that there
+        href="/sta/introduction#newtons_second_law">Newton's law</a> implies that there
         must be a centripetal friction force producing this
         acceleration. As the speed increases, we will eventually
         reach a point when the friction force required is too large
@@ -305,9 +296,9 @@ import Row from "../../components/Row.astro"
                 <p class="caption">
                 Mercedes-Benz models 450 SL and 450 SLC in the front,
                 with models 450 SE and 450 SEL behind, on the
-                Untertürkheim test track in 1973. Image credit: <a
-                target="_blank" rel="noopener noreferrer" href="http://media.daimler.com/dcmedia/0-921-1090569-1-1309207-1-0-0-0-0-1-12759-614216-0-0-@ac.clink104771_3842-0-0-0-0.html">Daimler
-                Global Media Site</a> (<a
+                Untertürkheim test track in 1973. Image credit: 
+                Daimler
+                Global Media Site (<a
                 href="/dyn/banked_turns/avb_114255874071-32_vertical.jpg">full-sized
                 image</a>, <a href="/dyn/banked_turns/avb_114255874071-32.jpg">original
                 rotated image</a>).
@@ -332,7 +323,7 @@ import Row from "../../components/Row.astro"
             down onto the road. Physically this cannot happen, so at
             this point the bus would tip over. We needed this rigid-body
             model to understand this tipping behavior, as we couldn't
-            model this with the <a href="#avb-sp">point mass
+            model this with the <a href="#point_mass_model">point mass
             model</a>. Depending on the value of the friction
             coefficient, the bus may either slide or roll first as
             \(\theta\) increases.
@@ -423,14 +414,14 @@ import Row from "../../components/Row.astro"
         <Image alt="Bicycle riders in a velodrome" src="/dyn/banked_turns/avb_3886159972_71e0dc52d8_o_600.jpg">
             <p class="figureCaption">
               Bicycle riders on a banked turn at the <a
-              target="_blank" rel="noopener noreferrer" href="http://velodrome.nscsports.org/">Blaine
+              target="_blank" rel="noopener noreferrer" href="https://web.archive.org/web/20240414020946/http://velodrome.nscsports.org/">Blaine
               velodrome</a>, part of the <a
               target="_blank" rel="noopener noreferrer" href="http://en.wikipedia.org/wiki/National_Sports_Center">National
               Sports Center</a> in <a
               target="_blank" rel="noopener noreferrer" href="http://en.wikipedia.org/wiki/Blaine,_Minnesota">Blaine,
-              Minnesota</a>. Image source: <a
-              target="_blank" rel="noopener noreferrer" href="http://www.flickr.com/photos/flyinswede/3886159972/">flikr
-              user flyinfoto</a> <a
+              Minnesota</a>. Image source: 
+              flikr
+              user flyinfoto <a
               target="_blank" rel="noopener noreferrer" href="http://creativecommons.org/licenses/by/2.0/deed.en">(CC
               BY 2.0)</a> (<a
               href="/dyn/banked_turns/avb_3886159972_71e0dc52d8_o.jpg">full-sized
@@ -462,7 +453,7 @@ import Row from "../../components/Row.astro"
             target="_blank" rel="noopener noreferrer" href="http://en.wikipedia.org/wiki/QR_Tilt_Train">Queensland
             Rail Tilt Train</a> operates at 180 km/h by tilting at up to
             5&#xb0; around corners. As we see from our <a
-            href="#avb-sr">rigid body analysis</a> above, tilting the
+            href="#2d_rigid_body_model">rigid body analysis</a> above, tilting the
             train will help with avoiding tipping over at high speeds,
             but will not help with reducing horizontal friction
             forces. Even with a tilting train, entering a curve at too
@@ -474,7 +465,7 @@ import Row from "../../components/Row.astro"
         <CalloutContainer slot='cards'>
             <CalloutCard>
             <p>
-              The <a target="_blank" rel="noopener noreferrer" href="http://velodrome.nscsports.org/">Blaine
+              The <a target="_blank" rel="noopener noreferrer" href="https://web.archive.org/web/20240414020946/http://velodrome.nscsports.org/">Blaine
               velodrome</a> in Minnesota was designed by the famous <a
               target="_blank" rel="noopener noreferrer" href="http://en.wikipedia.org/wiki/Schuermann">Schuermann</a>
               velodrome architects and built from the extremely durable
@@ -490,7 +481,7 @@ import Row from "../../components/Row.astro"
               <!-- alt="woman leaning against a velodrome track">< -->
               <p class="caption">
                 Image credit: <a
-                target="_blank" rel="noopener noreferrer" href="http://cycletc.com/2011/06/30/track-cycling-we-have-a-what-nsc-velodrome-in-blaine-mn-by-nicole/">Tom
+                target="_blank" rel="noopener noreferrer" href="https://web.archive.org/web/20140111143007/http://cycletc.com/2011/06/30/track-cycling-we-have-a-what-nsc-velodrome-in-blaine-mn-by-nicole/">Tom
                 McGoldrick</a> (<a href="/dyn/banked_turns/avb_velodrome_track.jpg">full
                 sized image</a>).
 
@@ -508,7 +499,7 @@ import Row from "../../components/Row.astro"
               needed, so the track is formed by welding the segments
               together into one precisely-aligned continuous steel
               line. The steel rails conduct heat too well for
-              conventional welding, so <a href="">thermite</a> welding
+              conventional welding, so <a href="https://en.wikipedia.org/wiki/Thermite" target = "_blank" rel = "noopener noreferrer">thermite</a> welding
               is used to join the track segments.
             </p>
             <p>
@@ -543,7 +534,7 @@ import Row from "../../components/Row.astro"
           <p>
             The bus model used above is a <a
             target="_blank" rel="noopener noreferrer" href="http://en.wikipedia.org/wiki/Setra">Setra</a> <a
-            target="_blank" rel="noopener noreferrer" href="http://www.setra.de/en/coaches-buses/topclass/models/s-411-hd.html">S
+            target="_blank" rel="noopener noreferrer" href="https://web.archive.org/web/20130225093458/http://www.setra.de/en/coaches-buses/topclass/models/s-411-hd.html">S
             411 HD</a> coach. The mass of the vehicle is 12.6 t and the
             dimensions are shown below.
           </p>
