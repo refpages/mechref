@@ -88,7 +88,7 @@ import Row from "../../components/Row.astro"
                     target="_blank" rel="noopener noreferrer" href="http://www.youtube.com/watch?v=HnVkeZXsXjo">Video of
                     braking</a> in which the rear wheels lose contact.</Item>
                 <Item><a
-                    target="_blank" rel="noopener noreferrer" href="http://www.youtube.com/watch?v=unwujSVpZwA">Another
+                    target="_blank" rel="noopener noreferrer" href="https://web.archive.org/web/20170610014820/https://www.youtube.com/watch?v=unwujSVpZwA">Another
                     burnout video</a>, taken to the point of destruction.</Item>
             </Itemize>
         </CalloutCard>
@@ -155,7 +155,7 @@ import Row from "../../components/Row.astro"
         Consider a car sitting stationary on the ground, as shown
         below. We will take the entire car plus wheels to be a
         single rigid body. Clearly this is inaccurate (the wheels
-        can't turn), but it is <a href="roq.html#roq.su">still
+        can't turn), but it is <a href="https://mechref.engr.illinois.edu/dyn/roq.html#roq.su">still
         useful</a>.
         </p>
         <p>
@@ -224,7 +224,7 @@ import Row from "../../components/Row.astro"
 <SubSection title="Traction, acceleration, and braking" id = "traction_acceleration_and_braking">
         <p>
         The maximum force with which the car can push against the
-        road is limited by the <a href="rff.html">friction
+        road is limited by the <a href="/dyn/work_and_energy#friction">friction
         coefficient</a> of the tire multiplied by the normal
         force. This applies both during acceleration and braking.
         </p>
@@ -234,7 +234,7 @@ import Row from "../../components/Row.astro"
         drive</a> layout. If we accelerate too hard, however, then
         the back wheels will slip and experience <a
         target="_blank" rel="noopener noreferrer" href="http://en.wikipedia.org/wiki/Wheelspin">wheelspin</a>,
-        because the <a href="rff.html">dynamic coefficient of
+        because the <a href="/dyn/work_and_energy#friction">dynamic coefficient of
         friction</a> is lower than the static coefficient.  While
         high-performance applications generally want to maintain
         traction in all cases, the impressive effects of traction
@@ -254,8 +254,8 @@ import Row from "../../components/Row.astro"
         target="_blank" rel="noopener noreferrer" href="http://youtu.be/rSwOTV-jbns">can be performed</a> by
         disengaging the clutch, running the engine at a high revs,
         and then rapidly engaging the clutch. The high <a
-        href="rkm">angular momentum</a> of the engine then provides
-        a <a href="rkm">rotational impulse</a> to the rear wheels,
+        href="/dyn/momentum#reg-lp">angular momentum</a> of the engine then provides
+        a <a href="/dyn/momentum#reg-lt">rotational impulse</a> to the rear wheels,
         causing them to lose traction.
         </p>
         <p>
@@ -310,7 +310,7 @@ import Row from "../../components/Row.astro"
 <SubSection title="2D multi-body model" id = "2d_multi_body_model">
         <p>
         To understand how forces and moments act on the wheels, we
-        need to separate out the <a href="#ava-sr">single rigid-body
+        need to separate out the <a href="#2d_rigid_body_model">single rigid-body
         model</a> into multiple rigid bodies. The simplest version
         of this has one rigid body for the body, and four rigid
         bodies for the wheels. We will assume that the two front
@@ -329,13 +329,13 @@ import Row from "../../components/Row.astro"
         class="seq-step:ava-fm-c:motion:stationary" onclick="ava_fm_c.stepSequence('motion', 'stationary');">accelerate</button>,
         then we see a clockwise moment applied to the rear (driving)
         wheels. This causes the wheel to rotate, but friction forces
-        means that it must <a href="rkl.html">roll without
+        means that it must <a href="/dyn/contact_and_rolling">roll without
         slipping</a>, so there must be a forward contact force
         causing it to accelerate forwards. Counteracting this is a
         backwards reaction force from the car on the wheel. On the
         car we see that there are equal and opposite forces and
         moments at the axles. Just as in the <a
-        href="#ava-sr">single rigid body</a> case, we have a net
+        href="#2d_rigid_body_model">single rigid body</a> case, we have a net
         horizontal force causing forward acceleration, and moment
         balance means that the weight of the car is transferred
         primarily to the rear wheels.
@@ -367,8 +367,8 @@ import Row from "../../components/Row.astro"
 <SubSection title="More complex models" id = "more_complex_models">
         <p>
         While we can learn a lot about car performance from the
-        simple <a href="#ava-sr">rigid body</a> and <a
-        href="#ava-sm">multi-body</a> models, there is a great deal
+        simple <a href="#2d_rigid_body_model">rigid body</a> and <a
+        href="#2d_multi_body_model">multi-body</a> models, there is a great deal
         of physics neglected by these models, which can be important
         for engineering design.
         </p>
@@ -389,12 +389,12 @@ import Row from "../../components/Row.astro"
         </p>
         <p>
         As well as being individually deformable, the wheels are are
-        not rigidly connected to the car body <a href="#ava-sr">as
+        not rigidly connected to the car body <a href="#2d_rigid_body_model">as
         above</a>, but they are actually connected by a <a
         target="_blank" rel="noopener noreferrer" href="http://en.wikipedia.org/wiki/Suspension_(vehicle)">suspension
-        system</a>, consisting of <a href="aml.html">linkages</a>,
-        <a href="rff.html">springs</a>, and <a
-        href="rff.html">shock absorbers</a>. These enable both a
+        system</a>, consisting of <a href="/dyn/four_bar_linkages_applications">linkages</a>,
+        springs, and 
+        shock absorbers. These enable both a
         comfortable ride and safe handling of the vehicle.
         </p>
         <p>
