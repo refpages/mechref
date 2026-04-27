@@ -1,0 +1,214 @@
+---
+import Layout from "../../layouts/Layout.astro" 
+import Image from "../../components/Image.astro" 
+import Section from "../../components/Section.astro" 
+import SubSection from "../../components/SubSection.astro" 
+import SubSubSection from "../../components/SubSubSection.astro" 
+import SubSubSubSection from "../../components/SubSubSubSection.astro" 
+import CalloutContainer from "../../components/CalloutContainer.astro" 
+import OrangeText from "../../components/OrangeText.astro" 
+import TealText from "../../components/TealText.astro" 
+import Enumerate from "../../components/Enumerate.astro" 
+import Item from "../../components/Item.astro" 
+import Itemize from "../../components/Itemize.astro" 
+import InlineEquation from "../../components/InlineEquation.astro" 
+import DisplayEquation from "../../components/DisplayEquation.astro" 
+---
+<Layout title="Spur Gears">
+<div slot="navtree">
+<ul class="list-group list-group-flush py-0">
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Instructions to users'>Instructions to users</a></li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#ME 371 page'>ME 371 page</a><ul class='list-group list-group-flush py-0'>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Intro'>Intro</a></li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Spur Gears'>Spur Gears</a><ul class='list-group list-group-flush py-0'>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Design Strategy'>Design Strategy</a></li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Worm Gears'>Worm Gears</a></li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Worm Gear Forces'>Worm Gear Forces</a></li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Worm Gear Efficiency'>Worm Gear Efficiency</a></li>
+</ul>
+</ul>
+</ul>
+</div>
+<SubSection title="Instructions to users" id="Instructions to users">
+<p>This document is intended to facilitate the creation of a reference page for ME 371 at UIUC.</p>
+<p>As such this document contains:</p>
+<Itemize>
+
+    <Item>An outline of the reference page in question</Item>
+    <Item>Some (or all) of the text that will appear on the page</Item>
+    <Item>Key equations that need to appear on the reference page</Item>
+    <Item>Rough (or final) versions of the figures that will appear on the reference page. </Item>
+
+</Itemize>
+<p>If the text of a section is finalized, the section should be labeled \textcolor{blue}{Final}. If the text is not finalized, it should be labeled \textcolor{red}{Draft}. Similarly, a complete figure should include \textcolor{blue}{Final} at the beginning of the figure caption. A figure that is incomplete or a placeholder should list \textcolor{red}{Draft} at the beginning of a caption.</p>
+</SubSection>
+<SubSection title="ME 371 page" id="ME 371 page">
+<p>\textcolor{red}{Draft}</p>
+</SubSection>
+<SubSubSection title="Intro" id="Intro">
+<p>**Discuss torque and speed ratios. It may be useful to reference some ME 370 materials as well.</p>
+<p>****Include diagram of key features of gear tooth.</p>
+<p>Spur gears transmit power between parallel shafts through sequential tooth contact. For proper operation, the ratio of angular velocities must match the ratio of the number of teeth, ensuring no slipping occurs. This also implies that torque and speed are inversely related, consistent with power transmission concepts from ME 370.</p>
+
+<p>Key parameters include pitch, number of teeth, and pressure angle. The pressure angle determines the direction of the force between mating teeth and governs how the total force is split into tangential and radial components.</p>
+</SubSubSection>
+<SubSubSection title="Spur Gears" id="Spur Gears">
+
+<p>The force between gear teeth acts along the line of action and can be resolved into:</p>
+<Itemize>
+
+    <Item>Tangential force <InlineEquation equation="F_t" /> (transmits power)</Item>
+    <Item>Radial force <InlineEquation equation="F_r" /> (separates gears)</Item>
+
+</Itemize>
+<p>These are related by:</p>
+
+<DisplayEquation equation="F_r = F_t \\tan \\phi" title="" />
+
+<p>\begin{center}</p>
+<p>\begin{tabular}{|c|c|c|c|}</p>
+<p>\hline</p>
+<p>Variable & Description & Typical SI Units & Typical Imperial Units \\</p>
+<p>\hline</p>
+<p><InlineEquation equation="F_r" /> & Radial force (separates gears) & N & lb \\</p>
+<p><InlineEquation equation="F_t" /> & Tangential force (transmits power) & N & lb \\</p>
+<p><InlineEquation equation="\\phi" /> & Pressure angle & degrees & degrees \\</p>
+<p>\hline</p>
+<p>\end{tabular}</p>
+<p>\end{center}</p>
+<p>Gear teeth can fail due to bending at the root and can be modeled as cantilever beams.</p>
+
+<DisplayEquation equation="\\sigma = \\frac{Mc}{I} = \\frac{6F_t h}{bt^2}" title="" />
+
+<p>\begin{center}</p>
+<p>\begin{tabular}{|c|c|c|c|}</p>
+<p>\hline</p>
+<p>Variable & Description & Typical SI Units & Typical Imperial Units \\</p>
+<p>\hline</p>
+<p><InlineEquation equation="\\sigma" /> & Bending stress at tooth root & Pa & psi \\</p>
+<p><InlineEquation equation="F_t" /> & Tangential force & N & lb \\</p>
+<p><InlineEquation equation="h" /> & Tooth height (cantilever length) & m & in \\</p>
+<p><InlineEquation equation="b" /> & Face width of gear & m & in \\</p>
+<p><InlineEquation equation="t" /> & Tooth thickness at base & m & in \\</p>
+<p>\hline</p>
+<p>\end{tabular}</p>
+<p>\end{center}</p>
+<p>The Lewis form factor <InlineEquation equation="Y" /> simplifies this expression:</p>
+<p>\text{Imperial form :}</p>
+
+<DisplayEquation equation="\\sigma = \\frac{F_t P}{bY}" title="" />
+
+<p>\text{Metric form :}</p>
+
+<DisplayEquation equation="\\sigma = \\frac{F_t}{b m Y}" title="" />
+
+<p>\begin{center}</p>
+<p>\begin{tabular}{|c|c|c|}</p>
+<p>\hline</p>
+<p>Variable & Description & Units \\</p>
+<p>\hline</p>
+<p><InlineEquation equation="P" /> & Diametral pitch & teeth/in \\</p>
+<p><InlineEquation equation="m" /> & Module (<InlineEquation equation="m = 1/P" />) & mm/tooth \\</p>
+<p>\hline</p>
+<p>\end{tabular}</p>
+<p>\end{center}</p>
+<p>The Lewis form factor <InlineEquation equation="Y" /> accounts for tooth geometry and depends on the number of teeth and pressure angle. Larger numbers of teeth increase <InlineEquation equation="Y" />, reducing bending stress. Typical values range from <InlineEquation equation="0.2 < Y < 0.5" />.</p>
+<p>A more refined stress model incorporates real-world effects:</p>
+
+<DisplayEquation equation="\\sigma = \\frac{F_t P}{bJ} K_v K_o K_m" title="" />
+
+<p>Gear teeth experience cyclic loading, leading to fatigue failure at the root.</p>
+
+<DisplayEquation equation="S_n = S_n' C_L C_G C_s k_r k_t k_{ms}" title="" />
+
+<p>\begin{center}</p>
+<p>\begin{tabular}{|c|c|c|c|}</p>
+<p>\hline</p>
+<p>Variable & Description & Typical SI Units & Typical Imperial Units \\</p>
+<p>\hline</p>
+<p><InlineEquation equation="S_n" /> & Modified endurance limit & Pa & psi \\</p>
+<p><InlineEquation equation="S_n'" /> & Baseline endurance limit (<InlineEquation equation="\\approx 0.5 S_u" />) & Pa & psi \\</p>
+<p><InlineEquation equation="C_L" /> & Load factor & - & - \\</p>
+<p><InlineEquation equation="C_G" /> & Gradient factor & - & - \\</p>
+<p><InlineEquation equation="C_s" /> & Surface factor & - & - \\</p>
+<p><InlineEquation equation="k_r" /> & Reliability factor & - & - \\</p>
+<p><InlineEquation equation="k_t" /> & Temperature factor & - & - \\</p>
+<p><InlineEquation equation="k_{ms}" /> & Mean stress factor & - & - \\</p>
+<p>\hline</p>
+<p>\end{tabular}</p>
+<p>\end{center}</p>
+</SubSubSection>
+<SubSubSubSection title="Design Strategy" id="Design Strategy">
+<p>Gear design balances bending failure at the tooth root and surface (contact)</p>
+<p>fatigue. Increasing tooth size reduces bending stress, while case hardening</p>
+<p>improves surface strength.</p>
+<p>The tradeoff is governed by diametral pitch <InlineEquation equation="P" />:</p>
+<Itemize>
+
+    <Item><InlineEquation equation="P < 8" /> (coarse teeth): surface fatigue dominant</Item>
+    <Item><InlineEquation equation="P > 8" /> (fine teeth): bending failure dominant</Item>
+
+</Itemize>
+<p>Hardened steels allow smaller gears with higher strength and longer life,</p>
+<p>often reducing overall size and cost despite higher manufacturing difficulty.</p>
+<p>For compact design, begin with the minimum pinion size and solve for <InlineEquation equation="P" />:</p>
+
+<DisplayEquation equation="N \\geq 18 \\quad \\text{(for 20<InlineEquation equation="^\\\\circ" /> pressure angle)}" title="" />
+
+</SubSubSubSection>
+<SubSubSubSection title="Worm Gears" id="Worm Gears">
+<p>Worm gears are used for very high speed reductions (often <InlineEquation equation=">300:1" />) in a compact space. A worm (screw-like shaft) drives a worm wheel with perpendicular axes.</p>
+<p>One unique feature of worm hears is self-locking: for small lead angles, friction prevents back-driving, allowing loads to be held without additional braking.</p>
+</SubSubSubSection>
+<SubSubSubSection title="Worm Gear Forces" id="Worm Gear Forces">
+
+<p>Unlike spur gears, worm gears have significant axial forces.</p>
+
+<p>For a 90<InlineEquation equation="^\\circ" /> configuration:</p>
+<Itemize>
+
+    <Item>Gear tangential force = Worm axial force</Item>
+    <Item>Worm tangential force = Gear axial force</Item>
+    <Item>Radial forces are equal</Item>
+
+</Itemize>
+
+<DisplayEquation equation="F_{g,t} = F_{w,a} = F_n \\cos \\phi_n \\cos \\lambda - f F_n \\sin \\lambda" title="" />
+
+
+<DisplayEquation equation="F_{w,t} = F_{g,a} = F_n \\cos \\phi_n \\sin \\lambda - f F_n \\cos \\lambda" title="" />
+
+
+<DisplayEquation equation="F_{g,r} = F_{w,r} = F_n \\sin \\phi_n" title="" />
+
+
+<DisplayEquation equation="F_{g,r} = F_{g,t} \\frac{\\sin \\phi_n}{\\cos \\phi_n \\cos \\lambda - f \\sin \\lambda}" title="" />
+
+
+<DisplayEquation equation="F_{w,r} = F_{w,t} \\frac{\\sin \\phi_n}{\\cos \\phi_n \\sin \\lambda + f \\cos \\lambda}" title="" />
+
+<p>where <InlineEquation equation="\\lambda" /> is the lead angle.</p>
+</SubSubSubSection>
+<SubSubSubSection title="Worm Gear Efficiency" id="Worm Gear Efficiency">
+<p>Worm gears have lower efficiency due to sliding contact between surfaces.</p>
+<p>Efficiency depends on lead angle <InlineEquation equation="\\lambda" /> and friction:</p>
+<Itemize>
+
+    <Item>Larger <InlineEquation equation="\\lambda" /> <InlineEquation equation="\\rightarrow" /> higher efficiency</Item>
+    <Item>Smaller <InlineEquation equation="\\lambda" /> <InlineEquation equation="\\rightarrow" /> more self-locking but lower efficiency</Item>
+
+</Itemize>
+<p>Efficiency can be expressed (from lecture notes) as a function of geometry and friction:</p>
+
+<p><DisplayEquation equation="e = \\frac{F_{g,t} V_g}{F_{w,t} V_w}</p>
+<p>= \\frac{\\cos \\phi_n \\cos \\lambda - f \\sin \\lambda}{\\cos \\phi_n \\sin \\lambda + f \\cos \\lambda} \\tan \\lambda" title="" /></p>
+
+
+<DisplayEquation equation="e = \\frac{\\cos \\phi_n - f \\tan \\lambda}{\\cos \\phi_n + f \\cot \\lambda}" title="" />
+
+<p>Efficiency decreases as friction increases and increases with lead angle.</p>
+<p>Typical efficiencies range from 50\</p>
+<p>Self-locking occurs when friction is high enough that the gear cannot drive the worm.</p>
+
+</SubSubSubSection>
+</Layout>
