@@ -16,7 +16,7 @@ const { id, title, remove_button="False"} = Astro.props;
         <div id={'warning_'+id} class='overflow-hidden d-flex flex-row align-items-center'>
             <button class={remove_button != "False" ? "btn btn-secondary d-none fw-bold" : "btn btn-secondary fw-bold"} id={'warning_btn_'+id}>+</button>
             <div class={remove_button != "False" ? `p-2` : 'px-2'}>
-                <span set:html={"<strong>Warning:</strong> " + title}></span>{<small>{` #${id}`}</small>}
+                <span set:html={"<strong>Warning:</strong> " + title}></span>
             </div>
         </div>
         
