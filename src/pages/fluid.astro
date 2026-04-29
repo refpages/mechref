@@ -1,0 +1,79 @@
+---
+import Layout from "../layouts/CourseMenuLayout.astro"
+import Section from "../components/Section.astro"
+import SubSection from "../components/SubSection.astro"
+import Image from "../components/Image.astro"
+
+import "../../public/static/css/course_home_pages.css"
+---
+
+<style>
+       h2 {
+              font-weight: 700;
+              letter-spacing: -0.7px;
+       }
+       .small-img {
+              width: 120px;
+              height: 120px;
+       }
+       .border-orange {
+              border: 6px solid #C84113;
+       }
+       .border-blue {
+
+               border: 6px solid #13294B;
+
+       }
+
+</style>
+
+<Layout title="Fluid Mechanics">
+  <h1>
+    <strong>Fluid Mechanics</strong>
+  </h1>
+  <section class="mt-sm-4 mt-2">
+    <ol>
+      <li><a href="/fluid/introduction?origin=coursemenu">Introduction to Incompressible Flow</a></li>
+      <li><a href="/fluid/statics?origin=coursemenu">Fluid Statics</a></li>
+      <li><a href="/fluid/foundations?origin=coursemenu">Foundational Principles in Fluid Dynamics</a></li>
+    </ol>
+  </section>
+
+  <div style="height:40px"></div>
+
+  <h2 class="site-title">Faculty Authors:</h2>
+  <div style="height:10px"></div>
+
+  <div>
+      <ul class="list-unstyled d-flex flex-wrap text-center mb-1 ml-4">
+              <li class="me-4 text-center">
+                    <a href="https://mechse.illinois.edu/people/profile/ewoldt">
+                    <img class="border-orange small-img rounded-circle" src="https://ws.engr.illinois.edu/directory/viewphoto.aspx?photo=19203&s=300" />
+                    </a>
+                    <h2 style="font-size:20px" class="site-title mt-2">Randy Ewoldt</h2>
+              </li>
+              <li class="me-5 text-center">
+                    <a href="https://grainger.illinois.edu/about/directory/faculty/wandke2">
+                    <img class="border-orange small-img rounded-circle" src="https://ws.engr.illinois.edu/directory/viewphoto.aspx?photo=19440&s=300" />
+                    </a>
+                    <h2 style="font-size:20px" class="site-title mt-2">Kevin Wandke</h2>
+              </li>
+      </ul>
+  </div>
+  <div style="height:30px"></div>
+
+    <div>
+    <h2 style="font-size:25px" class="site-title"> Student Authors: </h2>
+    <ul>
+      <li> <h2 style="font-size:20px;" class="site-title">Andy Baumgart</h2> </li>
+    </ul>
+  </div>
+
+  <section class="mt-sm-4 mt-2">
+    <h3 class="fw-bold w-100">Helpful links:</h3>
+    <ul>
+      <li><a href="/about/reference_pages_tutorial">Reference pages tutorial</a></li>
+    </ul>
+  </section>
+</div>
+</Layout>

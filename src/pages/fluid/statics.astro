@@ -1,0 +1,314 @@
+---
+import Layout from "../../layouts/Layout.astro"
+import Image from "../../components/Image.astro"
+import Section from "../../components/Section.astro"
+import SubSection from "../../components/SubSection.astro"
+import SubSubSection from "../../components/SubSubSection.astro"
+import SubSubSubSection from "../../components/SubSubSubSection.astro"
+import CalloutContainer from "../../components/CalloutContainer.astro"
+import OrangeText from "../../components/OrangeText.astro"
+import TealText from "../../components/TealText.astro"
+import Enumerate from "../../components/Enumerate.astro"
+import Item from "../../components/Item.astro"
+import Itemize from "../../components/Itemize.astro"
+import InlineEquation from "../../components/InlineEquation.astro"
+import DisplayEquation from "../../components/DisplayEquation.astro"
+---
+<Layout title="Fluid Statics">
+    <div slot="navtree">
+        <ul class="list-group list-group-flush py-0">
+                <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Introduction'>Introduction</a></li>
+                <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Understanding Pressure'>Understanding Pressure</a></li>
+                <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Pressure References and Measurement of Pressure'>Pressure References and Measurement of Pressure</a></li>
+                <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Hydrostatic Forces'>Hydrostatic Forces</a></li>
+                <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Buoyancy'>Buoyancy</a></li>
+        </ul>
+    </div>
+
+    <SubSection title="Introduction" id="Introduction">
+    <p>In general, the study of fluids can be broken down into fluid statics and fluid dynamics. Fluid statics refers to the subset of fluid problems wherein a fluid is at rest or, at least, there is no relative motion between adjacent particles or fluid layers. Under these conditions, shearing stresses are absent and pressure is the dominant and often the only relevant force acting on the surface of a given fluid particle. Analyzing static fluid systems is typically a much simpler task than their dynamic counterparts; however, it remains essential to understand many real-world systems or phenomena.</p>
+    <p>In studying the static behavior or conditions of a fluid, a major focus is quantifying how pressure varies within a fluid due to external forces, most commonly gravity. This leads to key concepts such as hydrostatic pressure variation, pressure forces on submerged surfaces, and buoyancy among others. These principles form the foundation for applications ranging from hydraulic systems and dams to atmospheric pressure and manometry to the design of ships or floating structures.</p>
+    </SubSection>
+    <SubSection title="Understanding Pressure" id="Understanding Pressure">
+    </SubSection>
+        <SubSubSection title="Pascal's Law" >
+        <p>Again, pressure is a type of normal stress that acts perpendicular to any surface in a fluid, be it real or imaginary. We can define pressure at a point through which the plane under consideration passes through; however, we must understand how the pressure at this point changes with respect to the orientation of the plane passing through it.</p>
+        <p>By considering a particle of fluid with pressure forces acting at each face with a finite weight, it can be shown that as the dimensions of this particle become small (the volume limits to a point), the pressure forces acting on each face must be equal. This result belies a more general conclusion known as Pascal's Law:</p>
+        <em>The pressure force acting at a given point in a fluid at rest or in motion but devoid of any shearing forces does not depend on direction</em>
+        <p>This means that for a static fluid, a single value  characterizes the pressure at a point at the corner of a tank, which is in contact with two sides of the tank oriented at different directions. Again, the independence of pressure at a point with respect to direction is only valid if shear stresses are not present.</p>
+        </SubSubSection>
+        <SubSubSection title="Pressure Variation Between Points">
+            <p>Next, it is important to understand the variation in pressure within a fluid, that is, to understand how pressure changes from one point to another. Invoking the "Big Idea of Fluid Mechanics" covered  in Chapter 1, the dominant forces acting on a static fluid body are typically gravity and pressure forces alone. Again, by considering a particle of fluid affected only by gravity and pressure forces and and completing a force balance, it can be shown that the general equation of motion is given by:</p>
+
+            <DisplayEquation equation="-\\nabla p - \\rho g\\hat{k} = \\rho \\mathbf{a}" title="" />
+
+            <p>This equation represents a balance of pressure and body forces on a fluid element. Recall that the 'del' or gradient operator is defined as:</p>
+
+            <DisplayEquation equation="\\nabla = \\frac{\\partial}{\\partial x}\\hat{i} + \\frac{\\partial}{\\partial y}\\hat{j} + \\frac{\\partial}{\\partial z}\\hat{k}" title="" />
+
+            <p>and <InlineEquation equation="\\nabla p" /> denotes the spatial rate of change (gradient) of pressure. Note that in this general form, this is a vector equation where gravity acts in the  <InlineEquation equation="- \\hat{k}" />  direction.</p>
+            <p>For a fluid truly at rest <InlineEquation equation="\\mathbf{a} = 0" /> so that</p>
+
+            <DisplayEquation equation="\\nabla p = -\\rho g \\hat{k}" title="" />
+
+            <p>which implies that</p>
+
+            <DisplayEquation equation="\\frac{\\partial p}{\\partial x} = 0, \\frac{\\partial p}{\\partial y} = 0, \\frac{\\partial p}{\\partial z} = -\\rho g" title="" />
+
+            <p>This is the critical relationship that describes the pressure variation in a fluid at rest. Note here that the pressure does in a fluid at rest does not change in directions that are perpendicular to gravity ( in the x-y plane in this case). Instead, the pressure variation within a fluid depends only on its depth, that is, pressure increases as one moves deeper in a fluid and decreases as one moves upward in the resting fluid.</p>
+            <p>Integrate the governing equation to arrive at an expression for pressure as a function of position in a fluid. Note that the expression <InlineEquation equation="\\rho g" /> need not be constant; however gravity can be assumed constant in many cases and density constant for incompressible fluids like water. After integrating we arrive at:</p>
+
+            <DisplayEquation equation="p(z) = p_0 - \\rho g (z - z_0)" title="" />
+
+            <p>where:</p>
+            <Itemize>
+
+                <Item><InlineEquation equation="p(z)" /> = pressure at elevation <InlineEquation equation="z" /></Item>
+                <Item><InlineEquation equation="p_0" /> = pressure at reference elevation <InlineEquation equation="z_0" /></Item>
+                <Item><InlineEquation equation="\\rho" /> = fluid density</Item>
+                <Item><InlineEquation equation="g" /> = gravitational acceleration</Item>
+                <Item><InlineEquation equation="z" /> = vertical coordinate (positive upward)</Item>
+
+            </Itemize>
+            <p>Conceptually, this equation expresses the fact that the pressure in a fluid necessarily increases with depth to support the increasingly heavy column of fluid above it. For a given working fluid, this also means that pressure difference can be conveniently expressed in terms of the height of a fluid column that it could support. The value of the height of this fluid column is then referred to as the pressure head:</p>
+
+            <DisplayEquation equation="h = \\frac{p - p_0}{\\rho g}" title="" />
+
+            <p>It is extremely common to see changes in pressure, even under conditions that are not hydrostatic, expressed as pressure head with length dimensions. Many pump pressure differentials, for instance, are quoted in terms of head. In most cases, the working fluid that defines a given pressure head measurement is water; however any working fluid of known density could be used in principle.</p>
+        </SubSubSection>
+        <SubSubSection title="Bottom Line">
+            <p>The main conclusion of this hydrostatic analysis is to show that for a fluid at rest, the pressure distribution is a sole function of the vertical coordinate with respect to gravity. This can produce results that initially may seem intuitive, such as the fact that the pressure at same depths of differently shaped containers with identical fluids are the same as shown below.</p>
+        </SubSubSection>
+    <SubSection title="Pressure References and Measurement of Pressure" id="Pressure References and Measurement of Pressure">
+    </SubSection>
+        <SubSubSection title="Pressure References">
+        <p>When accounting for a generic pressure measurement, a few different reference levels are common:</p>
+        <Itemize>
+
+            <Item><strong>Absolute pressure</strong> (<InlineEquation equation="p_{\\text{abs}}" />): measured relative to a perfect vacuum (zero pressure).</Item>
+            <Item><strong>Gage pressure</strong> (<InlineEquation equation="p_{\\text{gage}}" />): measured relative to the local atmospheric pressure. </Item>
+
+        </Itemize>
+        <p>The relationship between them is:</p>
+
+        <DisplayEquation equation="p_{\\text{abs}} = p_{\\text{gage}} + p_{\\text{atm}}" title="" />
+
+        <p>Gage pressure is most commonly used in engineering applications since many instruments read pressure relative to atmospheric conditions. Absolute pressure is required when vacuum conditions or thermodynamic relations are involved. Note that in many cases, pressure differentials, as opposed to single pressure values, are what affect system performance, in which case either reference system can be used in calculations.</p>
+        </SubSubSection>
+        <SubSubSection title="Manometry">
+            <p>Manometers are a class of devices that leverage the principles of hydrostatics to measure pressure, inferring it from the height of a column of a fluid.  There are various types of manometers of varying degrees of complexity and precision; however, they all follow the same general principle. By expressing an unknown pressure in terms of a known reference pressure and the height of a working fluid column, an unknown pressure or a pressure differential can be accurately quantified.</p>
+        </SubSubSection>
+            <SubSubSubSection title="Simple U-Tube Manometer">
+                <p>For a manometer with a single working fluid:</p>
+
+                <DisplayEquation equation="\\Delta p = \\rho g \\Delta h" title="" />
+
+                <p>where <InlineEquation equation="\\Delta h" /> is the vertical height difference between the two columns.</p>
+
+                <Image src='/fluid/statics/singlefluidutube.png' width='7'> </Image>
+            </SubSubSubSection>
+            <SubSubSubSection title="Differential Manometer (Multiple Fluids)">
+            <p>When multiple fluids are present, sum contributions from each segment:</p>
+
+            <DisplayEquation equation="p_A - p_B = \\sum_i \\rho_i g \\, \\Delta h_i" title="" />
+
+            <p>Each term corresponds to a fluid column with density <InlineEquation equation="\\rho_i" /> and height change <InlineEquation equation="\\Delta h_i" />.</p>
+
+                <Image src='/fluid/statics/differentialutub.png' width='7'> </Image>
+        </SubSubSubSection>
+            <SubSubSubSection title="Inclined Manometer">
+            <p>For improved sensitivity an inclined manometer can be used. For inclined manometers, small pressure differences can translate to sizable changes in the length <InlineEquation equation="L" /> of a working fluid which improves the resolution of the device. Inclined manometers are frequently used to compare pressure differences between gases. Under these conditions, if the manometric fluid is a liquid, it is often reasonable to neglect the hydrostatic effects of the gas and use only the manometric fluid level as a proxy for pressure difference.</p>
+
+            <DisplayEquation equation="\\Delta p = \\rho g (L \\sin \\theta)" title="" />
+
+            <p>where <InlineEquation equation="L" /> is the length along the incline and <InlineEquation equation="\\theta" /> is the angle.</p>
+
+                <Image src='/fluid/statics/inclinedmanometer.png' width='7'>Inclined manometer measuring the pressure differential of two gases </Image>
+
+            <p>Recall</p>
+            <Itemize>
+
+                <Item>Only <strong>vertical height differences</strong> matter (not path shape)</Item>
+                <Item>Always track <strong>signs carefully</strong> when moving up/down</Item>
+                <Item>Use <strong>consistent datum/reference level</strong></Item>
+                <Item>Pressure at the same horizontal level in the same fluid is equal</Item>
+
+            </Itemize>
+            </SubSubSubSection>
+            <SubSubSubSection title="General Relation for Manometry">
+            <p>For any connected static fluid system, pressure changes can be found by moving vertically through the fluid:</p>
+
+            <DisplayEquation equation="p_2 = p_1 + \\sum (\\rho g \\, \\Delta h)" title="" />
+
+            <strong>Rule:</strong>
+            <Itemize>
+
+                <Item>Moving <strong>downward</strong> in a fluid: add <InlineEquation equation="+\\rho g \\Delta h" /></Item>
+                <Item>Moving <strong>upward</strong> in a fluid: subtract <InlineEquation equation="-\\rho g \\Delta h" /></Item>
+                <Item>Pressure is <strong>continuous across interfaces</strong></Item>
+
+            </Itemize>
+            </SubSubSubSection>
+    <SubSection title="Hydrostatic Forces" id="Hydrostatic Forces">
+    <p>An important component of hydrostatics is computing the forces and locations of forces acting on surfaces that are submerged in a fluid. Intuitively, these forces will depend on the nature of the fluid, namely its density, the depth that the surface is submerged and the overall shape of the surface. In general, it is useful to calculate the magnitude and orientation of the resultant force acting on a submerged surface and the center of pressure, that is, the point through which the resultant force acts.</p>
+    </SubSection>
+        <SubSubSection title="Planar Surfaces">
+        <p>A <strong>planar surface</strong> is a flat, two-dimensional surface with no curvature. In fluid statics, pressure acts normal to the surface and varies with depth, but the surface itself lies entirely in a single plane.</p>
+        </SubSubSection>
+            <SubSubSubSection title="Resultant Force">
+            <p>The total hydrostatic force on a plane surface is:</p>
+
+            <DisplayEquation equation="F_R = \\int_A p \\, dA" title="" />
+
+            <p>For a plane surface in an incompressible fluid:</p>
+
+            <DisplayEquation equation="F_R = \\rho g h_c A" title="" />
+
+            <p>where:</p>
+            <Itemize>
+
+                <Item><InlineEquation equation="A" /> = area of the surface</Item>
+                <Item><InlineEquation equation="h_c" /> = vertical depth of the centroid below the free surface</Item>
+                <Item><InlineEquation equation="\\rho" /> = fluid density</Item>
+                <Item><InlineEquation equation="g" /> = gravitational acceleration</Item>
+
+            </Itemize>
+
+                <Image src='/fluid/statics/hydrostaticonplane.png' width='7'>Hydrostatic analysis reference for planar surface </Image>
+            </SubSubSubSection>
+            <SubSubSubSection title="Center of Pressure">
+            <p>The line of action of the resultant force acts at the <strong>center of pressure</strong>. The location of the center of pressure on the planar surface of interest can be found with the following equations:</p>
+
+            <DisplayEquation equation="y_p = y_c + \\frac{I_{xc}}{y_c A}" title="" />
+
+            <p>where:</p>
+            <Itemize>
+
+                <Item><InlineEquation equation="y_p" /> = depth of center of pressure</Item>
+                <Item><InlineEquation equation="I_{xc}" /> = second moment of area about the centroidal axis (parallel to free surface)</Item>
+
+            </Itemize>
+
+            <DisplayEquation equation="x_p = x_c + \\frac{I_{xy,c}}{y_c A}" title="" />
+
+            <p>where <InlineEquation equation="x_p" /> is the horizontal coordinate of the center of pressure, <InlineEquation equation="x_c, y_c" /> are centroid coordinates, <InlineEquation equation="A" /> is the area, and <InlineEquation equation="I_{xy,c}" /> is the product of inertia about centroidal axes.</p>
+            <p>Critically, see how the center of pressure is always below or deeper than the centroid of the planar surface since  <InlineEquation equation="\\frac{I_{xc}}{y_c A}" /> is always positive. With increasing depth, however, this difference becomes smaller. Bear in mind also that the  product of the inertia, <InlineEquation equation="I_{xy,c}" />, will be zero if the submerged surface is symmetric about any axis passing through its centroid that is parallel to the x or y axes. This means that for symmetric shapes, the center of pressure will have an x-coordinate that coincides with the centroid.</p>
+            <p>In general, when performing hydrostatic analysis on planar surfaces it is helpful to keep the following in mind:</p>
+            <Itemize>
+
+                <Item>Resultant force equals pressure at centroid times area</Item>
+                <Item>Force always acts <strong>normal to the surface</strong></Item>
+                <Item>Center of pressure is always <strong>below the centroid</strong></Item>
+                <Item>Depth must be measured <strong>vertically</strong></Item>
+
+            </Itemize>
+            <p>The following is a short visual of second moments of area with respect to coordinate axes and templates for finding the centroids of common planar shapes.</p>
+                <Image src='/fluid/statics/geometricmomentsofarea.png' width='7'>Second moments of area and centroid locations for common shapes </Image>
+            </SubSubSubSection>
+        <SubSubSection title="Curved Surfaces">
+        <p>For curved surfaces, pressure forces act normal to the surface and vary with depth. Instead of integrating directly, which for curved surfaces can be especially cumbersome, the resultant force of the fluid on the surface can be found by conducting an equilibrium analysis on the fluid in contact with the curved surface itself.</p>
+
+            <Image src='/fluid/statics/curvedsurface.png' width='7'>Equilibrium analysis on control volume at curved surface </Image>
+        </SubSubSection>
+            <SubSubSubSection title="Horizontal Component">
+            <p>The horizontal force equals the hydrostatic force on the <strong>vertical projection</strong> of the surface:</p>
+
+            <DisplayEquation equation="F_H = \\rho g h_c A_v = F_H'" title="" />
+
+            <p>where:</p>
+            <Itemize>
+
+                <Item><InlineEquation equation="A_v" /> = vertical projected area</Item>
+                <Item><InlineEquation equation="h_c" /> = depth of centroid of the projected area</Item>
+
+            </Itemize>
+            <p>The line of action passes through the <strong>center of pressure</strong> of the projected area.</p>
+            </SubSubSubSection>
+            <SubSubSubSection title="Vertical Component">
+            <p>The vertical force equals the sum of <strong>weight of the fluid in this control volume and the pressure force acting in the vertical direction on the control volume</strong>:</p>
+
+            <DisplayEquation equation="F_V = \\rho g V + F_V'" title="" />
+
+            <p>where:</p>
+            <Itemize>
+
+                <Item><InlineEquation equation="V" /> = volume of fluid directly above the curved surface</Item>
+
+            </Itemize>
+            <p>Direction:</p>
+            <Itemize>
+
+                <Item>Upward if fluid is below the surface</Item>
+                <Item>Downward if fluid is above the surface</Item>
+
+            </Itemize>
+            </SubSubSubSection>
+            <SubSubSubSection title="Resultant Force">
+            <p>Recall that in this equilibrium analysis, the water volume was considered so that the reaction force acted upon the water. The resultant force of the water on the curved surface, therefore, will be equal in magnitude but opposite in sense. The total force is found from components:</p>
+
+            <DisplayEquation equation="F_R = \\sqrt{F_H^2 + F_V^2}" title="" />
+
+            <p>and acts at an angle:</p>
+
+            <DisplayEquation equation="\\theta = \\tan^{-1}\\left(\\frac{F_V}{F_H}\\right)" title="" />
+
+            <p>This derivation for a curved surface is not general. Expressions may differ for surfaces of different shapes or orientations; however, applying Newton's 2nd Law allows the resultant force to be calculated, so long as pressure forces acting on a control volume of water can be calculated. For curved surfaces it is helpful to keep in mind:</p>
+            <Itemize>
+
+                <Item>Break curved surface problems into <strong>horizontal and vertical components</strong></Item>
+                <Item>Horizontal force acts on <strong>projected area</strong></Item>
+                <Item>Vertical force equals <strong>weight of fluid above</strong></Item>
+                <Item>Resultant force found via vector addition</Item>
+
+            </Itemize>
+            </SubSubSubSection>
+    <SubSection title="Buoyancy" id="Buoyancy">
+        <p>Buoyancy refers to the net force experienced by an object that is submerged or partially submerged in a fluid due to that fluid. It arises due to variation of pressure with depth a fluid. Since pressure increases with depth, a submerged body experiences a net upward force.</p>
+    </SubSection>
+        <SubSubSection title="Buoyant Force">
+        <p>The buoyant force is equal to the weight of the fluid displaced by the body:</p>
+
+        <DisplayEquation equation="F_B = \\rho_f g V_{\\text{disp}}" title="" />
+
+        <p>where:</p>
+        <Itemize>
+
+            <Item><InlineEquation equation="F_B" /> = buoyant force</Item>
+            <Item><InlineEquation equation="\\rho_f" /> = fluid density</Item>
+            <Item><InlineEquation equation="V_{\\text{disp}}" /> = volume of fluid displaced</Item>
+
+        </Itemize>
+        <p>This is known as <strong>Archimedes' Principle.</strong></p>
+
+            <Image src='/fluid/statics/buoyacy.png' width='7'>Buoyant force acting on a submerged sphere </Image>
+
+        <p>Note that the relevant volume for Archimedes' Principle is the volume of displaced <strong>fluid</strong>. This explains how objects one might expect to sink actually float like a concrete canoe or a large steel battleship. These objects displace an amount of fluid that weighs more than they do; they are hollowed out to achieve this. It's also useful to think of buoyancy in terms of average density; the average density of a ship due to its mostly air-filled interior, is smaller than that of water, so it floats.</p>
+    </SubSubSection>
+        <SubSubSection title="Line of Action (Center of Buoyancy)">
+            <p>The buoyant force acts through the <strong>center of buoyancy</strong>, which is the centroid of the displaced fluid volume.</p>
+        </SubSubSection>
+        <SubSubSection title="Floating vs Submerged Bodies" id="Floating vs Submerged Bodies">
+                <strong>Fully submerged:</strong>
+                <Itemize>
+
+                    <Item><InlineEquation equation="V_{\\text{disp}} = V_{\\text{body}}" /></Item>
+                    <Item>Buoyant force depends only on fluid properties and body volume</Item>
+
+                </Itemize>
+                <strong>Floating:</strong>
+                <Itemize>
+
+                    <Item>Body adjusts until forces balance:</Item>
+
+                    <DisplayEquation equation="F_B = W" title="" />
+
+                    <Item>Only a portion of the body is submerged</Item>
+                    <Item>Displaced volume determined by weight:</Item>
+
+                    <DisplayEquation equation="\\rho_f g V_{\\text{disp}} = mg" title="" />
+
+
+                </Itemize>
+        </SubSubSection>
+
+</Layout>

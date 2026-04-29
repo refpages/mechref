@@ -1,0 +1,397 @@
+---
+import Layout from "../../layouts/Layout.astro"
+import Image from "../../components/Image.astro"
+import CalloutContainer from "../../components/CalloutContainer.astro"
+import Section from "../../components/Section.astro"
+import SubSection from "../../components/SubSection.astro"
+import SubSubSection from "../../components/SubSubSection.astro"
+import SubSubSubSection from "../../components/SubSubSubSection.astro"
+import OrangeText from "../../components/OrangeText.astro"
+import TealText from "../../components/TealText.astro"
+import Enumerate from "../../components/Enumerate.astro"
+import Item from "../../components/Item.astro"
+import Itemize from "../../components/Itemize.astro"
+import InlineEquation from "../../components/InlineEquation.astro"
+import DisplayEquation from "../../components/DisplayEquation.astro"
+import DisplayTable from "../../components/DisplayTable.astro"
+---
+<Layout title="An Introduction to Incompressible Flow">
+    <div slot="navtree">
+        <ul class="list-group list-group-flush py-0">
+            <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Introduction'>Introduction</a></li>
+            <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Defining a Fluid'>Defining a Fluid</a></li>
+            <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#The Big Idea of Fluid Mechanics'>The Big Idea of Fluid Mechanics</a></li>
+            <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Key Forces in Fluid Mechanics'>Key Forces in Fluid Mechanics</a></li>
+            <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Inertial vs Viscous Flows'>Inertial vs Viscous Flows</a></li>
+            <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Units and Reference Magnitudes'>Units and Reference Magnitudes</a></li>
+            <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Assuming Incompressibility'>Assuming Incompressibility</a></li>
+        </ul>
+    </div>
+        <SubSection title="Introduction" id="Introduction">
+            <p>Fluid mechanics is a branch of physics that studies the behavior and properties of liquids and gases, which may be either at rest or in motion. The behavior of fluids underlies phenomena that range from the  flow of blood in arteries to flying aircraft to the raging waves and winds of hurricanes. The ubiquity of fluid systems in nature and everyday life make it necessary for engineers to become a proficient in designing and analyzing fluid systems. In the same vein, a robust foundation in fluid mechanics is essential for a number of adjacent fields in physics and mechanical engineering including thermodynamics and heat transfer. In total, by understanding how fluids respond to forces or interact with their surroundings, engineers are able to leverage them to create useful systems in fields like transportation, energy, environmental science and more.</p>
+
+            <Image src='/fluid/Intro/hurricane.png' width='7'>A hurricane is an example of a large fluid system. It governed by the
+                same physical laws as water flowing through a pipe. </Image>
+
+            <p>These reference pages overview the core principles of fluid flow, specifically constant density or incompressible flow as is commonly covered in an introductory undergraduate engineering course. At the same time, these pages will provide a convenient bank of reference material, including equations, diagrams and charts that may be useful for a professional engineer working with a fluid system.</p>
+        </SubSection>
+        <SubSection title="Defining a Fluid" id="Defining a Fluid">
+            <p>The study of fluid mechanics necessarily begins with defining what actually qualifies as a fluid. In common terms, a fluid refers to  both liquids and gases while excluding solids. Relative to solids, fluids contain comparatively weaker intermolecular forces and larger intermolecular spacing between their constituent molecules. Fluids are therefore easier to deform or compel to flow through interactions with their surroundings and containers.</p>
+            <p>This intuitive definition can be replaced by a more precise and useful definition of a fluid a follows:</p>
+
+            <p><strong>A fluid is a substance which deforms continuously under the action of an applied shear stress, however small. </strong></p>
+
+            <p>A shear stress is formed when a force acts tangent to or along the face of a surface. Under the effect of this stress, a solid generally deforms a finite amount whereas a fluid will continue to deform. In aggregate, this continuous deformation leads to the flow of a fluid or gas. While all fluids flow, the parameters of that flow can vary immensely depending on the properties of the fluid.</p>
+        </SubSection>
+            <SubSubSection title="The Big Idea of Fluid Mechanics" id="The Big Idea of Fluid Mechanics">
+            <p>When learning about fluids, it is essential to remember that most practical flows - which include most fluids and length and time scales an engineer could encounter - are governed by the same overarching physical laws as solids. Specifically, Newton's laws of motion, alongside the conservation of mass, momentum, and energy can be used to analyze or predict the behavior of entire fluid systems. In this way, learning about fluid mechanics is usually concerned with identifying the analogous forces and physical quantities for fluids as are used for solid mechanics.</p>
+
+                <Image src='/fluid/Intro/bigidea.png' width='7'>The Big Idea of Fluid Mechanics states that analyzing fluid systems
+                    is usually just a reframing of Newtonian mechanics (attribution: Prof. Randy H. Ewoldt)</Image>
+
+            <p>A good mnemonic that exemplifies this idea is the "Big Idea of Fluid Mechanics" as shown above. Most fluids problems can be solved by applying Newton's 2nd law. For fluids, one or a combination of four forces usually act on a fluid in an unbalanced manner to produce acceleration or they can balance to keep a fluid system static. These forces include, pressure, gravity, viscosity and surface tension. Such forces work to deform or accelerate a fluid in proportion to its inertia, its tendency to resist changes in motion. Inertia is represented in most equations in fluid mechanics with terms involving fluid density, <InlineEquation equation="\\rho" /> (analogous to the standard mass often found in for solid mechanics) and its velocity.</p>
+            </SubSubSection>
+
+        <SubSection title="Key Forces in Fluid Mechanics" id="Key Forces in Fluid Mechanics">
+        </SubSection>
+            <SubSubSection title="Pressure">
+                <p>Pressure is the force per unit area exerted by the fluid. It acts perpendicular to any surface in a fluid field (real or imaginary) and drives fluid motion from high to low pressure regions.</p>
+                <Image src='/fluid/Intro/sink.png' width='7'>Flow from a faucet is driven by the water pressure inside a home’s
+                    plumbing system </Image>
+            </SubSubSection>
+
+                <SubSubSection title="Gravity">
+                <p>Gravity is the body force acting on the fluid due to its mass. It is responsible for buoyancy and hydrostatic pressure, and is crucial in flows like rivers, oceans, or atmospheric phenomena.</p>
+                    <Image src='/fluid/Intro/waterfall.png' width='7'>A waterfall exhibits flow primarily driven by gravity </Image>
+                </SubSubSection>
+                <SubSubSection title="Viscosity">
+                <p>Viscosity represents the internal friction of the fluid. It resists relative motion between fluid layers, dissipates kinetic energy as heat, and often determines whether a  flow is laminar (highly smooth) or turbulent (chaotic).</p>
+                    <Image src='/fluid/Intro/syrup.png' width='7'>Viscous forces are prevalent in "thick" fluids like syrup or honey</Image>
+                    </SubSubSection>
+                <SubSubSection title="Surface Tension">
+                <p>Surface tension arises from molecular forces at the interface of two immiscible fluids or a fluid and a solid. It acts to minimize surface area and governs droplet formation, capillary rise and many is usually important for fluid phenomena with small length scales.</p>
+                    <Image src='/fluid/Intro/water-drops-on-thin-branch.jpg' width='7'>Water droplets hold there shape through surface tension, minimizing exposed surface area</Image>
+                <p>
+
+                </p>
+                    <strong>More details about these relevant forces and their associated equations can be found in in subsequent modules, especially <a href="/fluid/statics">Module 2</a>.</strong>
+                </SubSubSection>
+
+
+            <SubSection title="Inertial vs Viscous Flows" id="Inertial vs Viscous Flows">
+                <p>The behavior of a fluid is usually dependent on whether the forces acting within the fluid system are primarily inertial or viscous in character. Inertia refers to a fluids' momentum and its tendency to resist changes in its motion. When a swimmer pushes through the water to propel themselves forward, they are able to do so because of the inertia of the fluid, its resistance to a change in momentum. By Newton's third law, an equal and opposite force is exerted on the swimmer and they move forward.</p>
+                <p>In contrast, imagine swirling a spoon through a thick syrup. Such a fluid can be called highly viscous; it is mainly difficult to move or flow because of the internal friction between adjacent layers of fluid, which limit relative motion as opposed to the inertia of the fluid.</p>
+                <p>Understanding when a flow is dominated by inertial or viscous forces can allow for simplifying assumptions or neglecting terms in governing fluid flow equations. As is covered in Module 5, there are quantitative ways to classify inertial and viscous flows such as using the Reynolds Number, but engineers should understand the qualitative differences in behavior between these two flow types.</p>
+            </SubSection>
+            <SubSection title="Units and Reference Magnitudes" id="Units and Reference Magnitudes">
+            </SubSection>
+                <SubSubSection title="Typical Unit Systems and Dimensions for Fluids Systems">
+                <p>As in any engineering calculation, it is important to understand the dimensions of a physical quantity, that is, the type of quantity that a given parameter or property is measuring. The fundamental dimensions are mass, length, time and temperature from other dimensions can be derived. Velocity for example has dimensions of length per unit time, a ratio between two fundamental dimensions.</p>
+                <p>Separately, engineers should be familiar with units, a standardized quantitative amount of a given physical quantity (a meter in length or a pound of mass as an example). Most fluid calculations are completed using the International System (SI), English Engineering (EE) or British Gravitational (BG) units. A valid physical equation should equate two quantities with the same physical dimensions and use a consistent set of units. The following table provides an overview of the dimensions and units for common fluid mechanics parameters. Helpful conversions can be found in Module 12.</p>
+
+                    <DisplayTable id="id" class_="mb-3">
+                        <thead>
+
+                        <tr>
+                            <th class="table-shaded"><strong>Quantity</strong></th>
+                            <th class="table-shaded"><strong>Symbol</strong></th>
+                            <th class="table-shaded"><strong>Dimensions</strong></th>
+                            <th class="table-shaded"><strong>SI Units</strong></th>
+                            <th class="table-shaded"><strong>English Units (EE / BG)</strong></th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td><strong>Length</strong></td>
+                            <td><InlineEquation equation="L" /></td>
+                            <td><InlineEquation equation="[L]" /></td>
+                            <td>m </td>
+                            <td>ft</td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>Time</strong></td>
+                            <td><InlineEquation equation="t" /></td>
+                            <td><InlineEquation equation="[T]" /></td>
+                            <td>s </td>
+                            <td>s</td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>Velocity</strong></td>
+                            <td><InlineEquation equation="V" /></td>
+                            <td><InlineEquation equation="[L T^{-1}]" /></td>
+                            <td>m/s  </td>
+                            <td>ft/s</td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>Acceleration</strong></td>
+                            <td><InlineEquation equation="a" /></td>
+                            <td><InlineEquation equation="[L T^{-2}]" /></td>
+                            <td>m/s<InlineEquation equation="^2" />  </td>
+                            <td>ft/s<InlineEquation equation="^2"/></td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>Force</strong></td>
+                            <td><InlineEquation equation="F" /></td>
+                            <td><InlineEquation equation="[M L T^{-2}]" /></td>
+                            <td>N  </td>
+                            <td>llbf</td>
+                        </tr>
+
+
+                        <tr>
+                            <td><strong>Mass</strong></td>
+                            <td><InlineEquation equation="m" /></td>
+                            <td><InlineEquation equation="[M]" /></td>
+                            <td>kg  </td>
+                            <td>lbm / slug</td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>Density</strong></td>
+                            <td><InlineEquation equation="\\rho" /></td>
+                            <td><InlineEquation equation="[M L^{-3}]" /></td>
+                            <td>kg/m<InlineEquation equation="^3" /> </td>
+                            <td>lbm/ft<InlineEquation equation="^3"/> / slug/ft<InlineEquation equation="^3" /> </td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>Specific weight</strong></td>
+                            <td><InlineEquation equation="\\gamma" /></td>
+                            <td><InlineEquation equation="[M L^{-2} T^{-2}]" /></td>
+                            <td>N/m<InlineEquation equation="^3" /></td>
+                            <td>lbf/ft<InlineEquation equation="^3" /> </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Pressure</strong></td>
+                            <td><InlineEquation equation="p" /></td>
+                            <td><InlineEquation equation="[M L^{-1} T^{-2}]" /></td>
+                            <td>Pa (N/m<InlineEquation equation="^2" />)</td>
+                            <td>lbf/ft<InlineEquation equation="^2" /> (psf), psi</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Dynamic viscosity</strong></td>
+                            <td><InlineEquation equation="\\mu" /></td>
+                            <td><InlineEquation equation="[M L^{-1} T^{-1}]" /></td>
+                            <td>Pa<InlineEquation equation="\\cdot" />s</td>
+                            <td>lbm/(ft·s) </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Kinematic viscosity</strong></td>
+                            <td><InlineEquation equation="\\nu" /></td>
+                            <td><InlineEquation equation="[L^2 T^{-1}]" /></td>
+                            <td>m<InlineEquation equation="^2" />/s </td>
+                            <td>ft<InlineEquation equation="^2" />/s</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Surface tension</strong></td>
+                            <td><InlineEquation equation="\\sigma" /></td>
+                            <td><InlineEquation equation="[M T^{-2}]" /></td>
+                            <td>N/m  </td>
+                            <td>lbf/ft</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Bulk modulus</strong></td>
+                            <td><InlineEquation equation="K" /></td>
+                            <td><InlineEquation equation="[M L^{-1} T^{-2}]" /></td>
+                            <td>Pa  </td>
+                            <td>psi</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Speed of sound</strong></td>
+                            <td><InlineEquation equation="c" /> </td>
+                            <td><InlineEquation equation="[L T^{-1}]" /></td>
+                            <td>m/s  </td>
+                            <td>ft/s </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Volumetric flow rate</strong></td>
+                            <td><InlineEquation equation="Q" /> </td>
+                            <td><InlineEquation equation="[L^3 T^{-1}]" /></td>
+                            <td>m<InlineEquation equation="^3" />/s </td>
+                            <td>ft<InlineEquation equation="^3" />/s  </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Mass flow rate</strong></td>
+                            <td><InlineEquation equation="\\dot{m}" /> </td>
+                            <td><InlineEquation equation="[M T^{-1}]" /></td>
+                            <td>kg/s</td>
+                            <td>lbm/s  </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Energy</strong></td>
+                            <td><InlineEquation equation="E" /> </td>
+                            <td><InlineEquation equation="[M L^2 T^{-2}]" /></td>
+                            <td>J </td>
+                            <td>ft·lbf  </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Power</strong></td>
+                            <td><InlineEquation equation="P" /> </td>
+                            <td><InlineEquation equation="[M L^2 T^{-3}]" /></td>
+                            <td>W </td>
+                            <td>hp, ft·lbf/s  </td>
+                        </tr>
+                        </tbody>
+                    </DisplayTable>
+                    <p>Key fluid mechanics quantities with dimensions and units in SI and English (Engineering and British Gravitational) systems.</p>
+
+                </SubSubSection>
+                <SubSubSection title="Magnitude References for Important Fluid Parameters">
+                    <p>When analyzing a physical fluid system or interpreting results of an engineering simulation, it is very helpful to have an intuition for the magnitude of important quantities of a fluid. The following table provides one such reference to help build familiarity. The reynolds number, <em>Re</em>, is a dimensionless parameter used to classify fluid flow and is explained in Module 5.</p>
+
+                    <DisplayTable id="id" class_="mb-3">
+                        <thead>
+
+                        <tr>
+                            <th class="table-shaded" style='width:9%'><strong>Flow Type</strong></th>
+                            <th class="table-shaded" style='width:15%'><strong>Velocity (m/s)</strong></th>
+                            <th class="table-shaded" style='width:16%'><strong>Length (m)</strong></th>
+                            <th class="table-shaded" style='width:15%'><strong>Density (kg/m<InlineEquation equation="^3" />)</strong></th>
+                            <th class="table-shaded" style='width:15%'><strong>Viscosity (Pa·s)</strong></th>
+                            <th class="table-shaded" style='width:15%'><strong>  <InlineEquation equation="\\boldsymbol{\\Delta P}" />(Pa)  </strong></th>
+                            <th class="table-shaded" style='width:15%'><strong>Re</strong></th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td><strong>Still air / natural convection</strong></td>
+                            <td><InlineEquation equation="10^{-4}" /><InlineEquation equation="10^{-2}" /></td>
+                            <td><InlineEquation equation="10^{-2}" />-<InlineEquation equation="1" /></td>
+                            <td><InlineEquation equation="\\sim1" /></td>
+                            <td><InlineEquation equation="10^{-5}" /></td>
+                            <td><InlineEquation equation="10^{-2}" />-<InlineEquation equation="1" /></td>
+                            <td><InlineEquation equation="<10^2" /></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Human-scale motion (walking, wind)</strong></td>
+                            <td><InlineEquation equation="0.1" />-<InlineEquation equation="10" /></td>
+                            <td><InlineEquation equation="1" /></td>
+                            <td><InlineEquation equation="\\sim1" /></td>
+                            <td><InlineEquation equation="10^{-5}" /></td>
+                            <td><InlineEquation equation="1" />-<InlineEquation equation="10^2" /></td>
+                            <td><InlineEquation equation="10^4" />-<InlineEquation equation="10^6" /></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Vehicle aerodynamics (cars)</strong></td>
+                            <td><InlineEquation equation="10" />-<InlineEquation equation="40" /></td>
+                            <td><InlineEquation equation="1" />-<InlineEquation equation="5" /></td>
+                            <td><InlineEquation equation="\\sim1" /></td>
+                            <td><InlineEquation equation="10^{-5}" /></td>
+                            <td><InlineEquation equation="10^2" />-<InlineEquation equation="10^3" /></td>
+                            <td><InlineEquation equation="10^6" />-<InlineEquation equation="10^7" /></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Aircraft (subsonic)</strong></td>
+                            <td><InlineEquation equation="100" />-<InlineEquation equation="300" /></td>
+                            <td><InlineEquation equation="10" />-<InlineEquation equation="50" /></td>
+                            <td><InlineEquation equation="0.3" />-<InlineEquation equation="1" /></td>
+                            <td><InlineEquation equation="10^{-5}" /></td>
+                            <td><InlineEquation equation="10^3" />-<InlineEquation equation="10^4" /></td>
+                            <td><InlineEquation equation="10^7" />-<InlineEquation equation="10^8" /></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Pipe flow (water, household/industrial)</strong></td>
+                            <td><InlineEquation equation="0.1" />-<InlineEquation equation="3" /></td>
+                            <td><InlineEquation equation="10^{-2}" />-<InlineEquation equation="1" /></td>
+                            <td><InlineEquation equation="0.3" />-<InlineEquation equation="1" /></td>
+                            <td><InlineEquation equation="10^{-3}" /></td>
+                            <td><InlineEquation equation="10^2" />-<InlineEquation equation="10^5" /></td>
+                            <td><InlineEquation equation="10^3" />-<InlineEquation equation="10^5" /></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Microfluidics</strong></td>
+                            <td><InlineEquation equation="10^{-6}" />-<InlineEquation equation="10^{-3}" /></td>
+                            <td><InlineEquation equation="10^{-6}" />-<InlineEquation equation="10^{-3}" /></td>
+                            <td><InlineEquation equation="10^3" /></td>
+                            <td><InlineEquation equation="10^{-3}" /></td>
+                            <td><InlineEquation equation="1" />-<InlineEquation equation="10^3" /></td>
+                            <td><InlineEquation equation="10^{-6}" />-<InlineEquation equation="1" /></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Biological flow (blood in arteries)</strong></td>
+                            <td><InlineEquation equation="0.1" />-<InlineEquation equation="1" /></td>
+                            <td><InlineEquation equation="10^{-3}" />-<InlineEquation equation="10^{-2}" /></td>
+                            <td><InlineEquation equation="\\sim10^3" /></td>
+                            <td><InlineEquation equation="10^{-3}" /></td>
+                            <td><InlineEquation equation="10^3" />-<InlineEquation equation="10^4" /></td>
+                            <td><InlineEquation equation="10^2" />-<InlineEquation equation="10^3" /></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Highly viscous flow (honey, oil)</strong></td>
+                            <td><InlineEquation equation="10^{-4}" />-<InlineEquation equation="10^{-1}" /></td>
+                            <td><InlineEquation equation="10^{-3}" />-<InlineEquation equation="10^{-1}" /></td>
+                            <td><InlineEquation equation="10^3" />-<InlineEquation equation="10^3" /></td>
+                            <td><InlineEquation equation="10^{-1}" />-<InlineEquation equation="10^1" /></td>
+                            <td><InlineEquation equation="10^2" />-<InlineEquation equation="10^5" /></td>
+                            <td><InlineEquation equation="<10" /></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Geophysical (rivers, atmosphere)</strong></td>
+                            <td><InlineEquation equation="0.1" />-<InlineEquation equation="10" /></td>
+                            <td><InlineEquation equation="10^1" />-<InlineEquation equation="10^6" /></td>
+                            <td><InlineEquation equation="1" />-<InlineEquation equation="10^3" /></td>
+                            <td><InlineEquation equation="10^{-5}" />-<InlineEquation equation="10^{-3}" /></td>
+                            <td><InlineEquation equation="10^2" />-<InlineEquation equation="10^5" /></td>
+                            <td><InlineEquation equation="10^6" />-<InlineEquation equation="10^{10}" /></td>
+                        </tr>
+                        </tbody>
+                    </DisplayTable>
+
+                    <p>Order-of-magnitude ranges for fluid flows, including characteristic driving pressure differences <InlineEquation equation="\\Delta P" /> and dynamic pressure <InlineEquation equation="\\frac{1}{2}\\rho V^2" />.</p>
+
+
+                    </SubSubSection>
+                    <SubSubSection title="Caution in Analyzing Dimensions">
+                        <p>Some physical quantities may have the same dimensions, this does not mean they measure the same quantity. Nevertheless, dimensions and units provide insight into how a physical quantity is defined and how it is relevant for a fluid system. Dimensions are also important for dimensional analysis, which is covered in Module 10.</p>
+                        <p>As an example, both <strong>pressure</strong> (<InlineEquation equation="p" />) and <strong> energy density</strong> (<InlineEquation equation="u" />) have the same physical dimensions, but they represent different physical concepts.</p>
+                        <p>Pressure is defined as force per unit area:</p>
+
+                        <DisplayEquation equation="p = \\frac{F}{A}" title="" />
+
+                        <p>Dimensionally, this is</p>
+
+                        <DisplayEquation equation="[p] = \\frac{[F]}{[L^2]} = \\frac{M L T^{-2}}{L^2} = M L^{-1} T^{-2}." title="" />
+
+                        <p>Energy density conversely is energy per unit volume:</p>
+
+                        <DisplayEquation equation="u = \\frac{E}{V}" title="" />
+
+                        <p>Dimensionally, this is</p>
+
+                        <DisplayEquation equation="[u] = \\frac{[E]}{[L^3]} = \\frac{M L^2 T^{-2}}{L^3} = M L^{-1} T^{-2}." title="" />
+
+                        <p>Although <InlineEquation equation="[p] = [u] = M L^{-1} T^{-2}" />, pressure describes a force distributed over an area, while energy density describes energy stored per unit volume. They are <strong>dimensionally equivalent but physically distinct quantities</strong></p>
+                    </SubSubSection>
+
+            <SubSection title="Assuming Incompressibility" id="Assuming Incompressibility">
+                <p>Introductory fluid mechanics is typically taught with the overriding assumption that the working fluid is incompressible, that is, its density (or specific volume), is constant.</p>
+
+                <p>As was already discussed, density is a proxy for the inertia of a fluid. For most common liquids, most notably water, the density of the fluid is a weak function of temperature and pressure. As a result, over a wide range of engineering conditions the density of liquids can be assumed to be constant without incurring significant error in calculations.</p>
+
+                <p>In contrast, the density of a gas is strongly influenced by variations in pressure and temperature. However, it can be shown that incompressibility can be assumed for gases as well so long as its Mach number, that is, the speed of the fluid relative to the local speed of sound, is not too high.</p>
+
+                <p>For most gases, a good rule of thumb is that if the gas has a Mach number of less than about 0.3 (traveling at 30\</p>
+
+                <p>While all real fluids are compressible to some degree, the assumption of incompressibility is useful for many fluids problems because it simplifies the governing fluids equations and makes many fluids problems tractable. As a preemptive example, consider the general conservation of mass equation for a fluid which is covered in greater detail in Module 5.</p>
+
+                <p>Starting from the compressible form:</p>
+                <DisplayEquation equation='\\frac{\\partial \\rho}{\\partial t} + \\nabla \\cdot (\\rho \\mathbf{u}) = 0' title="" />
+                <p>Assuming <InlineEquation equation="\\rho = \\text{constant}" />:</p>
+                <DisplayEquation equation='\\nabla \\cdot (\\rho \\mathbf{u}) = \\rho \\, \\nabla \\cdot \\mathbf{u}' title="" />
+                <p>Thus:</p>
+                <DisplayEquation equation='\\rho \\, \\nabla \\cdot \\mathbf{u} = 0' title="" />
+                <p>Since <InlineEquation equation="\\rho \\neq 0" />:</p>
+                <DisplayEquation equation='\\nabla \\cdot \\mathbf{u} = 0' title="" />
+                <p>Treating a fluid as incompressible  eliminates the time-dependent term, <DisplayEquation equation='\\frac{\\partial \\rho}{\\partial t}' title="" /></p>
+                <p>and simplifies the adjective term</p>
+                <DisplayEquation equation='\\nabla \\cdot (\\rho \\mathbf{u})' title="" />
+                <p>to create a first order partial differential equation in space only.</p>
+                <p>Even without knowing the precise derivation or applications of this equation, it is clear that its final form for an incompressible fluid has been simplified. In almost all cases, incompressible flow makes such equations easier to apply and solve analytically or numerically.</p>
+                <p>An engineer should always use good judgment to understand if the assumption of incompressibility is still valid for a given working fluid, considering the changes in pressure or temperature that fluid experiences. Error in calculations due to ignoring compressibility are generally nonlinear and can produce noticeable errors for mostly gaseous and high-speed systems if not accounted for. It is also important to recall that most of the equations and concepts presented in these reference pages assume incompressibility by default. Indeed compressible fluids often exhibit behaviors that are different or even exactly opposite that of their incompressible counterparts.</p>
+
+            </SubSection>
+</Layout>

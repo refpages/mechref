@@ -106,7 +106,7 @@ import Row from "../../components/Row.astro"
                 <DisplayEquation equation="\\vec{r}_C = \\frac{1}{m}\\iiint_{\\mathcal{B}} \\vec{r} dm" />
             </p>
             <p>
-                Where <InlineEquation equation="dm = \\rho \\, dV" /> from the differential of <a href="rcm.html#rcm-tm">#rcm-tm</a>. Substituting in:
+                Where <InlineEquation equation="dm = \\rho \\, dV" /> from the differential of <a href="#rcm-tm">#rcm-tm.</a> Substituting in:
                 <DisplayEquation equation="\\begin{aligned} \\vec{r}_C &amp;= \\frac{1}{m}\\iiint_{\\mathcal{B}} \\vec{r} dm \\\\ &amp;= \\frac{1}{m}\\iiint_{\\mathcal{B}} \\vec{r} \\rho \\, dV \\\\ &amp;= \\frac{1}{m}\\iiint_{\\mathcal{B}} \\rho \\vec{r} \\, dV \\\\ \\end{aligned}" />
             </p>
         </div>
@@ -362,8 +362,8 @@ import Row from "../../components/Row.astro"
                 <DisplayEquation equation="\\begin{aligned} x_C &amp;= \\frac{\\rho}{m}\\int_{0}^{1}\\int_{0}^{1 - u} (x_P u + x_Q v) \\, J \\, dvdu \\\\ &amp;= \\frac{\\rho}{m}\\int_{0}^{1}\\int_{0}^{1 - u} (x_P u + x_Q v) \\, (x_P y_Q - x_Q y_P) \\, dvdu \\\\ &amp;= \\frac{\\rho}{m}(x_P y_Q - x_Q y_P)\\int_{0}^{1}\\int_{0}^{1 - u} (x_P u + x_Q v) \\, dvdu \\\\ &amp;= \\frac{\\rho}{m}(x_P y_Q - x_Q y_P)\\int_{0}^{1}x_P u\\left[v\\right]_{v = 0}^{v = 1-u} + \\frac{x_Q}{2}\\left[v^2\\right]_{v = 0}^{v = 1-u}du \\\\ &amp;= \\frac{\\rho}{m}(x_P y_Q - x_Q y_P)\\int_{0}^{1} x_P u(1 - u) + \\frac{x_Q}{2}(1 - u)^2 du \\\\ &amp;= \\frac{\\rho}{m}(x_P y_Q - x_Q y_P) \\left(\\frac{x_P}{2} \\left[u^2\\right]_{0}^{1} - \\frac{x_P}{3}\\left[u^3\\right]_{0}^{1}  + \\frac{x_Q}{2}\\left[u\\right]_{0}^{1} - \\frac{x_Q}{2}\\left[u^2\\right]_{0}^{1} + \\frac{x_Q}{6}\\left[u^3\\right]_{0}^{1}\\right) \\\\  &amp;= \\frac{\\rho}{m}(x_P y_Q - x_Q y_P) \\left(\\frac{x_P}{2} - \\frac{x_P}{3} + \\frac{x_Q}{2} - \\frac{x_Q}{2} + \\frac{x_Q}{6}\\right) \\\\ &amp;= \\frac{\\rho}{m}(x_P y_Q - x_Q y_P) \\left(\\frac{x_P + x_Q}{6}\\right) \\end{aligned}" />
             </p>
             <p>
-                The total mass of the plate is <InlineEquation equation="m = \rho A = \frac{1}{2}\rho x_P y_Q" />, and with the chosen configuration \(y_P = 0\). Thus:
-                <DisplayEquation equation="x_C = \frac{x_P + x_Q}{3}" />
+                The total mass of the plate is <InlineEquation equation="m = \\rho A = \\frac{1}{2}\\rho x_P y_Q,"/> and with the chosen configuration \(y_P = 0\). Thus:
+                <DisplayEquation equation="x_C = \\frac{x_P + x_Q}{3}" />
             </p>
         </div>
     </DisplayEquationCustom>
@@ -384,7 +384,7 @@ import Row from "../../components/Row.astro"
                 <DisplayEquation equation="\\begin{aligned} \\vec{r}_C &amp;= \\frac{1}{m}\\iiint_\\mathcal{B} \\rho \\vec{r} \\, dV \\\\ &amp;= \\frac{1}{m}\\iint_{A} \\rho \\vec{r} \\, dA \\\\ \\end{aligned}" />
             </p>
             <p>
-                It is convenient to switch to <a href="rvy.html#rvy-ec">cylindrical coordinates</a>: 
+                It is convenient to switch to <a href="/dyn/coordinate_systems#rvs-ec">cylindrical coordinates:</a> 
                 <DisplayEquation equation="\\begin{aligned} x &amp;= a \\, r \\cos\\theta \\\\ y &amp;= b \\, r \\sin\\theta \\\\ \\end{aligned}" />
             </p>
             <p>
@@ -405,7 +405,7 @@ import Row from "../../components/Row.astro"
 
 <SubSubSection title="Simplified shapes" id="simple_shapes_com">
     <p>
-        The centers of mass listed below are all special cases of the basic shapes given in Section <a href="#rcm-bs">#rcm-bs</a>. Other
+        The centers of mass listed below are all special cases of the basic shapes given in <a href="#basic_shapes_com">center of mass of basic shapes.</a> Other
         special cases can be easily obtained by similar methods, or directly computing the integral.
     </p>
     
@@ -422,7 +422,7 @@ import Row from "../../components/Row.astro"
 
         <div slot="derivation">
             <p>
-                See <a href="#rcm-xc">example problem</a> on how to derive it by directly computing the integrals.
+                See <a href="#example_btn_rcm-xc">center of mass of a right-triangular plate example problem</a> on how to derive it by directly computing the integrals.
             </p>
             <p>
                 The other perhaps simpler approach is to let \(x_Q = 0\) in <a href="#rcm-et">#rcm-et</a>, which forms a right triangle if the configuration
@@ -445,7 +445,7 @@ import Row from "../../components/Row.astro"
 
         <div slot="derivation">
             <p>
-                See <a href="#rcm-xc">example problem</a> on how to derive it by directly computing the integrals.
+                See <a href="#example_btn_rcm-xc">center of mass of a right-triangular plate example problem</a> on how to derive it by directly computing the integrals.
             </p>
             <p>
                 The other perhaps simpler approach is to let \(x_Q = 0\) in <a href="#rcm-et">#rcm-et</a>, which forms a right triangle if the configuration
@@ -474,7 +474,7 @@ import Row from "../../components/Row.astro"
                 <DisplayEquation equation="\\begin{aligned} \\vec{r}_C &amp;= \\frac{1}{m}\\iiint_\\mathcal{B} \\rho \\vec{r} \\, dV \\\\ &amp;= \\frac{1}{m}\\iint_{A} \\rho \\vec{r} \\, dA \\\\ \\end{aligned}" />
             </p>
             <p>
-                It is convenient to switch to <a href="rvy.html#rvy-ec">cylindrical coordinates</a>:
+                It is convenient to switch to <a href="/dyn/coordinate_systems#rvs-ec">cylindrical coordinates:</a>
                 <DisplayEquation equation="\\begin{aligned} x &amp;= r \\cos\\theta \\\\ y &amp;= r \\sin\\theta \\\\ \\end{aligned}"/>
             </p>
             <p>
@@ -823,7 +823,7 @@ import Row from "../../components/Row.astro"
 
                   <p>
                     Use the answer to Example Problem <a
-                    href="#rem-xs">#rem-xs</a> and the parallel axis
+                    href="#example_btn_rem-xs">#rem-xs</a> and the parallel axis
                     theorem <a href="#rem-el">#rem-el</a>.
                   </p>
             </div>
@@ -834,7 +834,7 @@ import Row from "../../components/Row.astro"
 
         <div slot="solution">
             <p>
-                In Example Problem <a href="#rem-xs">#rem-xs</a> we
+                In Example Problem <a href="#example_btn_rem-xs">#rem-xs</a> we
                 computed the moment of inertia of a square place
                 about the center to be <InlineEquation equation="I_{C,z} = \\frac{1}{6} m \\ell^2" />. The parallel axis theorem <a
                 href="#rem-el">#rem-el</a> now gives:
@@ -963,7 +963,7 @@ import Row from "../../components/Row.astro"
                 <div class="w-50">
                     <p>
                         Recall that in Example Problem <a
-                        href="#rem-xs">#rem-xs</a> we computed the
+                        href="#example_btn_rem-xs">#rem-xs</a> we computed the
                         moment of inertia of a square place about the center
                         to be <InlineEquation equation="I_{C,z} = \\frac{1}{6} m \\ell^2" />.
                       </p>
@@ -1077,7 +1077,7 @@ import Row from "../../components/Row.astro"
             <p>
                 To compute the integrals in <a
                 href="#rem-ec">#rem-ec</a> it is convenient to switch to
-                <a href="rvy.html">cylindrical coordinates</a>:
+                <a href="/dyn/coordinate_systems#cylindrical_coordinates">cylindrical coordinates:</a>
             </p>
             <DisplayEquation equation="\\begin{aligned}x &= r \\cos\\theta \\\\y &= r \\sin\\theta \\\\z &= z.\\end{aligned}\\" /> 
 
@@ -1100,7 +1100,7 @@ import Row from "../../components/Row.astro"
               <InlineEquation equation="z" /> , so we will just write out the derivation for
               <InlineEquation equation="I_{C,x}" /> here. We again use <a
               href="#rem-ec">#rem-ec</a> in <a
-              href="rvy.html">cylindrical coordinates</a>, giving:
+              href="/dyn/coordinate_systems#cylindrical_coordinates">cylindrical coordinates,</a> giving:
               
               
             <DisplayEquation equation="\\begin{aligned}I_{C,x} &amp;= \\iiint_\\mathcal{B} \\rho (y^2 + z^2) \\,dx\\,dy\\,dz \\\\&amp;= \\int_{-\\ell/2}^{\\ell/2} \\int_0^{2\\pi} \\int_{r_1}^{r_2}\\rho \\left( (r \\sin\\theta)^2 + z^2 \\right) \\,J \\,dr\\,d\\theta\\,dz \\\\&amp;= \\int_{-\\ell/2}^{\\ell/2} \\int_0^{2\\pi} \\int_{r_1}^{r_2}\\rho \\left( r^3 \\sin^2\\theta + r z^2 \\right) \\,dr\\,d\\theta\\,dz \\\\&amp;= \\int_{-\\ell/2}^{\\ell/2} \\int_0^{2\\pi} \\left[\\rho \\left( \\frac{1}{4} r^4 \\sin^2\\theta + \\frac{1}{2} r^2 z^2 \\right)\\right]_{r = r_1}^{r = r_2} \\,d\\theta\\,dz \\\\&amp;= \\int_{-\\ell/2}^{\\ell/2} \\int_0^{2\\pi}\\rho \\left( \\frac{1}{4} ({r_2}^4 - {r_1}^4) \\sin^2\\theta+ \\frac{1}{2} ({r_2}^2 - {r_1}^2) z^2 \\right) \\,d\\theta\\,dz \\\\&amp;= \\int_{-\\ell/2}^{\\ell/2} \\int_0^{2\\pi}\\rho \\left( \\frac{1}{8} ({r_2}^4 - {r_1}^4) (1 - \\cos 2\\theta)+ \\frac{1}{2} ({r_2}^2 - {r_1}^2) z^2 \\right) \\,d\\theta\\,dz \\\\&amp;= \\int_{-\\ell/2}^{\\ell/2} \\left[\\rho \\left( \\frac{1}{8} ({r_2}^4 - {r_1}^4)\\left(\\theta - \\frac{1}{2} \\sin 2\\theta\\right)+ \\frac{1}{2} ({r_2}^2 - {r_1}^2) z^2 \\theta \\right)\\right]_{\\theta = 0}^{\\theta = 2\\pi} \\,d\\theta\\,dz \\\\&amp;= \\int_{-\\ell/2}^{\\ell/2} \\rho \\left( \\frac{\\pi}{4} ({r_2}^4 - {r_1}^4)+ \\pi ({r_2}^2 - {r_1}^2) z^2 \\right) \\,d\\theta\\,dz \\\\&amp;= \\left[ \\rho \\left( \\frac{\\pi}{4} ({r_2}^4 - {r_1}^4) z+ \\pi ({r_2}^2 - {r_1}^2) \\frac{1}{3} z^3 \\right) \\right]_{z = -\\ell/2}^{z = \\ell/2} \\\\&amp;= \\rho \\left( \\frac{\\pi}{4} ({r_2}^3 - {r_1}^3) \\ell+ \\pi ({r_2}^2 - {r_1}^2) \\frac{1}{12} \\ell^3 \\right) \\\\&amp;= \\frac{1}{12} \\rho \\pi ({r_2}^2 - {r_1}^2) \\ell \\left( 3 ({r_2}^2 + {r_1}^2)+ \\ell^2 \\right).\\end{aligned}" />
@@ -1131,7 +1131,7 @@ import Row from "../../components/Row.astro"
         <p>
             To compute the integrals in <a
             href="#rem-ec">#rem-ec</a> it is convenient to switch to
-            <a href="rvs.html">spherical coordinates</a>:
+            <a href="/dyn/coordinate_systems#spherical_coordinates">spherical coordinates:</a>
         </p>
         <DisplayEquation equation="\\begin{aligned}x &= r \\cos\\theta \\sin\\phi \\\\y &= r \\sin\\theta \\sin\\phi \\\\z &= r \\cos\\phi.\\end{aligned}\\" /> 
 
@@ -1159,8 +1159,8 @@ import Row from "../../components/Row.astro"
 <SubSubSection title="Simplified shapes"  id="simple_shapes_moi">
     <p>
         The moments of inertia listed below are all special cases of
-        the basic shapes given in Section <a
-        href="#rem-sb">#rem-sb</a>. Other special cases can be
+        the basic shapes given in <a
+        href="#basic_shapes_moi">moment of inertia of basic shapes.</a> Other special cases can be
         easily obtained by similar methods.
       </p>
 

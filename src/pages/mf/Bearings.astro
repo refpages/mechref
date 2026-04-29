@@ -1,0 +1,163 @@
+---
+import Layout from "../../layouts/Layout.astro"
+import Image from "../../components/Image.astro"
+import CalloutContainer from "../../components/CalloutContainer.astro"
+import Section from "../../components/Section.astro"
+import SubSection from "../../components/SubSection.astro"
+import SubSubSection from "../../components/SubSubSection.astro"
+import SubSubSubSection from "../../components/SubSubSubSection.astro"
+import OrangeText from "../../components/OrangeText.astro"
+import TealText from "../../components/TealText.astro"
+import Enumerate from "../../components/Enumerate.astro"
+import Item from "../../components/Item.astro"
+import Itemize from "../../components/Itemize.astro"
+import InlineEquation from "../../components/InlineEquation.astro"
+import DisplayEquation from "../../components/DisplayEquation.astro"
+import DisplayTable from "../../components/DisplayTable.astro";
+---
+<Layout title="Bearings">
+    <div slot="navtree">
+        <ul class="list-group list-group-flush py-0">
+                <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Introduction'>Introduction</a></li>
+                <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Bearing Life'>Bearing Life</a></li>
+                <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Angular Ball Bearings'>Angular Ball Bearings</a></li>
+        </ul>
+    </div>
+        <SubSection title="Introduction" id="Introduction">
+        <p>Rolling bearings are a type of bearing that allows two components to move relative to each other using rolling elements. For example, a heavy slab moving on logs is a crude form of rolling bearings. With the invention of the Bessemer steel process in the mid 19th century, metal was able to be both smooth and hard, which allowed for bearings to be used more commonly.</p>
+        <Image src='/mf/Bearings/roller bearing.jpg' width='7'> Roller Bearing Diagram</Image>
+        <p>A rolling bearing consists of an inner race that is fixed to a shaft and an outer race that is fixed to a housing. In between the two races are the rolling elements, which lie in side grooves. The rolling elements can be different shapes, such as balls, cylinders, or barrel shaped. Rolling bearings are popular because they have very little friction, so they can start moving faster and can be used in many different conditions without much failure.</p>
+        <Image src='/mf/Bearings/ball bearing.jpg' width='7'> Example Ball Bearing</Image>
+        <p>The rolling elements will always be in contact with both races as they lie in a groove. The forces and stresses at the contact can be determined from the maximum pressure, which is described by Hertz contact theory. The theory describes the stresses between curved, elastic bodies in contact. According to Hertz, the maximum pressure depends on the applied load, the curvature of the contacting surfaces, and the material properties of both bodies. Using these, the maximum contact pressure can be calculated, allowing engineers to predict stresses and design bearings that minimize wear and deformation.</p>
+
+        <DisplayEquation equation="{p_0}=(\\frac{1}{\\pi})(\\frac{6F_r \\times E^2}{R^2})^{\\frac{1}{3}}" title="" />
+
+        <p>where:</p>
+        <Itemize>
+
+            <Item>F is the force applied</Item>
+            <Item>E is the effective modulus of elasticity for two curved bodies</Item>
+            <Item>R is the effective radius for two curved bodies</Item>
+
+        </Itemize>
+        </SubSection>
+        <SubSection title="Bearing Life" id="Bearing Life">
+        <p>Rolling bearings are subjected to cyclical stress and designed for a specific fatigue life. The formula for bearing life is given by the ratio:</p>
+
+        <DisplayEquation equation="\\frac{L}{L_r}=(\\frac{C}{F_r})^{3.33}" title="" />
+
+        <p>where:</p>
+        <Itemize>
+
+            <Item><InlineEquation equation="L" /> is the expected bearing life in revolutions.</Item>
+            <Item><InlineEquation equation="L_r" /> is the reference life, <InlineEquation equation="90 \\times 10^6" /> revolutions for ball bearings.</Item>
+            <p>This is the number of cycles that 90% percent of a group of identical bearings can endure under a constant radial load without the onset of surface fatigue.</p>
+            <Item><InlineEquation equation="F_r" /> is the applied radial load on the bearing.</Item>
+            <Item><InlineEquation equation="C" /> is the rated load capacity, which is linked to <InlineEquation equation="L_R" /> and represents the</Item>
+            <p>constant radial load that a bearing can sustain for the reference life.</p>
+
+        </Itemize>
+        <p>Rolling bearings experience cyclical stresses and can fail due to fatigue.</p>
+        <p>Impacts, load excursions, and shock loads increase stress, so a shock load factor <InlineEquation equation="K_a" /> is used to account for these effects. Bearings are also analyzed statistically because their fatigue life varies across a set of identical components.</p>
+        <p>The distribution of bearing life is typically a Weibull distribution, which is asymmetric. The median life, or L50, is the point where 50% of bearings have failed. The L10 life corresponds to 90% reliability and is roughly 1/5th of the median. To account for reliability greater than 90%, a reliability factor Kr is applied.</p>
+        <p>Combining the effects of applied load, shock loading, and reliability, the modified equation for bearing life is:</p>
+
+        <DisplayEquation equation="\\frac{L}{L_r\\times K_r} = \\left(\\frac{C}{K_a\\times F_r}\\right)^{3.33}" title="" />
+
+        <p>where:</p>
+        <Itemize>
+
+            <Item><InlineEquation equation="K_a" /> is the shock load factor, which accounts for impacts and load excursions.</Item>
+            <Item><InlineEquation equation="K_r" /> is the reliability factor, which adjusts the life to meet a desired reliability level.</Item>
+
+        </Itemize>
+        <p>The shock load factor <InlineEquation equation="K_a" /> and reliability factor <InlineEquation equation="K_r" /> are selected based on the operating conditions and desired reliability of the bearing. A value of <InlineEquation equation="K_r = 1" /> corresponds to calculations performed with respect to the reference life, such as the <InlineEquation equation="L_{10}" /> life (90\</p>
+        <p>Similarly, <InlineEquation equation="K_a = 1" /> represents low-shock or smooth operating conditions, while higher values of <InlineEquation equation="K_a" /> account for increasing levels of impact or shock loading. For ball bearings, typical upper bounds for high-shock applications range up to approximately <InlineEquation equation="K_a = 3" />.</p>
+        <p>These parameter values are typically obtained from design charts and tables provided by bearing manufacturers or standards organizations, such as https://productselect.skf.com/\#/bearing-selection-start.</p>
+        </SubSection>
+        <SubSection title="Angular Ball Bearings" id="Angular Ball Bearings">
+            <p>The spherical rolling element bearings we have considered thus far are best for supporting radial loads. However, some components like helical or bevel gears also put a rotating shaft under axial or thrust loading. This changes the orientation of the stresses throughout the bearing, and reduces the life.</p>
+
+            <Image src='/mf/Bearings/Angular ball bearing diagram.png' width='7'> Angular Ball Bearing </Image>
+            <Image src='/mf/Bearings/Regular Ball bearing diagram.png' width='7'> Standard Ball Bearing</Image>
+
+            <p>Angular ball bearings are better able to withstand thrust loads because races are cut asymmetrically to support the rolling elements further to one side. Statistical analysis of experimental data of bearing failures was used to identify an effective load <InlineEquation equation="{F_e}" /> that can be used in place of Fr in predicting the life of a bearing, for both non-angular bearings (<InlineEquation equation="\\alpha" />=0°) and angular bearings (<InlineEquation equation="\\alpha" />=25°). These effective loads are based on the extent of the axial loading compared to radial loading, or <InlineEquation equation="{F_t}" />/<InlineEquation equation="{F_r}" />.  as seen in the table below.</p>
+
+            <DisplayEquation equation="\\frac{L}{K_R \\times L_R}=(\\frac{C}{F_e})^{3.33}" title="" />
+
+            <DisplayTable id="id" class_="mb-3">
+                <thead>
+                <tr>
+                    <th class="table-shaded"><strong>Bearing Type</strong></th>
+                    <th class="table-shaded"><strong>Load Ratio Range</strong></th>
+                    <th class="table-shaded"><strong>Effective Load <InlineEquation equation="F_e" />></strong></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td><InlineEquation equation="\\alpha = 0^\\circ" /></td>
+                    <td><InlineEquation equation="F_t/F_r < 0.35" /></td>
+                    <td><InlineEquation equation="F_e = F_r" /></td>
+                </tr>
+                <tr>
+                    <td><InlineEquation equation="\\alpha = 0^\\circ" /></td>
+                    <td><InlineEquation equation="0.35 < F_t/F_r < 10" /></td>
+                    <td><InlineEquation equation="F_e = F_r \\left[ 1 + 1.115 \\left( \\frac{F_t}{F_r} - 0.35 \\right) \\right]" /></td>
+                </tr>
+                <tr>
+                    <td><InlineEquation equation="\\alpha = 0^\\circ" /></td>
+                    <td><InlineEquation equation="F_t/F_r > 10" /></td>
+                    <td><InlineEquation equation="F_e = 1.176\\,F_t" /></td>
+                </tr>
+                <tr>
+                    <td><InlineEquation equation="\\alpha = 25^\\circ" /></td>
+                    <td><InlineEquation equation="0.68 < F_t/F_r < 10" /></td>
+                    <td><InlineEquation equation="F_e = F_r \\left[ 1 + 0.870 \\left( \\frac{F_t}{F_r} - 0.68 \\right) \\right]" /></td>
+                </tr>
+                <tr>
+                    <td><InlineEquation equation="\\alpha = 25^\\circ" /></td>
+                    <td><InlineEquation equation="F_t/F_r > 10" /></td>
+                    <td><InlineEquation equation="F_e = 1.176\\,F_t" /></td>
+                </tr>
+                </tbody>
+            </DisplayTable>
+
+            <!--<p>\begin{center}</p>-->
+            <!--<p>\begin{tabular}{|c|c|c|}</p>-->
+            <!--<p>\hline</p>-->
+            <!--<p>\textbf{Bearing Type} & \textbf{Load Ratio Range} & \textbf{Effective Load <InlineEquation equation="F_e" />} \\</p>-->
+            <!--<p>\hline</p>-->
+            <!--<InlineEquation equation="\\alpha = 0^\\circ" />-->
+            <!--<p>& <InlineEquation equation="F_t/F_r < 0.35" /></p>-->
+            <!--<p>& <InlineEquation equation="F_e = F_r" /> \\</p>-->
+            <!--<p>\hline</p>-->
+            <!--<InlineEquation equation="\\alpha = 0^\\circ" />-->
+            <!--<p>& <InlineEquation equation="0.35 < F_t/F_r < 10" /></p>-->
+            <!--<p>& <InlineEquation equation="F_e = F_r \\left[ 1 + 1.115 \\left( \\frac{F_t}{F_r} - 0.35 \\right) \\right]" /> \\</p>-->
+            <!--<p>\hline</p>-->
+            <!--<InlineEquation equation="\\alpha = 0^\\circ" />-->
+            <!--<p>& <InlineEquation equation="F_t/F_r > 10" /></p>-->
+            <!--<p>& <InlineEquation equation="F_e = 1.176\\,F_t" /> \\</p>-->
+            <!--<p>\hline</p>-->
+            <!--<InlineEquation equation="\\alpha = 25^\\circ" />-->
+            <!--<p>& <InlineEquation equation="F_t/F_r < 0.68" /></p>-->
+            <!--<p>& <InlineEquation equation="F_e = F_r" /> \\</p>-->
+            <!--<p>\hline</p>-->
+            <!--<InlineEquation equation="\\alpha = 25^\\circ" />-->
+            <!--<p>& <InlineEquation equation="0.68 < F_t/F_r < 10" /></p>-->
+            <!--<p>& <InlineEquation equation="F_e = F_r \\left[ 1 + 0.870 \\left( \\frac{F_t}{F_r} - 0.68 \\right) \\right]" /> \\</p>-->
+            <!--<p>\hline</p>-->
+            <!--<InlineEquation equation="\\alpha = 25^\\circ" />-->
+            <!--<p>& <InlineEquation equation="F_t/F_r > 10" /></p>-->
+            <!--<p>& <InlineEquation equation="F_e = 1.176\\,F_t" /> \\</p>-->
+            <!--<p>\hline</p>-->
+            <!--<p>\end{tabular}</p>-->
+            <!--<p>\end{center}</p>-->
+            <!--<p>**For axial loads, we have an adjustment factor that is applied to compute the effective radial load.</p>-->
+            <!--<p>**Introduce angular ball bearings as a way for ball bearings to perform better against axial loads. S</p>-->
+            <!--<p>**Show a diagram highlighting the differences between the angular and regular ball bearings.</p>-->
+            <!--<p>**Introduce the effective radial load chart for angular ball bearings and describe the differences.</p>-->
+            <!--<p>**Briefly discuss modifications to the standard bearing life equations with shock loading and reliability.</p>-->
+
+        </SubSection>
+</Layout>

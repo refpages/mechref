@@ -1,10 +1,5 @@
-###
-# THIS CORRECTS LINKS FOR COURSE CONTENT PAGES
-# INCLUDES LINKS TO .js FILES, .css FILES, 
-# LINKS TO INTERNAL MECHREF PAGES
-###
-
 import os
+import re
 
 def change_links(home, scripts, links, courses, special_rewrites):
     all_content_pages = []
@@ -25,11 +20,17 @@ def change_links(home, scripts, links, courses, special_rewrites):
         for p in os.listdir(os.path.join(home, c)):
             if p[-5:] == '.html': all_content_pages.append(os.path.join(c, p))
 
+    asset_dirs = [d for d in os.listdir(home)
+                  if os.path.isdir(os.path.join(home, d))
+                  and d not in courses + ['_astro']]
+    for d in asset_dirs:
+        links_to_replace[f"src=\"/{d}/"] = f"src=\"../{d}/"
+        links_to_replace[f"href=\"/{d}/"] = f"href=\"../{d}/"
+
     for k, v in special_rewrites.items():
         links_to_replace[k] = v
 
-    # UPDATE LINKS THAT REDIRECT TO ANOTHER MECHREF PAGE
-    internal_pages ={'href="../'+p.replace('.html', '')+'"': 'href="../'+p+'"' for p in all_content_pages}
+    internal_pages = {'href="../'+p.replace('.html', '')+'"': 'href="../'+p+'"' for p in all_content_pages}
 
     for dir in courses:
         pages = [p for p in os.listdir(os.path.join(home, dir)) if p[-5:] == '.html']
@@ -44,9 +45,15 @@ def change_links(home, scripts, links, courses, special_rewrites):
             for wrong, correct in internal_pages.items():
                 data = data.replace(wrong, correct)
 
-            data = data.replace(f"{page.replace('.html', '')}/canvases.js", f"{page.replace('.html', '')}.js")
-            
-            with open(os.path.join(home, os.path.join(dir, page)), 'w', encoding='utf8') as file:
-                file.write(data)        
+            page_name = page.replace('.html', '')
+            data = re.sub(
+                r'(src|href)="(?!http)(?!\.\.)(?!\.)(?![a-zA-Z][\w\+\-\.]*://)([^/"]+\.(jpg|jpeg|png|gif|svg|webp|mp4|csv|json))"',
+                rf'\1="{page_name}/\2"',
+                data
+            )
+            data = re.sub(r'src="/((?!http)[^"]+)"', r'src="../\1"', data)
+            data = re.sub(r'href="/((?!http|#)[^"]+)"', r'href="../\1"', data)
 
+            with open(os.path.join(home, os.path.join(dir, page)), 'w', encoding='utf8') as file:
+                file.write(data)
     return

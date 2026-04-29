@@ -197,8 +197,8 @@ import InlineCanvas from "../../components/InlineCanvas.astro"
         </tr>
       </table>
       <p class="figureCaption mt-2">
-        Velocity and acceleration of various movements. Compare to
-        Figure <a href="rvc.html#rvc-fp">#rvc-fp</a>.
+        Velocity and acceleration of various movements. Compare to the
+        <a href="/dyn/vector_calculus#rvc-fp-c">vector derivatives for moving vectors figure.</a>
       </p>
      </PrairieDrawCanvas>
 		 
@@ -293,8 +293,8 @@ import InlineCanvas from "../../components/InlineCanvas.astro"
         </tr>
       </table>
       <p class="figureCaption mt-2">
-        Velocity and acceleration in the polar basis. Compare to
-        Figure <a href="#rkv-fa-c">#rkv-fa</a>. Observe that
+        Velocity and acceleration in the polar basis. Compare to the
+        <a href="#rkv-fa-c">velocity and acceleration of various movements figure.</a> Observe that
         <InlineEquation equation="\\hat{e}_r,\\hat{e}_\\theta" /> are not related to the path
         (not tangent, not in the direction of movement), but
         rather are defined only by the position vector. Note also
@@ -492,12 +492,12 @@ import InlineCanvas from "../../components/InlineCanvas.astro"
     <DisplayEquation title="Derivative of general vectors." id="rkr-ed" background="True" derivation="True" equation="\\begin{aligned}\\dot{\\vec{a}} = \\underbrace{\\dot{a}\\hat{a}}_{\\operatorname{Proj}(\\dot{\\vec{a}}, \\vec{a})} +\\underbrace{\\vec{\\omega} \\times\\vec{a}}_{\\operatorname{Comp}(\\dot{\\vec{a}}, \\vec{a})}\\end{aligned}">
         <p>
             Using the same approach as <a
-            href="/dyn/vectors#rvc-em2">#rvc-em</a> we write <InlineEquation equation="\\vec{a} =a\\hat{a}" /> and differentiate this and use <a
+            href="/dyn/vectors#rvc-em2">#rvc-em2</a> we write <InlineEquation equation="\\vec{a} =a\\hat{a}" /> and differentiate this and use <a
             href="#rkr-ew">rkr-ew</a> to find:
 
             <DisplayEquation equation="\\begin{aligned}\\dot{\\vec{a}} &amp;= \\frac{d}{dt} \\big( a \\hat{a} \\big) \\\\&amp;= \\dot{a} \\hat{a} + a \\dot{\\hat{a}} \\\\&amp;= \\dot{a} \\hat{a} + a (\\vec\\omega \\times \\hat{a}) \\\\&amp;= \\dot{a} \\hat{a} + \\vec\\omega \\times (a \\hat{a}) \\\\&amp;= \\dot{a} \\hat{a} + \\vec\\omega \\times \\vec{a}.\\end{aligned}" />
 
-            Comparing this to <a href="/dyn/vectors#rvc-em2">#rvc-em</a>
+            Comparing this to <a href="/dyn/vectors#rvc-em2">#rvc-em2</a>
             shows that the two components are the projection and the
             complementary projection, respectively.
           </p>
@@ -507,7 +507,7 @@ import InlineCanvas from "../../components/InlineCanvas.astro"
         <p>
             This can be seen from the fact that <InlineEquation equation="\\dot{a} = 0" /> if \(a\)
             is constant (a fixed length vector), substituted into <a
-            href="#rkr-ed">#rkr-ed</a>.
+            href="#rkr-ed">#rkr-ed.</a>
           </p>
     </DisplayEquation>
     
@@ -550,8 +550,8 @@ import InlineCanvas from "../../components/InlineCanvas.astro"
         <p>
             Take <InlineEquation equation="\\hat{a}" /> to be a unit vector rotating in the 2D
             <InlineEquation equation="\\hat\\imath–\\hat\\jmath" /> plane, making an angle of
-            \(\theta\) with the \(x\)-axis, as in Figure <a
-            href="#rkr-f2">#rkr-f2</a>. Then:
+            \(\theta\) with the \(x\)-axis, as in the <a
+            href="#rkr-fe-c">comparison of the vector and scalar representations of <InlineEquation equation = "\\vec{\\omega}"/> for 2D rotations figure.</a> Then:
 
             <DisplayEquation equation="\\hat{a} = \\cos\\theta \\,\\hat\\imath            + \\sin\\theta \\,\\hat\\jmath." />
 
@@ -653,7 +653,7 @@ import InlineCanvas from "../../components/InlineCanvas.astro"
         <p>
             Using <a href="#rkr-el">#rkr-el</a> and the scalar
             triple product formula <a
-            href="https://en.wikipedia.org/wiki/Triple_product">#rvi-es</a> gives:
+            href="/dyn/vector_calculus#rvi-es">#rvi-es</a> gives:
 
             <DisplayEquation equation="\\begin{aligned}\\vec{a} \\cdot \\dot{\\vec{a}}&amp;= \\vec{a} \\cdot \\big( \\vec{\\omega} \\times \\vec{a} \\big) \\\\&amp;= \\vec{\\omega} \\cdot \\big( \\vec{a} \\times \\vec{a} \\big) \\\\&amp;= 0.\\end{aligned}" /> 
           </p>
@@ -663,7 +663,7 @@ import InlineCanvas from "../../components/InlineCanvas.astro"
         <p>
             We first consider the dot product <InlineEquation equation="\\vec{a} \\cdot \\vec{b}" /> and show that this is not changing with
             time. We do this by using the scalar triple product
-            formula <a href="https://en.wikipedia.org/wiki/Triple_product" target="_blank">#rvi-es</a> to find:
+            formula <a href="/dyn/vector_calculus#rvi-es">#rvi-es</a> to find:
 
             <DisplayEquation equation="\\begin{aligned}\\frac{d}{dt} \\big( \\vec{a} \\cdot \\vec{b} \\big)&amp;= \\dot{\\vec{a}} \\cdot \\vec{b} + \\vec{a} \\cdot \\dot{\\vec{b}} \\\\&amp;= (\\vec{\\omega} \\times \\vec{a}) \\cdot \\vec{b} + \\vec{a} \\cdot (\\vec{\\omega} \\times \\vec{b}) \\\\&amp;= \\vec{b} \\cdot (\\vec{\\omega} \\times \\vec{a}) + \\vec{b} \\cdot (\\vec{a} \\times \\vec{\\omega}) \\\\&amp;= \\vec{b} \\cdot (\\vec{\\omega} \\times \\vec{a}) - \\vec{b} \\cdot (\\vec{\\omega} \\times \\vec{a}) \\\\&amp;= 0.\\end{aligned}" />
 

@@ -1,0 +1,271 @@
+---
+import Layout from "../../layouts/Layout.astro"
+import Image from "../../components/Image.astro"
+import Section from "../../components/Section.astro"
+import SubSection from "../../components/SubSection.astro"
+import SubSubSection from "../../components/SubSubSection.astro"
+import SubSubSubSection from "../../components/SubSubSubSection.astro"
+import CalloutContainer from "../../components/CalloutContainer.astro"
+import OrangeText from "../../components/OrangeText.astro"
+import TealText from "../../components/TealText.astro"
+import Enumerate from "../../components/Enumerate.astro"
+import Item from "../../components/Item.astro"
+import Itemize from "../../components/Itemize.astro"
+import InlineEquation from "../../components/InlineEquation.astro"
+import DisplayEquation from "../../components/DisplayEquation.astro"
+---
+<Layout title="fundementals">
+    <div slot="navtree">
+        <ul class="list-group list-group-flush py-0">
+            <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Introduction'>Introduction</a></li>
+            <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Streamlines'>Streamlines</a></li>
+            <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Conservation of Mass (Continuity)'>Conservation of Mass (Continuity)</a></li>
+            <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Bernoulli Phenomena'>Bernoulli Phenomena</a></li>
+            <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Limitations of the Bernoulli Equation'>Limitations of the Bernoulli Equation</a></li>
+        </ul>
+    </div>
+    <Section title="Introduction" id="Introduction">
+    <p>In conjunction with fluid statics, the second essential domain of fluid mechanics is that of dynamics. Again, invoking <em>The Big Idea of Fluid Mechanic</em>s from chapter 1, dynamic fluid situations are those in which forces acting on a fluid produce acceleration, that is, the change in velocity of fluid particles. In general, dynamic flows may be driven by a combination of the forces outlined in <em>The Big Idea</em>; however, the simplest and largest category of flows are those driven primarily by gravity and pressure forces. For these flows, the viscosity of a fluid, which is primarily responsible for shear stresses present in a flow, can be neglected (inviscid flow). Critically, dynamic fluids are governed by Newton's laws and therefore, the fluid flow equations derived to describe them represent familiar laws from other areas of mechanics: conservation of mass, momentum and energy.</p>
+    </Section>
+    <Section title="Streamlines" id="Streamlines">
+        <p>When describing the motion of a moving or dynamic fluid, the main thrust is to apply Newton's 2nd Law to a fluid particle, such that forces can be related to changes in a particle's direction and speed. For fluids, a convenient coordinate system to do this is the tangent-normal coordinate system, wherein one coordinate direction is oriented along the current direction a particle is traveling (along its current velocity vector), and another perpendicular to this path pointing in the direction of curvature.</p>
+
+        <Image src='/fluid/Foundations/sncys.png' width='7'>Tangent (Streamwise - Normal Coordinate representation of a Fluid
+            Particle </Image>
+
+        <p>As a particle flows through time and space, it traces a given path in time and space. This imaginary path is known as a streamline. It represents a history of the position of a particle through time and therefore is tangent to the velocity vector of that particle at every moment in time. If a flow is known to be steady, then there is no change in velocity (or any other flow property) at a given point in space across time. Physically, this means that the streamlines do not change in time and successive fluid particles that began at the same position follow the same path. In a full flow, one could imagine many streamlines, each of which may have their own shapes and directions, that define the overall movement of the entire flow.</p>
+
+        <Image src='/fluid/Foundations/streamlinedemo.png' width='7'>Streamlines of air passing over an airfoil </Image>
+
+        <p>For a steady flow, the acceleration of a particle along a streamline can occur along a streamline (change speed), or normal to a streamline (change direction) and can be expressed thusly:</p>
+
+        <DisplayEquation equation="\\text{Streamwise acceleration:} \\quad a_t = V \\frac{dV}{ds}" title="" />
+
+
+        <DisplayEquation equation="\\text{Normal acceleration:} \\quad a_n = \\frac{V^2}{R}" title="" />
+
+        <Itemize>
+
+            <Item><InlineEquation equation="V" /> = <strong>fluid speed</strong> (magnitude of the velocity), scalar</Item>
+            <Item><InlineEquation equation="\\vec{V}" /> = <strong>velocity vector</strong>, tangent to the streamline</Item>
+            <Item><InlineEquation equation="s" /> = <strong>distance along the streamline</strong>, scalar coordinate</Item>
+            <Item><InlineEquation equation="R" /> = <strong>radius of curvature</strong> of the streamline</Item>
+            <Item><InlineEquation equation="a_t" /> = <strong>tangential acceleration</strong>, along the streamline</Item>
+            <Item><InlineEquation equation="a_n" /> = <strong>normal acceleration</strong>, directed toward the center of curvature</Item>
+
+        </Itemize>
+        <p>With an acceleration adequately defined for a fluid particle, a general force balance results in the equation of motion for steady, non-viscous flow.</p>
+
+        <DisplayEquation equation="\\text{Along a streamline:} \\quad \\gamma \\sin\\theta - \\frac{\\partial p}{\\partial s} = \\rho V \\frac{\\partial V}{\\partial s}" title="" />
+
+
+        <DisplayEquation equation="\\text{Normal to a streamline:} \\quad - \\rho g \\frac{dz}{dn} - \\frac{\\partial p}{\\partial n} = \\rho \\frac{V^2}{R}" title="" />
+
+        <Itemize>
+
+            <Item><InlineEquation equation="\\vec{V}" /> = velocity vector (tangent to streamline)</Item>
+            <Item><InlineEquation equation="V" /> = fluid speed (magnitude of <InlineEquation equation="\\vec{V}" />)</Item>
+            <Item><InlineEquation equation="s" /> = coordinate along the streamline</Item>
+            <Item><InlineEquation equation="n" /> = coordinate normal to the streamline</Item>
+            <Item><InlineEquation equation="p" /> = pressure</Item>
+            <Item><InlineEquation equation="\\rho" /> = fluid density</Item>
+            <Item><InlineEquation equation="\\gamma = \\rho g" /> = specific weight</Item>
+            <Item><InlineEquation equation="g" /> = gravitational acceleration</Item>
+            <Item><InlineEquation equation="z" /> = elevation (vertical coordinate)</Item>
+            <Item><InlineEquation equation="\\theta" /> = angle of streamline relative to the horizontal</Item>
+            <Item><InlineEquation equation="R" /> = radius of curvature of the streamline</Item>
+
+        </Itemize>
+        <p>These equations, which include partial derivatives and a streamwise coordinates are nothing for than an expression of Newton's 2nd Law, F = ma. For each equation, the first term on the left represents the force of gravity acting along that coordinate direction and the second the pressure force (it enters as a derivative since spatial changes in pressure result in net forces). The terms make up the sum of the forces acting on the particle. The term on the right is exactly the acceleration of the particle in the given coordinate direction. In total, an imbalance of pressure and gravity forces produces acceleration of a fluid still assuming steady, non-viscous flow. For fluids, the size of forces is often extensive, that is, proportional to the amount of fluid present. As a result, it is density, not mass, that appears to represent inertia in many fluid dynamics equations.</p>
+    </Section>
+    <Section title="The Bernoulli Equation" id="Introduction">
+        <p>In principle, the above equations are sufficient to describe the acceleration and resulting kinematics of a steady, inviscid, incompressible fluid flow, relating pressure and gravity to acceleration. However, a more useful form can be arrived at by integrating these equations. Doing so results in a more amenable set of expressions:</p>
+
+        <DisplayEquation equation="\\text{Along a streamline:} \\qquad \\int \\frac{dp}{\\rho} + \\frac{V^2}{2} + gz = Constant" title="" />
+
+
+        <DisplayEquation equation="\\text{Normal to a streamline:} \\qquad \\int \\frac{dp}{\\rho} + gz + \\int \\frac{V^2}{R}\\,dn = Constant" title="" />
+
+        <p>Where C represents a constant that is established by the nature of the flow somewhere along the streamline. Assuming incompressibility (constant density), these equations can be further simplified in a form that is easy to apply to fluid problems.</p>
+
+        <DisplayEquation equation="\\text{Along a streamline (incompressible):} \\qquad {p} + \\frac{\\rho V^2}{2} + \\rho gz = Constant" title="" />
+
+
+        <DisplayEquation equation="\\text{Normal to a streamline:} \\qquad p + gz + \\int \\frac{V^2}{R}\\,dn = Constant" title="" />
+
+        <p>The first of these equations is the famed <strong>Bernoulli Equation </strong> Which is sometimes rewritten explicitly to relate points along the same streamline.</p>
+
+        <DisplayEquation equation="\\text{Point 1} \\quad {p_1} + \\frac{\\rho V_1^2}{2} + g z_1 = {p_2} + \\frac{\\rho V_2^2}{2} + g z_2 \\quad \\text{Point 2}" title="" />
+
+        <p>Together, these equations can be used to identify and solve for flow conditions (velocity, pressures and vertical displacement), at a given point along a streamline provided sufficient information is available at a separate point in the streamwise or normal direction Recall that these equations have been derived under and are only valid with the following assumptions.</p>
+        <Itemize>
+
+            <Item><strong>Steady flow:</strong> Flow properties do not change with time at a given point</Item>
+            <Item><strong>Inviscid flow:</strong> Viscous effects (friction) are negligible</Item>
+            <Item><strong>Incompressible flow:</strong> Density <InlineEquation equation="\\rho" /> is constant</Item>
+            <Item><strong>Along a streamline:</strong> Equations are applied along a single streamline</Item>
+            <Item><strong>No energy addition/removal:</strong> No pumps, turbines, or heat transfer</Item>
+            <Item><strong>Gravity is the only body force:</strong> Other body forces are neglected</Item>
+
+        </Itemize>
+        <p>Note that in the form of the Bernoulli equation presented here, the dimensions of the terms are the same as those of pressure, however, many other forms are possible by normalizing by various terms in the equation. For instance, dividing the equation by the specific weight for instance, produces terms with dimensions of length, that is, pressure head.</p>
+    </Section>
+        <SubSection title="Interpreting the Bernoulli Equation">
+            <p>So far, it has been shown that the Bernoulli Equation can be arrived at by integrating Newton's 2nd Law along a streamline and enforcing certain assumptions about the nature of flow. Note that even in its integrated form, the Bernoulli equation relates the forces due to gravity and pressure ( <InlineEquation equation="\\rho gz" /> and <InlineEquation equation="p" />) to a term reminiscent of acceleration (<InlineEquation equation="\\frac{\\rho V^2}{2}" />). That said, by integrating the equations of motion for a fluid particle, the resulting Bernoulli Equation is a statement of conservation of energy. Flow work done by changes in pressure or changes in gravitational potential energy must be accounted for by corresponding changes in the kinetic energy of the fluid.</p>
+        </SubSection>
+        <SubSection title="Static, Dynamic, and Total Pressure">
+            <p>This energy interpretation of Bernoulli’s equation is often expressed in terms of different ``types'' of pressure. Each term in the equation corresponds to a distinct contribution to the fluid’s mechanical energy per unit volume (equivalent dimensions to the dimensions of pressure).</p>
+            <p>The <strong>static pressure</strong> <InlineEquation equation="p" /> represents the thermodynamic pressure of the fluid. It is the pressure that would be measured by a probe moving with the flow and is associated with the fluid’s internal energy and its ability to do flow work.</p>
+            <p>The <strong>dynamic pressure</strong> is defined as</p>
+
+            <DisplayEquation equation="q = \\frac{1}{2}\\rho V^2" title="" />
+
+            <p>and represents the kinetic energy of the fluid due to its motion. It can be interpreted as the pressure rise that would occur if the fluid were brought to rest without losses.</p>
+            <p>Combining these gives the <strong>total (or stagnation) pressure</strong>:</p>
+
+            <DisplayEquation equation="p_0 = p + \\frac{1}{2}\\rho V^2" title="" />
+
+            <p>which represents the total mechanical energy of the flow per unit volume (excluding elevation effects).</p>
+            <p>In flows where elevation changes are negligible, Bernoulli’s equation reduces to</p>
+
+            <DisplayEquation equation="p + \\frac{1}{2}\\rho V^2 = \\text{constant}" title="" />
+
+            <p>showing that an increase in velocity must be accompanied by a decrease in static pressure, and vice versa, in order to conserve energy along a streamline.</p>
+        </SubSection>
+        <SubSection title="Using the Bernoulli Equation">
+            <p>Most of the time, engineers use the Bernoulli equation to solve problems by relating two points along the same streamline. Their interest is in solving for the velocity or pressure of a flow at point somewhere downstream and not the actual value of the constant preserved along the streamline. By writing the equation between  two flow points, unknown quantities such as pressure or velocity can be solved using known conditions elsewhere in the flow.</p>
+            <p>In practice, the equation is often simplified by choosing convenient reference points. For example:</p>
+            <Itemize>
+
+                <Item>Elevation <InlineEquation equation="z" /> can be set to zero at a chosen datum.</Item>
+                <Item>Pressure terms may cancel if both points are exposed to the same atmospheric pressure.</Item>
+                <Item>Velocity at large reservoirs is often approximated as <InlineEquation equation="V \\approx 0" />.</Item>
+
+            </Itemize>
+            <p>These simplifications reduce the equation while preserving the underlying energy balance, but they must be justified based on the physical situation.</p>
+        </SubSection>
+    <Section title="Conservation of Mass (Continuity)" id="Conservation of Mass (Continuity)">
+        <p>The conservation of mass states that mass cannot be created or destroyed within a flow. For a control volume, this requires that the mass flow rate entering equals the mass flow rate leaving (for steady flow).</p>
+    </Section>
+        <SubSection title="Mass flow rate">
+
+            <DisplayEquation equation="\\dot{m} = \\rho A V" title="" />
+
+            <p>where <InlineEquation equation="\\rho" /> is density, <InlineEquation equation="A" /> is cross-sectional area, and <InlineEquation equation="V" /> is the average velocity normal to the area.</p>
+
+            <Image src='/fluid/Foundations/continuity.png' width='7'>Conservation of Mass and Basic Continuity </Image>
+        </SubSection>
+        <SubSection title="Continuity equation (steady flow)">
+
+                <DisplayEquation equation="\\dot{m}_{in} = \\dot{m}_{out}" title="" />
+
+                <p>For a single inlet and outlet:</p>
+
+                <DisplayEquation equation="\\rho_1 A_1 V_1 = \\rho_2 A_2 V_2" title="" />
+
+                <p><SubSection title="Incompressible flow"></p>
+                <p>If density is constant, the equation simplifies to</p>
+
+                <DisplayEquation equation="A_1 V_1 = A_2 V_2" title="" />
+
+                <p>This shows that a decrease in area must result in an increase in velocity.</p>
+            </SubSection>
+        <SubSection title="Connection to Bernoulli">
+            <p>Continuity and Bernoulli are used together to solve flow problems:</p>
+            <Itemize>
+
+                <Item>Continuity relates <strong>velocity and area</strong></Item>
+                <Item>Bernoulli relates <strong>velocity and pressure</strong></Item>
+
+            </Itemize>
+            <p>Together, they allow determination of unknown pressures, velocities, or flow rates in systems such as nozzles, pipes, and measurement devices.</p>
+        </SubSection>
+    <Section title="Bernoulli Phenomena" id="Bernoulli Phenomena">
+        <p>Bernoulli’s equation explains many common fluid flow devices and phenomena by relating changes in pressure to changes in velocity and elevation. The following are standard applications.</p>
+    </Section>
+        <SubSection title="Venturi Tube">
+            <p>A Venturi tube consists of a converging section, a throat, and a diverging section. As the flow enters the throat, the area decreases, causing the velocity to increase and the pressure to decrease.</p>
+
+            <Image src='/fluid/Foundations/venturitube.png' width='7'>Venturi Tube: flow is faster in narrow sections and slower in fatter
+                sections </Image>
+            <p>Applying continuity and Bernoulli between section's 1 and 2:</p>
+
+            <DisplayEquation equation="A_1 V_1 = A_2 V_2" title="" />
+
+
+            <DisplayEquation equation="p_1 + \\frac{1}{2}\\rho V_1^2 = p_2 + \\frac{1}{2}\\rho V_2^2" title="" />
+
+            <p>Solving for flow velocity using the pressure difference:</p>
+
+            <DisplayEquation equation="V_2 = \\sqrt{ \\frac{2(p_1 - p_2)}{\\rho \\left(1 - \\left(\\frac{A_2}{A_1}\\right)^2 \\right)} }" title="" />
+
+            <p>A typical Venturi tube will have a static pressure tap or another pressure-measuring device at the wide and thin section*s of the tube which can be used along with the cross-section*al areas to quantify the flow velocities.</p>
+        </SubSection>
+        <SubSection title="Pitot Tube">
+                <p>A Pitot tube measures flow velocity by bringing the fluid to rest at a stagnation point.</p>
+
+            <Image src='/fluid/Foundations/Pitottube.png' width='7'>Measuring static and stagnation pressure with a Pitot tube </Image>
+
+                <p>Applying Bernoulli between the free stream and the stagnation point:</p>
+
+                <DisplayEquation equation="p_0 = p + \\frac{1}{2}\\rho V^2" title="" />
+
+                <p>Solving for velocity:</p>
+
+                <DisplayEquation equation="V = \\sqrt{ \\frac{2(p_0 - p)}{\\rho} }" title="" />
+
+                <p>where <InlineEquation equation="p_0" /> is the stagnation pressure and <InlineEquation equation="p" /> is the static pressure. Overall, this device permits an accurate estimation of velocity based off of measured pressures from a flow field. Pitot tubes are commonly employed on airplanes to assess airspeed.</p>
+            </SubSection>
+        <SubSection title="Free Jet from a Tank">
+        <p>For a fluid exiting a tank through a small opening, the velocity of the jet can be found using Bernoulli between the free surface and the exit point.</p>
+
+            <Image src='/fluid/Foundations/tank.png' width='7'>A large reservoir ejecting fluid for a narrow outlet at the bottom. A
+                Bernoulli streamline can be charted from the top surface with essentially zero
+                velocity to the faster moving being propelled out at the bottom </Image>
+
+        <p>Assuming both points are exposed to atmospheric pressure and the surface velocity is negligible:</p>
+
+        <DisplayEquation equation="V = \\sqrt{2g(h_0 - h_2)}" title="" />
+
+        <p>If the free surface is taken as the reference elevation:</p>
+
+        <DisplayEquation equation="V = \\sqrt{2gh}" title="" />
+
+        <p>This result is known as <strong>Torricelli’s law</strong>, and it shows that the exit velocity depends only on the height of the fluid above the opening.</p>
+        <p>These three examples demonstrate the working exchange of flow work, gravitational potential energy and kinetic energy described by the Bernoulli equation.</p>
+        <Itemize>
+
+            <Item>Increased velocity <InlineEquation equation="\\rightarrow" /> decreased static pressure (Venturi)</Item>
+            <Item>Flow brought to rest <InlineEquation equation="\\rightarrow" /> maximum pressure (Pitot)</Item>
+            <Item>Potential energy <InlineEquation equation="\\rightarrow" /> kinetic energy (free jet)</Item>
+
+        </Itemize>
+        </SubSection>
+    <Section title="Limitations of the Bernoulli Equation" id="Introduction">
+    <p>The Bernoulli equation is derived under several aforementioned assumptions. To reiterate, these are that the flow under consideration be incompressible, steady, inviscid and along a streamline. When these assumptions are violated, the Bernoulli equation is no longer accurate and cannot be used or must be modified as will be seen in later chapters. One of the most common errors in fluid dynamics is the overuse of the Bernoulli equation to describe flows for which it is invalid. Below are some common mistakes that engineers make in applying the Bernoulli equation in fluid dynamics.</p>
+    </Section>
+        <SubSection title="Common Pitfalls">
+            <Itemize>
+
+                <Item><strong>Ignoring losses in long pipes:</strong>  </Item>
+                <p>Inviscid flow assumptions result in a fluid system that conserves energy. Many common flows, such as pipe flow must account for viscosity in predicting flow behavior.</p>
+                <Item><strong>Applying between different streamlines:</strong>  </Item>
+                <p>In rotational flows, Bernoulli is only valid along a streamline. Using it between arbitrary points can give incorrect pressure differences.</p>
+                <Item><strong>Neglecting velocity where it is not small:</strong>  </Item>
+                <p>Assuming <InlineEquation equation="V \\approx 0" /> at a free surface is only valid when the tank area is much larger than the outlet area.</p>
+                <Item><strong>Forgetting elevation changes:</strong>  </Item>
+                <p>Dropping the <InlineEquation equation="gz" /> term in flows with height differences leads to incorrect results.</p>
+                <Item><strong>Using incompressible form at high speeds:</strong>  </Item>
+                <p>When density varies significantly, the standard Bernoulli equation is not valid.</p>
+
+            </Itemize>
+        </SubSection>
+        <SubSection title="Bottom Line">
+            <Itemize>
+
+                <Item>Bernoulli gives an <strong>upper bound</strong> on velocity when losses are neglected.</Item>
+                <Item>Always check whether losses, work, or compressibility are important before applying it.</Item>
+
+            </Itemize>
+        </SubSection>
+</Layout>
