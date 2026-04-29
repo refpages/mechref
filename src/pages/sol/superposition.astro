@@ -66,6 +66,89 @@ The goal in combined loading is to determine the stresses at a point in a slende
 	<Item>Calculate all the stresses acting at a specific point within that section.</Item>
 	<Item>Add up like stresses (matching subscripts) to find the total stress state (superposition).</Item>
 </Enumerate>
+
+<Example id="com-lds" title="Combined loading in pipe" solution="True">
+    <div class="d-flex flex-row">
+    <Row>
+      <Col values="4 md-4">
+        <p>
+            <p>
+            Find the state of stress at points H and K in the given pipe system. 
+            </p>
+            <p>
+            Assume that <InlineEquation equation = "F_1"/> = 2500 lbs, <InlineEquation equation = "F_2"/> = 600 lbs, and the pipe diameter is 1 inch.
+            </p>
+            <p>
+            Also note that <InlineEquation equation = "a"/> = 2.5 inches, and <InlineEquation equation = "b"/> = 3.5 inches.
+            </p>
+            <br>
+        </p>
+      </Col>
+      <Col values="8 md-8">
+          <Image src='/sol/superposition/Combined Loading Practice.jpg' width='10'></Image>
+      </Col>
+    </Row>
+    </div>
+  <div slot="solution">
+      <Image src='/sol/superposition/Combined_Loading_Example_FBD_FINAL.jpg' width='4'>Positive Sign Convention FBD at Cross Section</Image>
+
+        <p>
+        The FBD above depicts all possible forces and moments at the cross section in the <strong> positive </strong> direction using <a href="https://www.mechref.org/sol/sign_conventions/?origin=sidebar">beam sign convention</a>. Through solving the force and moment balance equations, the magnitudes of some of these forces may turn out to be negative.
+        </p>
+
+      <p>
+        First, write all of the six force and moment balance equations.
+        </p>
+
+        <p>
+        <DisplayEquation equation="\\sum{F_x} = F_1 + P_{x} = 0"/>
+        <DisplayEquation equation="\\sum{F_y} = F_2 + V_{y} = 0"/>
+        <DisplayEquation equation="\\sum{F_z} = V_{z} = 0"/>
+        </p>
+        
+        <p>
+        <DisplayEquation equation="\\sum{M_x} = T_{x} + F_2 a = 0"/>
+        <DisplayEquation equation="\\sum{M_y} = M_{y} = 0"/>
+        <DisplayEquation equation="\\sum{M_z} = M_{z} + F_2 (b-1) = 0"/>
+        </p>
+
+        <Image src='/sol/superposition/Simplified_FBD.jpg' width='3'>Simplified FBD for Right Hand Side</Image>
+        <p>
+        The FBD above shows all forces and moments in their actual direction (with all magnitudes being positive). Note that some of the directions are flipped from the positive sign convention, since we found these forces or moments to be negative.
+        </p>
+
+        <p>
+        Next, compute the relevant stresses produced by each force or moment. Note that for this example, <InlineEquation equation="\\sigma_z"/> and <InlineEquation equation="\\sigma_y"/> would be zero. This is because the normal axis is in the x direction, and there is no internal pressure to create normal stresses in the z or y directions.
+        </p>
+
+        <p>
+        <strong> For point H: </strong>
+        <Itemize>
+            <Item> Axial: <InlineEquation equation = "\\sigma_x = \\dfrac{P_x}{A} = \\dfrac{F_1}{\\dfrac{\\pi d^2}{4}} = 3.183" /> ksi </Item>
+            <br></br>
+            <Item> Shear: <InlineEquation equation = "\\tau_{xy} = \\dfrac{V_y Q}{It} = 0" /> </Item>
+            <br></br>
+            <Item> Moment: <InlineEquation equation = "\\sigma_x = \\dfrac{Mc}{I} = \\dfrac{F_2 (b-1) r}{\\dfrac{\\pi d^4}{64}} = 15.279" /> ksi </Item>
+            <br></br>
+            <Item> Torsion: <InlineEquation equation = "\\tau_{xy} = \\dfrac{T_x r}{J} = \\dfrac{F_2 a r}{\\dfrac{\\pi d^4}{32}} = 7.639" /> ksi </Item>
+        </Itemize>
+        </p>
+
+        <p>
+
+        <strong> For point K: </strong>
+        <Itemize>
+            <Item> Axial: <InlineEquation equation = "\\sigma_x = \\dfrac{P_x}{A} = \\dfrac{F_1}{\\dfrac{\\pi d^2}{4}} = 3.183" /> ksi </Item>
+            <br></br>
+            <Item> Shear: <InlineEquation equation = "\\tau_{zx} = \\dfrac{V_y Q}{It} = \\dfrac{F_2\\dfrac{2 r^3}{3}}{\\left(\\dfrac{\\pi \d^4}{64}\\right) d} = 1.019" /> ksi </Item>
+            <br></br>
+            <Item> Moment: <InlineEquation equation = "\\sigma_x = \\dfrac{Mc}{I} = 0" /> </Item>
+            <br></br>
+            <Item> Torsion: <InlineEquation equation = "\\tau_{zx} = \\dfrac{T_x r}{J} = \\dfrac{F_2 a r}{\\dfrac{\\pi d^4}{32}} = 7.639" /> ksi </Item>
+        </Itemize>
+        </p>
+  </div>
+</Example>
 </SubSection>
 
 </Layout>
