@@ -8,6 +8,13 @@ import cbtf_scripts.utils as utils
 import cbtf_scripts.navbar as navbar
 import cbtf_scripts.content_pages as content_pages
 import cbtf_scripts.main_pages as main_pages
+import subprocess
+
+for folder in ["dist", ".astro", os.path.join("node_modules", ".astro")]:
+    if os.path.exists(folder):
+        shutil.rmtree(folder)
+
+subprocess.run(["npm", "run", "astro", "build"], check=True)
 
 courses = ['sta', 'sol', 'dyn', 'mf', 'md', 'thermodynamics']
 
