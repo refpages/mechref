@@ -1,0 +1,24 @@
+name: Weekly CBTF Run
+
+on:
+  schedule:
+    - cron: "0 22 * * 0" # Currently every Sunday at 4:00 PM CST
+  workflow_dispatch:
+jobs:
+  run-script:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run cbtf.py
+        run: python cbtf.py

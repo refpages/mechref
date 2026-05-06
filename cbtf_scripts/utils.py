@@ -29,6 +29,9 @@ def explore_dir_and_move(home, dir, banned_dirs):
     js = [d for d in os.listdir(os.path.join(home, dir)) if (d[-3:] == '.js')]
 
     if dir != '':
+        htmls = [f for f in os.listdir(current) if f == 'index.html']
+        js    = [f for f in os.listdir(current) if f.endswith('.js')]
+        
         for h in htmls:
             try:
                 ppth = PurePath(os.path.join(os.path.join(home, dir), h))
@@ -36,7 +39,6 @@ def explore_dir_and_move(home, dir, banned_dirs):
                 shutil.move(os.path.join(os.path.join(home, dir), h), os.path.join("/".join(ppth.parts[:-2]), file_name))
             except Exception as e:
                 print(e)
-                pass
 
         for j in js:
             if j in STAY_IN_SUBFOLDER:
