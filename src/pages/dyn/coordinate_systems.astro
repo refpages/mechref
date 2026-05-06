@@ -23,18 +23,28 @@ import InlineCanvas from "../../components/InlineCanvas.astro"
 ---
 <Layout title = "Coordinate systems" description = "Learn the difference between the cartesian, polar, spherical, and cylindrical coordinate systems">
 
-<div slot="navtree">
+<div slot = "navtree">
   <ul class='list-group list-group-flush py-0'> 
-    <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#cartesian_coordinate_system'>Cartesian coordinate system</a></li>
-    <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#polar_coordinate_system'>Polar coordinate system</a></li>
-    <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#spherical_coordinates'>Spherical coordinates</a></li>
-	<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#cylindrical_coordinates'>Cylindrical coordinates</a></li>
-</ul>
+    <li class = 'list-group-item py-0'><a class = 'text-decoration-none subsection' href = '#2D'>2D</a>
+      <ul class = 'list-group list-group-flush py-0'>
+        <li class = 'list-group-item py-0'><a class = 'text-decoration-none subsection' href = '#cartesian_coordinate_system'>Cartesian</a></li>
+        <li class = 'list-group-item py-0'><a class = 'text-decoration-none subsection' href = '#polar_coordinate_system'>Polar</a></li>
+      </ul>
+    </li>
+    <li class = 'list-group-item py-0'><a class = 'text-decoration-none subsection' href = '#3D'>3D</a>
+      <ul class = 'list-group list-group-flush py-0'>
+        <li class = 'list-group-item py-0'><a class = 'text-decoration-none subsection' href = '#spherical_coordinate_system'>Spherical</a></li>
+	      <li class = 'list-group-item py-0'><a class = 'text-decoration-none subsection' href = '#cylindrical_coordinate_system'>Cylindrical</a></li>
+      </ul>
+    </li>
+  </ul>
 </div>
 
 <Section title = "Coordinate systems"/>
 
-<SubSection title="Cartesian coordinate system" id="cartesian_coordinate_system">
+<SubSection title = 2D id = "2D"/>
+
+<SubSubSection title = "Cartesian coordinate system" id = "cartesian_coordinate_system">
 
     <p>
         Cartesian coordinates (also known as rectangular
@@ -79,7 +89,9 @@ import InlineCanvas from "../../components/InlineCanvas.astro"
             </p>
         </PrairieDrawCanvas>
     </Center>
-
+    <DisplayEquation equation = `\\begin{align} \\vec{r} &= r_1 \\hat{\\imath} + r_2 \\hat{\\jmath} + r_3 \\hat{k} \\\\
+      \\vec{v} &= \\dot{r}_1 \\hat{\\imath} + \\dot{r}_2 \\hat{\\jmath} + \\dot{r}_3 \\hat{k} \\\\
+      \\vec{a} &= \\ddot{r}_1 \\hat{\\imath} + \\ddot{r}_2 \\hat{\\jmath} + \\ddot{r}_3 \\hat{k} \\end{align}` title = "Position, velocity, and acceleration in cartesian basis." background = "True" id = "cs-c"/>
     <CalloutContainer slot="cards">
         <CalloutCard title="Notation note">
             <p>
@@ -114,9 +126,9 @@ import InlineCanvas from "../../components/InlineCanvas.astro"
               </p>
         </CalloutCard>
     </CalloutContainer>
-</SubSection>
+</SubSubSection>
 
-<SubSection title="Polar coordinate system" id="polar_coordinate_system">
+<SubSubSection title = "Polar coordinate system" id = "polar_coordinate_system">
 
     <p>
         Polar coordinates are an alternative 2D coordinate system
@@ -171,7 +183,9 @@ import InlineCanvas from "../../components/InlineCanvas.astro"
       </p>
 
     <DisplayEquation title="Conversion between polar and Cartesian coordinates" id="rvp-ep" equation = "\\begin{aligned}x &amp;= r \\cos\\theta&amp; r &amp;= \\sqrt{x^2 + y^2} \\\\y &amp;= r \\sin\\theta&amp; \\theta &amp;= \\operatorname{atan2}(y, x)\\end{aligned}" background="True"/>
-
+    <DisplayEquation equation = `\\begin{align} \\vec{r} &= r \\hat{e}_r \\\\
+      \\vec{v} &= \\dot{r} \\hat{e}_r + r \\dot{\\theta} \\hat{e}_\\theta \\\\
+      \\vec{a} &= (\\ddot{r} - r \\dot{\\theta} ^ 2) \\hat{e}_r + (r \\ddot{\\theta} + 2 \\dot{r} \\dot{\\theta}) \\hat{e}_\\theta \\end{align}` title = "Position, velocity and acceleration in polar components." background = "True" id = "cs-p"/>
     <CalloutContainer slot="cards">
         <CalloutCard>
             <p>
@@ -224,9 +238,11 @@ import InlineCanvas from "../../components/InlineCanvas.astro"
               </p>
         </CalloutCard>
     </CalloutContainer>
-</SubSection>
+</SubSubSection>
 
-<SubSection title="Spherical coordinates" id="spherical_coordinates">
+<SubSection title = "3D" id = "3D"/>
+
+<SubSubSection title = "Spherical coordinate system" id = "spherical_coordinate_system">
 
     <p>
       The spherical coordinate system extends polar coordinates
@@ -491,9 +507,9 @@ import InlineCanvas from "../../components/InlineCanvas.astro"
       </p>
     </CalloutCard>
   </CalloutContainer>
-</SubSection>
+</SubSubSection>
 
-<SubSection title="Cylindrical coordinates" id="cylindrical_coordinates">
+<SubSubSection title = "Cylindrical coordinate system" id = "cylindrical_coordinate_system">
 
     <p>
       The cylindrical coordinate system extends polar coordinates into 3D by using the standard vertical coordinate \(z\) for the third.
@@ -698,7 +714,7 @@ import InlineCanvas from "../../components/InlineCanvas.astro"
       vector derivatives</a>.
     </p>
   </DisplayEquation>
-</SubSection>
+</SubSubSection>
 
 
 </Layout>

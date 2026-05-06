@@ -31,9 +31,10 @@ import DisplayTable from "../../components/DisplayTable.astro"
   <ul class='list-group list-group-flush py-0'> 
 	<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#gears'>Gears</a>
 		    <ul class='list-group list-group-flush py-0'> 
-            <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#sign_convention'>Standard sign convention</a></li>
+      <li class = 'list-group-item py-0'><a class = 'text-decoration-none subsubsection' href = '#chains'>Chains</a></li>
+            <!--<li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#sign_convention'>Standard sign convention</a></li>-->
 			<li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#acce_contact_noslip_convention'>Acceleration in contact (no slip)</a></li>
-      <li class = 'list-group-item py-0'><a class = 'text-decoration-none subsubsection' href = '#gear_kinetics'>Gear kinetics</a></li>
+      <!--<li class = 'list-group-item py-0'><a class = 'text-decoration-none subsubsection' href = '#gear_kinetics'>Gear kinetics</a></li>-->
         </ul>
     </li>
     <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#four_bar_linkages'>Four-bar linkages</a></li>
@@ -55,11 +56,6 @@ import DisplayTable from "../../components/DisplayTable.astro"
       <li>Accelerations - &gt; tangential are equal but centripetal are not</li>
       <li>Opposite direction</li>
     </ul>
-
-
-    <Image src="/dyn/multi_body_systems/GearsChains_edited.png" width="7"></Image>
-	
-
   <CalloutContainer slot = "cards">
     <CalloutCard title = "Heads up!">
       <p>
@@ -73,6 +69,12 @@ import DisplayTable from "../../components/DisplayTable.astro"
   </CalloutContainer>
 
 </SubSection> 
+
+  <SubSubSection title = "Chains" id = "chains">
+    <Image src = "/dyn/multi_body_systems/GearsChains_edited.png" width = "7"></Image>
+  </SubSubSection>
+
+<!--
 <SubSubSection title="Standard sign convention"  id="sign_convention">
 
     <Image src="/dyn/multi_body_systems/GearsSignConvention.png" width="6"></Image>
@@ -103,12 +105,14 @@ import DisplayTable from "../../components/DisplayTable.astro"
 
 	
 </SubSubSection>
+-->
 
 <SubSubSection title="Acceleration in contact (no slip)"  id="acce_contact_noslip_convention">
 
     <Image src="/dyn/multi_body_systems/GearsContact.png" width="7"></Image>
 </SubSubSection>
 
+<!--
 <SubSubSection title = "Gear kinetics"  id = "gear_kinetics">
     <Image src = "/dyn/multi_body_systems/gear_kinetics.png" width = "3"/>
     <p>
@@ -122,6 +126,7 @@ import DisplayTable from "../../components/DisplayTable.astro"
       </ul>
     </p>
 </SubSubSection>
+-->
 
 <SubSection title = "Four-bar linkages" id = "four_bar_linkages">
   <Image src = "/dyn/multi_body_systems/Crank-Rocker_4-bar_Linkage.gif" width = "5">Image from <a target = "_blank" rel = "noopener noreferrer" href = "https://commons.wikimedia.org/wiki/File:Crank-Rocker_4-bar_Linkage.gif">Wikimedia.</a> CC BY 2.0</Image>

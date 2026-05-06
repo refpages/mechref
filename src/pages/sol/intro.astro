@@ -1,0 +1,100 @@
+---
+import Layout from "../../layouts/Layout.astro" 
+import Image from "../../components/Image.astro" 
+import Section from "../../components/Section.astro" 
+import SubSection from "../../components/SubSection.astro" 
+import SubSubSection from "../../components/SubSubSection.astro" 
+import Itemize from "../../components/Itemize.astro" 
+import Item from "../../components/Item.astro" 
+import InlineEquation from "../../components/InlineEquation.astro" 
+import DisplayEquation from "../../components/DisplayEquation.astro" 
+import BlueText from "../../components/BlueText.astro" 
+
+
+---
+<Layout title="Intro">
+
+<div slot="navtree">
+	<ul class='list-group list-group-flush py-0'> 
+		<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#thin-walled-pressure-vessels'>Thin-Walled Pressure Vessels</a>
+		
+			<ul class='list-group list-group-flush py-0'> 
+				<li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#mechanics'>Mechanics</a></li> 
+				<li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#material_component'>From Material to Component Behavior</a></li> 
+				<li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#scope'>Scope of this Class</a></li>
+				<li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#learning_objectives'>Learning Objectives</a></li>  
+			</ul>
+		</li>
+	</ul>
+</div>
+
+<Section title="Introduction to Solid Mechanics" id="intro"></Section>
+
+<SubSection title="Mechanics" id="mechanics">
+There are many fields of mechanics, the intent of this reference page is <strong> not </strong> to cover every one of them. It is important however to be aware of the relationships between the sub-field “Solid Mechanics” and mechanics as a whole. The figure below attempts to organize some of the fields included in the broad category of “mechanics”.
+
+<!-- <Image src="/sol/intro/ex1.jpg" width="6"> EXAMPLE 1 </Image>
+<Image src="/sol/intro/ex2.jpg" width="6"> EXAMPLE 2 </Image>
+--!>
+
+</SubSection>
+
+<SubSection title="From Material to Component Behavior" id="material_component">
+<p>
+Many introductory courses with similar scope use the name “mechanics of materials”, since the learning objectives are based on understanding the material level behavior. The distinction made here for “introductory solid mechanics” is to include interpretation of material level behavior at the component scale. The idea being to connect the behavior of materials to the behavior of components. What is a ‘component’?  Broadly speaking, it could be any “engineering potato” that needs to be designed or evaluated. 
+Frequently the components engineers design can be interpreted as “beams” in that they have one dimension significantly longer than the other two, and usually a constant cross sectional shape along this length. Introductory solid mechanics takes the material level behavior and ‘accumulates’ into component level using some assumptions specific to beams (and pressure vessels). 
+</p>
+
+<p>
+This ‘accumulation’ of material level behaviors can be thought of in terms of force quantities or deformation quantities.  (the two columns of the image below)
+</p>
+
+<Image src="/sol/intro/big_picture.png" width="6"> Big Picture of Solid Mechanics </Image>
+
+<p>
+Continuing from where a statics prerequisite left off, the idea of internal force in a beam describes the component level, but at the material level, this force is experienced as stress. Each point within the component experiences some material scale stress. Because materials are not infinitely stiff, they deform as a result of this stress. This deformation is described by the constitutive relations, i.e. the material scale relationship between force and displacement quantities (stress and strain). The material deformation, strain, everywhere within a component can then be accumulated into component level displacement, or deformation.  The remaining connection between component level force and deformation, is the component “stiffness”. A quantity derived from three fundamental relationships. This relationship visualized in the tonti diagram above shows three fundamental relationships of introductory mechanics:
+<Itemize>
+	<Item> Equilibrium (between force and stress) </Item>
+ 	<Item> Constitutive relations (between stress and strain) </Item>
+	<Item> Compatibility (accumulation of strain into displacement) </Item> 
+</Itemize>
+</p>
+
+<p>
+In a statics prerequisite course, analysis of internal forces was limited to ‘determinate’ structures. That is, only equilibrium was needed to determine component reactions and internal forces. (Determinate implies there is only one load path, so the forces carried in that load path are independent of any deformations, which is why statics does not consider deformation.) In many applications, system designs are indeterminate. That is, there are multiple load paths, or load carrying mechanisms within a design. In these systems, equilibrium alone is insufficient. What is necessary are the 3 items listed above, equilibrium, constitutive relations and compatibility. The internal forces in an indeterminate structure must satisfy all three.  Introductory solid mechanics uses these three relationships as applied to beam behavior to solve indeterminate problems.
+</p>
+
+<p>
+Not all engineering problems can be idealized into a “beam-like” component. However, the same three relationships above can be used to approximate the responses of more complex systems. These problems can be characterized as ‘boundary value problems’ in that we typically know some conditions on the boundaries such as displacement constraints or applied loads, and typically want to solve for results within the structure, such as stress or strain. Evaluating the three relationships in a 1D, 2D or 3D domain results in a differential equation relating forces and displacements. (An ODE if quantities are only dependent on spatial derivatives, a PDE if they are also dependent on temporal derivatives, but that is dynamics, which is not part of the scope of introductory mechanics) The approximations made in idealizing components as ‘beams’ are exactly the same approximations made when defining “beam elements” in a finite element software. In some sense, the 1D or beam idealizations covered in introductory solid mechanics can be considered an introduction into finite element methods, which also includes 2D and 3D methods for solving boundary value problems with the same three fundamental relationships.
+</p>
+
+</SubSection>
+
+<SubSection title="Scope of This Class (Infinitesimal Strain, 1D Idealization of 3D Components)" id="scope">
+<p>
+The scope of this class is intended to cover the fundamental relationships in a way that establishes an understanding of classical solid mechanics. There are many practical considerations outside the scope of this class that we introduce but do not fully investigate. (plasticity, nonlinearity, fatigue…. )
+The intent here is to make sure the assumptions made in idealization are made explicit/conscious/deliberate, so that when these conditions are no longer met in a design scenario, it is clear that relationships depending on those conditions are no longer valid.  
+</p>
+
+<p>
+The intent here is to make sure the assumptions made in idealization are made explicit/conscious/deliberate, so that when these conditions are no longer met in a design scenario, it is clear that relationships depending on those conditions are no longer valid.
+</p>
+
+<p>
+Introductory solid mechanics begins with an introduction to stress and strain (2.1 & 2.2) (i.e. force and displacement quantities at the material scale). The concepts of stress and strain as tensor quantities is also introduced. Then the relationship between these is covered in section 2.3, along with a broad overview of other material behaviors beyond linear elasticity. Because many engineering tasks are aimed at understanding and designing to avoid failure, section 2.4 and 2.5 discuss material failure theories, and design philosophies respectively.
+</p>
+
+<p>
+Section 3 is focused on linear elastic relationships for different loading conditions as applied to 1D components (beams). The intent here is to develop the three fundamental relationships for these loading conditions as applied to beam behavior. Each loading condition is explored individually. In terms of how externally applied actions (like forces & moments) are balanced by internal stresses, and how material strains are accumulated into component deformations.
+</p>
+
+<p>
+Section 4 extends to the application of the concepts developed in Section 3 to multiple loading conditions occurring simultaneously. These include shear and moment diagrams in beams, beam buckling, pressure vessels etc. 
+</p>
+</SubSection>
+
+<SubSection title="Learning Objectives" id="learning_objectives">
+Relationship between internal stresses and deformations produced by external forces acting on deformable bodies, and design principles based on mechanics of solids: normal stresses, shear stresses, and deformations produced by tensile, compressive, torsional, and bending loading of members; beam deflections; elastic energy and impact; multi-dimensional stress states; buckling of columns. 
+</SubSection>
+
+</Layout>

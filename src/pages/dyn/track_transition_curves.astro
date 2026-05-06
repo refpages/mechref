@@ -50,7 +50,7 @@ import InlineCanvas from "../../components/InlineCanvas.astro"
       questions just what shape the <em>transition curves</em>
       between the straight-line roads should have. Other
       considerations then follow, such as stacking the roads above
-      each other and <a href="particle_kinetics#banked_turns">banking</a> the angle of
+      each other and <a href="/dyn/banked_turns">banking</a> the angle of
       the roads.
     </p>
     <p>
@@ -61,7 +61,7 @@ import InlineCanvas from "../../components/InlineCanvas.astro"
       acceleration for the passengers.
     </p>
 
-    <Image src="/dyn/track_transition_curves/highway.jpg" width="5">
+    <Image src="/dyn/track_transition_curves/highway.jpg" width="5" id = "avt-ff">
       <p class="figureCaption">
         Aerial view of the <a
         href="http://en.wikipedia.org/wiki/High_Five_Interchange">High
@@ -71,7 +71,7 @@ import InlineCanvas from "../../components/InlineCanvas.astro"
         taken with a <a
         href="http://en.wikipedia.org/wiki/Kite_aerial_photography">camera
         suspended from a kite line</a>.  Image source: <a
-        href="http://www.fotopedia.com/items/flickr-6159432119">Fotopedia
+        href="https://web.archive.org/web/20130302055627/http://www.fotopedia.com/items/flickr-6159432119">Fotopedia
         image</a>, from the <a
         href="http://www.flickr.com/photos/attawayjl/6159432119/">flikr
         image </a> by <a
@@ -87,7 +87,7 @@ import InlineCanvas from "../../components/InlineCanvas.astro"
       <CalloutCard title="Reference material">
         <ul>
           <li><a href="/dyn/particle_kinematics#velocity_acceleration_vectors">Position, velocity, and acceleration</a></li>
-          <li><a href="/dyn/particle_kinematics#tangential_normal_basis">Tangential/normal coordinates</a></li>
+          <li><a href="/dyn/tangential_and_normal_basis">Tangential/normal coordinates</a></li>
         </ul>
       </CalloutCard>
     </CalloutContainer>
@@ -281,7 +281,7 @@ import InlineCanvas from "../../components/InlineCanvas.astro"
     say this is that the curvature is a linear function of the
     distance along the curve. To see that this is the same
     thing, we write the acceleration in a <a
-    href="rvt.html">tangential/normal basis</a> with the following equation.  <DisplayEquation equation=" \\vec{a} =    \\ddot{s} \\, \\hat{e}_t + \\kappa v^2 \\, \\hat{e}_n " />
+    href="/dyn/tangential_and_normal_basis">tangential/normal basis</a> with the following equation.  <DisplayEquation equation=" \\vec{a} =    \\ddot{s} \\, \\hat{e}_t + \\kappa v^2 \\, \\hat{e}_n " />
     For constant-speed motion with speed \(v\), the distance along the
     curve satisfies <InlineEquation equation=" \\dot{s} = v = \\text{constant}" />, so
     <InlineEquation equation="\\ddot{s} = 0" />. The acceleration vector thus only has a

@@ -1,0 +1,282 @@
+---
+import Layout from "../../layouts/Layout.astro" 
+import Image from "../../components/Image.astro" 
+import Section from "../../components/Section.astro" 
+import SubSection from "../../components/SubSection.astro" 
+import SubSubSection from "../../components/SubSubSection.astro" 
+import SubSubSubSection from "../../components/SubSubSubSection.astro" 
+import CalloutContainer from "../../components/CalloutContainer.astro" 
+import OrangeText from "../../components/OrangeText.astro" 
+import TealText from "../../components/TealText.astro" 
+import Enumerate from "../../components/Enumerate.astro" 
+import Item from "../../components/Item.astro" 
+import Itemize from "../../components/Itemize.astro" 
+import InlineEquation from "../../components/InlineEquation.astro" 
+import DisplayEquation from "../../components/DisplayEquation.astro"
+import DisplayTable from "../../components/DisplayTable.astro";
+---
+<Layout title="Other Gears">
+<div slot="navtree">
+            <ul class='list-group list-group-flush py-0'>
+                <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#helical gears'>Helical gears</a></li>
+                <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Bevel Gears'>Bevel Gears</a></li>
+            </ul>
+</div>
+
+
+<SubSection title="Helical Gears" id="helical gears">
+    <p>Helical gears are similar to power screws in that there are now two angles that will impact the direction of force.Helical gears are similar to spur gears but have teeth inclined at a helix angle <InlineEquation equation="\\psi" />. This results in smoother engagement and quieter operation. However, the angled teeth introduce axial forces in addition to tangential and radial forces. Where <InlineEquation equation="\\phi_n" /> is the normal pressure angle and <InlineEquation equation="\\psi" /> is the helix angle. Helical gears experience similar bending fatigue as spur gears, but stresses are calculated using modified geometry factors to account for angled teeth and load sharing across multiple teeth. The gear ratio is given by:</p>
+
+
+
+<p><DisplayEquation equation="\\frac{\\omega_p}{\\omega_g} = -\\frac{N_g}{N_p} = -\\frac{d_g}{d_p}" title="" /></p>
+
+    <Image src='/mf/Gears/Helical Gear Rotational Plane.png' width='7'></Image>
+
+<p>The relationship between normal and transverse pressure angles is:</p>
+
+<DisplayEquation equation="\\tan \\phi_n = \\tan \\phi \\cos \\psi" title="" />
+
+    <Image src='/mf/Gears/Helical drawing top section.png' width='7'></Image>
+
+
+<p>The pitch diameter of a helical gear is:</p>
+
+<DisplayEquation equation="d = \\frac{N}{P} = \\frac{N}{P_n \\cos \\psi}" title="" />
+
+    <Image src='/mf/Gears/Helical Gear FBD (1).png' width='7'></Image>
+
+
+<p>The force components include axial and radial forces:</p>
+
+<DisplayEquation equation="F_a = F_t \\tan \\psi" title="" />
+
+
+<DisplayEquation equation="F_r = F_t \\tan \\phi" title="" />
+
+    <DisplayTable id="id" class_="mb-3">
+        <thead>
+
+        <tr>
+            <th class="table-shaded"><strong>Variable</strong></th>
+            <th class="table-shaded"><strong>Description</strong></th>
+            <th class="table-shaded"><strong>Typical SI Units</strong></th>
+            <th class="table-shaded"><strong>Typical Imperial Units</strong></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td><InlineEquation equation="\\omega" /></td>
+            <td>Angular velocity </td>
+            <td>rad/s</td>
+            <td>rpm</td>
+        </tr>
+        <tr>
+            <td><InlineEquation equation="N" /></td>
+            <td>Number of teeth</td>
+            <td>-</td>
+            <td>-</td>
+        </tr>
+        <tr>
+            <td><InlineEquation equation="d" /></td>
+            <td>Pitch diameter</td>
+            <td>m</td>
+            <td>in</td>
+        </tr>
+        <tr>
+            <td><InlineEquation equation="P" /></td>
+            <td>Diametral pitch</td>
+            <td>teeth/in</td>
+            <td>teeth/in</td>
+        </tr>
+        <tr>
+            <td><InlineEquation equation="P_n" /></td>
+            <td>Normal diametral pitch</td>
+            <td>teeth/in</td>
+            <td>teeth/in</td>
+        </tr>
+        <tr>
+            <td><InlineEquation equation="\\phi" /></td>
+            <td>Pressure angle</td>
+            <td>degrees </td>
+            <td>degrees</td>
+        </tr>
+        <tr>
+            <td><InlineEquation equation="\\phi_n" /></td>
+            <td>Normal pressure angle</td>
+            <td>degrees </td>
+            <td>degrees</td>
+        </tr>
+        <tr>
+            <td><InlineEquation equation="\\psi" /></td>
+            <td>Helix angle</td>
+            <td>degrees </td>
+            <td>degrees</td>
+        </tr>
+        <tr>
+            <td><InlineEquation equation="F_t" /></td>
+            <td>Tangential force </td>
+            <td>N </td>
+            <td>lb</td>
+        </tr>
+
+        <tr>
+            <td><InlineEquation equation="F_r" /></td>
+            <td>Radial force </td>
+            <td>N </td>
+            <td>lb</td>
+        </tr>
+        <tr>
+            <td><InlineEquation equation="F_a" /></td>
+            <td>Axial force </td>
+            <td>N </td>
+            <td>lb</td>
+        </tr>
+        </tbody>
+    </DisplayTable>
+
+
+<p>A more refined bending stress model used in gear design is given by the AGMA equation, which accounts for geometry and real-world loading effects such as dynamic forces, overload, and misalignment:</p>
+
+<DisplayEquation equation="\\sigma = \\frac{F_t P}{bJ} K_v K_o (0.93 K_m)" title="" />
+
+    <DisplayTable id="id" class_="mb-3">
+        <thead>
+
+        <tr>
+            <th class="table-shaded"><strong>Variable</strong></th>
+            <th class="table-shaded"><strong>Description</strong></th>
+            <th class="table-shaded"><strong>Typical SI Units</strong></th>
+            <th class="table-shaded"><strong>Typical Imperial Units</strong></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td><InlineEquation equation="\\sigma" /></td>
+            <td>Bending stress</td>
+            <td>Pa</td>
+            <td>psi</td>
+        </tr>
+        <tr>
+            <td><InlineEquation equation="F_t" /></td>
+            <td>Tangential force (transmits power)</td>
+            <td>N </td>
+            <td>lb</td>
+        </tr>
+        <tr>
+            <td><InlineEquation equation="P" /></td>
+            <td>Diametral pitch</td>
+            <td>teeth/in</td>
+            <td>teeth/in</td>
+        </tr>
+        <tr>
+            <td><InlineEquation equation="b" /></td>
+            <td>Face width</td>
+            <td>m</td>
+            <td>in</td>
+        </tr>
+        <tr>
+            <td><InlineEquation equation="J" /></td>
+            <td>Geometry factor (includes stress concentration)</td>
+            <td>-</td>
+            <td>-</td>
+        </tr>
+        <tr>
+            <td><InlineEquation equation="K_v" /></td>
+            <td>Dynamic (velocity) factor</td>
+            <td>-</td>
+            <td>-</td>
+        </tr>
+        <tr>
+            <td><InlineEquation equation="K_o" /></td>
+            <td>Overload factor</td>
+            <td>-</td>
+            <td>-</td>
+        </tr>
+        <tr>
+            <td><InlineEquation equation="K_m" /></td>
+            <td>Mounting factor (alignment effects) </td>
+            <td>-</td>
+            <td>-</td>
+        </tr>
+        </tbody>
+    </DisplayTable>
+
+</SubSection>
+<SubSection title="Bevel Gears" id="Bevel Gears">
+<p>Bevel gears are based on rolling cones rather than rolling cylinders, meaning they transmit motion between intersecting shafts (typically at <InlineEquation equation="90^\\circ" />). Because of this geometry, the pitch diameter varies along the tooth, and an average pitch diameter is used for analysis.</p>
+
+    <Image src='/mf/Gears/Bevel Gear Diagram.png' width='7'></Image>
+
+<p>The geometry is defined by pitch cone angles <InlineEquation equation="\\gamma_p" /> (pinion) and <InlineEquation equation="\\gamma_g" /> (gear), which satisfy:</p>
+
+<DisplayEquation equation="\\gamma_p + \\gamma_g = 90^\\circ" title="" />
+
+<p>The speed (gear) ratio can be expressed as:</p>
+
+<DisplayEquation equation="\\frac{\\omega_p}{\\omega_g} = \\frac{N_g}{N_p} = \\tan \\gamma_g" title="" />
+
+<p>An average pitch diameter is used for velocity calculations:</p>
+
+<DisplayEquation equation="d_{av} = d - b \\sin \\gamma" title="" />
+
+<p>The contact force acts along the line of action and can be resolved into tangential and normal components:</p>
+
+<DisplayEquation equation="F_t = F \\cos \\phi" title="" />
+
+
+<DisplayEquation equation="F_n = F \\sin \\phi = F_t \\tan \\phi" title="" />
+
+<p>The normal force further resolves into radial and axial components:</p>
+
+<DisplayEquation equation="F_r = F_n \\cos \\gamma = F_t \\tan \\phi \\cos \\gamma" title="" />
+
+
+<DisplayEquation equation="F_a = F_n \\sin \\gamma = F_t \\tan \\phi \\sin \\gamma" title="" />
+
+    <DisplayTable id="id" class_="mb-3">
+        <thead>
+
+        <tr>
+            <th class="table-shaded"><strong>Variable</strong></th>
+            <th class="table-shaded"><strong>Description</strong></th>
+            <th class="table-shaded"><strong>Typical SI Units</strong></th>
+            <th class="table-shaded"><strong>Typical Imperial Units</strong></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td><InlineEquation equation="F_t" /></td>
+            <td>Tangential force (transmits power)</td>
+            <td>N </td>
+            <td>lb</td>
+        </tr>
+
+        <tr>
+            <td><InlineEquation equation="F_r" /></td>
+            <td>Radial force (separates gears)</td>
+            <td>N </td>
+            <td>lb</td>
+        </tr>
+        <tr>
+            <td><InlineEquation equation="F_a" /></td>
+            <td>Axial force (acts along shaft)</td>
+            <td>N </td>
+            <td>lb</td>
+        </tr>
+        <tr>
+            <td><InlineEquation equation="\\phi" /></td>
+            <td>Pressure angle</td>
+            <td>degrees </td>
+            <td>degrees</td>
+        </tr>
+        <tr>
+            <td><InlineEquation equation="\\gamma" /></td>
+            <td>Pitch cone angle</td>
+            <td>degrees </td>
+            <td>degrees</td>
+        </tr>
+        </tbody>
+    </DisplayTable>
+</SubSection>
+</Layout>
