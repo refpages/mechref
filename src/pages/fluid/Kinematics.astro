@@ -1,0 +1,321 @@
+---
+import Layout from "../../layouts/Layout.astro"
+import Image from "../../components/Image.astro"
+import Section from "../../components/Section.astro"
+import SubSection from "../../components/SubSection.astro"
+import SubSubSection from "../../components/SubSubSection.astro"
+import SubSubSubSection from "../../components/SubSubSubSection.astro"
+import CalloutContainer from "../../components/CalloutContainer.astro"
+import OrangeText from "../../components/OrangeText.astro"
+import TealText from "../../components/TealText.astro"
+import Enumerate from "../../components/Enumerate.astro"
+import Item from "../../components/Item.astro"
+import Itemize from "../../components/Itemize.astro"
+import InlineEquation from "../../components/InlineEquation.astro"
+import DisplayEquation from "../../components/DisplayEquation.astro"
+---
+<Layout title="Kinematics">
+<div slot="navtree">
+    <ul class='list-group list-group-flush py-0'>
+        <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Introduction'>Introduction</a></li>
+        <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Velocity Fields'>Velocity Fields</a></li>
+        <!--<ul class='list-group list-group-flush py-0'>-->
+        <!--    <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#Eulerian and Lagrangian Descriptions'>Eulerian and Lagrangian Descriptions</a></li>-->
+        <!--    <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#Steady and Unsteady Flow'>Steady and Unsteady Flow</a></li>-->
+        <!--    <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#Flow Visualization'>Flow Visualization</a></li>-->
+        <!--</ul>-->
+        <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Acceleration Fields'>Acceleration Fields</a></li>
+        <!--<ul class='list-group list-group-flush py-0'>-->
+        <!--    <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#Material Derivative'>Material Derivative</a></li>-->
+        <!--    <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#Local and Convective Acceleration'>Local and Convective Acceleration</a></li>-->
+        <!--    <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#Acceleration Components'>Acceleration Components</a></li>-->
+        <!--    <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#Streamline Coordinates'>Streamline Coordinates</a></li>-->
+        <!--</ul>-->
+        <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Control Volume (CV) vs System Analysis'>Control Volume (CV) vs System Analysis</a></li>
+        <!--<ul class='list-group list-group-flush py-0'>-->
+        <!--    <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#System Analysis'>System Analysis</a></li>-->
+        <!--    <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#Control Volume Analysis'>Control Volume Analysis</a></li>-->
+        <!--</ul>-->
+        <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Reynolds Transport Theorem'>Reynolds Transport Theorem</a></li>
+        <!--<ul class='list-group list-group-flush py-0'>-->
+        <!--    <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#Extensive and Intensive Properties'>Extensive and Intensive Properties</a></li>-->
+        <!--    <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#General Form of the Reynolds Transport Theorem'>General Form of the Reynolds Transport Theorem</a></li>-->
+        <!--    <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#Common Fluid Mechanics Applications'>Common Fluid Mechanics Applications</a></li>-->
+        <!--    <li class='list-group-item py-0'><a class='text-decoration-none subsubsection' href='#Moving and Deforming Control Volumes'>Moving and Deforming Control Volumes</a></li>-->
+        <!--</ul>-->
+    </ul>
+</div>
+
+    <SubSection title="Introduction" id="Introduction">
+    <p>In the previous chapters, fluids were primarily considered at rest or analyzed using overall conservation principles. In turn, this chapter focuses on describing how fluids move. This area of study is known as <strong>fluid kinematics</strong>, which examines the motion of fluids without focusing on the forces responsible for that precipitate that motion. Again, in connection with the <em>Big Idea of Fluid Mechanics</em>, fluid kinematics is a reframing of the same kinematic principles often seen in an introductory physics course to apply to fluid flow. It may also be useful to think of this chapter as developing the language to describe and apply Newton's 2nd Law, by expanding or clarifying the acceleration term across space and time. When force components in flows are reintroduced later, Newton's 2nd Law applied to fluids will become complete.</p>
+    <p>To describe fluid motion, velocity and acceleration fields are introduced. These concepts allow the motion of individual fluid particles and entire flow regions to be characterized mathematically. Important flow visualization tools such as streamlines, pathlines, and streaklines are also developed to help interpret complex flow behavior.</p>
+    <p>The chapter then introduces the distinction between <strong>system</strong> and <strong>control volume</strong> analysis, which forms the foundation for many engineering applications involving flowing fluids. Finally, the Reynolds Transport Theorem is presented to connect conservation laws for a system to equivalent control volume formulations. In effect, the Reynolds Transport Theorem serves as a bridge between the Lagrangian and Eulerian perspective of fluid mechanics.</p>
+    </SubSection>
+    <SubSection title="Velocity Fields" id="Velocity Fields">
+        <p>A velocity field describes the motion of a fluid by assigning a velocity vector to every point within the flow region. Rather than describing the motion of the fluid with a single velocity, the flow is treated as a continuous distribution in which both the magnitude and direction of velocity may vary throughout space and time.</p>
+        <p>For a general three-dimensional flow, the velocity field can be written as</p>
+
+        <DisplayEquation equation="\\vec{V}(x,y,z,t) = u(x,y,z,t)\\,\\hat{i} + v(x,y,z,t)\\,\\hat{j} + w(x,y,z,t)\\,\\hat{k}" title="" />
+
+        <p>where:</p>
+        <Itemize>
+
+            <Item>\(u\) is the velocity component in the \(x\)-direction</Item>
+            <Item>\(v\) is the velocity component in the \(y\)-direction</Item>
+            <Item>\(w\) is the velocity component in the \(z\)-direction</Item>
+
+        </Itemize>
+
+        <Image src='/fluid/Kinematics/velocityfieldexample.jpeg' width='7'> Example 2-D velocity field shown about the y-axis</Image>
+
+        <p>Because the velocity depends on both position and time, fluid motion can become highly complex even for relatively simple geometries. This being said, for many flows, it is possible to neglect one or more coordinate components of the flow velocity, usually because the flow is considered to be uniform in that direction or because flow in that coordinate direction is not considered relevant to an engineering system.</p>
+        <p>In reality, all flows have a 3-D character, but 2-D flows, which describe flow kinematically in only two coordinate directions, and 1-D flows, which involves flow in only one coordinate direction, can be useful tools to simplify analyses. For instance, axisymmetric pipe flow, or flow between parallel plates is often considered in 2-D. Such simplifications always incur error; however, similar to solid mechanics, knowing when to simplify or reduce the order of a fluid system analysis can make solving a fluids problem more tractable.</p>
+    </SubSection>
+        <SubSubSection title="Eulerian and Lagrangian Descriptions" id="Eulerian and Lagrangian Descriptions">
+        <p>Fluid motion may be described using either the <strong>Lagrangian</strong> or <strong>Eulerian</strong> perspective. In the <strong>Lagrangian</strong> description, individual fluid particles are tracked as they move through the flow field. The position, velocity, and acceleration of each particle are followed as functions of time. This approach is conceptually similar to tracking the trajectory of a single particle moving through space.</p>
+        <p>In contrast, the <strong>Eulerian</strong> description focuses on fixed points in space and examines how the flow properties vary at those locations. Instead of following individual particles, the velocity field is described everywhere within the domain at a given instant.</p>
+        <p>It is more common to see fluid flows analyzed from the Eulerian perspective; however, developing fluids principles in the Lagrangian formulation can occasionally be useful. Indeed, in other subjects like thermodynamics, where systems of particles with constant mass are studied, many core principles and formulae are developed in the Lagrangian of view.</p>
+    </SubSubSection>
+        <SubSubSection title="Steady and Unsteady Flow" id="Steady and Unsteady Flow">
+            <p>Flows are commonly classified according to whether one of its fluid properties (velocity, density etc.) changes with time at a specific point in space. Taking velocity as an example, a flow is considered <strong>steady</strong> if the velocity at every fixed point remains constant with time:</p>
+
+            <DisplayEquation equation="\\frac{\\partial \\vec{V}}{\\partial t}=0" title="" />
+
+            <p>For steady flow, the velocity at a particular location does not vary as time progresses. However, this does not necessarily mean that the velocity is uniform throughout the domain. Fluid particles may still accelerate if the velocity changes from one location to another.</p>
+            <p>If the velocity at a fixed point changes with time, the flow is classified as <strong>unsteady</strong>:</p>
+
+            <DisplayEquation equation="\\frac{\\partial \\vec{V}}{\\partial t}\\neq0" title="" />
+
+            <p>As was demonstrated in Chapter 1 and 3 already, assuming steady flow frequently simplifies governing fluids equations by eliminating an independent variable in the flow domain - time. Strictly speaking, most flows have some degree of unsteadiness; however, many engineering systems are primarily concerned with operation at steady state conditions - after all transients have subsided - which can often be used to justify an assumption about steady flow conditions.</p>
+        </SubSubSection>
+        <SubSubSection title="Flow Visualization" id="Flow Visualization">
+                <p>Several graphical descriptions are used to help visualize and interpret fluid motion.</p>
+            </SubSubSection>
+            <SubSubSubSection title="Streamlines">
+                    <p>A streamline is a curve that is tangent to the instantaneous velocity vector field at every point. This means that at any point along the streamline, the fluid velocity vector points directly along the curve. streamlines were already described and used extensively in Chapter 3.</p>
+                    <p>For two-dimensional flow, the streamline equation is</p>
+
+                    <DisplayEquation equation="\\frac{dy}{dx}=\\frac{v}{u}" title="" />
+
+                    <p>where \(u\) and \(v\) are the velocity components in the \(x\)- and \(y\)-directions.</p>
+                    <p>Streamlines provide an instantaneous picture of the flow pattern and are especially useful for identifying specific behaviors. Among these streamlines can help identify flow separation around an object or reveal stagnation points.</p>
+                </SubSubSubSection>
+            <SubSubSubSection title="Pathlines">
+                    <p>A pathline represents the actual trajectory followed by an individual fluid particle as it moves through the flow field over time. Pathlines are obtained by tracking the motion of a specific particle.</p>
+            </SubSubSubSection>
+            <SubSubSubSection title="Streaklines">
+                <p>A streakline is formed by all particles that previously passed through a particular point in the flow. It is common to see streaklines in flow visualization setups where a dye is used to color flow at particular point and track its motion thereafter through space and time.</p>
+                <Image src='/fluid/Kinematics/streampathstreaklines.jpeg' width='7'> Overview of Streamlines, Streaklines, and Pathlines</Image>
+            </SubSubSubSection>
+            <SubSubSubSection title="Relationship Between the Different Lines">
+                    <p>In <strong>steady flow</strong>, streamlines, pathlines, and streaklines are identical because the velocity field does not change with time.</p>
+                    <p>In <strong>unsteady flow</strong>, these lines may differ substantially since the velocity field evolves as fluid particles move through the domain.</p>
+                    </SubSubSubSection>
+    <SubSection title="Acceleration Fields" id="Acceleration Fields">
+                    <p>While a velocity field describes how fast a fluid is moving, the acceleration field describes how the velocity changes throughout the flow. Fluid acceleration is important because it is directly related to the forces acting on the fluid through Newton's Second Law.</p>
+                    <p>For a general velocity field,</p>
+
+                    <DisplayEquation equation="\\vec{V}(x,y,z,t) = u\\,\\hat{i} + v\\,\\hat{j} + w\\,\\hat{k}" title="" />
+
+                    <p>fluid particles may accelerate due to changes in time, changes in position, or both. As a result, acceleration can exist even in steady flow if the velocity varies spatially.</p>
+                    </SubSection>
+        <SubSubSection title="Material Derivative" id="Material Derivative">
+                        <p>In fluid mechanics, the acceleration of a fluid particle is determined using the <strong>material derivative</strong>. The material derivative represents the rate of change experienced by a moving fluid particle as it travels through the flow field.</p>
+                        <p>The notation</p>
+
+                        <DisplayEquation equation="\\frac{D}{Dt}" title="" />
+
+                        <p>denotes the material derivative, where the capital \(D\) indicates that the derivative follows the motion of a fluid particle rather than remaining at a fixed point in space. For any flow property \(\phi\),</p>
+
+                        <DisplayEquation equation="\\frac{D\\phi}{Dt} = \\frac{\\partial \\phi}{\\partial t} + u\\frac{\\partial \\phi}{\\partial x} + v\\frac{\\partial \\phi}{\\partial y} + w\\frac{\\partial \\phi}{\\partial z}" title="" />
+
+                        <p>The first term represents changes in \(\phi\) in time at a fixed location, while the remaining terms account for changes experienced as the particle moves through regions with spatial variations.</p>
+                        <p>When applied to the velocity field, the material derivative produces the fluid particle acceleration:</p>
+
+                        <DisplayEquation equation="\\vec{a} = \\frac{D\\vec{V}}{Dt}" title="" />
+        </SubSubSection>
+        <SubSubSection title="Local and Convective Acceleration" id="Local and Convective Acceleration">
+        <p>Expanding the material derivative gives</p>
+
+        <DisplayEquation equation="\\vec{a} = \\frac{\\partial \\vec{V}}{\\partial t} + u\\frac{\\partial \\vec{V}}{\\partial x} + v\\frac{\\partial \\vec{V}}{\\partial y} + w\\frac{\\partial \\vec{V}}{\\partial z}" title="" />
+
+        <p>The acceleration field therefore contains two distinct contributions. The term</p>
+
+        <DisplayEquation equation="\\frac{\\partial \\vec{V}}{\\partial t}" title="" />
+
+        <p>is called the <strong>local acceleration</strong>. Again, this represents changes in velocity with time at a fixed point in space. A non-zero value for this partial derivative exists only in unsteady flow.</p>
+        <p>The remaining terms are called the <strong>convective acceleration</strong>. These terms arise because fluid particles move into regions where the velocity field changes spatially. Convective acceleration may exist even when the flow is steady. It is important to realize that even for steady flow, fluid properties, including velocity in a flow can change across space. However, at a fixed point in space, they will always be the same.</p>
+    </SubSubSection>
+        <SubSubSection title="Acceleration Components" id="Acceleration Components">
+                        <p>The acceleration components in Cartesian coordinates are</p>
+
+                        <DisplayEquation equation="a_x = \\frac{Du}{Dt} = \\frac{\\partial u}{\\partial t} + u\\frac{\\partial u}{\\partial x} + v\\frac{\\partial u}{\\partial y} + w\\frac{\\partial u}{\\partial z}" title="" />
+
+
+                        <DisplayEquation equation="a_y = \\frac{Dv}{Dt} = \\frac{\\partial v}{\\partial t} + u\\frac{\\partial v}{\\partial x} + v\\frac{\\partial v}{\\partial y} + w\\frac{\\partial v}{\\partial z}" title="" />
+
+
+                        <DisplayEquation equation="a_z = \\frac{Dw}{Dt} = \\frac{\\partial w}{\\partial t} + u\\frac{\\partial w}{\\partial x} + v\\frac{\\partial w}{\\partial y} + w\\frac{\\partial w}{\\partial z}" title="" />
+
+                        <p>These expressions form the basis for the momentum equations developed later in fluid mechanics.</p>
+                        </SubSubSection>
+        <SubSubSection title="Streamline Coordinates" id="Streamline Coordinates">
+                            <p>As was discussed in Chapter 3, it is sometimes useful to discuss kinematic variables like acceleration in using the tangential-normal coordinate system, sometimes referred to as streamline coordinates. To reiterate this concept, the acceleration in the tangent or streamline \(s\)-direction and the normal  \(n\) direction can be written as</p>
+
+                            <DisplayEquation equation="\\vec{a} = a_s\\,\\hat{e}_s + a_n\\,\\hat{e}_n" title="" />
+
+                            <p>where:</p>
+                            <Itemize>
+
+                                <Item>\(a_s\) is the tangential acceleration component</Item>
+                                <Item>\(a_n\) is the normal acceleration component</Item>
+
+                            </Itemize>
+                            <p>The tangential component is</p>
+
+                            <DisplayEquation equation="a_s = \\frac{\\partial V}{\\partial t} + V\\frac{\\partial V}{\\partial s}" title="" />
+
+                            <p>which represents changes in the magnitude of the velocity.</p>
+                            <p>The normal component is</p>
+
+                            <DisplayEquation equation="a_n = \\frac{V^2}{R}" title="" />
+
+                            <p>where again \(R\) is the radius of curvature of the streamline.</p>
+                        </SubSubSection>
+    <SubSection title="Control Volume (CV) vs System Analysis" id="Control Volume (CV) vs System Analysis">
+        <p>In fluid mechanics, problems can be approached in two different ways depending on how the fluid is being observed. The analysis may focus on a specific collection of fluid particles, called a <strong>system</strong>, or on a region in space through which fluid flows, called a <strong>control volume</strong>.</p>
+    </SubSection>
+        <SubSubSection title="System Analysis" id="System Analysis">
+            <p>A <strong>system</strong> is a fixed amount of matter. The same fluid particles are tracked as they move through the flow field, meaning the system boundary moves and deforms with the fluid motion. Because the boundary always contains the same particles, no mass crosses the system boundary. This viewpoint is closely related to the Lagrangian description of fluid motion introduced earlier.</p>
+            <p>In principle, Newton's Laws are naturally written for systems. However, following individual fluid particles is often impractical because fluid regions continually change shape as the flow develops.</p>
+        </SubSubSection>
+        <SubSubSection title="Control Volume Analysis" id="Control Volume Analysis">
+                                    <p>A <strong>control volume</strong> is a selected region in space used for analysis. Unlike a system, fluid is allowed to cross the control surface surrounding the region. It is in this way, a geometric object with which a flowing fluid interacts as opposed to a concrete selection of fluid particles. <strong>Control surfaces</strong> are what form the boundaries of the control volume.</p>
+                                    <p>Most engineering fluid mechanics problems are analyzed using control volumes because they simplify the study of flowing fluids in devices such as pipes, pumps, turbines, and nozzles.</p>
+                                    <p>Although a control volume does not track individual particles, it may still be:</p>
+                                    <Itemize>
+
+                                        <Item>fixed in space</Item>
+                                        <Item>moving</Item>
+                                        <Item>deforming with time</Item>
+
+                                    </Itemize>
+                                    <p>In many applications, a stationary control volume is used. As for the steady flow assumption, a fixed, stable control volume often simplifies a fluid mechanics problem, although it may not always be sufficient.</p>
+                                    <p>Consider a handful of simple control volumes to understand how they may be applied. Much like Free-Body Diagrams in mechanics, thoughtful selection of control volumes can simplify analyzes greatly.</p>
+
+            <Image src='/fluid/Kinematics/CVexamples.jpeg' width='7'> Examples of Control Volumes</Image>
+
+                                    <p>Importantly, the value of control volumes extends insofar as the first principles that have been developed for fluids principles can be applied. As a result, a control volume framework leads directly to the Reynolds Transport Theorem, which connects conservation laws written for systems to equivalent control volume formulations.</p>
+                                </SubSubSection>
+    <SubSection title="Reynolds Transport Theorem" id="Reynolds Transport Theorem">
+                                        <p>The Reynolds Transport Theorem (RTT) provides the connection between the <strong>system</strong> viewpoint introduced earlier and the more practical <strong>control volume</strong> formulation used in most engineering fluid mechanics problems. Since the fundamental conservation laws are typically developed and written for system analysis, the RTT allows those laws to be rewritten in terms of a control volume through which fluid may flow.</p>
+                                        <p>In essence, the theorem states that the time rate of change of a property for a system can be expressed as the sum of:</p>
+                                        <Itemize>
+
+                                            <Item>the rate of change of that property within the control volume</Item>
+                                            <Item>the net rate at which the property crosses the control surface</Item>
+
+                                        </Itemize>
+                                        <p>This idea forms the basis for deriving the control volume forms of conservation of mass, momentum, and energy.</p>
+                                    </SubSection>
+        <SubSubSection title="Extensive and Intensive Properties" id="Extensive and Intensive Properties">
+                                            <p>The Reynolds Transport Theorem is written in terms of an <strong>extensive property</strong>, denoted by \(B\). Extensive properties depend on the amount of matter present in the system. Common examples include:</p>
+                                            <Itemize>
+
+                                                <Item>mass</Item>
+                                                <Item>linear momentum</Item>
+                                                <Item>angular momentum</Item>
+                                                <Item>energy</Item>
+
+                                            </Itemize>
+                                            <p>Associated with every extensive property is an <strong>intensive property</strong>, defined as the amount of the extensive property per unit mass:</p>
+
+                                            <DisplayEquation equation="b=\\frac{B}{m}" title="" />
+
+                                            <p>This relationship allows system properties to be expressed locally throughout the flow field.</p>
+                                            <p>For example,</p>
+
+                                            <DisplayEquation equation="b=1 \\qquad \\text{for mass}" title="" />
+
+
+                                            <DisplayEquation equation="b=\\vec{V} \\qquad \\text{for linear momentum}" title="" />
+
+
+                                            <DisplayEquation equation="b=e \\qquad \\text{for energy}" title="" />
+
+                                            <p>where \(e\) represents total energy per unit mass.</p>
+                                        </SubSubSection>
+        <SubSubSection title="General Form of the Reynolds Transport Theorem" id="General Form of the Reynolds Transport Theorem">
+                <p>Using these definitions, the Reynolds Transport Theorem may be written as</p>
+
+                <DisplayEquation equation="\\frac{dB_{sys}}{dt} = \\frac{\\partial}{\\partial t} \\int_{CV} \\rho b \\, dV + \\int_{CS} \\rho b \\, (\\vec{V}\\cdot\\vec{n}) \\, dA" title="" />
+
+                <p>where:</p>
+                <Itemize>
+
+                    <Item><InlineEquation equation="B_{sys}" /> is the extensive property of the system</Item>
+                    <Item><InlineEquation equation="CV" /> denotes the control volume</Item>
+                    <Item><InlineEquation equation="CS" /> denotes the control surface</Item>
+                    <Item><InlineEquation equation="\\rho" /> is the fluid density</Item>
+                    <Item><InlineEquation equation="b" /> is the corresponding intensive property</Item>
+                    <Item><InlineEquation equation="\\vec{V}" /> is the fluid velocity vector</Item>
+                    <Item><InlineEquation equation="\\vec{n}" /> is the outward unit normal vector to the control surface</Item>
+
+                </Itemize>
+                <p>The dot product</p>
+
+                <DisplayEquation equation="\\vec{V}\\cdot\\vec{n}" title="" />
+
+                <p>extracts the component of velocity normal to the control surface. This term is important because only velocity directed through the surface contributes to transport across the control volume boundary.</p>
+                <p>With the outward normal convention:</p>
+                <Itemize>
+
+                    <Item><InlineEquation equation="\\vec{V}\\cdot\\vec{n} > 0" /> corresponds to flow leaving the control volume</Item>
+                    <Item><InlineEquation equation="\\vec{V}\\cdot\\vec{n} < 0" /> corresponds to flow entering the control volume</Item>
+
+                </Itemize>
+                <p>The first term on the right-hand side,</p>
+
+                <DisplayEquation equation="\\frac{\\partial}{\\partial t} \\int_{CV} \\rho b \\, dV" title="" />
+
+                <p>represents accumulation or depletion of the property within the control volume. The second term,</p>
+
+                <DisplayEquation equation="\\int_{CS} \\rho b \\, (\\vec{V}\\cdot\\vec{n}) \\, dA" title="" />
+
+                <p>represents the net transport of the property across the control surface due to fluid motion. Together, these terms account for all possible ways the system property can change.</p>
+            </SubSubSection>
+        <SubSubSection title="Common Fluid Mechanics Applications" id="Common Fluid Mechanics Applications">
+                                                    <p>Once the general RTT expression is established, conservation equations can be developed simply by selecting the appropriate extensive property.</p>
+                                                    <p>For conservation of mass,</p>
+
+                                                    <DisplayEquation equation="B=m \\qquad \\text{and} \\qquad b=1" title="" />
+
+                                                    <p>which gives</p>
+
+                                                    <DisplayEquation equation="0 = \\frac{\\partial}{\\partial t} \\int_{CV} \\rho \\, dV + \\int_{CS} \\rho (\\vec{V}\\cdot\\vec{n}) \\, dA" title="" />
+
+                                                    <p>This is the integral form of the continuity equation.</p>
+                                                    <p>For conservation of linear momentum,</p>
+
+                                                    <DisplayEquation equation="B=m\\vec{V} \\qquad \\text{and} \\qquad b=\\vec{V}" title="" />
+
+                                                    <p>which leads to</p>
+
+                                                    <DisplayEquation equation="\\sum \\vec{F} = \\frac{\\partial}{\\partial t} \\int_{CV} \\rho \\vec{V} \\, dV + \\int_{CS} \\rho \\vec{V}(\\vec{V}\\cdot\\vec{n}) \\, dA" title="" />
+
+                                                    <p>This equation states that external forces acting on the control volume are balanced by momentum accumulation and momentum transport across the control surface. This is precisely a statement of Newton's 2nd Law, that the net force force acting on a system is the time rate of change of momentum of that system, only this time, the law has been formulated for a control volume approach. Conservation equations arrived at from RTT form the foundation for nearly all fluid mechanics analyses.</p>
+                                                </SubSubSection>
+        <SubSubSection title="Moving and Deforming Control Volumes" id="Moving and Deforming Control Volumes">
+            <p>The control volume itself does not need to remain stationary. In some applications, the control surface may move or deform with time, such as in rotating machinery, moving vehicles, piston-cylinder systems, or flexible boundaries.</p>
+            <p>A straightforward but common instance of this is when the control volume can be assumed to be moving at a constant velocity. When the control surface moves with velocity <InlineEquation equation="(\\vec{n}_{CS})" />, the transport across the surface must be based on the velocity of the fluid relative to the moving boundary. The flux term therefore becomes</p>
+
+            <DisplayEquation equation="(\\vec{V}-\\vec{V}_{CS})\\cdot\\vec{n}" title="" />
+
+            <p>and the RTT is modified to</p>
+
+            <DisplayEquation equation="\\frac{dB_{sys}}{dt} = \\frac{\\partial}{\\partial t} \\int_{CV} \\rho b \\, dV + \\int_{CS} \\rho b \\, [(\\vec{V}-\\vec{V}_{CS})\\cdot\\vec{n}] \\, dA" title="" />
+
+            <p>This form reduces to the standard stationary control volume equation when the control surface velocity is zero.</p>
+            <p>The Reynolds Transport Theorem is one of the most important tools in fluid mechanics because it provides a systematic way to convert conservation laws written for systems into practical equations that can be applied to real engineering devices and flowing fluids.</p>
+        </SubSubSection>
+</Layout>
