@@ -1,0 +1,295 @@
+---
+import Layout from "../../layouts/Layout.astro" 
+import Image from "../../components/Image.astro" 
+import Section from "../../components/Section.astro" 
+import SubSection from "../../components/SubSection.astro" 
+import SubSubSection from "../../components/SubSubSection.astro" 
+import SubSubSubSection from "../../components/SubSubSubSection.astro" 
+import CalloutContainer from "../../components/CalloutContainer.astro" 
+import OrangeText from "../../components/OrangeText.astro" 
+import TealText from "../../components/TealText.astro" 
+import Enumerate from "../../components/Enumerate.astro" 
+import Item from "../../components/Item.astro" 
+import Itemize from "../../components/Itemize.astro" 
+import InlineEquation from "../../components/InlineEquation.astro" 
+import DisplayEquation from "../../components/DisplayEquation.astro" 
+---
+<Layout title="Differential Fluid Flow">
+    <div slot="navtree">
+        <ul class="list-group list-group-flush py-0">
+            <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Introduction'>Introduction</a></li>
+            <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Motivation'>Motivation</a></li>
+            <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Differential Conservation of Mass'>Differential Conservation of Mass</a></li>
+            <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Differential Equations of Motion'>Differential Equations of Motion</a></li>
+            <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Viscous Flow and the Navier--Stokes Equations'>Viscous Flow and the Navier--Stokes Equations</a></li>
+            <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Simple Laminar Flow Solutions'>Simple Laminar Flow Solutions</a></li>
+            <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#A Comment on Numerical Methods'>A Comment on Numerical Methods</a></li>
+        </ul>
+    </div>
+
+
+<SubSection title="Introduction" id="Introduction">
+    <p>In the previous chapter, conservation laws were applied using finite control volumes to analyze engineering fluid systems. While those integral formulations are extremely useful, many fluid mechanics problems require information about how flow properties vary continuously throughout the fluid domain.</p>
+    <p>This chapter develops the <strong>differential</strong> forms of the conservation equations by applying conservation principles to infinitesimally small fluid elements. These equations describe the local behavior of the flow field and form the foundation of theoretical fluid mechanics, computational fluid dynamics, and many advanced engineering analyses.</p>
+    <p>The chapter begins with the differential form of conservation of mass and introduces the stream function for incompressible two-dimensional flow. The differential equations of motion are then developed from conservation of linear momentum. Finally, the Navier--Stokes equations are introduced for viscous flows, followed by several classical analytical solutions for simple laminar flow configurations.</p>
+    </SubSection>
+<SubSection title="Motivation" id="Motivation">
+    <p>Up until this chapter, various incarnations or consequences of Newton's Laws as they apply to fluid mechanics have been explored. However, for the most part, reframing the governing equations of mechanics have come with certain caveats and assumptions about a flow that permit the use of general formulae like the Bernoulli equation or special transformations of conservation principles like in RTT to aid in solving for specific flow properties at special locations. While a host of fluids problems can be effectively solved with these tools, it would be even more valuable to develop a stable method for fully solving any arbitrary fluids problem. That is, it is desirable to be able to apply a technique to solve for any fluid property (velocity, pressure, density, acceleration etc.) as a function of space and time while considering all forces, including gravity and viscous effects. Since it has been established that fluid mechanics is governed by the same overall laws as other areas of mechanics, it is not surprising that developing a general and complete solution strategy to fluid mechanics problems involves finding solutions to 2nd order, non-linear partial differential equations. In accordance with <em>The Big Idea of Fluid Mechanics</em>, these equations are nothing but Newton's 2nd Law and conservation of mass and energy expressed in differential form for infinitesimally small fluid domains.</p>
+    <p>Unfortunately, obtaining a closed-form analytical solution to these equations for most flows is, as of yet, not tractable. Nevertheless, the equations presented in this chapter represent some of the most general and foundational expressions of fluid flow behavior and understanding them is necessary to developing a robust intuition for fluid flow behavior and the origin of the equations that have been presented thus far. Also, while analytical solutions are often hard to find, it numerical methods can be used to obtain approximate, yet accurate solutions to many of these equations, allowing engineers to simulate complex flow fields to design systems.</p>
+    </SubSection>
+<SubSection title="Differential Conservation of Mass" id="Differential Conservation of Mass">
+    <p>The differential form of conservation of mass describes how mass is conserved locally within a fluid flow field. Instead of analyzing a finite control volume, the equations are written for an infinitesimally small fluid element. This approach allows the velocity, pressure, and density fields to be described continuously throughout the flow domain.</p>
+    <p>The general vector form of the continuity equation is</p>
+
+    <DisplayEquation equation="\\frac{\\partial \\rho}{\\partial t} + \\nabla \\cdot (\\rho \\vec{V}) = 0" title="" />
+
+    <p>This equation states that the rate of increase of mass inside a differential fluid element plus the net mass flow leaving the element must equal zero.</p>
+    <p>The first term represents local changes in density with time, while the second term, sometimes called the divergence term, represents the net mass transport caused by fluid motion.</p>
+    </SubSection>
+    <SubSubSection title="Cartesian Coordinates">
+        <p>In Cartesian coordinates, the continuity equation becomes</p>
+
+        <DisplayEquation equation="\\frac{\\partial \\rho}{\\partial t} + \\frac{\\partial (\\rho u)}{\\partial x} + \\frac{\\partial (\\rho v)}{\\partial y} + \\frac{\\partial (\\rho w)}{\\partial z} = 0" title="" />
+
+        <Image src='/fluid/Differential_flow/differentialmassconservation.jpeg' width='7'>Mass conservation on differential fluid element</Image>
+
+        <p>For incompressible flow with constant density, the equation simplifies to</p>
+
+        <DisplayEquation equation="\\nabla \\cdot \\vec{V}=0" title="" />
+
+        <p>or</p>
+
+        <DisplayEquation equation="\\frac{\\partial u}{\\partial x} + \\frac{\\partial v}{\\partial y} + \\frac{\\partial w}{\\partial z} = 0" title="" />
+
+        <p>This expression is the same one that was overviewed briefly in Chapter 1. This expression states that an incompressible flow cannot experience a differential change in volume at any precise point or that it cannot accumulate in the differential control volume. Any fluid entering a differential element must be balanced by fluid leaving the element.</p>
+        </SubSubSection>
+    <SubSubSection title="Cylindrical Polar Coordinates">
+        <p>Many engineering flows are more naturally described using cylindrical coordinates \((r,\theta,z)\), especially pipe flows and axisymmetric flows.</p>
+        <p>In cylindrical coordinates, the continuity equation becomes</p>
+
+        <DisplayEquation equation="\\frac{\\partial \\rho}{\\partial t} + \\frac{1}{r} \\frac{\\partial}{\\partial r} (\\rho r V_r) + \\frac{1}{r} \\frac{\\partial}{\\partial \\theta} (\\rho V_\\theta) + \\frac{\\partial}{\\partial z} (\\rho V_z) = 0" title="" />
+
+        <p>For incompressible flow,</p>
+
+        <DisplayEquation equation="\\frac{1}{r} \\frac{\\partial}{\\partial r} (rV_r) + \\frac{1}{r} \\frac{\\partial V_\\theta}{\\partial \\theta} + \\frac{\\partial V_z}{\\partial z} = 0" title="" />
+
+        <p>Note that additional geometric factors arise because the coordinate directions themselves change with position in cylindrical systems. Note that when one switches the coordinate system that is used to analyze a fluid system, they must make an analogous change to the governing equations over that domain.</p>
+        </SubSubSection>
+    <SubSubSection title="Stream Function">
+        <p>For two-dimensional incompressible flow, the continuity equation can be satisfied automatically through the introduction of the <strong>stream function</strong>, denoted by \(\psi\).</p>
+        <p>In Cartesian coordinates,</p>
+
+        <DisplayEquation equation="u=\\frac{\\partial \\psi}{\\partial y}" title="" />
+
+
+        <DisplayEquation equation="v=-\\frac{\\partial \\psi}{\\partial x}" title="" />
+
+        <p>Substituting these expressions into the incompressible continuity equation identically satisfies conservation of mass.</p>
+        <p>The stream function is useful because lines of constant \(\psi\) correspond to streamlines of the flow. Differences in stream function between two streamlines are related to the volumetric flow rate between them.</p>
+        <p>For axisymmetric incompressible flow in cylindrical coordinates,</p>
+
+        <DisplayEquation equation="V_r = \\frac{1}{r} \\frac{\\partial \\psi}{\\partial z}" title="" />
+
+
+        <DisplayEquation equation="V_z = - \\frac{1}{r} \\frac{\\partial \\psi}{\\partial r}" title="" />
+
+        <p>As a simple example, consider the stream function</p>
+
+        <DisplayEquation equation="\\psi=Ux" title="" />
+
+        <p>where \(U\) is a constant velocity. The resulting velocity field is</p>
+
+        <DisplayEquation equation="u=\\frac{\\partial \\psi}{\\partial y}=0" title="" />
+
+
+        <DisplayEquation equation="v=-\\frac{\\partial \\psi}{\\partial x}=-U" title="" />
+
+        <p>which represents uniform flow in the negative \(y\)-direction. Similarly, if</p>
+
+        <DisplayEquation equation="\\psi=Uy" title="" />
+
+        <p>then</p>
+
+        <DisplayEquation equation="u=U \\qquad \\text{and} \\qquad v=0" title="" />
+
+        <p>which corresponds to uniform flow in the positive \(x\)-direction.</p>
+
+        <DisplayEquation equation="\\psi=Uy" title="" />
+
+        <p>where \(U\) is a constant. Using the stream function definitions,</p>
+
+        <DisplayEquation equation="u=\\frac{\\partial \\psi}{\\partial y}=U" title="" />
+
+
+        <DisplayEquation equation="v=-\\frac{\\partial \\psi}{\\partial x}=0" title="" />
+
+        <p>This corresponds to uniform flow in the positive \(x\)-direction. Substituting these velocity components into the incompressible continuity equation,</p>
+
+        <DisplayEquation equation="\\frac{\\partial u}{\\partial x} + \\frac{\\partial v}{\\partial y} = 0" title="" />
+
+        <p>gives</p>
+
+        <DisplayEquation equation="\\frac{\\partial U}{\\partial x} + \\frac{\\partial (0)}{\\partial y} = 0" title="" />
+
+        <p>or</p>
+
+        <DisplayEquation equation="0+0=0" title="" />
+
+        <p>showing that the continuity equation is satisfied automatically.</p>
+        </SubSubSection>
+<SubSection title="Differential Equations of Motion" id="Differential Equations of Motion">
+    <p>The differential equations of motion describe how fluid motion changes in response to forces acting on a differential fluid element. Again, these equations are obtained by applying Newton's Second Law locally or at given locations within the flow field.</p>
+    <p>The equations of motion form the foundation of fluid dynamics because they relate velocity, pressure, viscosity, and body forces throughout the fluid domain.</p>
+    <p>The general vector form is</p>
+
+    <DisplayEquation equation="\\rho \\frac{D\\vec{V}}{Dt} = -\\nabla p + \\nabla \\cdot \\boldsymbol{\\tau} + \\rho \\vec{g}" title="" />
+
+    <p>Using the material derivative reviewed in Chapter 4 in its vector form,</p>
+
+    <DisplayEquation equation="\\frac{D\\vec{V}}{Dt} = \\frac{\\partial \\vec{V}}{\\partial t} + (\\vec{V}\\cdot\\nabla)\\vec{V}" title="" />
+
+    <p>the equations are often expressed as</p>
+
+    <DisplayEquation equation="\\rho \\left[ \\frac{\\partial \\vec{V}}{\\partial t} + (\\vec{V}\\cdot\\nabla)\\vec{V} \\right] = -\\nabla p + \\nabla \\cdot \\boldsymbol{\\tau} + \\rho \\vec{g}" title="" />
+
+    <p>The left-hand side represents fluid acceleration, including both local and convective effects.</p>
+    <p>The terms on the right-hand side represent the forces acting on the fluid element:</p>
+    <Itemize>
+
+        <Item><InlineEquation equation="(-\\nabla p)" />\(-\nabla p\) corresponds to pressure forces</Item>
+        <Item><InlineEquation equation="(\\nabla \\cdot \\boldsymbol{\\tau})" /> corresponds to viscous stresses</Item>
+        <Item><InlineEquation equation="(\\rho \\vec{g})" /> corresponds to body forces such as gravity</Item>
+
+    </Itemize>
+    <p>These equations are generally coupled and nonlinear because the velocity components appear both directly and inside derivatives. Note that is pressure and viscous stress <strong>gradients</strong> and not raw values themselves that drive acceleration. It is also here that an earlier idea from <em>The Big Idea of Fluid Mechanics</em> reemerges, namely the key forces identified in Chapter 1. Here it is apparent that a proxy for inertia in density, when multiplied by acceleration, is exactly equal to the sum of forces acting on that differential fluid element. Again, this is nothing more than Newton's 2nd Law, a recurring motif in all of classical mechanics.</p>
+</SubSection>
+    <SubSubSection title="Cartesian Coordinates">
+        <p>When the momentum equations are expressed in Cartesian form they can be seen as</p>
+
+        <DisplayEquation equation="\\rho \\left( \\frac{\\partial u}{\\partial t} + u\\frac{\\partial u}{\\partial x} + v\\frac{\\partial u}{\\partial y} + w\\frac{\\partial u}{\\partial z} \\right) = -\\frac{\\partial p}{\\partial x} + (\\nabla \\cdot \\boldsymbol{\\tau})_x + \\rho g_x" title="" />
+
+
+        <DisplayEquation equation="\\rho \\left( \\frac{\\partial v}{\\partial t} + u\\frac{\\partial v}{\\partial x} + v\\frac{\\partial v}{\\partial y} + w\\frac{\\partial v}{\\partial z} \\right) = -\\frac{\\partial p}{\\partial y} + (\\nabla \\cdot \\boldsymbol{\\tau})_y + \\rho g_y" title="" />
+
+
+        <DisplayEquation equation="\\rho \\left( \\frac{\\partial w}{\\partial t} + u\\frac{\\partial w}{\\partial x} + v\\frac{\\partial w}{\\partial y} + w\\frac{\\partial w}{\\partial z} \\right) = -\\frac{\\partial p}{\\partial z} + (\\nabla \\cdot \\boldsymbol{\\tau})_z + \\rho g_z" title="" />
+
+        <p>These equations describe momentum conservation in the \(x\)-, \(y\)-, and \(z\)-directions.</p>
+    </SubSubSection>
+    <SubSubSection title="Cylindrical Polar Coordinates">
+        <p>For many internal and rotating flows, cylindrical coordinates are more convenient.</p>
+        <p>The radial momentum equation is</p>
+
+        <DisplayEquation equation="\\rho \\left( \\frac{\\partial V_r}{\\partial t} + V_r\\frac{\\partial V_r}{\\partial r} + \\frac{V_\\theta}{r} \\frac{\\partial V_r}{\\partial \\theta} - \\frac{V_\\theta^2}{r} + V_z\\frac{\\partial V_r}{\\partial z} \\right) = -\\frac{\\partial p}{\\partial r} + (\\nabla \\cdot \\boldsymbol{\\tau})_r + \\rho g_r" title="" />
+
+        <p>The tangential momentum equation is</p>
+
+        <DisplayEquation equation="\\rho \\left( \\frac{\\partial V_\\theta}{\\partial t} + V_r\\frac{\\partial V_\\theta}{\\partial r} + \\frac{V_\\theta}{r} \\frac{\\partial V_\\theta}{\\partial \\theta} + \\frac{V_rV_\\theta}{r} + V_z\\frac{\\partial V_\\theta}{\\partial z} \\right) = -\\frac{1}{r} \\frac{\\partial p}{\\partial \\theta} + (\\nabla \\cdot \\boldsymbol{\\tau})_\\theta + \\rho g_\\theta" title="" />
+
+        <p>The axial momentum equation is</p>
+
+        <DisplayEquation equation="\\rho \\left( \\frac{\\partial V_z}{\\partial t} + V_r\\frac{\\partial V_z}{\\partial r} + \\frac{V_\\theta}{r} \\frac{\\partial V_z}{\\partial \\theta} + V_z\\frac{\\partial V_z}{\\partial z} \\right) = -\\frac{\\partial p}{\\partial z} + (\\nabla \\cdot \\boldsymbol{\\tau})_z + \\rho g_z" title="" />
+
+        <p>These forms are commonly used in pipe flow, swirling flow, and axisymmetric flow analysis.</p>
+    </SubSubSection>
+    <SubSubSection title="Euler Equations">
+        <p>If viscous effects are neglected, the stress terms vanish and the equations reduce to the Euler Equations:</p>
+
+        <DisplayEquation equation="\\rho \\left[ \\frac{\\partial \\vec{V}}{\\partial t} + (\\vec{V}\\cdot\\nabla)\\vec{V} \\right] = -\\nabla p + \\rho \\vec{g}" title="" />
+
+        <p>These equations describe inviscid flow and are often useful when viscous effects are small compared to inertial forces. As we will see later, the ability to neglect such terms is often well-expressed in terms of non-dimensional quantities like the Reynolds number, which expresses the relative importance to inertial to viscous forces acting within a flow field. It should also be noted that the Bernoulli equation seen in chapter 3 can be achieved from direct integration of the Euler equations, connecting pressure, velocity and potential energy changes along a streamline.</p>
+    </SubSubSection>
+<SubSection title="Viscous Flow and the Navier--Stokes Equations" id="Viscous Flow and the Navier--Stokes Equations">
+        <p>Real fluids experience viscous effects whenever velocity gradients are present. Viscosity produces internal friction within the fluid, causing momentum to diffuse through the flow field.</p>
+        <p>The general form of the momentum equation has already been presented, including viscous stresses. However, for Newtonian fluids, viscous stresses are proportional to velocity gradients. Substituting the Newtonian stress relationships into the differential equations of motion produces the well-known Navier--Stokes equations.</p>
+        <p>For incompressible flow with constant viscosity, the general vector form is</p>
+
+        <DisplayEquation equation="\\rho \\left[ \\frac{\\partial \\vec{V}}{\\partial t} + (\\vec{V}\\cdot\\nabla)\\vec{V} \\right] = -\\nabla p + \\mu \\nabla^2 \\vec{V} + \\rho \\vec{g}" title="" />
+
+    <Image src='/fluid/Differential_flow/NSoverview.jpeg' width='7'>Navier-Stokes intuitive analysis</Image>
+
+
+    <p>The Navier--Stokes equations describe conservation of momentum for viscous fluid flow. The pressure gradient term drives the flow, the viscous term resists deformation through momentum diffusion, and the acceleration terms describe inertial effects. As stated before, because the equations contain nonlinear convective acceleration terms, exact analytical solutions are only possible for a limited number of simplified flows.</p>
+    </SubSection>
+    <SubSubSection title="Cartesian Coordinates">
+        <p>The Cartesian Navier--Stokes equations are</p>
+
+        <DisplayEquation equation="\\rho \\left( \\frac{\\partial u}{\\partial t} + u\\frac{\\partial u}{\\partial x} + v\\frac{\\partial u}{\\partial y} + w\\frac{\\partial u}{\\partial z} \\right) = -\\frac{\\partial p}{\\partial x} + \\mu \\left( \\frac{\\partial^2 u}{\\partial x^2} + \\frac{\\partial^2 u}{\\partial y^2} + \\frac{\\partial^2 u}{\\partial z^2} \\right) + \\rho g_x" title="" />
+
+
+        <DisplayEquation equation="\\rho \\left( \\frac{\\partial v}{\\partial t} + u\\frac{\\partial v}{\\partial x} + v\\frac{\\partial v}{\\partial y} + w\\frac{\\partial v}{\\partial z} \\right) = -\\frac{\\partial p}{\\partial y} + \\mu \\left( \\frac{\\partial^2 v}{\\partial x^2} + \\frac{\\partial^2 v}{\\partial y^2} + \\frac{\\partial^2 v}{\\partial z^2} \\right) + \\rho g_y" title="" />
+
+
+        <DisplayEquation equation="\\rho \\left( \\frac{\\partial w}{\\partial t} + u\\frac{\\partial w}{\\partial x} + v\\frac{\\partial w}{\\partial y} + w\\frac{\\partial w}{\\partial z} \\right) = -\\frac{\\partial p}{\\partial z} + \\mu \\left( \\frac{\\partial^2 w}{\\partial x^2} + \\frac{\\partial^2 w}{\\partial y^2} + \\frac{\\partial^2 w}{\\partial z^2} \\right) + \\rho g_z" title="" />
+    </SubSubSection>
+    <SubSubSection title="Cylindrical Polar Coordinates">
+        <p>In cylindrical coordinates, like before, the equations become more complex because the coordinate directions vary with position.</p>
+        <p>The radial Navier--Stokes equation is</p>
+
+        <DisplayEquation equation="\\rho \\left( \\frac{\\partial V_r}{\\partial t} + V_r\\frac{\\partial V_r}{\\partial r} + \\frac{V_\\theta}{r} \\frac{\\partial V_r}{\\partial \\theta} - \\frac{V_\\theta^2}{r} + V_z\\frac{\\partial V_r}{\\partial z} \\right) = -\\frac{\\partial p}{\\partial r} + \\mu \\nabla^2 V_r + \\rho g_r" title="" />
+
+        <p>The tangential equation is</p>
+
+        <DisplayEquation equation="\\rho \\left( \\frac{\\partial V_\\theta}{\\partial t} + V_r\\frac{\\partial V_\\theta}{\\partial r} + \\frac{V_\\theta}{r} \\frac{\\partial V_\\theta}{\\partial \\theta} + \\frac{V_rV_\\theta}{r} + V_z\\frac{\\partial V_\\theta}{\\partial z} \\right) = -\\frac{1}{r} \\frac{\\partial p}{\\partial \\theta} + \\mu \\nabla^2 V_\\theta + \\rho g_\\theta" title="" />
+
+        <p>The axial equation is</p>
+
+        <DisplayEquation equation="\\rho \\left( \\frac{\\partial V_z}{\\partial t} + V_r\\frac{\\partial V_z}{\\partial r} + \\frac{V_\\theta}{r} \\frac{\\partial V_z}{\\partial \\theta} + V_z\\frac{\\partial V_z}{\\partial z} \\right) = -\\frac{\\partial p}{\\partial z} + \\mu \\nabla^2 V_z + \\rho g_z" title="" />
+
+        <p>These forms are widely used for internal flows and rotating fluid systems. It can be seen that in concert with the continuity equation, a system of partial differential equations is formed over four variables - the velocities in each coordinate direction and the pressure field. Still, the convective acceleration terms render these equations challenging to solve analytically, a caveat this pervasive in most flows. Still, a handful of analytical solutions are possible.</p>
+    </SubSubSection>
+    <SubSubSection title="The No-Slip Condition">
+        <p>An extensive treatment of the Navier-Stokes equations is aided by knowledge in differential equaitons. That said, many will know that solving such equations requires boundary (and usually initial) conditions. A common boundary condition for viscous flows states that the fluid velocity at a solid surface matches the velocity of the surface itself. This behavior is known as the <strong>no-slip condition</strong>. Applying the no-slip boundary condition frequently appears when dealing with the Navier-Stokes equations, be it analytically or numerically.</p>
+        <p>For a stationary wall,</p>
+
+        <DisplayEquation equation="\\vec{V}=0 \\qquad \\text{at the wall}" title="" />
+
+        <p>while for a moving surface,</p>
+
+        <DisplayEquation equation="\\vec{V}=\\vec{V}_{wall} \\qquad \\text{at the wall}" title="" />
+
+        <p>The no-slip condition produces velocity gradients near solid boundaries, which in turn generate viscous shear stresses within the fluid. This condition is responsible for the development of boundary layers and the characteristic velocity distributions observed in viscous internal flows such as pipe flow and flow between parallel plates.</p>
+    </SubSubSection>
+<SubSection title="Simple Laminar Flow Solutions" id="Simple Laminar Flow Solutions">
+<p>As mentioned already, the Navier--Stokes equations are difficult to solve in general, but several important analytical solutions exist for simple laminar flows. These solutions provide physical insight into how viscosity affects velocity distributions and wall shear stresses.</p>
+    </SubSection>
+    <SubSubSection title="Flow Between Parallel Plates">
+        <p>One classical solution involves steady, incompressible, fully developed flow between two stationary parallel plates separated by a distance \(h\).</p>
+        <p>Under these assumptions:</p>
+        <Itemize>
+
+            <Item>velocity varies only in the transverse direction</Item>
+            <Item>pressure changes only along the flow direction</Item>
+            <Item>the flow is two-dimensional</Item>
+            <Item>inertial terms become negligible</Item>
+
+        </Itemize>
+        <p>The Navier--Stokes equations simplify significantly and produce the velocity profile</p>
+
+        <DisplayEquation equation="u(y) = -\\frac{1}{2\\mu} \\frac{dp}{dx} \\, y(h-y)" title="" />
+
+        <p>The velocity is zero at the walls because of the no-slip condition and reaches a maximum midway between the plates. This parabolic profile demonstrates how viscous effects cause velocity gradients within the flow.</p>
+
+        <Image src='/fluid/Differential_flow/flowbetweenplates.jpeg' width='7'>Visualization of flow between two infinite, flat plates</Image>
+    </SubSubSection>
+    <SubSubSection title="Laminar Pipe Flow">
+        <p>Another important analytical solution is steady, incompressible, fully developed flow through a circular pipe.</p>
+        <p>Under these assumptions, the velocity varies only with radial position, and the Navier--Stokes equations reduce to the Hagen--Poiseuille solution:</p>
+
+        <DisplayEquation equation="u(r) = -\\frac{1}{4\\mu} \\frac{dp}{dx} (R^2-r^2)" title="" />
+
+        <p>where \(R\) is the pipe radius.</p>
+        <p>The velocity is maximum at the pipe centerline and decreases smoothly to zero at the wall because of viscous shear effects. Integrating the velocity profile over the pipe cross section gives the volumetric flow rate relationship</p>
+
+        <DisplayEquation equation="Q = -\\frac{\\pi R^4}{8\\mu} \\frac{dp}{dx}" title="" />
+
+        <p>This relationship shows that pipe flow rate is highly sensitive to pipe radius because of the \(R^4\) dependence.</p>
+
+        <p>These classical laminar flow solutions provide important physical insight into viscous fluid motion and serve as benchmark solutions for more advanced fluid mechanics analyses.</p>
+
+        <Image src='/fluid/Differential_flow/pipeflow.jpeg' width='7'>Visualization of analytic solution to laminar pipe flow</Image>
+    </SubSubSection>
+<SubSection title="A Comment on Numerical Methods" id="A Comment on Numerical Methods">
+    <p>It can be common for students to leave the treatment of differential fluid flow feeling as though it has few applications to real world flows given the difficulty in finding analytical solutions. Numerical methods resolves this by discretizing the flow domain and constructing linear algebraic equations that can be solved simaltaneously to approximate the Navier-Stokes equations. At a high level, by losing the continuous nature of the partial differential equation and solving only for values at a discrete set of points, partial derivatives can be approximated and transformed into linearized quantities. Many engineers will encounter and use these numerical methods implicitly through FEA (Finite Element Analysis) or CFD (Computational Fluid Dynamics) softwares. The softwares build are based on the governing partial differential equations for the domains that they solve over.</p>
+</SubSection>
+</Layout>

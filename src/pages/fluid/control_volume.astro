@@ -1,0 +1,476 @@
+---
+import Layout from "../../layouts/Layout.astro" 
+import Image from "../../components/Image.astro" 
+import Section from "../../components/Section.astro" 
+import SubSection from "../../components/SubSection.astro" 
+import SubSubSection from "../../components/SubSubSection.astro" 
+import SubSubSubSection from "../../components/SubSubSubSection.astro" 
+import CalloutContainer from "../../components/CalloutContainer.astro" 
+import OrangeText from "../../components/OrangeText.astro" 
+import TealText from "../../components/TealText.astro" 
+import Enumerate from "../../components/Enumerate.astro" 
+import Item from "../../components/Item.astro" 
+import Itemize from "../../components/Itemize.astro" 
+import InlineEquation from "../../components/InlineEquation.astro" 
+import DisplayEquation from "../../components/DisplayEquation.astro" 
+---
+<Layout title="Finite Control Volume">
+<div slot="navtree">
+    <ul class="list-group list-group-flush py-0">
+        <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Introduction'>Introduction</a></li>
+        <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Mass Conservation and Continuity'>Mass Conservation and Continuity</a></li>
+        <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Linear Momentum'>Linear Momentum</a></li>
+        <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#The Energy Equation'>The Energy Equation</a></li>
+    </ul>
+</div>
+
+
+
+<SubSection title="Introduction" id="Introduction">
+    <p>At the end of the previous chapter, the Reynolds Transport Theorem was developed to relate system-based conservation laws to practical control volume formulations. In this chapter, those ideas are formalized and applied to the fundamental conservation equations used throughout fluid mechanics.</p>
+    <p>The chapter begins with conservation of mass and the continuity equation, which describe how mass is conserved as fluid flows through a control volume. Different forms of the continuity equation are developed for steady flow, incompressible flow, and one-dimensional approximations commonly used in engineering analysis.</p>
+    <p>The chapter then introduces the analogous formulation for linear momentum, applying RTT to reformulate Newton's 2nd Law to apply to control volumes. Much like traditional mechanics, applying these laws allows for the identification of unknown forces by connecting it to the kinematic behavior of fluid moving through a control volume.</p>
+    <p>After this, a final conservation equation, the energy equation, which applies the First Law of Thermodynamics to flowing fluids is developed for control volumes. This relationship accounts for changes in internal energy, kinetic energy, and potential energy while also incorporating work and heat transfer effects.</p>
+    <p>A number of examples will be provided for each of these conservation of principles to demonstrate their utility and show their connection tot he Reynolds Transport Theorem. Together, the conservation of mass, momentum and energy equations form some of the most important tools in fluid mechanics and are widely used in the analysis of pipes, pumps, turbines, nozzles, compressors, and many other engineering systems.</p>
+</SubSection>
+<SubSection title="Mass Conservation and Continuity" id="Mass Conservation and Continuity">
+    <p>Conservation of mass is one of the most fundamental principles in fluid mechanics. Regardless of how the fluid moves or deforms, mass cannot be created or destroyed. The continuity equation is therefore obtained by applying the Reynolds Transport Theorem to mass.</p>
+    <p>Using</p>
+
+    <DisplayEquation equation="B=m \\qquad \\text{and} \\qquad b=1" title="" />
+
+    <p>in the Reynolds Transport Theorem gives</p>
+
+    <DisplayEquation equation="0 = \\frac{\\partial}{\\partial t} \\int_{CV} \\rho \\, dV + \\int_{CS} \\rho (\\vec{V}\\cdot\\vec{n}) \\, dA" title="" />
+
+    <p>This equation states that any increase of mass inside the control volume must be balanced by a net inflow of mass, while any decrease in stored mass must correspond to a net outflow.</p>
+    <p>The first term,</p>
+
+    <DisplayEquation equation="\\frac{\\partial}{\\partial t} \\int_{CV} \\rho \\, dV" title="" />
+
+    <p>represents accumulation or depletion of mass within the control volume.</p>
+    <p>The second term,</p>
+
+    <DisplayEquation equation="\\int_{CS} \\rho (\\vec{V}\\cdot\\vec{n}) \\, dA" title="" />
+
+    <p>represents net mass flow across the control surface. The dot product with the outward normal vector ensures that outward flow contributes positively while inward flow contributes negatively.</p>
+    <p>The quantity</p>
+
+    <DisplayEquation equation="\\dot{m} = \\int_{CS} \\rho (\\vec{V}\\cdot\\vec{n}) \\, dA" title="" />
+
+    <p>is often defined explicitly as the mass flow rate. For one-dimensional flow with approximately uniform properties across a section,</p>
+
+    <DisplayEquation equation="\\dot{m}=\\rho V A" title="" />
+
+    <p>where \(V\) is the average velocity normal to the cross-sectional area.</p>
+</SubSection>
+    <SubSubSection title="Steady Flow Continuity Equation">
+        <p>For steady flow, no mass accumulates within the control volume:</p>
+
+        <DisplayEquation equation="\\frac{\\partial}{\\partial t} \\int_{CV} \\rho \\, dV = 0" title="" />
+
+        <p>and the continuity equation reduces to</p>
+
+        <DisplayEquation equation="\\sum \\dot{m}_{in} = \\sum \\dot{m}_{out}" title="" />
+
+        <p>For a single inlet and outlet,</p>
+
+        <DisplayEquation equation="\\rho_1 V_1 A_1 = \\rho_2 V_2 A_2" title="" />
+
+        <p>If the flow is incompressible and density remains constant,</p>
+
+        <DisplayEquation equation="V_1 A_1 = V_2 A_2" title="" />
+
+        <p>showing that velocity must increase when the flow area decreases. Recall that this is identical to the formulation that was stated in Chapter 3. Here, it has been derived using the Reynolds Transport Theorem.</p>
+        <p>When applying continuity, it is important to remember that velocity profiles are often nonuniform across real flow sections. In many engineering analyses, average velocities are used to simplify the equations.</p>
+    </SubSubSection>
+    <SubSubSection title="Example: Basic Continuity Using RTT">
+        <p>Consider steady incompressible flow through a converging duct. Water enters section 1 with area</p>
+
+        <DisplayEquation equation="A_1 = 0.040 \\ \\text{m}^2" title="" />
+
+        <p>and velocity</p>
+
+        <DisplayEquation equation="V_1 = 2.0 \\ \\text{m/s}." title="" />
+
+        <p>The duct narrows to</p>
+
+        <DisplayEquation equation="A_2 = 0.010 \\ \\text{m}^2." title="" />
+
+        <strong>Find the outlet velocity.</strong>
+
+        <Image src='/fluid/Control_volume/RTTconservationofmass1.jpeg' width='7'>Applying RTT for mass to a duct</Image>
+
+        <p>For mass conservation, apply RTT using \(B=m\) and \(b=1\):</p>
+
+        <DisplayEquation equation="0 = \\frac{\\partial}{\\partial t}\\int_{CV}\\rho \\, dV + \\int_{CS}\\rho(\\vec{V}\\cdot \\vec{n})\\,dA." title="" />
+
+        <p>For steady flow, the accumulation term is zero:</p>
+
+        <DisplayEquation equation="0 = \\int_{CS}\\rho(\\vec{V}\\cdot \\vec{n})\\,dA." title="" />
+
+        <p>For one inlet and one outlet with uniform average velocity,</p>
+
+        <DisplayEquation equation="-\\rho V_1A_1+\\rho V_2A_2=0." title="" />
+
+        <p>Therefore,</p>
+
+        <DisplayEquation equation="\\rho V_1A_1=\\rho V_2A_2." title="" />
+
+        <p>For incompressible flow, density cancels:</p>
+
+        <DisplayEquation equation="V_1A_1=V_2A_2." title="" />
+
+        <p>Solving for \(V_2\),</p>
+
+        <DisplayEquation equation="V_2=\\frac{V_1A_1}{A_2}." title="" />
+
+        <p>Substituting values,</p>
+
+        <DisplayEquation equation="V_2=\\frac{(2.0)(0.040)}{0.010}" title="" />
+
+
+        <DisplayEquation equation="\\boxed{V_2=8.0 \\ \\text{m/s}}." title="" />
+
+        <p>The outlet velocity is larger because the same volume flow rate must pass through a smaller area.</p>
+    </SubSubSection>
+    <SubSubSection title="Example: Continuity for an Angled Inlet">
+        <p>Consider a steady incompressible control volume with two inlets and one outlet. Inlet 1 enters horizontally with area \(A_1\) and velocity \(V_1\). Inlet 2 enters at an angle \(\theta\) relative to the outward normal direction of its control surface with area \(A_2\) and velocity \(V_2\). The flow exits through outlet 3 with area \(A_3\) and velocity \(V_3\).</p>
+        <Image src='/fluid/Control_volume/RTTconservationofmassangled.jpeg' width='7'>Conservation of mass for multi-inlet/outlet system</Image>
+
+        <p>Starting with the RTT form for conservation of mass,</p>
+
+        <DisplayEquation equation="0 = \\frac{\\partial}{\\partial t}\\int_{CV}\\rho \\, dV + \\int_{CS}\\rho(\\vec{V}\\cdot \\vec{n})\\,dA." title="" />
+
+        <p>For steady flow,</p>
+
+        <DisplayEquation equation="0 = \\int_{CS}\\rho(\\vec{V}\\cdot \\vec{n})\\,dA." title="" />
+
+        <p>The mass flow crossing each control surface depends on the velocity component normal to the surface. Therefore, inlet 2 contributes</p>
+
+        <DisplayEquation equation="V_2\\cos\\theta" title="" />
+
+        <p>as its normal velocity component.</p>
+        <p>Using the sign convention that inflow is negative and outflow is positive,</p>
+
+        <DisplayEquation equation="-\\rho V_1A_1 -\\rho (V_2\\cos\\theta)A_2 +\\rho V_3A_3 =0." title="" />
+
+        <p>Rearranging,</p>
+
+        <DisplayEquation equation="\\rho V_3A_3 = \\rho V_1A_1 + \\rho V_2A_2\\cos\\theta." title="" />
+
+        <p>For incompressible flow, density cancels:</p>
+
+        <DisplayEquation equation="V_3A_3 = V_1A_1 + V_2A_2\\cos\\theta." title="" />
+
+        <p>Solving for the outlet velocity,</p>
+
+        <DisplayEquation equation="\\boxed{ V_3 = \\frac{ V_1A_1 + V_2A_2\\cos\\theta }{ A_3 } }" title="" />
+
+        <p>This result shows that only the velocity component normal to the control surface contributes to mass flow through the surface.</p>
+    </SubSubSection>
+<SubSection title="Linear Momentum" id="Linear Momentum">
+    <p>The linear momentum equation is obtained by applying Newton's Second Law to a flowing fluid system. In fluid mechanics, the Reynolds Transport Theorem converts the system form of Newton's Second Law into a control volume formulation that is easier to apply to real engineering flows.</p>
+    <p>Linear momentum is a vector quantity defined as</p>
+
+    <DisplayEquation equation="\\vec{P}=m\\vec{V}" title="" />
+
+    <p>Applying the Reynolds Transport Theorem using</p>
+
+    <DisplayEquation equation="B=m\\vec{V} \\qquad \\text{and} \\qquad b=\\vec{V}" title="" />
+
+    <p>gives</p>
+
+    <DisplayEquation equation="\\frac{\\partial}{\\partial t} \\int_{CV} \\rho \\vec{V}\\, dV + \\int_{CS} \\rho \\vec{V} (\\vec{V}\\cdot\\vec{n}) \\, dA = \\sum \\vec{F}" title="" />
+
+    <p>The left-hand side represents the total rate of momentum change associated with the control volume.</p>
+    <p>The first term,</p>
+
+    <DisplayEquation equation="\\frac{\\partial}{\\partial t} \\int_{CV} \\rho \\vec{V}\\, dV" title="" />
+
+    <p>corresponds to momentum accumulation within the control volume.</p>
+    <p>The second term,</p>
+
+    <DisplayEquation equation="\\int_{CS} \\rho \\vec{V} (\\vec{V}\\cdot\\vec{n}) \\, dA" title="" />
+
+    <p>represents net momentum transport across the control surface due to fluid motion.</p>
+    <p>The right-hand side represents the net external forces acting on the fluid. These forces may include</p>
+
+    <DisplayEquation equation="\\sum \\vec{F} = \\vec{F}_{pressure} + \\vec{F}_{body} + \\vec{F}_{shear} + \\vec{F}_{external}" title="" />
+
+    <p>where:</p>
+    <Itemize>
+
+        <Item><InlineEquation equation="(\\vec{F}_{pressure})" /> represents pressure forces acting on the control surface</Item>
+        <Item><InlineEquation equation="(\\vec{F}_{body})" />  represents body forces such as gravity</Item>
+        <Item><InlineEquation equation="(\\vec{F}_{shear})" /> represents viscous shear forces</Item>
+        <Item><InlineEquation equation="(\\vec{F}_{external})" /> represents reaction or support forces</Item>
+
+    </Itemize>
+    <p>Since momentum is a vector quantity, the equation is generally applied separately in each coordinate direction.</p>
+</SubSection>
+    <SubSubSection title="Steady Flow Momentum Equation">
+        <p>For steady flow,</p>
+
+        <DisplayEquation equation="\\frac{\\partial}{\\partial t} \\int_{CV} \\rho \\vec{V}\\, dV = 0" title="" />
+
+        <p>and the momentum equation reduces to</p>
+
+        <DisplayEquation equation="\\int_{CS} \\rho \\vec{V} (\\vec{V}\\cdot\\vec{n}) \\, dA = \\sum \\vec{F}" title="" />
+
+        <p>For one-dimensional flow with a single inlet and outlet and approximately uniform velocity profiles,</p>
+
+        <DisplayEquation equation="\\sum \\vec{F} = \\dot{m} (\\vec{V}_2-\\vec{V}_1)" title="" />
+
+        <p>This relationship shows that forces arise whenever fluid momentum changes. Even if the speed remains constant, a change in flow direction still produces a force because momentum is directional. The momentum equation is widely used to analyze forces generated by flowing fluids, including aerodynamic drag, jet forces, and reaction loads on structures carrying fluid flow.</p>
+        </SubSubSection>
+    <SubSubSection title="Example: Linear Momentum Using RTT">
+        <p>A horizontal water jet strikes a flat vertical plate and is brought to rest in the \(x\)-direction. The jet has mass flow rate</p>
+
+        <DisplayEquation equation="\\dot{m}=4.0 \\ \\text{kg/s}" title="" />
+
+        <p>and inlet velocity</p>
+
+        <DisplayEquation equation="V_1=12 \\ \\text{m/s}." title="" />
+
+        <strong>Find the force of the plate on the fluid and the force of the fluid on the plate.</strong>
+
+        <Image src='/fluid/Control_volume/RTTmomentumstatic.jpeg' width='7'>Schematic of jet impinging on plate</Image>
+
+        <p>Apply RTT using <InlineEquation equation="(B=m\\vec{V})" /> and <InlineEquation equation="(b=\\vec{V})" />:</p>
+
+        <DisplayEquation equation="\\sum \\vec{F} = \\frac{\\partial}{\\partial t}\\int_{CV}\\rho \\vec{V}\\,dV + \\int_{CS}\\rho \\vec{V}(\\vec{V}\\cdot \\vec{n})\\,dA." title="" />
+
+        <p>For steady flow, the accumulation term is zero:</p>
+
+        <DisplayEquation equation="\\sum \\vec{F} = \\int_{CS}\\rho \\vec{V}(\\vec{V}\\cdot \\vec{n})\\,dA." title="" />
+
+        <p>For one-dimensional inlet and outlet flow,</p>
+
+        <DisplayEquation equation="\\sum F_x=\\dot{m}(V_{2x}-V_{1x})." title="" />
+
+        <p>The jet is stopped in the \(x\)-direction, so</p>
+
+        <DisplayEquation equation="V_{2x}=0." title="" />
+
+        <p>Thus,</p>
+
+        <DisplayEquation equation="\\sum F_x=\\dot{m}(0-V_1)." title="" />
+
+        <p>Substituting values,</p>
+
+        <DisplayEquation equation="\\sum F_x=(4.0)(0-12)" title="" />
+
+
+        <DisplayEquation equation="\\sum F_x=-48 \\ \\text{N}." title="" />
+
+        <p>Therefore, the plate exerts a force of</p>
+
+        <DisplayEquation equation="\\boxed{-48 \\ \\text{N}}" title="" />
+
+        <p>on the fluid. By Newton's Third Law, the fluid exerts an equal and opposite force on the plate:</p>
+
+        <DisplayEquation equation="\\boxed{48 \\ \\text{N}}" title="" />
+
+        <p>in the positive \(x\)-direction.</p>
+    </SubSubSection>
+    <SubSubSection title="Example: Moving Control Volume">
+        <p>A cart moves to the right with speed \(U\). A water jet also moves to the right with speed \(V\), where \(V>U\). The jet strikes a plate attached to the cart and is brought to rest relative to the moving plate. The jet area is \(A\), and the fluid density is \(\rho\). Find the force on the plate.</p>
+
+        <Image src='/fluid/Control_volume/movingCVforceonplate.png' width='7'>Schematic of jet impinging on moving wall</Image>
+
+        <p>For a moving control volume, the flux term uses the relative velocity across the control surface:</p>
+
+        <DisplayEquation equation="\\vec{V}_{rel}=\\vec{V}-\\vec{V}_{CV}." title="" />
+
+        <p>Here,</p>
+
+        <DisplayEquation equation="V_{rel}=V-U." title="" />
+
+        <p>The mass flow rate entering the moving control volume is therefore</p>
+
+        <DisplayEquation equation="\\dot{m}=\\rho A(V-U)." title="" />
+
+        <p>In the moving frame of the plate, the incoming jet speed is \(V-U\), and it is brought to rest in the \(x\)-direction. Thus,</p>
+
+        <DisplayEquation equation="\\sum F_x=\\dot{m}\\left(0-(V-U)\\right)." title="" />
+
+        <p>Substitute the relative mass flow rate:</p>
+
+        <DisplayEquation equation="\\sum F_x= \\rho A(V-U)\\left[-(V-U)\\right]." title="" />
+
+
+        <DisplayEquation equation="\\sum F_x=-\\rho A(V-U)^2." title="" />
+
+        <p>This is the force of the plate on the fluid. Therefore, the force of the fluid on the moving plate is</p>
+
+        <DisplayEquation equation="\\boxed{ F_{fluid \\ on \\ plate}=\\rho A(V-U)^2 }" title="" />
+
+        <p>Note the difference from the previous example. This force is smaller than the force on a stationary plate because the jet approaches the moving plate with a smaller relative speed.</p>
+    </SubSubSection>
+<SubSection title="The Energy Equation" id="The Energy Equation">
+        <p>The energy equation is obtained by applying conservation of energy to a flowing fluid system. In fluid mechanics, this equation accounts for the transport and conversion of different forms of energy as fluid moves through a control volume.</p>
+        <p>The total energy of a fluid includes:</p>
+        <Itemize>
+
+            <Item>internal energy</Item>
+            <Item>kinetic energy</Item>
+            <Item>potential energy</Item>
+
+        </Itemize>
+        <p>Applying the Reynolds Transport Theorem together with the First Law of Thermodynamics gives the general control volume energy equation:</p>
+
+        <DisplayEquation equation="\\dot{Q} - \\dot{W} = \\frac{\\partial}{\\partial t} \\int_{CV} \\rho \\left( u + \\frac{V^2}{2} + gz \\right) dV + \\int_{CS} \\rho \\left( u + \\frac{V^2}{2} + gz \\right) (\\vec{V}\\cdot\\vec{n}) \\, dA" title="" />
+
+        <p>where:</p>
+        <Itemize>
+
+            <Item><InlineEquation equation="(\\dot{Q})" /> is the rate of heat transfer into the control volume</Item>
+            <Item><InlineEquation equation="(\\dot{W})" /> is the total rate of work done by the control volume</Item>
+            <Item><InlineEquation equation="(u)" /> is the internal energy per unit mass</Item>
+            <Item><InlineEquation equation="(\\frac{V^2}{2})" /> is the kinetic energy per unit mass</Item>
+            <Item><InlineEquation equation="(gz)" /> is the potential energy per unit mass</Item>
+
+        </Itemize>
+        <p>The first integral term represents the rate of energy accumulation inside the control volume, while the surface integral accounts for energy transported across the control surface by fluid motion.</p>
+        <p>The work term <InlineEquation equation="(\\dot{W})" /> includes both shaft work and flow work (pressure work). The flow work represents the energy required to push fluid across the control surface and is given per unit mass by:</p>
+
+        <DisplayEquation equation="pv = \\frac{p}{\\rho}" title="" />
+
+        <p>Combining the flow work term with the internal energy gives the definition of enthalpy:</p>
+
+        <DisplayEquation equation="h = u + pv" title="" />
+
+        <p>Using this substitution, the energy equation may be rewritten in enthalpy form as:</p>
+
+        <DisplayEquation equation="\\dot{Q} - \\dot{W}_{shaft} = \\frac{\\partial}{\\partial t} \\int_{CV} \\rho \\left( u + \\frac{V^2}{2} + gz \\right) dV + \\int_{CS} \\rho \\left( h + \\frac{V^2}{2} + gz \\right) (\\vec{V}\\cdot\\vec{n}) \\, dA" title="" />
+
+        <p>In this form, the pressure work has been absorbed into the transported energy term through the enthalpy \(h\).</p>
+</SubSection>
+    <SubSubSection title="Steady One-Dimensional Energy Equation">
+        <p>For steady flow with one inlet and one outlet and approximately uniform flow properties across each section, the energy equation reduces to</p>
+
+        <DisplayEquation equation="\\dot{Q} - \\dot{W} = \\dot{m} \\left[ (h_2-h_1) + \\frac{V_2^2-V_1^2}{2} + g(z_2-z_1) \\right]" title="" />
+
+        <p>This form is commonly used in the analysis of pumps, turbines, compressors, heat exchangers, and many other engineering systems. Depending on the problem, certain terms may become negligible. For example, elevation effects may be small in horizontal flow systems, while kinetic energy changes may dominate in high-speed flows.</p>
+    </SubSubSection>
+    <SubSubSection title="Mechanical Energy Equation">
+        <p>For incompressible flow, it is often convenient to express the energy equation in terms of mechanical energy per unit weight, or <strong>head</strong>. The mechanical energy equation is written as</p>
+
+        <DisplayEquation equation="\\frac{p_1}{\\gamma} + \\frac{V_1^2}{2g} + z_1 + h_A - h_R - h_L = \\frac{p_2}{\\gamma} + \\frac{V_2^2}{2g} + z_2" title="" />
+
+        <p>where:</p>
+        <Itemize>
+
+            <Item><InlineEquation equation="(\\frac{p}{\\gamma})" /> is the pressure head</Item>
+            <Item><InlineEquation equation="(\\frac{V^2}{2g})" /> is the velocity head</Item>
+            <Item><InlineEquation equation="(z)" /> is the elevation head</Item>
+            <Item><InlineEquation equation="(h_A)" /> is head added to the fluid</Item>
+            <Item><InlineEquation equation="(h_R)" /> is head removed from the fluid</Item>
+            <Item><InlineEquation equation="(h_L)" /> is head loss due to friction and irreversible effects</Item>
+
+        </Itemize>
+        <p>This equation describes how mechanical energy changes between two locations in a flow. Pumps increase the mechanical energy of the fluid, turbines remove energy from the flow, and viscous effects reduce usable mechanical energy through head losses.</p>
+    </SubSubSection>
+    <SubSubSection title="Bernoulli's Equation">
+        <p>If the flow is frictionless and there are no pumps, turbines, or other energy interactions, the mechanical energy equation reduces to Bernoulli's Equation which was explored in Chapter 3. Again, along a streamline,</p>
+
+        <DisplayEquation equation="\\frac{p}{\\gamma} + \\frac{V^2}{2g} + z = \\text{constant}" title="" />
+
+        <p>As was stated in Chapter 3, Bernoulli's Equation therefore represents conservation of mechanical energy for an ideal fluid flow, a special case of the general conservation approach developed here using the Reynolds Transport Theorem.</p>
+    </SubSubSection>
+    <SubSubSection title="Example: Energy Equation for a Pump Up an Incline">
+        <p>Water is pumped from a lower reservoir to an upper reservoir. The elevation difference between the free surfaces is</p>
+
+        <DisplayEquation equation="\\ell = 30 \\ \\text{ft}." title="" />
+
+        <p>The pump supplies</p>
+
+        <DisplayEquation equation="\\dot{W}_{shaft,in}=10 \\ \\text{hp}," title="" />
+
+        <p>and the head loss in the pipe system is</p>
+
+        <DisplayEquation equation="h_L=15 \\ \\text{ft}." title="" />
+
+        <strong>Find the volume flow rate \(Q\).</strong>
+
+        <Image src='/fluid/Control_volume/energyequationproblemimage.png' width='7'>Schematic of pumping water up an incline</Image>
+
+        <p>Choose a control volume around the pipe and pump, with the inlet at the lower reservoir free surface and the outlet at the upper reservoir free surface. At both free surfaces, the pressure is atmospheric, so</p>
+
+        <DisplayEquation equation="p_1=p_2." title="" />
+
+        <p>The reservoir surfaces are large, so the velocities are approximately zero:</p>
+
+        <DisplayEquation equation="V_1\\approx 0, \\qquad V_2\\approx 0." title="" />
+
+        <p>Using the mechanical energy equation,</p>
+
+        <DisplayEquation equation="\\frac{p_1}{\\gamma} + \\frac{V_1^2}{2g} + z_1 + h_A - h_L = \\frac{p_2}{\\gamma} + \\frac{V_2^2}{2g} + z_2." title="" />
+
+        <p>Canceling equal pressure terms and negligible velocity terms gives</p>
+
+        <DisplayEquation equation="z_1+h_A-h_L=z_2." title="" />
+
+        <p>Since</p>
+
+        <DisplayEquation equation="z_2-z_1=\\ell," title="" />
+
+        <p>we get</p>
+
+        <DisplayEquation equation="h_A=\\ell+h_L." title="" />
+
+        <p>The pump head added is related to shaft power by</p>
+
+        <DisplayEquation equation="h_A=\\frac{\\dot{W}_{shaft,in}}{\\gamma Q}." title="" />
+
+        <p>Therefore,</p>
+
+        <DisplayEquation equation="\\frac{\\dot{W}_{shaft,in}}{\\gamma Q}=\\ell+h_L." title="" />
+
+        <p>Solving for \(Q\),</p>
+
+        <DisplayEquation equation="Q= \\frac{\\dot{W}_{shaft,in}}{\\gamma(\\ell+h_L)}." title="" />
+
+        <p>Substitute values. For water,</p>
+
+        <DisplayEquation equation="\\gamma=62.4 \\ \\text{lb/ft}^3." title="" />
+
+        <p>Also,</p>
+
+        <DisplayEquation equation="10 \\ \\text{hp} = 10(550) = 5500 \\ \\text{ft}\\cdot\\text{lb/s}." title="" />
+
+        <p>Thus,</p>
+
+        <DisplayEquation equation="Q= \\frac{5500}{(62.4)(30+15)}." title="" />
+
+
+        <DisplayEquation equation="Q= \\frac{5500}{2808}." title="" />
+
+
+        <DisplayEquation equation="\\boxed{ Q=1.96 \\ \\text{ft}^3/\\text{s} }" title="" />
+
+        <p>The pump power is used to raise the water elevation and overcome the head loss in the pipe system.</p>
+    </SubSubSection>
+    <SubSubSection title=" Example: Pump Power Required">
+        <p>For the same reservoir-to-reservoir system, suppose the desired flow rate is \(Q\). Find the shaft power required to pump the fluid upward through an elevation difference \(\ell\) with head loss \(h_L\).</p>
+        <p>From the simplified mechanical energy equation,</p>
+
+        <DisplayEquation equation="h_A=\\ell+h_L." title="" />
+
+        <p>The pump head is related to shaft power by</p>
+
+        <DisplayEquation equation="h_A=\\frac{\\dot{W}_{shaft,in}}{\\gamma Q}." title="" />
+
+        <p>Therefore,</p>
+
+        <DisplayEquation equation="\\frac{\\dot{W}_{shaft,in}}{\\gamma Q}=\\ell+h_L." title="" />
+
+        <p>Solving for shaft power,</p>
+
+        <DisplayEquation equation="\\boxed{ \\dot{W}_{shaft,in} = \\gamma Q(\\ell+h_L) }" title="" />
+
+        <p>This expression shows that the required pump power increases with specific weight, flow rate, elevation rise, and head loss.</p>
+    </SubSubSection>
+
+</Layout>
