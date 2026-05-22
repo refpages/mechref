@@ -51,28 +51,28 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
 <SubSection title="Stress-Strain Curve" id="Stress-Strain Curve">
 <Itemize>
 
-    <Item>\textbf{Elastic Region}: Reversible deformation; stress proportional to strain.</Item>
-    <Item>\textbf{Yield Point}: Onset of plastic deformation due to dislocation movement.</Item>
-    <Item>\textbf{Plastic Region}: Permanent deformation; strain hardening occurs.</Item>
-    <Item>\textbf{Ductility}: Extent of plastic deformation before fracture.</Item>
-    <Item>\textbf{Toughness}: Area under the stress-strain curve; energy absorbed before fracture.</Item>
+    <Item><strong>Elastic Region</strong>: Reversible deformation; stress proportional to strain.</Item>
+    <Item><strong>{Yield Point</strong>: Onset of plastic deformation due to dislocation movement.</Item>
+    <Item><strong>Plastic Region</strong>: Permanent deformation; strain hardening occurs.</Item>
+    <Item><strong>Ductility</strong>: Extent of plastic deformation before fracture.</Item>
+    <Item><strong>Toughness</strong>: Area under the stress-strain curve; energy absorbed before fracture.</Item>
 
 </Itemize>
 </SubSection>
 <SubSection title="Key Formulas" id="Key Formulas">
 <Itemize>
 
-    <Item>\textbf{Engineering Stress:}</Item>
+    <Item><strong>Engineering Stress:</strong></Item>
 
 <DisplayEquation equation="\\sigma = \\frac{P}{A_0}" title="" />
 
 <p><InlineEquation equation="P" /> = applied load, <InlineEquation equation="A_0" /> = original area.</p>
-    <Item>\textbf{Strain:}</Item>
+    <Item><strong>Strain:</strong></Item>
 
 <DisplayEquation equation="\\varepsilon = \\frac{\\Delta l}{l_0}" title="" />
 
 <p><InlineEquation equation="\\Delta l" /> = change in length, <InlineEquation equation="l_0" /> = original length.</p>
-    <Item>\textbf{Elastic Modulus:}</Item>
+    <Item><strong>Elastic Modulus:</strong></Item>
 
 <DisplayEquation equation="E = \\frac{\\sigma}{\\varepsilon}" title="" />
 
@@ -83,14 +83,14 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
 <SubSection title="Cutting Operations" id="Cutting Operations">
 <Itemize>
 
-    <Item>\textbf{Shearing:} Sheet metal cutting operation along a straight line between two cutting edges, typically used to cut large sheets</Item>
-    <Item>\textbf{Blanking:} Sheet metal cutting to separate piece (called a blank) from surrounding stock</Item>
-    <Item>\textbf{Punching:} Similar to blanking, but the cut piece is the scrap (called a slug)</Item>
-    <Item>\textbf{Perforating:} Punching a number of holes in a sheet</Item>
-    <Item>\textbf{Parting:} Shearing the sheet into two or more pieces</Item>
-    <Item>\textbf{Notching:} Removing pieces from edges</Item>
-    <Item>\textbf{Lancing:} Producing a tab without removing any material</Item>
-    <Item>\textbf{Clearance}: Distance between punch cutting edge and die cutting edge (usually 4 - 8 of thickness)</Item>
+    <Item><strong>Shearing:</strong> Sheet metal cutting operation along a straight line between two cutting edges, typically used to cut large sheets</Item>
+    <Item><strong>Blanking:</strong> Sheet metal cutting to separate piece (called a blank) from surrounding stock</Item>
+    <Item><strong>Punching:</strong> Similar to blanking, but the cut piece is the scrap (called a slug)</Item>
+    <Item><strong>Perforating:</strong> Punching a number of holes in a sheet</Item>
+    <Item><strong>Parting:</strong> Shearing the sheet into two or more pieces</Item>
+    <Item><strong>Notching:</strong> Removing pieces from edges</Item>
+    <Item><strong>Lancing:</strong> Producing a tab without removing any material</Item>
+    <Item><strong>Clearance:</strong> Distance between punch cutting edge and die cutting edge (usually 4 - 8 of thickness)</Item>
 <p>\begin{itemize}</p>
         <Item>if clearance too small, fracture lines pass each other, causing double burnishing and larger force</Item>
         <Item>if clearance too large, metal is pinched between cutting edges and excessive burr results</Item>
@@ -98,8 +98,8 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
         <Item>angular clearance of 0.25-1.5 for punching/blanking to allow slug or blank to drop through die</Item>
 
 </Itemize>
-<p>\item \textbf{Punch Force}: \( F = 0.7 \cdot \sigma_{UTS} \cdot t \cdot L \)</p>
-<p>\item \textbf{Example}: For \( \sigma_{UTS} = 500 \, MPa \), \( t = 2 \, mm \), square hole \( 8 \times 8 \, mm \):</p>
+<p>\item <strong>Punch Force</strong>: \( F = 0.7 \cdot \sigma_{UTS} \cdot t \cdot L \)</p>
+<p>\item <strong>Example</strong>: For \( \sigma_{UTS} = 500 \, MPa \), \( t = 2 \, mm \), square hole \( 8 \times 8 \, mm \):</p>
 
 <DisplayEquation equation="L = 4 \\times 8 = 32 \\, mm, \\quad F = 0.7 \\cdot 500 \\cdot 2 \\cdot 32 = 22,400 \\, N" title="" />
 
@@ -108,44 +108,44 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
 <SubSection title="Bending Mechanics" id="Bending Mechanics">
 <Itemize>
 
-    <Item>\textbf{V-bending:} performed with a V-shaped die on a press brake</Item>
+    <Item<strong>V-bending:</strong> performed with a V-shaped die on a press brake</Item>
 <p>\begin{itemize}</p>
         <Item>V-dies are simple and inexpensive</Item>
         <Item>used for lower volume production</Item>
 
 </Itemize>
-<p>\item \textbf{Edge ("wipe") bending:} performed with a wiping die, requires a pressure pad</p>
+<p>\item <strong>Edge ("wipe") bending:</strong> performed with a wiping die, requires a pressure pad</p>
     <Itemize>
 
         <Item>Wiping dies are more complicated and costly</Item>
         <Item>used for higher volume production</Item>
 
 </Itemize>
-<p>\item \textbf{Bending Force}:</p>
+<p>\item <strong>Bending Force</strong>:</p>
 
 <DisplayEquation equation="F = \\frac{2k \\cdot \\sigma_{UTS} \\cdot L \\cdot t^2}{W}" title="" />
 
-<p>\item \textbf{Example}: \( \sigma_{UTS} = 275 \, MPa \), \( L = 60 \, mm \), \( t = 2 \, mm \), \( W = 20 \, mm \), \( k = 1.25 \):</p>
+<p>\item <strong>Example</strong>: \( \sigma_{UTS} = 275 \, MPa \), \( L = 60 \, mm \), \( t = 2 \, mm \), \( W = 20 \, mm \), \( k = 1.25 \):</p>
 
 <DisplayEquation equation="F = \\frac{2 \\cdot 1.25 \\cdot 275 \\cdot 60 \\cdot 2^2}{20} = 8250 \\, N" title="" />
 
-<p>\item \textbf{Minimum Bending Radius (MBR)}: determined by tensile strain-to-failure</p>
+<p>\item <strong>Minimum Bending Radius (MBR)</strong>: determined by tensile strain-to-failure</p>
 
 <DisplayEquation equation="R_{min} = \\frac{t}{2 \\cdot \\epsilon_f}" title="" />
 
-<p>\item \textbf{Example}: \( t = 2 \, mm \), \( \epsilon_f = 0.65 \Rightarrow R_{min} = \frac{2}{2 \cdot 0.65} = 1.54 \, mm \)</p>
+<p>\item <strong>Example</strong>: \( t = 2 \, mm \), \( \epsilon_f = 0.65 \Rightarrow R_{min} = \frac{2}{2 \cdot 0.65} = 1.54 \, mm \)</p>
 <p>\end{itemize}</p>
 </SubSection>
 <SubSection title="Bend Allowance and Bend Deduction" id="Bend Allowance and Bend Deduction">
 <Itemize>
 
-    <Item>\textbf{Bend Allowance (BA)}: Length of arc along neutral axis.</Item>
+    <Item><strong>Bend Allowance (BA)</strong>: Length of arc along neutral axis.</Item>
 
 <DisplayEquation equation="L_b = \\frac{2\\pi R \\theta}{360} + K_b \\cdot t" title="" />
 
-    <Item>\textbf{Bend Deduction (BD)}: Difference between total flat length and sum of flange lengths.</Item>
-    <Item>\textbf{Explanation of \( K_b \)}: Empirical coefficient accounting for material and bend geometry; typically \( K_b = 0.33 \) to \( 0.5 \).</Item>
-    <Item>\textbf{Example}: \( R = 8.5 \, mm \), \( \theta = 140^\circ \), \( t = 5 \, mm \), \( K_b = 0.33 \):</Item>
+    <Item><strong>Bend Deduction (BD)</strong>: Difference between total flat length and sum of flange lengths.</Item>
+    <Item><strong>Explanation of \( K_b \)</strong>: Empirical coefficient accounting for material and bend geometry; typically \( K_b = 0.33 \) to \( 0.5 \).</Item>
+    <Item><strong>Example</strong>: \( R = 8.5 \, mm \), \( \theta = 140^\circ \), \( t = 5 \, mm \), \( K_b = 0.33 \):</Item>
 
 <DisplayEquation equation="L_b = \\frac{2\\pi \\cdot 8.5 \\cdot 140}{360} + 0.33 \\cdot 5 = 20.75 + 1.65 = 22.4 \\, mm" title="" />
 
@@ -155,7 +155,7 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
 <SubSection title="Springback" id="Springback">
 <Itemize>
 
-    <Item>\textbf{Springback Factor \( K_s \)}:</Item>
+    <Item><strong>Springback Factor \( K_s \)</strong>:</Item>
 
 <DisplayEquation equation="z = R_{i}/R_{f} = 4\\left(\\frac{\\sigma_{y} R_{i}}{Et}\\right)^3 - 3\\left(\\frac{\\sigma_{y} R_{i}}{Et}\\right) +1" title="" />
 
@@ -165,8 +165,8 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
 
 <DisplayEquation equation="K_s = \\frac{\\frac{2R_f}{t} + 1}{ \\frac{2R_i}{t} + 1}" title="" />
 
-    <Item>\textbf{Explanation of \( K_s \)}: Ratio of final to initial bend radius adjusted for thickness; indicates elastic recovery.</Item>
-    <Item>\textbf{Example}: \( R_i = 20 \, mm \), \( R_f = 20.9 \, mm \), \( t = 2 \, mm \):</Item>
+    <Item><strong>Explanation of \( K_s \)</strong>: Ratio of final to initial bend radius adjusted for thickness; indicates elastic recovery.</Item>
+    <Item><strong>Example</strong>: \( R_i = 20 \, mm \), \( R_f = 20.9 \, mm \), \( t = 2 \, mm \):</Item>
 
 <DisplayEquation equation="K_s = \\frac{\\frac{2*20.9}{2} + 1}{ \\frac{2* 20}{2} + 1} = 1.045" title="" />
 
@@ -177,7 +177,7 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
 <p>\begin{table}[htbp]</p>
 <p>\begin{tabular}{ll}</p>
 <p>\hline</p>
-<p>\textbf{Formula} & \textbf{Description} \\</p>
+<p><strong>Formula & Description</strong> \\</p>
 <p>\hline</p>
 <p>\( c = a \cdot t \) & Clearance in cutting \\</p>
 <p>\( F = 0.7 \cdot \sigma_{UTS} \cdot t \cdot L \) & Punch force \\</p>
