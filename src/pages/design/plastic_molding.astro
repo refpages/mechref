@@ -1,0 +1,402 @@
+---
+import Layout from "../../layouts/Layout.astro" 
+import Image from "../../components/Image.astro" 
+import CalloutContainer from "../../components/CalloutContainer.astro" 
+import Section from "../../components/Section.astro" 
+import SubSection from "../../components/SubSection.astro" 
+import SubSubSection from "../../components/SubSubSection.astro" 
+import SubSubSubSection from "../../components/SubSubSubSection.astro" 
+import OrangeText from "../../components/OrangeText.astro" 
+import TealText from "../../components/TealText.astro" 
+import Enumerate from "../../components/Enumerate.astro" 
+import Item from "../../components/Item.astro" 
+import Itemize from "../../components/Itemize.astro" 
+import InlineEquation from "../../components/InlineEquation.astro" 
+import DisplayEquation from "../../components/DisplayEquation.astro" 
+---
+<Layout title="Plastic_molding">
+<div slot="navtree">
+<ul class="list-group list-group-flush py-0">
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Plastic Overview'>Plastic Overview</a></li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#What are Polymers?'>What are Polymers?</a></li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Major Polymer Categories'>Major Polymer Categories</a><ul class='list-group list-group-flush py-0'>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Thermoplastics'>Thermoplastics</a></li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Thermosets'>Thermosets</a></li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Elastomers'>Elastomers</a></li></ul>
+</li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Important Polymer Temperatures'>Important Polymer Temperatures</a></li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Mechanical Properties of Polymers'>Mechanical Properties of Polymers</a></li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Additives'>Additives</a></li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Recycling Codes'>Recycling Codes</a></li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Injection Molding'>Injection Molding</a><ul class='list-group list-group-flush py-0'>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Method'>Method</a></li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Cycle Steps'>Cycle Steps</a></li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Terms'>Terms</a></li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Cooling Time'>Cooling Time</a></li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Clamp Force'>Clamp Force</a></li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Cost Drivers'>Cost Drivers</a></li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Common Defects'>Common Defects</a></li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Design Guidelines'>Design Guidelines</a></li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Types of Molds'>Types of Molds</a></li></ul>
+</li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Other Plastic Processes'>Other Plastic Processes</a></li>
+</ul>
+</div>
+<p></p>
+<SubSection title="Plastic Overview" id="Plastic Overview">
+<p>Plastic is a synthetic polymer material valued because it is:</p>
+<Itemize>
+
+    <Item>Inexpensive</Item>
+    <Item>Lightweight</Item>
+    <Item>Corrosion resistant</Item>
+    <Item>Easily mass produced</Item>
+    <Item>Electrically insulating</Item>
+    <Item>Waterproof</Item>
+    <Item>Durable</Item>
+
+</Itemize>
+<p>However, plastics also present concerns:</p>
+<Itemize>
+
+    <Item>Most are not biodegradable</Item>
+    <Item>Petroleum based feedstocks</Item>
+    <Item>Microplastic pollution</Item>
+    <Item>Thermal degradation at high temperature</Item>
+
+</Itemize>
+<p><strong>[Add Diagram: Global plastic waste / recycling flow chart]</strong></p>
+</SubSection>
+<SubSection title="What are Polymers?" id="What are Polymers?">
+<p>Polymers are long molecular chains formed by repeating smaller units called <strong>monomers</strong>.</p>
+
+<DisplayEquation equation="\\text{Monomer + Monomer + Monomer } \\rightarrow \\text{ Polymer Chain}" title="" />
+
+<p>Examples of monomers include ethylene, propylene, styrene, and vinyl chloride.</p>
+<p><strong>Polymerization</strong> is the chemical reaction that links monomers together.</p>
+<p><strong>[Add Diagram: Chain of monomers becoming polymer]</strong></p>
+</SubSection>
+<SubSection title="Major Polymer Categories" id="Major Polymer Categories">
+</SubSection>
+<SubSubSection title="Thermoplastics" id="Thermoplastics">
+<p>Thermoplastics are solid at room temperature but become viscous liquids when heated. <em>Ex: ABS, Polycarbonate (PC), Polyethylene (PE), Polypropylene (PP), Nylon, PVC, PET</em></p>
+<Itemize>
+
+    <Item>Can be easily and economically shaped into products</Item>
+    <Item>Melting can be done repeatedly</Item>
+    <Item>Best for injection molding</Item>
+    <Item>Can be welded or recycled</Item>
+
+</Itemize>
+<p><strong>Applications:</strong> LEGO bricks, Water bottles, Electronic housings, Automotive trim</p>
+
+</SubSubSection>
+<SubSubSection title="Thermosets" id="Thermosets">
+<p>Thermosets can be molded during initial heating and mixing, but are permanently cured through cross-linking that activates in elevated temperatures. <em>Ex: Epoxy, Phenolic, Polyester Resin, Polyimides</em></p>
+<Itemize>
+
+    <Item>Cannot be remelted- degrades and chars when reheated</Item>
+    <Item>High temperature resistance</Item>
+    <Item>High stiffness</Item>
+
+</Itemize>
+<p><strong>Applications:</strong> Circuit boards, adhesives, handles, composites</p>
+</SubSubSection>
+<SubSubSection title="Elastomers" id="Elastomers">
+<p>Highly elastic polymers capable of large deformation. <em>Ex: Rubber, Silicone, Neoprene, Urethane</em></p>
+<Itemize>
+
+    <Item>Some elastomers can be stretched by 10x and remain elastic</Item>
+    <Item>Low modulus</Item>
+    <Item>Used for seals and tires</Item>
+
+</Itemize>
+<p><strong></strong>[Add Diagram: Thermoplastic vs Thermoset vs Elastomer molecular structure]</strong></p>
+</SubSubSection>
+<SubSection title="Important Polymer Temperatures" id="Important Polymer Temperatures">
+<Itemize>
+
+    <Item><p><strong>Glass Transition Temperature (<InlineEquation equation="T_g" />): </strong>Polymer changes from hard/glassy to rubbery.</p>  </Item>
+    <Itemize>
+        <Item><p>Above <InlineEquation equation="T_g" />, stiffness may drop by 100-1000<InlineEquation equation="\\times" />.</p></Item>
+    </Itemize>
+    <Item><p><strong>Melting Temperature (<InlineEquation equation="T_m" />): </strong>Crystalline regions melt into viscous liquid.</p>  </Item>
+    <Item><p><strong>Processing Temperature: </strong>Temperature used during molding.</p>  </Item>
+
+
+</Itemize>
+<p><strong>[Add Graph: Modulus vs Temperature showing <InlineEquation equation="T_g" /> and <InlineEquation equation="T_m" />]</strong></p>
+</SubSection>
+<SubSection title="Mechanical Properties of Polymers" id="Mechanical Properties of Polymers">
+<table>
+  <thead>
+    <tr>
+      <th>Material</th>
+      <th>UTS (MPa)</th>
+      <th>E (GPa)</th>
+      <th>Elongation (%)</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>ABS</td>
+      <td>28–55</td>
+      <td>1.4–2.8</td>
+      <td>5–75</td>
+      <td>Tough</td>
+    </tr>
+    <tr>
+      <td>Polycarbonate</td>
+      <td>55–70</td>
+      <td>2.5–3.0</td>
+      <td>10–125</td>
+      <td>Impact resistant</td>
+    </tr>
+    <tr>
+      <td>Nylon</td>
+      <td>55–83</td>
+      <td>1.4–f2.8</td>
+      <td>60–200</td>
+      <td>Wear resistant</td>
+    </tr>
+    <tr>
+      <td>Polyethylene</td>
+      <td>7–40</td>
+      <td>0.1–1.4</td>
+      <td>15–1000</td>
+      <td>Flexible</td>
+    </tr>
+    <tr>
+      <td>Polypropylene</td>
+      <td>20–35</td>
+      <td>0.7–1.2</td>
+      <td>10–500</td>
+      <td>Low density</td>
+    </tr>
+    <tr>
+      <td>Epoxy</td>
+      <td>35–140</td>
+      <td>3.5–17</td>
+      <td>1–10</td>
+      <td>Rigid</td>
+    </tr>
+    <tr>
+      <td>Rubber</td>
+      <td>17–25</td>
+      <td>Low</td>
+      <td>75–650</td>
+      <td>Elastic</td>
+    </tr>
+  </tbody>
+</table>
+</SubSection>
+<SubSection title="Additives" id="Additives">
+<p>Used to modify plastic behavior:</p>
+<Itemize>
+
+    <Item>Fillers -- strengthen or lower cost</Item>
+    <Item>Plasticizers -- soften material and improve flow</Item>
+    <Item>Colorants -- pigments or dyes</Item>
+    <Item>Flame retardants -- reduce flammability</Item>
+    <Item>Lubricants -- reduce friction and improve flow</Item>
+    <Item>UV stabilizers -- reduce sunlight degradation</Item>
+    <Item>Antioxidants -- reduce oxidation damage</Item>
+    <Item>Cross-linking Agents -- for thermosets and elastomers</Item>
+    <Item>Fibers (glass/carbon) -- reinforcement</Item>
+
+</Itemize>
+</SubSection>
+<SubSection title="Recycling Codes" id="Recycling Codes">
+<Enumerate>
+<Item>PET</Item>
+<Item>HDPE</Item>
+<Item>PVC</Item>
+<Item>LDPE</Item>
+<Item>PP</Item>
+<Item>PS</Item>
+<Item>Other</Item>
+</Enumerate>
+<p>Best commonly recycled: PET and HDPE</p>
+<p><strong>[Add Diagram: Recycling triangle symbols 1--7]</strong></p>
+</SubSection>
+<SubSection title="Injection Molding" id="Injection Molding">
+<p>Injection molding is the most common manufacturing process for thermoplastic mass production. It is similar to high-pressure metal die casting-- pellets of thermoplastic are heated and forced into a split-die chamber.</p>
+<p>Similar to high-pressure die metal casting, there is a feed system to deliver the melted plastic to the cavities. The cavity is filled with many small, narrow openings called <strong>gates</strong>.</p>
+<p>Examples:</p>
+<Itemize>
+
+    <Item>LEGO bricks</Item>
+    <Item>Bottle caps</Item>
+    <Item>Keyboard keys</Item>
+    <Item>Medical syringes</Item>
+    <Item>Consumer product housings</Item>
+
+</Itemize>
+</SubSection>
+<SubSubSection title="Method" id="Method">
+<p>Plastic pellets are fed into a heated barrel where a rotating screw:</p>
+<Itemize>
+
+    <Item>conveys pellets forward</Item>
+    <Item>melts material using heat + shear</Item>
+    <Item>meters the required shot volume</Item>
+    <Item>injects melt into mold cavity</Item>
+
+</Itemize>
+<p>Then the plastic cools, solidifies, and is ejected.</p>
+<p><strong>[Add Diagram: Injection molding machine labeled hopper, barrel, screw, nozzle, mold]</strong></p>
+</SubSubSection>
+<SubSubSection title="Cycle Steps" id="Cycle Steps">
+<Enumerate>
+
+    <Item>Mold closes</Item>
+    <Item>Screw moves forward and injects melt into cavity</Item>
+    <Item>Packing / holding pressure applied</Item>
+    <Item>Cooling begins</Item>
+    <Item>Screw retracts and prepares next shot</Item>
+    <Item>Mold opens</Item>
+    <Item>Ejector pins remove part</Item>
+
+</Enumerate>
+<p>Typical cycle time: 5-60s depending on part thickness.</p>
+<p><strong>[Add Diagram: 6-step cycle illustration]</strong></p>
+</SubSubSection>
+<SubSubSection title="Terms" id="Terms">
+<Itemize>
+
+    <Item><strong>Sprue:</strong> Main channel from nozzle</Item>
+    <Item><strong>Runner:</strong> Horizontal flow channel</Item>
+    <Item><strong>Gate:</strong> Small opening into part cavity</Item>
+    <Item><strong>Parting Line:</strong> Separation between mold halves</Item>
+    <Item><strong>Ejector Pins:</strong> Push part out</Item>
+    <Item><strong>Core/Cavity:</strong> Internal and external mold surfaces</Item>
+
+</Itemize>
+<p><strong>[Add Diagram: Mold feed system showing sprue, runner, gate]</strong></p>
+</SubSubSection>
+<SubSubSection title="Cooling Time" id="Cooling Time">
+<p>Cooling is often <strong>50-70%</strong> of the total cycle time</p>
+
+<DisplayEquation equation="t_{cool} = \\frac{d^2}{\\pi^2a}ln(\\frac{\\pi}{4}\\frac{T_p-T_d}{T_e-T_d})" title="" />
+
+<Itemize>
+
+    <Item>Note the quadratic dependency on <InlineEquation equation="d" />, meaning:</Item>
+    <Itemize>
+        <Item>Thick walls cool much slower</Item>
+        <Item>Thin walls reduce cycle time</Item>
+        <Item>Uniform walls reduce warpage</Item>
+
+    </Itemize>
+<p>\item <InlineEquation equation="a = \\frac{\\gamma}{\\rho c}" /> is thermal diffusivity <InlineEquation equation="[\\frac{m^2}{s}]" /></p>
+<p>\item <InlineEquation equation="T_p > T_e > T_d" /> (melt processing, ejection, and mold wall temperatures)</p>
+</Itemize>
+</SubSubSection>
+<SubSubSection title="Clamp Force" id="Clamp Force">
+<p>The mold must withstand large pressures without deformation, with a typical lifetime of 1 million "shots". The mold halves are pushed together with a clamping pressure of <InlineEquation equation="70 - 200" /> MPa. Machine must hold mold shut against cavity pressure with a clamping force:</p>
+
+<DisplayEquation equation="F = P \\times A" title="" />
+
+<p>where:</p>
+<Itemize>
+
+    <Item><InlineEquation equation="F" /> = clamp force</Item>
+    <Item><InlineEquation equation="P" /> = cavity pressure</Item>
+    <Item><InlineEquation equation="A" /> = projected area</Item>
+
+</Itemize>
+<p>Too little of a clamp force causes <strong>flash formation</strong>, so molders often use more than the above force.</p>
+</SubSubSection>
+<SubSubSection title="Cost Drivers" id="Cost Drivers">
+<p><strong>Tooling Cost:</strong></p>
+<Itemize>
+
+    <Item>highly dependent on mold complexity and environment (temperature, pressure, cycle speed)</Item>
+    <Item>Dominates at low production volume</Item>
+
+</Itemize>
+<p><strong>Processing Cost:</strong></p>
+<Itemize>
+
+    <Item>highly dependent on cycle time- longer cycles have higher labor/overhead per part</Item>
+    <Item>Thicker parts take longer to cool— <InlineEquation equation="t_{cool} \\propto d^2" /></Item>
+
+</Itemize>
+<p><strong>Material Cost:</strong></p>
+<Itemize>
+
+    <Item>Entirely variable</Item>
+    <Item>Dominates at high production volume</Item>
+
+</Itemize>
+</SubSubSection>
+<SubSubSection title="Common Defects" id="Common Defects">
+<Itemize>
+
+    <Item>Flash — excess plastic at mold parting line</Item>
+    <Item>Witness marks — contact from ejector pins</Item>
+    <Item>Sink marks — depressions over thick sections</Item>
+    <Item>Warpage — uneven shrinkage</Item>
+    <Item>Short shot — incomplete fill</Item>
+    <Item>Weld lines — two flow fronts meet</Item>
+    <Item>Burn marks — trapped gas overheats</Item>
+    <Item>Flow lines — visible flow patterns</Item>
+
+</Itemize>
+<p><strong>[Add Image Grid: examples of common defects]</strong></p>
+</SubSubSection>
+<SubSubSection title="Design Guidelines" id="Design Guidelines">
+<Itemize>
+
+    <Item>Use uniform wall thickness</Item>
+    <Item>Add ribs instead of thick solid walls (parallel to material flow)</Item>
+    <Item>Use multi-cavity molds for high volume</Item>
+    <Item>Include draft angle (1-3<InlineEquation equation="^\\circ" /> minimum)</Item>
+    <Item>Round corners and avoid undercuts entirely, if possible</Item>
+    <Item>Place gates in thick sections</Item>
+    <Item>Bosses can be used like cylindrical ribs to prevent air entrapment and avoid thickness variations</Item>
+
+</Itemize>
+<p><strong>[Add Diagram: Good vs bad wall thickness design]</strong></p>
+<p><strong>Plastic Product Properties:</strong></p>
+<Itemize>
+
+    <Item>Strength and Stiffness — generally not as good as metals</Item>
+    <Item>Strength/Weight Ratio — competitive with metals</Item>
+    <Item>Creep — problem for thermoplastics, not for thermosets</Item>
+    <Item>Temperature Range — limited relative to metals and ceramics</Item>
+    <Item>UV protection needed to prevent sunlight degradation</Item>
+    <Item>Absorbs impacts well</Item>
+    <Item>Often soluble; resistant to most acids and bases</Item>
+
+</Itemize>
+</SubSubSection>
+<SubSubSection title="Types of Molds" id="Types of Molds">
+<Itemize>
+
+    <Item>Two-plate mold</Item>
+    <Item>Three-plate mold</Item>
+    <Item>Hot-runner mold</Item>
+    <Item>Multi-cavity mold</Item>
+    <Item>Family mold</Item>
+
+</Itemize>
+<p><strong>Hot runner advantage:</strong> less scrap, faster cycles.</p>
+<p><strong>[Add Diagram: Two-plate vs three-plate vs hot-runner]</strong></p>
+</SubSubSection>
+<SubSection title="Other Plastic Processes" id="Other Plastic Processes">
+<Itemize>
+
+    <Item>Extrusion — pipes, tubing</Item>
+    <Item>Blow molding — bottles</Item>
+    <Item>Compression molding — thermosets</Item>
+    <Item>Reaction Injection Molding (RIM)</Item>
+    <Item>Structural Foam Molding (SFM)</Item>
+    <Item>Vacuum Forming/Thermoforming</Item>
+    <Item>Rotomolding — hollow tanks</Item>
+
+</Itemize>
+
+</SubSection>
+</Layout>
