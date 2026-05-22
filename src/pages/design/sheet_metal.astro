@@ -52,7 +52,7 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
 <Itemize>
 
     <Item><strong>Elastic Region</strong>: Reversible deformation; stress proportional to strain.</Item>
-    <Item><strong>{Yield Point</strong>: Onset of plastic deformation due to dislocation movement.</Item>
+    <Item><strong>Yield Point</strong>: Onset of plastic deformation due to dislocation movement.</Item>
     <Item><strong>Plastic Region</strong>: Permanent deformation; strain hardening occurs.</Item>
     <Item><strong>Ductility</strong>: Extent of plastic deformation before fracture.</Item>
     <Item><strong>Toughness</strong>: Area under the stress-strain curve; energy absorbed before fracture.</Item>
@@ -91,50 +91,49 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
     <Item><strong>Notching:</strong> Removing pieces from edges</Item>
     <Item><strong>Lancing:</strong> Producing a tab without removing any material</Item>
     <Item><strong>Clearance:</strong> Distance between punch cutting edge and die cutting edge (usually 4 - 8 of thickness)</Item>
-<p>\begin{itemize}</p>
+    <Itemize>
         <Item>if clearance too small, fracture lines pass each other, causing double burnishing and larger force</Item>
         <Item>if clearance too large, metal is pinched between cutting edges and excessive burr results</Item>
         <Item>recommended clearance calculated by \( c = a \cdot t \), where \( a \) allowance depends on material.</Item>
         <Item>angular clearance of 0.25-1.5 for punching/blanking to allow slug or blank to drop through die</Item>
-
+    </Itemize>
 </Itemize>
 <p>\item <strong>Punch Force</strong>: \( F = 0.7 \cdot \sigma_{UTS} \cdot t \cdot L \)</p>
 <p>\item <strong>Example</strong>: For \( \sigma_{UTS} = 500 \, MPa \), \( t = 2 \, mm \), square hole \( 8 \times 8 \, mm \):</p>
 
 <DisplayEquation equation="L = 4 \\times 8 = 32 \\, mm, \\quad F = 0.7 \\cdot 500 \\cdot 2 \\cdot 32 = 22,400 \\, N" title="" />
 
-<p>\end{itemize}</p>
 </SubSection>
 <SubSection title="Bending Mechanics" id="Bending Mechanics">
 <Itemize>
 
-    <Item<strong>V-bending:</strong> performed with a V-shaped die on a press brake</Item>
-<p>\begin{itemize}</p>
+    <Item><strong>V-bending:</strong> performed with a V-shaped die on a press brake</Item>
+    <Itemize>
         <Item>V-dies are simple and inexpensive</Item>
         <Item>used for lower volume production</Item>
-
+    </Itemize>
 </Itemize>
-<p>\item <strong>Edge ("wipe") bending:</strong> performed with a wiping die, requires a pressure pad</p>
+<Item> <strong>Edge ("wipe") bending:</strong> performed with a wiping die, requires a pressure pad</Item>
     <Itemize>
 
         <Item>Wiping dies are more complicated and costly</Item>
         <Item>used for higher volume production</Item>
 
-</Itemize>
-<p>\item <strong>Bending Force</strong>:</p>
+    </Itemize>
+    <Item> <strong>Bending Force</strong>:</Item>
 
 <DisplayEquation equation="F = \\frac{2k \\cdot \\sigma_{UTS} \\cdot L \\cdot t^2}{W}" title="" />
 
-<p>\item <strong>Example</strong>: \( \sigma_{UTS} = 275 \, MPa \), \( L = 60 \, mm \), \( t = 2 \, mm \), \( W = 20 \, mm \), \( k = 1.25 \):</p>
+    <Item><strong>Example</strong>: \( \sigma_{UTS} = 275 \, MPa \), \( L = 60 \, mm \), \( t = 2 \, mm \), \( W = 20 \, mm \), \( k = 1.25 \):</Item>
 
 <DisplayEquation equation="F = \\frac{2 \\cdot 1.25 \\cdot 275 \\cdot 60 \\cdot 2^2}{20} = 8250 \\, N" title="" />
 
-<p>\item <strong>Minimum Bending Radius (MBR)</strong>: determined by tensile strain-to-failure</p>
+    <Item> <strong>Minimum Bending Radius (MBR)</strong>: determined by tensile strain-to-failure</Item>
 
 <DisplayEquation equation="R_{min} = \\frac{t}{2 \\cdot \\epsilon_f}" title="" />
 
-<p>\item <strong>Example</strong>: \( t = 2 \, mm \), \( \epsilon_f = 0.65 \Rightarrow R_{min} = \frac{2}{2 \cdot 0.65} = 1.54 \, mm \)</p>
-<p>\end{itemize}</p>
+    <Item> <strong>Example</strong>: \( t = 2 \, mm \), \( \epsilon_f = 0.65 \Rightarrow R_{min} = \frac{2}{2 \cdot 0.65} = 1.54 \, mm \)</Item>
+</Itemize>
 </SubSection>
 <SubSection title="Bend Allowance and Bend Deduction" id="Bend Allowance and Bend Deduction">
 <Itemize>
@@ -172,6 +171,7 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
 
 
 </Itemize>
+/*
 </SubSection>
 <SubSection title="Summary Table of Formulas" id="Summary Table of Formulas">
 <p>\begin{table}[htbp]</p>
@@ -189,27 +189,27 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
 <p>\end{tabular}</p>
 <p>\end{table}</p>
 </SubSection>
+*/
 <SubSection title="Design Guidelines" id="Design Guidelines">
 <Itemize>
 
     <Item>Use corner reliefs to prevent tearing</Item>
     <Item>Nest parts efficiently to reduce waste</Item>
     <Item>Maintain minimum hole sizes and spacing</Item>
-<p>\begin{itemize}</p>
+    <Itemize>
         <Item>diameter greater than stock thickness T (<InlineEquation equation="> 2T" /> for alloy or stainless steel)</Item>
         <Item>distance between holes <InlineEquation equation=">" /> 2T</Item>
-
-</Itemize>
-<p>\item Avoid holes near edges, corners, or bends</p>
+    </Itemize>
+    <Item> Avoid holes near edges, corners, or bends</Item>
     <Itemize>
 
         <Item>distance from edge <InlineEquation equation=">" /> T (1.5T preferred)</Item>
         <Item>distance from corner <InlineEquation equation=">" /> H = 1.5T + bending radius</Item>
 
+    </Itemize>
+    <Item> Avoid sharp corners (Radii <InlineEquation equation=">" /> 0.5T)</Item>
+    <Item> Use generous bend radii to reduce springback</Item>
 </Itemize>
-<p>\item Avoid sharp corners (Radii <InlineEquation equation=">" /> 0.5T)</p>
-<p>\item Use generous bend radii to reduce springback</p>
-<p>\end{itemize}</p>
 
 </SubSection>
 </Layout>
