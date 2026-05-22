@@ -48,6 +48,7 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
 
 </Itemize>
 </SubSection>
+
 <SubSection title="Stress-Strain Curve" id="Stress-Strain Curve">
 <Itemize>
 
@@ -94,15 +95,14 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
     <Itemize>
         <Item>if clearance too small, fracture lines pass each other, causing double burnishing and larger force</Item>
         <Item>if clearance too large, metal is pinched between cutting edges and excessive burr results</Item>
-        <Item>recommended clearance calculated by \( c = a \cdot t \), where \( a \) allowance depends on material.</Item>
+        <Item>Recommended clearance calculated by <InlineEquation equation="c = a \cdot t" />, where <InlineEquation equation="a" /> allowance depends on material.</Item>
         <Item>angular clearance of 0.25-1.5 for punching/blanking to allow slug or blank to drop through die</Item>
     </Itemize>
-</Itemize>
-<p>\item <strong>Punch Force</strong>: \( F = 0.7 \cdot \sigma_{UTS} \cdot t \cdot L \)</p>
-<p>\item <strong>Example</strong>: For \( \sigma_{UTS} = 500 \, MPa \), \( t = 2 \, mm \), square hole \( 8 \times 8 \, mm \):</p>
+    <Item><strong>Punch Force</strong>: <InlineEquation equation = "F = 0.7 \cdot \sigma_{UTS} \cdot t \cdot L"/></Item>
+    <Item><strong>Example</strong>: For <InlineEquation equation = "\sigma_{UTS} = 500"/> MPa, <InlineEquation equation = "t = 2"/> mm, square hole <InlineEquation equation = "8 \times 8"/> mm:</Item>
 
 <DisplayEquation equation="L = 4 \\times 8 = 32 \\, mm, \\quad F = 0.7 \\cdot 500 \\cdot 2 \\cdot 32 = 22,400 \\, N" title="" />
-
+</Itemize>
 </SubSection>
 <SubSection title="Bending Mechanics" id="Bending Mechanics">
 <Itemize>
@@ -113,6 +113,7 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
         <Item>used for lower volume production</Item>
     </Itemize>
 </Itemize>
+<Itemize>
 <Item> <strong>Edge ("wipe") bending:</strong> performed with a wiping die, requires a pressure pad</Item>
     <Itemize>
 
@@ -124,7 +125,7 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
 
 <DisplayEquation equation="F = \\frac{2k \\cdot \\sigma_{UTS} \\cdot L \\cdot t^2}{W}" title="" />
 
-    <Item><strong>Example</strong>: \( \sigma_{UTS} = 275 \, MPa \), \( L = 60 \, mm \), \( t = 2 \, mm \), \( W = 20 \, mm \), \( k = 1.25 \):</Item>
+    <Item><strong>Example</strong>: <InlineEquation equation = "\sigma_{UTS} = 275"/> MPa, <InlineEquation equation = "L = 60"/> mm, <InlineEquation equation = "t = 2"/> mm,  <InlineEquation equation = "W = 20"/> mm. <InlineEquation equation = " k = 1.25"/>):</Item>
 
 <DisplayEquation equation="F = \\frac{2 \\cdot 1.25 \\cdot 275 \\cdot 60 \\cdot 2^2}{20} = 8250 \\, N" title="" />
 
@@ -132,9 +133,10 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
 
 <DisplayEquation equation="R_{min} = \\frac{t}{2 \\cdot \\epsilon_f}" title="" />
 
-    <Item> <strong>Example</strong>: \( t = 2 \, mm \), \( \epsilon_f = 0.65 \Rightarrow R_{min} = \frac{2}{2 \cdot 0.65} = 1.54 \, mm \)</Item>
+    <Item><strong>Example</strong>: <InlineEquation equation="t = 2"/> mm, <InlineEquation equation="\\epsilon_f = 0.65 \\Rightarrow R_{min} = \\frac{2}{2 \\cdot 0.65} = 1.54"/> mm</Item>
 </Itemize>
 </SubSection>
+
 <SubSection title="Bend Allowance and Bend Deduction" id="Bend Allowance and Bend Deduction">
 <Itemize>
 
@@ -143,8 +145,8 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
 <DisplayEquation equation="L_b = \\frac{2\\pi R \\theta}{360} + K_b \\cdot t" title="" />
 
     <Item><strong>Bend Deduction (BD)</strong>: Difference between total flat length and sum of flange lengths.</Item>
-    <Item><strong>Explanation of \( K_b \)</strong>: Empirical coefficient accounting for material and bend geometry; typically \( K_b = 0.33 \) to \( 0.5 \).</Item>
-    <Item><strong>Example</strong>: \( R = 8.5 \, mm \), \( \theta = 140^\circ \), \( t = 5 \, mm \), \( K_b = 0.33 \):</Item>
+    <Item><strong>Explanation of <InlineEquation equation = " K_b"/></strong>: Empirical coefficient accounting for material and bend geometry; typically <InlineEquation equation = "K_b = 0.33"/> to <InlineEquation equation = "0.5"/>.</Item>
+    <Item><strong>Example</strong>: <InlineEquation equation = " R = 8.5 mm, theta = 140^\circ, t = 5 mm, K_b = 0.33"/>":</Item>
 
 <DisplayEquation equation="L_b = \\frac{2\\pi \\cdot 8.5 \\cdot 140}{360} + 0.33 \\cdot 5 = 20.75 + 1.65 = 22.4 \\, mm" title="" />
 
@@ -154,7 +156,7 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
 <SubSection title="Springback" id="Springback">
 <Itemize>
 
-    <Item><strong>Springback Factor \( K_s \)</strong>:</Item>
+    <Item><strong>Springback Factor <InlineEquation equation = "K_s"/></strong>:</Item>
 
 <DisplayEquation equation="z = R_{i}/R_{f} = 4\\left(\\frac{\\sigma_{y} R_{i}}{Et}\\right)^3 - 3\\left(\\frac{\\sigma_{y} R_{i}}{Et}\\right) +1" title="" />
 
@@ -164,13 +166,14 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
 
 <DisplayEquation equation="K_s = \\frac{\\frac{2R_f}{t} + 1}{ \\frac{2R_i}{t} + 1}" title="" />
 
-    <Item><strong>Explanation of \( K_s \)</strong>: Ratio of final to initial bend radius adjusted for thickness; indicates elastic recovery.</Item>
-    <Item><strong>Example</strong>: \( R_i = 20 \, mm \), \( R_f = 20.9 \, mm \), \( t = 2 \, mm \):</Item>
+    <Item><strong>Explanation of <InlineEquation equation = "K_s"/></strong>: Ratio of final to initial bend radius adjusted for thickness; indicates elastic recovery.</Item>
+    <Item><strong>Example</strong>: <InlineEquation equation = "R_i = 20 \t{mm,} R_f = 20.9 {mm, }  t = 2"/> mm:</Item>
 
 <DisplayEquation equation="K_s = \\frac{\\frac{2*20.9}{2} + 1}{ \\frac{2* 20}{2} + 1} = 1.045" title="" />
 
 
 </Itemize>
+</SubSection>
 <SubSection title="Design Guidelines" id="Design Guidelines">
 <Itemize>
 
