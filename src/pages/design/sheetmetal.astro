@@ -1,0 +1,215 @@
+---
+import Layout from "../../layouts/Layout.astro" 
+import Image from "../../components/Image.astro" 
+import CalloutContainer from "../../components/CalloutContainer.astro" 
+import Section from "../../components/Section.astro" 
+import SubSection from "../../components/SubSection.astro" 
+import SubSubSection from "../../components/SubSubSection.astro" 
+import SubSubSubSection from "../../components/SubSubSubSection.astro" 
+import OrangeText from "../../components/OrangeText.astro" 
+import TealText from "../../components/TealText.astro" 
+import Enumerate from "../../components/Enumerate.astro" 
+import Item from "../../components/Item.astro" 
+import Itemize from "../../components/Itemize.astro" 
+import InlineEquation from "../../components/InlineEquation.astro" 
+import DisplayEquation from "../../components/DisplayEquation.astro" 
+---
+<Layout title="SheetMetal">
+<div slot="navtree">
+<ul class="list-group list-group-flush py-0">
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Overview'>Overview</a></li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Forming Methods'>Forming Methods</a></li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Stress-Strain Curve'>Stress-Strain Curve</a></li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Key Formulas'>Key Formulas</a></li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Cutting Operations'>Cutting Operations</a></li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Bending Mechanics'>Bending Mechanics</a></li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Bend Allowance and Bend Deduction'>Bend Allowance and Bend Deduction</a></li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Springback'>Springback</a></li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Summary Table of Formulas'>Summary Table of Formulas</a></li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Design Guidelines'>Design Guidelines</a></li>
+</ul>
+</div>
+<SubSection title="Overview" id="Overview">
+<Itemize>
+
+    <Item>Sheet metal thickness: 0.4 mm to 6 mm</Item>
+    <Item>Common materials: low-carbon steel, aluminum, brass</Item>
+    <Item>Advantages: inexpensive, ductile, fast forming methods</Item>
+
+</Itemize>
+</SubSection>
+<SubSection title="Forming Methods" id="Forming Methods">
+<Itemize>
+
+    <Item>Shearing, Blanking, Punching</Item>
+    <Item>Bending: V-bending, Wipe bending</Item>
+    <Item>Deep Drawing, Rolling, Stamping</Item>
+    <Item>Hydroforming, Spinning, Stretch Forming</Item>
+
+</Itemize>
+</SubSection>
+<SubSection title="Stress-Strain Curve" id="Stress-Strain Curve">
+<Itemize>
+
+    <Item>\textbf{Elastic Region}: Reversible deformation; stress proportional to strain.</Item>
+    <Item>\textbf{Yield Point}: Onset of plastic deformation due to dislocation movement.</Item>
+    <Item>\textbf{Plastic Region}: Permanent deformation; strain hardening occurs.</Item>
+    <Item>\textbf{Ductility}: Extent of plastic deformation before fracture.</Item>
+    <Item>\textbf{Toughness}: Area under the stress-strain curve; energy absorbed before fracture.</Item>
+
+</Itemize>
+</SubSection>
+<SubSection title="Key Formulas" id="Key Formulas">
+<Itemize>
+
+    <Item>\textbf{Engineering Stress:}</Item>
+
+<DisplayEquation equation="\\sigma = \\frac{P}{A_0}" title="" />
+
+<p><InlineEquation equation="P" /> = applied load, <InlineEquation equation="A_0" /> = original area.</p>
+    <Item>\textbf{Strain:}</Item>
+
+<DisplayEquation equation="\\varepsilon = \\frac{\\Delta l}{l_0}" title="" />
+
+<p><InlineEquation equation="\\Delta l" /> = change in length, <InlineEquation equation="l_0" /> = original length.</p>
+    <Item>\textbf{Elastic Modulus:}</Item>
+
+<DisplayEquation equation="E = \\frac{\\sigma}{\\varepsilon}" title="" />
+
+<p>Ratio of stress to strain in elastic region.</p>
+
+</Itemize>
+</SubSection>
+<SubSection title="Cutting Operations" id="Cutting Operations">
+<Itemize>
+
+    <Item>\textbf{Shearing:} Sheet metal cutting operation along a straight line between two cutting edges, typically used to cut large sheets</Item>
+    <Item>\textbf{Blanking:} Sheet metal cutting to separate piece (called a blank) from surrounding stock</Item>
+    <Item>\textbf{Punching:} Similar to blanking, but the cut piece is the scrap (called a slug)</Item>
+    <Item>\textbf{Perforating:} Punching a number of holes in a sheet</Item>
+    <Item>\textbf{Parting:} Shearing the sheet into two or more pieces</Item>
+    <Item>\textbf{Notching:} Removing pieces from edges</Item>
+    <Item>\textbf{Lancing:} Producing a tab without removing any material</Item>
+    <Item>\textbf{Clearance}: Distance between punch cutting edge and die cutting edge (usually 4 - 8 of thickness)</Item>
+<p>\begin{itemize}</p>
+        <Item>if clearance too small, fracture lines pass each other, causing double burnishing and larger force</Item>
+        <Item>if clearance too large, metal is pinched between cutting edges and excessive burr results</Item>
+        <Item>recommended clearance calculated by \( c = a \cdot t \), where \( a \) allowance depends on material.</Item>
+        <Item>angular clearance of 0.25-1.5 for punching/blanking to allow slug or blank to drop through die</Item>
+
+</Itemize>
+<p>\item \textbf{Punch Force}: \( F = 0.7 \cdot \sigma_{UTS} \cdot t \cdot L \)</p>
+<p>\item \textbf{Example}: For \( \sigma_{UTS} = 500 \, MPa \), \( t = 2 \, mm \), square hole \( 8 \times 8 \, mm \):</p>
+
+<DisplayEquation equation="L = 4 \\times 8 = 32 \\, mm, \\quad F = 0.7 \\cdot 500 \\cdot 2 \\cdot 32 = 22,400 \\, N" title="" />
+
+<p>\end{itemize}</p>
+</SubSection>
+<SubSection title="Bending Mechanics" id="Bending Mechanics">
+<Itemize>
+
+    <Item>\textbf{V-bending:} performed with a V-shaped die on a press brake</Item>
+<p>\begin{itemize}</p>
+        <Item>V-dies are simple and inexpensive</Item>
+        <Item>used for lower volume production</Item>
+
+</Itemize>
+<p>\item \textbf{Edge ("wipe") bending:} performed with a wiping die, requires a pressure pad</p>
+    <Itemize>
+
+        <Item>Wiping dies are more complicated and costly</Item>
+        <Item>used for higher volume production</Item>
+
+</Itemize>
+<p>\item \textbf{Bending Force}:</p>
+
+<DisplayEquation equation="F = \\frac{2k \\cdot \\sigma_{UTS} \\cdot L \\cdot t^2}{W}" title="" />
+
+<p>\item \textbf{Example}: \( \sigma_{UTS} = 275 \, MPa \), \( L = 60 \, mm \), \( t = 2 \, mm \), \( W = 20 \, mm \), \( k = 1.25 \):</p>
+
+<DisplayEquation equation="F = \\frac{2 \\cdot 1.25 \\cdot 275 \\cdot 60 \\cdot 2^2}{20} = 8250 \\, N" title="" />
+
+<p>\item \textbf{Minimum Bending Radius (MBR)}: determined by tensile strain-to-failure</p>
+
+<DisplayEquation equation="R_{min} = \\frac{t}{2 \\cdot \\epsilon_f}" title="" />
+
+<p>\item \textbf{Example}: \( t = 2 \, mm \), \( \epsilon_f = 0.65 \Rightarrow R_{min} = \frac{2}{2 \cdot 0.65} = 1.54 \, mm \)</p>
+<p>\end{itemize}</p>
+</SubSection>
+<SubSection title="Bend Allowance and Bend Deduction" id="Bend Allowance and Bend Deduction">
+<Itemize>
+
+    <Item>\textbf{Bend Allowance (BA)}: Length of arc along neutral axis.</Item>
+
+<DisplayEquation equation="L_b = \\frac{2\\pi R \\theta}{360} + K_b \\cdot t" title="" />
+
+    <Item>\textbf{Bend Deduction (BD)}: Difference between total flat length and sum of flange lengths.</Item>
+    <Item>\textbf{Explanation of \( K_b \)}: Empirical coefficient accounting for material and bend geometry; typically \( K_b = 0.33 \) to \( 0.5 \).</Item>
+    <Item>\textbf{Example}: \( R = 8.5 \, mm \), \( \theta = 140^\circ \), \( t = 5 \, mm \), \( K_b = 0.33 \):</Item>
+
+<DisplayEquation equation="L_b = \\frac{2\\pi \\cdot 8.5 \\cdot 140}{360} + 0.33 \\cdot 5 = 20.75 + 1.65 = 22.4 \\, mm" title="" />
+
+
+</Itemize>
+</SubSection>
+<SubSection title="Springback" id="Springback">
+<Itemize>
+
+    <Item>\textbf{Springback Factor \( K_s \)}:</Item>
+
+<DisplayEquation equation="z = R_{i}/R_{f} = 4\\left(\\frac{\\sigma_{y} R_{i}}{Et}\\right)^3 - 3\\left(\\frac{\\sigma_{y} R_{i}}{Et}\\right) +1" title="" />
+
+
+<DisplayEquation equation="R_{f} = R_{i} / z" title="" />
+
+
+<DisplayEquation equation="K_s = \\frac{\\frac{2R_f}{t} + 1}{ \\frac{2R_i}{t} + 1}" title="" />
+
+    <Item>\textbf{Explanation of \( K_s \)}: Ratio of final to initial bend radius adjusted for thickness; indicates elastic recovery.</Item>
+    <Item>\textbf{Example}: \( R_i = 20 \, mm \), \( R_f = 20.9 \, mm \), \( t = 2 \, mm \):</Item>
+
+<DisplayEquation equation="K_s = \\frac{\\frac{2*20.9}{2} + 1}{ \\frac{2* 20}{2} + 1} = 1.045" title="" />
+
+
+</Itemize>
+</SubSection>
+<SubSection title="Summary Table of Formulas" id="Summary Table of Formulas">
+<p>\begin{table}[htbp]</p>
+<p>\begin{tabular}{ll}</p>
+<p>\hline</p>
+<p>\textbf{Formula} & \textbf{Description} \\</p>
+<p>\hline</p>
+<p>\( c = a \cdot t \) & Clearance in cutting \\</p>
+<p>\( F = 0.7 \cdot \sigma_{UTS} \cdot t \cdot L \) & Punch force \\</p>
+<p>\( F = \frac{2k \cdot \sigma_{UTS} \cdot L \cdot t^2}{W} \) & Bending force \\</p>
+<p>\( R_{min} = \frac{t}{2 \cdot \epsilon_f} \) & Minimum bending radius \\</p>
+<p>\( L_b = \frac{2\pi R \theta}{360} + K_b \cdot t \) & Bend allowance \\</p>
+<p>\( K_s = \left(\frac{2R_f}{t} + 1\right) \Big/ \left(\frac{2R_i}{t} + 1\right) \) & Springback factor \\</p>
+<p>\hline</p>
+<p>\end{tabular}</p>
+<p>\end{table}</p>
+</SubSection>
+<SubSection title="Design Guidelines" id="Design Guidelines">
+<Itemize>
+
+    <Item>Use corner reliefs to prevent tearing</Item>
+    <Item>Nest parts efficiently to reduce waste</Item>
+    <Item>Maintain minimum hole sizes and spacing</Item>
+<p>\begin{itemize}</p>
+        <Item>diameter greater than stock thickness T (<InlineEquation equation="> 2T" /> for alloy or stainless steel)</Item>
+        <Item>distance between holes <InlineEquation equation=">" /> 2T</Item>
+
+</Itemize>
+<p>\item Avoid holes near edges, corners, or bends</p>
+    <Itemize>
+
+        <Item>distance from edge <InlineEquation equation=">" /> T (1.5T preferred)</Item>
+        <Item>distance from corner <InlineEquation equation=">" /> H = 1.5T + bending radius</Item>
+
+</Itemize>
+<p>\item Avoid sharp corners (Radii <InlineEquation equation=">" /> 0.5T)</p>
+<p>\item Use generous bend radii to reduce springback</p>
+<p>\end{itemize}</p>
+
+</SubSection>
+</Layout>
