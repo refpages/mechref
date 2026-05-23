@@ -44,27 +44,10 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
 </div>
 <p></p>
 <SubSection title="Plastic Overview" id="Plastic Overview">
-<p>Plastic is a synthetic polymer material valued because it is:</p>
-<Itemize>
+<p>Plastics are a wide range of synthetic materials made primarily of polymers. Their <em>plasticity</em> allow them to be manipulated in a variety of manufacturing methods, including molding, extrusion, and pressing. Their adaptability and wide range of properties has led to their widespread use across the globe.</p>
+<Image id="avb-ft" src="/design/images/plastic_pro_con.png" width={4.5}>
+</Image>
 
-    <Item>Inexpensive</Item>
-    <Item>Lightweight</Item>
-    <Item>Corrosion resistant</Item>
-    <Item>Easily mass produced</Item>
-    <Item>Electrically insulating</Item>
-    <Item>Waterproof</Item>
-    <Item>Durable</Item>
-
-</Itemize>
-<p>However, plastics also present concerns:</p>
-<Itemize>
-
-    <Item>Most are not biodegradable</Item>
-    <Item>Petroleum based feedstocks</Item>
-    <Item>Microplastic pollution</Item>
-    <Item>Thermal degradation at high temperature</Item>
-
-</Itemize>
 <p><strong>[Add Diagram: Global plastic waste / recycling flow chart]</strong></p>
 </SubSection>
 <SubSection title="What are Polymers?" id="What are Polymers?">
@@ -128,82 +111,23 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
 <p><strong>[Add Graph: Modulus vs Temperature showing <InlineEquation equation="T_g" /> and <InlineEquation equation="T_m" />]</strong></p>
 </SubSection>
 <SubSection title="Mechanical Properties of Polymers" id="Mechanical Properties of Polymers">
-<table>
-  <thead>
-    <tr>
-      <th>Material</th>
-      <th>UTS (MPa)</th>
-      <th>E (GPa)</th>
-      <th>Elongation (%)</th>
-      <th>Notes</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>ABS</td>
-      <td>28–55</td>
-      <td>1.4–2.8</td>
-      <td>5–75</td>
-      <td>Tough</td>
-    </tr>
-    <tr>
-      <td>Polycarbonate</td>
-      <td>55–70</td>
-      <td>2.5–3.0</td>
-      <td>10–125</td>
-      <td>Impact resistant</td>
-    </tr>
-    <tr>
-      <td>Nylon</td>
-      <td>55–83</td>
-      <td>1.4–f2.8</td>
-      <td>60–200</td>
-      <td>Wear resistant</td>
-    </tr>
-    <tr>
-      <td>Polyethylene</td>
-      <td>7–40</td>
-      <td>0.1–1.4</td>
-      <td>15–1000</td>
-      <td>Flexible</td>
-    </tr>
-    <tr>
-      <td>Polypropylene</td>
-      <td>20–35</td>
-      <td>0.7–1.2</td>
-      <td>10–500</td>
-      <td>Low density</td>
-    </tr>
-    <tr>
-      <td>Epoxy</td>
-      <td>35–140</td>
-      <td>3.5–17</td>
-      <td>1–10</td>
-      <td>Rigid</td>
-    </tr>
-    <tr>
-      <td>Rubber</td>
-      <td>17–25</td>
-      <td>Low</td>
-      <td>75–650</td>
-      <td>Elastic</td>
-    </tr>
-  </tbody>
-</table>
+<Image id="avb-ft" src="/design/images/polymers_table.png" width={650}>
+</Image>
 </SubSection>
+
 <SubSection title="Additives" id="Additives">
 <p>Used to modify plastic behavior:</p>
 <Itemize>
 
-    <Item>Fillers -- strengthen or lower cost</Item>
-    <Item>Plasticizers -- soften material and improve flow</Item>
-    <Item>Colorants -- pigments or dyes</Item>
-    <Item>Flame retardants -- reduce flammability</Item>
-    <Item>Lubricants -- reduce friction and improve flow</Item>
-    <Item>UV stabilizers -- reduce sunlight degradation</Item>
-    <Item>Antioxidants -- reduce oxidation damage</Item>
-    <Item>Cross-linking Agents -- for thermosets and elastomers</Item>
-    <Item>Fibers (glass/carbon) -- reinforcement</Item>
+    <Item>Fillers — strengthen or lower cost</Item>
+    <Item>Plasticizers — soften material and improve flow</Item>
+    <Item>Colorants — pigments or dyes</Item>
+    <Item>Flame retardants — reduce flammability</Item>
+    <Item>Lubricants — reduce friction and improve flow</Item>
+    <Item>UV stabilizers — reduce sunlight degradation</Item>
+    <Item>Antioxidants — reduce oxidation damage</Item>
+    <Item>Cross-linking Agents — for thermosets and elastomers</Item>
+    <Item>Fibers (glass/carbon) — reinforcement</Item>
 
 </Itemize>
 </SubSection>
@@ -287,12 +211,12 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
         <Item>Thick walls cool much slower</Item>
         <Item>Thin walls reduce cycle time</Item>
         <Item>Uniform walls reduce warpage</Item>
-
     </Itemize>
-<p>\item <InlineEquation equation="a = \\frac{\\gamma}{\\rho c}" /> is thermal diffusivity <InlineEquation equation="[\\frac{m^2}{s}]" /></p>
-<p>\item <InlineEquation equation="T_p > T_e > T_d" /> (melt processing, ejection, and mold wall temperatures)</p>
+    <Item><InlineEquation equation="a = \\frac{\\gamma}{\\rho c}" /> is thermal diffusivity <InlineEquation equation="[\\frac{m^2}{s}]" /></Item>
+    <Item><InlineEquation equation="T_p > T_e > T_d" /> (melt processing, ejection, and mold wall temperatures)</Item>
 </Itemize>
 </SubSubSection>
+
 <SubSubSection title="Clamp Force" id="Clamp Force">
 <p>The mold must withstand large pressures without deformation, with a typical lifetime of 1 million "shots". The mold halves are pushed together with a clamping pressure of <InlineEquation equation="70 - 200" /> MPa. Machine must hold mold shut against cavity pressure with a clamping force:</p>
 
