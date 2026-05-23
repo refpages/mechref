@@ -1,0 +1,245 @@
+---
+import Layout from "../../layouts/Layout.astro" 
+import Image from "../../components/Image.astro" 
+import CalloutContainer from "../../components/CalloutContainer.astro" 
+import Section from "../../components/Section.astro" 
+import SubSection from "../../components/SubSection.astro" 
+import SubSubSection from "../../components/SubSubSection.astro" 
+import SubSubSubSection from "../../components/SubSubSubSection.astro" 
+import OrangeText from "../../components/OrangeText.astro" 
+import TealText from "../../components/TealText.astro" 
+import Enumerate from "../../components/Enumerate.astro" 
+import Item from "../../components/Item.astro" 
+import Itemize from "../../components/Itemize.astro" 
+import InlineEquation from "../../components/InlineEquation.astro" 
+import DisplayEquation from "../../components/DisplayEquation.astro" 
+---
+<Layout title="Connections">
+<div slot="navtree">
+<ul class="list-group list-group-flush py-0">
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Overview'>Overview</a></li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Welding'>Welding</a><ul class='list-group list-group-flush py-0'>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Fusion Welding'>Fusion Welding</a></li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Solid State Welding'>Solid State Welding</a></li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Types of Welding Joints'>Types of Welding Joints</a></li></ul>
+</li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Brazing and Soldering'>Brazing and Soldering</a></li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Adhesives'>Adhesives</a></li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Mechanical Fasteners'>Mechanical Fasteners</a><ul class='list-group list-group-flush py-0'>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Bolt Strength'>Bolt Strength</a></li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Connection Strength'>Connection Strength</a></li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Types of Threaded Fasteners'>Types of Threaded Fasteners</a></li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Rivets'>Rivets</a></li></ul>
+</li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Interference Fits'>Interference Fits</a><ul class='list-group list-group-flush py-0'>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Press Fitting'>Press Fitting</a></li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Shrink and Expansion Fits'>Shrink and Expansion Fits</a></li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Snap Fits'>Snap Fits</a></li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Retaining Ring:'>Retaining Ring:</a></li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Integral Fasteners'>Integral Fasteners</a></li></ul>
+</li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Summary'>Summary</a></li>
+</ul>
+</div>
+<SubSection title="Overview" id="Overview">
+<Itemize>
+
+    <Item><strong>Joining</strong> is the process of putting together two or more parts.</Item>
+    <Itemize>
+        <Item>Welding (metals and plastics)</Item>
+        <Item>Brazing and Soldering (certain metals)</Item>
+        <Item>Adhesive Bonding (nearly all materials)</Item>
+        <Item>Mechanical Fastening (nearly all materials)</Item>
+        <Item>Joining using Interface Fit/Snap Fit (nearly all materials)</Item>
+    </Itemize>
+    <Item><strong>Assembly</strong> is the sequence multiple joining operations involved in making a product</Item>
+
+</Itemize>
+</SubSection>
+<SubSection title="Welding" id="Welding">
+<Itemize>
+
+    <Item><strong>Fusion:</strong> Material is melted and joined on solidification. Ex: Oxyfuel, Arc</Item>
+    <Item><strong>Solid State:</strong> Does not melt material. Ex: Friction Welding, Electrical Resistance</Item>
+
+</Itemize>
+</SubSection>
+<SubSubSection title="Fusion Welding" id="Fusion Welding">
+<p>Oxyacetylene gas welding (OAW, or Oxyfuel Welding) is the most common gas welding process. It is typically used for structural metal fabrication and repair work. Arc welding uses a power supply to create an electric arc between a metal stick ("electrode") and the base material to melt the metals on contact. Both consumable and non-consumable electrodes can be used.</p>
+<p>Arc Welding Power <DisplayEquation equation='\\frac{H}{l} = \\frac{eVI}{v}' title="" /></p>
+<p>where <InlineEquation equation="H" /> = heat input, <InlineEquation equation="l" /> = weld length, <InlineEquation equation="e" /> = efficiency (0.75 - 0.9), <InlineEquation equation="V" /> = voltage, <InlineEquation equation="I" /> = current, and <InlineEquation equation="v" /> = welding speed.</p>
+<strong>Types of Arc Welding:</strong>
+<Itemize>
+
+    <Item>GTAW- Gas Tungsten Arc Welding (TIG- Tungsten Inert Gas)</Item>
+    <Item>SMAW- Shielded Metal Arc Welding (Stick)</Item>
+    <Item>SAW- Submerged Arc Welding</Item>
+    <Item>GMAW- Gas Metal Arc Welding (MIG- Metal Inert Gas)</Item>
+    <Item>FCAW- Flux Core Arc Welding</Item>
+    <Item>PAW- Plasma Arc Welding</Item>
+    <Item>EGW- electrogas welding</Item>
+    <Item>ESW- electroslag welding`</Item>
+
+</Itemize>
+<p><strong>Non-Consumable Electrode:</strong> TIG Welding</p>
+<Itemize>
+
+    <Item>Uses tungsten electrode to supply heat via electric arc</Item>
+    <Item>Wire is used as weld filler</Item>
+    <Item>Shielding gas (typically argon-helium mixture) is needed to prevent oxidation</Item>
+    <Item>AC or DC current can be used, depending on the metal</Item>
+    <Item>Well-suited for thin sheets or tubes of Al, Mg, and Ti</Item>
+
+</Itemize>
+<p><strong>Consumable Electrode:</strong> MIG Welding</p>
+<Itemize>
+
+    <Item>MIG, or Gas Metal Arc, is a variant of TIG used for steels</Item>
+    <Item>The filler wire is consumed and doubles as the electrode</Item>
+    <Item>Shielding gas is still needed, and both AC or DC current can be used</Item>
+
+</Itemize>
+</SubSubSection>
+<SubSubSection title="Solid State Welding" id="Solid State Welding">
+<p>Friction welding is done by rubbing two parts together under high pressure, allowing the surface to soften and fuse without melting. This does not require filling, and the bond can be created between both similar and dissimilar materials. It is used with metals and thermoplastics.</p>
+<p><strong>add image</strong></p>
+<p>Electrical Resistance Welding, or Spot Welding, joins two parts by heating them with an electric current and melting the metal at the joint.</p>
+<DisplayEquation equation='H = IVtk' title="" />
+<p>where <InlineEquation equation="H" /> = Heat, <InlineEquation equation="I" /> = Current, <InlineEquation equation="V" /> = Voltage, <InlineEquation equation="t" /> = time, and <InlineEquation equation="k" /> = compensation factor for heat loss to conduction and radiation (unitless).</p>
+</SubSubSection>
+
+<SubSubSection title="Types of Welding Joints" id="Types of Welding Joints">
+<Image id="avb-ft" src="/design/images/weld_joint_types.png" style="width:65%; height:auto;">
+</Image>
+<Image id="avb-ft" src="/design/images/fillet_welds.png" style="width:65%; height:auto;">
+</Image>
+
+<p><strong></strong>Strength of Fillet Welds:</strong></p>
+<DisplayEquation equation='\\sigma_v = \\frac{F}{0.707wL}' title="" />
+<p>where <InlineEquation equation="\\sigma_v" /> = shear stress, F = applied force, w = fillet dimension, and L = weld length</p>
+</SubSubSection>
+<SubSection title="Brazing and Soldering" id="Brazing and Soldering">
+<p>A filler metal, typically supplied by a wire, is applied to the parts being joined. The parts are then heated, melting the filler metal and allowing it to spread over the joint surface area via capillary forces.</p>
+<Itemize>
+
+    <Item>Soldering is done <InlineEquation equation="< 450^\\circ" />C with tin-bearing alloys</Item>
+    <Item>Brazing is done <InlineEquation equation="> 450^\\circ" /> C for copper alloys and other metals</Item>
+    <Item>Joint surfaces must be very clean for effective filler flow. Flux can be applied before the process to remove oxides (flux fumes are toxic, so good ventilation is required)</Item>
+    <Item>Maximizing contact surface area improves joint strength <strong>add image</strong></Item>
+
+</Itemize>
+</SubSection>
+<SubSection title="Adhesives" id="Adhesives">
+<Itemize>
+
+    <Item><strong>Epoxy Based Systems:</strong> high strength and temperature properties (up to 475 K).</Item>
+    <Item><strong>Acrylics:</strong> Suitable for contaminated or unclean surfaces</Item>
+    <Item><strong>Anaerobic Systems:</strong> Adhesives with oxygen deprivation, typically forms a hard and brittle bond. Curing times can be improved by external heating or UV radiation.</Item>
+    <Item><strong>Cyanoacrylate:</strong> The bond lines are thin and sets within 5-40s (superglue!)</Item>
+    <Item><strong>Urethanes:</strong> High toughness and flexibility at room temperature, often used as sealants</Item>
+    <Item><strong>Silicones:</strong> Highly resistant to moisture and solvents, high impact and peel strength. Curing times are usually 1-5 days.</Item>
+    <Item><strong>These are all Polymers!</strong></Item>
+    <Item><strong>Maximize Surface Area when designing joints</strong></Item>
+
+</Itemize>
+<Image id="avb-ft" src="/design/images/adhesives_table.png" style="width:65%; height:auto;">
+        <p class="figureCaption">
+          Content adapted from S. Kalpakjian and S. R. Schmid, Manufacturing Engineering and Technology</a>
+        </p>
+</Image>
+</SubSection>
+<SubSection title="Mechanical Fasteners" id="Mechanical Fasteners">
+<p>Joining of parts using a separate component relying on mechanical forces. These can be removeable (like bolts and screws) or permanent (like rivets)</p>
+</SubSection>
+<SubSubSection title="Bolt Strength" id="Bolt Strength">
+<p>Means of bolt failure:</p>
+<Enumerate>
+
+    <Item>Stripping of external threads</Item>
+    <Item>Stripping of internal threads</Item>
+    <Item><strong>Excessive tensile strength in cross-sectional area</strong></Item>
+
+</Enumerate>
+<p>Bolt tensile stress:</p>
+<DisplayEquation equation='\\sigma = \\frac{F}{A_s}' title="" />
+<p>where <InlineEquation equation="F" /> = maximum load and <InlineEquation equation="A_s" /> = cross sectional area</p>
+<Itemize>
+
+    <Item>metric(ISO): <InlineEquation equation="A_s = (\\pi/4)(D-.9382p)^2" /> where D = diameter, p = pitch</Item>
+    <Item>ANSI: <InlineEquation equation="A_s = (\\pi/4)(D - 0.9743/n)^2" /> where D = diameter, n = threads/inch</Item>
+
+</Itemize>
+</SubSubSection>
+<SubSubSection title="Connection Strength" id="Connection Strength">
+<p><strong>image</strong></p>
+<p>Bearing Type:</p>
+<DisplayEquation equation='R_n = F_vA_bn_s' title="" />
+<Itemize>
+
+    <Item><InlineEquation equation="R_n" /> = Resistance</Item>
+    <Item><InlineEquation equation="F_v" /> = Material shear strength</Item>
+    <Item><InlineEquation equation="A_b" /> = Bolt cross sectionl area</Item>
+    <Item><InlineEquation equation="n_s" /> = number of shear planes</Item>
+
+</Itemize>
+<p>Slip Critical Type:</p>
+<DisplayEquation equation='R_n = \\mu T_bn_s' title="" />
+<Itemize>
+
+    <Item><InlineEquation equation="R_n" /> = Resistance</Item>
+    <Item><InlineEquation equation="\\mu" /> = Friction coefficient</Item>
+    <Item><InlineEquation equation="T_n" /> = Bolt tension</Item>
+    <Item><InlineEquation equation="n_s" /> = number of shear planes</Item>
+
+</Itemize>
+</SubSubSection>
+<SubSubSection title="Types of Threaded Fasteners" id="Types of Threaded Fasteners">
+<p>Bolts thread into a (non-affixed) nut whereas screws go into a threaded hole</p>
+<p><strong>Set Screws:</strong> fasten collars, gears, and pulleys to shaft</p>
+<p><strong>image</strong></p>
+<p><strong>Self-Tapping Screws:</strong> designed to form or cut threads into a hole</p>
+<p><strong>Screw Thread Inserts:</strong> Internally threaded plugs designed to be inserted into an unthreaded hole. Usually assembled in a weaker material to provide stronger threads.</p>
+<p><strong>image of specialty fasteners</strong></p>
+</SubSubSection>
+<SubSubSection title="Rivets" id="Rivets">
+<p>Rivets are the most widely used permanent fastening method (Airplanes use millions). They are versatile and vibration-resistant. Typically, a pneumatic hammer will deliver a succession of blows to upset the rivet</p>
+<p><strong>image</strong></p>
+</SubSubSection>
+<SubSection title="Interference Fits" id="Interference Fits">
+</SubSection>
+<SubSubSection title="Press Fitting" id="Press Fitting">
+<p>The starting inner diameter of the hole is smaller than the outer diameter of the pin.</p>
+<p>Radial or "interference fit" pressure:</p>
+<DisplayEquation equation='p_f = \\frac{Ei(D_i^2-D_o^2)}{D_oD_i^2}' title="" />
+<p>where E = Elastic Modulus, i = overlap between ID and OD, <InlineEquation equation="D_o" /> = outer diameter of pin, <InlineEquation equation="D_i" /> = inner diameter of hole</p>
+<p>Maximum Joining Stress: (max elastic deformation)</p>
+<DisplayEquation equation='\\sigma_{max} = \\frac{2p_fD_i^2}{D_i^2 - D_o^2}' title="" />
+</SubSubSection>
+<SubSubSection title="Shrink and Expansion Fits" id="Shrink and Expansion Fits">
+<p>Joining two parts that have an interference part at room temperature by either heating or cooling one of the parts before coupling.</p>
+<Itemize>
+
+    <Item><strong>Shrink fitting:</strong> <em>External</em> part is <em>enlarged</em> by heating, while the internal stays at room temperature</Item>
+    <Item><strong>Expansion fitting:</strong> <em>Internal</em> part is <em>contracted</em> by cooling, while the external stays at room temperature</Item>
+    <Item>Diameter change <InlineEquation equation="\\Delta D = \\alpha D_0 \\Delta T" /></Item>
+
+</Itemize>
+</SubSubSection>
+<SubSubSection title="Snap Fits" id="Snap Fits">
+<p>Mating elements have a temporary interference during assembly, but interlock once assembled. At least one part elastically deforms during assembly, and parts are usually designed for slight interference after assembly.</p>
+<p><strong>image</strong></p>
+</SubSubSection>
+<SubSubSection title="Retaining Ring:" id="Retaining Ring:">
+<p>Fastener snaps into a groove along the circumference of a shaft or tube, forming a shoulder. This is used to locate parts or restrict their lateral motion along a rotational shaft.</p>
+</SubSubSection>
+<SubSubSection title="Integral Fasteners" id="Integral Fasteners">
+<p>Components are deformed to interlock with each other as a mechanical joint.</p>
+<p><strong>Lanced Tabs:</strong> To attach wires or shafts to sheet metal parts</p>
+<p><strong>image</strong></p>
+<p><strong>Seaming:</strong> Edges of metal are bent over to form the fastening seam</p>
+<p><strong>image</strong></p>
+</SubSubSection>
+<SubSection title="Summary" id="Summary">
+
+</SubSection>
+</Layout>
