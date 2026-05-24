@@ -66,7 +66,7 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
 </SubSection>
 <SubSubSection title="Fusion Welding" id="Fusion Welding">
 <p>Oxyacetylene gas welding (OAW, or Oxyfuel Welding) is the most common gas welding process. It is typically used for structural metal fabrication and repair work. Arc welding uses a power supply to create an electric arc between a metal stick ("electrode") and the base material to melt the metals on contact. Both consumable and non-consumable electrodes can be used.</p>
-<p>Arc Welding Power <DisplayEquation equation='\\frac{H}{l} = \\frac{eVI}{v}' title="" /></p>
+<p><strong>Arc Welding Power</strong> <DisplayEquation equation='\\frac{H}{l} = \\frac{eVI}{v}' title="" /></p>
 <p>where <InlineEquation equation="H" /> = heat input, <InlineEquation equation="l" /> = weld length, <InlineEquation equation="e" /> = efficiency (0.75 - 0.9), <InlineEquation equation="V" /> = voltage, <InlineEquation equation="I" /> = current, and <InlineEquation equation="v" /> = welding speed.</p>
 <strong>Types of Arc Welding:</strong>
 <Itemize>
@@ -112,12 +112,21 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
 <Image id="avb-ft" src="/design/images/weld_joint_types.png" style="width:65%; height:auto;">
 </Image>
 <Image id="avb-ft" src="/design/images/fillet_welds.png" style="width:65%; height:auto;">
+    <p class="figureCaption">
+          Failure plane is along the Throat</a>
+    </p>
 </Image>
 
 <p><strong></strong>Strength of Fillet Welds:</strong></p>
 <DisplayEquation equation='\\sigma_v = \\frac{F}{0.707wL}' title="" />
 <p>where <InlineEquation equation="\\sigma_v" /> = shear stress, F = applied force, w = fillet dimension, and L = weld length</p>
+<Image id="avb-ft" src="/design/images/welding_design.png" width={6}>
+    <p class="figureCaption">
+          Joint Design for Welding</a>
+    </p>
+</Image>
 </SubSubSection>
+
 <SubSection title="Brazing and Soldering" id="Brazing and Soldering">
 <p>A filler metal, typically supplied by a wire, is applied to the parts being joined. The parts are then heated, melting the filler metal and allowing it to spread over the joint surface area via capillary forces.</p>
 <Itemize>
@@ -125,10 +134,16 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
     <Item>Soldering is done <InlineEquation equation="< 450^\\circ" />C with tin-bearing alloys</Item>
     <Item>Brazing is done <InlineEquation equation="> 450^\\circ" /> C for copper alloys and other metals</Item>
     <Item>Joint surfaces must be very clean for effective filler flow. Flux can be applied before the process to remove oxides (flux fumes are toxic, so good ventilation is required)</Item>
-    <Item>Maximizing contact surface area improves joint strength <strong>add image</strong></Item>
+    <Item>Maximizing contact surface area improves joint strength</Item>
 
 </Itemize>
+<Image id="avb-ft" src="/design/images/brazing_design.png" width={4}>
+    <p class="figureCaption">
+          Joint Design for Brazing</a>
+    </p>
+</Image>
 </SubSection>
+
 <SubSection title="Adhesives" id="Adhesives">
 <Itemize>
 
@@ -142,7 +157,7 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
     <Item><strong>Maximize Surface Area when designing joints</strong></Item>
 
 </Itemize>
-<Image id="avb-ft" src="/design/images/adhesives_table.png" style="width:65%; height:auto;">
+<Image id="avb-ft" src="/design/images/adhesives_table.png" width="{6}">
         <p class="figureCaption">
           Content adapted from S. Kalpakjian and S. R. Schmid, Manufacturing Engineering and Technology</a>
         </p>
@@ -241,6 +256,10 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
 <p><strong>image</strong></p>
 </SubSubSection>
 <SubSection title="Summary" id="Summary">
-
+<Image id="avb-ft" src="/design/images/connection_table.png" width="{6}">
+        <p class="figureCaption">
+          Content adapted from S. Kalpakjian and S. R. Schmid, Manufacturing Engineering and Technology</a>
+        </p>
+</Image>
 </SubSection>
 </Layout>
