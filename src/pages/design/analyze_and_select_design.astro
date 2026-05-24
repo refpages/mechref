@@ -23,29 +23,10 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
 <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Why This Phase is Critical'>Why This Phase is Critical</a></li>
 <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Three Key Components'>Three Key Components</a></li></ul>
 </li>
-<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Component 1: Preliminary Design Evaluation and Calculations'>Component 1: Preliminary Design Evaluation and Calculations</a><ul class='list-group list-group-flush py-0'>
-<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Purpose of Preliminary Evaluation'>Purpose of Preliminary Evaluation</a></li>
-<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#What to Evaluate'>What to Evaluate</a></li>
-<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Preliminary Calculations'>Preliminary Calculations</a></li>
-<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Bike Lock Example: Preliminary Shackle Analysis'>Bike Lock Example: Preliminary Shackle Analysis</a></li>
-<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Preliminary Evaluation Checklist'>Preliminary Evaluation Checklist</a></li>
-<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Preliminary Evaluation Documentation'>Preliminary Evaluation Documentation</a></li></ul>
-</li>
-<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Component 2: Structured Concept Selection - The Pugh Matrix'>Component 2: Structured Concept Selection - The Pugh Matrix</a><ul class='list-group list-group-flush py-0'>
-<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#What is the Pugh Matrix?'>What is the Pugh Matrix?</a></li>
-<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Why Use the Pugh Matrix?'>Why Use the Pugh Matrix?</a></li>
-<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#How the Pugh Matrix Works'>How the Pugh Matrix Works</a></li>
-<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Step-by-Step Pugh Matrix Process'>Step-by-Step Pugh Matrix Process</a></li>
-<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Pugh Matrix Best Practices'>Pugh Matrix Best Practices</a></li></ul>
-</li>
-<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Component 3: Present to Client and Defend Decision'>Component 3: Present to Client and Defend Decision</a><ul class='list-group list-group-flush py-0'>
-<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Purpose of Design Presentation'>Purpose of Design Presentation</a></li>
-<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Presentation Structure'>Presentation Structure</a></li></ul>
-</li>
-<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Component 3: Analysis (Analytical & Computational)'>Component 3: Analysis (Analytical & Computational)</a><ul class='list-group list-group-flush py-0'>
-<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Purpose of Engineering Analysis'>Purpose of Engineering Analysis</a></li>
-<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Analysis Documentation'>Analysis Documentation</a></li>
-</ul>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Component 1: Preliminary Design Evaluation and Calculations'>Preliminary Design Evaluation and Calculations</a></li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Component 2: Structured Concept Selection - The Pugh Matrix'>Structured Concept Selection - The Pugh Matrix</a></li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Component 3: Present to Client and Defend Decision'>Present to Client and Defend Decision</a></li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Component 4: Analysis (Analytical & Computational)'>Analysis (Analytical & Computational)</a>
 </ul>
 </ul>
 </div>
@@ -85,7 +66,7 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
 </SubSubSubSection>
 <SubSubSubSection title="What to Evaluate" id="What to Evaluate">
 <h4><strong>Technical Feasibility</strong></h4>
-<p><strong>Can it actually work?</strong></p> 
+<p>Can it actually work?</p> 
 
 <Itemize>
 
@@ -95,17 +76,20 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
     <Item>Are there fundamental technical obstacles?</Item>
 
 </Itemize>
-<strong>Bike Lock Example - Technical Feasibility Questions:</strong>
-<Itemize>
+<details style="margin-bottom: 10px;">
+  <summary><strong>Bike Lock Example:</strong></summary>
+    <strong>Technical Feasibility Questions:</strong>
+    <Itemize>
 
-    <Item>Can a 13mm hardened steel shackle withstand 3,000 lbs of cutting force?</Item>
-    <Item>Will a pin tumbler cylinder operate reliably in -20°C temperatures?</Item>
-    <Item>Can die-cast zinc alloy provide adequate strength for the lock body?</Item>
-    <Item>Is the locking mechanism geometry physically possible to manufacture?</Item>
+        <Item>Can a 13mm hardened steel shackle withstand 3,000 lbs of cutting force?</Item>
+        <Item>Will a pin tumbler cylinder operate reliably in -20°C temperatures?</Item>
+        <Item>Can die-cast zinc alloy provide adequate strength for the lock body?</Item>
+        <Item>Is the locking mechanism geometry physically possible to manufacture?</Item>
 
-</Itemize>
+    </Itemize>
+</details>
 <h4><strong>Manufacturing Feasibility</strong></h4>
-<p><strong>Can we make it?</strong></p> 
+<p>Can we make it?</p> 
 
 <Itemize>
 
@@ -115,17 +99,20 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
     <Item>Are materials readily available from suppliers?</Item>
 
 </Itemize>
-<strong>Bike Lock Example - Manufacturing Assessment:</strong>
-<Itemize>
 
-    <Item>Die casting: In-house capability for 50K+ units/year ✓</Item>
-    <Item>Hardening process: Must outsource heat treatment ✓</Item>
-    <Item>Lock cylinder: Buy from specialized supplier ✓</Item>
-    <Item>Assembly: Semi-automated, 15 seconds/unit target ✓</Item>
+<details style="margin-bottom: 10px;">
+  <summary><strong>Bike Lock Example:</strong></summary>
+    <Itemize>
 
-</Itemize>
+        <Item>Die casting: In-house capability for 50K+ units/year ✓</Item>
+        <Item>Hardening process: Must outsource heat treatment ✓</Item>
+        <Item>Lock cylinder: Buy from specialized supplier ✓</Item>
+        <Item>Assembly: Semi-automated, 15 seconds/unit target ✓</Item>
+
+    </Itemize>
+</details>
 <h4><strong>Economic Feasibility</strong></h4>
-<p><strong>Can we afford it?</strong></p> 
+<p>Can we afford it?</p> 
 
 <Itemize>
 
@@ -143,7 +130,7 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
 <SubSubSubSection title="Preliminary Calculations" id="Preliminary Calculations">
 <p>Perform simplified engineering calculations to verify critical performance parameters. These are typically hand calculations using conservative assumptions.</p>
 <h4><strong>Types of Preliminary Calculations</strong></h4>
-<p><strong>Structural Analysis:</strong></p> 
+<strong>Structural Analysis:</strong>
 
 <Itemize>
 
@@ -301,26 +288,35 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
     <Item>Regulatory requirements</Item>
 
 </Itemize>
-<strong>Bike Lock Example - Selection Criteria:</strong>
-<!-- <p>\begin{table}</p>
-<p>\centering</p>
-<p>\begin{tabular}{l l l}</p> -->
-<p>Criterion & Source & Importance \\</p>
-<p><strong>Security Level</strong> & Customer requirement & Critical \\</p>
-<p><strong>Weight</strong> & PDS - portability & High \\</p>
-<p><strong>Manufacturing Cost</strong> & Business constraint & Critical \\</p>
-<p><strong>Ease of Use</strong> & Customer preference & High \\</p>
-<p><strong>Weather Resistance</strong> & PDS - environment & High \\</p>
-<p><strong>Aesthetic Appeal</strong> & Marketing input & Medium \\</p>
-<p><strong>Mounting System</strong> & Customer feedback & Medium \\</p>
-<p><strong>Tooling Investment</strong> & Business constraint & High \\</p>
-<!-- <p>\end{tabular}</p>
-<p>\end{table}</p> -->
+<details style="margin-bottom: 10px;">
+  <summary><strong>Bike Lock Example - Selection Criteria:</strong></summary>
+
+    <table class="table table-bordered">
+    <thead>
+        <tr>
+        <th>Criterion</th>
+        <th>Source</th>
+        <th>Importance</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr><td><strong>Security Level</strong></td><td>Customer requirement</td><td>Critical</td></tr>
+        <tr><td><strong>Weight</strong></td><td>PDS - portability</td><td>High</td></tr>
+        <tr><td><strong>Manufacturing Cost</strong></td><td>Business constraint</td><td>Critical</td></tr>
+        <tr><td><strong>Ease of Use</strong></td><td>Customer preference</td><td>High</td></tr>
+        <tr><td><strong>Weather Resistance</strong></td><td>PDS - environment</td><td>High</td></tr>
+        <tr><td><strong>Aesthetic Appeal</strong></td><td>Marketing input</td><td>Medium</td></tr>
+        <tr><td><strong>Mounting System</strong></td><td>Customer feedback</td><td>Medium</td></tr>
+        <tr><td><strong>Tooling Investment</strong></td><td>Business constraint</td><td>High</td></tr>
+    </tbody>
+    </table>
+</details>
+
 <h4><strong>Step 2: Define Design Concepts</strong></h4>
 <p><p>Clearly describe each alternative design concept being evaluated. Include sketches, key features, and distinguishing characteristics.</p>
-<strong>Bike Lock Concept Alternatives:</strong>
-<strong>DATUM (Baseline): Concept A - Traditional U-Lock</strong></p> 
+<strong>Bike Lock Concept Alternatives:</strong></p>
 
+<p><strong>DATUM (Baseline): Concept A:</strong> Traditional U-Lock</p> 
 <Itemize>
 
     <Item>16mm hardened steel shackle, U-shape</Item>
@@ -330,157 +326,182 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
     <Item>Estimated cost: $8.75/unit</Item>
 
 </Itemize>
-<strong>Concept B - Heavy-Duty U-Lock</strong>
-<Itemize>
 
-    <Item>18mm hardened steel shackle, U-shape</Item>
-    <Item>Steel lock body (heavier, more robust)</Item>
-    <Item>Pin tumbler cylinder (7-pin, pick-resistant)</Item>
-    <Item>Metal frame mount with rubber coating</Item>
-    <Item>Estimated cost: $11.25/unit</Item>
+<details style="margin-bottom: 10px;">
+ <summary><strong>Concept B:</strong> Heavy-Duty U-Lock</summary>
+    <Itemize>
 
-</Itemize>
-<strong>Concept C - Folding Link Lock</strong>
-<Itemize>
+        <Item>18mm hardened steel shackle, U-shape</Item>
+        <Item>Steel lock body (heavier, more robust)</Item>
+        <Item>Pin tumbler cylinder (7-pin, pick-resistant)</Item>
+        <Item>Metal frame mount with rubber coating</Item>
+        <Item>Estimated cost: $11.25/unit</Item>
 
-    <Item>Six 5mm hardened steel plates, articulated links</Item>
-    <Item>Compact folded design</Item>
-    <Item>Disc detainer cylinder</Item>
-    <Item>Integrated frame mount</Item>
-    <Item>Estimated cost: $10.50/unit</Item>
+    </Itemize>
+</details>
 
-</Itemize>
-<strong>Concept D - Lightweight Cable-Reinforced</strong>
-<Itemize>
+<details style="margin-bottom: 10px;">
+ <summary><strong>Concept C:</strong> Folding Link Lock</summary>
+    <Itemize>
 
-    <Item>14mm shackle with steel cable core + hardened shell</Item>
-    <Item>Aluminum lock body with steel internals</Item>
-    <Item>Pin tumbler cylinder (5-pin)</Item>
-    <Item>Lightweight frame mount</Item>
-    <Item>Estimated cost: $7.90/unit</Item>
+        <Item>Six 5mm hardened steel plates, articulated links</Item>
+        <Item>Compact folded design</Item>
+        <Item>Disc detainer cylinder</Item>
+        <Item>Integrated frame mount</Item>
+        <Item>Estimated cost: $10.50/unit</Item>
 
-</Itemize>
-<strong>Concept E - Smart Lock U-Lock</strong>
-<Itemize>
+    </Itemize>
+</details>
 
-    <Item>16mm hardened steel shackle</Item>
-    <Item>Die-cast zinc body with electronic module</Item>
-    <Item>Smartphone app unlock + physical key backup</Item>
-    <Item>Standard frame mount</Item>
-    <Item>Estimated cost: $12.50/unit</Item>
+<details style="margin-bottom: 10px;">
+ <summary><strong>Concept D:</strong> Lightweight Cable-Reinforced</summary>
+    <Itemize>
 
-</Itemize>
+        <Item>14mm shackle with steel cable core + hardened shell</Item>
+        <Item>Aluminum lock body with steel internals</Item>
+        <Item>Pin tumbler cylinder (5-pin)</Item>
+        <Item>Lightweight frame mount</Item>
+        <Item>Estimated cost: $7.90/unit</Item>
+
+    </Itemize>
+</details>
+
+<details style="margin-bottom: 10px;">
+ <summary><strong>Concept E:</strong> Smart Lock U-Lock</summary>
+    <Itemize>
+
+        <Item>16mm hardened steel shackle</Item>
+        <Item>Die-cast zinc body with electronic module</Item>
+        <Item>Smartphone app unlock + physical key backup</Item>
+        <Item>Standard frame mount</Item>
+        <Item>Estimated cost: $12.50/unit</Item>
+
+    </Itemize>
+</details>
+
 <h4><strong>Step 3: Build the Pugh Matrix</strong></h4>
 <p><p>Draw a Pugh matrix with criteria listed vertically and design concepts listed horizontally, entering the current design as the baseline for comparative ranking.</p>
 <strong>Basic (Unweighted) Pugh Matrix:</strong></p> 
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Criterion</th>
+      <th>Datum: Concept A</th>
+      <th>Concept B</th>
+      <th>Concept C</th>
+      <th>Concept D</th>
+      <th>Concept E</th>
+    </tr>
+    </thead>
+    <tbody>
+        <tr><td><strong>Security Level</strong></td><td>S (baseline)</td><td>+</td><td>0</td><td>-</td><td>+</td></tr>
+        <tr><td><strong>Weight</strong></td><td>S (baseline)</td><td>-</td><td>+</td><td>+</td><td>0</td></tr>
+        <tr><td><strong>Manufacturing Cost</strong></td><td>S (baseline)</td><td>-</td><td>+</td><td>+</td><td>-</td></tr>
+        <tr><td><strong>Ease of Use</strong></td><td>S (baseline)</td><td>0</td><td>-</td><td>+</td><td>+</td></tr>
+        <tr><td><strong>Weather Resistance</strong></td><td>S (baseline)</td><td>+</td><td>0</td><td>-</td><td>+</td></tr>
+        <tr><td><strong>Aesthetic Appeal</strong></td><td>S (baseline)</td><td>0</td><td>+</td><td>0</td><td>+</td></tr>
+        <tr><td><strong>Mounting System</strong></td><td>S (baseline)</td><td>+</td><td>-</td><td>+</td><td>0</td></tr>
+        <tr><td><strong>Tooling Investment</strong></td><td>S (baseline)</td><td>-</td><td>-</td><td>+</td><td>-</td></tr>
+        <tr><td><strong>Total +</strong></td><td>---</td><td><strong>3</strong></td><td><strong>3</strong></td><td><strong>5</strong></td><td><strong>4</strong></td></tr>
+        <tr><td><strong>Total -</strong></td><td>---</td><td><strong>4</strong></td><td><strong>3</td><td><strong>2</strong></td><td><strong>2</td></tr>
+        <tr><td><strong>Total S</strong></td><td>---</td><td>-</td><td>-</td><td>+</td><td>-</td></tr>
+        <tr><td><strong>Overall Score</strong></td><td><strong>0</strong></td><td><strong>-1</strong></td><td><strong>0</strong></td><td><strong>+3</strong></td><td><strong>+2</strong></td></tr>
+        
+    </tbody>
+</table>
 
-<!-- <p>\begin{table}</p>
-<p>\centering</p>
-<p>\begin{tabular}{l l l l l l}</p> -->
-<p><strong>Criteria</strong> & <strong>Datum: Concept A</strong> & <strong>Concept B</strong> & <strong>Concept C</strong> & <strong>Concept D</strong> & <strong>Concept E</strong> \\</p>
-<p><strong>Security Level</strong> & S (baseline) & + & 0 & - & + \\</p>
-<p><strong>Weight</strong> & S & - & + & + & 0 \\</p>
-<p><strong>Manufacturing Cost</strong> & S & - & + & + & - \\</p>
-<p><strong>Ease of Use</strong> & S & 0 & - & + & + \\</p>
-<p><strong>Weather Resistance</strong> & S & + & 0 & - & + \\</p>
-<p><strong>Aesthetic Appeal</strong> & S & 0 & + & 0 & + \\</p>
-<p><strong>Mounting System</strong> & S & + & - & + & 0 \\</p>
-<p><strong>Tooling Investment</strong> & S & - & - & + & - \\</p>
-<p>&  &  &  &  &  \\</p>
-<p><strong>TOTAL +</strong> & - & 3 & 3 & 5 & 4 \\</p>
-<p><strong>TOTAL -</strong> & - & 4 & 3 & 2 & 2 \\</p>
-<p><strong>TOTAL S</strong> & - & 1 & 2 & 1 & 2 \\</p>
-<p><strong>OVERALL SCORE</strong> & 0 & -1 & 0 & +3 & +2 \\</p>
-<!-- <p>\end{tabular}</p>
-<p>\end{table}</p> -->
 <strong>Scoring Rationale:</strong>
-<strong>Concept B vs. Datum A:</strong>
-<Itemize>
 
-    <Item>Security: + (thicker shackle, better cylinder)</Item>
-    <Item>Weight: - (heavier due to 18mm shackle and steel body)</Item>
-    <Item>Cost: - (higher material and component costs)</Item>
-    <Item>Ease of Use: 0 (similar operation)</Item>
-    <Item>Weather: + (steel body more corrosion resistant than zinc)</Item>
-    <Item>Aesthetics: 0 (similar appearance)</Item>
-    <Item>Mounting: + (more robust metal mount)</Item>
-    <Item>Tooling: - (requires more expensive tooling)</Item>
+<details style="margin-bottom: 10px;">
+ <summary><strong>Concept B vs. Datum A:</strong></summary>
+    <Itemize>
 
-</Itemize>
-<strong>Concept C vs. Datum A:</strong>
-<Itemize>
+        <Item>Security: + (thicker shackle, better cylinder)</Item>
+        <Item>Weight: - (heavier due to 18mm shackle and steel body)</Item>
+        <Item>Cost: - (higher material and component costs)</Item>
+        <Item>Ease of Use: 0 (similar operation)</Item>
+        <Item>Weather: + (steel body more corrosion resistant than zinc)</Item>
+        <Item>Aesthetics: 0 (similar appearance)</Item>
+        <Item>Mounting: + (more robust metal mount)</Item>
+        <Item>Tooling: - (requires more expensive tooling)</Item>
 
-    <Item>Security: 0 (similar overall security rating)</Item>
-    <Item>Weight: + (folding design slightly lighter when compact)</Item>
-    <Item>Cost: + (articulated design, simpler manufacturing in some aspects but material costs moderate)</Item>
-    <Item>Ease of Use: - (folding mechanism less intuitive)</Item>
-    <Item>Weather: 0 (similar materials and coatings)</Item>
-    <Item>Aesthetics: + (modern, unique folding appearance)</Item>
-    <Item>Mounting: - (integrated mount less flexible)</Item>
-    <Item>Tooling: - (complex articulation requires specialized tooling)</Item>
+    </Itemize>
+</details>
 
-</Itemize>
-<strong>Concept D vs. Datum A:</strong>
-<Itemize>
+<details style="margin-bottom: 10px;">
+ <summary><strong>Concept C vs. Datum A:</strong></summary>
+    <Itemize>
 
-    <Item>Security: - (cable core less secure than solid steel)</Item>
-    <Item>Weight: + (aluminum body reduces weight)</Item>
-    <Item>Cost: + (lower material costs)</Item>
-    <Item>Ease of Use: + (lighter, easier to handle)</Item>
-    <Item>Weather: - (cable construction susceptible to corrosion)</Item>
-    <Item>Aesthetics: 0 (similar U-lock appearance)</Item>
-    <Item>Mounting: + (lightweight mount easier to use)</Item>
-    <Item>Tooling: + (simpler, less expensive tooling)</Item>
+        <Item>Security: 0 (similar overall security rating)</Item>
+        <Item>Weight: + (folding design slightly lighter when compact)</Item>
+        <Item>Cost: + (articulated design, simpler manufacturing in some aspects but material costs moderate)</Item>
+        <Item>Ease of Use: - (folding mechanism less intuitive)</Item>
+        <Item>Weather: 0 (similar materials and coatings)</Item>
+        <Item>Aesthetics: + (modern, unique folding appearance)</Item>
+        <Item>Mounting: - (integrated mount less flexible)</Item>
+        <Item>Tooling: - (complex articulation requires specialized tooling)</Item>
 
-</Itemize>
-<strong>Concept E vs. Datum A:</strong>
-<Itemize>
+    </Itemize>
+</details>
 
-    <Item>Security: + (electronic monitoring, theft alerts)</Item>
-    <Item>Weight: 0 (electronics add minimal weight)</Item>
-    <Item>Cost: - (electronics significantly increase cost)</Item>
-    <Item>Ease of Use: + (smartphone convenience, no key to carry)</Item>
-    <Item>Weather: + (sealed electronic compartment, good ratings)</Item>
-    <Item>Aesthetics: + (modern, tech-forward appearance)</Item>
-    <Item>Mounting: 0 (standard mount)</Item>
-    <Item>Tooling: - (additional electronics assembly tooling)</Item>
+<details style="margin-bottom: 10px;">
+ <summary><strong>Concept D vs. Datum A:</strong></summary>
+    <Itemize>
 
-</Itemize>
+        <Item>Security: - (cable core less secure than solid steel)</Item>
+        <Item>Weight: + (aluminum body reduces weight)</Item>
+        <Item>Cost: + (lower material costs)</Item>
+        <Item>Ease of Use: + (lighter, easier to handle)</Item>
+        <Item>Weather: - (cable construction susceptible to corrosion)</Item>
+        <Item>Aesthetics: 0 (similar U-lock appearance)</Item>
+        <Item>Mounting: + (lightweight mount easier to use)</Item>
+        <Item>Tooling: + (simpler, less expensive tooling)</Item>
+
+    </Itemize>
+</details>
+
+<details style="margin-bottom: 10px;">
+ <summary><strong>Concept E vs. Datum A:</strong></summary>
+    <Itemize>
+
+        <Item>Security: + (electronic monitoring, theft alerts)</Item>
+        <Item>Weight: 0 (electronics add minimal weight)</Item>
+        <Item>Cost: - (electronics significantly increase cost)</Item>
+        <Item>Ease of Use: + (smartphone convenience, no key to carry)</Item>
+        <Item>Weather: + (sealed electronic compartment, good ratings)</Item>
+        <Item>Aesthetics: + (modern, tech-forward appearance)</Item>
+        <Item>Mounting: 0 (standard mount)</Item>
+        <Item>Tooling: - (additional electronics assembly tooling)</Item>
+
+    </Itemize>
+</details>
+
 <p><strong>Initial Results:</strong> Concept D (Lightweight Cable-Reinforced) scores highest (+3), followed by Concept E (Smart Lock, +2).</p>
 <h4><strong>Step 4: Apply Weighting (Optional but Recommended)</strong></h4>
 <p><p>Determine a weighting factor for each criterion, which may be determined using pairwise comparison or simply ranking on a scale of 1 to 5.</p>
 <strong>Weighting Scale:</strong> 1 (Low importance) to 5 (Critical)</p> 
 
-<!-- <p>\begin{table}</p>
-<p>\centering</p>
-<p>\begin{tabular}{l l l}</p> -->
-<p><strong>Criteria</strong> & <strong>Weight</strong> & <strong>Rationale</strong> \\</p>
-<p>Security Level & 5 & Primary product function, critical customer requirement \\</p>
-<p>Weight & 3 & Important for portability, but secondary to security \\</p>
-<p>Manufacturing Cost & 5 & Must meet cost target or project fails \\</p>
-<p>Ease of Use & 4 & Strong customer preference, affects adoption \\</p>
-<p>Weather Resistance & 4 & PDS requirement, product must work in all conditions \\</p>
-<p>Aesthetic Appeal & 2 & Nice to have, but not primary purchase driver \\</p>
-<p>Mounting System & 3 & Convenience feature, moderate importance \\</p>
-<p>Tooling Investment & 4 & Business constraint, affects ROI \\</p>
-<!-- <p>\end{tabular}</p>
-<p>\end{table}</p>
-<strong>Weighted Pugh Matrix:</strong>
-<p>\begin{table}</p>
-<p>\centering</p>
-<p>\begin{tabular}{l l l l l l l}</p>
-<p><strong>Criteria</strong> & <strong>Weight</strong> & <strong>Datum: A</strong> & <strong>Concept B</strong> & <strong>Concept C</strong> & <strong>Concept D</strong> & <strong>Concept E</strong> \\</p>
-<p>Security Level & 5 & 0 & +5 & 0 & -5 & +5 \\</p>
-<p>Weight & 3 & 0 & -3 & +3 & +3 & 0 \\</p>
-<p>Manufacturing Cost & 5 & 0 & -5 & +5 & +5 & -5 \\</p>
-<p>Ease of Use & 4 & 0 & 0 & -4 & +4 & +4 \\</p>
-<p>Weather Resistance & 4 & 0 & +4 & 0 & -4 & +4 \\</p>
-<p>Aesthetic Appeal & 2 & 0 & 0 & +2 & 0 & +2 \\</p>
-<p>Mounting System & 3 & 0 & +3 & -3 & +3 & 0 \\</p>
-<p>Tooling Investment & 4 & 0 & -4 & -4 & +4 & -4 \\</p>
-<p><strong>WEIGHTED TOTAL</strong> &  & <strong>0</strong> & <strong>0</strong> & <strong>-1</strong> & <strong>+10</strong> & <strong>+6</strong> \\</p> -->
-<!-- <p>\end{tabular}</p>
-<p>\end{table}</p> -->
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+        <th>Criteria</th>
+        <th>Weight</th>
+        <th>Rationale</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr><td><strong>Security Level</strong></td><td>5</td><td>Primary product function, critical customer requirement</td></tr>
+        <tr><td><strong>Weight</strong></td><td>3</td><td>Important for portability, but secondary to security</td></tr>
+        <tr><td><strong>Manufacturing Cost</strong></td><td>5</td><td>Must meet cost target or project fails</td></tr>
+        <tr><td><strong>Ease of Use</strong></td><td>4</td><td>Strong customer preference, affects adoption</td></tr>
+        <tr><td><strong>Weather Resistance</strong></td><td>4</td><td>PDS requirement, product must work in all conditions</td></tr>
+        <tr><td><strong>Aesthetic Appeal</strong></td><td>2</td><td>Nice to have, but not primary purchase driver</td></tr>
+        <tr><td><strong>Mounting System</strong></td><td>3</td><td>Convenience feature, moderate importance</td></tr>
+        <tr><td><strong>Tooling Investment</strong></td><td>4</td><td>Business constraint, affects ROI</td></tr>
+    </tbody>
+</table>
+
 <strong>Weighted Results:</strong>
 <Itemize>
 
@@ -532,21 +553,29 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
 
 </Itemize>
 <strong>Re-evaluate Hybrid D+:</strong>
-<!-- <p>\begin{table}</p>
-<p>\centering</p>
-<p>\begin{tabular}{l l l l}</p> -->
-<p><strong>Criteria</strong> & <strong>Weight</strong> & <strong>Concept D</strong> & <strong>Hybrid D+</strong> \\</p>
-<p>Security Level & 5 & -5 & 0 (improved to baseline level) \\</p>
-<p>Weight & 3 & +3 & +2 (slightly heavier with upgrades) \\</p>
-<p>Manufacturing Cost & 5 & +5 & +3 (materials cost increase) \\</p>
-<p>Ease of Use & 4 & +4 & +4 (unchanged) \\</p>
-<p>Weather Resistance & 4 & -4 & +2 (significant improvement) \\</p>
-<p>Aesthetic Appeal & 2 & 0 & +1 (better finish on upgraded cable) \\</p>
-<p>Mounting System & 3 & +3 & +3 (unchanged) \\</p>
-<p>Tooling Investment & 4 & +4 & +4 (unchanged) \\</p>
-<p><strong>WEIGHTED TOTAL</strong> &  & <strong>+10</strong> & <strong>+19</strong> \\</p>
-<!-- <p>\end{tabular}</p>
-<p>\end{table}</p> -->
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+        <th>Criteria</th>
+        <th>Weight</th>
+        <th>Concept D</th>
+        <th>Concept D+</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr><td><strong>Security Level</strong></td><td>5</td><td>-5</td><td>0 (improved to baseline level)</td></tr>
+        <tr><td><strong>Weight</strong></td><td>3</td><td>+3</td><td>+2 (slightly heavier with upgrades)</td></tr>
+        <tr><td><strong>Manufacturing Cost</strong></td><td>5</td><td>+5</td><td>+3 (materials cost increase)</td></tr>
+        <tr><td><strong>Ease of Use</strong></td><td>4</td><td>+4</td><td>+4 (unchanged)</td></tr>
+        <tr><td><strong>Weather Resistance</strong></td><td>4</td><td>-4</td><td>+2 (significant improvement)</td></tr>
+        <tr><td><strong>Aesthetic Appeal</strong></td><td>2</td><td>0</td><td>+1 (better finish on upgraded cable)</td></tr>
+        <tr><td><strong>Mounting System</strong></td><td>3</td><td>+3</td><td>+3 (unchanged)</td></tr>
+        <tr><td><strong>Tooling Investment</strong></td><td>4</td><td>+4</td><td>+4 (unchanged)</td></tr>
+        <tr><td><strong>WEIGHTED TOTAL</strong></td><td></td><td><strong>+10</strong></td><td><strong>+19</strong></td></tr>
+    </tbody>
+</table>
+
 <strong>Hybrid D+ significantly outperforms original Concept D!</strong>
 <h4><strong>Step 7: Make Final Selection</strong></h4>
 <p><p>Based on weighted Pugh analysis:</p>
@@ -576,29 +605,25 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
 </Itemize>
 </SubSubSubSection>
 <SubSubSubSection title="Pugh Matrix Best Practices" id="Pugh Matrix Best Practices">
-<strong>Do:</strong>
-<Itemize>
 
-    <Item>Involve cross-functional team in scoring</Item>
-    <Item>Clearly define what each criterion means</Item>
-    <Item>Document rationale for each score</Item>
-    <Item>Use consistent scoring scale</Item>
-    <Item>Consider weighted and unweighted results</Item>
-    <Item>Iterate and create hybrid concepts</Item>
-    <Item>Perform sensitivity analysis on critical criteria</Item>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+        <th>Do:</th>
+        <th>Dont:</th>
+        </tr>
+        <tbody>
+            <tr><td>Involve cross-functional team in scoring</td><td>Let personal bias influence scores</td></tr>
+            <tr><td>Clearly define what each criterion means</td><td>Include ambiguous or redundant criteria</td></tr>
+            <tr><td>Document rationale for each score</td><td>Document rationale for each score</td></tr>
+            <tr><td>Use consistent scoring scale</td><td>Ignore negative scores on critical criteria</td></tr>
+            <tr><td>Consider weighted and unweighted results</td><td>Stop after first matrix - iterate!</td></tr>
+            <tr><td>Iterate and create hybrid concepts</td><td>Forget to document assumptions</td></tr>
+            <tr><td>Perform sensitivity analysis on critical criteria</td></tr>
+        </tbody>
+    </thead>
+</table>
 
-</Itemize>
-<strong>Don't:</strong>
-<Itemize>
-
-    <Item>Let personal bias influence scores</Item>
-    <Item>Include ambiguous or redundant criteria</Item>
-    <Item>Score without team discussion</Item>
-    <Item>Ignore negative scores on critical criteria</Item>
-    <Item>Stop after first matrix - iterate!</Item>
-    <Item>Forget to document assumptions</Item>
-
-</Itemize>
 <strong>Common Pitfalls:</strong>
 <Itemize>
 
@@ -769,18 +794,25 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
 
 </Itemize>
 <strong>How It Meets Requirements:</strong>
-<!-- <p>\begin{table}</p>
-<p>\centering</p>
-<p>\begin{tabular}{l l l l}</p> -->
-<p>Requirement & Target & Concept D+ & Status \\</p>
-<p>Security & 3,000 lbs & 3,200 lbs (calc) & ✓ Exceeds \\</p>
-<p>Weight & &lt;3 lbs & 2.5 lbs & ✓ Meets \\</p>
-<p>Cost & <InlineEquation equation="8.50 &" />8.90 & \~ Acceptable* \\</p>
-<p>Weather & 5 years outdoor & Stainless core + sealing & ✓ Meets \\</p>
-<p>Cycles & 15,000 & 18,000 (est) & ✓ Exceeds \\</p>
-<!-- <p>\end{tabular}</p>
-<p>\end{table}</p> -->
-<p>*<InlineEquation equation="0.40 over target manageable with modest retail price adjustment to" />30.99</p>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+        <th>Requirement</th>
+        <th>Target</th>
+        <th>Concept D+</th>
+        <th>Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr><td>Security</td><td>3,000 lbs</td><td>3,200 lbs</td><td>✓ Exceeds</td></tr>
+        <tr><td>Weight</td><td> {'<'} 3 lbs</td><td>2.5 lbs</td><td>✓ Meets</td></tr>
+        <tr><td>Cost</td><td>{'$8.50'}</td><td>{'8.90'}</td><td>\~ Acceptable*</td></tr>
+        <tr><td>Weather</td><td>5 years outdoor</td><td>Stainless core + Sealing</td><td>✓ Meets</td></tr>
+        <tr><td>Cycles</td><td>15,000</td><td>18,000 (est)</td><td>✓ Exceeds</td></tr>
+    </tbody>
+</table>
+<p>*<em>{'$'}0.40 over target manageable with modest retail price adjustment to {'<'} {'$'}30.99</em></p>
+
 <p><strong>Technical Validation:</strong> [Show key calculation slide]</p>
 <Itemize>
 
@@ -839,7 +871,7 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
 </Itemize>
 <p><strong>Target Tooling Release: Week 16</strong> <strong>Target Production Start: Week 20</strong>"</p>
 </SubSubSubSection>
-<SubSubSection title="Component 3: Analysis (Analytical & Computational)" id="Component 3: Analysis (Analytical & Computational)">
+<SubSubSection title="Component 4: Analysis (Analytical & Computational)" id="Component 4: Analysis (Analytical & Computational)">
 </SubSubSection>
 <SubSubSubSection title="Purpose of Engineering Analysis" id="Purpose of Engineering Analysis">
 <p>Engineering analysis validates that the design meets functional requirements before manufacturing. Analysis identifies potential failures, optimizes designs, and provides confidence that the product will perform as intended. Two primary analysis approaches are used:</p>

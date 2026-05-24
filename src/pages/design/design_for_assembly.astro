@@ -1,0 +1,220 @@
+---
+import Layout from "../../layouts/Layout.astro" 
+import Image from "../../components/Image.astro" 
+import CalloutContainer from "../../components/CalloutContainer.astro" 
+import Section from "../../components/Section.astro" 
+import SubSection from "../../components/SubSection.astro" 
+import SubSubSection from "../../components/SubSubSection.astro" 
+import SubSubSubSection from "../../components/SubSubSubSection.astro" 
+import OrangeText from "../../components/OrangeText.astro" 
+import TealText from "../../components/TealText.astro" 
+import Enumerate from "../../components/Enumerate.astro" 
+import Item from "../../components/Item.astro" 
+import Itemize from "../../components/Itemize.astro" 
+import InlineEquation from "../../components/InlineEquation.astro" 
+import DisplayEquation from "../../components/DisplayEquation.astro" 
+---
+<Layout title="Design for Assembly">
+<div slot="navtree">
+<ul class="list-group list-group-flush py-0">
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Design for Assembly'>Design for Assembly</a><ul class='list-group list-group-flush py-0'>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Introduction'>Introduction</a><ul class='list-group list-group-flush py-0'>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#What is Design for Assembly?'>What is Design for Assembly?</a></li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Why is this Beneficial?'>Why is this Beneficial?</a></li></ul>
+</li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Design for Assembly Principles'>Design for Assembly Principles</a><ul class='list-group list-group-flush py-0'>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Product Design Principles:'>Product Design Principles:</a></li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Part Design Principles:'>Part Design Principles:</a></li></ul>
+</li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#How does Design for Assembly and Manufacture Relate?'>How does Design for Assembly and Manufacture Relate?</a></li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Types of Assembly'>Types of Assembly</a></li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Assembly Operations'>Assembly Operations</a></li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Assembly Time:'>Assembly Time:</a><ul class='list-group list-group-flush py-0'>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Time Approximations'>Time Approximations</a></li></ul>
+</li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Assembly Efficiency'>Assembly Efficiency</a></li></ul>
+</li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Examples'>Examples</a></li>
+</ul>
+</div>
+<SubSection title="Design for Assembly" id="Design for Assembly">
+</SubSection>
+<SubSubSection title="Introduction" id="Introduction">
+</SubSubSection>
+<SubSubSubSection title="What is Design for Assembly?" id="What is Design for Assembly?">
+<p>In the world of design for manufacture, product assemblies are optimized to take the least time necessary to build. It is important to consider and implement the Design for Assembly principles of the product and parts to minimize time and possible errors during assembly.</p>
+</SubSubSubSection>
+<SubSubSubSection title="Why is this Beneficial?" id="Why is this Beneficial?">
+<p>Design for Assembly of products can do the following:</p>
+<Itemize>
+
+    <Item><strong>Fewer Components:</strong> Lower costs from sourcing</Item>
+    <Item><strong>More Reliability:</strong> Lesser opportunities for maintenance</Item>
+    <Item><strong>Fewer Manufacturing Operations:</strong> Less assembly time for fastening parts together</Item>
+    <Item><strong>Fewer Tooling:</strong> Less tooling design, fabrication, and maintenance</Item>
+    <Item><strong>Simplification of Drafting and Modeling:</strong> Less models and engineering drawings to fabricate</Item>
+    <Item><strong>Fewer Analysis:</strong> Strength and loading tests, fewer materials</Item>
+
+</Itemize>
+</SubSubSubSection>
+<SubSubSection title="Design for Assembly Principles" id="Design for Assembly Principles">
+<p>Engineers follow are often led by primary guidelines to help guide them in making the best designs for their products. These are the following principles for the design of products and parts. The product design is for the complete assembly, while the part design is for the individual components of the assembly.</p>
+</SubSubSection>
+<SubSubSubSection title="Product Design Principles:" id="Product Design Principles:">
+<Enumerate>
+
+    <Item><strong>Minimize Parts and Fasteners:</strong> Create modifications to existing components to accomplish the task of another component. Try and minimize fasteners by using snap fits when possible or press fits when disassembly is not required. When fasteners are necessary, use a single piece fastener with lead in pilots.</Item>
+    <Item><strong>Minimize Assembly Direction:</strong> When it is possible, try to make the assembly possible from one vertical direction, as increasing orientations complicates assembly process.</Item>
+    <Item><strong>Standardize and Modularize:</strong> Having multiple types of fasteners can be difficult to tell apart during the assembly process, and can cause complications during manufacturing operations.</Item>
+    <Item><strong>Common Base to Avoid Tolerance Build Up:</strong> Having a base for all components to be assembled into can avoid the additional tolerance from relying on placing another part onto it.</Item>
+    <Item><strong>Avoid Need of Assembly Adjustments:</strong> During the lifespan of a product, wear will eventually occur and disrupt the system from operating, spring loaded systems can be used to continue operation even after wear. </Item>
+    <Item><strong>Ease of Disassembly and Repair:</strong> Access to  parts of a product may be necessary for components in need of service or maintenance. For example, longer lasting solutions for fittings can be a press fit, but snap fits would be a better option for parts in need of service frequently, such as battery shrouds.</Item>
+
+</Enumerate>
+</SubSubSubSection>
+<SubSubSubSection title="Part Design Principles:" id="Part Design Principles:">
+<Enumerate>
+
+    <Item><strong>Symmetry:</strong> Components of assemblies should either be symmetrical or have exaggerated asymmetry.</Item>
+    <Item><strong>Ease of Assembly (chamfers):</strong> Providing lead in chamfers can make assembly processes simpler and avoid errors and jams when dealing with pushing or screwing parts into holes. </Item>
+    <Item><strong>Parts that Will Not Tangle:</strong> In workspaces, assemblers have multiple parts around them. Consider closing ends of components and keep material thickness greater than gaps or slots. Other methods to prevent tangling is via turns or changes of slot thicknesses.</Item>
+
+</Enumerate>
+</SubSubSubSection>
+<SubSubSection title="How does Design for Assembly and Manufacture Relate?" id="How does Design for Assembly and Manufacture Relate?">
+<p>image</p>
+</SubSubSection>
+<SubSubSection title="Types of Assembly" id="Types of Assembly">
+<Enumerate>
+
+    <Item><strong>Manual Bench Assembly:</strong> Human operators assembling on a work bench or a fixed location transferring parts to their space to complete assemblies.</Item>
+    <Item><strong>Manual Assembly Line:</strong> Human operators assembling parts on a moving line passing their work down to the next assembly step human operator.</Item>
+    <Item><strong>Robotic Assembly:</strong> Robotic devices in the place of humans, completing part or the entirety of the assembly process.</Item>
+    <Item><strong>Special Purpose Transfer Machine Assembly:</strong> Fully automated machines designed specifically assemble and create a mass-produced product</Item>
+
+</Enumerate>
+</SubSubSection>
+<SubSubSection title="Assembly Operations" id="Assembly Operations">
+<p>In order for one to calculate overall time for manufacturing, they must consider all types of assembly operations. These operations are the following.</p>
+<Itemize>
+
+    <Item><strong>Handling <InlineEquation equation="\\&" /> Alignment Time varies by:</strong></Item>
+    <Itemize>
+        <Item>How is this part taken a hold of? Does it get moved by tweezers, a specific tool, hands, or multiple people?</Item>
+        <Item>How does this part present itself? It could be in a pile of parts, conveyor, dispenser etc.</Item>
+        <Item>What is the size of the object? If the object is small or large, it can take more time to assemble than the medium/ideal size to assemble.</Item>
+        <Item>Is the part symmetrical? Is orientation or rotation necessary for alignment</Item>
+    </Itemize>
+    <Item><strong>Insertion Time varies by:</strong></Item>
+        <Itemize>
+
+            <Item>Insertion tolerance <InlineEquation equation="\\&" /> hole size</Item>
+            <Item>If access to hole or view is obstructed</Item>
+            <Item>Necessary force for insertion or depth</Item>
+            <Item>Additional support while inserting the component</Item>
+        </Itemize>
+    <Item><strong>Secure Time Varies By:</strong></Item>
+        <Itemize>
+
+            <Item>If part threaded, a bolt or screw?</Item>
+            <Item>Snap fit or action</Item>
+            <Item>Riveted (solid, tubular, blind, or two part)</Item>
+            <Item>Press Fit</Item>
+            <Item>Crimp</Item>
+
+    </Itemize>
+</Itemize>
+</SubSubSection>
+<SubSubSection title="Assembly Time:" id="Assembly Time:">
+<p>Now that we have covered all of the topics of design for assembly, how can we now consider the time for assembly? We can consider additional time increments for assembly in the following ways:</p>
+<Enumerate>
+
+    <Item><strong>Part Symmetry:</strong> When considering assembly time for inserting parts, we must consider <InlineEquation equation="\\boldsymbol{\\alpha}" />, the rotational symmetry about an axis perpendicular to the axis of insertion. We must consider <InlineEquation equation="\\boldsymbol{\\beta}" />, the rotational symmetry about the axis of insertion. The angles of <InlineEquation equation="\\boldsymbol{\\alpha}" /> and <InlineEquation equation="\\boldsymbol{\\beta}" /> are the smallest which the part can be rotated and repeat its orientation for insertion.</Item>
+        <DisplayEquation equation='ST = \\frac{\\alpha + \\beta}{360}' title="" />
+    <Item><strong>Part Handling - Aspect Ratio:</strong> When considering length, <InlineEquation equation="<strong>L}" />, of the smallest rectangular prism that can enclose the part. Then we must consider the thickness, <InlineEquation equation="<strong>t}" /> of the part. We can also make acceptations for rods, shafts, or pin like parts and use radius <InlineEquation equation="<strong>r}" />. Using these standards, we can now define <strong>Aspect Ratio</strong> as the ratio between the longest and shortest lengths of the rectangular prism. They are defined as the following:</Item>
+        <DisplayEquation equation='AR = \\frac{L}{t}' title="" /> or <DisplayEquation equation='AR = \\frac{L}{r}' title="" />
+<Item><strong>Part Handling Difficulties:</strong> We can ask the following questions for the part:</Item>
+    <Itemize>
+
+        <Item><strong>Slippery:</strong> Easily slips from grip</Item>
+        <Item><strong>Fragile:</strong> Requires careful handling</Item>
+        <Item><strong>Sharp:</strong> Presents hazards to operator</Item>
+        <Item><strong>Stick Together:</strong> Magnetic Force or Grease </Item>
+        <Item><strong>Nest or Tangle:</strong> Can be separated with one hand</Item>
+        <Item><strong>Severe Nest or Tangle:</strong> Needs two hands to separate</Item>
+        <Item><strong>Flexible Parts:</strong> Needs two hands to manipulate and assemble</Item>
+
+</Itemize>
+
+</Enumerate>
+</SubSubSection>
+<SubSubSubSection title="Time Approximations" id="Time Approximations">
+<p>Since we have defined our part sizes and degrees between possible orientation, we can now make the following estimates</p>
+<p><u><strong>Handling <InlineEquation equation="\\&" /> Alignment Time</u></strong></p>
+<Enumerate>
+
+    <Item><strong>Retrieve Part:</strong> 0.5s per 0.5 m of distance (0.5 m minimum)</Item>
+    <Item><strong>Symmetry Factor:</strong> add <DisplayEquation equation='ST = \\frac{\\alpha + \\beta}{360}' title="" /> </Item>
+    <Item><strong>Part Size Factor:</strong></Item>
+        <Itemize>
+
+            <Item>If Small where <InlineEquation equation="\\boldsymbol{L}" /> <InlineEquation equation="\\textless" /> 2 cm, add 0.5s</Item>
+            <Item>Large part if <InlineEquation equation="\\boldsymbol{L}" /> <InlineEquation equation="\\textgreater" /> 20 cm, add 0.3s</Item>
+
+</Itemize>
+    <Item><strong>Handling Difficulty:</strong> For each handling difficulty where the part is sharp, tangle-prone, flexible, etc., add 0.4 s</Item>
+    <Item><strong>Aspect Ratio Factor:</strong> If <strong>AR</strong> <InlineEquation equation="\\textgreater" /> 20, add 0.1s. If <strong>AR</strong> <InlineEquation equation="\\textgreater" /> 40, add 0.3s</Item>
+
+</Enumerate>
+<p><u><strong>Insert <InlineEquation equation="\\&" /> Secure Time</u></strong></p>
+<Enumerate>
+
+    <Item><strong>General Placement:</strong> Add 0.5s</Item>
+    <Item><strong>Hole Alignment:</strong></Item>
+        <Itemize>
+
+            <Item>If small hole diameter <InlineEquation equation="\\textless" /> 2 mm, add 0.7s. </Item>
+            <Item>If medium hole diameter between 2 mm <InlineEquation equation="\\textless" /> diameter <InlineEquation equation="\\textless" /> 4 mm, add 0.1s.</Item>
+
+</Itemize>
+    <Item><strong>Pin Alignment:</strong> Opposite Alignment for hole.</Item>
+        <Itemize>
+
+            <Item>if small diameter <InlineEquation equation="<" /> 20 mm, add 0.4s</Item>
+            <Item>if medium diameter between 2 mm <InlineEquation equation="<" /> diameter <InlineEquation equation="<" /> 4 mm, add 0.1s.</Item>
+
+</Itemize>
+    <Item><strong>Using Grasping Assistance:</strong> If needs a tool assistance to move, add 1.4s</Item>
+    <Item><strong>Turning Insertion:</strong> Starting a screw, nut or bolt, add 1s.</Item>
+    <Item><strong>Fitting:</strong> for the following types</Item>
+        <Itemize>
+
+            <Item><strong>Crimp:</strong> Add 0.8s</Item>
+            <Item><strong>Snap:</strong> Add 0.3s</Item>
+
+</Itemize>
+    <Item><strong>Final Tightening of Screw/Nut:</strong> For tightening screw or nut, add 2 s if one sided. If two sided, add 7 s.</Item>
+    <Item><strong>Insertion Difficulty:</strong> For difficulties such as view, force, spring, holding and moving, tight tolerances, etc., add 0.4 s for each</Item>
+    <Item><strong>Rotate Base:</strong> For every time turning assembly over, add 1.8 s</Item>
+
+</Enumerate>
+</SubSubSubSection>
+<SubSubSection title="Assembly Efficiency" id="Assembly Efficiency">
+<p>Given by the equation:</p>
+<DisplayEquation equation='AE = \\frac{Nt}{t_{tot}}' title="" />
+<p>Is in terms of:</p>
+    <Itemize>
+
+        <Item><strong>N</strong> is the minimum number of parts needed in the assembly</Item>
+        <Item><strong>t</strong> is the <em>ideal</em> assembly time, for small parts that present no difficulties in handling, orientation, or assembly. <strong>t</strong> is normally <strong>3 seconds</strong>.</Item>
+        <Item>{<InlineEquation equation="t_{tot}" />} is the <strong><em>total</strong></em> assembly time</Item>
+        <Item>Products with 5-10$\</Item>
+        <Item>Well designed parts have efficiencies around 25$\</Item>
+        <Item>Assembly efficiencies around 100$\</Item>
+
+</Itemize>
+</SubSubSection>
+<SubSection title="Examples" id="Examples">
+
+</SubSection>
+</Layout>

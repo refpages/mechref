@@ -178,21 +178,21 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
 
 <DisplayEquation equation="d = 75\\,\\text{mm},\\quad h = 125\\,\\text{mm},\\quad C_m = 3\\ \\text{s/mm}^2" title="" />
 
-<strong>Solution:</strong> 
+<details style="margin-bottom: 10px;">
+ <summary><strong>Solution:</strong> </summary>
 
-<DisplayEquation equation="V = \\pi\\left(\\frac{75}{2}\\right)^2 (125) = 5.51\\times 10^5\\ \\text{mm}^3" title="" />
+    <DisplayEquation equation="V = \\pi\\left(\\frac{75}{2}\\right)^2 (125) = 5.51\\times 10^5\\ \\text{mm}^3" title="" />
 
+    <DisplayEquation equation="A = \\pi (75)(125) + 2\\pi \\left(\\frac{75}{2}\\right)^2 = 3.77\\times10^4\\ \\text{mm}^2" title="" />
 
-<DisplayEquation equation="A = \\pi (75)(125) + 2\\pi \\left(\\frac{75}{2}\\right)^2 = 3.77\\times10^4\\ \\text{mm}^2" title="" />
+    <DisplayEquation equation="M = \\frac{V}{A} = 14.6" title="" />
 
+    <DisplayEquation equation="t_{TS} = 3(14.6)^2 = 640\\ \\text{s} \\approx 10.7\\ \\text{min}" title="" />
 
-<DisplayEquation equation="M = \\frac{V}{A} = 14.6" title="" />
-
-
-<DisplayEquation equation="t_{TS} = 3(14.6)^2 = 640\\ \\text{s} \\approx 10.7\\ \\text{min}" title="" />
-
-<p>Therefore, the solidification time of the cylindrical casting is 10.7 minutes.</p>
+    <p>Therefore, the solidification time of the cylindrical casting is 10.7 minutes.</p>
+</details>
 </SubSubSection>
+
 <SubSection title="Casting Methods" id="Casting Methods">
 <p>Selected based on the part design, volume, material, cost, PDS, etc.</p>
 <p><strong>Temporary/Expandable Molds:</strong> Molds that are destroyed to remove the casting.</p>
@@ -212,7 +212,7 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
 </Itemize>
 </SubSection>
 <SubSection title="Selection Table" id="Selection Table">
-<Image id="avb-ft" src="/design/images/metal_casting_selection_table.png" style="width:35%; height:auto;">
+<Image id="avb-ft" src="/design/images/metal_casting_selection_table.png" width={6}>
         <p class="figureCaption">
           Casting Methods Comparison</a>
         </p>
@@ -252,26 +252,29 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
 
 <DisplayEquation equation="g=9.81,\\quad F_{\\text{chaplet}} = 0.01\\text{ N}" title="" />
 
-<strong>Solution:</strong>
+<details style="margin-bottom: 10px;">
+ <summary><strong>Solution:</strong></summary>
 
-<DisplayEquation equation="F_g = 0.9(4)(9.81) = 0.035\\text{ N}" title="" />
-
-
-<DisplayEquation equation="F_b = 2.7(4)(9.81) = 0.106\\text{ N}" title="" />
+    <DisplayEquation equation="F_g = 0.9(4)(9.81) = 0.035\\text{ N}" title="" />
 
 
-<DisplayEquation equation="F_{\\text{top}} = 0.071\\text{ N}" title="" />
-
-<p>Chaplets needed:</p>
-
-<DisplayEquation equation="\\text{Top} = \\lceil 0.071/0.01 \\rceil = 8" title="" />
+    <DisplayEquation equation="F_b = 2.7(4)(9.81) = 0.106\\text{ N}" title="" />
 
 
-<DisplayEquation equation="\\text{Bottom} = \\lceil 0.035/0.01 \\rceil = 4" title="" />
+    <DisplayEquation equation="F_{\\text{top}} = 0.071\\text{ N}" title="" />
+
+    <p>Chaplets needed:</p>
+
+    <DisplayEquation equation="\\text{Top} = \\lceil 0.071/0.01 \\rceil = 8" title="" />
+
+
+    <DisplayEquation equation="\\text{Bottom} = \\lceil 0.035/0.01 \\rceil = 4" title="" />
+</details>
+
 </SubSubSection>
 
 <SubSection title="Design Advisor" id="Design Advisor">
-<Image id="avb-ft" src="/design/images/metal_casting_design_advisor.png" style="width:35%; height:auto;">
+<Image id="avb-ft" src="/design/images/metal_casting_design_advisor.png" width={6}>
         <p class="figureCaption">
           Recommended vs. Avoided Design Aspects</a>
         </p>

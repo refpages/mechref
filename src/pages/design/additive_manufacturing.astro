@@ -22,20 +22,14 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
 <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#3D Printing Process'>3D Printing Process</a></li>
 <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Advantages and Disadvantages'>Advantages and Disadvantages</a></li>
 <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Types of 3D Printing Processes'>Types of 3D Printing Processes</a><ul class='list-group list-group-flush py-0'>
-<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Material Extrusion (MEX)'>Material Extrusion (MEX)</a><ul class='list-group list-group-flush py-0'>
-<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#MEX Numerical Example'>MEX Numerical Example</a></li></ul>
-</li>
-<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Vat Polymerization (VAT)'>Vat Polymerization (VAT)</a><ul class='list-group list-group-flush py-0'>
-<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#VAT Build Time Model'>VAT Build Time Model</a></li>
-<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#VAT Numerical Example'>VAT Numerical Example</a></li></ul>
-</li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Material Extrusion (MEX)'>Material Extrusion (MEX)</a></li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Vat Polymerization (VAT)'>Vat Polymerization (VAT)</a></li>
 <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Material Jetting'>Material Jetting</a></li>
 <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Powder Bed Fusion (PBF)'>Powder Bed Fusion (PBF)</a></li>
 <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Directed Energy Deposition (DED)'>Directed Energy Deposition (DED)</a></li>
 <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Binder Jetting'>Binder Jetting</a></li>
-<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Laminated Object Manufacturing'>Laminated Object Manufacturing</a></li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Laminated Object Manufacturing'>Laminated Object Manufacturing</a></li></ul>
 <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Design Guidance for AM'>Design Guidance for AM</a></li>
-</ul>
 </ul>
 </div>
 <SubSection title="Additive Manufacturing" id="Additive Manufacturing">
@@ -60,7 +54,7 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
 </SubSection>
 <SubSection title="Advantages and Disadvantages" id="Advantages and Disadvantages">
 <p>There are a wide range of 3D Printing technologies that each have their own unique properties. Between them, you can optimize certain qualities with other tradeoffs, but these refer to 3D Printing as a whole.</p>
-<p>Advantages</p>
+<strong>Advantages</strong>
 <Itemize>
 
     <Item>Easy and quick to change part design and produce a new version (rapid prototyping)</Item>
@@ -70,24 +64,25 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
     <Item>Some parts can be made pre-assembled</Item>
 
 </Itemize>
-<p>Disadvantages</p>
+<strong>Disadvantages</strong>
 <Itemize>
 
     <Item>Part tolerances/surface finish:</Item>
-<p><Itemize></p>
-            <Item>Staircase Effect on sloped surfaces from slicing and layer thickness</Item>
-            <Item>Shrinkage or distortion of manufactured parts from uneven cooling</Item>
-            <Item>Holes come out smaller and posts bigger than CAD dimensions</Item>
+    <Itemize>
+        <Item>Staircase Effect on sloped surfaces from slicing and layer thickness</Item>
+        <Item>Shrinkage or distortion of manufactured parts from uneven cooling</Item>
+        <Item>Holes come out smaller and posts bigger than CAD dimensions</Item>
 
+    </Itemize>
+    <Item> Limited variety of possible materials</Item>
+    <Item> Post-processing of parts may be required</Item>
+    <Item> Cost and time does not improve with increased volume</Item>
+    <Item> Part size is generally limited</Item>
+    <Item> Porosity and mechanical property challenges</Item>
+    <Item> Material anisotropy, i.e. mechanical properties within layers vary from those between layers</Item>
 </Itemize>
-<p><Item> Limited variety of possible materials</p>
-<p><Item> Post-processing of parts may be required</p>
-<p><Item> Cost and time does not improve with increased volume</p>
-<p><Item> Part size is generally limited</p>
-<p><Item> Porosity and mechanical property challenges</p>
-<p><Item> Material anisotropy, i.e. mechanical properties within layers vary from those between layers</p>
-<p></Itemize></p>
 </SubSection>
+
 <SubSection title="Types of 3D Printing Processes" id="Types of 3D Printing Processes">
 <Enumerate>
 
@@ -159,18 +154,18 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
 
     <Item>Heated thermoplastic filament extruded through a nozzle, layers fusing together in cooler air</Item>
     <Item>Machine deposits layers by moving nozzle horizontally, tracing 2D cross sections, then moving vertically and repeating</Item>
-<p><Itemize></p>
+    <Itemize>
         <Item>3+ DOF machines exist for non-planar slices, but much more complex and less common</Item>
-
+    </Itemize>
+    <Item> Support structure needed for steeply overhanging parts</Item>
+    <Item> Main Materials: PLA, ABS, PC, Nylon</Item> 
+    <Item> Typical layer thickness: <InlineEquation equation="0.1" />–<InlineEquation equation="0.3" /> mm</Item>  
+    <Item> Surface finish is generally not as good as other methods</Item>
 </Itemize>
-<p><Item> Support structure needed for steeply overhanging parts</p>
-<p><Item> Main Materials: PLA, ABS, PC, Nylon</p>
-<p><Item> Typical layer thickness: <InlineEquation equation="0.1" />–<InlineEquation equation="0.3" /> mm</p>
-<p><Item> Surface finish is generally not as good as other methods</p>
-<p></Itemize></p>
 </SubSubSection>
+
 <SubSubSubSection title="MEX Numerical Example" id="MEX Numerical Example">
-<p>Given:</p>
+<strong>Given:</strong>
 <Itemize>
 
     <Item>Nozzle diameter <InlineEquation equation="d = 0.4" /> mm</Item>
@@ -180,79 +175,88 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
     <Item>Part: <InlineEquation equation="30 \\times 30 \\times 30" /> mm cube</Item>
 
 </Itemize>
-<p>Volumetric flow rate:</p>
+<strong>Find the total production time for: </strong>
+<Enumerate>
+    <Item> Solid Cube</Item>
+    <Item> 25% Infill</Item>
+</Enumerate>
 
-<DisplayEquation equation="Q = v \\cdot d \\cdot h = 50 \\times 0.4 \\times 0.25 = \\boxed{5\\ \\text{mm}^3/\\text{s}}" title="" />
+<details style="margin-bottom: 10px;">
+  <summary><strong>Solution:</strong></summary>
+    <p>Volumetric flow rate:</p>
 
-<p>Number of layers:</p>
+    <DisplayEquation equation="Q = v \\cdot d \\cdot h = 50 \\times 0.4 \\times 0.25 = \\boxed{5\\ \\text{mm}^3/\\text{s}}" title="" />
 
-<DisplayEquation equation="N = \\frac{30}{0.25} = 120" title="" />
+    <p>Number of layers:</p>
 
-<p>Total inactive time:</p>
+    <DisplayEquation equation="N = \\frac{30}{0.25} = 120" title="" />
 
-<DisplayEquation equation="t_{\\text{idle}} = 120 \\times 5 = 600 \\text{ s} = 10 \\text{ min}" title="" />
+    <p>Total inactive time:</p>
 
-<h4><strong>(a) Solid Cube</strong></h4>
-<p>Volume:</p> 
+    <DisplayEquation equation="t_{\\text{idle}} = 120 \\times 5 = 600 \\text{ s} = 10 \\text{ min}" title="" />
 
-
-<DisplayEquation equation="V = 30^3 = 27{,}000 \\ \\text{mm}^3" title="" />
-
-<p>Time to extrude:</p>
-
-<DisplayEquation equation="t = \\frac{V}{Q} = \\frac{27{,}000}{5} = 5400 \\text{ s} = 90 \\text{ min}" title="" />
-
-<p>Total production time:</p>
-
-<DisplayEquation equation="t_{\\text{total}} = 90 + 10 = \\boxed{100 \\text{ min}}" title="" />
-
-<h4><strong>(b) 25% Infill </strong></h4>
-<p>Interior dimensions:</p>
-
-<DisplayEquation 
-  equation="30 - 2(0.4) = 29.2 \\text{ mm}, \\quad \\text{height} \\approx 29.5 \\text{ mm}" 
-  title="" 
-/>
-
-<p>Interior volume:</p>
-
-<DisplayEquation equation="V_{\\text{int}} = 29.2^2 \\times 29.5" title="" />
-
-<p>Material used:</p>
-
-<DisplayEquation equation="V_{\\text{total}} = (30^3) - (29.2^2 \\cdot 29.5)\\cdot 0.75 = 8{,}135 \\ \\text{mm}^3" title="" />
-
-<p>Extrusion time:</p>
-
-<DisplayEquation equation="t = \\frac{8{,}135}{5} = 1627.3 \\text{ s} \\approx 27.1 \\text{ min}" title="" />
-
-<p>Total production time:</p>
-
-<DisplayEquation equation="t_{\\text{total}} = 27.1 + 10 = \\boxed{37.1 \\text{ min}}" title="" />
-
-<h4><strong>Traverse Path Method (Check)</strong></h4>
-<p>Tracks per layer:</p> 
+    <h6><strong>(1.) Solid Cube</strong></h6>
+    <p>Volume:</p> 
 
 
-<DisplayEquation equation="\\frac{30}{0.4} = 75" title="" />
+    <DisplayEquation equation="V = 30^3 = 27{,}000 \\ \\text{mm}^3" title="" />
 
-<p>Travel distance per layer:</p>
+    <p>Time to extrude:</p>
 
-<DisplayEquation equation="75 \\times 30 = 2250 \\ \\text{mm}" title="" />
+    <DisplayEquation equation="t = \\frac{V}{Q} = \\frac{27{,}000}{5} = 5400 \\text{ s} = 90 \\text{ min}" title="" />
 
-<p>Time per layer:</p>
+    <p>Total production time:</p>
 
-<DisplayEquation equation="\\frac{2250}{50} = 45 \\text{ s}" title="" />
+    <DisplayEquation equation="t_{\\text{total}} = 90 + 10 = \\boxed{100 \\text{ min}}" title="" />
 
-<p>Total extrusion time:</p>
+    <h6><strong>(2.) 25% Infill </strong></h6>
+    <p>Interior dimensions:</p>
 
-<DisplayEquation equation="45 \\times 120 = 5400 \\text{ s} = 90 \\text{ min}" title="" />
+    <DisplayEquation 
+    equation="30 - 2(0.4) = 29.2 \\text{ mm}, \\quad \\text{height} \\approx 29.5 \\text{ mm}" 
+    title="" 
+    />
 
-<p>Total production time:</p>
+    <p>Interior volume:</p>
 
-<DisplayEquation equation="90 + 10 = 100 \\text{ min}" title="" />
+    <DisplayEquation equation="V_{\\text{int}} = 29.2^2 \\times 29.5" title="" />
 
+    <p>Material used:</p>
+
+    <DisplayEquation equation="V_{\\text{total}} = (30^3) - (29.2^2 \\cdot 29.5)\\cdot 0.75 = 8{,}135 \\ \\text{mm}^3" title="" />
+
+    <p>Extrusion time:</p>
+
+    <DisplayEquation equation="t = \\frac{8{,}135}{5} = 1627.3 \\text{ s} \\approx 27.1 \\text{ min}" title="" />
+
+    <p>Total production time:</p>
+
+    <DisplayEquation equation="t_{\\text{total}} = 27.1 + 10 = \\boxed{37.1 \\text{ min}}" title="" />
+
+    <h4><strong>Traverse Path Method (Check)</strong></h4>
+    <p>Tracks per layer:</p> 
+
+
+    <DisplayEquation equation="\\frac{30}{0.4} = 75" title="" />
+
+    <p>Travel distance per layer:</p>
+
+    <DisplayEquation equation="75 \\times 30 = 2250 \\ \\text{mm}" title="" />
+
+    <p>Time per layer:</p>
+
+    <DisplayEquation equation="\\frac{2250}{50} = 45 \\text{ s}" title="" />
+
+    <p>Total extrusion time:</p>
+
+    <DisplayEquation equation="45 \\times 120 = 5400 \\text{ s} = 90 \\text{ min}" title="" />
+
+    <p>Total production time:</p>
+
+    <DisplayEquation equation="90 + 10 = 100 \\text{ min}" title="" />
+</details>
 </SubSubSubSection>
+
 <SubSubSection title="Vat Polymerization (VAT)" id="Vat Polymerization (VAT)">
 <Itemize>
 
@@ -296,37 +300,40 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
     <Item>Volumetric method approximation for fabrication time</Item>
 
 </Enumerate>
-<strong>Solution:</strong>
-<Enumerate>
+<details style="margin-bottom: 10px;">
+  <summary><strong>Solution:</strong></summary>
+    <Enumerate>
 
-    <Item>Number of layers:</Item>
+        <Item>Number of layers:</Item>
 
-<DisplayEquation equation="n = \\frac{H}{t} = \\frac{10}{0.2} = 50" title="" />
+    <DisplayEquation equation="n = \\frac{H}{t} = \\frac{10}{0.2} = 50" title="" />
 
-    <Item>Time to write one layer:</Item>
+        <Item>Time to write one layer:</Item>
 
-<DisplayEquation equation="T_i = \\frac{A}{v \\cdot D} + t_d = \\frac{200}{1000 \\times 0.2} + 10 = 11 \\ \\text{s}" title="" />
+    <DisplayEquation equation="T_i = \\frac{A}{v \\cdot D} + t_d = \\frac{200}{1000 \\times 0.2} + 10 = 11 \\ \\text{s}" title="" />
 
-    <Item>Total fabrication time:</Item>
+        <Item>Total fabrication time:</Item>
 
-<DisplayEquation equation="T = n \\cdot T_i = 50 \\times 11 = \\boxed{550 \\ \\text{s}}" title="" />
+    <DisplayEquation equation="T = n \\cdot T_i = 50 \\times 11 = \\boxed{550 \\ \\text{s}}" title="" />
 
-    <Item>Volumetric method:</Item>
-<p>Total part volume:</p>
+        <Item>Volumetric method:</Item>
+    <p>Total part volume:</p>
 
-<DisplayEquation equation="V_{\\text{part}} = A \\cdot H = 200 \\times 10 = 2000 \\ \\text{mm}^3" title="" />
+    <DisplayEquation equation="V_{\\text{part}} = A \\cdot H = 200 \\times 10 = 2000 \\ \\text{mm}^3" title="" />
 
-<p>Volumetric build rate:</p>
+    <p>Volumetric build rate:</p>
 
-<DisplayEquation equation="\\dot{V} = D \\cdot t \\cdot v = (0.2)(0.2)(1000)" title="" />
+    <DisplayEquation equation="\\dot{V} = D \\cdot t \\cdot v = (0.2)(0.2)(1000)" title="" />
 
-<p>Total time:</p>
+    <p>Total time:</p>
 
-<DisplayEquation equation="T = \\frac{V_{\\text{part}}}{D \\cdot t \\cdot v} + n \\cdot t_d = \\frac{2000}{(0.2)(0.2)(1000)} + 50 \\times 10 = 50 + 500 = \\boxed{550 \\ \\text{s}}" title="" />
+    <DisplayEquation equation="T = \\frac{V_{\\text{part}}}{D \\cdot t \\cdot v} + n \\cdot t_d = \\frac{2000}{(0.2)(0.2)(1000)} + 50 \\times 10 = 50 + 500 = \\boxed{550 \\ \\text{s}}" title="" />
 
 
-</Enumerate>
+    </Enumerate>
+</details>
 </SubSubSubSection>
+
 <SubSubSection title="Material Jetting" id="Material Jetting">
 <Itemize>
 
@@ -363,7 +370,7 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
 <SubSubSection title="Binder Jetting" id="Binder Jetting">
 <Itemize>
 
-    <Item>Liquid adhesive is selectively deposited to join powder materials (gypsum or starch), which are deposited in thin layers</Item>
+    <Item>Liquid adhesive is selectively deposited to join powder materials (metals, gypsum, or starch), which are deposited in thin layers</Item>
     <Item>Parts are weak before post-processing</Item>
 
 </Itemize>
@@ -386,9 +393,9 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
 
 </Itemize>
 
-<Image id="avb-ft" src="/design/images/additive_manufacturing_design_advisor.png" style="width:50%; height:auto;">
+<Image id="avb-ft" src="/design/images/am_design_advisor.png" width="{7}">
         <p class="figureCaption">
-          Design Advisor</a>.
+          Design Advisor</a>
         </p>
 </Image>
 
