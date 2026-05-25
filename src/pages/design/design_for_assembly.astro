@@ -131,7 +131,7 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
 
     <Item><strong>Part Symmetry:</strong> When considering assembly time for inserting parts, we must consider <InlineEquation equation="\\boldsymbol{\\alpha}" />, the rotational symmetry about an axis perpendicular to the axis of insertion. We must consider <InlineEquation equation="\\boldsymbol{\\beta}" />, the rotational symmetry about the axis of insertion. The angles of <InlineEquation equation="\\boldsymbol{\\alpha}" /> and <InlineEquation equation="\\boldsymbol{\\beta}" /> are the smallest which the part can be rotated and repeat its orientation for insertion.</Item>
         <DisplayEquation equation='ST = \\frac{\\alpha + \\beta}{360}' title="" />
-    <Item><strong>Part Handling - Aspect Ratio:</strong> When considering length, <InlineEquation equation="<strong>L}" />, of the smallest rectangular prism that can enclose the part. Then we must consider the thickness, <InlineEquation equation="<strong>t}" /> of the part. We can also make acceptations for rods, shafts, or pin like parts and use radius <InlineEquation equation="<strong>r}" />. Using these standards, we can now define <strong>Aspect Ratio</strong> as the ratio between the longest and shortest lengths of the rectangular prism. They are defined as the following:</Item>
+    <Item><strong>Part Handling - Aspect Ratio:</strong> When considering length, <strong>L</strong>, of the smallest rectangular prism that can enclose the part. Then we must consider the thickness, <strong>t</strong> of the part. We can also make acceptations for rods, shafts, or pin like parts and use radius <strong>r</strong>. Using these standards, we can now define <strong>Aspect Ratio</strong> as the ratio between the longest and shortest lengths of the rectangular prism. They are defined as the following:</Item>
         <DisplayEquation equation='AR = \\frac{L}{t}' title="" /> or <DisplayEquation equation='AR = \\frac{L}{r}' title="" />
 <Item><strong>Part Handling Difficulties:</strong> We can ask the following questions for the part:</Item>
     <Itemize>
@@ -150,7 +150,7 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
 </SubSubSection>
 <SubSubSubSection title="Time Approximations" id="Time Approximations">
 <p>Since we have defined our part sizes and degrees between possible orientation, we can now make the following estimates</p>
-<p><u><strong>Handling <InlineEquation equation="\\&" /> Alignment Time</u></strong></p>
+<p><u><strong>Handling and Alignment Time</u></strong></p>
 <Enumerate>
 
     <Item><strong>Retrieve Part:</strong> 0.5s per 0.5 m of distance (0.5 m minimum)</Item>
@@ -158,30 +158,30 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
     <Item><strong>Part Size Factor:</strong></Item>
         <Itemize>
 
-            <Item>If Small where <InlineEquation equation="\\boldsymbol{L}" /> <InlineEquation equation="\\textless" /> 2 cm, add 0.5s</Item>
-            <Item>Large part if <InlineEquation equation="\\boldsymbol{L}" /> <InlineEquation equation="\\textgreater" /> 20 cm, add 0.3s</Item>
+            <Item>If Small where <strong>L</strong> {'<'} 2 cm, add 0.5s</Item>
+            <Item>Large part if <strong>L</strong> {'>'} 20 cm, add 0.3s</Item>
 
 </Itemize>
     <Item><strong>Handling Difficulty:</strong> For each handling difficulty where the part is sharp, tangle-prone, flexible, etc., add 0.4 s</Item>
-    <Item><strong>Aspect Ratio Factor:</strong> If <strong>AR</strong> <InlineEquation equation="\\textgreater" /> 20, add 0.1s. If <strong>AR</strong> <InlineEquation equation="\\textgreater" /> 40, add 0.3s</Item>
+    <Item><strong>Aspect Ratio Factor:</strong> If <strong>AR</strong> {'>'}20, add 0.1s. If <strong>AR</strong> {'>'} 40, add 0.3s</Item>
 
 </Enumerate>
-<p><u><strong>Insert <InlineEquation equation="\\&" /> Secure Time</u></strong></p>
+<p><u><strong>Insert and Secure Time</u></strong></p>
 <Enumerate>
 
     <Item><strong>General Placement:</strong> Add 0.5s</Item>
     <Item><strong>Hole Alignment:</strong></Item>
         <Itemize>
 
-            <Item>If small hole diameter <InlineEquation equation="\\textless" /> 2 mm, add 0.7s. </Item>
-            <Item>If medium hole diameter between 2 mm <InlineEquation equation="\\textless" /> diameter <InlineEquation equation="\\textless" /> 4 mm, add 0.1s.</Item>
+            <Item>If small hole diameter {'<'} 2 mm, add 0.7s. </Item>
+            <Item>If medium hole diameter between 2 mm {'<'} diameter {'<'} 4 mm, add 0.1s.</Item>
 
 </Itemize>
     <Item><strong>Pin Alignment:</strong> Opposite Alignment for hole.</Item>
         <Itemize>
 
-            <Item>if small diameter <InlineEquation equation="<" /> 20 mm, add 0.4s</Item>
-            <Item>if medium diameter between 2 mm <InlineEquation equation="<" /> diameter <InlineEquation equation="<" /> 4 mm, add 0.1s.</Item>
+            <Item>if small diameter {'<'} 20 mm, add 0.4s</Item>
+            <Item>if medium diameter between 2 mm {'<'} diameter {'<'} 4 mm, add 0.1s.</Item>
 
 </Itemize>
     <Item><strong>Using Grasping Assistance:</strong> If needs a tool assistance to move, add 1.4s</Item>
@@ -193,9 +193,9 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
             <Item><strong>Snap:</strong> Add 0.3s</Item>
 
 </Itemize>
-    <Item><strong>Final Tightening of Screw/Nut:</strong> For tightening screw or nut, add 2 s if one sided. If two sided, add 7 s.</Item>
-    <Item><strong>Insertion Difficulty:</strong> For difficulties such as view, force, spring, holding and moving, tight tolerances, etc., add 0.4 s for each</Item>
-    <Item><strong>Rotate Base:</strong> For every time turning assembly over, add 1.8 s</Item>
+    <Item><strong>Final Tightening of Screw/Nut:</strong> For tightening screw or nut, add 2s if one sided. If two sided, add 7 s.</Item>
+    <Item><strong>Insertion Difficulty:</strong> For difficulties such as view, force, spring, holding and moving, tight tolerances, etc., add 0.4s for each</Item>
+    <Item><strong>Rotate Base:</strong> For every time turning assembly over, add 1.8s</Item>
 
 </Enumerate>
 </SubSubSubSection>
@@ -206,11 +206,11 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
     <Itemize>
 
         <Item><strong>N</strong> is the minimum number of parts needed in the assembly</Item>
-        <Item><strong>t</strong> is the <em>ideal</em> assembly time, for small parts that present no difficulties in handling, orientation, or assembly. <strong>t</strong> is normally <strong>3 seconds</strong>.</Item>
+        <Item><strong>t</strong> is the <em>ideal</em> assembly time, for small parts that present no difficulties in handling, orientation, or assembly. <strong>t</strong> = <strong>3 </strong>seconds.</Item>
         <Item>{<InlineEquation equation="t_{tot}" />} is the <strong><em>total</strong></em> assembly time</Item>
-        <Item>Products with 5-10$\</Item>
-        <Item>Well designed parts have efficiencies around 25$\</Item>
-        <Item>Assembly efficiencies around 100$\</Item>
+        <Item>Products with 5-10%</Item>
+        <Item>Well designed parts have efficiencies around 25%</Item>
+        <Item>Assembly efficiencies around 100%</Item>
 
 </Itemize>
 </SubSubSection>

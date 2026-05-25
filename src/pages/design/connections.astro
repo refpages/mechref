@@ -224,12 +224,14 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
 <SubSection title="Interference Fits" id="Interference Fits">
 </SubSection>
 <SubSubSection title="Press Fitting" id="Press Fitting">
+    <Image id="avb-ft" src="/design/images/press_fit.png" width={4.5}>
+</Image>
 <p>The starting inner diameter of the hole is smaller than the outer diameter of the pin.</p>
 <p>Radial or "interference fit" pressure:</p>
-<DisplayEquation equation='p_f = \\frac{Ei(D_i^2-D_o^2)}{D_oD_i^2}' title="" />
-<p>where E = Elastic Modulus, i = overlap between ID and OD, <InlineEquation equation="D_o" /> = outer diameter of pin, <InlineEquation equation="D_i" /> = inner diameter of hole</p>
+<DisplayEquation equation='p_f = \\frac{Ei(D_c^2-D_p^2)}{D_pD_c^2}' title="" />
+<p>where E = Elastic Modulus, i = overlap between ID and OD, <InlineEquation equation="D_p" /> = outer diameter of pin, <InlineEquation equation="D_c" /> = outer diameter of collar</p>
 <p>Maximum Joining Stress: (max elastic deformation)</p>
-<DisplayEquation equation='\\sigma_{max} = \\frac{2p_fD_i^2}{D_i^2 - D_o^2}' title="" />
+<DisplayEquation equation='\\sigma_{max} = \\frac{2p_fD_c^2}{D_c^2 - D_p^2}' title="" />
 </SubSubSection>
 <SubSubSection title="Shrink and Expansion Fits" id="Shrink and Expansion Fits">
 <p>Joining two parts that have an interference part at room temperature by either heating or cooling one of the parts before coupling.</p>
@@ -246,6 +248,7 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
 <p><strong>image</strong></p>
 </SubSubSection>
 <SubSubSection title="Retaining Ring:" id="Retaining Ring:">
+    <strong>image</strong>
 <p>Fastener snaps into a groove along the circumference of a shaft or tube, forming a shoulder. This is used to locate parts or restrict their lateral motion along a rotational shaft.</p>
 </SubSubSection>
 <SubSubSection title="Integral Fasteners" id="Integral Fasteners">
