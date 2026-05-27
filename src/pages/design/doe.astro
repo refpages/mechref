@@ -1,0 +1,180 @@
+---
+import Layout from "../../layouts/Layout.astro" 
+import Image from "../../components/Image.astro" 
+import CalloutContainer from "../../components/CalloutContainer.astro" 
+import Section from "../../components/Section.astro" 
+import SubSection from "../../components/SubSection.astro" 
+import SubSubSection from "../../components/SubSubSection.astro" 
+import SubSubSubSection from "../../components/SubSubSubSection.astro" 
+import OrangeText from "../../components/OrangeText.astro" 
+import TealText from "../../components/TealText.astro" 
+import Enumerate from "../../components/Enumerate.astro" 
+import Item from "../../components/Item.astro" 
+import Itemize from "../../components/Itemize.astro" 
+import InlineEquation from "../../components/InlineEquation.astro" 
+import DisplayEquation from "../../components/DisplayEquation.astro" 
+---
+<Layout title="DOE">
+<div slot="navtree">
+<ul class="list-group list-group-flush py-0">
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Introduction'>Introduction</a></li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Key Definitions'>Key Definitions</a></li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Types of Experiments'>Types of Experiments</a></li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Principles of DOE'>Principles of DOE</a></li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Factorial Design'>Factorial Design</a></li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Effects and Interactions'>Effects and Interactions</a></li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Characteristic Equation'>Characteristic Equation</a></li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Statistical Significance'>Statistical Significance</a></li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#DOE Workflow'>DOE Workflow</a></li>
+</ul>
+</div>
+<SubSection title="Introduction" id="Introduction">
+<p>Imagine you are baking a cake, and the texture or taste is just slightly off. There are too many variables (baking temperature/time, butter %, sugar %, etc... to immediately know what combination works best without previous experience. Similarly in manufacturing, a machined part's surface roughness could be affected by feed rate, spindle speed, depth of cut, mill size/type... and much more. Proper Design of Experiments helps find the optimal settings without cycling through every combination of every variable (which is unfeasible in a timely manner). </p>
+<p>There is a mathematical method to systematically determine <strong>cause-effect</strong> relationships, which might otherwise be difficult to see. This produces a "system" equation to relate input vs expected output. This is much more efficient than changing one variable at a time and uncovers other hidden relations between inputs.</p>
+<p><strong>image</strong></p>
+<p><strong>Statistical Analysis of Data</strong> provides the most unbiased and precise results at the cost of experiments in both time and money. It also allowed for</p>
+<Itemize>
+
+    <Item>more information per experiment compared to unplanned testing</Item>
+    <Item>self-evident and clear conclusions</Item>
+    <Item>credibility to experimental conclusions when variability and sources of error can be clarified</Item>
+    <Item>ability to discover interactions and relations between variables</Item>
+
+</Itemize>
+</SubSection>
+<SubSection title="Key Definitions" id="Key Definitions">
+<p>An <strong>experiment</strong> is a process that generates data via controlled changes to inputs. It involves a test (or series of tests) where intentional changes are made to the inputs, so the output's response can be observed and identified. The experiment determines which inputs (x) are most influential on the output (y), and then determines what where to set x such that y is near the nominal requirement with minimal variability.</p>
+<Itemize>
+
+    <Item><strong>Response</strong>: Measurable output (e.g., time, strength).</Item>
+    <Item><strong>Factors</strong>: Controlled input variables (e.g., blade angle).</Item>
+    <Item><strong>Levels</strong>: Specific values of factors (e.g., high/low).</Item>
+    <Item><strong>Treatment</strong>: A combination of different factors and levels.</Item>
+    <Item><strong>Noise</strong>: Uncontrolled variables that output or system performance.</Item>
+    <Item><strong>Replication</strong>: Repeating treatments to estimate precision and experimental error.</Item>
+
+</Itemize>
+<p><strong>DOE</strong> involves choosing the relevant <strong>factors</strong>, selecting their appropriate <strong>levels</strong>, determining the <strong>treatment combinations</strong> for trial, and setting the number of times for <strong>replication</strong> to bound experimental error.</p>
+</SubSection>
+<SubSection title="Types of Experiments" id="Types of Experiments">
+<Itemize>
+
+    <Item><strong>Best Guess</strong>: Based on experience and expertise; not quantifiable!</Item>
+    <Item><strong>OFAT (One-Factor-at-a-Time)</strong>: Sometimes associated with "scientific method". Inefficient; ignores interactions between factors.</Item>
+    <Item><strong><InlineEquation equation="2^k" /> Factorial Design</strong>: The most efficient experiment type to deal with multiple factors; explores all combinations of <InlineEquation equation="k" /> factors at 2 levels.</Item>
+
+</Itemize>
+</SubSection>
+<SubSection title="Principles of DOE" id="Principles of DOE">
+<Itemize>
+
+    <Item><strong>Randomization</strong>: Randomize the order of testing to reduce variability and prevent bias.</Item>
+    <Item><strong>Replication</strong>: required to obtain error estimates and improves precision. The quantity depends on time <InlineEquation equation="\\&" /> cost of experiments.</Item>
+    <Item><strong>Blocking</strong>: Run experiments in "blocks" (or stages) to help control for nuisance variables. <em>Ex: replicate 1 on day 1, replicate 2 on day 2</em></Item>
+
+</Itemize>
+</SubSection>
+<SubSection title="2<sup>k</sup> Factorial Design" id="Factorial Design">
+<Itemize>
+
+    <Item><InlineEquation equation="k" /> = number of factors, each at two levels for a total of <InlineEquation equation="2^k" /> runs.</Item>
+    <Item>Example: <InlineEquation equation="k=2" /> → 4 runs; <InlineEquation equation="k=3" /> → 8 runs</Item>
+    <Item>With two levels, we use Yates notation. Each factor is represented by a lowercase letter arranged in standard order. When a lowercase letter representing a factor is missing, it means the factor is at a lower level. Otherwise, it is at a higher level.</Item>
+    <Itemize>
+        <Item>(1) for all factors at lower levels</Item>
+        <Item>ab for A and B at high levels</Item>
+        <Item>a for A at high level, B at low level</Item>
+        <Item>b for B at high level, A at low level</Item>
+
+    </Itemize>
+    <Item><InlineEquation equation="m^k" /> Factorial Designs also exist for m levels.</Item>
+    <Item>With only 2 levels, you cannot distinguish between linear and higher-order effects.</Item>
+</Itemize>
+<p><strong>image graphs</strong></p>
+</SubSection>
+<SubSection title="Effects and Interactions" id="Effects and Interactions">
+<Itemize>
+
+    <Item><strong>Main Effect (A)</strong>: Change in response due to factor A = average(a, ab) - average(1, b)</Item>
+    <Item><strong>Main Effect (B)</strong>: Change in response due to factor B = average(b, ab) - average(1, a)</Item>
+    <Item><strong>Interaction (AB)</strong>: Combined effect of A and B beyond individual effects = average(1, ab) - average(a, b)</Item>
+
+</Itemize>
+</SubSection>
+<SubSection title="Characteristic Equation" id="Characteristic Equation">
+
+<DisplayEquation equation="y = \\bar{y} + \\frac{A}{2}x_A + \\frac{B}{2}x_B + \\frac{AB}{2}x_Ax_B" title="" />
+
+<p>Where <InlineEquation equation="x_A, x_B \\in \\{-1, +1\\}" />, <InlineEquation equation="\\bar{y}" /> is the average effect of all experiments, <InlineEquation equation="A" /> is the effect of factor A, <InlineEquation equation="B" /> is the effect of factor B, and <InlineEquation equation="AB" /> is the interaction effect. The characteristic equation allows for estimation for new inputs in the range (-1, 1).</p>
+</SubSection>
+<SubSection title="Statistical Significance" id="Statistical Significance">
+<p>Use ANOVA- "analysis of variance" to determine if the effects are significant.</p>
+<Itemize>
+
+    <Item>Estimate the effects</Item>
+    <Item>Compute standard deviation of the averages, or standard errors:</Item>
+
+<DisplayEquation equation="SE = \\sqrt{\\frac{s^2}{n}}" title="" />
+
+    <Item>Estimate approximate 95$\</Item>
+
+<DisplayEquation equation="\\text{Effect} \\pm t_{\\alpha/2} \\cdot SE" title="" />
+
+    <Item>If the Confidence Interval includes, 0 then the factor is not statistically significant at that confidence level.</Item>
+
+</Itemize>
+</SubSection>
+<SubSection title="DOE Workflow" id="DOE Workflow">
+<Enumerate>
+
+    <Item>Design Experiment: choose factors, levels, and measurable output</Item>
+    <Item>Collect Data: randomize the order, replicate at least once.</Item>
+    <Item>Analyze Data: compute effects, interactions, significance.</Item>
+    <Item>Report Conclusions: reduced characteristic equation, find the optimal settings.</Item>
+
+</Enumerate>
+</SubSection>
+<SubSection title="Example: ">
+<p> Factorial Design</p>
+<p><strong>Objective:</strong> Minimize surface roughness in machining.</p>
+<p><strong>Factors:</strong></p>
+<Itemize>
+
+    <Item>A: Spindle Speed (Low = 1000 RPM, High = 2000 RPM)</Item>
+    <Item>B: Feed Rate (Low = 0.1 mm/rev, High = 0.3 mm/rev)</Item>
+
+</Itemize>
+<p><strong>Treatments and Responses:</strong></p>
+<!--<p>\begin{center}</p>
+<p>\begin{tabular}{cccc}</p>
+<p>Treatment & Spindle Speed (A) & Feed Rate (B) & Surface Roughness (<InlineEquation equation="\\mu" />m) \\ \hline</p>
+<p>1 & Low (-1) & Low (-1) & 2.5 \\</p>
+<p>2 & High (+1) & Low (-1) & 1.8 \\</p>
+<p>3 & Low (-1) & High (+1) & 3.2 \\</p>
+<p>4 & High (+1) & High (+1) & 2.0 \\</p>
+<p>\hline</p>
+<p>\end{tabular}</p>
+<p>\end{center}</p> -->
+<p><strong>Main Effects:</strong></p>
+
+<DisplayEquation equation="\\text{Effect}_A = \\frac{(1.8 + 2.0) - (2.5 + 3.2)}{2} = -0.95" title="" />
+
+
+<DisplayEquation equation="\\text{Effect}_B = \\frac{(3.2 + 2.0) - (2.5 + 1.8)}{2} = +0.45" title="" />
+
+<p><strong>Interaction Effect:</strong></p>
+
+<DisplayEquation equation="\\text{Effect}_{AB} = \\frac{(2.5 + 2.0) - (1.8 + 3.2)}{2} = -0.25" title="" />
+
+<p><strong>Conclusion:</strong></p>
+<Itemize>
+
+    <Item>Higher spindle speed reduces roughness.</Item>
+    <Item>Higher feed rate increases roughness.</Item>
+    <Item>Interaction is minor.</Item>
+    <Item>Optimal setting: High spindle speed, Low feed rate.</Item>
+
+</Itemize>
+
+</SubSection>
+</Layout>
