@@ -29,26 +29,17 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
 </ul>
 </div>
 <SubSection title="Overview" id="Overview">
+<p>Sheet metal forming uses a variety of manufacturing processes to transform thin metal stock into durable and functional parts. Forming processes fall into two main categories: cutting operations (like shearing, blanking, and punching) and bending operations. The yield stress of the material must be exceeded to generate plastic strain and permanently deform the metal into the desired shape.</p>
 <Itemize>
-
     <Item>Sheet metal thickness: 0.4 mm to 6 mm</Item>
     <Item>Common materials: low-carbon steel, aluminum, brass</Item>
-    <Item>Advantages: inexpensive, ductile, fast forming methods</Item>
-
+    <Item>Advantages: inexpensive, lightweight, ductile, fast forming methods</Item>
 </Itemize>
 </SubSection>
-<SubSection title="Forming Methods" id="Forming Methods">
-<Itemize>
-
-    <Item>Shearing, Blanking, Punching</Item>
-    <Item>Bending: V-bending, Wipe bending</Item>
-    <Item>Deep Drawing, Rolling, Stamping</Item>
-    <Item>Hydroforming, Spinning, Stretch Forming</Item>
-
-</Itemize>
-</SubSection>
-
 <SubSection title="Stress-Strain Curve" id="Stress-Strain Curve">
+
+<Image id="avb-ft" src="/design/images/stress_strain_curve.png" width={4}>
+</Image>
 <Itemize>
 
     <Item><strong>Elastic Region</strong>: Reversible deformation; stress proportional to strain.</Item>
@@ -87,6 +78,10 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
     <Item><strong>Shearing:</strong> Sheet metal cutting operation along a straight line between two cutting edges, typically used to cut large sheets</Item>
     <Item><strong>Blanking:</strong> Sheet metal cutting to separate piece (called a blank) from surrounding stock</Item>
     <Item><strong>Punching:</strong> Similar to blanking, but the cut piece is the scrap (called a slug)</Item>
+</Itemize>
+<Image id="avb-ft" src="/design/images/blanking_punching.png" width={5}>
+</Image>
+<Itemize>
     <Item><strong>Perforating:</strong> Punching a number of holes in a sheet</Item>
     <Item><strong>Parting:</strong> Shearing the sheet into two or more pieces</Item>
     <Item><strong>Notching:</strong> Removing pieces from edges</Item>

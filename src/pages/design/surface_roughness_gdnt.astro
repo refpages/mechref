@@ -1,0 +1,212 @@
+---
+import Layout from "../../layouts/Layout.astro" 
+import Image from "../../components/Image.astro" 
+import CalloutContainer from "../../components/CalloutContainer.astro" 
+import Section from "../../components/Section.astro" 
+import SubSection from "../../components/SubSection.astro" 
+import SubSubSection from "../../components/SubSubSection.astro" 
+import SubSubSubSection from "../../components/SubSubSubSection.astro" 
+import OrangeText from "../../components/OrangeText.astro" 
+import TealText from "../../components/TealText.astro" 
+import Enumerate from "../../components/Enumerate.astro" 
+import Item from "../../components/Item.astro" 
+import Itemize from "../../components/Itemize.astro" 
+import InlineEquation from "../../components/InlineEquation.astro" 
+import DisplayEquation from "../../components/DisplayEquation.astro" 
+---
+<Layout title="SurfaceRoughness+DimensionalTolerances">
+<div slot="navtree">
+<ul class="list-group list-group-flush py-0">
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Introduction'>Introduction</a></li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Surface Roughness'>Surface Roughness</a><ul class='list-group list-group-flush py-0'>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#How Can We Define a Surface Texture?'>How Can We Define a Surface Texture?</a></li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Surface Roughness Value'>Surface Roughness Value</a></li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Engineering Drawings Terminology'>Engineering Drawings Terminology</a></li></ul>
+</li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Geometric Dimensioning & Tolerancing (GD&T)'>Geometric Dimensioning <InlineEquation equation="\\&" /> Tolerancing (GD<InlineEquation equation="\\&" />T)</a><ul class='list-group list-group-flush py-0'>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Definitions'>Definitions</a></li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Requirements of Drawings'>Requirements of Drawings</a></li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Geometric Characteristic Symbols Chart'>Geometric Characteristic Symbols Chart</a></li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#How to Read GD&T'>How to Read GD&T</a></li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Composite Feature Control Frames'>Composite Feature Control Frames</a></li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Bonus Tolerance'>Bonus Tolerance</a></li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Goals of GD&T:'>Goals of GD&T:</a></li></ul>
+</li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Quality Assurance'>Quality Assurance</a><ul class='list-group list-group-flush py-0'>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Definitions'>Definitions</a></li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Accuracy and Precision'>Accuracy and Precision</a></li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Approaches to Quality Control'>Approaches to Quality Control</a></li>
+<li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Gaussian Distributions:'>Gaussian Distributions:</a></li>
+</ul>
+</ul>
+</div>
+<SubSection title="Introduction" id="Introduction">
+<p>Before Geometric Dimensioning <InlineEquation equation="\\&" /> Tolerancing(GD<InlineEquation equation="\\&" />T), engineers used standard coordinate and plus/minus systems to convey ideas through drawings. This often left the fabrication of the product to the engineers interpretation. GD<InlineEquation equation="\\&" />T can relate tolerances to their respective datum planes to eliminate ambiguity across engineering drawings.</p>
+<p>insert general image of object relative to datum planes in a 3d space, treating them as planes,</p>
+</SubSection>
+<SubSection title="Surface Roughness" id="Surface Roughness">
+<p>In the design process, the engineer must account for the surface textures of their parts. This can be for aesthetics of a part, considering safety for walkers, mechanical and physical properties, assembly of parts can be affected by their surface contact points, and electrical connections are made better on smoother surfaces.</p>
+</SubSection>
+<SubSubSection title="How Can We Define a Surface Texture?" id="How Can We Define a Surface Texture?">
+<p>We can break up the description of surface texture into 4 categories.</p>
+    <Itemize>
+
+        <Item><strong>Roughness:</strong> Small, finer-spaced deviations from nominal surface.</Item>
+        <Item><strong>Waviness:</strong> Larger deviations due to larger spacing, often occurring from work deflections, vibrations, etc.</Item>
+        <Item><strong>Lay:</strong> Direction or pattern of surface texture</Item>
+        <Item><strong>Flaws:</strong> Localized irregularities likes cracks, scratches, or divots</Item>
+
+</Itemize>
+</SubSubSection>
+<SubSubSection title="Surface Roughness Value" id="Surface Roughness Value">
+<p>insert image for peaks and valleys</p>
+<p>When considering Surface Roughness, we can base our values from using a stylus across a surface to detect heights <strong>y</strong> across the surface with equal distance apart from each point of measurement. We can insert our values of height <InlineEquation equation="\\&" /> number of measurements, <strong>n</strong>, into the following equations:</p>
+<Itemize>
+
+    <Item><strong>Arithmetic Mean Equation:</strong> Gives average roughness between all the heights of the surface, less sensitive to peaks</Item>
+    <DisplayEquation equation='R_a = \\frac{|y_a|+|y_b|+|y_c|+\\cdots+|y_n|}{n} = \\frac{1}{n}\\sum_{i=1}^{n}|y_i| = \\frac{1}{L}\\int_{0}^{L}|y|\\,dx' title="" />
+    <Item><strong>Root-Mean-Square Equation:</strong> Like Arithmetic, but more sensitive to peaks <InlineEquation equation="\\&" /> valleys in the surface</Item>
+    <DisplayEquation equation='R_q = \\sqrt{\\frac{y_a^2 + y_b^2 + y_c^2 + \\cdots + y_n^2}{n}} = \\sqrt{\\frac{1}{n}\\sum_{i=1}^{n}y_i^2} = \\sqrt{\\frac{1}{L}\\int_{0}^{L}y^2\\,dx}' title="" />
+
+</Itemize>
+<p>However, a problem that arises is the equations for roughness above which is the waviness may get included and interfere with the calculation for roughness. To combat this it is recommended that you select a <em>cut-off length</em> to filter the waviness from the roughness calculation. In order to do this, a sampling distance shorter than the waviness deviations can give better results for roughness.</p>
+<p>insert image for cutoff</p>
+</SubSubSection>
+<SubSubSection title="Engineering Drawings Terminology" id="Engineering Drawings Terminology">
+<p>Standardized symbols for engineering drawings can be used for describing surface texture if material removal is permitted or not. They are displayed as the following</p>
+<p>insert image for drawing machining code</p>
+<p>There is also patterns that can be machined into the surfaces dependent of their drawings. The symbol will most commonly be placed next to the symbol denoting a surface. They can be any of the following:</p>
+<Itemize>
+
+    <Item>"=" - Tooling is parallel to projected surface drawing</Item>
+    <Item>"<InlineEquation equation="\\perp" />" - Tooling is perpendicular to projected surface</Item>
+    <Item>"<InlineEquation equation="\\times" />" - Cross hatched pattern on indicated surface</Item>
+    <Item>"M" - Non-directional or multi-intersection on indicated surface</Item>
+    <Item>"C" - Concentric circles roughly centered </Item>
+    <Item>"R" - Radiating shape, roughly passing through the centroid in each pass</Item>
+<p>insert image in for toolpaths</p>
+<p>insert image for example of various surface textures</p>
+
+</Itemize>
+</SubSubSection>
+<SubSection title="Geometric Dimensioning & Tolerancing (GD&T)" id="Geometric Dimensioning & Tolerancing &T)">
+<p>In engineering drawings, it is critical to use GD<InlineEquation equation="\\&" />T ensure one interpretation of engineering drawings</p>
+</SubSection>
+<SubSubSection title="Definitions" id="Definitions">
+<Itemize>
+
+    <Item><strong>Dimension:</strong> A numerical value in appropriate units to define size or geometric characteristic </Item>
+    <Item><strong>Tolerance:</strong> The total amount by which a specific dimension is allowed to vary</Item>
+
+</Itemize>
+</SubSubSection>
+<SubSubSection title="Requirements of Drawings" id="Requirements of Drawings">
+<Enumerate>
+
+    <Item>Drawing must not be subject to more than one interpretation</Item>
+    <Item>Dimensions should suit the mating relationship between parts</Item>
+    <Item>Perpendicularity is assumed when no angle is expressed.</Item>
+
+</Enumerate>
+</SubSubSection>
+<SubSubSection title="Geometric Characteristic Symbols Chart" id="Geometric Characteristic Symbols Chart">
+<p>insert image/table for each symbol</p>
+</SubSubSection>
+<SubSubSection title="How to Read GD&T" id="How to Read GD&T">
+<p>When reading GD&T engineering drawings, there are 4 main features to notice to interpret the drawing correctly</p>
+<Itemize>
+
+    <Item><strong>Geometric Characteristic:</strong> Characteristic symbol used to describe and determine the shape of the feature</Item>
+    <Item><strong>Tolerance:</strong> The total amount by which a specific dimension is allowed to vary</Item>
+    <Item><strong>Datum:</strong> Where part is first located using surface A, then to surface B, then to surface C. This will fully constrain the part, and prevent translational movement in the X, Y, Z-directions, and as well as as rotational movement on those respective axes(pitch, roll, yaw)</Item>
+    <Item><strong>Material Conditions:</strong> Conditions in which features can respond to changes in size from one side of a connection to another. They are the following:</Item>
+    <Itemize>
+            <Item><strong>Maximum Material Condition (MMC):</strong> Where the part weighs the most. This is the case where largest shaft or pin size can fit inside, or the smallest allowable hole size</Item>
+            <Item><strong>Least Material Condition (LMC):</strong> Where the part weighs the least. This is the case where it fits the smallest shaft or pin size, or the largest allowable hole size</Item>
+            <Item><strong>Regardless of Feature Size (RFS):</strong> Tolerance stays the same in every case the manufacturer follows the drawing, (i.e., no possible bonus tolerance) </Item>
+
+    </Itemize>
+</Itemize>
+<p>Once all have been given on the drawing, first take note of what the <strong>dimensions</strong> are on the drawing. Then look towards the <strong>control frame</strong>, see what <strong>geometric characteristic symbol</strong> the surface is trying to describe. The <strong>numerical value</strong> will be the geometric tolerance of the surface with the given material condition, relative to the datums in their respective order.</p>
+<p>insert image of tolerance and edit to point out labels of each symbol</p>
+</SubSubSection>
+<SubSubSection title="Composite Feature Control Frames" id="Composite Feature Control Frames">
+<p>Sometimes when making the drawings of our parts, we will want to set higher tolerances on specific features of a product. This method of tolerance will display as the following in engineering drawings:</p>
+<p>insert image of composite feature control frames</p>
+<p>The single shared symbol feature will have the upper segment that controls the feature as normal as a general tolerance, and the lower segment refines the feature with more specified tolerances</p>
+<p>insert image of example composite feature with dotted lines for leeway for the provided</p>
+</SubSubSection>
+<SubSubSection title="Bonus Tolerance" id="Bonus Tolerance">
+<p>In some instances, bonus tolerances can occur when the hole size is the MMC size if specified in the drawings. If the hole size is bigger than the MMC size, we get a bonus tolerance equal to the difference between the MMC size and the actual  size. This ranges from the MMC size to the LMC size.</p>
+</SubSubSection>
+<SubSubSection title="Goals of GD&T:" id="Goals of GD&T:">
+<Itemize>
+
+    <Item>To set the standard of maximum and minimum limits of the dimensions of length and angle</Item>
+    <Item>Dimensional control over product, as exact dimensions in manufacturing is not achievable</Item>
+    <Item>Set tolerance as large as possible to minimize manufacturing cost while keeping the tolerance small enough to ensure safe operation and interchangeability</Item>
+
+</Itemize>
+</SubSubSection>
+<SubSection title="Quality Assurance" id="Quality Assurance">
+</SubSection>
+<SubSubSection title="Definitions" id="Definitions">
+<Itemize>
+
+    <Item><strong>Quality Assurance:</strong> Total effort by a manufacturer to ensure its products are abide by a set of specifications and standards, they may include:</Item>
+    <Itemize>
+        <Item>Surface Finish</Item>
+        <Item>Dimensional Tolerances</Item>
+        <Item>Composition</Item>
+        <Item>Aesthetics</Item>
+        <Item>Mechanical, physical, or chemical properties of materials</Item>
+
+    </Itemize>
+<Item><strong>Measurement:</strong> Procedure in which an unknown quantity is compared to a known standard or reference value, using a system of units. Devices to measure with can be a micrometer, caliper, protractor, etc.</Item>
+</Itemize>
+</SubSubSection>
+<SubSubSection title="Accuracy and Precision" id="Accuracy and Precision">
+<p>The mission of quality control is to ensure product is verifiable to function as intended, while still having small deviation in part size and shape due to tolerances.</p>
+<p>insert target image for distinguishing between</p>
+<Itemize>
+
+    <Item><strong>Accuracy:</strong> The degree to which a measured value agrees with the true value of the quantity of interest</Item>
+    <Item><strong>Precision:</strong> The degree of repeatability in the measurement trial process</Item>
+
+</Itemize>
+</SubSubSection>
+<SubSubSection title="Approaches to Quality Control" id="Approaches to Quality Control">
+<p>For methods to improve quality of a product, there can be two ways to make progress:</p>
+<Itemize>
+
+    <Item><strong>Inspection and Part Rework:</strong> Typically during this process, inspection is made and rejection of parts that are not abiding by standards.</Item>
+<p>insert diagram for path</p>
+    <Item><strong>Continual Process Improvement:</strong></Item>
+<p>insert diagram for path</p>
+<p>This process tends to be more costing, but this will improve product processing, decreasing the percentage of parts being rejected over time, making this approach much better overall in the long-run</p>
+
+</Itemize>
+</SubSubSection>
+<SubSubSection title="Gaussian Distributions:" id="Gaussian Distributions:">
+<p>Gaussian distributions are used to depict how well the product are manufactured by orders of variance in the part. We can use the distribution to determine the <strong>Variance</strong> and <strong>Tolerance</strong> of a system.</p>
+<p>A Gaussian contains the following</p>
+<Itemize>
+
+    <Item>Mean: <InlineEquation equation="\\mu" /></Item>
+    <Item>Standard Deviation: <InlineEquation equation="\\sigma" /></Item>
+    <Item>Variance: <InlineEquation equation="\\sigma^2" /></Item>
+    <Item>Tolerance:</Item>
+    <Itemize>
+            <Item><InlineEquation equation="\\sigma" />=68.2</Item>
+            <Item><InlineEquation equation="\\sigma" />=95.4</Item>
+            <Item><InlineEquation equation="\\sigma" />=99.7</Item>
+
+    </Itemize>
+</Itemize>
+<p>insert image of gaussian</p>
+<p>We then can use these values to calculate the following:</p>
+<DisplayEquation equation='Variance \\ of \\ a \\ System = \\sigma^2 = \\sigma_1^2 + \\sigma_2^2 + \\sigma_3^2' title="" />
+<DisplayEquation equation='Tolerance \\ of \\ a \\ System \\ 2\\sigma = \\sqrt{(2\\sigma_1)^2 + (2\\sigma_2)^2+(2\\sigma_3)^2}' title="" />
+
+</SubSubSection>
+</Layout>
