@@ -86,18 +86,31 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
     <Item><strong>Parting:</strong> Shearing the sheet into two or more pieces</Item>
     <Item><strong>Notching:</strong> Removing pieces from edges</Item>
     <Item><strong>Lancing:</strong> Producing a tab without removing any material</Item>
-    <Item><strong>Clearance:</strong> Distance between punch cutting edge and die cutting edge (usually 4 - 8 of thickness)</Item>
-    <Itemize>
-        <Item>if clearance too small, fracture lines pass each other, causing double burnishing and larger force</Item>
-        <Item>if clearance too large, metal is pinched between cutting edges and excessive burr results</Item>
-        <Item>Recommended clearance calculated by <InlineEquation equation="c = a \\cdot t" />, where <InlineEquation equation="a" /> allowance depends on material.</Item>
-        <Item>angular clearance of 0.25-1.5 for punching/blanking to allow slug or blank to drop through die</Item>
-    </Itemize>
-    <Item><strong>Punch Force</strong>: <InlineEquation equation = "F = 0.7 \\cdot \\sigma_{UTS} \\cdot t \\cdot L"/></Item>
-    <Item><strong>Example</strong>: For <InlineEquation equation = "\\sigma_{UTS} = 500"/> MPa, <InlineEquation equation = "t = 2"/> mm, square hole <InlineEquation equation = "8 \\times 8"/> mm:</Item>
+</Itemize>
+<Image id="avb-ft" src="/design/images/sheet_metal.png" width={4.75}>
+</Image>
+<strong>Clearance:</strong> Distance between punch cutting edge and die cutting edge (usually 4 - 8% of thickness)
+<Itemize>
+    <Item>If clearance too <strong>small</strong>, fracture lines pass each other, causing double burnishing and larger force</Item>
+    <Item>If clearance too <strong>large</strong>, metal is pinched between cutting edges and excessive burr results</Item>
+    <Item>Recommended clearance calculated by <InlineEquation equation="c = a \\cdot t" />, where <InlineEquation equation="a" /> <strong>allowance</strong> depends on material.</Item>
+    <Item>Angular clearance of <strong>0.25°-1.5°</strong> for punching/blanking to allow slug or blank to drop through die</Item>
+</Itemize>
+<Image id="avb-ft" src="/design/images/sheet_metal_clearance.png" width={5}>
+    <p class="figureCaption">
+        Clearance Summary</a>
+    </p>
+</Image>
+<strong>Punch Force</strong>: <InlineEquation equation = "F = 0.7 \\cdot \\sigma_{UTS} \\cdot t \\cdot L"/>
+<Itemize>
+    <Item>where <InlineEquation equation = "\\tau_s"/> = shear strength</Item>
+    <Item><InlineEquation equation  = "\\sigma_{UTS}"/> = Ultimate Tensile Strength</Item>
+    <Item><em>t</em> = stock thickness</Item>
+    <Item><em>L</em> = length of the cut (circumference of die, not punch)</Item>
+</Itemize>
+<Item><strong>Example</strong>: For <InlineEquation equation = "\\sigma_{UTS} = 500"/> MPa, <InlineEquation equation = "t = 2"/> mm, square hole <InlineEquation equation = "8 \\times 8"/> mm:</Item>
 
 <DisplayEquation equation="L = 4 \\times 8 = 32 \\, mm, \\quad F = 0.7 \\cdot 500 \\cdot 2 \\cdot 32 = 22,400 \\, N" title="" />
-</Itemize>
 </SubSection>
 <SubSection title="Bending Mechanics" id="Bending Mechanics">
 <Itemize>
@@ -119,38 +132,46 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
     <Item> <strong>Bending Force</strong>:</Item>
 
 <DisplayEquation equation="F = \\frac{2k \\cdot \\sigma_{UTS} \\cdot L \\cdot t^2}{W}" title="" />
+    <Itemize>
+        <Item><em>L</em> = length of part</Item>
+        <Item><em>t</em> = thickness of part</Item>
+        <Item><InlineEquation equation  = "\\sigma_{UTS}"/> = Ultimate Tensile Strength of part</Item>
+        <Item><em>W</em> = Width of die opening</Item>
+        <Item><em> k</em> = 1.25 for V-die, <em>k</em> = 0.32 for wiping die </Item>
+    </Itemize>
 
     <Item><strong>Example</strong>: <InlineEquation equation = "\\sigma_{UTS} = 275"/> MPa, <InlineEquation equation = "L = 60"/> mm, <InlineEquation equation = "t = 2"/> mm,  <InlineEquation equation = "W = 20"/> mm. <InlineEquation equation = " k = 1.25"/>):</Item>
 
 <DisplayEquation equation="F = \\frac{2 \\cdot 1.25 \\cdot 275 \\cdot 60 \\cdot 2^2}{20} = 8250 \\, N" title="" />
 
-    <Item> <strong>Minimum Bending Radius (MBR)</strong>: determined by tensile strain-to-failure</Item>
+    <Item> <strong>Minimum Bending Radius (MBR)</strong> before cracking occurs is determined by the tensile strain-to-failure</Item>
+    <Itemize>
+        <Item> Outer fibers experience tension </Item>
+        <Item> Inner fibers experience compression </Item>
+    </Itemize>
 
 <DisplayEquation equation="R_{min} = \\frac{t}{2 \\cdot \\epsilon_f}" title="" />
-
-    <Item><strong>Example</strong>: <InlineEquation equation="t = 2"/> mm, <InlineEquation equation="\\epsilon_f = 0.65 \\Rightarrow R_{min} = \\frac{2}{2 \\cdot 0.65} = 1.54"/> mm</Item>
-</Itemize>
-</SubSection>
-
-<SubSection title="Bend Allowance and Bend Deduction" id="Bend Allowance and Bend Deduction">
+<Item><strong>Bend Allowance <InlineEquation equation = "L_b"/></strong> is the length of the arc along the neutral axis.</Item>
 <Itemize>
-
-    <Item><strong>Bend Allowance (BA)</strong>: Length of arc along neutral axis.</Item>
+    <Item>If the bend radius is small relative to the stock thickness, metal will stretch during the bending.</Item>
+    <Item>In order to make parts of the desired length, it is important to estimate the amount of stretching that will occur.</Item>
+    <Item><strong>(<InlineEquation  equation = "L_b"/>)</strong>: Length of arc along neutral axis.</Item>
 
 <DisplayEquation equation="L_b = \\frac{2\\pi R \\theta}{360} + K_b \\cdot t" title="" />
+    <!-- <Item><strong>Explanation of <InlineEquation equation = " K_b"/></strong>: Empirical coefficient accounting for material and bend geometry; typically <InlineEquation equation = "K_b = 0.33"/> to <InlineEquation equation = "0.5"/>.</Item> -->
+    <!-- <Item><strong>Example</strong>: <InlineEquation equation = " R = 8.5"/> mm, <InlineEquation equation = "\\theta = 140^\\circ, t = 5"/> mm, <InlineEquation equation = "K_b = 0.33"/>:</Item> -->
 
-    <Item><strong>Bend Deduction (BD)</strong>: Difference between total flat length and sum of flange lengths.</Item>
-    <Item><strong>Explanation of <InlineEquation equation = " K_b"/></strong>: Empirical coefficient accounting for material and bend geometry; typically <InlineEquation equation = "K_b = 0.33"/> to <InlineEquation equation = "0.5"/>.</Item>
-    <Item><strong>Example</strong>: <InlineEquation equation = " R = 8.5"/> mm, <InlineEquation equation = "\\theta = 140^\\circ, t = 5"/> mm, <InlineEquation equation = "K_b = 0.33"/>:</Item>
-
-<DisplayEquation equation="L_b = \\frac{2\\pi \\cdot 8.5 \\cdot 140}{360} + 0.33 \\cdot 5 = 20.75 + 1.65 = 22.4 \\, mm" title="" />
+<!-- <DisplayEquation equation="L_b = \\frac{2\\pi \\cdot 8.5 \\cdot 140}{360} + 0.33 \\cdot 5 = 20.75 + 1.65 = 22.4 \\, mm" title="" /> -->
 
 
+</Itemize>
 </Itemize>
 </SubSection>
 <SubSection title="Springback" id="Springback">
+<p>After bending sheet metal, the part naturally recovers some of its original shape due to a finite Elastic Modulus (elastic recovery). To compensate, parts must be overbent, so the springback results in the desired angle.</p>
 <Itemize>
-
+    <Item> <InlineEquation equation = "K_s"/> = 1 means no springback </Item>
+    <Item> <InlineEquation equation = "K_s"/> = 0 means complete recovery of original shape </Item>
     <Item><strong>Springback Factor <InlineEquation equation = "K_s"/></strong>:</Item>
 
 <DisplayEquation equation="z = R_{i}/R_{f} = 4\\left(\\frac{\\sigma_{y} R_{i}}{Et}\\right)^3 - 3\\left(\\frac{\\sigma_{y} R_{i}}{Et}\\right) +1" title="" />
@@ -161,7 +182,6 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
 
 <DisplayEquation equation="K_s = \\frac{\\frac{2R_f}{t} + 1}{ \\frac{2R_i}{t} + 1}" title="" />
 
-    <Item><strong>Explanation of <InlineEquation equation = "K_s"/></strong>: Ratio of final to initial bend radius adjusted for thickness; indicates elastic recovery.</Item>
     <Item><strong>Example</strong>: <InlineEquation equation = "R_i = 20"/> mm, <InlineEquation equation = "R_f = 20.9"/> mm,  <InlineEquation equation = "t = 2"/> mm:</Item>
 
 <DisplayEquation equation="K_s = \\frac{\\frac{2*20.9}{2} + 1}{ \\frac{2* 20}{2} + 1} = 1.045" title="" />
