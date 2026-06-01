@@ -1,0 +1,561 @@
+---
+import Layout from "../../layouts/Layout.astro" 
+import Image from "../../components/Image.astro" 
+import Section from "../../components/Section.astro" 
+import SubSection from "../../components/SubSection.astro" 
+import SubSubSection from "../../components/SubSubSection.astro" 
+import SubSubSubSection from "../../components/SubSubSubSection.astro" 
+import CalloutContainer from "../../components/CalloutContainer.astro" 
+import OrangeText from "../../components/OrangeText.astro" 
+import TealText from "../../components/TealText.astro" 
+import Enumerate from "../../components/Enumerate.astro" 
+import Item from "../../components/Item.astro" 
+import Itemize from "../../components/Itemize.astro" 
+import InlineEquation from "../../components/InlineEquation.astro" 
+import DisplayEquation from "../../components/DisplayEquation.astro"
+import DisplayTable from "../../components/DisplayTable.astro";
+---
+<Layout title="Dimensional Analysis">
+    <div slot="navtree">
+        <ul class="list-group list-group-flush py-0">
+            <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Introduction'>Introduction</a></li>
+            <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Motivation'>Motivation</a></li>
+            <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Buckingham Pi Theorem'>Buckingham Pi Theorem</a></li>
+            <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Key Dimensionless Groups'>Key Dimensionless Groups</a></li>
+            <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Scale Models'>Scale Models</a></li>
+            <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Non-Dimensionalizing Equations'>Non-Dimensionalizing Equations</a></li>
+        </ul>
+    </div>
+
+<SubSection title="Introduction" id="Introduction">
+<p>In previous chapters, fluid mechanics problems were primarily analyzed by
+applying conservation laws to systems or control volumes. While these governing
+equations provide a complete mathematical description of fluid flow, many
+engineering problems involve several interacting variables such as velocity,
+pressure, density, viscosity, gravity, and geometry that combine in complex or nonlinear ways. As was seen, these effects make the formulation of analytic solutions extremely difficult. Moreover, as the number of variables increases, it becomes more difficult to determine which physical effects actually dominate the flow behavior.</p>
+
+    <p>Dimensional analysis provides a systematic method for simplifying these
+problems by combining variables into dimensionless groups. Rather than studying
+each dimensional quantity independently, the flow may instead be described
+using parameters that compare competing physical effects, such as inertial,
+viscous, gravitational, or compressibility effects.</p>
+
+    <p>A major tool used in this process is the Buckingham Pi Theorem, which states
+that a problem involving several dimensional variables may be rewritten in
+terms of a smaller set of independent dimensionless groups called <InlineEquation equation="\\pi" /> terms.These groups help reduce problem complexity, organize experimental data, and
+develop generalized relationships between variables.</p>
+    <p>Dimensionless parameters also form the basis of similitude and scale modeling.
+In many engineering applications, full-scale systems are too expensive or
+impractical to test directly, so smaller laboratory models are used instead.
+If the correct similarity conditions are satisfied, the behavior of the model
+can be used to predict the behavior of the full-scale prototype.</p>
+    <p>This chapter develops the Buckingham Pi Theorem, introduces common
+dimensionless groups used in fluid mechanics, discusses experimental
+correlations and scale models, and shows how important dimensionless
+parameters may also emerge directly from the governing equations through
+non-dimensionalization.</p>
+</SubSection>
+<SubSection title="Motivation" id="Motivation">
+    <p>In many fluid mechanics problems, the primary goal is to determine how one
+quantity depends on several others. For example, the drag force acting on an
+object moving through a fluid may depend on the fluid velocity, density,
+viscosity, and the size of the object. Symbolically, this relationship might
+be written as</p>
+
+<DisplayEquation equation="F_D = f(V,\\rho,\\mu,L)" title="" />
+
+    <p>While conservation laws and governing equations may fully describe the flow,
+solving those equations directly is often difficult or impractical for real
+engineering systems. In addition, experimentally studying every variable
+independently would require a large number of tests. Dimensional analysis helps simplify this process by combining variables into dimensionless groups. Rather than searching for a relationship between many dimensional quantities, the problem may instead be rewritten in terms of a smaller set of dimensionless parameters. This reduces problem complexity while still preserving the important physical behavior of the flow.</p>
+    <p>Expressing results in dimensionless form is also useful because experimental
+data obtained from one system can often be applied to other similar systems.
+This idea forms the basis for experimental correlations, scale models, and
+similitude in fluid mechanics.</p>
+</SubSection>
+<SubSection title="Buckingham Pi Theorem" id="Buckingham Pi Theorem">
+    <p>The Buckingham Pi Theorem is a method for rewriting a dimensional physical
+relationship in terms of dimensionless groups. These dimensionless groups are
+called <InlineEquation equation="\\pi" /> terms. The main idea is that a problem with many dimensional
+variables can usually be described using fewer dimensionless parameters. It is then possible to conduct experiments that specify only the value of these dimensionless combination of variables as opposed to the individual value of each dimensional variable to identify the functional relationship between the dimensionless quantities. The Buckingham Pi Theorem can be overviewed as follows:</p>
+    <p>Suppose a fluid mechanics problem depends on <InlineEquation equation="n" /> dimensional variables:</p>
+
+<DisplayEquation equation="q_1,\\ q_2,\\ q_3,\\ldots,\\ q_n" title="" />
+
+If these variables contain <InlineEquation equation="r" /> <strong>independent</strong>  dimensions, such as
+mass <InlineEquation equation="M" />, length <InlineEquation equation="L" />, and time <InlineEquation equation="T" /> (or <InlineEquation equation="F" />,<InlineEquation equation="L" />, and <InlineEquation equation="T" /> as was emphasized in chapter 1), then the number of independent
+dimensionless groups needed to relate these variables is
+
+<DisplayEquation equation="n-r" title="" />
+
+The original relationship
+
+<DisplayEquation equation="f(q_1,q_2,\\ldots,q_n)=0" title="" />
+
+can then be rewritten as
+
+<DisplayEquation equation="F(\\Pi_1,\\Pi_2,\\ldots,\\Pi_{n-r})=0" title="" />
+
+or, solving for one group,
+
+<DisplayEquation equation="\\Pi_1=\\phi(\\Pi_2,\\Pi_3,\\ldots,\\Pi_{n-r})" title="" />
+
+where
+<DisplayEquation equation="\\Pi_2,\\Pi_3,\\ldots,\\Pi_{n-r}" title="" />
+
+    <p>are the dimensionless quantities known as Pi terms. They are a repackaging of the dimensional variables.</p>
+    <p>Note that the theorem does not give the exact function <InlineEquation equation="\\phi" />. In this way, dimensional analysis is not a method to solve or characterize the analytical relationship between variables. Instead, it identifies
+which dimensionless parameters the final relationship must depend on in a way that can greatly simplify empirical analysis.</p>
+
+    <Image src='/fluid/dimensional_analysis/pitermvisualization.jpeg' width='7'>Visualization on dimensional analysis and the development of empirical correlations between non-dimensional groups</Image>
+</SubSection>
+    <SubSubSection title="Carrying Out the Buckingham Pi Theorem">
+    The <strong>method of repeating variables</strong> is a common method for determining Pi terms and applying the Buckingham Pi Theorem. It can usually be broken down
+    <Enumerate>
+
+        <Item>List all variables expected to influence the problem.</Item>
+        <Item>Write the dimensions of each variable using basic dimensions such as</Item>
+    mass <InlineEquation equation="M" />, length <InlineEquation equation="L" />, time <InlineEquation equation="T" />, and temperature <InlineEquation equation="\\Theta" />.
+        <Item>Count the total number of variables, <InlineEquation equation="n" />.</Item>
+        <Item>Count the number of independent reference dimensions, <InlineEquation equation="r" />.</Item>
+        <Item>Determine the number of dimensionless groups using:</Item>
+
+    <DisplayEquation equation="n-r" title="" />
+
+        <Item>Choose <InlineEquation equation="r" /> repeating variables. These variables should collectively</Item>
+    contain all fundamental dimensions and should not already form a
+    dimensionless group by themselves.
+        <Item>Combine each non-repeating variable with the repeating variables to</Item>
+    form a <InlineEquation equation="\\pi" /> term. In general, a pi term takes the form:
+
+    <DisplayEquation equation="\\Pi_i = q(\\text{repeating}_1)^a (\\text{repeating}_2)^b (\\text{repeating}_3)^c" title="" />
+
+    where <InlineEquation equation="q" /> is a non-repeating variable and <InlineEquation equation="a,b,c" /> are unknown exponents.
+        <Item>Solve for the exponents that make each <InlineEquation equation="\\pi" /> term dimensionless by</Item>
+    setting the powers of each fundamental dimension equal to zero.
+
+    </Enumerate>
+    The repeating variables should be chosen carefully. They should collectively
+    contain all of the basic dimensions in the problem, and they should not be able to combine to create a dimensionless group by themselves, that is, they should be dimensionally independent from one another.
+        </SubSubSection>
+    <SubSubSection title="Example: Drag Force on a Body">
+    Consider the drag force acting on a body moving through a fluid. Assume the
+    drag force depends on velocity, fluid density, fluid viscosity, and a
+    characteristic length (Chapter 9 will demonstrate a more complete relationship for drag):
+
+    <DisplayEquation equation="F_D = f(V,\\rho,\\mu,L)" title="" />
+
+    <strong>Step 1: List all variables expected to influence the problem.</strong>
+    The variables are:
+
+    <DisplayEquation equation="F_D,\\ V,\\ \\rho,\\ \\mu,\\ L" title="" />
+
+    <strong>Step 2: Write the dimensions of each variable using fundamental dimensions.</strong>
+    Using mass <InlineEquation equation="M" />, length <InlineEquation equation="L" />, and time <InlineEquation equation="T" />:
+
+    <DisplayEquation equation="[F_D]=MLT^{-2}" title="" />
+
+
+    <DisplayEquation equation="[V]=LT^{-1}" title="" />
+
+
+    <DisplayEquation equation="[\\rho]=ML^{-3}" title="" />
+
+
+    <DisplayEquation equation="[\\mu]=ML^{-1}T^{-1}" title="" />
+
+
+    <DisplayEquation equation="[L]=L" title="" />
+
+    <strong>Step 3: Determine the number of variables, <InlineEquation equation="n" />.</strong>
+    There are five variables:
+
+    <DisplayEquation equation="n=5" title="" />
+
+    <strong>Step 4: Determine the number of independent reference dimensions, <InlineEquation equation="r" />.</strong>
+    The variables contain the dimensions:
+
+    <DisplayEquation equation="M,\\ L,\\ T" title="" />
+
+    Thus,
+
+    <DisplayEquation equation="r=3" title="" />
+
+    <strong>Step 5: Determine the number of dimensionless groups.</strong>
+    Using the Buckingham Pi Theorem:
+
+    <DisplayEquation equation="n-r=5-3=2" title="" />
+
+    Therefore, two independent dimensionless groups are required.
+    <strong>Step 6: Choose <InlineEquation equation="r" /> repeating variables.</strong>
+    Choose:
+
+    <DisplayEquation equation="\\rho,\\ V,\\ L" title="" />
+
+    These variables collectively contain all fundamental dimensions and are
+    dimensionally independent.
+    <strong>Step 7: Form dimensionless products.</strong>
+    The first non-repeating variable (variable remaining after our selection of repeating variables) is <InlineEquation equation="F_D" />, so form:
+
+    <DisplayEquation equation="\\Pi_1 = F_D \\rho^a V^b L^c" title="" />
+
+    The second non-repeating variable is <InlineEquation equation="\\mu" />, so form:
+
+    <DisplayEquation equation="\\Pi_2 = \\mu \\rho^a V^b L^c" title="" />
+
+    <strong>Step 8: Solve for the exponents required to eliminate dimensions.</strong>
+    For the first pi term,
+
+    <DisplayEquation equation="\\Pi_1 = F_D \\rho^a V^b L^c" title="" />
+
+    Substitute dimensions:
+
+    <DisplayEquation equation="\\Pi_1 = (MLT^{-2})(ML^{-3})^a(LT^{-1})^b(L)^c" title="" />
+
+    Collect powers of each dimension:
+
+    <DisplayEquation equation="\\Pi_1 = M^{1+a}L^{1-3a+b+c}T^{-2-b}" title="" />
+
+    For <InlineEquation equation="\\Pi_1" /> to be dimensionless we can for the unknown exponents piece-wise for each dimension:
+
+    <DisplayEquation equation="1+a=0" title="" />
+
+
+    <DisplayEquation equation="1-3a+b+c=0" title="" />
+
+
+    <DisplayEquation equation="-2-b=0" title="" />
+
+    Solving:
+
+    <DisplayEquation equation="a=-1,\\qquad b=-2,\\qquad c=-2" title="" />
+
+    Thus,
+
+    <DisplayEquation equation="\\Pi_1 = \\frac{F_D}{\\rho V^2 L^2}" title="" />
+
+    Now repeat the process for the second pi term:
+
+    <DisplayEquation equation="\\Pi_2 = \\mu \\rho^a V^b L^c" title="" />
+
+    Substitute dimensions:
+
+    <DisplayEquation equation="\\Pi_2 = (ML^{-1}T^{-1})(ML^{-3})^a(LT^{-1})^b(L)^c" title="" />
+
+    Collect powers:
+
+    <DisplayEquation equation="\\Pi_2 = M^{1+a}L^{-1-3a+b+c}T^{-1-b}" title="" />
+
+    Set exponents equal to zero:
+
+    <DisplayEquation equation="1+a=0" title="" />
+
+
+    <DisplayEquation equation="-1-3a+b+c=0" title="" />
+
+
+    <DisplayEquation equation="-1-b=0" title="" />
+
+    Solving:
+
+    <DisplayEquation equation="a=-1,\\qquad b=-1,\\qquad c=-1" title="" />
+
+    Therefore,
+
+    <DisplayEquation equation="\\Pi_2 = \\frac{\\mu}{\\rho V L}" title="" />
+
+    This is actually just the inverse of the Reynolds number:
+
+    <DisplayEquation equation="Re=\\frac{\\rho V L}{\\mu}" title="" />
+
+    The final dimensionless relationship becomes:
+
+    <DisplayEquation equation="\\frac{F_D}{\\rho V^2 L^2} = \\phi(Re)" title="" />
+
+    This result shows that the dimensionless drag force depends on the Reynolds
+    number.
+        </SubSubSection>
+    <SubSubSection title="Finding Pi Terms by Inspection">
+        <p>In some problems, dimensionless groups can be identified without explicitly
+    solving for unknown exponents. This approach is called finding <InlineEquation equation="\\pi" /> terms by
+    inspection. After gaining experience with common fluid mechanics problems and
+    dimensionless parameters, this method is often significantly faster than the
+    full repeating variable procedure.</p>
+        <p>The basic idea is to look for combinations of variables that naturally form
+    dimensionless ratios. Since the goal is to compare physical effects, many
+    dimensionless groups arise from comparing quantities with similar units or
+    similar physical meaning.
+    For example:</p>
+
+    <DisplayEquation equation="\\frac{\\text{length}}{\\text{length}}, \\qquad \\frac{\\text{pressure}}{\\text{pressure}}, \\qquad \\frac{\\text{inertial effects}}{\\text{viscous effects}}" title="" />
+
+    all produce dimensionless quantities.
+    Common fluid mechanics dimensionless groups are often constructed by comparing:
+
+    <DisplayEquation equation="\\frac{\\text{force}}{\\text{inertial force scale}}, \\qquad \\frac{\\text{pressure}}{\\rho V^2}, \\qquad \\frac{\\rho V L}{\\mu}" title="" />
+
+    where <InlineEquation equation="\\rho V^2" /> represents a dynamic pressure scale and
+
+    <DisplayEquation equation="\\frac{\\rho V L}{\\mu}" title="" />
+
+    is the Reynolds number.
+        </SubSubSection>
+    <SubSubSection title="Example: Drag Force by Inspection">
+    Consider again the drag force acting on a body moving through a fluid:
+
+    <DisplayEquation equation="F_D = f(V,\\rho,\\mu,L)" title="" />
+
+    There are five variables:
+
+    <DisplayEquation equation="F_D,\\ V,\\ \\rho,\\ \\mu,\\ L" title="" />
+
+    and the reference dimensions are:
+
+    <DisplayEquation equation="M,\\ L,\\ T" title="" />
+
+    Thus, the Buckingham Pi Theorem predicts:
+
+    <DisplayEquation equation="n-r=5-3=2" title="" />
+
+    Therefore, two independent dimensionless groups are required. The drag force has units of force, so a natural inertial force scale is based
+    on:
+
+    <DisplayEquation equation="\\rho V^2 L^2" title="" />
+
+    Since both quantities have dimensions of force, the first dimensionless group
+    may be written directly as:
+
+    <DisplayEquation equation="\\Pi_1 = \\frac{F_D}{\\rho V^2 L^2}" title="" />
+
+    Next, viscosity is commonly compared against inertial effects using the
+    Reynolds number:
+
+    <DisplayEquation equation="\\Pi_2 = Re = \\frac{\\rho V L}{\\mu}" title="" />
+
+    Thus, by inspection, the drag relationship becomes:
+
+    <DisplayEquation equation="\\frac{F_D}{\\rho V^2 L^2} = \\phi(Re)" title="" />
+
+    This result is identical to the relationship obtained earlier using the method
+    of repeating variables, but the dimensionless groups were identified directly
+    without solving for unknown exponents. Essentially, we can just formulate pi terms directly by using intuition for how dimensionless quantities are formed. Over time, as one becomes more familiar with dimensional analysis, dimensionless quantities, or a specific set of variables, developing pi terms by inspection becomes much simpler than the method of repeating variables.
+        </SubSubSection>
+<SubSection title="Key Dimensionless Groups" id="Key Dimensionless Groups">
+    <p>When working through the Buckingham Pi Theorem, one might notice that certian dimensionless quantities appear repeatedly. Indeed, many of these quantities aren't simple an convenient mathematical packaging, but rather carry with them physical significance. Many dimensionless groups appear repeatedly throughout fluid mechanics because
+they compare the relative importance of different physical effects. These
+parameters are useful for characterizing flow behavior, correlating experimental
+data, and establishing a connection between models of different scales or prototypes. </p>
+    <p>Additionally, as was already seen in Chapter 6, they are particulary useful in identifying when certain simplifying assumptions are valid such as neglecting viscous effects or assuming incompressibility, the entire foundation in most introductory fluid mechanics courses. To that end, the Reynolds number, the most important and common dimensionless quantity incompressible flow and the mach number, both of which have been mentioned in previous chapters, are reviewed again here.</p>
+</SubSection>
+    <SubSubSection title="Reynolds Number">
+    The Reynolds number compares the relative magnitude of inertial effects or forces in a flow to viscous effects:
+
+    <DisplayEquation equation="Re=\\frac{\\rho V L}{\\mu} =\\frac{V L}{\\nu}" title="" />
+
+    where:
+    <Itemize>
+
+        <Item><InlineEquation equation="\\rho" /> is fluid density,</Item>
+        <Item><InlineEquation equation="V" /> is a characteristic velocity,</Item>
+        <Item><InlineEquation equation="L" /> is a characteristic length,</Item>
+        <Item><InlineEquation equation="\\mu" /> is dynamic viscosity,</Item>
+        <Item><InlineEquation equation="\\nu" /> is kinematic viscosity.</Item>
+
+    </Itemize>
+    Large Reynolds numbers indicate flows dominated by inertial effects, while
+    small Reynolds numbers indicate flows where viscous effects are important. The qualitative behavior of a flow is often highly depenedent on the Reynolds number and as has already been shown, the relative importance of viscosity versus inertial effects determines whether major simplifying assumptions are appropriate for the general Navier-Stokes equations. As will be expanded on in Chapter 7 as well, the Reynolds number is especially important in determining whether a flow is
+    laminar or turbulent, an essential classification with impliciations for flow profiles, heat transfer, energy losses and more.
+        </SubSubSection>
+    <SubSubSection title="Mach Number">
+    The Mach number compares flow velocity to the local speed of sound:
+
+    <DisplayEquation equation="Ma=\\frac{V}{c}" title="" />
+
+    where:
+    <Itemize>
+
+        <Item><InlineEquation equation="V" /> is the flow velocity,</Item>
+        <Item><InlineEquation equation="c" /> is the local speed of sound.</Item>
+
+    </Itemize>
+        <p>The Mach number measures the importance of compressibility effects within a
+    flow For low Mach numbers, density changes are often negligible, while
+    compressibility effects become increasingly important at higher Mach numbers. With this in mind, a typical incompressible flow analysis will usually not include the Mach number, however; as was stated in Chapter 1, it is vitally important to use the Mach number to consider whether an assumption about incompressibility is valid. Engineers who work on on high-speed flows or those involving transonic or supersonic flows such as those encountered in jet engines or turbines will see that many functional relationships between common flow variables become functions of the Mach number.</p>
+        <p>The following table provides an overview of some common dimensionless groups encountered in fluid mechanics. Whether or not a specific dimensional quantity is relevant for a fluids problem depends heavily on the nature of the problem, the working fluid, and the relevant forces at play. Additionally, as the last two entries demonstrate, dimensionless quantities also appear quite frequently in other related fields, such as thermodynamics and heat transfer. Many energy transfer mechanisms, particularity those involving convention depend on both heat transfer properties of materials but also flow properties and are therefore often referred to as thermo-fluidics problems. Many of the principles developed here for incompressible flow, can be naturally extended into heat transfer and other adjacent fields.</p>
+
+        <p>Notable dimensionless groups in fluid mechanics and heat transfer</p>
+        <DisplayTable id="id" class_="mb-3">
+            <thead>
+
+            <tr>
+                <th class="table-shaded"><strong>Name</strong></th>
+                <th class="table-shaded"><strong>Symbol</strong></th>
+                <th class="table-shaded"><strong>Definition</strong></th>
+                <th class="table-shaded"><strong>Primary Comparison</strong></th>
+            </tr>
+            </thead>
+            <tbody>
+
+            <tr>
+                <td>Reynolds Number</td>
+                <td><InlineEquation equation="Re" /> </td>
+                <td><InlineEquation equation="\\displaystyle Re=\\frac{\\rho V L}{\\mu}=\\frac{VL}{\\nu}" /></td>
+                <td>Inertial / viscous effects</td>
+            </tr>
+
+            <tr>
+                <td> Mach Number</td>
+                <td><InlineEquation equation="Ma" /> </td>
+                <td><InlineEquation equation="\\displaystyle Ma=\\frac{V}{c}" /></td>
+                <td>Flow speed / speed of sound</td>
+            </tr>
+            <tr>
+                <td> Froude Number</td>
+                <td><InlineEquation equation="Fr" /> </td>
+                <td><InlineEquation equation="\\displaystyle Fr=\\frac{V}{\\sqrt{gL}}" /></td>
+                <td>Inertial / gravitational effects</td>
+            </tr>
+            <tr>
+                <td> Euler Number</td>
+                <td><InlineEquation equation="Eu" /> </td>
+                <td><InlineEquation equation="\\displaystyle Eu=\\frac{\\Delta p}{\\rho V^2}" /></td>
+                <td>Pressure / inertial effects </td>
+            </tr>
+            <tr>
+                <td> Weber Number</td>
+                <td><InlineEquation equation="We" /> </td>
+                <td><InlineEquation equation="\\displaystyle We=\\frac{\\rho V^2 L}{\\sigma}" /></td>
+                <td>Inertial / surface tension effects </td>
+            </tr>
+            <tr>
+                <td> Strouhal Number</td>
+                <td><InlineEquation equation="St" /> </td>
+                <td><InlineEquation equation="\\displaystyle St=\\frac{fL}{V}" /></td>
+                <td>Unsteady / convective effects</td>
+            </tr>
+            <tr>
+                <td> Prandtl Number</td>
+                <td><InlineEquation equation="Pr" /> </td>
+                <td><InlineEquation equation="\\displaystyle Pr=\\frac{\\nu}{\\alpha}" /></td>
+                <td>Momentum diffusion / thermal diffusion</td>
+            </tr>
+            <tr>
+                <td> Nusselt Number</td>
+                <td><InlineEquation equation="Nu" /> </td>
+                <td><InlineEquation equation="\\displaystyle Nu=\\frac{hL}{k}" /></td>
+                <td>Convective / conductive heat transfer</td>
+            </tr>
+            </tbody>
+        </DisplayTable>
+
+
+        </SubSubSection>
+<SubSection title="Scale Models" id="Scale Models">
+    <p>In many engineering applications, directly testing a full-scale system may be
+too expensive, impractical, or difficult to control. Instead, smaller
+laboratory models are often constructed and tested under controlled conditions,
+such as aircraft testing in wind tunnels.</p>
+    <p>The purpose of a scale model is not simply to create a smaller geometric copy
+of the real system, but rather to reproduce the important flow physics of the
+prototype. This is accomplished by matching the appropriate dimensionless
+groups between the model and the real system or in other words, equating pi terms.
+Given that a physical relationship is written in dimensionless form as:</p>
+
+<DisplayEquation equation="\\Pi_1=\\phi(\\Pi_2,\\Pi_3,\\ldots)" title="" />
+
+If the relevant dimensionless groups are the same for both the model and the
+prototype,
+
+<DisplayEquation equation="(\\Pi_2)_m=(\\Pi_2)_p, \\qquad (\\Pi_3)_m=(\\Pi_3)_p, \\qquad \\ldots" title="" />
+
+then the remaining dimensionless term (which is usually constructed as the dependent variable) should also match:
+
+<DisplayEquation equation="(\\Pi_1)_m=(\\Pi_1)_p" title="" />
+
+In practice this means that if  one develops conditions for a scale model characterized by specific values for dimensionless variables, then one can use these results to predict the outcome for a similar full-scale system whose flow physics is defined by the same dimensionless parameters. For example, consider flow over a body where the drag relationship depends on
+the Reynolds number as before:
+
+<DisplayEquation equation="\\frac{F_D}{\\rho V^2L^2}=\\phi(Re)" title="" />
+
+To preserve similar flow behavior between the model and prototype, the Reynolds
+numbers should match:
+
+<DisplayEquation equation="(Re)_m=(Re)_p" title="" />
+
+or
+
+<DisplayEquation equation="\\left( \\frac{\\rho VL}{\\mu} \\right)_m = \\left( \\frac{\\rho VL}{\\mu} \\right)_p" title="" />
+
+If the same fluid is used in both cases, then density and viscosity are the
+same, giving:
+
+<DisplayEquation equation="V_mL_m=V_pL_p" title="" />
+
+This means that a smaller model may require a larger velocity in order to
+maintain the same Reynolds number and preserve similar fluid behavior.
+
+    <Image src='/fluid/dimensional_analysis/geometricanddynamicsimilarity.jpeg' width='7'>Conditions for model similitude</Image>
+
+Most of the time, in developing pi terms and dimensionless quantities, one will notice that they fall into one of two categories. Oftentimes one of the pi terms will express some geometric result, such as the ratio of two length such as height and width for instance
+
+<DisplayEquation equation="\\frac{h}{w}" title="" />
+
+This shows that one part of establishing similitude between a laboratory and full-scale model is about establishing geometric similarity - equating the shape or profile a test subject. In the above example, it was also seen that a matching Reynolds number was required, indicating that we needed to equate flow conditions or physics as governed by flow variables and fluid properties. Thus a second category of similarity is the dynamic similarity. This usually bears out as matching the dimensionless values of the Reynolds number,
+Mach number, or Froude number. These two categories make sense; the laboratory model must recreate the same geometric features and flow physics as the corresponding full-scale prototype in order to make accurate predictions.
+    </SubSection>
+<SubSection title="Non-Dimensionalizing Equations" id="Non-Dimensionalizing Equations">
+    <p>Another important application of dimensional analysis is rewriting governing
+equations and exact solutions in dimensionless form. This process is called
+non-dimensionalization.</p>
+    <p>The basic idea is to scale variables using characteristic reference quantities.
+For example, a velocity may be scaled by a characteristic speed <InlineEquation equation="V" />, a length
+by a characteristic length <InlineEquation equation="L" />, a time by a characteristic flow time <InlineEquation equation="L/V" />,
+and a pressure by a characteristic pressure scale <InlineEquation equation="\\rho V^2" />:</p>
+
+<DisplayEquation equation="u^*=\\frac{u}{V}, \\qquad x^*=\\frac{x}{L}, \\qquad t^*=\\frac{t}{L/V}, \\qquad p^*=\\frac{p}{\\rho V^2}" title="" />
+
+    <p>The starred quantities are dimensionless variables that have been normalized with respect to their reference quantities.</p>
+    <p>Once the dimensionless variables are defined, they are substituted into the
+original governing equations. The equations are then algebraically rearranged
+so that all remaining terms are dimensionless. During this process,
+dimensionless groups naturally emerge from the mathematics itself.
+For example, the incompressible Navier--Stokes equations may be written as:</p>
+
+<DisplayEquation equation="\\rho \\left( \\frac{\\partial \\vec{V}}{\\partial t} + (\\vec{V}\\cdot\\nabla)\\vec{V} \\right) = -\\nabla p + \\mu\\nabla^2\\vec{V}" title="" />
+
+After introducing characteristic scales and rewriting the equation in
+dimensionless form, the result becomes:
+
+<DisplayEquation equation="\\frac{\\partial \\vec{V}^*}{\\partial t^*} + (\\vec{V}^*\\cdot\\nabla^*)\\vec{V}^* = -\\nabla^* p^* + \\frac{1}{Re}\\nabla^{*2}\\vec{V}^*" title="" />
+
+where
+
+<DisplayEquation equation="Re=\\frac{\\rho VL}{\\mu}" title="" />
+
+    <p>is the now familiar Reynolds number. The reciprocal of the Reynolds number now appears directly as the coefficient multiplying the
+viscous term. Large Reynolds numbers therefore correspond to flows where
+inertial effects dominate, while small Reynolds numbers indicate flows where
+viscous effects are more important, just as was discussed earlier.</p>
+    <p>Dimensionless forms are also useful when rewriting exact solutions. For
+example, capillary rise (as was touched on in the introductory reference content) in a tube may be written as:</p>
+
+<DisplayEquation equation="h=\\frac{2\\sigma\\cos\\theta}{\\rho g R}" title="" />
+
+Dividing by a characteristic height scale which is the height for perfect wetting or a contact angle of zero,
+
+<DisplayEquation equation="h_0=\\frac{2\\sigma}{\\rho g R}" title="" />
+
+gives the dimensionless form:
+
+<DisplayEquation equation="h^*=\\frac{h}{h_0}=\\cos\\theta" title="" />
+
+where
+
+<DisplayEquation equation="h^*=\\frac{h}{h_0}" title="" />
+
+    <p>is the dimensionless height.</p>
+    <p>Expressing equations and solutions in dimensionless form generally doesn't chart new progress in solving an analytic equation. Nevertheless, it often simplifies the
+mathematics, highlights the dominant physics, and allows the results to apply
+to a broader class of similar flow problems.</p>
+</SubSection>
+</Layout>

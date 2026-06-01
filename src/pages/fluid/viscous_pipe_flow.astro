@@ -1,0 +1,558 @@
+---
+import Layout from "../../layouts/Layout.astro" 
+import Image from "../../components/Image.astro" 
+import Section from "../../components/Section.astro" 
+import SubSection from "../../components/SubSection.astro" 
+import SubSubSection from "../../components/SubSubSection.astro" 
+import SubSubSubSection from "../../components/SubSubSubSection.astro" 
+import CalloutContainer from "../../components/CalloutContainer.astro" 
+import OrangeText from "../../components/OrangeText.astro" 
+import TealText from "../../components/TealText.astro" 
+import Enumerate from "../../components/Enumerate.astro" 
+import Item from "../../components/Item.astro" 
+import Itemize from "../../components/Itemize.astro" 
+import InlineEquation from "../../components/InlineEquation.astro" 
+import DisplayEquation from "../../components/DisplayEquation.astro"
+import DisplayTable from "../../components/DisplayTable.astro";
+---
+<Layout title="Viscous Pipe Flow">
+    <div slot="navtree">
+        <ul class="list-group list-group-flush py-0">
+            <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Introduction'>Introduction</a></li>
+            <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Basic Theory of Pipe Flow'>Basic Theory of Pipe Flow</a></li>
+            <li class='list-group-item py-0'><a class='text-decoration-none subsection' href='#Developed Laminar Flow'>Developed Laminar Flow</a></li>
+        </ul>
+    </div>
+
+<SubSection title="Introduction" id="Introduction">
+    <p>In previous reference material, governing principles of fluid mechanics were developed using conservation of mass, momentum, and energy. Many practical engineering systems apply these principles to flows moving through enclosed passages such as pipes, tubes, ducts, and channels.</p>
+
+    <p>Pipe flow is important in a wide range of applications including water distribution systems, HVAC systems, hydraulic machinery, oil and gas transport,cooling systems, and more. Although the geometry of a pipe may appear simple, the resulting flow behavior can vary significantly depending on the effects of viscosity, pressure gradients, pipe roughness, and flow speed.</p>
+
+    <p>Unlike certain inviscid flow models used in earlier chapters, viscous effects in pipe flow are often dominant and directly influence the pressure losses required to maintain fluid motion. Energy supplied by pumps or elevation differences is continually dissipated through viscous shear within the fluid and at the pipe walls. This chapter focuses on the behavior of incompressible viscous flow in pipes. Important topics include laminar and turbulent flow behavior, entrance region development, pressure losses, velocity profiles, friction factors, and pipe system analysis. Both major losses associated with wall friction and minor losses associated with components such as valves, bends, and fittings are considered as well.</p>
+
+    <p>Engineers will find this information useful in analyzing the performance of pipe systems as well as sizing components like pumps or air conditioners to achieve a particular thermo-fluidic output.</p>
+</SubSection>
+<SubSection title="Basic Theory of Pipe Flow" id="Basic Theory of Pipe Flow">
+<p>Pipe flow refers to fluid motion through enclosed passages that are completely filled with fluid. This is contrasted with what is commonly termed open-channel flow in which the fluid conduit is only partially occupied with fluid with the rest being exposed to ambient conditions such as in a gutter. It should be noted that the mechanics of open-channel flow are different from pipe flow.</p>
+
+    <p>An important and often defining feature of pipe flow is that fluid motion is usually driven by a pressure difference or gradient along a length of pipe. As the fluid moves downstream, viscous effects at the wall create shear stresses that resist the motion of the fluid. This resistance produces pressure losses and converts mechanical energy into thermal energy through viscous dissipation. In this way pipe flow represents an interaction between  pressure gradients and viscous forces that define the velocity profile and flow characteristics inside of the pipe conduit.</p>
+</SubSection>
+    <SubSubSubSection title="Laminar and Turbulent Flow">
+    Pipe flow may be classified as laminar, transitional, or turbulent. For laminar flow, fluid particles move in relatively smooth layers with limited
+    mixing between neighboring fluid elements. In turbulent flow, velocity and pressure fluctuate continuously and strong mixing occurs throughout the flow. Transitional flow occupies an intermediate state, where smooth flow characeristics are unstable or sporadically interrupted by turbulent mixing. Perhaps unsurprisingly, whether a flow displays laminar or turbulent characteristics depends primarily on the Reynolds number. Indeed, viscous forces are dominant in laminar flow whereas inertial forces are more significant in turbulent flow. For pipe flow, the Reynolds number is given as:
+
+    <DisplayEquation equation="Re=\\frac{\\rho V D}{\\mu}" title="" />
+
+    where:
+    <Itemize>
+
+        <Item><InlineEquation equation="\\rho" /> is fluid density,</Item>
+        <Item><InlineEquation equation="V" /> is average velocity,</Item>
+        <Item><InlineEquation equation="D" /> is pipe diameter,</Item>
+        <Item><InlineEquation equation="\\mu" /> is dynamic viscosity.</Item>
+
+    </Itemize>
+    It should be noted that transition from laminar to turbulent flow is not governed strictly by the Reynolds number and thus precise cutoff values can't be established. Nevertheless, rules of thumb or practical ranges for circular pipe flow can still be used as follows:
+
+    <DisplayEquation equation="Re \\lesssim 2300 \\qquad \\text{Laminar}" title="" />
+
+
+    <DisplayEquation equation="2300 \\lesssim Re \\lesssim 4000 \\qquad \\text{Transition}" title="" />
+
+
+    <DisplayEquation equation="Re \\gtrsim 4000 \\qquad \\text{Turbulent}" title="" />
+
+
+        <Image src='/fluid/viscous_pipe_flow/laminarvsturbulent.jpeg' width='7'>Visualization of laminar and turbulent pipe flow</Image>
+    </SubSubSubSection>
+    <SubSubSubSection title="Defining fully developed flow">
+        <p>When fluid first enters a pipe, the velocity profile is often nearly uniform. Due to the no-slip condition, fluid near the wall slows down and boundary layers (boundary layers are covered in greater detail in Chapter 9; in pipe flow this is a region where viscous effects are relevant to the flow) begin growing inward from the pipe surface.</p>
+
+        <p>As the flow continues downstream, the boundary layers increase in thickness until they merge at the pipe centerline. Beyond this point, the velocity profile no longer changes shape in the flow direction and the flow is said to be fully developed. The distance required for the flow to become fully developed is called the entrance length.The final shape of the flow profile as well as the entrance length depends on the nature of the incoming flow, be it laminar or turbulent. For laminar flow, the entrance length is approximately:</p>
+
+<DisplayEquation equation="\\frac{L_e}{D}\\approx 0.06Re" title="" />
+
+while turbulent flow generally develops more rapidly
+
+<DisplayEquation equation="\\frac{L_e}{D}\\approx 4.4Re^{1/6}" title="" />
+
+</SubSubSubSection>
+    <SubSubSubSection title="Pressure gradients: The drivers of pipe flow">
+    For fully developed flow in a horizontal pipe, pressure decreases in the flow direction because energy is continually lost due to viscous shear at the wall:
+
+    <DisplayEquation equation="\\frac{dp}{dx}<0" title="" />
+
+    The wall shear stress provides the resisting force that balances the pressure force driving the flow. In fully developed flow, the pressure gradient is approximately constant along the pipe:
+
+    <DisplayEquation equation="\\frac{dp}{dx}=\\text{constant}" title="" />
+
+    The relationship between pressure losses and wall shear stresses forms the basis for analyzing practical pipe flow systems. Note that depending on the orientation of the pipe, gravity may operate as a driving force, supporting the pressure gradient or a countervailing force, working against the pressure gradient alongside viscosity.
+
+        <Image src='/fluid/viscous_pipe_flow/laminarturbulentpipeflow.jpeg' width='7'>Visualization of laminar and turbulent pipe flow</Image>
+    </SubSubSubSection>
+<SubSection title="Developed Laminar Flow" id="Developed Laminar Flow">
+    <p>For sufficiently small Reynolds numbers, pipe flow remains laminar and fluid motion occurs in relatively smooth layers with limited mixing between adjacent fluid particles. After the entrance region ends, the velocity profile no longer changes shape in the flow direction and the flow becomes fully developed.</p>
+
+    <p>For steady, incompressible, fully developed flow in a horizontal circular pipe, the axial velocity depends only on radial position:</p>
+
+    <DisplayEquation equation="u=u(r)" title="" />
+
+    The radial and circumferential velocity components are negligible:
+
+    <DisplayEquation equation="v_r=0, \\qquad v_\\theta=0" title="" />
+
+    and pressure varies only in the axial direction:
+
+    <DisplayEquation equation="p=p(x)" title="" />
+
+    Because the flow is fully developed, pressure decreases linearly along the pipe length. A pressure difference is therefore required to overcome viscous
+    resistance and maintain fluid motion
+</SubSection>
+        <SubSubSubSection title="Velocity Distribution">
+            Applying the momentum equation together with Newton's law of viscosity leads
+            to the classical laminar pipe velocity profile:
+
+            <DisplayEquation equation="u(r)= \\frac{\\Delta p}{4\\mu L} \\left( R^2-r^2 \\right)" title="" />
+
+            where:
+            <Itemize>
+
+                <Item><InlineEquation equation="R" /> is the pipe radius,</Item>
+                <Item><InlineEquation equation="r" /> is the radial coordinate,</Item>
+                <Item><InlineEquation equation="\\Delta p" /> is the pressure drop across pipe length <InlineEquation equation="L" />.</Item>
+
+            </Itemize>
+            The profile is parabolic, with the maximum velocity occurring at the
+            centerline:
+
+            <DisplayEquation equation="u_{\\max} = \\frac{\\Delta pR^2}{4\\mu L}" title="" />
+
+            The no-slip condition requires:
+
+            <DisplayEquation equation="u(R)=0" title="" />
+
+            while symmetry gives:
+
+            <DisplayEquation equation="\\left( \\frac{du}{dr} \\right)_{r=0}=0" title="" />
+
+        </SubSubSubSection>
+        <SubSubSubSection title="Pressure Drop and Wall Shear Stress">
+            Take note from the preceding equations that the pressure drop required to maintain flow increases with:
+            <Itemize>
+
+                <Item>increasing flow rate,</Item>
+                <Item>increasing viscosity,</Item>
+                <Item>increasing pipe length,</Item>
+
+            </Itemize>
+            and decreases with increasing pipe diameter.
+            The wall shear stress is related to the velocity gradient at the wall:
+
+            <DisplayEquation equation="\\tau_w = \\mu \\left( \\frac{du}{dr} \\right)_{r=R}" title="" />
+
+            For fully developed laminar pipe flow:
+
+            <DisplayEquation equation="\\tau_w = \\frac{\\Delta pD}{4L}" title="" />
+
+            showing that the wall shear stress is directly related to the pressure loss
+            along the pipe.
+        </SubSubSubSection>
+        <SubSubSubSection title="Darcy Friction Factor">
+            Pressure losses in pipe flow are commonly modeled using the Darcy friction
+            factor:
+
+            <DisplayEquation equation="\\Delta p = f\\frac{L}{D} \\frac{\\rho V^2}{2}" title="" />
+
+            The friction factor is a dimensionless quantity that characterizes the amount
+            of resistance or energy loss produced by wall friction within the pipe.
+            For fully developed laminar flow in a circular pipe:
+
+            <DisplayEquation equation="f=\\frac{64}{Re}" title="" />
+
+            Unlike turbulent flow, the laminar friction factor depends only on Reynolds
+            number and is independent of pipe roughness.
+        </SubSubSubSection>
+    <SubSubSection title="Fully Developed Turbulent Pipe Flow">
+        <p>At sufficiently large Reynolds numbers, pipe flow becomes turbulent and the
+        fluid motion contains strong velocity fluctuations and mixing throughout the
+        flow. Unlike laminar flow, turbulent motion continuously transfers momentum
+        between different fluid regions, producing larger wall shear stresses and
+        greater pressure losses.</p>
+        <p>As with laminar flow, turbulent pipe flow eventually becomes fully developed
+        after the entrance region. In fully developed turbulent flow, the average
+        velocity profile no longer changes shape in the flow direction, although
+        instantaneous velocity fluctuations still occur.</p>
+    </SubSubSection>
+        <SubSubSubSection title="Velocity Profile">
+            <p> Turbulent mixing causes momentum to be transported more effectively across the
+            pipe cross section than in laminar flow. As a result, the turbulent velocity
+            profile is generally flatter through most of the pipe interior with steep
+            velocity gradients near the wall.</p>
+            <p>Unlike laminar flow, there is no simple exact analytical solution for the full
+            turbulent velocity distribution. However, approximate empirical profiles are
+            commonly used. One common approximation is the power-law profile:</p>
+
+            <DisplayEquation equation="\\frac{u}{u_{\\max}} = \\left( 1-\\frac{r}{R} \\right)^{1/n}" title="" />
+
+            where:
+            <Itemize>
+
+                <Item><InlineEquation equation="u" /> is the local velocity,</Item>
+                <Item><InlineEquation equation="u_{\\max}" /> is the centerline velocity,</Item>
+                <Item><InlineEquation equation="R" /> is the pipe radius,</Item>
+                <Item><InlineEquation equation="n" /> is an experimentally determined exponent.</Item>
+
+            </Itemize>
+            For many turbulent pipe flows:
+
+            <DisplayEquation equation="n\\approx 7" title="" />
+
+            giving the so-called one-seventh power law.
+        </SubSubSubSection>
+        <SubSubSubSection title="Pressure Losses">
+            Pressure losses in turbulent pipe flow are substantially larger than in
+            laminar flow because of increased momentum mixing and wall shear stress.
+            The pressure drop is commonly expressed using the Darcy--Weisbach equation:
+
+            <DisplayEquation equation="\\Delta p = f\\frac{L}{D} \\frac{\\rho V^2}{2}" title="" />
+
+            where:
+            <Itemize>
+
+                <Item><InlineEquation equation="f" /> is the Darcy friction factor,</Item>
+                <Item><InlineEquation equation="L" /> is pipe length,</Item>
+                <Item><InlineEquation equation="D" /> is pipe diameter,</Item>
+                <Item><InlineEquation equation="V" /> is average velocity.</Item>
+
+            </Itemize>
+        </SubSubSubSection>
+        <SubSubSubSection title="Friction Factor Behavior">
+            Unlike laminar flow, the turbulent friction factor depends on both Reynolds
+            number and pipe roughness:
+
+            <DisplayEquation equation="f=f(Re,\\epsilon/D)" title="" />
+
+            where:
+
+            <DisplayEquation equation="\\epsilon" title="" />
+
+            is the characteristic roughness height.
+            For smooth pipes at moderate Reynolds numbers, empirical correlations such as
+            the Blasius equation are often used such as:
+
+            <DisplayEquation equation="f\\approx 0.316Re^{-1/4}" title="" />
+
+            More general turbulent pipe flow calculations commonly use the Moody chart or
+            the Colebrook equation which will be discussed below in a broader discussion about pipe losses. Most empirical formulae such as the one presented above are just approximations of the Colebrook equation for certain conditions.
+        </SubSubSubSection>
+        <SubSubSubSection title="Energy Dissipation in Turbulent Flow">
+        Turbulent pipe flow produces greater energy dissipation than laminar flow
+        because eddies and continuous chatoic swirling continually transfers momentum and kinetic energy
+        throughout the fluid, prompting greater losses due to friction or viscosity. As Reynolds number increases, turbulent mixing generally
+        becomes stronger, leading to larger pressure losses and usually greater pumping power
+        requirements.
+    </SubSubSubSection>
+    <SubSubSection title="Pipe Flow Losses">
+        As fluid moves through a pipe system, mechanical energy is continually lost
+        due to viscous effects. These losses appear primarily as pressure drops and
+        must often be overcome using pumps, fans, or elevation differences.
+        Pipe flow losses are commonly divided into two categories:
+        <Itemize>
+
+            <Item>major losses,</Item>
+            <Item>minor losses.</Item>
+
+        </Itemize>
+        Broadly speaking, major losses encompass energy dissipation due to frictional effects between the working fluid and the pipe wall. Minor losses result when a flow is forced to alter its speed, direction or flow geometry usually due to pipe fitting or bend in the flow. These losses result from the local formation of turbulence and eddy formulation that enhances energy dissipation. While major losses are usually the more significant culprit of pressure drop in a system, minor losses need not be small in magnitude.
+    </SubSubSection>
+        <SubSubSubSection title="Major Losses">
+            <p>Major losses are associated with viscous friction along the walls of a pipe.
+            These losses accumulate continuously over the pipe length and are usually the
+            dominant source of pressure drop in long pipe systems.</p>
+            <p>The pressure loss due to wall friction is commonly modeled using the
+            Darcy--Weisbach equation:</p>
+
+            <DisplayEquation equation="\\Delta p = f\\frac{L}{D} \\frac{\\rho V^2}{2}" title="" />
+
+            or, expressed as head loss:
+
+            <DisplayEquation equation="h_f = f\\frac{L}{D} \\frac{V^2}{2g}" title="" />
+
+            where:
+            <Itemize>
+
+                <Item><InlineEquation equation="f" /> is the Darcy friction factor,</Item>
+                <Item><InlineEquation equation="L" /> is pipe length,</Item>
+                <Item><InlineEquation equation="D" /> is pipe diameter,</Item>
+                <Item><InlineEquation equation="V" /> is average velocity.</Item>
+
+            </Itemize>
+            For laminar flow, the friction factor is given by the analytical expression given in the discussion on developed laminar flow, while turbulent flow requires empirical correlations or the Moody chart since
+            the friction factor depends on both Reynolds number and pipe roughness.
+
+            <Image src='/fluid/viscous_pipe_flow/minorlosses.jpeg' width='7'>Visualization of major losses and the need for a driving pressure differential in pipe flow</Image>
+        </SubSubSubSection>
+        <SubSubSubSection title="Moody Chart">
+            As already stated above, for turbulent pipe flow, the Darcy friction factor depends on both Reynolds
+            number and relative roughness:
+
+            <DisplayEquation equation="\\frac{\\epsilon}{D}" title="" />
+
+            where:
+            <Itemize>
+
+                <Item><InlineEquation equation="\\epsilon" /> is the average roughness height,</Item>
+                <Item><InlineEquation equation="D" /> is the pipe diameter.</Item>
+
+            </Itemize>
+            The Moody chart provides a graphical method for determining the friction
+            factor:
+
+            <DisplayEquation equation="f=f\\left(Re,\\frac{\\epsilon}{D}\\right)" title="" />
+
+            <Image src='/fluid/viscous_pipe_flow/moodychart.png' width='7'>Moody Chart for calculating major losses. Used from
+                <a target="_blank" rel="noopener noreferrer" href="https://commons.wikimedia.org/wiki/File:Moody_EN.svg">Wikipedia</a> under the Creative Commons Attribution-Share Alike 4.0 International license</Image>
+
+            Moody Diagram Source:
+            (https://en.wikipedia.org/wiki/Moody_chart#)
+            <!--Is this copywrited? -->
+
+            To use the Moody chart:
+            <Enumerate>
+
+                <Item>Compute the Reynolds number:</Item>
+
+            <DisplayEquation equation="Re=\\frac{\\rho VD}{\\mu}" title="" />
+
+                <Item>Determine the pipe relative roughness:</Item>
+
+            <DisplayEquation equation="\\frac{\\epsilon}{D}" title="" />
+
+                <Item>Locate the Reynolds number on the horizontal axis.</Item>
+                <Item>Move vertically until intersecting the appropriate relative</Item>
+            roughness curve.
+                <Item>Read the Darcy friction factor from the vertical axis.</Item>
+                 <Item>The friction factor can then be used to estimate major losses in a pipe system</Item>
+
+            </Enumerate>
+            Note again that laminar flow does not depend on relative roughness and thus only a single analytical curve is shown for completeness on a typical Moody diagram. In turbulent flow, increasing roughness generally increases the friction
+            factor and therefore increases pressure losses within the pipe system.
+        </SubSubSubSection>
+        <SubSubSubSection title="Colebrook Equation">
+            When working with the Moody diagram and major losses, an engineer might hear of the Colebrook formula. The Colebrook equation provides an implicit relationship for the Darcy
+            friction factor in turbulent pipe flow:
+
+            <DisplayEquation equation="\\frac{1}{\\sqrt{f}} = -2\\log_{10} \\left( \\frac{\\epsilon}{3.7D} + \\frac{2.51}{Re\\sqrt{f}} \\right)" title="" />
+
+            where:
+            <Itemize>
+
+                <Item><InlineEquation equation="f" /> is the Darcy friction factor,</Item>
+                <Item><InlineEquation equation="Re" /> is the Reynolds number,</Item>
+                <Item><InlineEquation equation="\\epsilon" /> is the pipe roughness,</Item>
+                <Item><InlineEquation equation="D" /> is the pipe diameter.</Item>
+
+            </Itemize>
+            Because <InlineEquation equation="f" /> appears on both sides of the equation, the Colebrook equation must be solved iteratively. The Moody chart is nothing but a more convenient graphical solution
+            to the same relationship.
+        </SubSubSubSection>
+        <SubSubSubSection title="Minor Losses">
+            Minor losses arise from localized disturbances to the flow caused by components
+            such as:
+            <Itemize>
+
+                <Item>bends,</Item>
+                <Item>valves,</Item>
+                <Item>fittings,</Item>
+                <Item>entrances and exits,</Item>
+                <Item>contractions and expansions.</Item>
+
+            </Itemize>
+
+            <Image src='/fluid/viscous_pipe_flow/minorlossesreal.jpeg' width='7'>Visualization of minor loss sources</Image>
+
+            These components disturb the velocity field and generate additional mixing and
+            energy dissipation. Minor losses are commonly modeled using a loss coefficient <InlineEquation equation="K" />:
+
+            <DisplayEquation equation="h_L = K\\frac{V^2}{2g}" title="" />
+
+            or equivalently,
+
+            <DisplayEquation equation="\\Delta p = K\\frac{\\rho V^2}{2}" title="" />
+
+            The coefficient <InlineEquation equation="K" /> depends on the geometry of the component and is usually
+            determined experimentally. Engineers can find the values of these loss coefficients in lookup tables or from manufacturer data. Below is a table providing rough guidance.
+            <DisplayTable id="id" class_="mb-3">
+                <thead>
+
+                <tr>
+                    <th class="table-shaded"><strong>Component</strong></th>
+                    <th class="table-shaded"><strong>Typical <InlineEquation equation="K" /> Value</strong></th>
+
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>Sharp-edged entrance</td>
+                    <td>0.5</td>
+                </tr>
+                <tr>
+                    <td>Well-rounded entrance</td>
+                    <td>0.04</td>
+                </tr>
+                <tr>
+                    <td>Pipe exit</td>
+                    <td>1.0</td>
+                </tr>
+                <tr>
+                    <td>Standard 90<InlineEquation equation="^\\circ" /> elbow</td>
+                    <td>0.3 -- 1.5</td>
+                </tr>
+                <tr>
+                    <td>45<InlineEquation equation="^\\circ" /> elbow</td>
+                    <td>0.2 -- 0.4</td>
+                </tr>
+                <tr>
+                    <td>Fully open gate valve</td>
+                    <td>0.15</td>
+                </tr>
+                <tr>
+                    <td>Fully open globe valve</td>
+                    <td>10</td>
+                </tr>
+                <tr>
+                    <td>Fully open angle valve</td>
+                    <td>2</td>
+                </tr>
+                <tr>
+                    <td>Fully open ball valve</td>
+                    <td>0.05</td>
+                </tr>
+                <tr>
+                    <td>Sudden expansion</td>
+                    <td><InlineEquation equation="\\left(1-\\dfrac{A_1}{A_2}\\right)^2" /></td>
+                </tr>
+                <tr>
+                    <td>Sudden contraction</td>
+                    <td>0.4 -- 1.0 </td>
+                </tr>
+                </tbody>
+            </DisplayTable>
+
+            Typical minor loss coefficients. Actual values vary with geometry and manufacturer specifications.
+
+        </SubSubSubSection>
+        <SubSubSubSection title="Total System Losses">
+            For practical pipe systems, total head loss is often estimated by summing both
+            major and minor losses:
+
+            <DisplayEquation equation="h_{L,\\text{total}} = h_f+\\sum h_L" title="" />
+
+            or
+
+            <DisplayEquation equation="h_{L,\\text{total}} = f\\frac{L}{D}\\frac{V^2}{2g} + \\sum K\\frac{V^2}{2g}" title="" />
+
+            These relationships are widely used in pipe network design and pump selection
+            problems.
+        </SubSubSubSection>
+    <SubSubSection title="Example: Total Losses in a Simple Pipe System">
+
+        <!--Code to make the example a little nicer from  https://www.mechref.org/about/docs/#examples-->
+
+
+        <!--<Example id="ID" title="TITLE" solution="True">-->
+        <!--    <div class="d-flex flex-row">-->
+        <!--        <Row>-->
+        <!--            <Col values="12 md-4">-->
+        <!--                <p>-->
+        <!--                    QUESTION-->
+        <!--                </p>-->
+        <!--            </Col>-->
+        <!--            <Col values="12 md-8">-->
+        <!--                <Image src="IMAGE " width="7"></Image>-->
+        <!--            </Col>-->
+        <!--        </Row>-->
+        <!--    </div>-->
+        <!--    <div slot="solution">-->
+        <!--        <p>-->
+        <!--            CONTENT-->
+        <!--        </p>-->
+        <!--    </div>-->
+        <!--</Example>-->
+
+
+        Consider water flowing steadily through a horizontal pipe of length <InlineEquation equation="L" /> and
+        diameter <InlineEquation equation="D" />. The pipe contains one entrance, two elbows, one valve, and one
+        exit. The average velocity in the pipe is <InlineEquation equation="V" />.
+        The goal is to estimate the total pressure drop caused by both major and minor
+        losses.
+    </SubSubSection>
+        <SubSubSubSection title="Symbolic Setup">
+            The major loss due to wall friction is:
+
+            <DisplayEquation equation="h_f = f\\frac{L}{D}\\frac{V^2}{2g}" title="" />
+
+            The minor losses are written using loss coefficients:
+
+            <DisplayEquation equation="h_m = \\sum K\\frac{V^2}{2g}" title="" />
+
+            For this pipe system:
+
+            <DisplayEquation equation="\\sum K = K_{\\text{entrance}} + 2K_{\\text{elbow}} + K_{\\text{valve}} + K_{\\text{exit}}" title="" />
+
+            Thus, the total head loss is:
+
+            <DisplayEquation equation="h_{L,\\text{total}} = \\left( f\\frac{L}{D} + K_{\\text{entrance}} + 2K_{\\text{elbow}} + K_{\\text{valve}} + K_{\\text{exit}} \\right) \\frac{V^2}{2g}" title="" />
+
+            The corresponding pressure drop is:
+
+            <DisplayEquation equation="\\Delta p = \\rho g h_{L,\\text{total}}" title="" />
+
+            or:
+
+            <DisplayEquation equation="\\Delta p = \\left( f\\frac{L}{D} + \\sum K \\right) \\frac{\\rho V^2}{2}" title="" />
+        </SubSubSubSection>
+        <SubSubSubSection title="Numerical Example">
+            Suppose:
+
+            <DisplayEquation equation="L=20\\ \\text{m}, \\qquad D=0.05\\ \\text{m}, \\qquad V=2.0\\ \\text{m/s}" title="" />
+
+
+            <DisplayEquation equation="f=0.024, \\qquad \\rho=1000\\ \\text{kg/m}^3" title="" />
+
+            and the loss coefficients are:
+
+            <DisplayEquation equation="K_{\\text{entrance}}=0.5, \\qquad K_{\\text{elbow}}=0.3, \\qquad K_{\\text{valve}}=2.0, \\qquad K_{\\text{exit}}=1.0" title="" />
+
+            First compute the total minor-loss coefficient:
+
+            <DisplayEquation equation="\\sum K = 0.5+2(0.3)+2.0+1.0 = 4.1" title="" />
+
+            The major-loss coefficient is:
+
+            <DisplayEquation equation="f\\frac{L}{D} = 0.024\\left(\\frac{20}{0.05}\\right) = 9.6" title="" />
+
+            Therefore:
+
+            <DisplayEquation equation="f\\frac{L}{D}+\\sum K = 9.6+4.1 = 13.7" title="" />
+
+            The dynamic pressure term is:
+
+            <DisplayEquation equation="\\frac{\\rho V^2}{2} = \\frac{1000(2.0)^2}{2} = 2000\\ \\text{Pa}" title="" />
+
+            Thus, the total pressure drop is:
+
+            <DisplayEquation equation="\\Delta p = 13.7(2000) = 27400\\ \\text{Pa}" title="" />
+
+            or:
+
+            <DisplayEquation equation="\\Delta p = 27.4\\ \\text{kPa}" title="" />
+
+            This example shows that the total pressure drop comes from both pipe-wall
+            friction and localized losses from components. Even though they are called
+            minor losses, the fittings and valve contribute a significant portion of the
+            overall loss.
+
+        </SubSubSubSection>
+</Layout>
