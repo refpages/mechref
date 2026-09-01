@@ -29,9 +29,6 @@ def explore_dir_and_move(home, dir, banned_dirs):
     js = [d for d in os.listdir(os.path.join(home, dir)) if (d[-3:] == '.js')]
 
     if dir != '':
-        htmls = [f for f in os.listdir(current) if f == 'index.html']
-        js    = [f for f in os.listdir(current) if f.endswith('.js')]
-        
         for h in htmls:
             try:
                 ppth = PurePath(os.path.join(os.path.join(home, dir), h))
@@ -53,3 +50,22 @@ def explore_dir_and_move(home, dir, banned_dirs):
     for d in dirs:
         explore_dir_and_move(home, os.path.join(dir, d), banned_dirs)
     return dirs
+
+def strip_link_text(home, texts):
+    pattern = re.compile(
+        r'<a\b[^>]*>\s*(?:<span\b[^>]*>)?\s*('
+        + '|'.join(re.escape(t) for t in texts)
+        + r')\s*(?:</span>)?\s*</a>',
+        re.IGNORECASE
+    )
+    for root, dirs, files in os.walk(home):
+        for fname in files:
+            if not fname.endswith('.html'):
+                continue
+            path = os.path.join(root, fname)
+            with open(path, 'r', encoding='utf-8', errors='ignore') as f:
+                content = f.read()
+            new_content = pattern.sub(r'\1', content)
+            if new_content != content:
+                with open(path, 'w', encoding='utf-8') as f:
+                    f.write(new_content)

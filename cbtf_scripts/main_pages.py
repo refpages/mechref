@@ -13,7 +13,7 @@ def change_links(home, scripts, links, courses, special_rewrites):
         links_to_replace[f"src=\"{s['src']}\""] = f"src=\".{s['src']}\""
 
     for c in courses:
-        links_to_replace[f"href=\"/{c}\""] = f"href=\"/{c}\""
+        links_to_replace[f"href=\"/{c}\""] = f"href=\"./{c}.html\""
         links_to_replace[f"src=\"/{c}/"] = f"src=\"./{c}/"
         links_to_replace[f"href=\"/{c}/"] = f"href=\"./{c}/"
 

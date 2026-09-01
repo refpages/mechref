@@ -46,10 +46,9 @@ js = [j for j in _astro if j[-3:] == '.js']
 navbar.change_links(css)
 
 def fix_extensionless_links(filepath, course_prefix='..'):
-    """
-    Finds href links pointing to course pages that are missing .html extension
-    and adds it. Handles patterns like href="../sta/page" or href="./sta/page"
-    """
+    ##Finds href links pointing to course pages that are missing .html extension
+    ##and adds it. Handles patterns like href="../sta/page" or href="./sta/page"
+
     with open(filepath, 'r', encoding='utf-8', errors='ignore') as f:
         content = f.read()
 
@@ -101,6 +100,8 @@ special_rewrites = {
     "stress.html_transformation": "stress_transformation.html",
     "stress_transformation.html.html": "stress_transformation.html",
     "<script src=\"/static/js/themes.js\">": "<script src=\"../static/js/themes.js\">",
+    "\"/static/css/stackoverflow-light.css\"": "\"../static/css/stackoverflow-light.css\"",
+    "\"/static/css/atom-one-dark.css\"": "\"../static/css/atom-one-dark.css\"",
     'path_components = path.split("../index.html")': 'path_components = path.split("/")',
     "$(location).prop(\'href\', \"../index.html\"+$(this).attr(\"class-value\"));": "$(location).prop(\'href\', \"../\"+$(this).attr(\"class-value\")+\".html\");"
 }
@@ -120,6 +121,8 @@ special_rewrites = {
     "url(/fonts/Montserrat-Bold.ttf": "url(./fonts/Montserrat-Bold.ttf",
     "?origin=sidebar": f'.html',
     "<script src=\"/static/js/themes.js\">": "<script src=\"./static/js/themes.js\">",
+    "\"/static/css/stackoverflow-light.css\"": "\"./static/css/stackoverflow-light.css\"",
+    "\"/static/css/atom-one-dark.css\"": "\"./static/css/atom-one-dark.css\"",
     'path_components = path.split("./index.html")': 'path_components = path.split("/")',
     "$(location).prop(\'href\', \"./index.html\"+$(this).attr(\"class-value\"));": "$(location).prop(\'href\', \"./\"+$(this).attr(\"class-value\")+\".html\");"
 }
@@ -129,3 +132,6 @@ for cs in css:
 
 main_pages.change_links(home, scripts, links, courses, special_rewrites)
 fix_all_html_files(home)
+
+##remove hyperlinks
+utils.strip_link_text(home, ['Reference Pages', 'Mechanical Engineering'])
