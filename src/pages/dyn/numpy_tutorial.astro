@@ -1,0 +1,504 @@
+---
+import Layout from "../../layouts/Layout.astro"
+import Section from "../../components/Section.astro"
+import SubSection from "../../components/SubSection.astro"
+import SubSubSection from "../../components/SubSubSection.astro"
+import CodeBox from "../../components/CodeBox.astro"
+import InlineEquation from "../../components/InlineEquation.astro"
+import SubSubSubSection from "../../components/SubSubSubSection.astro"
+---
+
+<Layout title = "NumPy tutorial" description = "Learn how to use NumPy to do numerical calculations for mechanics.">
+
+  <div slot = "navtree">
+    <ul class = "list-group list-group-flush py-0"> 
+      <li class = "list-group-item py-0"><a class = "text-decoration-none subsection" href = "#motivation">Motivation</a>
+        <ul class = "list-group list-group-flush py-0">
+          <li class = "list-group-item py-0"><a class = "text-decoration-none subsubsection" href = "#example_pure_python_vs_numpy">Example: pure Python vs Numpy</a>
+            <ul class = "list-group list-group-flush py-0">
+              <li class = "list-group-item py-0"><a class = "text-decoration-none subsubsection" href = "#pure_python">Pure Python</a></li>
+              <li class = "list-group-item py-0"><a class = "text-decoration-none subsubsection" href = "#numpy">Numpy</a></li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li class = "list-group-item py-0"><a class = "text-decoration-none subsection" href = "#creating_arrays">Creating arrays</a>
+        <ul class = "list-group list-group-flush py-0">
+          <li class = "list-group-item py-0"><a class = "text-decoration-none subsubsection" href = "#creating_arrays_from_a_list">Creating arrays from a list</a></li>
+            <li class = "list-group-item py-0"><a class = "text-decoration-none subsubsection" href = "#creating_arrays_using_built_in_functions">Creating arrays using built in functions</a>
+            <ul class = "list-group list-group-flush py-0">
+              <li class = "list-group-item py-0"><a class = "text-decoration-none subsubsection" href = "#np_arrange">np.arrange()</a></li>
+              <li class = "list-group-item py-0"><a class = "text-decoration-none subsubsection" href = "#np_linspace">np.linspace()</a></li>
+              <li class = "list-group-item py-0"><a class = "text-decoration-none subsubsection" href = "#other_special_vectors">Other special vectors</a></li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li class = "list-group-item py-0"><a class = "text-decoration-none subsection" href = "#data_types">Data types</a></li>
+      <li class = "list-group-item py-0"><a class = "text-decoration-none subsection" href = "#accessing_array_elements">Accessing array elements</a></li>
+      <li class = "list-group-item py-0"><a class = "text-decoration-none subsection" href = "#copies_vs_views_accidentally_changing_your_array">Copies vs. views (accidentally changing your array)</a></li>
+      <li class = "list-group-item py-0"><a class = "text-decoration-none subsection" href = "#numpy_function">Numpy function</a></li>
+    </ul>
+  </div>
+
+  <Section title = "NumPy tutorial">
+    <p>
+      Code outputs are displayed below code boxes.
+    </p>
+    <p>
+      We'll go through some examples here to refresh the basics of numpy.
+      There are also plenty of other guides online:
+    </p>
+    <ul>
+      <li><a target = "_blank" rel = "noopener noreferrer" href = "https://numpy.org/doc/stable/user/quickstart.html">Numpy quickstart tutorial</a></li>
+      <li><a target = "_blank" rel = "noopener noreferrer" href = "https://numpy.org/doc/stable/user/numpy-for-matlab-users.html">Numpy for MATLAB users</a> -- great reference if you are used to working with MATLAB</li>
+    </ul>
+    <p>
+      First, to use a package we need to import it.
+    </p>
+    <CodeBox language = "python" code = "import numpy as np"/>
+  </Section>
+
+  <SubSection title = "Motivation" id = "motivation">
+    <p>
+      Question: Why bother with numpy?
+    </p>
+    <p>
+      Answer: Numpy arrays are faster and more efficient than lists when working with numerical data.
+    </p>
+  </SubSection>
+
+  <SubSubSection title = "Example: pure Python vs Numpy" id = "example_pure_python_vs_numpy">
+    <p>
+      Let's compare the running time for a basic operation in pure python and numpy.
+      The following code blocks create two random matrices <InlineEquation equation = "A"/> and <InlineEquation equation = "B"/>, then compute <InlineEquation equation = "C = A B"/> (you don't need to worry about understanding the code at this time).
+    </p>
+  </SubSubSection>
+
+  <SubSubSubSection title = "Pure Python" id = "pure_python">
+    <p>
+      The first code block is with pure python using lists (no numpy).
+    </p>
+    <CodeBox language = "python" code = `import random
+      import time
+
+      def create_rand_matrix(n):
+          # Create random matrix without numpy
+          M = []
+          for i in range(n):
+              row = []
+              for j in range(n):
+                  row.append(random.random())
+              M.append(row)
+          return M
+          
+      start = time.perf_counter()
+
+      n = 100
+
+      A = create_rand_matrix(n)
+      B = create_rand_matrix(n)
+          
+      # Compute C = AB
+      C = []
+      for i in range(n):
+          row = []
+          for j in range(n):
+              sum = 0
+              for k in range(n):
+                  sum += A[i][k] * B[k][j]
+              row.append(sum)
+          C.append(row)
+          
+      stop = time.perf_counter()
+      print(stop - start)`/>
+    <pre style = "border-radius: 0;">
+0.3338270999993256
+    </pre>
+  </SubSubSubSection>
+
+  <SubSubSubSection title = "Numpy" id = "numpy">
+    <p>
+      The same thing using numpy arrays.
+    </p>
+    <CodeBox language = "python" code = `start = time.perf_counter()
+
+      n = 100
+
+      A = np.random.random((n, n))
+      B = np.random.random((n, n))
+      C = A @ B
+
+      stop = time.perf_counter()
+      print(stop - start)`/>
+    <pre style = "border-radius: 0;">
+0.04226900000139722
+    </pre>
+  </SubSubSubSection>
+
+  <SubSection title = "Creating arrays" id = "creating_arrays">
+    <p>
+      Numerous ways of creating arrays are available.
+    </p>
+  </SubSection>
+
+  <SubSubSection title = "Creating arrays from a list" id = "creating_arrays_from_a_list">
+    <CodeBox language = "python" code = `vals_list = [1, 3, 2, 8]
+      vals_array = np.array(vals_list)
+
+      print("vals_list: ", vals_list)
+      print("vals_array: ", vals_array)`/>
+    <pre style = "border-radius: 0;">
+vals_list: [1, 3, 2, 8]
+vals_array: [1 3 2 8]
+    </pre>
+  </SubSubSection>
+
+  <SubSubSection title = "Creating arrays using built-in functions" id = "creating_arrays_using_built_in_functions">
+    <ul>
+      <li><a target = "_blank" rel = "noopener noreferrer" href = "https://docs.scipy.org/doc/numpy-1.10.1/reference/generated/numpy.arange.html">np.arrage()<a/></li>
+      <li><a target = "_blank" rel = "noopener noreferrer" href = "https://docs.scipy.org/doc/numpy-1.10.0/reference/generated/numpy.linspace.html">np.linspace()<a/></li>
+      <li>How do we know how to call them?
+        <ul>
+          <li>See Documentation</li>
+          <li>ipython help</li>
+        </ul>
+      </li>
+    </ul>
+  </SubSubSection>
+
+  <SubSubSubSection title = "np.arrange()" id = "np_arrange">
+    <p>
+      Evenly spaced numbers in a interval (meant for use with an integer step size).
+      Examples:
+    </p>
+    <CodeBox language = "python" code = `print(np.arange(10)) # stop
+      print(np.arange(4,12)) # start and stop
+      print(np.arange(4,12,2)) # start, stop, and step`/>
+    <pre style = "border-radius: 0;">
+[0 1 2 3 4 5 6 7 8 9]
+[ 4  5  6  7  8  9 10 11]
+[ 4  6  8 10]
+    </pre>
+  </SubSubSubSection>
+
+  <SubSubSubSection title = "np.linspace()" id = "np_linspace">
+    <p>
+      Evenly spaced numbers in an interval.
+      Examples:
+    </p>
+    <CodeBox language = "python" code = `print(np.linspace(0,1,11)) #start, stop, step
+      print(np.linspace(0,10,11))`/>
+    <pre style = "border-radius: 0;">
+[0.  0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 1. ]
+[ 0.  1.  2.  3.  4.  5.  6.  7.  8.  9. 10.]
+    </pre>
+      <style>
+        code{
+          background-color: rgb(238, 238, 238);
+          border-bottom-color: rgba(0, 0, 0, 0.87);
+          border-bottom-style: none;
+          border-bottom-width: 0px;
+          border-image-outset: 0;
+          border-image-repeat: stretch;
+          border-image-slice: 100%;
+          border-image-source: none;
+          border-image-width: 1;
+          border-left-color: rgba(0, 0, 0, 0.87);
+          border-left-style: none;
+          border-left-width: 0px;
+          border-right-color: rgba(0, 0, 0, 0.87);
+          border-right-style: none;
+          border-right-width: 0px;
+          border-top-color: rgba(0, 0, 0, 0.87);
+          border-top-style: none;
+          border-top-width: 0px;
+          color: rgba(0, 0, 0, 0.87);
+          display: inline;
+          font-family: menlo, consolas, "DejaVu Sans Mono", monospace;
+          font-size: 14px;
+          height: auto;
+          line-height: 18.3078px;
+          padding-bottom: 1px;
+          padding-left: 5px;
+          padding-right: 5px;
+          padding-top: 1px;
+          print-color-adjust: exact;
+          text-align: left;
+          text-wrap-mode: wrap;
+          white-space-collapse: preserve;
+          width: auto;
+        }
+      </style>
+    <p>
+      Note that unlike <code>np.arange()</code>, here the last number is included, and the third parameter is the number of steps.
+    </p>
+  </SubSubSubSection>
+
+  <SubSubSubSection title = "Other special vectors" id = "other_special_vectors">
+    <p>
+      Often need to initialize to zeros or vector of all 1s
+    </p>
+    <CodeBox language = "python" code = `print(np.zeros(5))
+      print(np.ones(4))`/>
+    <pre style = "border-radius: 0;">
+print(np.zeros(5))
+print(np.ones(4))
+    </pre>
+  </SubSubSubSection>
+
+  <SubSection title = "Data types" id = "data_types">
+    <p>
+      Recall, Python is dynamically typed.
+      Types are changed automatically as needed.
+      And, lists can hold anything.
+      A single list could hold strings and integers.
+    </p>
+    <p>
+      What about arrays?
+      Numpy arrays are statically typed.
+    </p>
+    <p>
+      So, what are the data types of the arrays we created above?
+      What are the available datatypes?
+      How do we specify what datatype we want?
+    </p>
+    <CodeBox language = "python" code = `vals_list = [1,3,2,8]
+      vals_array = np.array(vals_list)
+      vals_arrayf = np.array(vals_list, dtype=float)
+
+      print("vals_array: ", vals_array)
+      print("vals_arrayf: ", vals_arrayf)
+
+      print(type(vals_list))
+      print(type(vals_array))
+      print(type(vals_arrayf))
+      print(vals_array.dtype)
+      print(vals_arrayf.dtype)`/>
+    <pre style = "border-radius: 0;">
+vals_array:  [1 3 2 8]
+vals_arrayf:  [1. 3. 2. 8.]
+&lt;class 'list'&gt;
+&lt;class 'numpy.ndarray'&gt;
+&lt;class 'numpy.ndarray'&gt;
+int32
+float64
+    </pre>
+    <p>
+      The <code>dtype</code> argument is valid for most array-creation functions, including <code>numpy.zeros</code>, <code>np.ones</code>, and <code>np.arange</code>.
+    </p>
+    <p>
+      In Python3, the <code>dtype</code> of an array that results from mathematical operations will automatically adjust to whatever is sensible.
+    </p>
+    <CodeBox language = "python" code = `print('integers: ', vals_array)
+      print('more integers: ', vals_array * 3)
+      print('floats: ', vals_array / 3)`/>
+    <pre style = "border-radius: 0;">
+integers:  [1 3 2 8]
+more integers:  [ 3  9  6 24]
+floats:  [0.33333333 1.         0.66666667 2.66666667]
+    </pre>
+    <p>
+      You can also copy an array and change the <code>dtype</code>.
+    </p>
+    <CodeBox language = "python" code = `arr = np.arange(10.0)
+      x = arr.astype(int)
+      print('arr: ', arr)
+      print('x: ', x)`/>
+    <pre style = "border-radius: 0;">
+arr:  [0. 1. 2. 3. 4. 5. 6. 7. 8. 9.]
+x:  [0 1 2 3 4 5 6 7 8 9]
+    </pre>
+  </SubSection>
+
+  <SubSection title = "Accessing array elements" id = "accessing_array_elements">
+    <p>
+      Now that we actually have arrays, how do we get things from them?
+      Indexed from 0, bracket notation for accessing
+    </p>
+    <CodeBox language = "python" code = `print(vals_arrayf)
+      print(vals_arrayf[0])`/>
+    <pre style = "border-radius: 0;">
+[1. 3. 2. 8.]
+1.0
+    </pre>
+    <p>
+      Negative indexing is also allowed.
+      An index of -1 will return the last element, an index of -2 returns the second to last, and so on.
+    </p>
+    <CodeBox language = "python" code = `print(vals_arrayf)
+      print("last element: ", vals_arrayf[-1])
+      print("second to last element: ", vals_arrayf[-2])`/>
+    <pre style = "border-radius: 0;">
+[1. 3. 2. 8.]
+last element:  8.0
+second to last element:  2.0
+    </pre>
+    <p>
+      What if I want a section of an array?
+      Array slicing.
+    </p>
+    <CodeBox language = "python" code = `print(vals_arrayf[1:3]) #starting index (inclusive): stopping index (exclusive)
+      print(vals_arrayf[1:2])`/>
+    <pre style = "border-radius: 0;">
+[3. 2.]
+[3.]
+    </pre>
+    <p>
+      In addition to a start and end, you can also choose a step for the slice.
+    </p>
+    <CodeBox language = "python" code = `print(vals_arrayf)
+      print(vals_arrayf[::2])  # even indices 
+      print(vals_arrayf[1::2])  # odd indices
+      print(vals_arrayf[::-1])  # handy way to reverse an array`/>
+    <pre style = "border-radius: 0;">
+[1. 3. 2. 8.]
+[1. 2.]
+[3. 8.]
+[8. 2. 3. 1.]
+    </pre>
+  </SubSection>
+
+  <SubSection title = "Copies vs. views (accidentally changing your array)" id = "copies_vs_views_accidentally_changing_your_array">
+    <p>
+      You need to be careful with <code>numpy</code> arrays if you are
+    </p>
+    <ul>
+      <li>trying to copy part of an array, or</li>
+      <li>passing an array to a function</li>
+    </ul>
+    <p>
+      You might be in for a nasty surprise if you change an element.
+    </p>
+    <CodeBox language = "python" code = `simple = np.arange(5)
+      small = simple[:2]
+      print(simple)
+      print('')
+      print(small)
+      print('')
+
+      small[0] = 7
+      print(small)
+      print('')
+      print(simple)  # shouldn't have changed, right?`/>
+    <pre style = "border-radius: 0;">
+[0 1 2 3 4]
+
+[0 1]
+
+[7 1]
+
+[7 1 2 3 4]
+    </pre>
+    <p>
+      This happens because <code>small</code> is something called a "view" of <code>simple</code>, rather than a copy.
+      This helps <code>numpy</code> save memory and speed up your program, but it can lead to tricky bugs if it is not your intent.
+      In general, it can be difficult to tell whether something will be a view or a copy.
+    </p>
+    <p>
+      Functions also do not make copies of their input arrays.
+    </p>
+    <CodeBox language = "python" code = `def foo(x):  # notice that x is not returned
+          x[0] = 100
+
+
+      foo(simple)
+      print(simple)`/>
+    <pre style = "border-radius: 0;">
+[100   1   2   3   4]
+    </pre>
+    <p>
+      If you think you are accidentally changing your array elsewhere in your code, you can copy it to be on the safe side.
+      This will be slow your program down and use more memory, but it can help debugging and save a lot of headaches.
+    </p>
+    <CodeBox language = "python" code = `simple = np.arange(5)
+      print('before:')
+      print(simple)
+
+      my_copy = simple[:2].copy()
+      my_copy[1] = 10
+
+      foo(simple.copy())
+
+      print('after:')
+      print(simple)`/>
+    <pre style = "border-radius: 0;">
+before:
+[0 1 2 3 4]
+after:
+[0 1 2 3 4]
+    </pre>
+  </SubSection>
+
+  <SubSection title = "Numpy function" id = "numpy_function">
+    <p>
+      There are trigonometric functions we will use that are built into Numpy
+    </p>
+    <CodeBox language = "python" code = `theta = np.pi/4
+
+      print(f"sin(pi/4) = {np.sin(theta):.3f}")
+      print(f"cos(pi/4) = {np.cos(theta):.3f}")
+      print(f"tan(pi/4) = {np.tan(theta):.3f}")
+
+      #You can also call inverse functions
+
+      x = 1e-3
+
+      y = np.arcsin(x) #returns y in radians
+
+      x1 = -4
+      y1 = -3
+
+      theta1 = np.arctan(y1/x1) #does not choose correct quadrant
+      theta2 = np.arctan2(y1,x1) #chooses correct quadrant
+
+      print(f"Note that these angles are in different quadrants: {theta1:.5f}, {theta2:.5f} (rds)") 
+      `/>
+    <pre style = "border-radius: 0;">
+sin(pi/4) = 0.707
+cos(pi/4) = 0.707
+tan(pi/4) = 1.000
+Note that these angles are in different quadrants: 0.64350, -2.49809 (rds)
+    </pre>
+    <p>
+      You've probably noticed by now that Numpy's trigonometric functions either input/output angles in radians.
+      There are multiple ways to convert an angle to radians (and back to degrees)
+    </p>
+    <CodeBox language = "python" code = `alpha_deg = 180
+
+      #code converts to radians, comments show revertion to degrees
+      alpha_rd1 = np.deg2rad(alpha_deg)   #np.rad2deg()
+      alpha_rd2 = np.radians(alpha_deg)   #np.degrees()
+      alpha_rd3 = alpha_deg*np.pi/180   #*180/np.pi`/>
+    <p>
+      You can also use Numpy for vector arithmetics...
+    </p>
+    <CodeBox language = "python" code = `vector_a = np.array([1,0,0])
+      vector_b = np.array([0,1,0,])
+
+      #c = a ● b
+      vector_c = np.dot(vector_a, vector_b) #recall that would be the same as np.dot(vector_b, vector_a)
+
+      #d = a x b
+      vector_d = np.cross(vector_a, vector_b) #order matters here`/>
+    <p>
+      ... or linear algebra.
+      Here's an example of solving a system of linear equations using two different methods.
+    </p>
+    <CodeBox language = "python" code = `A = np.array([[1, 1, 0],
+                  [0, -3, 1], 
+                  [2, 1, -3]])
+
+      b = np.array([6, 7, 5])
+
+      #Ax = b
+      x1 = np.linalg.solve(A,b)
+
+      #x = A^-1 b
+      x2 = np.linalg.inv(A) @ b
+
+      #or finding the magnitude/length of a vector
+      b_magnitude = np.linalg.norm(b)`/>
+  </SubSection>
+
+</Layout>
