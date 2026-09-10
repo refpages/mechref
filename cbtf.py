@@ -1,3 +1,9 @@
+"""
+Essentially, when you copy the GitHub repo (refpages/mechref) to your computer, you'll find a cbtf.py script. Run the script, and the script should generate the offline HTML files in a directory called /dist. To test whether the generated files are correct, you can just open them locally. I highly recommend you do this step in case the script messed up.  Once you have those files, you can transfer them to another GitHub repo, pl-tamXXX, or you can also do it on the PrairieLearn page; they are connected. I just recommend doing it on GitHub because you are transferring a lot of files over.
+
+In the pl-tamXXX guide yourself to clientFileCourse/mechref. That's where the offline files should live. Copy the generated files from the cbtf.py run into this folder. I believe the only thing I changed was index.html and sympy_tutorial. It's been a long time, so you probably should replace everything anyway. To ensure it all works, go to a random quiz and open up a new instance as if you were testing as a student, and check the refpages through there. Just ensure you change the index.html in /mechref/ and /dyn/ and sympy_tutorial
+"""
+
 import shutil
 import os
 import re
