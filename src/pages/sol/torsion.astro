@@ -15,6 +15,7 @@ import Col from "../../components/Col.astro"
 import CalloutCard from "../../components/CalloutCard.astro"
 import CalloutContainer from "../../components/CalloutContainer.astro"
 import Enumerate from "../../components/Enumerate.astro"
+import Plotly from "../../components/Plotly.astro"
 ---
 <Layout title="Torsion">
 
@@ -171,6 +172,25 @@ From observation:
 <DisplayEquation equation="k_T = \\frac{GJ}{L}\\" title="Torsional stiffness." background="True"/>
 
 <DisplayEquation equation="f_T = \\frac{L}{GJ}\\" title="Torsional flexibility." background="True"/>
+
+<p class="fw-bold fs-5 mt-4 mb-1 text-center">Interactive Visualization</p>
+<p class="mb-2">
+    The following interactive visualization allows you to explore how changing the applied torque affects
+    the shear strain and angle of twist of a circular shaft. Left: shear strain. Right: twist angle. Move the slider to change the torque in both views.
+
+</p>
+<p class="small bg-light border rounded p-2">
+    Material: <InlineEquation equation='E = 2 \\text{ GPa}, \\ \\nu = 0.25, \\ G = 0.8 \\text{ GPa}' />.
+    Solid shaft: <InlineEquation equation='L = 2 \\text{ m}' />, radius <InlineEquation equation='c = 0.12 \\text{ m}' />,
+    <InlineEquation equation='J = \\frac{\\pi c^4}{2} = 3.26 \\times 10^{-4} \\text{ m}^4' />.
+    Formulas: <InlineEquation equation='\\phi = \\frac{Tx}{GJ}, \\ \\gamma = \\frac{T\\rho}{GJ}' />.
+</p>
+
+<div style="padding-left: 4%;">
+<Plotly file_path="sol/torsion/torsion_strain_deformation_v2.json" id="torsion_deformation" />
+</div>
+
+<p class="small text-muted">Drag to rotate · scroll to zoom · move the slider to change the torque. Orange arrow = applied torque direction. Dashed gray = original position. Color and reported values are physical; the displayed twist is magnified.</p>
 
 </SubSubSection>
 

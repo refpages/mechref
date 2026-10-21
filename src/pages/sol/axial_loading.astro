@@ -10,6 +10,7 @@ import BlueText from "../../components/BlueText.astro"
 import RedText from "../../components/RedText.astro" 
 import InlineEquation from "../../components/InlineEquation.astro" 
 import DisplayEquation from "../../components/DisplayEquation.astro" 
+import Plotly from "../../components/Plotly.astro"
 ---
 <Layout title="Axial Loading">
 
@@ -82,6 +83,25 @@ import DisplayEquation from "../../components/DisplayEquation.astro"
 <DisplayEquation equation='\\delta = fP   =>   f = \\frac{L}{EA}\\' title=" Axial flexibility." background="True" />
 
 <DisplayEquation equation='P = k\\delta   =>   k = \\frac{EA}{L}\\' title=" Axial stiffness." background="True" />
+
+
+<p class="fw-bold fs-5 mt-4 mb-1 text-center">Interactive Visualization</p>
+<p class="mb-2">
+    The following interactive visualization allows you to explore how changing the applied axial force
+    affects the normal strain and elongation. Left: axial strain. Right: axial displacement. Move the slider to change the force in both views.
+
+<p class="small bg-light border rounded p-2">
+    Material: <InlineEquation equation='E = 2 \\text{ GPa}, \\ \\nu = 0.25' />.
+    Geometry: <InlineEquation equation='L = 2 \\text{ m}' />, width = 0.24 m, height = 0.32 m,
+    <InlineEquation equation='A = 0.0768 \\text{ m}^2' />.
+    Formulas: <InlineEquation equation='u = \\frac{Fx}{EA}, \\ \\varepsilon = \\frac{F}{EA}' />.
+</p>
+
+<div style="padding-left: 4%;">
+<Plotly file_path="sol/axial_loading/axial_strain_deformation_v2.json" id="axial_deformation" />
+</div>
+
+<p class="small text-muted">Drag to rotate · scroll to zoom · move the slider to change the force. Orange arrow = applied load direction. Dashed gray = original position. Color and reported values are physical; the displayed motion is magnified.</p>
 
 </SubSection>
 

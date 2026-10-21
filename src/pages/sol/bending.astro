@@ -14,6 +14,7 @@ import CalloutContainer from "../../components/CalloutContainer.astro"
 import CalloutCard from "../../components/CalloutCard.astro"
 import DisplayTable from "../../components/DisplayTable.astro"
 import InlineCanvas from "../../components/InlineCanvas.astro"
+import Plotly from "../../components/Plotly.astro"
 ---
 
 <style>
@@ -82,7 +83,24 @@ A beam in bending will develop normal (tensile and compressive) bending stresses
 
 <Image src='/sol/bending/PureBending.png' width='3'></Image>
 
-Take a flexible strip, such as a thin ruler, and apply equal forces with your fingers as shown. Each hand applies a couple or moment (equal and opposite forces a distance apart). The couples of the two hands must be equal and opposite. Between the thumbs, the strip has deformed into a circular arc. For the loading shown here, just as the deformation is uniform, so the internal bending <strong>moment is uniform</strong>, equal to the moment applied by each hand.
+Take a flexible strip, such as a thin ruler, and apply equal forces with your fingers as shown. Each hand applies a couple or moment (equal and opposite forces a distance apart). The couples of the two hands must be equal and opposite. Between the thumbs, the strip has deformed into a circular arc. For the loading shown here, just as the deformation is uniform, so the internal bending <strong>moment is uniform</strong>, 
+
+<p class="fw-bold fs-5 mt-4 mb-1 text-center">Interactive Visualization</p>
+<p class="mb-2">
+    The following interactive visualization allows you to explore how changing the applied bending moment affects the axial strain and bending deformation of a beam.
+    Left: bending strain. Right: deflection magnitude. Move the slider to change the load in both views.
+</p>
+<p class="small bg-light border rounded p-2">
+    Material: <InlineEquation equation='E = 2 \\text{ GPa}, \\ \\nu = 0.25' />.
+    Geometry: <InlineEquation equation='L = 2 \\text{ m}' />, width = 0.24 m, height = 0.32 m,
+    <InlineEquation equation='I = \\frac{bh^3}{12} = 6.55 \\times 10^{-4} \\text{ m}^4' />.
+    Tip deflection: <InlineEquation equation='|w(L)| = \\frac{FL^3}{3EI}' />.
+</p>
+<div style="padding-left: 4%;">
+<Plotly file_path="sol/bending/bending_strain_deformation_v2.json" id="bending_deformation" />
+</div>
+<p class="small text-muted">Drag to rotate · scroll to zoom · move the slider to change the load. Orange arrow = applied load direction. Dashed gray = original position. Color and reported values are physical; the displayed motion is magnified.</p>
+
 
 </SubSection>
 
