@@ -4,6 +4,7 @@ on:
   schedule:
     - cron: "0 22 * * 0" # Currently every Sunday at 4:00 PM CST
   workflow_dispatch:
+
 jobs:
   run-script:
     runs-on: ubuntu-latest
@@ -12,13 +13,27 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v4
 
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Install npm packages
+        run: npm ci
+
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: "3.11"
 
-      - name: Install dependencies
-        run: pip install -r requirements.txt
+      - name: Install Python packages
+        run: pip install beautifulsoup4
 
       - name: Run cbtf.py
         run: python cbtf.py
+
+      - name: Upload dist
+        uses: actions/upload-artifact@v4
+        with:
+          name: mechref-offline
+          path: dist
